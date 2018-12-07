@@ -1,6 +1,6 @@
 ---
-title: How To Configure Azure ExpressRoute Direct | Microsoft Docs
-description: This page helps you configure ExpressRoute Direct (Preview)
+title: Configure ExpressRoute Direct - Azure | Microsoft Docs
+description: This page helps you configure ExpressRoute Direct (Preview).
 services: expressroute
 author: jaredr80
 
@@ -8,6 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
+ms.custom: seodec18
 
 ---
 

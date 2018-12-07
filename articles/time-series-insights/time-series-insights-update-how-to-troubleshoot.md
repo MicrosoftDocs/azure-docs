@@ -8,17 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
-
+ms.date: 12/06/2018
 ---
 
 # Diagnose and troubleshoot
 
-This article summarizes several common issues you might encounter when you work with your Azure Time Series Insights environment. The article also describes potential causes and solutions for each issue.
+This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Preview environment. The article also describes potential causes and solutions for each problem.
 
 ## Problem: I can’t find my environment in the Time Series Insights Preview explorer
 
-This issue might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, visit the Data Access Policies section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
+This problem might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, visit the Data Access Policies section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
   ![Environment][1]
 
@@ -34,7 +33,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
 - Your event source data isn't in JSON format.
 
-    Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
+    Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
 - Your event source key is missing a required permission.
 
@@ -53,41 +52,41 @@ There are several common reasons why you might not see your data in the [Azure T
 
     During registration of an IoT hub or event hub, you specify the consumer group that's used to read the data. Don't share that consumer group. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers at random. Provide a unique consumer group for Time Series Insights to read from.
 
-- Your **Time Series ID** property specified at the time of provisioning is incorrect, missing, or null.
+- Your Time Series ID property specified at the time of provisioning is incorrect, missing, or null.
 
-    This issue might occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. For more information, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights update environment to use a different Time Series ID.
+    This problem might occur if the Time Series ID property is configured incorrectly at the time of provisioning the environment. For more information, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights environment to use a different Time Series ID.
 
 ## Problem: Some data shows, but some is missing
 
 You might be sending data without the Time Series ID.
 
-- This issue might occur when you send events without the Time Series ID field in the payload. For more information, see [Supported JSON shapes](./how-to-shape-query-json.md).
+- This problem might occur when you send events without the Time Series ID field in the payload. For more information, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-- This issue might occur because your environment is being throttled.
+- This problem might occur because your environment is being throttled.
 
     > [!NOTE]
-    > At this time, Azure Time Series Insights supports a maximum ingestion rate of 6 Mbps.
+    > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
 
 ## Problem: My event source's Timestamp property name setting doesn't work
 
 Ensure that the name and value conform to the following rules:
 
-* The **Timestamp** property name is case sensitive.
-* The **Timestamp** property value that comes from your event source, as a JSON string, has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
+* The Timestamp property name is case sensitive.
+* The Timestamp property value that comes from your event source, as a JSON string, has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
 
-The easiest way to ensure that your **Timestamp** property name is captured and working properly is to use the Time Series Insights Preview explorer. Within the Time Series Insights Preview explorer, use the chart to select a period of time after you provided the **Timestamp** property name. Right-click the selection, and select the **explore events** option. The first column header is your **Timestamp** property name. It should have `($ts)` next to the word `Timestamp`, rather than:
+The easiest way to ensure that your Timestamp property name is captured and working properly is to use the Time Series Insights Preview explorer. Within the Time Series Insights Preview explorer, use the chart to select a period of time after you provided the Timestamp property name. Right-click the selection, and select the **explore events** option. The first column header is your Timestamp property name. It should have `($ts)` next to the word `Timestamp`, rather than:
 
 * `(abc)`, which indicates that Time Series Insights reads the data values as strings.
 * Calendar icon, which indicates that Time Series Insights reads the data value as datetime.
 * `#`, which indicates that Time Series Insights reads the data values as an integer.
 
-If the **Timestamp** property isn’t explicitly specified, an event’s IoT hub or event hub **Enqueued Time** is used as the default time stamp.
+If the Timestamp property isn’t explicitly specified, an event’s IoT hub or event hub Enqueued Time is used as the default time stamp.
 
 ## Problem: I can’t edit or view my Time Series Model
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
-   Time Series Models are supported only in **PAYG** environments. For more information on how to access your S1/S2 environment from the Time Series Insights Preview explorer, see [Visualize data in the explorer](./time-series-insights-update-explorer.md).
+   Time Series Models are supported only in PAYG environments. For more information on how to access your S1/S2 environment from the Time Series Insights Preview explorer, see [Visualize data in the explorer](./time-series-insights-update-explorer.md).
 
    ![Access][5]
 
@@ -95,16 +94,15 @@ If the **Timestamp** property isn’t explicitly specified, an event’s IoT hub
 
    Users need contributor-level access to edit and view their Time Series Model. To verify the current access levels and grant additional access, visit the Data Access Policies section on your Time Series Insights resource in the Azure portal.
 
-## Problem: All my instances in Time Series Insights Preview explorer don’t have a parent
+## Problem: All my instances in the Time Series Insights Preview explorer don’t have a parent
 
-This issue might occur if your environment doesn’t have a **Time Series Model** hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
   ![Time Series Models][6]
 
 ## Next steps
 
 - Read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
-
 - Read [Supported JSON shapes](./how-to-shape-query-json.md).
 
 <!-- Images -->

@@ -1,6 +1,6 @@
 ---
-title: Data modeling in Azure Time Series Insights | Microsoft Docs
-description: Understand data modeling in Azure Time Series Insights
+title: Data modeling in Azure Time Series Insights Preview | Microsoft Docs
+description: Understand data modeling in Azure Time Series Insights Preview
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Data modeling in Azure Time Series Insights
+# Data modeling in Azure Time Series Insights Preview
 
 This document describes how to work with Time Series Models following the Azure Time Series Insights Preview. It details several common data scenarios.
 
@@ -126,9 +126,7 @@ Select the instance, and select **Delete**. If no events are associated with the
 ## Next steps
 
 - For more information about Time Series Models, read [Data modeling](./time-series-insights-update-tsm.md).
-
-- To learn more about the preview, read the Azure Time Series Insights Preview explorer [article](./time-series-insights-update-explorer.md).
-
+- To learn more about the preview, read [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 - To learn about supported JSON shapes, read [Supported JSON Shapes](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
