@@ -1,5 +1,5 @@
 ---
-title: Common issues to troubleshoot in Azure Stream Analytics | Microsoft Docs
+title: Common issues to troubleshoot in Azure Stream Analytics
 description: This article describes several common issues in Azure Stream Analytics and steps to troubleshoot those issues.
 services: stream-analytics
 author: mamccrea
