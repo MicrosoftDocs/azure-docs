@@ -15,7 +15,7 @@ ms.date: 01/30/2018
 ms.author: kgremban
 ---
 
-# Send email notifications about Azure IoT Hub events using Logic Apps
+# Tutorial: Send email notifications about Azure IoT Hub events using Logic Apps
 
 Azure Event Grid enables you to react to events in IoT Hub by triggering actions in your downstream business applications.
 

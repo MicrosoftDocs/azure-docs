@@ -1,5 +1,6 @@
 ---
-title: Configure your automated machine learning experiment - Azure Machine Learning
+title: Configure automated machine learning experiments
+titleSuffix: Azure Machine Learning service
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
@@ -9,9 +10,10 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
-# Configure your automated machine learning experiment
+# Configure automated machine learning experiments
 
 Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 

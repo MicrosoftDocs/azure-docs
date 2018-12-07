@@ -234,6 +234,6 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
 
 ## Next steps
 * See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
-* See [Collect data about Azure Virtual Machines](../../log-analytics/log-analytics-quick-collect-azurevm.md) to configure data collection from Azure VMs.  
+* See [Collect data about Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.  
 * [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add functionality and gather data.
 
