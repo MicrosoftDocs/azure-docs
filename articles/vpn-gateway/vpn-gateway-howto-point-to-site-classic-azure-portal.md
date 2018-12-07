@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site connection to a VNet by using certificate authentication (classic): Azure portal
+# Configure a Point-to-Site connection by using certificate authentication (classic)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
@@ -31,10 +31,10 @@ You can also create this configuration with a different deployment tool or model
 > * [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. For example, when you're telecommuting from home or during a conference. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
+You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. For example, when you're telecommuting from home or during a conference. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
 
 > [!IMPORTANT]
-> The classic deployment model supports Windows VPN clients only and uses the Secure Socket Tunneling Protocol (SSTP), an SSL-based VPN protocol. In order to support non-Windows VPN clients, your VNet must be created by using the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN in addition to SSTP. For more information, see [About P2S connections](point-to-site-about.md).
+> The classic deployment model supports Windows VPN clients only and uses the Secure Socket Tunneling Protocol (SSTP), an SSL-based VPN protocol. To support non-Windows VPN clients, you must create your VNet with the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN in addition to SSTP. For more information, see [About P2S connections](point-to-site-about.md).
 >
 >
 
@@ -47,15 +47,15 @@ Point-to-Site certificate authentication connections require the following prere
 * A Dynamic VPN gateway.
 * The public key (.cer file) for a root certificate, which is uploaded to Azure. This key is considered a trusted certificate and is used for authentication.
 * A client certificate generated from the root certificate, and installed on each client computer that will connect. This certificate is used for client authentication.
-* A VPN client configuration package must be generated and installed on every client computer that connects. The client configuration package configures the native VPN client that is already on the operating system with the necessary information to connect to the VNet.
+* A VPN client configuration package must be generated and installed on every client computer that connects. The client configuration package configures the native VPN client that's already on the operating system with the necessary information to connect to the VNet.
 
 Point-to-Site connections don't require a VPN device or an on-premises public-facing IP address. The VPN connection is created over SSTP (Secure Socket Tunneling Protocol). On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default. 
 
-For more information about Point-to-Site connections, see the [Point-to-Site FAQ](#faq) at the end of this article.
+For more information about Point-to-Site connections, see [Point-to-Site FAQ](#point-to-site-faq).
 
 ### Example settings
 
-You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
+Use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
 - **Create virtual network (classic) settings**
    - **Name**: Enter *VNet1*.
@@ -90,29 +90,27 @@ If you don't already have a virtual network (VNet), create one. Screenshots are 
 
 2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
 
-3. Near the bottom of the **Virtual network** page, from the **Select a deployment model** list, select **Classic**, and then select **Create**.
-
-  ![Select deployment model](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
+3. From the **Select a deployment model** list, select **Classic**, and then select **Create**. The **Create virtual network** page opens.
 
 4. On the **Create virtual network** page, configure the VNet settings. On this page, you add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
 
-  ![Create virtual network page](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
+   ![Create virtual network page](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
 
-5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the drop-down.
+5. Select the **Subscription** you want to use from the drop-down list.
 
-6. Select a **Resource group**. Select an existing resource group. Or, create a new resource group by selecting **Create new** and entering its name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Select a **Resource Group**. Select an existing resource group. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-7. Select the **Location** settings for your VNet. The location determines the location of the resources that you deploy to this VNet.
+7. Select a **Location** for your VNet. The location determines the location of the resources that you deploy to this VNet.
 
-8. Select **Create** to create the VNet. From the **Notifications** page, you'll see the **Deployment in progress** message.
+8. Select **Create** to create the VNet. From the **Notifications** page, you'll see a **Deployment in progress** message.
 
 8. After your virtual network has been created, the message on the **Notifications** page changes to **Deployment succeeded**. Select **Pin to dashboard** if you want to easily find your VNet on the dashboard. 
 
 10. Add a DNS server (optional). After you create your virtual network, you can add the IP address of a DNS server for name resolution. The DNS server IP address that you specify should be the address of a DNS server that can resolve the names for the resources in your VNet.
 
-    To add a DNS server, open the settings for your virtual network, select **DNS servers**, enter the IP address of the DNS server that you want to use, and select **Save**.
+    To add a DNS server, select **DNS servers** from your VNet page, enter the IP address of the DNS server that you want to use, and then select **Save**.
 
-### Part 2: Create gateway subnet and a dynamic routing gateway
+### Part 2: Create a gateway subnet and a dynamic routing gateway
 
 In this step, you create a gateway subnet and a dynamic routing gateway. In the Azure portal for the classic deployment model, you create the gateway subnet and the gateway through the same configuration pages. Use the gateway subnet for the gateway services only. Never deploy anything directly to the gateway subnet (such as VMs or other services).
 
@@ -124,13 +122,14 @@ In this step, you create a gateway subnet and a dynamic routing gateway. In the 
 3. On the **New VPN Connection** page, select **Point-to-site**.
 
   ![Point-to-Site connection type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. For **Client Address Space**, add the IP address range from which the VPN clients receive an IP address when connecting. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or with the VNet that you connect to. You can rewrite the autofilled range with the private IP address range that you want to use. This example shows the autofilled ranged. 
+4. For **Client Address Space**, add the IP address range from which the VPN clients receive an IP address when connecting. Use a private IP address range that doesn't overlap with the on-premises location that you connect from, or with the VNet that you connect to. You can overwrite the autofilled range with the private IP address range that you want to use. This example shows the autofilled range. 
 
   ![Client address space](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Select **Create gateway immediately**, and then select **Optional gateway configuration** to open the **Gateway configuration** page.
 
   ![Select optional gateway configuration](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-6. Select **Subnet** to add the gateway subnet. While it's possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. Doing so will allow for enough addresses to accommodate possible additional configurations that you may want in the future. When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your VPN gateway to not function as expected.
+
+6. From the **Gateway configuration** page, select **Subnet** to add the gateway subnet. While it's possible to create a gateway subnet as small as /29, we recommend that you create a larger subnet that includes more addresses by selecting at least /28 or /27. Doing so will allow for enough addresses to accommodate possible additional configurations that you may want in the future. When working with gateway subnets, avoid associating a network security group (NSG) to the gateway subnet. Associating a network security group to this subnet may cause your VPN gateway to not function as expected. Select **OK** to save this setting.
 
   ![Add GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. Select the gateway **Size**. The size is the gateway SKU for your virtual network gateway. In the Azure portal, the default SKU is **Default**. For more information about gateway SKUs, see [About VPN gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
@@ -141,10 +140,10 @@ In this step, you create a gateway subnet and a dynamic routing gateway. In the 
   ![Configure routing type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
 9. On the **New VPN Connection** page, select **OK** at the bottom of the page to begin creating your virtual network gateway. A VPN gateway can take up to 45 minutes to complete, depending on the gateway sku that you select.
+ 
+## <a name="generatecerts"></a>Create certificates
 
-## Create certificates
-
-Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered *trusted*. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the *Certificates-Current User\Personal\Certificates* certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet. 
+Certificates are used by Azure to authenticate VPN clients for Point-to-Site VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered *trusted*. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User\Personal\Certificates certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet. 
 
 If you use self-signed certificates, they must be created by using specific parameters. You can create a self-signed certificate by using the instructions for [PowerShell and Windows 10](vpn-gateway-certificates-point-to-site.md), or [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important that you follow the steps in these instructions when working with self-signed root certificates and generating client certificates from the self-signed root certificate. Otherwise, the certificates you create won't be compatible with P2S connections and you'll receive a connection error.
 
@@ -158,7 +157,7 @@ If you use self-signed certificates, they must be created by using specific para
 
 ## Upload the root certificate .cer file
 
-After the gateway has been created, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Don't upload the private key for the root certificate to Azure. After a .cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate that's generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
+After the gateway has been created, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Don't upload the private key for the root certificate to Azure. After a .cer file is uploaded, Azure uses it to authenticate clients that have installed a client certificate that's generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
 
 1. On the **VPN connections** section of the page for your VNet, select the **clients** graphic to open the **Point-to-site VPN connection** page.
 
