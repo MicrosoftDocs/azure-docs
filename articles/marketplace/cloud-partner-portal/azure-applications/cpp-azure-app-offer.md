@@ -13,13 +13,16 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/07/2018
 ms.author: pbutlerm
 ---
 
 # Azure application offer
 
-<table> <tr> <td>This section explains how to publish a new Azure application offer to the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>. </td> <td><img src="./media/azureapp-icon1.png"  alt="Azure application icon" /></td> </tr> </table>
+This section explains how to publish a new Azure application offer to the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| Each Azure application contains an Azure Resource Manager template that defines all the technical assets used by the application, which typically includes one or more virtual machines and other supporting Azure- or Web-based services. | ![virtual machine icon](./media/azureapp-icon1.png)  |
 
 ## Benefits
 
