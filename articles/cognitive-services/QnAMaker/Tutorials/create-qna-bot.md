@@ -5,6 +5,7 @@ description: This tutorial walks you through building a QnA bot with Azure Bot s
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article

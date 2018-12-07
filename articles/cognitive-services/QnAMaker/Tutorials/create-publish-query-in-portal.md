@@ -5,7 +5,7 @@ description: This portal-based tutorial walks you through programmatically creat
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
