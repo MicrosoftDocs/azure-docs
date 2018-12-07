@@ -16,13 +16,17 @@ ms.author: azfuncdf, glenga
 
 # What is Durable Functions?
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. 
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+
+## Benefits
 
 The extension lets you define stateful workflows using an [*orchestrator function*](durable-functions-types-features-overview.md#orchestrator-functions), which can provide the following benefits:
 
 * You can define your workflows in code. No JSON schemas or designers are needed.
 * Other functions can be called both synchronously and asynchronously. Output from called functions can be saved to local variables.
 * Progress is automatically checkpointed when the function awaits. Local state is never lost when the process recycles or the VM reboots.
+
+## Application patterns
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following are some typical application patterns that can benefit from Durable Functions:
 
@@ -32,19 +36,32 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 * [Monitoring](durable-functions-concepts.md#monitoring)
 * [Human interaction](durable-functions-concepts.md#human)
 
+## Supported languages
+
+Durable Functions currently supports function development in both C# and JavaScript. Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+
+## Billing
+
+Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+
+## Jump right in
+
+You can get started with Durable Functions in under 10 minutes by completing one of these language-specific quickstart tutorials:
+
+* [C# using Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
+
+In both quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
+
+## Learn more
+
 The following video highlights the benefits of Durable Functions:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
-Durable Functions currently supports function development in both C# and JavaScript. Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
-
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. To learn more about Durable Functions, see [Durable Functions patterns and technical concepts](durable-functions-concepts.md). For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
-
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ## Next steps
 
-To jump right in using Durable Functions, **Create your first durable function** ([C#](durable-functions-create-first-csharp.md) / [JavaScript](quickstart-js-vscode.md)). 
-
 > [!div class="nextstepaction"]
-> [Learn more about Durable Functions](durable-functions-concepts.md)
+> [Durable Functions patterns and technical concepts](durable-functions-concepts.md)
