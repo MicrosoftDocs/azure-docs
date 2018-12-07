@@ -197,7 +197,7 @@ SQL Advanced Threat Protection (ATP) provides a set of advanced SQL security cap
 - Access from a potentially harmful application 
 - Brute force Azure database for PostgreSQL credentials 
 
-[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) provides protection similar to PostgreSQL Advanced Protection.  
+[Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md) provides protection similar to PostgreSQL Advanced Protection.  
 
 ## Centralized security management
 
@@ -218,7 +218,7 @@ Security Center supports role-based access.
 
 In addition, it calculates the result set sensitivity of SQL queries, so that queries that extract sensitive data can be explicitly audited, and the data can be protected. For more details on SQL Information Protection, see Azure SQL Database Data Discovery and Classification.
 
-You can configure [SQL Information Protection policies](/security-center/security-center-info-protection-policy.md) in Azure Security Center.
+You can configure [SQL Information Protection policies](../security-center/security-center-info-protection-policy.md) in Azure Security Center.
 
 ## Azure Marketplace
 

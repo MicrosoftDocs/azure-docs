@@ -55,7 +55,7 @@ If you have git installed on your machine, you can use pip to install directly f
 ## <a name="datasetAccess"></a>Use Studio Code snippets to access datasets
 The Python client library gives you programmatic access to your existing datasets from experiments that have been run.
 
-From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your location machine.
+From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your local machine.
 
 ### <a name="security"></a>Security for data access
 The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.

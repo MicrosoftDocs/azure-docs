@@ -19,7 +19,7 @@ ms.author: tulasim
 
 All deletes are permanent, including question and answer pairs, files, URLs, custom questions and answers, knowledge bases, or Azure resources. Make sure you export your knowledge base from the **Settings** page before deleting any part of your knowledge base. 
 
-### Why is my URL(s)/file(s) is not extracting question-answer pairs?
+### Why is my URL(s)/file(s) not extracting question-answer pairs?
 
 It's possible that QnA Maker can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your knowledge base through the [QnA Maker portal](https://qnamaker.ai).
 
@@ -35,13 +35,13 @@ You haven't created any QnA Maker services in Azure yet. Read [here](./How-To/se
 
 Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](./How-To/collaborate-knowledge-base.md) how to collaborate on a knowledge base.
 
-### Can you share a KB with a contributor that is not in the same AAD tenant, to modify a KB? 
+### Can you share a knowledge base with a contributor that is not in the same AAD tenant, to modify a knowledge base? 
 
 Sharing is based on Azure role-based access control (RBAC). If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
 
-### If you have an App Service Plan with 5 QnAMaker KBs. Can you assign read/write rights to 5 different users so each of them can access only 1 QnAMaker KB?
+### If you have an App Service Plan with 5 QnAMaker knowledge bases. Can you assign read/write rights to 5 different users so each of them can access only 1 QnAMaker knowledge base?
 
-You can share an entire QnAMaker service, not individual KBs.
+You can share an entire QnAMaker service, not individual knowledge bases.
 
 ### How can I change the default message when no good match is found?
 
@@ -59,7 +59,7 @@ The default message is part of the settings in your App service.
 
 ### Why is my SharePoint link not getting extracted?
 
-Please see [Data source locations](./Concepts/data-sources-supported.md#data-source-locations) for more information.
+See [Data source locations](./Concepts/data-sources-supported.md#data-source-locations) for more information.
 
 ### The updates that I made to my knowledge base are not reflected on publish. Why not?
 
@@ -87,9 +87,13 @@ Refresh your app service when the caution icon is next to the version value for 
 
 Refresh your endpoint keys if you suspect that they have been compromised.
 
-### Can I use the same Azure Search resource for KBs using multiple languages?
+### Can I use the same Azure Search resource for knowledge bases using multiple languages?
 
-To use multiple language and multiple KBs, the user has to create an QnA Maker resource for each language. This will create a separate Azure search services per language. Mixing different language KBs in a single Azure search service will result in degraded relevance of results.
+To use multiple language and multiple knowledge bases, the user has to create an QnA Maker resource for each language. This will create a separate Azure search services per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
+
+### How can I change the name of the Azure Search resource used by QnA Maker?
+
+The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
 
 ## Integrate with other services including Bots
 

@@ -103,7 +103,7 @@ From Azure Monitor, the Map feature provides a global view of your virtual machi
 
 ![Azure Monitor multi-VM map overview](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../../log-analytics/log-analytics-computer-groups.md), and VM scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
+From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and VM scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
 
 By default, the map shows the last 30 minutes. Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 

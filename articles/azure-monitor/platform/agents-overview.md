@@ -72,5 +72,5 @@ You may need some combination of these agents to monitor your VM. The agents can
 
 ## Next steps
 
-- See [Overview of the Log Analytics agent](../../log-analytics/log-analytics-agent-overview.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
+- See [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
 

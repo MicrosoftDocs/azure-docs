@@ -1,10 +1,11 @@
 ---
-title: Features in LUIS apps in Azure Cognitive Services 
-titleSuffix: Azure Cognitive Services
-description: Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities.
+title: Features 
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

@@ -22,7 +22,8 @@ A **Project Lead** manages the daily activities of individual data scientists on
 
 This topic currently covers tasks 1,2 and 6 of this workflow for project leads.
 
->[AZURE.NOTE] We outline the steps needed to set up a TDSP team environment for a project using Azure DevOps in the following instructions. We specify how to accomplish these tasks with Azure DevOps because that is how we implement TDSP at Microsoft. If another code-hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different.
+> [!NOTE]
+> We outline the steps needed to set up a TDSP team environment for a project using Azure DevOps in the following instructions. We specify how to accomplish these tasks with Azure DevOps because that is how we implement TDSP at Microsoft. If another code-hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different.
 
 
 ## Repositories and directories
@@ -192,7 +193,8 @@ You now need to push contents in **_DSProject1_** to _R5_ repository in your pro
 	
 - Commit the change and push. 
 
->[AZURE.NOTE] If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
+> [!NOTE]
+> If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
 		
 	git config --global user.name <your name>
 	git config --global user.email <your email address>

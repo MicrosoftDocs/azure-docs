@@ -248,7 +248,7 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes
 
 ##  <a name="LimitConcurrency"></a> Limit concurrency
- The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+ The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
 
 ###  <a name="LimitConcurrencyStatement"></a> Policy statement
 

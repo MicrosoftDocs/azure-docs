@@ -22,9 +22,9 @@ The pricing model of Azure Cosmos DB simplifies the cost management and planning
 
 Provisioned throughput, specified as [Request Units](request-units.md) per second (RU/s), allows you to read from or write data into containers or databases. You can [provision throughput on either a database or a container](set-throughput.md). Based on your workload needs, you can scale throughput up/down at any time. Azure Cosmos DB pricing is elastic and is proportional to the throughput that you configure on a database or a container. The minimum throughput and storage values and the scale increments provide a full range of price vs. elasticity spectrum to all segments of customers, from small scale to large-scale containers. Each database or a container is billed on an hourly basis for the throughput provisioned in the units of 100 RU/s, with a minimum of 400 RU/s, and storage consumed in GBs. Unlike provisioned throughput, storage is billed on a consumption basis. That is, you don’t have to reserve any storage in advance. You are billed only for the storage you consume.
 
-For more information, see the [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) and [Understanding your Cosmos DB bill](TBD).
+For more information, see the [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) and [Understanding your Cosmos DB bill](understand-your-bill.md).
 
-The pricing model in Azure Cosmos DB is consistent across all APIs. To learn more, see [How Cosmos DB pricing model is cost-effective for customers](TBD). There is a minimum throughput required on a database or a container to ensure the SLAs and you can increase or decrease the provisioned throughput by $6 for each 100 RU/s.
+The pricing model in Azure Cosmos DB is consistent across all APIs. To learn more, see [How Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md). There is a minimum throughput required on a database or a container to ensure the SLAs and you can increase or decrease the provisioned throughput by $6 for each 100 RU/s.
 
 Currently the minimum price for both database and the container-based throughput is $24/month (see the [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) for latest information. If your workload uses multiple containers, it can be optimized for cost by using database level throughput because database level throughput allows you to have any number of containers in a database sharing the throughput among the containers. The following table summarizes  provisioned throughput and the costs for different entities:
 
@@ -58,12 +58,13 @@ Reserved capacity provides a billing discount and does not affect the runtime st
 You can learn more about optimizing the costs for your Azure Cosmos DB resources in the following articles:
 
 * Learn about [Optimizing for development and testing](optimize-dev-test.md)
-* Learn about [Understanding your Cosmos DB bill](TBD)
-* Learn about [Optimizing throughput cost](TBD)
-* Learn about [Optimizing storage cost](TBD)
-* Learn about [Optimizing the cost of reads and writes](TBD)
-* Learn about [Optimizing the cost of queries](TBD)
-* Learn about [Optimizing the cost of multi-region Cosmos accounts](TBD)
+
+* Learn more about [Understanding your Cosmos DB bill](understand-your-bill.md)
+* Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
+* Learn more about [Optimizing storage cost](optimize-cost-storage.md)
+* Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn about [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 * Learn about [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)
 * Learn about [Cosmos DB Emulator](local-emulator.md)

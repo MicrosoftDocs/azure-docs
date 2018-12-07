@@ -126,4 +126,4 @@ If you observe an abnormality, follow these steps:
 
 
 ## Next steps
-[Search logs](../../log-analytics/log-analytics-queries.md) to view detailed network performance data records.
+[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.

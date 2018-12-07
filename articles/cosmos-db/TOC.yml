@@ -11,6 +11,8 @@
       items:
       - name: .NET
         href: create-sql-api-dotnet.md
+      - name: .NET Preview
+        href: create-sql-api-dotnet-preview.md
       - name: Java
         href: create-sql-api-java.md
       - name: Node.js
@@ -111,6 +113,10 @@
       items:
       - name: Working with databases, containers, and items
         href: databases-containers-items.md
+      - name: SQL language reference 
+        href: sql-api-sql-query-reference.md
+      - name: SQL query examples
+        href: how-to-sql-query.md
       - name: Indexing
         items:
         - name: Overview
@@ -172,8 +178,6 @@
     items:
     - name: SQL API Docs
       items:
-      - name: Introduction
-        href: sql-api-introduction.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
@@ -184,8 +188,12 @@
             items:
             - name: .NET
               href: sql-api-get-started.md
+            - name: .NET Preview
+              href: sql-api-dotnet-get-started-preview.md
             - name: .NET Core
               href: sql-api-dotnetcore-get-started.md
+            - name: .NET Core Preview
+              href: sql-api-dotnet-core-get-started-preview.md
             - name: Java
               href: sql-api-java-get-started.md
             - name: Async Java
@@ -196,6 +204,8 @@
             items:
             - name: .NET
               href: sql-api-dotnet-application.md
+            - name: .NET preview
+              href: sql-api-dotnet-application-preview.md
             - name: Java
               href: sql-api-java-application.md
             - name: Node.js
@@ -230,8 +240,6 @@
           href: sql-api-sql-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
-        - name: SQL data partitioning
-          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
@@ -266,8 +274,6 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
-        - name: SQL language syntax
-          href: sql-api-sql-query-reference.md
     - name: MongoDB API Docs
       items: 
       - name: Introduction
@@ -448,8 +454,6 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-      - name: Query data with SQL queries
-        href: how-to-sql-query.md
     - name: Indexing
       items:
       - name: Configure indexing
@@ -460,6 +464,8 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
+      - name: Configure Cross Origin Resource Sharing(CORS)
+        href: how-to-configure-cross-origin-resource-sharing.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup

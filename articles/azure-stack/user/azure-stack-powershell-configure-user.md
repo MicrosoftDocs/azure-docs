@@ -7,13 +7,12 @@ author: sethmanheim
 manager: femila
 editor: ''
 
-ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: Balsu.G
 
@@ -79,9 +78,13 @@ Make sure you replace the following script variables with values from your Azure
   $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
+
+  $cred = get-credential
+
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId
+    -TenantId $tenantId `
+     $cred = get-credential
   ```
 
 ## Register resource providers

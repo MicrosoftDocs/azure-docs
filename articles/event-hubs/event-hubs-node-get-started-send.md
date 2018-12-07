@@ -8,7 +8,7 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: shvija
 
 ---
@@ -31,6 +31,8 @@ To complete this tutorial, you need the following prerequisites:
 
 ## Create an Event Hubs namespace and an event hub
 The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
+
+Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
 
 ## Clone the sample Git repository
 Clone the sample Git repository from [Github](https://github.com/Azure/azure-event-hubs-node) on your machine. 
