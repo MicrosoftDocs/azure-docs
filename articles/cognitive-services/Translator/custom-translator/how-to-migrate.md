@@ -16,7 +16,7 @@ ms.topic: article
 
 You can easily migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. Migration is initiated from Microsoft Hub by selecting a workspace or project, then selecting a workspace in Custom Translator, and then selecting the trainings you want to transfer.  After the migration starts, the selected training settings will be transferred with all relevant documents.  Deployed models are trained and can be autodeployed upon completion.
 
-The following actions will be taken in the Custom Translator during the course of the migration:
+These actions are performed during migration:
 * All documents and project definitions will have their names transferred with the addition of “Hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
 * Any trainings that were in the deployed state when the migration takes place will automatically be trained using the documents of the hub training.  This training will not be charged to your subscription.  If auto-deploy was selected for the migration, the trained model will be deployed upon completion. Regular hosting charges will be applied.  
 * Any migrated trainings that were not in the deployed state will be put into the migrated draft state.   In this state, you will have the option of training a model with the migrated definition, but regular training charges will apply.
