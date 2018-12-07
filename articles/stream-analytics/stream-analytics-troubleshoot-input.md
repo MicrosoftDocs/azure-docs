@@ -30,7 +30,7 @@ Deserialization issues are caused when the input stream of your Stream Analytics
  
 When a Stream Analytics job receives a malformed message from an input, it drops the message and notifies you with a warning. A warning symbol is shown on the **Inputs** tile of your Stream Analytics job. This warning sign exists as long as the job is in running state:
 
-![Azure Stream Analytics inputs tile](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure Stream Analytics inputs tile](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -42,8 +42,8 @@ You can take the following steps to analyze the input events in detail to get a 
 
 2. The input details tile displays a list of warnings with details about each issue. The example warning message below includes the partition, offset, and sequence numbers where there is malformed JSON data. 
 
-   ![Warning message with offset](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![Warning message with offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. To find the JSON data with the incorrect format, run the CheckMalformedEvents.cs code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID, offset, and prints the data that's located in that offset. 
 
 4. Once you read the data, you can analyze and correct the serialization format.

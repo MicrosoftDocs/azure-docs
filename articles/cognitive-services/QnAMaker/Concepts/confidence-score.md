@@ -1,7 +1,7 @@
 ---
 title: Confidence Score - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Explaining confidence score
+description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,8 +10,9 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Confidence score
+# Confidence score of a QnA Maker knowledge base
 When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query. 
 
 The confidence score is a number between 0 and 100. A score of 100 is likely an exact match, while a score of 0 means, that no matching answer was found. The higher the score- the greater the confidence in the answer. For a given query, there could be multiple answers returned. In that case, the answers are returned in order of decreasing confidence score.

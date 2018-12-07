@@ -1,10 +1,11 @@
 ---
-title: "Tutorial 1: Find intentions in custom LUIS app"
+title: Predict intentions
 titleSuffix: Azure Cognitive Services
 description: Create a custom app that predicts a user's intention. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -39,11 +40,11 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 
 2. Select **Create new app**.  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of Language Understanding (LUIS) My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Screenshot of Language Understanding (LUIS) My Apps page](media/luis-quickstart-intents-only/app-list.png "Screenshot of Language Understanding (LUIS) My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. In the pop-up dialog, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
 
-    ![LUIS new app](./media/luis-quickstart-intents-only/create-app.png)
+    ![Create LUIS new HumanResources app](./media/luis-quickstart-intents-only/create-app.png)
 
     Next, the app shows the **Intents** page with the **None** Intent.
 
@@ -51,7 +52,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
+    ![Screenshot of Language Understanding (LUIS) New intent dialog](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
 2. By providing _example utterances_, you are training LUIS what kinds of utterances should be predicted for this intent. Add several example utterances to this intent that you expect a user to ask, such as:
 
@@ -65,7 +66,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
     |New jobs?|
     |Are there any new positions in the Seattle office?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Screenshot of entering new utterances for MyStore intent](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -164,7 +165,7 @@ Return to the LUIS website and create a new intent to determine if the user utte
 
 2. In the new browser window, enter `Can I submit my resume for job 235986` at the end of the URL. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

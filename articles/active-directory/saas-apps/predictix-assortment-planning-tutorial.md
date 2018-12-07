@@ -108,12 +108,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Predictix Assortment Planning Domain and URLs single sign-on information](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.predictix.com/sso/request`|
 	| `https://<sub-domain>.dev.ap.predictix.com/`|
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.predictix.com`|

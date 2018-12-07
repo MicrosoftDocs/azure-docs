@@ -4,7 +4,7 @@ description: This how-to walks you through the remediation of resources that are
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -13,18 +13,17 @@ manager: carmonm
 
 Resources that are non-compliant to a **deployIfNotExists** policy can be put into a compliant
 state through **Remediation**. Remediation is accomplished by instructing Policy to run the
-**deployIfNotExists** effect of the assigned policy on your existing resources. This how-to walks
-through the steps needed to accomplished this.
+**deployIfNotExists** effect of the assigned policy on your existing resources. This article shows
+the steps needed to understand and accomplish remediation with Policy.
 
 ## How remediation security works
 
 When Policy runs the template in the **deployIfNotExists** policy definition, it does so using a
 [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
-Policy creates a managed identity for each assignment for you, but must be provided details about
-what roles to grant the managed identity. If the managed identity is missing roles, this is
-displayed during the assignment of the policy or an initiative containing the policy. When using
-the portal, Policy will automatically grant the managed identity the listed roles once assignment
-is initiated.
+Policy creates a managed identity for each assignment, but must have details about what roles to
+grant the managed identity. If the managed identity is missing roles, this error is displayed
+during the assignment of the policy or an initiative. When using the portal, Policy will
+automatically grant the managed identity the listed roles once assignment is started.
 
 ![Managed identity - missing role](../media/remediate-resources/missing-role.png)
 
@@ -38,8 +37,9 @@ is initiated.
 
 The first step is to define the roles that **deployIfNotExists** needs in the policy definition to
 successfully deploy the content of your included template. Under the **details** property, add a
-**roleDefinitionIds** property. This is an array of strings that match roles in your environment.
-For a full example, see the [deployIfNotExists example](../concepts/effects.md#deployifnotexists-example).
+**roleDefinitionIds** property. This property is an array of strings that match roles in your
+environment. For a full example, see the [deployIfNotExists
+example](../concepts/effects.md#deployifnotexists-example).
 
 ```json
 "details": {
@@ -66,7 +66,7 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 
 When creating an assignment using the portal, Policy both generates the managed identity and grants
 it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create the
-managed identity and assign it permissions must be performed manually:
+managed identity and assign it permissions must be done manually:
 
 - While using the SDK (such as Azure PowerShell)
 - When a resource outside the assignment scope is modified by the template
@@ -146,14 +146,14 @@ To add a role to the assignment's managed identity, follow these steps:
 
 1. Click the **Access control (IAM)** link in the resources page and click **+ Add role assignment** at the top of the access control page.
 
-1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition. Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the search completes, click the object with the same name to select id and click **Save**.
+1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition. Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the search completes, click the object with the same name to select ID and click **Save**.
 
 ## Create a remediation task
 
 During evaluation, the policy assignment with **deployIfNotExists** effect determines if there are
 non-compliant resources. When non-compliant resources are found, the details are provided on the
 **Remediation** page. Along with the list of policies that have non-compliant resources is the
-option to trigger a **remediation task**. This is what creates a deployment from the
+option to trigger a **remediation task**. This option is what creates a deployment from the
 **deployIfNotExists** template.
 
 To create a **remediation task**, follow these steps:
@@ -172,21 +172,21 @@ To create a **remediation task**, follow these steps:
    > An alternate way to open the **remediation task** page is to find and click on the policy from the
    > **Compliance** page, then click the **Create Remediation Task** button.
 
-1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy was assigned (including down to the individual resource objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
+1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy is assigned (including down to the individual resource objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
 
    ![Remediate - select resources](../media/remediate-resources/select-resources.png)
 
-1. Initiate the remediation task once the resources have been filtered by clicking **Remediate**. The policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks progress.
+1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks progress.
 
    ![Remediate - task progress](../media/remediate-resources/task-progress.png)
 
-1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task are shown along with a list of the resources being remediated.
+1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task is shown along with a list of the resources being remediated.
 
-1. From the **remedation task** page, right-click on a resource to view either the remediation task's deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
+1. From the **remediation task** page, right-click on a resource to view either the remediation task's deployment or the resource. At the end of the row, click on **Related events** to see details such as an error message.
 
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
-Resources deployed through a **remediation task** will be added to the **Deployed Resources** tab on the policy compliance page after a short delay.
+Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy compliance page.
 
 ## Next steps
 

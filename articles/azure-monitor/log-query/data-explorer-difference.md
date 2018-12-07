@@ -26,7 +26,7 @@ The following sections describe elements of the Data Explorer query language tha
 
 ### Statements not supported in Log Analytics
 
-* [Alias](/kusto/query/aliasstatement)
+* [Alias](/azure/kusto/query/aliasstatement)
 * [Query parameters](/azure/kusto/query/queryparametersstatement)
 
 ### Functions not supported in Log Analytics

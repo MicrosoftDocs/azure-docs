@@ -1,11 +1,12 @@
 ---
 title: Deep Learning and AI frameworks - Azure | Microsoft Docs
-description: Deep Learning and AI frameworks
+description: Learn about the deep learning frameworks and tools supported on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
