@@ -1,5 +1,5 @@
 ---
-title: Configure Azure ExpressRoute Direct by using the Azure CLI | Microsoft Docs
+title: Configure Azure ExpressRoute Direct - Azure CLI | Microsoft Docs
 description: This article helps you configure ExpressRoute Direct by using the Azure CLI (Preview)
 services: expressroute
 author: cherylmc
@@ -8,6 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 
