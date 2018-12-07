@@ -30,7 +30,7 @@ You can deploy models to the following compute targets:
 
 - A trained model in either pickle (`.pkl`) or ONNX (`.onnx`) format. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
 
-- The code sections in this document assume that `ws` references your machine learning workspace. For example, `ws = Workspace.from_config()`.
+- The code sections assume that `ws` references your machine learning workspace. For example, `ws = Workspace.from_config()`.
 
 ## Deployment workflow
 
@@ -41,6 +41,8 @@ The process of deploying a model is similar for all compute targets:
 1. Create an image configuration.
 1. Create the image.
 1. Deploy the image to a compute target.
+1. Test the deployment
+1. (Optional) Clean up artifacts.
 
     * When **deploying as a web service**, there are three deployment options:
 
@@ -105,7 +107,7 @@ For more information, see the reference documentation for [ContainerImage class]
 
 ## <a id="createimage"></a> Create the image
 
-Once you have created the image configuration, you can use it to create an image. This image is registered in your workspace. Once created, you can deploy the same image to multiple services.
+Once you have created the image configuration, you can use it to create an image. This image is stored in the container registry for your workspace. Once created, you can deploy the same image to multiple services.
 
 ```python
 # Create the image from the image configuration
@@ -189,17 +191,17 @@ To deploy to Azure Kubernetes Service, use the following steps:
     **Time estimate**: Approximately 20 minutes.
 
     > [!TIP]
-    > If you have existing AKS cluster in your Azure subscription, you can use it to deploy your image. To attach an existing cluster, it must use Azure Kubernetes Service version 1.11.3. The following code demonstrates how to attach an existing cluster to your workspace:
+    > If you already have AKS cluster in your Azure subscription, and it is version 1.11.3, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
     >
     > ```python
-    > # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties
-    > resource_id = '/subscriptions/<your subscription id>/resourcegroups/<your resource group>/providers/Microsoft.ContainerService/managedClusters/<your aks service name>'
-    > 
-    > # Set to the name of the cluster
-    > cluster_name='my-existing-aks' 
+    > # Set the resource group that contains the AKS cluster and the cluster name
+    > resource_group = 'myresourcegroup'
+    > cluster_name = 'mycluster'
     > 
     > # Attatch the cluster to your workgroup
-    > aks_target = AksCompute.attach(workspace=ws, name=cluster_name, resource_id=resource_id)
+    > attach_config = AksCompute.attach_config(resource_group = resource_group,
+    >                                          cluster_name = cluster_name)
+    > compute = ComputeTarget.attach(workspace=ws, name='mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -252,21 +254,29 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## Clean up web services
+## Update the web service
 
-The following code demonstrates how to delete the web service, image, and model:
+To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
 
 ```python
-service.delete()
-image.delete()
-model.delete()
+from azureml.core.webservice import Webservice
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+# Update the image used by the service
+service.update(image = new-image)
+print(service.state)
 ```
+
+> [!NOTE]
+> When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
 
 ## <a id="iotedge"></a> Deploy to Azure IoT Edge
 
 An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Machine learning models can be deployed to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
 
-Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model using the steps in this document, it is stored in the container registry for your workspace.
+Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
 
 Use the following steps to get the container registry credentials for your Azure Machine Learning service workspace:
 
@@ -289,6 +299,14 @@ Once you have the credentials, use the steps in the [Deploy Azure IoT Edge modul
 >
 > * [Quickstart: Deploy your first IoT Edge module to a Linux device](../../iot-edge/quickstart-linux.md)
 > * [Quickstart: Deploy your first IoT Edge module to a Windows device](../../iot-edge/quickstart.md)
+
+## Clean up
+
+To delete a deployed web service, use `service.delete()`.
+
+To delete an image, use `image.delete()`.
+
+To delete a registered model, use `model.delete()`.
 
 ## Next steps
 
