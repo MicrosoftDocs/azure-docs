@@ -26,7 +26,7 @@ To enable Profiler for a web app, follow the instructions below. If you are runn
 Application Insights Profiler is pre-installed as part of the App Services runtime, but you need to turn it on to get profiles for your Azure Web Apps. Once you have deployed a Web App, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.
 
 1. Go to the **App Services** pane in the Azure portal.
-1. Navigate to **Settings > Monitoring** pane.
+1. Navigate to **Settings > Application Insights** pane.
 
    ![Enable App Insights on App Services portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
