@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure container registry into an Azure virtual network
-description: Learn how to deploy an Azure container registry to a new or existing Azure virtual network.
+description: Deploy an Azure container registry to a new or existing Azure virtual network.
 services: container-registry
 author: dlepow
 
@@ -21,14 +21,26 @@ This article shows you how to use a virtual machine deployed in a virtual networ
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
+## Preview limitations
+
+* Currently, only the following resources can access a container registry in a properly configured virtual network: Azure AKS cluster, Azure virtual machine. Azure Container Instances are not supported.
+* In preview, only the following regions support container registries in virtual networks: West Central US, ...
+
 ## Virtual network deployment limitations
 
 Certain limitations apply when you deploy a container registry to a virtual network.
 
-* Currently, only the following resources can access a container registry in a properly configured virtual network: Azure AKS cluster, Azure virtual machine. Azure Container Instances are not supported.
-* The container registry and virtual network must be in the same Azure region.
-* In preview, only the following regions support container registries in virtual networks: West Central US, ...
-* [Other limitations - registry SKUs?]
+* The container registry and virtual network must be in the same Azure subscription and region.
+
+* Only **Premium** container registries can be deployed to a virtual network. For information about service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
+
+* Operations on a container registry in a virtual network using `az acr` commands or other Azure APIs can only be performed within the virtual network.
+
+## Grant access from a virtual network
+
+You can configure a container registry to allow access only from specific VNets.
+Enable a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Container Registry within the VNet. This endpoint gives traffic an optimal route to the Azure Container Registry service. The identities of the virtual network and the subnet are also transmitted with each request. Administrators can then configure network rules for the container registry that allow requests to be received from specific subnets in the VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the container registry to access the data.
+Each registry supports up to 100 [confirm??] virtual network rules, which may be combined with IP network rules.
 
 ## Prerequisites
 
@@ -106,28 +118,15 @@ az network vnet subnet update \
 Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry717* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry717 --sku Basic
+az acr create --resource-group myResourceGroup --name myContainerRegistry717 --sku Premium
 ```
-
-### Configure network access for container registry
-
-By default, an Azure container registry accepts connections from clients on any network. To limit access to a selected network, you must change the default action. In preview, you can manage default network access rules for a container registry only through the Azure portal.
-
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-1. In the portal, navigate to your registry and select **Firewall and virtual networks**.
-1. To deny access by default, choose to allow access from **Selected networks**. 
-1. Select **Add existing virtual network**, and select the virtual network and subnet you created previously. Select **Add**. 
-1. Select **Save**.
-
-  ![Configure virtual network for container registry](./media/container-registry-vnet/acr-vnet-portal.png)
-
 
 ### Build and push a sample image to the registry
 
 Run a sample [task](container-registry-tasks-multi-step.md) with [az acr run][az-acr-run] to build a `hello-world` container image and push it to your container registry:
 
 ```azurecli
-az acr run --registry myContainerRegistry717 
+az acr run --registry myContainerRegistry717 \
  -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
@@ -151,14 +150,28 @@ For this example, you configure registry access using [service principal authent
 
 To create a service principal, see the [service-principal-create.sh](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh) script on GitHub. For this example, assign the default `Reader` role to the service principal, to allow pulling images. 
 
-The script stores the service principal ID in the *SP_APP_ID* variable, and the password in the *SP_PASSWD* variable. 
+The script returns values for the service principal application D and password.
 
-## Verify that the container registry is accessible from the VM
+## Configure network access for container registry
 
-Make an SSH connection to your VM, and run the following command to login to your registry:
+By default, an Azure container registry accepts connections from clients on any network. To limit access to a selected network, you must change the default action. In preview, you can manage default network access rules for a container registry only through the Azure portal.
+
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. In the portal, navigate to your registry and select **Firewall and virtual networks**.
+1. To deny access by default, choose to allow access from **Selected networks**. 
+1. Select **Add existing virtual network**, and select the virtual network and subnet you created previously. Select **Add**. 
+1. Select **Save**.
+
+  ![Configure virtual network for container registry](./media/container-registry-vnet/acr-vnet-portal.png)
+
+ 
+
+## Verify access to the registry
+
+First, verfy that the container registry is accessible from the VM. Make an SSH connection to your VM, and run the following command to login to your registry using your service principal credentials:
 
 ```bash
-sudo docker login --username $SP_APP_ID --password $SP_PASSWD mycontainerregistry717.azurecr.io
+sudo docker login --username <SP_APP_ID> --password <SP_PASSWD> mycontainerregistry717.azurecr.io
 ```
 
 You can pull the sample `hello-world` image in your registry. Substitute the tag of the latest image, which you obtained in an earlier step.
@@ -166,8 +179,6 @@ You can pull the sample `hello-world` image in your registry. Substitute the tag
 ```bash
 sudo docker pull mycontainerregistry717.azurecr.io/hello-world:tag
 ``` 
-
-## Verify that container registry isn't accessible from the internet
 
 Although you are able on the virtual machine to pull an image pulled from the private container registry, the registry can't be accessed from other networks. For example, you can't login to the registry over the internet from a different login host (such as your local computer) using the `docker login` command. 
 
