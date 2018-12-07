@@ -9,7 +9,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
@@ -193,7 +193,7 @@ Before changing any code or settings, verify the bot works.
 3. Create a file to hold the environment variables the bot code looks for. Name the file `.env`. Add the following environment variables:
 
     <!--there is no code language that represents an .env file correctly-->
-    ```
+    ```env
     botFilePath=
     botFileSecret=
     ```
