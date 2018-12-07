@@ -22,7 +22,7 @@ ms.author: pbutlerm
 This section explains how to publish a new Azure application offer to the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
 |    |    |
 |-----------------------------------------------------------------|------------------------------------------|
-| Each Azure application contains an Azure Resource Manager template that defines all the technical assets used by the application, which typically includes one or more virtual machines and other supporting Azure- or Web-based services. | ![virtual machine icon](./media/azureapp-icon1.png)  |
+| Each Azure application contains an Azure Resource Manager template that defines all the technical assets used by the application, which typically includes one or more virtual machines and other supporting Azure- or Web-based services. | ![Azure apps icon](./media/azureapp-icon1.png)  |
 
 ## Benefits
 
