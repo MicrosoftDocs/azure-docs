@@ -60,6 +60,8 @@ sections:
       - image:
           src: media/index/logo_java.jpg
       - image:
+          src: media/index/logo_python.svg
+      - image:
           src: media/index/logo_objc.jpg
       - image:
           src: media/index/logo_js.svg
@@ -67,8 +69,6 @@ sections:
           src: media/index/logo_rest_sr.svg
       - image:
           src: media/index/logo_rest_tts.svg
-      - image:
-          src: media/index/logo_python.svg
     rows:
       - title: Windows 10 (x64)
         values:
@@ -77,11 +77,11 @@ sections:
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
         - href: quickstart-java-jre
-        - href:
-        - href:
-        - href:
-        - href:
         - href: quickstart-asr-python
+        - href:
+        - href:
+        - href:
+        - href:
       - title: Windows 10 (x86)
         values:
         - href: quickstart-csharp-uwp
@@ -93,7 +93,7 @@ sections:
         - href:
         - href:
         - href:
-        - href: quickstart-asr-python
+        - href:
       - title: Linux (x64)
         values:
         - href:
@@ -101,11 +101,11 @@ sections:
         - href: quickstart-cpp-linux
         - href: quickstart-csharp-dotnetcore-windows
         - href: quickstart-java-jre
-        - href:
-        - href:
-        - href:
-        - href:
         - href: quickstart-asr-python
+        - href:
+        - href:
+        - href:
+        - href:
       - title: Linux (x86)
         values:
         - href:
@@ -161,8 +161,8 @@ sections:
         - href:
         - href:
         - href:
-        - href: quickstart-objectivec-ios
         - href:
+        - href: quickstart-objectivec-ios
         - href:
         - href:
         - href:
@@ -173,13 +173,14 @@ sections:
         - href:
         - href:
         - href:
-        - href:
-        - href:
-        - href:
-        - href:
         - href: quickstart-asr-python
+        - href:
+        - href:
+        - href:
+        - href:
       - title: Web
         values:
+        - href:
         - href:
         - href:
         - href:
@@ -189,7 +190,6 @@ sections:
         - href: quickstart-js-browser
         - href: rest-apis
         - href: rest-apis
-        - href:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
