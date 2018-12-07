@@ -10,7 +10,7 @@ ms.author: raynew
 ---
 
 
-## Best practices to set up networking for workloads migrated to Azure
+# Best practices to set up networking for workloads migrated to Azure
 
 As you plan and design for migration, in addition to thinking about the migration itself, one of the most critical steps is the design and implementation of Azure networking. This article describes planning information and best practices for networking when you migrate to IaaS and PaaS implementations in Azure.
 
