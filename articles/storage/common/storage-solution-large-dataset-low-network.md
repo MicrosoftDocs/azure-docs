@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.author: alkohli
 ---
 
