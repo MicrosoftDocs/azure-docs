@@ -1,6 +1,6 @@
 ---
 title: Process Azure blob data with advanced analytics | Microsoft Docs
-description: Process Data in Azure Blob storage.
+description: Explore data and generate features from data stored in Azure Blob storage using advanced analytics.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Process Azure blob data with advanced analytics
 This document covers exploring data and generating features from data stored in Azure Blob storage. 

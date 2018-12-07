@@ -1,5 +1,5 @@
 ---
-title: Use Apache Kafka MirrorMaker with Azure Event Hubs for Kafka Ecosystem | Microsoft Docs
+title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
 description: Use Kafka MirrorMaker to mirror a Kafka cluster in Event Hubs.
 services: event-hubs
 documentationcenter: .net
@@ -8,8 +8,8 @@ manager: timlt
 
 ms.service: event-hubs
 ms.topic: mirror-maker
-ms.custom: mvc
-ms.date: 08/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---

@@ -1,11 +1,11 @@
 ---
-title: Add pattern templates instead of more utterances in LUIS apps
-titleSuffix: Azure Cognitive Services
+title: Patterns add accuracy
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how to add pattern templates in Language Understanding (LUIS) applications to improve prediction accuracy.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

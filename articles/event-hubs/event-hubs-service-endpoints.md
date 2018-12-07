@@ -1,5 +1,5 @@
 ---
-title: Virtual Network service endpoints and rules for Azure Event Hubs | Microsoft Docs
+title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: Add a Microsoft.EventHub service endpoint to a virtual network. 
 services: event-hubs
 documentationcenter: ''
@@ -9,7 +9,8 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---

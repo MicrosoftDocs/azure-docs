@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities age reference - Azure | Microsoft Docs
+title: Age Prebuilt entity
 titleSuffix: Azure
 description: This article contains age prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -21,7 +22,7 @@ Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recogniz
 ## Resolution for prebuilt age entity
 The following example shows the resolution of the **builtin.age** entity.
 
-```JSON
+```json
 {
   "query": "A 90 day old utilities bill is quite late.",
   "topScoringIntent": {

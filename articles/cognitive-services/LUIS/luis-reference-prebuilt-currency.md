@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities currency reference - Azure | Microsoft Docs
+title: Currenty Prebuilt entity
 titleSuffix: Azure
 description: This article contains currency prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -21,7 +22,7 @@ Currency is managed from the [Recognizers-text](https://github.com/Microsoft/Rec
 ## Resolution for currency entity
 The following example shows the resolution of the **builtin.currency** entity.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {
