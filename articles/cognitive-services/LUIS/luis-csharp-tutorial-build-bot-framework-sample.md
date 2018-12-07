@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# LUIS bot in C#
+# LUIS bot in C# with the Bot Framework 3.x and the Azure Web app bot
 
 Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 

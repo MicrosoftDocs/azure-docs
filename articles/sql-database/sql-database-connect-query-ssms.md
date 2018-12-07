@@ -20,7 +20,7 @@ You can use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to ma
 
 ## Prerequisites
 
-This tutorial uses the following.
+To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
@@ -84,7 +84,7 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 3. On the toolbar, select **Execute** to retrieve data from the `Product` and `ProductCategory` tables.
 
-    ![query](./media/sql-database-connect-query-ssms/query2.png)
+    ![query to retrieve data from 2 tables](./media/sql-database-connect-query-ssms/query2.png)
 
 ## Insert data
 
