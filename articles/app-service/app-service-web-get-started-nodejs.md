@@ -114,7 +114,7 @@ Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp l
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Browse to your newly created web app. Replace _<app name>_ with a unique app name.
+Browse to your newly created web app. Replace `<app_name>` with a unique app name.
 
 ```bash
 http://<app_name>.azurewebsites.net
