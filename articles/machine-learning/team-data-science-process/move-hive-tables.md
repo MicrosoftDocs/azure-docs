@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Create Hive tables and load data from Azure Blob Storage
 
@@ -59,14 +59,14 @@ You have three ways to submit Hive queries in the Hadoop Command Line:
 #### Submit Hive queries directly in Hadoop Command Line.
 You can run command like `hive -e "<your hive query>;` to submit simple Hive queries directly in Hadoop Command Line. Here is an example, where the red box outlines the command that submits the Hive query, and the green box outlines the output from the Hive query.
 
-![Create workspace](./media/move-hive-tables/run-hive-queries-1.png)
+![Command to submit Hive query with output from Hive query](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### Submit Hive queries in .hql files
 When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a .hql file in a local directory of the head node. Then the Hive query in the .hql file can be submitted by using the `-f` argument as follows:
 
     hive -f "<path to the .hql file>"
 
-![Create workspace](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive query in a .hql file](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suppress progress status screen print of Hive queries**
 
@@ -78,7 +78,7 @@ By default, after Hive query is submitted in Hadoop Command Line, the progress o
 #### Submit Hive queries in Hive command console.
 You can also first enter the Hive command console by running command `hive` in Hadoop Command Line, and then submit Hive queries in Hive command console. Here is an example. In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.
 
-![Create workspace](./media/move-hive-tables/run-hive-queries-2.png)
+![Open Hive command console and enter command, view Hive query output](./media/move-hive-tables/run-hive-queries-2.png)
 
 The previous examples directly output the Hive query results on screen. You can also write the output to a local file on the head node, or to an Azure blob. Then, you can use other tools to further analyze the output of Hive queries.
 
@@ -89,7 +89,7 @@ To output Hive query results to a local directory on the head node, you have to 
 
 In the following example, the output of Hive query is written into a file `hivequeryoutput.txt` in directory `C:\apps\temp`.
 
-![Create workspace](./media/move-hive-tables/output-hive-results-1.png)
+![Output of Hive query](./media/move-hive-tables/output-hive-results-1.png)
 
 **Output Hive query results to an Azure blob**
 
@@ -99,11 +99,11 @@ You can also output the Hive query results to an Azure blob, within the default 
 
 In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you only need to provide the directory name, without the blob name. An error is thrown if you provide both directory and blob names, such as `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Create workspace](./media/move-hive-tables/output-hive-results-2.png)
+![Output of Hive query](./media/move-hive-tables/output-hive-results-2.png)
 
 If you open the default container of the Hadoop cluster using Azure Storage Explorer, you can see the output of the Hive query as shown in the following figure. You can apply the filter (highlighted by red box) to only retrieve the blob with specified letters in names.
 
-![Create workspace](./media/move-hive-tables/output-hive-results-3.png)
+![Azure Storage Explorer showing output of the Hive query](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.

@@ -472,7 +472,7 @@ There can be millions of unique values for some categorical features of large da
 ##### Building counting transforms
 To build count features, use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
 
-![Build Counting Transform module](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Build Counting Transform module properties](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Build Counting Transform module](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
