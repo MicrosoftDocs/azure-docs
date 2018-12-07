@@ -272,5 +272,3 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-
