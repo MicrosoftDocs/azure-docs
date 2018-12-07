@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Host a static website in Blob storage - Azure Storage'
+title: 'Tutorial: Host a static website on Blob storage - Azure Storage'
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
 services: storage
 author: tamram
@@ -25,8 +25,6 @@ In part one of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription. Create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
@@ -34,14 +32,13 @@ This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download),
 After you install Visual Studio Code, install the Azure Storage preview extension. This extension integrates Azure Storage management functionality with Visual Studio Code. You will use the extension to deploy your static website to Azure Storage. To install the extension:
 
 1. Launch Visual Studio Code.
-2. On the toolbar, click **Extensions**. Search for *Azure Storage*, and select the **Azure Storage** extension from the list. 
-3. Click the **Install** button to install the extension.
+2. On the toolbar, click **Extensions**. Search for *Azure Storage*, and select the **Azure Storage** extension from the list. Then click the **Install** button to install the extension.
 
-    ![Install the Azure Storage extension in VS Code](media/storage-blob-static-websites-host/install-extension-vs-code.png)
+    ![Install the Azure Storage extension in VS Code](media/storage-blob-static-website-host/install-extension-vs-code.png)
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
 ## Configure static website hosting
 
@@ -55,7 +52,7 @@ The first step is to configure your storage account to host a static website in 
 1. In the **Error document path** field, specify a default error page of *404.html*. The default error page is displayed when a user attempts to navigate to a page that does not exist in your static website.
 1. Click **Save**. The Azure portal now displays your static website endpoint. 
 
-    ![Enable static website hosting for a storage account](media/storage-blob-static-websites-host/enable-static-website-hosting.png)
+    ![Enable static website hosting for a storage account](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
 ## Deploy a Hello World website
 
@@ -64,28 +61,32 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
 1. Create an empty folder named *mywebsite* on your local file system. 
 1. Launch Visual Studio Code, and open the folder that you just created from the **Explorer** panel.
 
-    ![Open folder in Visual Studio Code](media/storage-blob-static-websites-host/open-folder-vs-code.png)
+    ![Open folder in Visual Studio Code](media/storage-blob-static-website-host/open-folder-vs-code.png)
 
 1. Create the default index file in the *mywebsite* folder and name it *index.html*.
 
-    ![Create the default index file in Visual Studio Code](media/storage-blob-static-websites-host/create-index-file-vs-code.png)
+    ![Create the default index file in Visual Studio Code](media/storage-blob-static-website-host/create-index-file-vs-code.png)
 
 1. Open *index.html* in the editor, paste the following text into the file, and save it:
 
-    `<h1>Hello World!</h1>`
+    ```
+    <h1>Hello World!</h1>
+    ```
 
 1. Create the default error file and name it *404.html*.
 1. Open *error.html* in the editor, paste the following text into the file, and save it:
 
-    `<h1>404</h1>`
+    ```
+    <h1>404</h1>
+    ```
 
-1. Right-click under the *mywebsite* folder in the **Explorer** panel and select **Deploy to Static Website...** to deploy your website. You will be prompted to log in to Azure to retrieve a list of subscriptions. Follow the instructions to log in.
+1. Right-click under the *mywebsite* folder in the **Explorer** panel and select **Deploy to Static Website...** to deploy your website. You will be prompted to log in to Azure to retrieve a list of subscriptions.
 
 1. Select the subscription containing the storage account for which you enabled static website hosting. Next, select the storage account when prompted.
 
-Visual Studio Code will now upload your files to your web endpoint, and show the success status bar. You can launch the website to view it in Azure.
+Visual Studio Code will now upload your files to your web endpoint, and show the success status bar. Launch the website to view it in Azure.
 
-![View static website deployment in Azure](media/storage-blob-static-websites-host/view-static-website-endpoint.png)
+![View static website deployment in Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
 
 You’ve successfully completed the tutorial and deployed a static website to Azure.
 
@@ -93,7 +94,5 @@ You’ve successfully completed the tutorial and deployed a static website to Az
 
 In part one of this tutorial, you learned how to configure your Azure Storage account for static website hosting, and how to create and deploy a static website to an Azure endpoint.
 
-Advance to the next article to learn how to use a custom domain with your static website.
-
 > [!div class="nextstepaction"]
-> [Next steps button](storage-blob-static-websites-custom-domain.md)
+> [Next steps button](storage-blob-static-website-custom-domain.md)
