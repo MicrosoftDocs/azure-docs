@@ -1,6 +1,6 @@
 ---
-title: 'The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Docs'
-description: Advanced Analytics Process and Technology in Action
+title: Build and deploy a machine learning model using SQL Data Warehouse | Microsoft Docs'
+description: Build and deploy a machine learning model using SQL Data Warehouse with a publicly available dataset.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.
