@@ -3,7 +3,6 @@ title: 'Azure Cosmos DB: Build a Flask web app with Python and the Azure Cosmos 
 description: Presents a Python Flask code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: slyons
-
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
@@ -11,7 +10,6 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
 ms.author: sclyon
-
 ---
 # Azure Cosmos DB: Build a Flask app with the MongoDB API
 
@@ -145,7 +143,7 @@ You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the ap
 If you don't want to create a fork of this repo, you can also click the deploy to Azure button below. You should then go into Azure and set up the application settings with your Cosmos DB account info.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="http://azuredeploy.net/deploybutton.png"/ alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
