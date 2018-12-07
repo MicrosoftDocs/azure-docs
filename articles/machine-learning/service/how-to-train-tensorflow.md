@@ -1,5 +1,6 @@
 ---
-title: Train models with TensorFlow and Azure Machine Learning service
+title: Train models with TensorFlow
+titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of TensorFlow models with the TensorFlow estimator
 services: machine-learning
 ms.service: machine-learning

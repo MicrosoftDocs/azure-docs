@@ -1,6 +1,7 @@
 
 ---
-title: Track experiments and training metrics - Azure Machine Learning service
+title: Track experiments and training metrics
+titleSuffix: Azure Machine Learning service
 description: With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
 services: machine-learning
 author: heatherbshapiro
