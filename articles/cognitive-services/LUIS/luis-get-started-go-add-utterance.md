@@ -1,9 +1,10 @@
 ---
 title: Go language Quickstart - change model and train LUIS app
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Language Understanding - Azure Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
@@ -13,6 +14,8 @@ ms.author: diberry
 ---
 
 # Quickstart: Change model using Go
+
+In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

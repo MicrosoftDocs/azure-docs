@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
+ms.date: 12/06/2018
 ---
 
 # Troubleshoot YARN by using Azure HDInsight
@@ -14,7 +14,6 @@ ms.date: 11/2/2017
 Learn about the top issues and their resolutions when working with Apache Hadoop YARN payloads in Apache Ambari.
 
 ## How do I create a new YARN queue on a cluster?
-
 
 ### Resolution steps 
 
@@ -133,10 +132,3 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### See Also
 [Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-

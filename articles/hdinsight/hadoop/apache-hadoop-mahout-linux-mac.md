@@ -16,7 +16,7 @@ ms.date: 05/01/2018
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
-Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
+Learn how to use the [Apache Mahout](https://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
 Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
 
@@ -206,13 +206,13 @@ Now that you have learned how to use Mahout, discover other ways of working with
 * [Pig with HDInsight](hdinsight-use-pig.md)
 * [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[build]: https://mahout.apache.org/developers/buildingmahout.html
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
