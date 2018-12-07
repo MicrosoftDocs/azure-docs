@@ -1,10 +1,11 @@
 ---
-title: API Migration guide from v1 to v2 
+title: v1 to v2 API Migration  
 titleSuffix: Azure Cognitive Services
-description: Learn how to migration to the latest API set.
+description: Learn how to migrate to the latest API set.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -38,7 +39,7 @@ The endpoint API has new querystring parameters as well as a different response.
 
 
 v1 endpoint success response:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -49,7 +50,7 @@ v1 endpoint success response:
 ```
 
 v2 endpoint success response:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {
