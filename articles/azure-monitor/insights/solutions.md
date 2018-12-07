@@ -1,6 +1,6 @@
 ---
-title: Monitoring solutions in Azure | Microsoft Docs
-description: Monitoring solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using monitoring solutions.
+title: Monitoring solutions in Azure Monitor | Microsoft Docs
+description: Monitoring solutions in Azure Monitor are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides information on installing and using monitoring solutions.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 12/07/2018
 ms.author: bwren
 
 
@@ -25,31 +25,30 @@ Monitoring solutions typically collect log data and provide queries and views to
 You can add monitoring solutions to Azure Monitor for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create monitoring solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
 
 ## Using monitoring solutions
-Open the 
-
-The **Overview** page for each Log Analytics workspace displays a tile for each solution installed in the workspace. Click on the tile for the solution to open its view which includes more detailed analysis its collected data.
+The **Overview** page for each Log Analytics workspace displays a tile for each solution installed in the workspace. Open the **Overview** page with the following procedure.
 
 1. Log in to the Azure portal.
 1. Open **All services** and locate **Monitor**.
 1. Under **Insights**, select **More**.
+1. Use the dropdown boxes at the top of the screen to change the resource group or the time range used for the tiles.
+1. Click on the tile for a solution to open its view which includes more detailed analysis its collected data.
 
 ![Overview](media/solutions/overview.png)
 
-Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log searches included in the solution are included with **Saved Searches** in the workspace. You can use those searches when performing ad hoc analysis in Log Analytics.
+Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in **Query explorer**. You can use those queries when performing ad hoc analysis with Log Analytics.
 
 ## List installed monitoring solutions 
 Use the following procedure to list the monitoring solutions installed in your subscription.
 
 1. Log in to the Azure portal.
-2. In the left pane, select **All services**.
-3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
+1. Open **All services** and locate **Solutions**.
 4. Solutions installed in all your workspaces are listed. The name of the solution is followed by the name of the Log Analytics workspace it's installed in.
 1. Use the dropdown boxes at the top of the screen to filter by subscription or resource group.
 
 
 ![List all solutions](media/solutions/list-solutions-all.png)
 
-Click on the name of a solution to open its summary page. This page displays any Log Analytics views included in the solution and provides different options for the solution itself and its workspace. View the summary page for a solution by using one of the procedures above to list solutions and then click on the name of the solution.
+Click on the name of a solution to open its summary page. This page displays any views included in the solution and provides different options for the solution itself and its workspace. View the summary page for a solution by using one of the procedures above to list solutions and then click on the name of the solution.
 
 ![Solution properties](media/solutions/solution-properties.png)
 
@@ -85,13 +84,13 @@ All monitoring solutions require a [Log Analytics workspace](../../azure-monitor
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
 * To be linked, the Log Analytics workspace and Automation account must be in the same resource group and region. The exception is a workspace in East US region and Automation account in East US 2.
 
-### Creating a link between a Log Analytics workspace and Automation account
+### Create a link between a Log Analytics workspace and Automation account
 How you specify the Log Analytics workspace and Automation account depends on the installation method for your solution.
 
 * When you install a solution through the Azure Marketplace, you are prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
 * For solutions outside of the Azure Marketplace, you must link the Log Analytics workspace and Automation account before installing the solution. You can do this by selecting any solution in the Azure Marketplace and selecting the Log Analytics workspace and Automation account. You don't have to actually install the solution because the link is created as soon as the Log Analytics workspace and Automation account are selected. Once the link is created, then you can use that Log Analytics workspace and Automation account for any solution.
 
-### Verifying the link between a Log Analytics workspace and Automation account
+### Verify the link between a Log Analytics workspace and Automation account
 You can verify the link between a Log Analytics workspace and an Automation account using the following procedure.
 
 1. Select the Automation account in the Azure portal.
