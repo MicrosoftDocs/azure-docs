@@ -292,6 +292,11 @@ The following are post-installation known issues for this build version.
 
    To find metrics data, such as the CPU Percentage chart for the VM, go to the Metrics window and show all the supported Windows VM guest metrics.
 
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks create two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is granted for each manage disks quota type. However, you may encounter the following issues:
+
+   1. For quota created before 1808 update, the Managed Disks quota will show 0 values in the Admin Portal, though 2048GiB is granted. You may increase or decrease the value based on your actual needs, and the newly set quota value will override the 2048 GiB default.
+   2. If you update the quota value in the UX to 0, it will be considered as taking the default value of 2048 GiB. As a workaround, set the quota value to 1.
 
 
 ### Networking  
