@@ -1,6 +1,7 @@
 ---
-title: Enable Application Insights for the Azure Machine Learning service 
-description: Learn how to set Application Insights for services deployed through Azure Machine Learning service 
+title: Monitor models with Application Insights
+titleSuffix: Azure Machine Learning service
+description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core

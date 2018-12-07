@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities percentage reference - Azure | Microsoft Docs
+title: Percentage Prebuilt entity
 titleSuffix: Azure
 description: This article contains percentage prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -21,7 +22,7 @@ Percentage is managed from the [Recognizers-text](https://github.com/Microsoft/R
 ## Resolution for prebuilt percentage entity
 The following example shows the resolution of the **builtin.percentage** entity.
 
-```JSON
+```json
 {
   "query": "set a trigger when my stock goes up 2%",
   "topScoringIntent": {

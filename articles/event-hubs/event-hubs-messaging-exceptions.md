@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs messaging exceptions | Microsoft Docs
+title: Messaging exceptions - Azure Event Hubs | Microsoft Docs
 description: List of Azure Event Hubs messaging exceptions and suggested actions.
 services: event-hubs
 documentationcenter: na
@@ -11,7 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---

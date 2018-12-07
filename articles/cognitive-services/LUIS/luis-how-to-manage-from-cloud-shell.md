@@ -1,10 +1,11 @@
 ---
-title: Azure Cloud Shell usage data for LUIS
-titleSuffix: Azure Cognitive Services
+title: Usage data - Cloud Shell
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how to get usage information in Azure Cloud Shell for LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
