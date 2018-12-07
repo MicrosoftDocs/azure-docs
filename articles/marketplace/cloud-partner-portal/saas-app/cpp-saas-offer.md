@@ -21,10 +21,7 @@ ms.author: pbutlerm
 
 This section explains how to publish a software as a service (SaaS) application offer to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
 
-|    |    |
-|-----------------------------------------------------------------|------------------------------------------|
-| Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will log on through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment. | ![SaaS application icon](./media/saas-icon.png)  |
-
+Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will log on through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment.
 
 ## Benefits
 
