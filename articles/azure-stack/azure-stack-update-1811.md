@@ -96,6 +96,9 @@ Fixed: - The account you use to sign in to the Azure Stack admin or user portal 
 <!--  2873083 - IS ASDK --> 
 Fixed: -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
 
+<!-- 3190553 - IS ASDK -->
+Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance unavailable or Scale Unit Node offline.
+
 ### Changes
 
 A new way to view and edit the quotas in a plan is introduced. see <link> for details
@@ -204,14 +207,6 @@ The following are post-installation known issues for this build version.
 
 ### Health and monitoring
 
-<!-- TBD - IS -->
-- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
-   - *Infrastructure role instance unavailable*
-   - *Scale unit node is offline*
-   
-  Run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
-
-  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4471993/), so be sure to install this hotfix if you're experiencing the issue. 
 
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
@@ -230,16 +225,6 @@ The following are post-installation known issues for this build version.
 
   Both alerts can be safely ignored and they'll close automatically over time.  
 
-
-<!-- 2812138 | IS --> 
-- You might see an alert for the **Storage** component that has the following details:
-
-   - NAME: Storage service internal communication error  
-   - SEVERITY: Critical  
-   - COMPONENT: Storage  
-   - DESCRIPTION: Storage service internal communication error occurred when sending requests to the following nodes.  
-
-    The alert can be safely ignored, but you need to close the alert manually.
 
 <!-- 2368581 - IS, ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
