@@ -68,7 +68,7 @@ This update includes the following improvements for Azure Stack:
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
-- Added extended data at rest encryption protection to include also all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack. For more information, see [data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
+- Added extended data at rest encryption protection to include all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack. For more information, see [data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
 
 ### Fixed issues
 
@@ -88,7 +88,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications. 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/en-us/help/4481548) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Fixed: - The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
@@ -135,7 +135,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 > [!Important]  
 > Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-- Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/).
+- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md). 
+
+- Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
@@ -155,7 +157,7 @@ For more information about these vulnerabilities, click on the preceding links, 
     The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
     ``` 
  
-- In addition to various quality improvements, the [1.1809.3.96 Hotfix](https://support.microsoft.com/help/4471993/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
+- In addition to various quality improvements, the [1.1809.12.114 Hotfix](https://support.microsoft.com/help/4481548/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
  
     ```shell
     Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
