@@ -41,20 +41,32 @@ The following visual illustrates how the various Azure data transfer tools can b
 
 Answer the following questions to help select a data transfer solution:
 
-- Is your available network bandwidth limited or non-existent, and you want to transfer large datasets? If yes, see: [Scenario 1: Transfer large datasets with no or low network bandwidth](storage-solution-large-dataset-low-network.md).
-- Do you want to transfer large datasets over network and you have a moderate to high network bandwidth? If yes, see: [Scenario 2: Transfer large datasets with moderate to high network bandwidth](storage-solution-large-dataset-moderate-high-network.md).
-- Do you want to occasionally transfer just a few files over the network? If yes, see [Scenario 3: Transfer small datasets with limited to moderate network bandwidth](storage-solution-small-dataset-low-moderate-network.md).
-- Are you looking for point-in-time data transfer at regular intervals? If yes, use the scripted/programmatic options outlined in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
-- Are you looking for on-going, continuous data transfer? If yes, use the options in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
+- Is your available network bandwidth limited or non-existent, and you want to transfer large datasets?
+  
+    If yes, see: [Scenario 1: Transfer large datasets with no or low network bandwidth](storage-solution-large-dataset-low-network.md).
+- Do you want to transfer large datasets over network and you have a moderate to high network bandwidth?
+
+    If yes, see: [Scenario 2: Transfer large datasets with moderate to high network bandwidth](storage-solution-large-dataset-moderate-high-network.md).
+- Do you want to occasionally transfer just a few files over the network?
+
+    If yes, see [Scenario 3: Transfer small datasets with limited to moderate network bandwidth](storage-solution-small-dataset-low-moderate-network.md).
+- Are you looking for point-in-time data transfer at regular intervals?
+
+    If yes, use the scripted/programmatic options outlined in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
+- Are you looking for on-going, continuous data transfer?
+
+    If yes, use the options in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
 
 ## Next steps
 
 - [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Read an overview of AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
-- Understand:
+- [Use Azure PowerShell with Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
+- [Use Azure CLI with Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- Learn about:
 
-    - [Azure Data Box family for offline transfers](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box family for online transfers](https://docs.microsoft.com/azure/databox-online/).
+    - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](https://docs.microsoft.com/azure/databox/).
+    - [Azure Data Box Gateway and Azure Data Box Edge for online transfers](https://docs.microsoft.com/azure/databox-online/).
 - [Learn what is Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - Use the REST APIs to transfer data
 
