@@ -137,7 +137,7 @@ Create a storage account and container for clean data to reside.
 
 1.  Sign in to the [*Azure portal*](https://portal.azure.com/).
 
-2.  In the Azure portal, expand the menu on the left side to open the menu of services and choose **All Services**. Scroll down to **Storage** and choose **Storage accounts**. In the **Storage Accounts **window choose **Add**.
+2.  In the Azure portal, expand the menu on the left side to open the menu of services and choose **All Services**. Scroll down to **Storage** and choose **Storage accounts**. In the **Storage Accounts** window choose **Add**.
 
 3.  Enter a name for the storage account.
 
@@ -190,7 +190,7 @@ Create an Ubuntu Data Science Virtual Machine (DSVM) in the Azure portal.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image6.png)
 
-> ![!Important]  
+> [!Important]  
 > Choose **Password** as the **Authentication type**.
 
 Place the new DSVM in the same resource group as the newly created storage account. All Edge ML objects are deployed in Azure within this Resource Group.
@@ -1957,9 +1957,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 1.  Set the Kubernates Service connection to the Azure Stack Connection created earlier, and then select the **Use configuration files** checkbox to add a configuration file. Browse to the iris_service.yaml file in the Linked Artifacts.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image135.png)
-
-    
-
+    <!-- -->
     ![Alt text](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Save the release definition.
