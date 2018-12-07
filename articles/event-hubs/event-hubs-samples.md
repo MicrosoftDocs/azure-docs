@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs samples | Microsoft Docs
+title: Samples - Azure Event Hubs | Microsoft Docs
 description: Azure Event Hubs samples 
 services: event-hubs
 documentationcenter: na

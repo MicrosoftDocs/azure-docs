@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs metrics in Azure Monitor (preview) | Microsoft Docs
+title: Metrics in Azure Monitor (preview) - Azure Event Hubs | Microsoft Docs
 description: Use Azure Monitoring to monitor Event Hubs
 services: event-hubs
 documentationcenter: .NET

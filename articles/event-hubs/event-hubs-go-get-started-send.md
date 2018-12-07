@@ -1,5 +1,5 @@
 ---
-title: Send events to Azure Event Hubs using Go | Microsoft Docs
+title: Send events using Go - Azure Event Hubs | Microsoft Docs
 description: Get started sending events to Event Hubs using Go
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,7 +8,8 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
