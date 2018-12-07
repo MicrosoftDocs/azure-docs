@@ -180,7 +180,7 @@ After the gateway has been created, you can upload the .cer file (which contains
 
 To connect to a VNet by using a Point-to-Site VPN, each client must install a package to configure the native Windows VPN client. The configuration package configures the native Windows VPN client with the settings necessary to connect to the virtual network.
 
-You can use the same VPN client configuration package on each client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#faq) at the end of this article.
+You can use the same VPN client configuration package on each client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#point-to-site-faq) at the end of this article.
 
 ### Part 1: Generate and install the VPN client configuration package
 
@@ -276,7 +276,7 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 1. Retrieve the client certificate thumbprint. For more information, see [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copy the information to a text editor and remove all spaces so that it's a continuous string.
 3. Navigate to the **'classic virtual network name' > Point-to-site VPN connection > Certificates** page and then select **Revocation list** to open the Revocation list page. 
-4. On the **Revocation list** page, select **+Add certificate** to open the **Add certificate to revocation list** page.
+4. On the **Revocation list** page, select **Add certificate** to open the **Add certificate to revocation list** page.
 5. On the **Add certificate to revocation list** page, paste the certificate thumbprint as one continuous line of text, with no spaces. Select **OK** at the bottom of the page.
 6. After updating has completed, the certificate can no longer be used to connect. Clients that try to connect by using this certificate receive a message saying that the certificate is no longer valid.
 
