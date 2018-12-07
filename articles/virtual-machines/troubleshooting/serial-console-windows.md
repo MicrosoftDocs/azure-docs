@@ -123,6 +123,9 @@ The serial console can be used to send an NMI to an Azure virtual machine by usi
 ### Use function keys in serial console
 Function keys are enabled for usage for serial console in Windows VMs. The F8 in the serial console dropdown provides the convenience of easily entering the Advanced Boot Settings menu, but serial console is compatible with all other function keys. You may need to press **Fn** + **F1** (or F2, F3, etc) on your keyboard depending on the computer you are using serial console from.
 
+### Use WSL in serial console
+The Windows Subsystem for Linux (WSL) has been enabled for Windows Server 2019 or later, so it is also possible to enable WSL for use within the serial console if you are running Windows Server 2019 or later. This may be beneficial for users that also have a familiarity with Linux commands. Instructions to enable WSL for Windows Server are available [here](https://docs.microsoft.com/en-us/windows/wsl/install-on-server).
+
 ![Send NMI](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
 For information on configuring Windows to create a crash dump file when it receives an NMI, see [How to generate a crash dump file by using an NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
