@@ -1,5 +1,5 @@
 ---
-title: Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Docs
+title: Sample data in different Azure storage locations - Team Data Science Process
 description: Sample data in Azure blob containers, SQL Server, and Hive tables to reduce it to a smaller but representative and more manageable size.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
 
