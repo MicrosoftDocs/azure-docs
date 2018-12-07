@@ -55,7 +55,7 @@ Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agen
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
 | Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
@@ -231,7 +231,7 @@ The Dependency Agent is installed on Linux computers through InstallDependencyAg
 
 Use the following steps to install the Dependency Agent on each Linux computer:
 
-1. Install the Log Analytics agent following the steps in [Collect data from Linux computers hosted in your environment](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Install the Log Analytics agent following the steps in [Collect data from Linux computers hosted in your environment](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Download the Linux Dependency Agent using the link in the previous section and then install it as root by using the following command:
 sh InstallDependencyAgent-Linux64.bin
 3. If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is: /var/opt/microsoft/dependency-agent/log.

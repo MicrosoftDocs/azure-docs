@@ -95,7 +95,7 @@ Use the following information to install and configure the solution.
 
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
   - For standalone hosts:
-    - On supported Linux operating systems, install and run Docker and then install and configure the [Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md).  
+    - On supported Linux operating systems, install and run Docker and then install and configure the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
     - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review [Linux container hosts including CoreOS](#for-all-linux-container-hosts-including-coreos) or [Azure Government Linux container hosts including CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) if you are working with containers in Azure Government Cloud.
     - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Log Analytics. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
   - For Docker multi-host orchestration:
@@ -111,7 +111,7 @@ Use the following information to install and configure the solution.
 Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
-> Docker must be running **before** you install the [Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) on your container hosts. If you've already installed the agent before installing Docker, you need to reinstall the Log Analytics agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
+> Docker must be running **before** you install the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) on your container hosts. If you've already installed the agent before installing Docker, you need to reinstall the Log Analytics agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
 
 
 ### Install and configure Linux container hosts
@@ -140,7 +140,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Switching from using an installed Linux agent to one in a container**
 
-If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the Log Analytics agent for Linux. See [Uninstalling the Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) to understand how to successfully uninstall the agent.  
+If you previously used the directly-installed agent and want to instead use an agent running in a container, you must first remove the Log Analytics agent for Linux. See [Uninstalling the Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) to understand how to successfully uninstall the agent.  
 
 #### Configure a Log Analytics agent for Docker Swarm
 
@@ -184,8 +184,8 @@ For Docker Swarm, once the secret for Workspace ID and Primary Key is created, u
 #### Configure a Log Analytics agent for Red Hat OpenShift
 There are three ways to add the Log Analytics agent to Red Hat OpenShift to start collecting container monitoring data.
 
-* [Install the Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) directly on each OpenShift node  
-* [Enable Log Analytics VM Extension](../../log-analytics/log-analytics-quick-collect-azurevm.md) on each OpenShift node residing in Azure  
+* [Install the Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) directly on each OpenShift node  
+* [Enable Log Analytics VM Extension](../../azure-monitor/learn/quick-collect-azurevm.md) on each OpenShift node residing in Azure  
 * Install the Log Analytics agent as a OpenShift daemon-set  
 
 In this section we cover the steps required to install the Log Analytics agent as an OpenShift daemon-set.  
@@ -518,9 +518,9 @@ For more information about the Docker daemon configuration used with Windows Con
 
 #### Install Windows agents
 
-To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](../../log-analytics/log-analytics-quick-collect-azurevm.md).
+To enable Windows and Hyper-V container monitoring, install the Microsoft Monitoring Agent (MMA) on Windows computers that are container hosts. For computers running Windows in your on-premises environment, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). For virtual machines running in Azure, connect them to Log Analytics using the [virtual machine extension](../../azure-monitor/learn/quick-collect-azurevm.md).
 
-You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](../../log-analytics/log-analytics-quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](../../azure-monitor/platform/agent-windows.md) are currently supported for Service Fabric.
+You can monitor Windows containers running on Service Fabric. However, only [virtual machines running in Azure](../../azure-monitor/learn/quick-collect-azurevm.md) and [computers running Windows in your on-premises environment](../../azure-monitor/platform/agent-windows.md) are currently supported for Service Fabric.
 
 You can verify that the Container Monitoring solution is set correctly for Windows. To check whether the management pack was download properly, look for *ContainerManagement.xxx*. The files should be in the C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs folder.
 
@@ -536,9 +536,9 @@ The Container Monitoring solution collects various performance metrics and log d
 
 Data is collected every three minutes by the following agent types.
 
-- [Log Analytics agent for Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+- [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Windows agent](../../azure-monitor/platform/agent-windows.md)
-- [Log Analytics VM extension](../../log-analytics/log-analytics-quick-collect-azurevm.md)
+- [Log Analytics VM extension](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 
 ### Container records
