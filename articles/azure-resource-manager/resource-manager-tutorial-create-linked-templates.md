@@ -18,7 +18,7 @@ ms.author: jgao
 
 # Tutorial: Create linked Azure Resource Manager templates
 
-Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. It is great for modularizing templates. In this tutorial, you use the same template used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md), which creates a virtual machine, a virtual network, and other dependent resource including a storage account. You separate the storage account resource to a linked template.
+Learn how to create linked Azure Resource Manager templates. Using linked templates, you can have one template call another template. It is great for modularizing templates. In this tutorial, you use the same template used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md), which creates a virtual machine, a virtual network, and other dependent resource including a storage account. You separate the storage account resource creation to a linked template.
 
 This tutorial covers the following tasks:
 
@@ -29,6 +29,7 @@ This tutorial covers the following tasks:
 > * Link to the linked template
 > * Configure dependency
 > * Deploy the template
+> * Additional practices
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -46,7 +47,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). This is the same template used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). You save two copies of the same template to be used as:
+Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). This is the same template used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). You save two copies of the same template to be used as:
 
 * **The main template**: create all the resources except the storage account.
 * **The linked template**: create the storage account.
@@ -66,7 +67,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
     * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    It is helpful to get some basic understanding of the template before customizing it.
+    It is helpful to get some basic understanding of the template before customizing the template.
 5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 6. Select **File**>**Save As** to create another copy of the file with the name **linkedTemplate.json**.
 
@@ -74,10 +75,27 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 The linked template creates a storage account. The linked template is almost identical to the standalone template that creates a storage account. In this tutorial, the linked template needs to pass a value back to the main template. This value is defined in the `outputs` element.
 
-1. Open linkedTemplate.json in Visual Studio Code if it is not opened.
+1. Open linkedTemplate.json in Visual Studio Code if the file is not opened.
 2. Make the following changes:
 
     * Remove all the resources except the storage account. You remove a total of four resources.
+    * Update the value of the **name** element of the storage account resource to:
+
+        ```json
+          "name": "[parameters('storageAccountName')]",
+        ```
+    * Remove the **variables** element, and all the variable definitions.
+    * Remove all the parameters except **location**.
+    * Add a parameter called **storageAccountName**. The storage account name is passed from the main template to the linked template as a parameter.
+
+        ```json
+        "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+        },
+        ```
     * Update the **outputs** element, so it looks like:
 
         ```json
@@ -89,9 +107,6 @@ The linked template creates a storage account. The linked template is almost ide
         }
         ```
         **storageUri** is required by the virtual machine resource definition in the main template.  You pass the value back to the main template as an output value.
-    * Remove the parameters that are never used. These parameters have a green wave line underneath them. You shall only have one parameter left called **location**.
-    * Remove the **variables** element. They are no needed in this tutorial.
-    * Add a parameter called **storageAccountName**. The storage account name is passed from the main template to the linked template as a parameter.
 
     When you are done, the template shall look like:
 
@@ -139,16 +154,16 @@ The linked template creates a storage account. The linked template is almost ide
 
 ## Upload the linked template
 
-The main template and the linked template need to be accessible from where you run the deployment. This location could be an Azure storage account, Github, or Dropbox. If your templates contain sensitive information, make sure you protect access to them. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere securely. The following PowerShell script creates an Azure Storage account, uploads the template to the Storage account, and then generates a SAS token to grand limited access to the template file. To simply the tutorial, the script downloads a completed linked template from a shared location. If you want to use the linked template you created, you can use the [Cloud shell](https://shell.azure.com) to upload your linked template, and then modify the script to use your own linked template.
+The main template and the linked template need to be accessible from where you run the deployment. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere securely. The following PowerShell script creates an Azure Storage account, uploads the template to the Storage account, and then generates a SAS token to grand limited access to the template file. To simply the tutorial, the script downloads a completed linked template from a shared location. If you want to use the linked template you created, you can use the [Cloud shell](https://shell.azure.com) to upload your linked template, and then modify the script to use your own linked template.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The script limits the SAS token to be used within eight hours. If you need more time to complete this tutorial, increase the expiry time.
 
 At the end of the script, it shows the resource group name and the template URI with an SAS token. You need the values later in the tutorial.
 
 ```azurepowershell-interactive
 $projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 
 $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
@@ -196,6 +211,12 @@ echo "Resource Group Name: $resourceGroupName"
 echo "Linked template URI with SAS token: $templateURI"
 ```
 
+1. Select the **Try It** green button to open the Azure cloud shell pane.
+2. Select **Copy** to copy the PowerShell script.
+3. Right-click anywhere inside the shell pane (the navy blue part), and then select **Paste**.
+4. Make a note of the two values (Resource Group Name and Linked template URI) at the end of the shell pane.
+5. Select **Exit focus mode** to close the shell pane.
+
 In practice, you generate a SAS token when you deploy the main template, and give the SAS token expiry a smaller window to make it more secure. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
 
 ## Call the linked template
@@ -203,14 +224,28 @@ In practice, you generate a SAS token when you deploy the main template, and giv
 The main template is called azuredeploy.json.
 
 1. Open azuredeploy.json in Visual Studio Code if it is not opened.
-2. Delete the storage account resource definition from the template.
+2. Delete the storage account resource definition from the template:
+
+    ```json
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    ```
 3. Add the following json snippet to the place where you had the storage account definition:
 
     ```json
     {
-      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
       "properties": {
           "mode": "Incremental",
           "templateLink": {
@@ -236,7 +271,7 @@ The main template is called azuredeploy.json.
 
 ## Configure dependency
 
-Recall from [Tutorial: create multiple resource instances using Resource Manager template](./resource-manager-tutorial-create-multiple-instances.md), the virtual machine resource depends on the storage account:
+Recall from [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md), the virtual machine resource depends on the storage account:
 
 ![Azure Resource Manager templates dependency diagram](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
@@ -261,13 +296,14 @@ Because the storage account is defined in the linked template now, you must upda
     ![Azure Resource Manager linked templates configure dependency ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* is the name of the deployments resource.  
-3. update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
+3. Update **properties/diagnosticsProfile/bootDiagnostics/storageUri** as shown in the previous screenshot.
+4. Save the revised template.
 
 For more information, see [Use linked and nested templates when deploying Azure resources](./resource-group-linked-templates.md)
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the same resource group name as the storage account for storing the linked template. It makes it easier to clean up resources in the next section. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
 ## Clean up resources
 
@@ -280,14 +316,14 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Additional practice
 
-Make the following additional changes to the completed project:
+To improve the project, make the following additional changes to the completed project:
 
 1. Modify the main template (azuredeploy.json) so that it takes the linked template URI value via a parameter.
 2. Instead of generating a SAS token when you upload the linked template, generate the token when you deploy the main template. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
 
 ## Next steps
 
-In this tutorial, you developed and deployed a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see:
+In this tutorial, you modularized a template into a main template and a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
 > [Deploy virtual machine extensions](./deployment-manager-tutorial.md)
