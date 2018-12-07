@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl chaos schedule
 Get and set the chaos schedule.
 
@@ -25,7 +26,7 @@ Get and set the chaos schedule.
 |Command|Description|
 | --- | --- |
 | get | Get the Chaos Schedule defining when and how to run Chaos. |
-| set | Set the Chaos Schedule to be used by Chaos. |
+| set | Set the schedule used by Chaos. |
 
 ## sfctl chaos schedule get
 Get the Chaos Schedule defining when and how to run Chaos.
@@ -49,9 +50,9 @@ Gets the version of the Chaos Schedule in use and the Chaos Schedule that define
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl chaos schedule set
-Set the Chaos Schedule to be used by Chaos.
+Set the schedule used by Chaos.
 
-Set the Chaos Schedule currently in use by Chaos. Chaos will automatically schedule runs based on the Chaos Schedule. The version in the provided input schedule must match the version of the Chaos Schedule on the server. If the version provided does not match the version on the server, the Chaos Schedule is not updated. If the version provided matches the version on the server, then the Chaos Schedule is updated and the version of the Chaos Schedule on the server is incremented up by one and wraps back to 0 after 2,147,483,647. If Chaos is running when this call is made, the call will fail.
+Chaos will automatically schedule runs based on the Chaos Schedule. The version in the provided input schedule must match the version of the Chaos Schedule on the server. If the version provided does not match the version on the server, the Chaos Schedule is not updated. If the version provided matches the version on the server, then the Chaos Schedule is updated and the version of the Chaos Schedule on the server is incremented up by one and wraps back to 0 after 2,147,483,647. If Chaos is running when this call is made, the call will fail.
 
 ### Arguments
 
@@ -76,69 +77,21 @@ Set the Chaos Schedule currently in use by Chaos. Chaos will automatically sched
 
 ### Examples
 
-The following command sets a schedule (assuming the current schedule has version 0) that starts on 2016-01-01 and expires on 2038-01-01 that runs Chaos 24 hours of the day, 7 days a week. Chaos will be scheduled on the cluster for that time.
+The following command sets a schedule (assuming the current schedule has version 0) that starts
+on 2016-01-01 and expires on 2038-01-01 that runs Chaos 24 hours of the day, 7 days a week.
+Chaos will be scheduled on the cluster for that time.
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-
+date-utc "2038-01-01T00:00:00.000Z" --chaos-parameters-dictionary [{\"Key\":\"adhoc\",\"Valu
+e\":{\"MaxConcurrentFaults\":3,\"EnableMoveReplicaFaults\":true,\"ChaosTargetFilter\":{\"Nod
+eTypeInclusionList\":[\"N0010Ref\",\"N0020Ref\",\"N0030Ref\",\"N0040Ref\",\"N0050Ref\"]},\"M
+axClusterStabilizationTimeoutInSeconds\":60,\"WaitTimeBetweenIterationsInSeconds\":15,\"Wait
+TimeBetweenFaultsInSeconds\":30,\"TimeToRunInSeconds\":\"600\",\"Context\":{\"Map\":{\"test\
+":\"value\"}},\"ClusterHealthPolicy\":{\"MaxPercentUnhealthyNodes\":0,\"ConsiderWarningAsErr
+or\":true,\"MaxPercentUnhealthyApplications\":0}}}] --jobs [{\"ChaosParameters\":\"adhoc\",\
+"Days\":{\"Sunday\":true,\"Monday\":true,\"Tuesday\":true,\"Wednesday\":true,\"Thursday\":tr
+ue,\"Friday\":true,\"Saturday\":true},\"Times\":[{\"StartTime\":{\"Hour\":0,\"Minute\":0},\"
+EndTime\":{\"Hour\":23,\"Minute\":59}}]}]
 
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
-    --chaos-parameters-dictionary 
-    [  
-    {  
-        "Key":"adhoc",
-        "Value":{  
-            "MaxConcurrentFaults":3,
-            "EnableMoveReplicaFaults":true,
-            "ChaosTargetFilter":{  
-                "NodeTypeInclusionList":[  
-                "N0010Ref",
-                "N0020Ref",
-                "N0030Ref",
-                "N0040Ref",
-                "N0050Ref"
-                ]
-            },
-            "MaxClusterStabilizationTimeoutInSeconds":60,
-            "WaitTimeBetweenIterationsInSeconds":15,
-            "WaitTimeBetweenFaultsInSeconds":30,
-            "TimeToRunInSeconds":"600",
-            "Context":{  
-                "Map":{  
-                "test":"value"
-                }
-            },
-            "ClusterHealthPolicy":{  
-                "MaxPercentUnhealthyNodes":0,
-                "ConsiderWarningAsError":true,
-                "MaxPercentUnhealthyApplications":0
-            }
-        }
-    }
-    ]
-    --jobs 
-    [  
-    {  
-        "ChaosParameters":"adhoc",
-        "Days":{  
-            "Sunday":true,
-            "Monday":true,
-            "Tuesday":true,
-            "Wednesday":true,
-            "Thursday":true,
-            "Friday":true,
-            "Saturday":true
-        },
-        "Times":[  
-            {  
-                "StartTime":{  
-                "Hour":0,
-                "Minute":0
-                },
-                "EndTime":{  
-                "Hour":23,
-                "Minute":59
-                }
-            }
-        ]
-    }
-    ]
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
