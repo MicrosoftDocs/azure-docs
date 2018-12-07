@@ -10,8 +10,9 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Publish a knowledge base
+# Publish a knowledge base in QnA Maker
 
 Publishing your knowledge base is the final step in making your knowledge base available as a question-answering endpoint. 
 

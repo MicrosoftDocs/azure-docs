@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities keyphrase reference - Azure | Microsoft Docs
+title: Keyphrase Prebuilt entity
 titleSuffix: Azure
 description: This article contains keyphrase prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -18,7 +19,7 @@ keyPhrase extracts a variety of key phrases from an utterance. You do not need t
 ## Resolution for prebuilt keyPhrase entity
 The following example shows the resolution of the **builtin.keyPhrase** entity.
 
-```JSON
+```json
 {
   "query": "where is the educational requirements form for the development and engineering group",
   "topScoringIntent": {

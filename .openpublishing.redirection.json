@@ -31742,6 +31742,36 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/log-analytics/log-analytics-powershell-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-azurevm.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-azurevm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-linux-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-linux-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-sccm.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-sccm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-usage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-usage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/powershell-samples.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-samples",
+            "redirect_document_id":  true
+        },        
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

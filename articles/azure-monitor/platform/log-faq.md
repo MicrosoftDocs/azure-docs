@@ -215,7 +215,7 @@ A: You need to add 'etag' in the body of the API, or the Azure Resource Manager 
 ### Q. How much data can I send through the agent to Log Analytics? Is there a maximum amount of data per customer?
 A. The free plan sets a daily cap of 500 MB per workspace. The standard and premium plans have no limit on the amount of data that is uploaded. As a cloud service, Log Analytics is designed to automatically scale up to handle the volume coming from a customer – even if it is terabytes per day.
 
-The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../log-analytics/log-analytics-usage.md) page.
+The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
 For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
@@ -231,7 +231,7 @@ A. The amount of data sent per agent depends on:
 * The number of logs and performance counters being collected
 * The volume of data in the logs
 
-The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](../../log-analytics/log-analytics-usage.md) page.
+The free pricing tier is a good way to onboard several servers and gauge the typical data volume. Overall usage is shown on the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
 For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
 

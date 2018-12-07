@@ -1,5 +1,5 @@
 ---
-title: How to Troubleshoot Azure Monitor for containers (Preview) | Microsoft Docs
+title: How to Troubleshoot Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: magoedte
 ---
 
-# Troubleshooting Azure Monitor for containers (Preview)
+# Troubleshooting Azure Monitor for containers
 
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
 

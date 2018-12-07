@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -69,15 +69,6 @@ This update includes the following improvements for Azure Stack:
 
 - <!-- 3078022 - IS, ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
 
-<!-- 3090289 – IS, ASDK --> 
-- Fixed the issue where after applying the 1808 update, you might encounter the following issues when deploying VMs with Managed Disks:
-
-   1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
-      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
-   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
-      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066).
-      2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 
 ### Changes
@@ -173,7 +164,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 > Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## Known issues (post-installation)
 
@@ -226,7 +217,7 @@ The following are post-installation known issues for this build version.
    
   Run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
 
-  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4477849/), so be sure to install this hotfix if you're experiencing the issue. 
+  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4481548/), so be sure to install this hotfix if you're experiencing the issue. 
 
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
@@ -292,7 +283,13 @@ The following are post-installation known issues for this build version.
 
    To find metrics data, such as the CPU Percentage chart for the VM, go to the Metrics window and show all the supported Windows VM guest metrics.
 
+<!-- TBD - IS ASDK --> 
+After applying the 1809 update, you may encounter the following issues when deploying VMs with Managed Disks:
 
+   1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 ### Networking  
 

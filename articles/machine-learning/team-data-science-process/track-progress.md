@@ -1,6 +1,6 @@
 ---
-title: Execution of data science projects - Azure Machine Learning | Microsoft Docs
-description: How a data scientist can track the progress of a data science project.
+title: Tracking the progress of data science projects - Azure Machine Learning | Microsoft Docs
+description: How data science group managers, team lease, and project leads can track the progress of a data science project.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,11 +9,11 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 
-# Track progress of data science projects
+# Tracking the progress of data science projects
 
 Data science group managers, team leads, and project leads need to track the progress of their projects, what work has been done on them and by whom, and remains on the to-do lists. 
 

@@ -135,7 +135,7 @@ Logs collected by Azure Monitor are stored in Log Analytics which collects telem
 Log Analytics can collect data from a variety of sources both within Azure and from on-premises resources. Sources of data written to Log Analytics include the following:
 
 - [Activity logs](../../azure-monitor/platform/collect-activity-logs.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) that provide insights into their operation.
-- Agents on [Windows](../../log-analytics/log-analytics-windows-agent.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](../../azure-monitor/platform/agent-data-sources.md) that you configure.
+- Agents on [Windows](../../log-analytics/log-analytics-windows-agent.md) and [Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](../../azure-monitor/platform/agent-data-sources.md) that you configure.
 - Application data collected by [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data providing insights into a particular application or service from [monitoring solutions](../insights/solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.
 - Security data collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
