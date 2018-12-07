@@ -10,7 +10,7 @@ ms.author: raynew
 ---
 
 
-## Best practices for securing and managing workloads migrated to Azure
+# Best practices for securing and managing workloads migrated to Azure
 
 As you plan and design for migration, in addition to thinking about the migration itself, you need to plan for your security and management model in Azure after migration. This article describes planning and best practices for securing your Azure deployment after migrating, and for ongoing tasks to keep your deployment running at any optimal level. 
 
