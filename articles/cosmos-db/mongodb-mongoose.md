@@ -14,7 +14,7 @@ ms.author: sclyon
 ---
 # Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
 
-This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
+This tutorial demonstrates how to use the [Mongoose Framework](https://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -91,7 +91,7 @@ For every model you create, Mongoose creates a new MongoDB collection underneath
 
 This walkthrough covers both models. We'll first cover the walkthrough on storing one type of data per collection. This is the defacto behavior for Mongoose.
 
-Mongoose also has a concept called [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
+Mongoose also has a concept called [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
 
 You can store the various data models in the same collection and then use a filter clause at query time to pull down only the data needed.
 
@@ -191,7 +191,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 ### Using Mongoose discriminators to store data in a single collection
 
-In this method, we use [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
+In this method, we use [Mongoose Discriminators](https://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
 
 Here, we create a base object model, define a differentiating key and add 'Family' and 'VacationDestinations' as an extension to the base model.
 

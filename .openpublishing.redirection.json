@@ -2,6 +2,21 @@
     "redirections": [
 
         {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-iot.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
             "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
             "redirect_document_id": true
@@ -30585,8 +30600,8 @@
         {
             "source_path": "articles/azure-portal/tutorial-azureportal-devops.md",
             "redirect_url": "https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav",
-            "redirect_document_id": false 
-        },        
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
@@ -30607,7 +30622,7 @@
             "redirect_url": "/visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address",
             "redirect_document_id": true
@@ -30617,152 +30632,152 @@
             "redirect_url": "/visualstudio/azure/vs-azure-tools-command-line-build",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-configure-roles-for-cloud-service.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service",
             "redirect_document_id": true
-        },                
-        {   
+        },
+        {
             "source_path": "articles/vs-azure-tools-configuring-an-azure-project.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-connected-services-add-mobile-services.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-connected-services-add-mobile-services",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-connected-services-storage.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-connected-services-storage",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-debug-cloud-services-virtual-machines.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-debugging-cloud-services-overview.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-edit-and-refresh.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-edit-and-refresh",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-hosting-web-apps-in-docker.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-hosting-web-apps-in-docker",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-machine-azure-config.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-machine-azure-config",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-setup.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-setup",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-troubleshooting-docker-errors.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-troubleshooting-docker-errors",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-emulator-express-debug-run.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-emulator-express-debug-run",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-intellitrace-debug-published-cloud-services.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-migrate-publish-web-app-to-cloud-service.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-migrate-publish-web-app-to-cloud-service",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-multiple-services-project-configurations.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-multiple-services-project-configurations",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-optimizing-azure-code-in-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-optimizing-azure-code-in-visual-studio",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-performance-profiling-cloud-services.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publish-azure-application-wizard.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publish-webapplicationvm.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publish-webapplicationvm",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publish-webapplicationwebsite-windows-powershell-script.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publish-webapplicationwebsite-windows-powershell-script",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publishing-a-cloud-service.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publishing-a-cloud-service",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publishing-using-powershell-scripts.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publishing-using-powershell-scripts",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-resources-managing-with-cloud-explorer.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-service-configurations-and-profiles-how-to-manage.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-service-configurations-and-profiles-how-to-manage",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-setting-up-named-authentication-credentials.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-setting-up-named-authentication-credentials",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-storage-resources-server-explorer-browse-manage.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-table-designer-construct-filter-strings.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-table-designer-construct-filter-strings",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-upgrade-projects-to-the-current-version-of-the-azure-tools.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-upgrade-projects-to-the-current-version-of-the-azure-tools",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-virtual-machines-access-from-server-explorer.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-virtual-machines-access-from-server-explorer",
             "redirect_document_id": true
@@ -30941,7 +30956,7 @@
             "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
             "redirect_document_id" : false
         },
-	    {  
+	    {
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
@@ -30994,6 +31009,11 @@
         {
             "source_path":  "articles/monitoring/monitoring-solutions-solution-file.md",
             "redirect_url":  "/azure/azure-monitor/insights/solutions-solution-file",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/key-vault/tutorial-web-application-keyvault.md",
+            "redirect_url":  "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
             "redirect_document_id":  "false"
         },
         {
@@ -31742,6 +31762,36 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/log-analytics/log-analytics-powershell-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-azurevm.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-azurevm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-linux-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-linux-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-sccm.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-sccm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-usage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-usage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/powershell-samples.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-samples",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -31761,10 +31811,15 @@
             "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
             "redirect_document_id":  false
         },
-		{
-			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-			"redirect_url": "/azure/application-insights/app-insights-app-map",
-			"redirect_document_id": true
-		}
+        {
+        	"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
+        	"redirect_url": "/azure/application-insights/app-insights-app-map",
+        	"redirect_document_id": true
+        },
+        {
+            "source_path":  "articles/cognitive-services/Speech-Service/how-to-text-to-speech.md",
+            "redirect_url":  "/azure/cognitive-services/speech-service/quickstart-python-text-to-speech",
+            "redirect_document_id":  true
+        }
     ]
 }

@@ -649,7 +649,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### Train the automatic regression model
 
-Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment, and set the output to `true` to view progress during the experiment.
+Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment, and set the output to `True` to view progress during the experiment.
 
 
 ```python
@@ -713,7 +713,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter Widget run details](./media/tutorial-auto-train-models/jup-widget-auto.png)
+![Jupyter Widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter Widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### Option 2: Get and examine all run iterations in Python
 
