@@ -13,7 +13,7 @@ ms.date: 12/07/2018
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
 
-In this tutorial, you learn how to run sentiment analysis on a stream of data using Azure Databricks in near real-time. You set up data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run sentiment analysis on the streamed data.
+In this tutorial, you learn how to run sentiment analysis on a stream of data using Azure Databricks in near real time. You set up data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run sentiment analysis on the streamed data.
 
 By the end of this tutorial, you would have streamed tweets from Twitter that have the term "Azure" in them and ran sentiment analysis on the tweets.
 
@@ -145,7 +145,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 ## Get a Cognitive Services access key
 
-In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a stream of tweets in near real-time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
+In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a stream of tweets in near real time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -390,7 +390,7 @@ The output now resembles the following snippet:
     ...
     ...
 
-You have now streamed data from Azure Event Hubs into Azure Databricks at near real-time using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+You have now streamed data from Azure Event Hubs into Azure Databricks at near real time using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## Run sentiment analysis on tweets
 
@@ -565,7 +565,7 @@ You should see an output like the following snippet:
 
 A value closer to **1** in the **Sentiment** column suggests a great experience with Azure. A value closer to **0** suggests issues that users faced while working with Microsoft Azure.
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran sentiment analysis on streaming data in near real-time.
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran sentiment analysis on streaming data in near real time.
 
 ## Clean up resources
 
