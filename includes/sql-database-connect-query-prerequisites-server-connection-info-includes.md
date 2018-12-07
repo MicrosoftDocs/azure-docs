@@ -11,7 +11,7 @@ ms.author: genemi
 ## Get SQL server connection information
 -->
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name, database name, and login information for the following procedures.
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -21,4 +21,4 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
-If you forget your server login information, you can select the server name to open the **SQL server** page and view the **Server admin** name. You can select **Reset password** to reset your password if necessary.
+If you forget your server login information, you can select the server name to open the **SQL server** page and view the **Server admin** name. On the **SQL server** page, you can select **Reset password** to reset your password if necessary.
