@@ -3,13 +3,13 @@ title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks'
 description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on streaming data in near real-time.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: "Active"
 ms.date: 10/23/2018
-ms.author: alehall
 ---
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
@@ -308,7 +308,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
