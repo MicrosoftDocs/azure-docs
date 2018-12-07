@@ -32,7 +32,7 @@ Run the following prerequisites either from the [development kit](./asdk/asdk-co
 
 ## Connect with Azure AD
 
-Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure AD tenantName, and ArmEndpoint values with your own environment configuration. <!-- GraphAudience endpoint -->
+Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure Active Directory (Azure AD) tenantName and ArmEndpoint values with your own environment configuration. <!-- GraphAudience endpoint -->
 
 ```PowerShell  
     # Set your tenant name
@@ -47,9 +47,7 @@ Configure the Azure Stack operator environment with PowerShell. Run one of the f
 
 ## Connect with AD FS
 
-Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure AD tenantName, and ArmEndpoint values with your own environment configuration. 
-
-For Azure Stack development kit, this ARM endpoint is set to `https://adminmanagement.local.azurestack.external`. To get the ARM endpoint for Azure Stack integrated systems, contact your service provider.
+Connect to the Azure Stack operator environment with PowerShell with Azure Active Directory Federated Services (Azure AD FS). For Azure Stack development kit, this ARM endpoint is set to `https://adminmanagement.local.azurestack.external`. To get the ARM endpoint for Azure Stack integrated systems, contact your service provider.
 
 <!-- GraphAudience endpoint -->
 
