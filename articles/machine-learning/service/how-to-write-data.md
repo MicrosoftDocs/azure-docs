@@ -1,5 +1,6 @@
 ---
-title: Write data with the Azure Machine Learning Data Prep SDK - Python
+title: Write and prep data with the Data Prep Python SDK
+titleSuffix: Azure Machine Learning service
 description: Learn about writing data with Azure Machine Learning Data Prep SDK. You can write out data at any point in a data flow, and to files in any of our supported locations (local file system, Azure Blob Storage, and Azure Data Lake Storage).
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 # Write data using the Azure Machine Learning Data Prep SDK
 

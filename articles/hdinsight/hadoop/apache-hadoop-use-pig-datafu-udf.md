@@ -62,7 +62,7 @@ DataFu can be downloaded and installed from the Maven repository. Use the follow
     > Replace the link in the command with the URL you copied earlier.
 
     ```
-    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
+    wget https://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. Next, upload the file to default storage for your HDInsight cluster. Placing the file in default storage makes it available to all nodes in the cluster.

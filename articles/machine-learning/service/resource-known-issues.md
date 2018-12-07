@@ -1,6 +1,7 @@
 ---
-title: Known Issues and Troubleshooting for Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting
+title: Known Issues and Troubleshooting
+titleSuffix: Azure Machine Learning service
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -9,6 +10,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018 
+ms.custom: seodec18
+
 ---
 # Known issues and troubleshooting Azure Machine Learning service
  
