@@ -95,10 +95,24 @@
 ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
+<!-- new section for Azure apps -->
+
+## [Azure application offer](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [Prerequisites](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Create Azure application offer](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [SKUs tab](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [Marketplace tab](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [Support tab](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Publish Azure application offer](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [Update existing offer](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
+
 
 ## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
+<!--### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) -->
 ### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
 ### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
