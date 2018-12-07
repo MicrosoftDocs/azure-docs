@@ -29,16 +29,16 @@
     href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
-  - name: 8 - Networking for VMs
+  - name: 8 - Manage networking
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Manage VMs
+  - name: 10 - Govern VMs
     href: tutorial-govern-resources.md
     displayName: scope policy RBAC lock tag
   - name: 11 - Monitor and update VMs
     href: tutorial-monitoring.md
-  - name: 12 - Security Center for VMs
+  - name: 12 - Manage VM security
     href: tutorial-azure-security.md
   - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
@@ -243,6 +243,8 @@
       items: 
       - name: Overview
         href: shared-image-galleries.md
+      - name: Create shared images using PowerShell
+        href: shared-images.md
       - name: Create shared images using CLI
         href: ../linux/shared-images.md
       - name: Troubleshoot shared images
@@ -408,6 +410,8 @@
         href: migration-classic-resource-manager-community-tools.md
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
+- name: Troubleshoot
+  href: ../troubleshooting/index.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -446,5 +450,3 @@
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-- name: Troubleshoot
-  href: ../troubleshooting/index.md
