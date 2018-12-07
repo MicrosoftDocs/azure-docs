@@ -117,7 +117,7 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 
 #### Resolution
 
-To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## Common errors when working with runbooks
 
@@ -331,6 +331,24 @@ The PowerShell cmdlets that enable the child runbook scenario are:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - This cmdlet allows you to start a runbook and pass parameters to the runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - This cmdlet allows you to check the job status for each child if there are operations that need to be performed after the child runbook completes.
+
+### <a name="expired webhook"></a>Scenario: Status: 400 Bad Request when invoking a webhook
+
+#### Issue
+
+When you try invoke a webhook for a Azure Automation runbook you receive the following error.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### Cause
+
+The webhook that you are trying to invoke is either disabled or is expired.
+
+#### Resolution
+
+If the webhook is disabled, you can re-enable the webhook through the Azure portal. If the webhook is expired, the webhook needs to be deleted and recreated. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it has not already expired.
 
 ### <a name="429"></a>Scenario: 429: The request rate is currently too large. Please try again
 
