@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
 # Applying content tags to images

@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 11/6/2018
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # Tutorial: Computer Vision API Python

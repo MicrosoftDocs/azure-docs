@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Extract text using the Computer Vision SDK and C#
 

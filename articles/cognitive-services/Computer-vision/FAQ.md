@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # Computer Vision API Frequently Asked Questions

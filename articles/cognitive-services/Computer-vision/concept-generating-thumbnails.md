@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
 # Generating smart-cropped thumbnails with Computer Vision

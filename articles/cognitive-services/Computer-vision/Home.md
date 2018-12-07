@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018 
 ms.author: pafarley
+ms.custom: seodec18
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
 ---
 # What is Computer Vision?

@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
+ms.custom: seodec18
 ---
 # Use Connected Services in Visual Studio to connect to the Computer Vision API
 

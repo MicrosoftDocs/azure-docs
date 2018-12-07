@@ -10,6 +10,7 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
+ms.custom: seodec18
 ---
 
 # Install and run Recognize Text containers

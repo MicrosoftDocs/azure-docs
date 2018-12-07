@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 # How to obtain subscription keys
 

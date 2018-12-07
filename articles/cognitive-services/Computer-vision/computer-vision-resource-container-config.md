@@ -10,6 +10,7 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
+ms.custom: seodec18
 ---
 
 # Configure Recognize Text containers

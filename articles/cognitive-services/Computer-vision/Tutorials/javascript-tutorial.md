@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # Tutorial: Computer Vision API JavaScript

@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # How to Analyze Videos in Real-time

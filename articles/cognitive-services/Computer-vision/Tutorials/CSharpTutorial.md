@@ -10,6 +10,7 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
 # Tutorial: Build an image processing app - C&#35;
