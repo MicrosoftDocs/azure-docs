@@ -53,8 +53,6 @@ No special configuration needed.
 
 ## SQL server connection information
 
-Get connection information for your Azure SQL database. You'll need the fully qualified server name, database name, and sign in credentials for the next procedures.
-
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## Set language mode to SQL
