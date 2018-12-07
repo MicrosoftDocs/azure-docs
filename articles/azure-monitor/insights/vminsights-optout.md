@@ -53,7 +53,7 @@ The following steps describe how to completely remove Azure Monitor for VMs if y
 5. In the list of solutions, select **InfrastructureInsights(workspace name)**, and then on the **Overview** page for the solution, click **Delete**.  When prompted to confirm, click **Yes**.  
 6. From the list of solutions, select **ServiceMap(workspace name)**, and then on the **Overview** page for the solution, click **Delete**.  When prompted to confirm, click **Yes**.  
 
-If before onboarding Azure Monitor for VMs, you were not [collecting the performance counters enabled](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) for the Windows or Linux-based VMs in your workspace, you need to disable those rules by following the steps described [here](../../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) for Windows and for Linux.
+If before onboarding Azure Monitor for VMs, you were not [collecting the performance counters enabled](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) for the Windows or Linux-based VMs in your workspace, you need to disable those rules by following the steps described [here](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) for Windows and for Linux.
 
 ## Disable monitoring for an Azure VM and retain workspace  
 

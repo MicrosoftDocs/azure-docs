@@ -30,6 +30,8 @@ To use Deployment Manager, you need to create four files:
 
 You deploy the topology template before deploying the rollout template.
 
+The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 ## Supported locations
 
 For the preview, Deployment Manager resources are supported in Central US and East US 2. When you define resources in your topology and rollout templates, such as the service units, artifact sources, and rollouts described in this article, you must specify one of those regions for the location. However, the resources that you deploy to create your service, such as the virtual machines, storage accounts, and web apps, are supported in all of their [standard locations](https://azure.microsoft.com/global-infrastructure/services/?products=all).  

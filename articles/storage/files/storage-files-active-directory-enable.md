@@ -270,10 +270,10 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 ```
 
 ### Configure NTFS permissions with icacls
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values shown in brackets in the example with your own values.
 
 ```
-icacls <mounted-drive-letter> /grant <user-email>:(f)
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
 For more information on how to use icacls to set NTFS permissions and on the different type of permissions supported, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).

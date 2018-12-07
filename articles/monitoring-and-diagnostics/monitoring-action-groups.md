@@ -5,13 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
-An action group is a collection of notification preferences defined by the user. Azure Monitor and Service Health alerts are configured to use a specific action group when the alert is triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+
+When an action is configured to notify a person by email or SMS the person will receive a confirmation indicating he / she has been added to the action group.
 
 This article shows you how to create and manage action groups in the Azure portal.
 
@@ -68,9 +70,11 @@ After you create an action group, it's visible in the **Action groups** section 
 You may have up to 1000 email actions in an Action Group. See the [rate limiting information](./monitoring-alerts-rate-limiting.md) article
 
 **ITSM** - You may have up to 10 ITSM actions in an Action Group
-ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).
+ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../azure-monitor/platform/itsmc-overview.md).
 
 **Logic App** - You may have up to 10 Logic App actions in an Action Group
+
+**Function App** - The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) for more information.
 
 **Runbook** - You may have up to 10 Runbook actions in an Action Group
 Refer to the [Azure subscription service limits](../azure-subscription-service-limits.md) for limits on Runbook payloads
@@ -99,7 +103,7 @@ To receive updates about changes to these IP addresses we recommend you configur
 ## Next steps ##
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).  
-* Learn more about [ITSM Connector](../log-analytics/log-analytics-itsmc-overview.md)
+* Learn more about [ITSM Connector](../azure-monitor/platform/itsmc-overview.md)
 * Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

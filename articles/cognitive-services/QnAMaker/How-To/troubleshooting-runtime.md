@@ -10,9 +10,10 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# QnAMaker Troubleshooting
+# Troubleshooting tips to support the QnA Maker service and runtime
 QnAMaker comprises of components hosted in the user's Azure account. Debugging may require users to manipulate their QnAMaker Azure resources or provide QnAMaker support team with additional information about their setup.
 
 ## How to get latest QnAMaker runtime updates

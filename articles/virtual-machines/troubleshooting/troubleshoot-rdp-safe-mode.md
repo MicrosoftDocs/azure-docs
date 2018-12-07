@@ -18,7 +18,7 @@ ms.author: genli
 
 #  Cannot RDP to a VM because the VM boots into Safe Mode
 
-This article shows how to resolve a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) because the VM is configured to boot into Safe Mode.
+This article shows how to resolve a problem in which you cannot connect to Azure Windows Virtual Machines (VMs) because the VM is configured to boot into Safe Mode.
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
@@ -26,7 +26,7 @@ This article shows how to resolve a problem in which you cannot remote desktop t
 
 ## Symptoms 
 
-You cannot make an RDP connection and other connections (such as HTTP) to a VM in Azure because the VM is configured to boot into Safe Mode. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you might see the VM boots normally, but the network interface is not available:
+You cannot make an RDP connection or other connections (such as HTTP) to a VM in Azure because the VM is configured to boot into Safe Mode. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you might see that the VM boots normally, but the network interface is not available:
 
 ![Image about network inferce in Safe Mode](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -51,11 +51,11 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, the VM is not in Safe Mode. This article does not apply to your scenario.
 
-    The safeboot flag could appear with the following values:
+    The **safeboot** flag could appear with the following values:
     - Minimal
     - Network
 
-    In any of these two modes, RDP will be not started. So the fix remains the same.
+    In either of these two modes, RDP will not be started. Therefore, the fix remains the same.
 
     ![Image about the Safe Mode flag](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
@@ -63,7 +63,7 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
 	    bcdedit /deletevalue {current} safeboot
         
-4. Check the boot configuration data to make sure that the safeboot flag is removed:
+4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
         bcdedit /enum
 
@@ -77,7 +77,7 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 2. Start a Remote Desktop connection to the recovery VM. 
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 
-#### Enable dump log and Serial Console (Optional)
+#### Enable dump log and Serial Console (optional)
 
 The dump log and Serial Console will help us to do further troubleshooting if the problem cannot be resolved by the solution in this article.
 
@@ -117,14 +117,14 @@ To enable dump log and Serial Console, run the following script.
         bcdedit /store F:\boot\bcd /enum
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
 
     ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the safeboot flag is removed:
+4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
         bcdedit /store F:\boot\bcd /enum
 5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.

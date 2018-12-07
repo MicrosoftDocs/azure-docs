@@ -225,7 +225,11 @@
     - name: Periodic backup and restore
       items:
       - name: Understanding periodic backup configuration
-        href: service-fabric-backuprestoreservice-configure-periodic-backup.md 
+        href: service-fabric-backuprestoreservice-configure-periodic-backup.md
+      - name: Triggering restore of partition
+        href: service-fabric-backup-restore-service-trigger-restore.md
+      - name: On-demand backup of partition
+        href: service-fabric-backup-restore-service-ondemand-backup.md
   - name: Clusters
     items:
     - name: Clusters overview
@@ -284,22 +288,23 @@
     items:
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
+    - name: Application monitoring
+      href: service-fabric-diagnostics-event-generation-app.md
     - name: Cluster monitoring
-      href: service-fabric-diagnostics-event-generation-infra.md
       items:
+      - name: Cluster monitoring overview
+        href: service-fabric-diagnostics-event-generation-infra.md
       - name: Service Fabric events
         href: service-fabric-diagnostics-events.md
       - name: EventStore overview
         href: service-fabric-diagnostics-eventstore.md
       - name: Reliable Services events
         href: service-fabric-reliable-services-diagnostics.md
-      - name: Reliable Actors events
-        href: service-fabric-reliable-actors-diagnostics.md
       - name: Monitoring Service Remoting
         href: service-fabric-reliable-serviceremoting-diagnostics.md
-    - name: Application logging
-      href: service-fabric-diagnostics-event-generation-app.md
-    - name: Performance metrics
+      - name: Reliable Actors events
+        href: service-fabric-reliable-actors-diagnostics.md         
+    - name: Infrastructure monitoring
       href: service-fabric-diagnostics-event-generation-perf.md
     - name: Health model overview
       href: service-fabric-health-introduction.md
@@ -456,7 +461,7 @@
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
-      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
+      href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md    
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: Work in an IDE
@@ -641,33 +646,39 @@
       href: service-fabric-connect-to-secure-cluster.md    
   - name: Monitor and diagnose
     items:
+    - name: Diagnose common scenarios
+      href: service-fabric-diagnostics-common-scenarios.md
     - name: Monitor applications
       items:
-      - name: Analyze with Application Insights
-        href: service-fabric-diagnostics-event-analysis-appinsights.md
       - name: Add logging to your application
         href: service-fabric-how-to-diagnostics-log.md
-      - name: Aggregate events with EventFlow
+      - name: Analyze with Application Insights
+        href: service-fabric-diagnostics-event-analysis-appinsights.md    
+      - name: Aggregate logs with EventFlow
         href: service-fabric-diagnostics-event-aggregation-eventflow.md    
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
       items:
+      - name: Congifure Log Analytics to collect cluster events
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Monitor your cluster with Log Analytics
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Query EventStore APIs
         href: service-fabric-diagnostics-eventstore-query.md      
-      - name: Windows Azure Diagnostics
+      - name: Windows Cluster Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux Azure Diagnostics
-        href: service-fabric-diagnostics-event-aggregation-lad.md 
+      - name: Linux Cluster Diagnostics
+        href: service-fabric-diagnostics-oms-syslog.md 
       - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
       - name: Monitor with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with the Log Analytics Agent
+      - name: Collect performance counters with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
-      - name: Performance monitoring with WAD
+      - name: Collect performance counters with WAD
         href: service-fabric-diagnostics-perf-wad.md     
     - name: Monitor health
       items:
@@ -681,8 +692,6 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Diagnose common scenarios
-      href: service-fabric-diagnostics-common-scenarios.md
   - name: Best practices
     items:
     - name: Production readiness checklist

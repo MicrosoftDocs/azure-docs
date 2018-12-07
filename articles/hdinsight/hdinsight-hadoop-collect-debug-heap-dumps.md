@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables
 at the time the dump was created. So they are useful for diagnosing problems that occur
-at run-time. Heap dumps can be automatically collected for Apache Hadoop services and placed inside
+at run-time. Heap dumps can be automatically collected for [Apache Hadoop](https://hadoop.apache.org/) services and placed inside
 the Azure Blob storage account of a user under HDInsightHeapDumps/.
 
 The collection of heap dumps for various services must be enabled for services on individual
@@ -27,7 +27,7 @@ once the collection has been enabled.
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). The information in this article only applies to Windows-based HDInsight. 
-> For information on Linux-based HDInsight, see [Enable heap dumps for Hadoop services on
+> For information on Linux-based HDInsight, see [Enable heap dumps for Apache Hadoop services on
 > Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 

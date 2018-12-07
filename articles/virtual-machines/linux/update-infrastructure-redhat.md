@@ -41,6 +41,7 @@ RHUI is available in all regions where RHEL on-demand images are available. It c
 
 If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on the environment you're in:
 
+
 ```
 # Azure Global
 13.91.47.76
@@ -175,3 +176,4 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
 ## Next steps
 To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+

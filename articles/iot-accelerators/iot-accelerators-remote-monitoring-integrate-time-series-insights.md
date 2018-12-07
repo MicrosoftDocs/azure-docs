@@ -287,6 +287,6 @@ Configure the environment of `standard` deployment for the updated micro service
 
 ## Next steps
 
-* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](/tutorials).
+* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * To learn how to explore and query data in the Time Series Insights explorer, see documentation on the [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

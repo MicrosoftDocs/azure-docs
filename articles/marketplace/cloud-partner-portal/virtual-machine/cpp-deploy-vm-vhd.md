@@ -117,9 +117,6 @@ To deploy a large VM from the generalized VM image just created, use the followi
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 ```
 
-<!-- TD: The following is a marketplace-publishing article and may be out-of-date.  TD: update and move topic.
-For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
--->
 
 ## Next steps
 

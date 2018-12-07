@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/05/2018
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom:
 ---
 

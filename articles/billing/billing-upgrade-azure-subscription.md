@@ -5,7 +5,7 @@ keywords: pay as you go upgrade
 services: ''
 documentationcenter: ''
 author: jlian
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 

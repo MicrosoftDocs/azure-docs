@@ -19,7 +19,6 @@ Use this quickstart to make your first image search using the Bing Image Search 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with additional error handling and annotations.
 
 ## Prerequisites
-
 * Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/).
 * The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
@@ -27,6 +26,7 @@ To install the Bing Image Search SDK in visual studio, use the `Manage NuGet Pac
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 
@@ -48,8 +48,12 @@ string subscriptionKey = "ENTER YOUR KEY HERE";
 Images imageResults = null;
 // the image search term to be used in the query
 string searchTerm = "canadian rockies";
+
 //initialize the client
-var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+//NOTE: If you're using version 1.2.0 or below for the Bing Image Search SDK, 
+// use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+
+var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 ```
 
 ## Send a search query using the client

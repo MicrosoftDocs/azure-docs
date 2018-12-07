@@ -1,14 +1,13 @@
 ---
-title: 'Step 2: Upload data into a Machine Learning experiment | Microsoft Docs'
+title: 'Step 2: Upload data into a Machine Learning Studio experiment - Azure | Microsoft Docs'
 description: 'Step 2 of the Develop a predictive solution walkthrough: Upload stored public data into Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
 ms.component: studio
@@ -17,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-
 ---
-# Walkthrough Step 2: Upload existing data into an Azure Machine Learning experiment
+# Walkthrough Step 2: Upload existing data into an Azure Machine Learning Studio experiment
 This is the second step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)

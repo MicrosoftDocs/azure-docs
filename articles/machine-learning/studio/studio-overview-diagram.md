@@ -1,15 +1,14 @@
 ---
-title: Overview diagram of Machine Learning Studio capabilities | Microsoft Docs
+title: Overview diagram of Machine Learning Studio capabilities - Azure | Microsoft Docs
 description: A printable diagram of the capabilities of Azure Machine Learning Studio, demonstrating how to use Studio to develop a predictive analytics experiment and operationalize it in the Azure cloud.
 keywords: machine learning studio,overview diagram,download
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.custom: (previous ms.author haining)
+author: ericlicoding
+ms.custom: "(previous ms.author=haining, author=hning86)"
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
-
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning
 ms.component: studio
@@ -18,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-
 ---
 # Overview diagram of Azure Machine Learning Studio capabilities
 The **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram gives you a high-level overview of how you can use Machine Learning Studio to develop a predictive analytics model and operationalize it in the Azure cloud.

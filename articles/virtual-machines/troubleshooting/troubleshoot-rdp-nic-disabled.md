@@ -1,5 +1,5 @@
 ---
-title: Cannot remote desktop to Azure Virtual Machines because the NIC is disabled | Microsoft Docs
+title: Cannot connect remotely to Azure Virtual Machines because the NIC is disabled | Microsoft Docs
 description: Learn how to troubleshoot a problem in which RDP fails because the NIC is disabled in Azure VM| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -18,7 +18,7 @@ ms.author: genli
 
 #  Cannot remote desktop to a VM because the network interface is disabled
 
-This article shows how to resolve a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) because the network interface is disabled.
+This article explains how to resolve a problem in which you cannot make a Remote Desktop connection to Azure Windows Virtual Machines (VMs) if the network interface is disabled.
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
@@ -48,7 +48,7 @@ To enable the interface for the VM, use Serial control or [reset network interfa
 
 	    netsh interface set interface name="interface Name" admin=enabled
 
-    For example, if the interwork interface names "Ethernet 2", run the following command:
+    For example, if the interwork interface is named "Ethernet 2", run the following command:
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
     
@@ -59,8 +59,8 @@ To enable the interface for the VM, use Serial control or [reset network interfa
 
     You don't have to restart the VM at this point. The VM will be back reachable.
         
-5.  Connect to the VM and see if the problem is resolved.
+5.  Connect to the VM and see whether the problem is resolved.
 
 ## Reset network interface
 
-To reset network interface, change the IP address to another IP address that is available in the Subnet by using Azure portal or Azure PowerShell. For more information, see [reset network interface](reset-network-interface.md). 
+To reset network interface, change the IP address to another IP address that is available in the Subnet. To do this, use Azure portal or Azure PowerShell. For more information, see [Reset network interface](reset-network-interface.md). 

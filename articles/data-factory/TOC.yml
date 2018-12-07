@@ -178,6 +178,8 @@
       href: connector-drill.md
     - name: Dynamics 365
       href: connector-dynamics-crm-office-365.md
+    - name: Dynamics AX
+      href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
     - name: File System
@@ -344,6 +346,8 @@
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
+    - name: Azure Function Activity
+      href: control-flow-azure-function-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity

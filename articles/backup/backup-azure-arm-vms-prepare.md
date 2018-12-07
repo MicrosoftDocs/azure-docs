@@ -28,7 +28,7 @@ If these conditions already exist in your environment, proceed to the [Back up y
 
 ## Supported operating systems for backup
 
- * **Linux**: Azure Backup supports [a list of distributions that Azure endorses](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), except CoreOS Linux. For the list of Linux operating systems that support restoring files, see [Recover files from virtual machine backup](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: Azure Backup supports [a list of distributions that Azure endorses](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), except CoreOS Linux and 32-bit operating system. For the list of Linux operating systems that support restoring files, see [Recover files from virtual machine backup](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Other bring-your-own-Linux distributions might work, as long as the VM agent is available on the virtual machine, and support for Python exists. However, those distributions are not supported.
@@ -43,13 +43,14 @@ Before you prepare your environment, be sure to understand these limitations:
 * Backing up Linux VMs encrypted through Linux Unified Key Setup (LUKS) encryption is not supported.
 * We don't recommend backing up VMs that contain Cluster Shared Volumes (CSV) or Scale-Out File Server configuration. If done, failure of CSV writers is expected. They require involving all VMs included in the cluster configuration during a snapshot task. Azure Backup doesn't support multi-VM consistency.
 * Backup data doesn't include network mounted drives attached to a VM.
-* Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
+* **Replace existing** option in the **Restore configuration** helps to replace existing disks in the current VM with the selected restore point. This operation can be only performed if current VM exists. 
 * Cross-region back up and restore are not supported.
 * While configuring back up, make sure the **Firewalls and virtual networks** storage account settings allow access from All networks.
 * For selected networks, after you configure firewall and virtual network settings for your storage account, select **Allow trusted Microsoft services to access this storage account** as an exception to enable Azure Backup service to access the network restricted storage account. Item level recovery is not supported for network restricted storage accounts.
 * You can back up virtual machines in all public regions of Azure. (See the [checklist](https://azure.microsoft.com/regions/#services) of supported regions.) If the region that you're looking for is unsupported today, it will not appear in the drop-down list during vault creation.
 * Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. To learn more, see [Restoring a multi-DC domain controller](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Snapshot on the Write Accelerator enabled disk is not supported. This restriction blocks Azure Backup service ability to perform an application consistent snapshot of all disks of the virtual machine.
+* Azure Backup does not support automatic adjustment of clock for daylight-saving changes for backing up Azure VM. If required, modify the policy to take the daylight savings time change into account.
 * Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created through the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Virtual machines under load balancer configuration (internal and external)
   * Virtual machines with multiple reserved IP addresses

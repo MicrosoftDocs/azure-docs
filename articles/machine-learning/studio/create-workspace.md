@@ -1,9 +1,9 @@
 ---
-title: Create a Machine Learning Studio Workspace | Microsoft Docs
-description: How to create a workspace for Azure Machine Learning Studio
+title: Create a workspace - Azure Machine Learning Studio | Microsoft Docs
+description: To use Azure Machine Learning Studio, you need to have a Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 services: machine-learning
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -13,7 +13,6 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-
 ---
 
 # Create and share an Azure Machine Learning workspace

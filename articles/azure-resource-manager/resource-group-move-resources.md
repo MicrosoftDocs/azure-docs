@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 11/23/2018
 ms.author: tomfitz
 
 ---
@@ -182,7 +182,7 @@ The following list provides a general summary of Azure services that can be move
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Container Registry - A container registry can't be moved when geo-replication is enabled.
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -211,7 +211,7 @@ The following list provides a general summary of Azure services that can be move
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
-* Redis Cache - if the Redis Cache instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
+* Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus
@@ -326,7 +326,7 @@ When moving a virtual network, you must also move its dependent resources. For V
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
-You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
+You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if an Azure Cache for Redis resource is deployed into a subnet, that subnet has a resource navigation link.
 
 ## App Service limitations
 

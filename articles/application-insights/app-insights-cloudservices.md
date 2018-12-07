@@ -8,7 +8,6 @@ author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
-ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.workload: tbd
@@ -24,7 +23,7 @@ ms.author: mbullwin
 ## Before you start
 You'll need:
 
-* A subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
+* A subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
 * Microsoft Azure tools 2.9 or later
 * Developer Analytics Tools 7.10 or later
 
@@ -146,7 +145,7 @@ To see performance counters and counts of events, open [Metrics Explorer](app-in
 
 ![Azure diagnostic data](./media/app-insights-cloudservices/23-wad.png)
 
-Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](../log-analytics/query-language/get-started-analytics-portal.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
+Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](../azure-monitor/log-query/get-started-portal.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
 
 ![Azure diagnostics search](./media/app-insights-cloudservices/25-wad.png)
 
@@ -239,7 +238,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 

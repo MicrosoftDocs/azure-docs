@@ -1,14 +1,15 @@
 ---
-title: LUIS Prebuilt entities temperature reference - Azure | Microsoft Docs
+title: Temperature Prebuilt entity
 titleSuffix: Azure
 description: This article contains temperature prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
 ---
 
@@ -21,7 +22,7 @@ Temperature is managed from the [Recognizers-text](https://github.com/Microsoft/
 ## Resolution for prebuilt temperature entity
 The following example shows the resolution of the **builtin.temperature** entity.
 
-```JSON
+```json
 {
   "query": "set the temperature to 30 degrees",
   "topScoringIntent": {

@@ -1,5 +1,5 @@
 ---
-title: SQL queries for Azure Cosmos DB | Microsoft Docs
+title: SQL queries for Azure Cosmos DB
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 author: markjbrown
 
@@ -9,7 +9,7 @@ ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---
-# Query Azure Cosmos DB data with SQL queries
+# SQL query examples to query data from Azure Cosmos DB
 
 Azure Cosmos DB supports querying items using SQL (Structured Query Language) as a JSON query language on SQL API accounts. While designing the query language for Azure Cosmos DB, the following two goals are considered:
 
@@ -396,9 +396,11 @@ The unary operators +,-, ~, and NOT are also supported, and can be used inside q
 In addition to binary and unary operators, property references are also allowed. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` where the property's value is equal to the JSON `true` value. Any other values (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) leads to the source item being excluded from the result. 
 
 ### Equality and comparison operators
+
 The following table shows the result of equality comparisons in the SQL API between any two JSON types.
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+|---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
@@ -2253,14 +2255,14 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 ## <a id="References"></a>References
 
 1. [Introduction to Azure Cosmos DB][introduction]
-2. [Azure Cosmos DB SQL specification](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB Consistency Levels][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. Javascript Specification [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Query evaluation techniques for large databases [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

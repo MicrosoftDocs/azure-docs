@@ -1,5 +1,5 @@
 ---
-title: Cannot make remote desktop connection to Azure Virtual Machines because the DHCP is disabled| Microsoft Docs
+title: Cannot connect remotely to Azure Virtual Machines because the DHCP is disabled| Microsoft Docs
 description: Learn how to troubleshoot RDP problem that is caused by DHCP client service is disabled in Microsoft Azure.| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''

@@ -32,7 +32,7 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
-1. In the left pane, select the **Create a resource** icon, and then then search for **DevOps Projects**.  
+1. In the left pane, select the **Create a resource** icon, and then search for **DevOps Projects**.  
 
 3. Select **Create**.
 

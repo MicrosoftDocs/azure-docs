@@ -5,17 +5,14 @@ services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-
 ---
 # Smart Detection - Performance Anomalies
 
@@ -181,7 +178,7 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
-* [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Analytics smart diagnostics](app-insights-analytics.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?

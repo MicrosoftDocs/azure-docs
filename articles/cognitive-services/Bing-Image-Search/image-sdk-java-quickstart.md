@@ -19,6 +19,7 @@ Use this quickstart to make your first image search using the Bing Image Search 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) with additional error handling and annotations.
 
 ## Prerequisites
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 The latest version of the [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 

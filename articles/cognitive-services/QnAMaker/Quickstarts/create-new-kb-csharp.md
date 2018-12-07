@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Create knowledge base - REST, C# - QnA Maker"
-titlesuffix: Azure Cognitive Services 
+title: Create knowledge base - REST, C#
+titlesuffix: QnA Maker- Azure Cognitive Services 
 description: This C# REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
@@ -64,7 +64,7 @@ The following code makes an HTTPS request to the QnA Maker API to create a KB an
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-This API call returns a JSON response that includes the operation ID in the header field **Location**. Use the operation ID to determine if the KB is successfully created. 
+This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
 
 ```JSON
 {

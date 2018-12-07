@@ -1,10 +1,11 @@
-﻿---
+---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09-05-2018
+ms.date: 11/30/2018
 ---
+
 # Prepay for Virtual Machines with Azure Reserved VM Instances
 
 Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
@@ -26,7 +27,6 @@ Reserved VM Instances are available for most VM sizes with some exceptions:
 
 - Reservation discount doesn't apply for the following VMs:
   - Classic VMs and Cloud services
-  - Constrained vCPU sizes
   - VM Series: A-series, Av2-series, or G-series
   - VMs in Preview: Any VM-series or size that is in preview
 - Clouds: Reservations aren't available for purchase in Germany or China regions.
@@ -81,6 +81,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

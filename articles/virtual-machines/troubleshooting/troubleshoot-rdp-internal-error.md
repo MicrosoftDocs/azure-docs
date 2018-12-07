@@ -1,5 +1,5 @@
 ---
-title: An internal error occurs when you remote desktop to Azure Virtual Machines | Microsoft Docs
+title: An internal error occurs when you make a RDP connection to Azure Virtual Machines | Microsoft Docs
 description: Learn how to troubleshoot RDP internal errors in Microsoft Azure.| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''

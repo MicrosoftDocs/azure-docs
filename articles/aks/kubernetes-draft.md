@@ -135,7 +135,7 @@ $ draft connect
 Connect to java:4567 on localhost:49804
 [java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 [java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 [java]: == Spark has ignited ...
 [java]: >> Listening on 0.0.0.0:4567
 ```

@@ -137,7 +137,7 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
-|Customization feature status	| General Availability	| Preview |
+|Customization feature status	| General Availability	| General Availability |
 | Text API version	| V2 	| V3  |
 | SMT customization	| Yes	| No |
 | NMT customization	| No	| Yes |
