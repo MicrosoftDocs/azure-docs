@@ -223,6 +223,4 @@ Learn more about deployment:
 
 * [How to deploy to AKS](how-to-deploy-to-aks.md)
 
-* [Tutorial part 1: train model](tutorial-train-models-with-aml.md)
-
-* [Tutorial part 2: deploy model](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
