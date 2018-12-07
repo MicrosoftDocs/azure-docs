@@ -15,7 +15,7 @@ ms.reviewer: japere
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
 
-Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy, and then uses the Azure portal to add an on-premises application to your Azure AD tenant.
+Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial prepares your environment for use with Application Proxy. Once your environment is ready, you'll use the Azure portal to add an on-premises application to your Azure AD tenant.
 
 This tutorial:
 
@@ -76,7 +76,7 @@ Open the following ports to **outbound** traffic.
 
 If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
 
-If you are already using Application Proxy, you might have an older version of the connector installed.  Follow this tutorial to install the latest version of the connector. Connector versions prior to version 1.5.132.0 require you to open the following ports in addition to 80 and 443: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. If those ports are open, you can close them unless you need them open for another reason. 
+If you're already using Application Proxy, you might have an older version of the connector installed.  Follow this tutorial to install the latest version of the connector. Versions earlier than 1.5.132.0 also require the following open ports: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. 
 
 ### Allow access to URLs
 
@@ -91,17 +91,17 @@ Allow access to the following URLs:
 If your firewall or proxy allows DNS whitelisting, you can whitelist connections to msappproxy.net and servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated each week.
 
 ## Install and register a connector
-To use Application Proxy, you need to install a connector on each Windows server you choose to use with the Application Proxy service. The connector is an agent that facilitates the outbound connection from the on-premises application servers to Application Proxy in Azure AD. You can install a connector on servers that also have other authentication agents installed such as Azure AD Connect.
+To use Application Proxy, you need to install a connector on each Windows server you choose to use with the Application Proxy service. The connector is an agent that manages the outbound connection from the on-premises application servers to Application Proxy in Azure AD. You can install a connector on servers that also have other authentication agents installed such as Azure AD Connect.
 
 To install the connector:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory for which you are using Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
-2. Your current directory appears under your username in the upper right corner. Verify that you are signed in to directory for which you are using Application Proxy. If you need to change directories, select that icon.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
+2. Your current directory appears under your username in the upper right corner. Verify you're signed in to directory that uses Application Proxy. If you need to change directories, select that icon.
 3. In left blade click **Azure Active Directory**, and then **Application proxy**.
 4. Click **Download connector service**.
 5. Read the Terms of Service.  When you're ready, click **Accept terms & Download**.
 6. At the bottom of the window, you'll see a prompt to download **AADApplicationProxyConnectorInstaller.exe**. Click **Run** to install the connector. An install wizard opens. 
-7. Follow the instructions in the wizard to install. When you are prompted to register the connector with the Application Proxy for your Azure AD tenant, provide your application administrator credentials.
+7. Follow the instructions in the wizard to install. When you're prompted to register the connector with the Application Proxy for your Azure AD tenant, provide your application administrator credentials.
     - For Internet Explorer (IE), if **IE Enhanced Security Configuration** is set to **On**, you may not see the registration screen. To get access, follow the instructions in the error message. Make sure that Internet Explorer Enhanced Security is set to **Off**.
 
 ### General remarks
@@ -126,7 +126,7 @@ To confirm the connector installed and registered correctly:
 
 1. Sign in to your tenant directory in the [Azure portal](https://portal.azure.com).
 2. Click **Azure Active Directory** and then **Application Proxy**. All of your connectors and connector groups appear on this page. 
-3. Select a connector to verify its details. An active green label indicates that your connector is able to connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages. 
+3. Select a connector to verify its details. An active green label indicates that your connector can connect to the service. However, even though the label is green, a network issue could still block the connector from receiving messages. 
 
     ![AzureAD Application Proxy Connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 
@@ -146,7 +146,7 @@ To confirm the connector installed and registered correctly:
 
 ## Add an on-premises app to Azure AD
 
-Now that you have prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.  
+Now that you've prepared your environment and installed a connector, you're ready to add on-premises applications to Azure AD.  
 
 1. Sign in as an administrator in the [Azure portal](https://portal.azure.com/).
 2. Select **Azure Active Directory** > **Enterprise applications** > **New application**.
@@ -186,9 +186,10 @@ Now that you have prepared your environment and installed a connector, you're re
 
 ## Test the application
 
-To test that your app was published correctly, add a test user account. Verify that this account already has permissions to access the app from inside the corporate network.
+To test that your app was added correctly, you'll add a user account to the application, and try signing in. 
 
-### Add a test user
+### Add a user for testing
+Before adding a user to the application, verify the user account already has permissions to access the application from inside the corporate network.
 
 To add a test user:
 
@@ -203,9 +204,9 @@ To add a test user:
 3. On the **Add assignment** blade, select **Users and groups**, and then choose the account you want to add. 
 4. Select **Assign**.
 
-### Perform a test sign-on
+### Test the sign-on
 
-To test the sign-on to the application:
+To test sign-on to the application:
 
 1. In your browser, navigate to the external URL that you configured during the publish step. 
 2. You should see the start screen, and be able to sign in with the test account you set up.
