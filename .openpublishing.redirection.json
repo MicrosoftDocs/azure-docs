@@ -31795,6 +31795,11 @@
 			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
 			"redirect_url": "/azure/application-insights/app-insights-app-map",
 			"redirect_document_id": true
+        },
+        {
+			"source_path": "articles/machine-learning/service/how-to-automated-ml.md",
+			"redirect_url": "/azure/machine-learning/service/concept-automated-ml",
+			"redirect_document_id": true
 		}
     ]
 }

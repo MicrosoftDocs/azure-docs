@@ -16,14 +16,14 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-In this article, you can learn about automated machine learning. The Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it. Automated machine learning saves you time by generating models tuned from the goals and constraints you defined for your experiment, such as the time for the experiment to run or which models to blacklist.
+Automated machine learning is the process of taking training data with a defined target feature, and iterating through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Automated machine learning simplifies this process by generating models tuned from the goals and constraints you defined for your experiment, such as the time for the experiment to run or which models to blacklist.
 
 ## How it works
 
 1. You configure the type of machine learning problem you are trying to solve. Categories of supervised learning are supported:
    + Classification
    + Regression
-   + Forecasting 
+   + Forecasting
 
    While automated machine learning is generally available, **the forecasting feature is still in public preview.**
 
@@ -37,7 +37,7 @@ In this article, you can learn about automated machine learning. The Azure Machi
 
 1. Configure the [compute target](how-to-set-up-training-targets.md) that is used to train the model.
 
-1. Configure the automated machine learning configuration. This controls the parameters used as Azure Machine Learning iterates over different models, hyperparameter settings, and what metrics to look at when determining the best model. 
+1. Configure the automated machine learning configuration. This controls the parameters used as Azure Machine Learning iterates over different models, hyperparameter settings, and what metrics to look at when determining the best model 
 
 1. Submit a training run.
 
@@ -45,7 +45,11 @@ During training, the Azure Machine Learning service creates a number of pipeline
 
 [ ![Automated Machine learning](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
-You can inspect the logged run information, which contains metrics gathered during the run. The training run also produces a Python serialized object (.pkl file) that contains the model and data preprocessing.
+You can inspect the logged run information, which contains metrics gathered during the run. The training run also produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
+
+## Model explainability
+
+A common pitfall of automated machine learning is an inability to see the end-to-end process. Azure Machine Learning allows you to view detailed information about the models to increase transparency into what's running on the back-end. Output shows overall feature importance in model tuning, ranking the results by the features that influenced your model the most. Additionally, for classification problems you can see the per-class feature importance and ranking.
 
 ## Next steps
 
