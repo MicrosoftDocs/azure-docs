@@ -21,7 +21,7 @@ OCR supports 25 languages. These languages are: Arabic, Chinese Simplified, Chin
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in the following illustration.
 
-![OCR Overview](./Images/vision-overview-ocr.png)
+![A diagram depicting an image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
 ## OCR requirements
 

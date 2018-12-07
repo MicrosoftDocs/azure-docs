@@ -47,8 +47,8 @@ The following table describes the dominant foreground, background, and image col
 
 | Image | Dominant colors |
 |-------|-----------------|
-|![Vision Analyze Flower](./Images/flower.png)| Foreground: Black<br/>Background: White<br/>Colors: Black, White, Green|
-![Vision Analyze Train Station](./Images/train_station.png) | Foreground: Black<br/>Background: Black<br/>Colors: Black |
+|![A white flower with a green background](./Images/flower.png)| Foreground: Black<br/>Background: White<br/>Colors: Black, White, Green|
+![A train running through a station](./Images/train_station.png) | Foreground: Black<br/>Background: Black<br/>Colors: Black |
 
 ### Accent color examples
 
@@ -56,9 +56,9 @@ The following table describes the dominant foreground, background, and image col
 
 | Image | Accent color |
 |-------|--------------|
-|![Outdoor Mountain](./Images/mountain_vista.png) | #BB6D10 |
-|![Vision Analyze Flower](./Images/flower.png) | #C6A205 |
-|![Vision Analyze Train Station](./Images/train_station.png) | #474A84 |
+|![A person standing on a mountain rock at sunset](./Images/mountain_vista.png) | #BB6D10 |
+|![A white flower with a green background](./Images/flower.png) | #C6A205 |
+|![A train running through a station](./Images/train_station.png) | #474A84 |
 
 ### Black & white detection examples
 
@@ -66,8 +66,8 @@ The following table indicates whether each example image is black & white, as re
 
 | Image | Black & white? |
 |-------|----------------|
-|![Vision Analyze Building](./Images/bw_buildings.png) | true |
-|![Vision Analyze House Yard](./Images/house_yard.png) | false |
+|![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png) | true |
+|![A blue house and the front yard](./Images/house_yard.png) | false |
 
 ## Next steps
 

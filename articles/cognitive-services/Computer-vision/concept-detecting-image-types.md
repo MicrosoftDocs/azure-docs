@@ -32,7 +32,7 @@ Computer Vision analyzes an image and rates the likelihood of the image being cl
 
 The following JSON responses illustrates what Computer Vision returns when rating the likelihood of the example images being clip art.
 
-![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.png)
+![A clip art image of a slice of cheese](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -49,7 +49,7 @@ The following JSON responses illustrates what Computer Vision returns when ratin
 }
 ```
 
-![Vision Analyze House Yard](./Images/house_yard.png)
+![A blue house and the front yard](./Images/house_yard.png)
 
 ```json
 {
@@ -74,7 +74,7 @@ Computer Vision analyzes an image and returns a boolean value indicating whether
 
 The following JSON responses illustrates what Computer Vision returns when indicating whether the example images are line drawings.
 
-![Vision Analyze Lion Drawing](./Images/lion_drawing.png)
+![A line drawing image of a lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -91,7 +91,7 @@ The following JSON responses illustrates what Computer Vision returns when indic
 }
 ```
 
-![Vision Analyze Flower](./Images/flower.png)
+![A white flower with a green background](./Images/flower.png)
 
 ```json
 {
