@@ -282,13 +282,13 @@ To complete this tutorial, you need:
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At the command prompt, run the following command.
 
    ```bash
    go run sample.go
    ```
 
-2. Verify the output:
+2. Verify the output.
 
    ```text
    Connected!
