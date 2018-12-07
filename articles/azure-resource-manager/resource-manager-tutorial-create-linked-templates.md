@@ -159,8 +159,6 @@ The main template and the linked template need to be accessible from where you r
 > [!NOTE]
 > The script limits the SAS token to be used within eight hours. If you need more time to complete this tutorial, increase the expiry time.
 
-At the end of the script, it shows the resource group name and the template URI with an SAS token. You need the values later in the tutorial.
-
 ```azurepowershell-interactive
 $projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
@@ -214,7 +212,7 @@ echo "Linked template URI with SAS token: $templateURI"
 1. Select the **Try It** green button to open the Azure cloud shell pane.
 2. Select **Copy** to copy the PowerShell script.
 3. Right-click anywhere inside the shell pane (the navy blue part), and then select **Paste**.
-4. Make a note of the two values (Resource Group Name and Linked template URI) at the end of the shell pane.
+4. Make a note of the two values (Resource Group Name and Linked template URI) at the end of the shell pane. You need the values later in the tutorial.
 5. Select **Exit focus mode** to close the shell pane.
 
 In practice, you generate a SAS token when you deploy the main template, and give the SAS token expiry a smaller window to make it more secure. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
