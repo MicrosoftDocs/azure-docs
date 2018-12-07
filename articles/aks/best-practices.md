@@ -31,8 +31,19 @@ As a cluster operator, work together with application owners and developers to u
 * [Best practices for authentication and authorization](operator-best-practices-identity.md)
     * Includes integration with Azure Active Directory, using role-based access controls (RBAC), and pod identities.
 
+**Security**
+
+* [Best practices for cluster security and upgrades](operator-best-practices-cluster-security.md)
+    * Includes securing access to the API server, limiting container access, and managing upgrades and node reboots.
+* [Best practices for container image management and security](operator-best-practices-container-image-management.md)
+    * Includes securing the image and runtimes, using trusted registries, and automated builds on base image updates..
+* [Best practices for pod security](developer-best-practices-advanced-pod-security.md)
+    * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
+
 **Network and storage**
 
+* [Best practices for network connectivity](operator-best-practices-network.md)
+    * Includes different network models, using ingress and web application firewalls (WAF), and securing node SSH access.
 * [Best practices for storage and backups](operator-best-practices-storage.md)
     * Includes choosing the appropriate storage type and node size, dynamically provisioning volumes, and data backups.
 
@@ -47,8 +58,10 @@ As a developer or application owner, you can simplify your development experienc
 
 * [Best practices for application developers to manage resources](developer-best-practices-resource-management.md)
     * Includes defining pod resource requests and limits, configuring development tools to work with AKS, and checking for application issues.
+* [Best practices for pod security](developer-best-practices-advanced-pod-security.md)
+    * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
 
-## Concepts
+## Kubernetes / AKS concepts
 
 To help understand some of the features and components of these best practices, you can also see the following conceptual articles for clusters in Azure Kubernetes Service (AKS):
 
@@ -61,4 +74,4 @@ To help understand some of the features and components of these best practices, 
 
 ## Next steps
 
-If you need to get started with AKS, follow one of the quickstarts to deploy an Azure Kubernetes Service (AKS) cluster using the [Azure CLI](kubernetes-walkthrough.md) or [Azure portal](kubernetets-walkthrough-portal.md).
+If you need to get started with AKS, follow one of the quickstarts to deploy an Azure Kubernetes Service (AKS) cluster using the [Azure CLI](kubernetes-walkthrough.md) or [Azure portal](kubernetes-walkthrough-portal.md).
