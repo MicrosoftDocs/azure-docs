@@ -15,7 +15,7 @@ ms.date: 12/07/2018
 ---
 # Quickstart: Use Go to query an Azure SQL database
 
-This quickstart demonstrates using the [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to an Azure SQL database and run Transact-SQL statements to query and modify data. [Go](https://golang.org/) is an open source programming language that makes it easy to build simple, reliable, and efficient software. 
+This quickstart demonstrates using the [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to an Azure SQL database and run Transact-SQL statements to query and modify data. [Go](https://golang.org/) is an open source programming language that makes it easy to build simple, reliable, and efficient software.  
 
 ## Prerequisites
 
