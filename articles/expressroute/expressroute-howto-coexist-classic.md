@@ -9,7 +9,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
-ms.custom:seodec18
+ms.custom: seodec18
 
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections (classic)
