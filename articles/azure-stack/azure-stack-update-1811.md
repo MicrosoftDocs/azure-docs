@@ -91,13 +91,13 @@ This update includes the following improvements for Azure Stack:
 - Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
-Fixed: - The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
+- Fixed: - The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
 
 <!--  2873083 - IS ASDK --> 
-Fixed: -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
+- Fixed: -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
 
 <!-- 3190553 - IS ASDK -->
-Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance unavailable or Scale Unit Node offline.
+- Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance unavailable or Scale Unit Node offline.
 
 ### Changes
 
