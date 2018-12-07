@@ -1,5 +1,6 @@
 ---
 title: What happened to Azure Machine Learning Workbench?
+titleSuffix: Azure Machine Learning service
 description: Learn about what happened to the Workbench application, what changed in Azure Machine Learning service, and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
@@ -79,13 +80,13 @@ Learn how to get started [in Python with the main SDK](quickstart-get-started.md
  
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. You can do this by [downloading the models and re-registering them](how-to-migrate.md) in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [create docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
+The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
 
 ## What about deployed web services?
 
 The models you deployed as web services using your Model Management account will continue to work for as long as Azure Container Service (ACS) is supported. Those web services will even work after support has ended for Model Management accounts. However, when support for the old CLI ends, so does your ability to manage those web services.
 
-In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. You can also [deploy to FPGAs and to the IoT edge](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
+In the newer version, models are deployed as web services to Azure Container Instances(ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to the IoT edge. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document. Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
 
 ## What about the old SDK & CLI?
 

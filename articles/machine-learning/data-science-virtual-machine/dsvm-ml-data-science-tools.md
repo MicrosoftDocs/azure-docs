@@ -1,12 +1,12 @@
 ---
 title: Machine learning and data science tools - Azure | Microsoft Docs
-description: Machine learning and data science tools
+description: Learn about the machine learning tools and frameworks pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning

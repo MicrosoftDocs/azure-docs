@@ -1,6 +1,7 @@
 ---
-title: Enable Application Insights for the Azure Machine Learning service 
-description: Learn how to set Application Insights for services deployed through Azure Machine Learning service 
+title: Monitor models with Application Insights
+titleSuffix: Azure Machine Learning service
+description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -43,7 +44,7 @@ In this article, you learn how to set up Azure Application Insights for your Azu
     ```
 
 ### Log custom traces in your service
-If you want to log custom traces, follow the standard deployment process for [AKS](how-to-deploy-to-aks.md) or [ACI](how-to-deploy-to-aci.md) . Then:
+If you want to log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then use the following steps:
 
 1. Update the scoring file by adding print statements.
     
