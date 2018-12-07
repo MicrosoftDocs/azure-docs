@@ -526,8 +526,10 @@
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: Upgrade agent
-          href: insights/container-insights-agent-upgrade.md
+        - name: View container live logs
+          href: insights/container-insights-live-logs.md
+        - name: Agent management
+          href: insights/container-insights-manage-agent.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
