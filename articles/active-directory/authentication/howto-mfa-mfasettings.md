@@ -381,3 +381,7 @@ The feature reduces the number of authentications on web apps, which normally pr
 ### Mark a device as trusted
 
 After you enable the remember Multi-Factor Authentication feature, users can mark a device as trusted when they sign in by selecting **Don't ask again**.
+
+# Next steps
+
+[Modify Azure AD sign-in page branding](..\fundamentals\customize-branding.md)

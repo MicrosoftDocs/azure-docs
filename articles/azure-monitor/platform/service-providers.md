@@ -75,7 +75,7 @@ There are two options to implement the central location in Log Analytics:
 
 ## Next Steps
 * Automate creation and configuration of workspaces using [Resource Manager templates](template-workspace-configuration.md)
-* Automate creation of workspaces using [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
+* Automate creation of workspaces using [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
 * Use [Alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to integrate with existing systems
 * Generate summary reports using [Power BI](../../azure-monitor/platform/powerbi.md)
 * Review the process of [configuring Log Analytics and Power BI to monitor multiple CSP customers](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)
