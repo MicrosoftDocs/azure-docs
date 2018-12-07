@@ -1,6 +1,6 @@
 ---
 title: Role-Based Access Control preview - Azure Event Hubs | Microsoft Docs
-description: Azure Event Hubs Role-Based Access Control
+description: This article provides information on role-based access control for Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy

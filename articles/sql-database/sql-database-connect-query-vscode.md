@@ -20,7 +20,7 @@ ms.date: 12/06/2018
 
 ## Prerequisites
 
-This tutorial uses the following.
+To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
@@ -110,7 +110,7 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 2. Press **Ctrl**+**Shift**+**E** to execute the query and display results from the `Product` and `ProductCategory` tables.
 
-    ![Query](./media/sql-database-connect-query-vscode/query.png)
+    ![Query to retrieve data from 2 tables](./media/sql-database-connect-query-vscode/query.png)
 
 ## Insert data
 

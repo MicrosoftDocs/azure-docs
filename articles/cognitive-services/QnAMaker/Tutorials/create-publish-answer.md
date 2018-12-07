@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Create, publish, answer from knowledge base - REST, C# - QnA Maker"
-titleSuffix: Azure Cognitive Services 
+title: Create, publish, answer 
+titleSuffix: QnA Maker - Azure Cognitive Services 
 description: This REST-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
