@@ -211,4 +211,5 @@ You'll need the application's object ID to configure token encryption using Micr
 
 ## Next steps
 
-* TBD
+* Find out [How Azure AD uses the SAML protocol](active-directory-saml-protocol-reference.md)
+* Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](reference-saml-tokens.md)
