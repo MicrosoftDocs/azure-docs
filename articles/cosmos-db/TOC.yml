@@ -149,6 +149,18 @@
           href: how-pricing-works.md
         - name: Total Cost of Ownership(TCO) 
           href: total-cost-of-ownership.md
+        - name: Understand yout bill 
+          href: understand-your-bill.md          
+        - name: Optimize throughput cost
+          href: optimize-cost-throughput.md
+        - name: Optimize query cost
+          href: optimize-cost-queries.md
+        - name: Optimize storage cost
+          href: optimize-cost-storage.md
+        - name: Optimize reads and writes cost
+          href: optimize-cost-reads-writes.md
+        - name: Optimize cost for multi-regions
+          href: optimize-cost-regions.md          
         - name: Optimize your dev/test workloads 
           href: optimize-dev-test.md
     - name: Security
