@@ -452,7 +452,9 @@ To move a VM enrolled in **Azure backup** between resource groups:
  1. Temporarily stop backup and retain backup data
  2. Move the VM to the target resource group
  3. Reprotect it under the same/new vault
+
 Users can restore from the available restore points created before the move operation.
+
 If the user moves the backed-up VM across subscriptions, step 1 and step 2 remain the same. In step 3, user needs to protect the VM under a new vault present/ created in the target subscription. Recovery Services vault doesn't support cross subscription backups.
 
 ## HDInsight limitations
