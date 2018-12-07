@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -274,10 +274,10 @@ The following are post-installation known issues for this build version.
 Usage reports produced from the Azure Stack usage APIs show correct quantities and can be used.
 
 <!-- 3507629 - IS, ASDK --> 
-- Managed Disks create two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is granted for each manage disks quota type. However, you may encounter the following issues:
+- Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
 
-   1. For quota created before 1808 update, the Managed Disks quota will show 0 values in the Admin Portal, though 2048GiB is granted. You may increase or decrease the value based on your actual needs, and the newly set quota value will override the 2048 GiB default.
-   2. If you update the quota value in the UX to 0, it will be considered as taking the default value of 2048 GiB. As a workaround, set the quota value to 1.
+   - For quotas created before the 1808 update, the Managed Disks quota will show 0 values in the Administrator portal, although 2048 GiB is allocated. You can increase or decrease the value based on your actual needs, and the newly set quota value overrides the 2048 GiB default.
+   - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 

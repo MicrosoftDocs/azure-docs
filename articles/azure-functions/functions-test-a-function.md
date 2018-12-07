@@ -25,7 +25,7 @@ The content that follows is split into two different sections meant to target di
 - [C# in Visual Studio with xUnit](#c-in-visual-studio)
 - [JavaScript in VS Code with Jest](#javascript-in-vs-code)
 
-The the sample repository is available on [GitHub](https://github.com/craigshoemaker/azure-functions-tests).
+The the sample repository is available on [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## C# in Visual Studio
 The following example describes how to create a C# Function app in Visual Studio and run and tests with [xUnit](https://xunit.github.io).

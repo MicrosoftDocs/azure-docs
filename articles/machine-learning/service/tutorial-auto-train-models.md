@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ---
 
-# Tutorial (part 2): Use automated machine learning to build and train a regression model
+# Tutorial (part 2): Use automated machine learning to build your regression model
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [prepared the NYC taxi data for regression modeling](tutorial-data-prep.md).
 
