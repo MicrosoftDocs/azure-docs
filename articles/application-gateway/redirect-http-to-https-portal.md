@@ -60,7 +60,7 @@ Export-PfxCertificate `
 
 A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-1. Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 2. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 3. Select **Networking** and then select **Application Gateway** in the Featured list.
 4. Enter these values for the application gateway:
@@ -82,7 +82,7 @@ A virtual network is needed for communication between the resources that you cre
 
 7. Click **OK** to create the virtual network and subnet.
 8. Under **Frontend IP configuration**, ensure **IP address type** is **Public**, and **Create new** is selected. Enter *myAGPublicIPAddress* for the name. Accept the default values for the other settings and then click **OK**.
-9. Under **Listener configuration**, select **HTTPS**, then select **Select a file** and navigate the the *c:\appgwcert.pfx* file and select **Open**.
+9. Under **Listener configuration**, select **HTTPS**, then select **Select a file** and navigate to the *c:\appgwcert.pfx* file and select **Open**.
 10. Type *appgwcert* for the cert name and *Azure123456!* for the password.
 11. Leave the Web application firewall disabled, and then select **OK**.
 12. Review the settings on the summary page, and then select **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
@@ -131,10 +131,10 @@ In this example, you create a virtual machine scale set to provide servers for t
 3. In the search box, type *scale set* and press Enter.
 4. Select **Virtual machine scale set**, and then select **Create**.
 5. For **Virtual machine scale set name**, type *myvmss*.
-6. For **Operating system disk image** ensure **Windows Server 2016 Datacenter** is selected .
+6. For Operating system disk image,** ensure **Windows Server 2016 Datacenter** is selected.
 7. For **Resource group**, select **myResourceGroupAG**.
 8. For **User name**, type *azureuser*.
-9. For **Pasword**, type *Azure123456!* and confirm the password.
+9. For **Password**, type *Azure123456!* and confirm the password.
 10. For **Instance count**, ensure the value is **2**.
 11. For **Instance size**, select **D2s_v3**.
 12. Under **Networking**, ensure **Choose Load balancing options** is set to **Application Gateway**.
