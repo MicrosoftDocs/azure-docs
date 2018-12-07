@@ -6,10 +6,12 @@
     href: Overview/overview.md
 - name: Quickstarts
   items:
-  - name: Get answer using Postman
-    href: Quickstarts/get-answer-from-kb-using-postman.md
-  - name: Get answer using cURL
-    href: Quickstarts/get-answer-from-kb-using-cURL.md    
+  - name: Get answer from knowledge base
+    items:
+    - name: Using Postman
+      href: Quickstarts/get-answer-from-kb-using-postman.md
+    - name: Using cURL
+      href: Quickstarts/get-answer-from-kb-using-cURL.md    
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
