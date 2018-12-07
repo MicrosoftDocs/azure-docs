@@ -1,5 +1,5 @@
 ---
-title: Send events to Azure Event Hubs using the .NET Framework | Microsoft Docs
+title: Send events using the .NET Framework - Azure Event Hubs | Microsoft Docs
 description: Get started sending events to Event Hubs using the .NET Framework
 services: event-hubs
 documentationcenter: ''
