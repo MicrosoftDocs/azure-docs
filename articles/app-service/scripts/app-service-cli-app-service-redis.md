@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to a redis cache | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to a redis cache
+title: Azure CLI Script Sample - Connect a web app to an Azure Cache for Redis | Microsoft Docs
+description: Azure CLI Script Sample - Connect a web app to an Azure Cache for Redis
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -19,9 +19,9 @@ ms.author: cfowler
 ms.custom: mvc
 ---
 
-# Connect a web app to a redis cache
+# Connect a web app to an Azure Cache for Redis
 
-This sample script creates an Azure redis cache and an Azure web app. It then links the redis cache to the web app using app settings.
+This sample script creates an Azure Cache for Redis and an Azure web app. It then links the Azure Cache for Redis to the web app using app settings.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -31,21 +31,21 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, redis cache, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, web app, Azure Cache for Redis, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
-| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Create new Redis Cache instance. |
-| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Lists the access keys for the redis cache instance. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Create new Azure Cache for Redis instance. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Lists the access keys for the Azure Cache for Redis instance. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps

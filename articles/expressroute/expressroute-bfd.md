@@ -1,20 +1,14 @@
 ---
-title: 'Configure BFD over ExpressRoute | Microsoft Docs'
-description: This document provides instructions on how to configure BFD over private-peering of an ExpressRoute circuit.
-documentationcenter: na
+title: 'Configure BFD over ExpressRoute - Azure | Microsoft Docs'
+description: This article provides instructions on how to configure BFD (Bidirectional Forwarding Detection) over private-peering of an ExpressRoute circuit.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: 
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
+ms.custom: seodec18
 
 ---
 # Configure BFD over ExpressRoute
