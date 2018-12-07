@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/07/2018
 ms.author: pbutlerm
 ---
 
@@ -26,6 +26,7 @@ This article describes the prerequisites for publishing a SaaS Application (App)
 To publish a new SaaS App offer, you must meet the following prerequisites:
 - Access to the [Cloud Partner Portal](https://cloudpartner.azure.com/). For more information, see Azure Marketplace and AppSource publishing guides.
 - Before an offer can be published on behalf of a publisher account, one of individuals with Owner role need to agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+- All non-English content needs to be accompanied with an English language version. This content  includes Storefront text, documents, screenshots, Terms of Use and Privacy Policy. It's acceptable to provide a Useful link URL to a non-English application. 
 - Have your metadata ready to use. The following list (non-exhaustive) shows an example of this metadata:
   - A title
   - A description (in HTML format)
