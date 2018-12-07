@@ -22,7 +22,8 @@ You can enable many disk-encryption scenarios, and the steps may vary according 
 Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or back up  before disks are encrypted. Backups ensure that a recovery option is possible  if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the Set-AzureRmVMDiskEncryptionExtension cmdlet to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article. 
 
 >[!WARNING]
->In order to make sure the encryption secrets don’t cross regional boundaries, Azure Disk Encryption needs the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same region as the VM to be encrypted. 
+> - Migrating VMs from using an Azure Active Directory Application Identity for Azure Disk Encryption (previous release) to disk encryption without this identity isn’t supported yet. If you specify the Azure AD application parameter when enabling encryption, you should continue to do so on that VM - even if you disable encryption then reenable it later.
+> - In order to make sure the encryption secrets don’t cross regional boundaries, Azure Disk Encryption needs the Key Vault and the VMs to be co-located in the same region. Create and use a Key Vault that is in the same region as the VM to be encrypted. 
 
 
 ## Enable encryption on new IaaS VMs created from the Marketplace

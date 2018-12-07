@@ -19,8 +19,9 @@ ms.custom: seodec18
 
 Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scenarios that were discussed in the [Azure Disk Encryption Overview](azure-security-disk-encryption-overview.md) article, be sure to have the prerequisites in place. 
 
-> [!NOTE]
-> Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
+> [!WARNING]
+> - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
+> - Migrating VMs from using an Azure Active Directory Application Identity for Azure Disk Encryption (previous release) to disk encryption without this identity isn’t supported yet. If you specify the Azure AD application parameter when enabling encryption, you should continue to do so on that VM - even if you disable encryption then reenable it later.
 
 
 ## <a name="bkmk_OSs"></a> Supported operating systems
