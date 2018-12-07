@@ -143,7 +143,7 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
-    - name: Performance and cost optimization
+    - name: Cost optimization
       items:
         - name: Pricing model
           href: how-pricing-works.md
