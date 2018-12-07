@@ -84,8 +84,11 @@ Here is an example of a connection that calls Office 365 to send an email:
 The `host` object is a part of the inputs that is unique to API connections, 
 and contains these parts: `api` and `connection`. 
 The `api` object specifies the runtime URL for where that managed API is hosted. 
-You can see all the available managed APIs by calling 
-`GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+You can see all the available managed APIs by calling this method:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 When you use an API, that API might or might not have defined any *connection parameters*. 
 So, if the API doesn't define these parameters, no connection is required. 
@@ -93,7 +96,7 @@ If the API does define these parameters, you must create a connection with a spe
 You then reference that name in the `connection` object inside the `host` object. 
 To create a connection in a resource group, call this method:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
