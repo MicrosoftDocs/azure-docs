@@ -11,7 +11,7 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
+ms.date: 12/06/2018
 
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database
@@ -62,11 +62,11 @@ When your SQL Database experiences downtime, analysis is performed to determine 
 
 #### Planned maintenance
 
-The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and retry logic helps reduce the impact. If you continue to experience login errors, please contact support.
+The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, please contact support.
 
 #### Reconfiguration
 
-Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
+Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next steps
 

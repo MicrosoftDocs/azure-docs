@@ -19,7 +19,7 @@ ms.author: sngun
 * [Dedicated throughput](partition-data.md) worldwide.
 * Single-digit millisecond latencies at the 99th percentile.
 * Guaranteed high availability.
-* [Automatic secondary indexing](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* [Automatic secondary indexing](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET, Java, Python, and Node.js.
 

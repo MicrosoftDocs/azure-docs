@@ -37,7 +37,7 @@ For code samples for the .NET SDK Version 3.0 (Preview), see the latest samples 
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
+You also need the [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
 > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription is billed for 1 hour of usage per the performance tier of the collection being created. 

@@ -1,5 +1,6 @@
 ---
-title: What is Automated Machine Learning - Azure Machine Learning service
+title: What is Automated Machine Learning
+titleSuffix: Azure Machine Learning service
 description: Learn about how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
@@ -52,6 +53,6 @@ See examples and learn how to build models using Automated Machine Learning:
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
-+ [How to configure settings for automatic training](how-to-configure-auto-train.md)
++ [Configure settings for automatic training](how-to-configure-auto-train.md)
 
-+ [How to use automatic training on a remote resource](how-to-auto-train-remote.md) 
++ [Use automatic training on a remote resource](how-to-auto-train-remote.md) 

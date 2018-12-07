@@ -1,7 +1,7 @@
 ---
-title: Go language Quickstart - change model and train LUIS app
-description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Change, train app, Go
+description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
@@ -65,7 +65,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
 2. Run the Go application from the command line by entering the following text in the command prompt: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -74,7 +74,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
     This command-prompt displays the results:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {
