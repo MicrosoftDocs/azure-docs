@@ -15,9 +15,9 @@ ms.author: erhopf
 
 # Language and region support for Speech Service API
 
-Different languages are supported for different Speech service functions. The following tables summarize language support.
+Different languages are supported for different Speech Services functions. The following tables summarize language support.
 
-## Speech to Text
+## Speech-to-text
 
 The Microsoft speech recognition API supports the following languages. Different levels of customization are available for each language.
 
@@ -55,9 +55,26 @@ The Microsoft speech recognition API supports the following languages. Different
  th-TH | Thai (Thailand) | No | No | No
 
 
-## Text to Speech
+## Text-to-speech
 
-The speech synthesis API offers the following voices, each of which supports a specific language and dialect, identified by locale.
+The text-to-speech REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
+
+### Neural text-to-speech voices
+
+Neural text-to-speech can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural TTS has significantly reduced listening fatigue when you interact with AI systems.
+
+Neural text-to-speech voices are currently available in these Azure regions:
+
+* East US
+* Southeast Asia
+* West Europe
+
+| Locale | Language | Gender | Service name mapping|
+|--------|----------|---------|--------------------|
+| en-US | English | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+
+### Traditional text-to-speech voices
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------
@@ -152,9 +169,9 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 > [!NOTE]
 > French, German and Italian voice training starts with a data set of 2,000+ utterances. Chinese-English bilingual models also are supported with an initial data set of 2,000+ utterances.
 
-## Speech Translation
+## Speech translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of these languages are available for [speech synthesis](language-support.md#text-languages). 
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of these languages are available for [speech synthesis](language-support.md#text-languages).
 
 ### Speech languages
 
