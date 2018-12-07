@@ -1,5 +1,6 @@
 ---
-title: "Quickstart:  Get started with Azure Machine Learning service in Python"
+title: "Quickstart:  Get started in Python"
+titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
@@ -9,7 +10,7 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.custom: seodec12
+ms.custom: seodec18
 
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: How does Azure Machine Learning service work? 
+title: How does it work? 
+titleSuffix: Azure Machine Learning service
 description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by the Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 # As a data scientist, I want to understand the big picture about how the Azure Machine Learning service works.
+ms.custom: seodec18
 ---
 
 # How the Azure Machine Learning service works: architecture and concepts

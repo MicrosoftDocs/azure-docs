@@ -233,8 +233,8 @@ If you're unable to find any self-signed certificates using the above steps, cou
 
 If you're unable to retrieve your subscriptions after you successfully signed in:
 
-- Verify your account has access to the subscriptions by signing into the [Azure Portal](http://portal.azure.com/)
-- Make sure you have signed in using the correct environment ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/), or Custom Environment/Azure Stack)
+- Verify your account has access to the subscriptions by signing into the [Azure Portal](https://portal.azure.com/)
+- Make sure you have signed in using the correct environment ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/), or Custom Environment/Azure Stack)
 - If you're behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Try removing and readding the account
 - Try deleting the following files from your home directory (such as: C:\Users\ContosoUser), and then readding the account:

@@ -26,7 +26,7 @@ ms.author: lbosq
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph (container) using the Azure portal. You then build and run a console app built using the open-source driver [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## Prerequisites
 
@@ -157,7 +157,7 @@ The following snippets are all taken from the Program.cs file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. From the [Azure portal](http://portal.azure.com/), navigate to your graph database account. In the **Overview** tab, you can see two endpoints- 
+1. From the [Azure portal](https://portal.azure.com/), navigate to your graph database account. In the **Overview** tab, you can see two endpoints- 
  
    **.Net SDK URI** - This value is used when you connect to the graph account by using Microsoft.Azure.Graphs library. 
 

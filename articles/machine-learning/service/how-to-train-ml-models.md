@@ -1,5 +1,6 @@
 ---
-title: Train ML models using an Estimator class with Azure Machine Learning service
+title: Train ML models using an Estimator class
+titleSuffix: Azure Machine Learning service
 description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning services Estimator class
 ms.author: minxia
 author: mx-iao
@@ -9,7 +10,7 @@ ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
+ms.custom: seodec18
 
 ---
 
