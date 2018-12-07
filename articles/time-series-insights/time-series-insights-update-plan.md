@@ -36,9 +36,9 @@ When you provision a Time Series Insights Preview environment, you create two Az
 
 To start, you need three additional items:
  
-- A [Time Series Model](./time-series-insights-update-tsm.md). 
-- An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md). 
-- [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format. 
+- A [Time Series Model](./time-series-insights-update-tsm.md) 
+- An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md) 
+- [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format 
 
 ## Configure your Time Series IDs and Timestamp properties
 
