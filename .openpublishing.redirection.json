@@ -29044,6 +29044,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-enable.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true

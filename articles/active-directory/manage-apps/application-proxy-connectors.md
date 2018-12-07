@@ -42,7 +42,7 @@ The windows server needs to have TLS 1.2 enabled before you install the Applicat
 2. Restart the server
 
 
-For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-enable.md).
+For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-add-on-premises-application.md).
 
 ## Maintenance
 The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporarily not available, it doesn't respond to this traffic.
@@ -59,7 +59,7 @@ You don't have to manually delete connectors that are unused. When a connector i
 
 ## Automatic updates
 
-Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-enable.md) to get any updates. 
+Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-add-on-premises-application.md) to get any updates. 
 
 If you don't want to wait for an automatic update to come to your connector, you can perform a manual upgrade. Go to the [connector download page](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) on the server where your connector is located and select **Download**. This process kicks off an upgrade for the local connector. 
 
@@ -131,7 +131,7 @@ Connectors can also be joined to domains or forests that have a partial trust, o
 
 Usually, connector deployment is straightforward and requires no special configuration. However, there are some unique conditions that should be considered:
 
-* Organizations that limit the outbound traffic must [open required ports](application-proxy-enable.md#open-your-ports).
+* Organizations that limit the outbound traffic must [open required ports](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * FIPS-compliant machines might be required to change their configuration to allow the connector processes to generate and store a certificate.
 * Organizations that lock down their environment based on the processes that issue the networking requests have to make sure that both connector services are enabled to access all required ports and IPs.
 * In some cases, outbound forward proxies may break the two-way certificate authentication and cause the communication to fail.
