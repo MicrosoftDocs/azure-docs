@@ -223,7 +223,7 @@ When you select a web app for Status Monitor to instrument:
 
 ### What version of Application Insights SDK does Status Monitor install?
 
-As of now, Status Monitor cannot install Application Insights SDK versions higher than 2.4.
+As of now, Status Monitor can install Application Insights SDK versions 2.3 or 2.4.
 
 ### Do I need to run Status Monitor whenever I update the app?
 
