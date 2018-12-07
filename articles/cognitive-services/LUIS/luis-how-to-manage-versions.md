@@ -21,7 +21,7 @@ To work with versions, open your app by selecting its name on **My Apps** page, 
 
 The list of versions show which versions are published, where they are published, and which version is currently active. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## Clone a version
 
@@ -40,7 +40,7 @@ The list of versions show which versions are published, where they are published
 
 Select a version from the list, then select **Make Active** from the toolbar. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Manage section, versions page](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## Import version
 

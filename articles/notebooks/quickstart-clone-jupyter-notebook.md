@@ -1,5 +1,5 @@
 ---
-title: Clone a Jupyter notebook from GitHub with Azure Notebooks | Microsoft Docs 
+title: Clone a Jupyter notebook from GitHub with Azure Notebooks
 description: Quickly clone a Jupyter notebook from a GitHub repository and run it in your Azure Notebooks account.
 services: app-service
 documentationcenter: ''

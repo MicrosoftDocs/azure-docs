@@ -1,5 +1,5 @@
 ---
-title: Review endpoint utterances
+title: Review user utterances
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: The breakthrough feature of LUIS is the concept of active learning. Once your LUIS has endpoint queries, active learning improves the quality of the results by selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 09/06/2018
 ms.author: diberry
 ---
 
-# Review endpoint utterances
+# How to review endpoint utterances in LUIS portal
 
 The breakthrough feature of LUIS is the [concept](luis-concept-review-endpoint-utterances.md) of active learning. Once your LUIS has endpoint queries, LUIS uses active learning to improve the quality of the results. In the active learning process, LUIS examines all the endpoint utterances, and selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately. 
 

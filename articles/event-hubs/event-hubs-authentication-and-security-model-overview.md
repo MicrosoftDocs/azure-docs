@@ -1,6 +1,6 @@
 ---
 title: Authentication and security model - Azure Event Hubs | Microsoft Docs
-description: Event Hubs authentication and security model overview.
+description: This article describes the authentication and security model of Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
