@@ -36,16 +36,16 @@ The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
 ## Create a Python application using the SDK
 
-You can either copy the code from this quickstart to a source file `csspeech.py` and run it in your IDE or in the console
+You can either copy the code from this quickstart to a source file `speech.py` and run it in your IDE or in the console
 
-    python cssppech.py
+    python speech.py
 
 or you can download this quickstart tutorial as a [jupyter](http://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/) and run it as a notebook.
 
 First, setup some general items. Import the Speech SDK python module and some additional modules:
 
 ```python
-import azure.cognitiveservices.speech as csspeech
+import azure.cognitiveservices.speech as speechsdk
 import time
 import wave
 import os
@@ -72,19 +72,19 @@ weatherfilename = "whatstheweatherlike.wav"
 The following code snippet shows how speech can be recognized from audio input from the default microphone (make sure the audio settings are correct), and how to interpret the results.
 
 ```python
-speech_config = csspeech.SpeechConfig(subscription=speech_key, region=service_region)
-speech_recognizer = csspeech.SpeechRecognizer(speech_config=speech_config)
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 
 result = speech_recognizer.recognize_once()
 
-if result.reason == csspeech.ResultReason.RecognizedSpeech:
+if result.reason == speechsdk.ResultReason.RecognizedSpeech:
     print("Recognized: {}".format(result.text))
-elif result.reason == csspeech.ResultReason.NoMatch:
+elif result.reason == speechsdk.ResultReason.NoMatch:
     print("No speech could be recognized")
-elif result.reason == csspeech.ResultReason.Canceled:
+elif result.reason == speechsdk.ResultReason.Canceled:
     cancellation_details = result.cancellation_details
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-    if cancellation_details.reason == csspeech.CancellationReason.Error:
+    if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
 ```
 
@@ -93,21 +93,21 @@ elif result.reason == csspeech.ResultReason.Canceled:
 The following code snippet shows how speech can be recognized with audio input from an audio file.
 
 ```python
-speech_config = csspeech.SpeechConfig(subscription=speech_key, region=service_region)
-audio_config = csspeech.AudioConfig(filename=weatherfilename)
-speech_recognizer = csspeech.SpeechRecognizer(speech_config=speech_config,
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+audio_config = speechsdk.AudioConfig(filename=weatherfilename)
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config,
     audio_config=audio_config)
 
 result = speech_recognizer.recognize_once()
 
-if result.reason == csspeech.ResultReason.RecognizedSpeech:
+if result.reason == speechsdk.ResultReason.RecognizedSpeech:
     print("Recognized: {}".format(result.text))
-elif result.reason == csspeech.ResultReason.NoMatch:
+elif result.reason == speechsdk.ResultReason.NoMatch:
     print("No speech could be recognized")
-elif result.reason == csspeech.ResultReason.Canceled:
+elif result.reason == speechsdk.ResultReason.Canceled:
     cancellation_details = result.cancellation_details
     print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-    if cancellation_details.reason == csspeech.CancellationReason.Error:
+    if cancellation_details.reason == speechsdk.CancellationReason.Error:
         print("Error details: {}".format(cancellation_details.error_details))
 ```
 
