@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create and run the sample, do the following steps:
 
-1. Install the PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) package.
+1. Install the PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) package.
    1. Open a command prompt window as an administrator.
    1. Run the following command:
 
