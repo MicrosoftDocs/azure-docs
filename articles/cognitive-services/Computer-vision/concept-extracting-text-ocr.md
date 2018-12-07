@@ -13,7 +13,7 @@ ms.date: 08/29/2018
 ms.author: pafarley
 ---
 
-# Extracting text with OCR
+# Extracting text with Optical Character Recognition
 
 Optical character recognition (OCR) technology in Computer Vision detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
 

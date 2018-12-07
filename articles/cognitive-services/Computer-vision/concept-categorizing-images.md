@@ -13,7 +13,7 @@ ms.date: 08/29/2018
 ms.author: pafarley
 ---
 
-# Categorizing images
+# Image categorization with Computer Vision
 
 In addition to tagging and descriptions, Computer Vision returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new tagging models.
 

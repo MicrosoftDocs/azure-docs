@@ -13,7 +13,7 @@ ms.date: 08/29/2018
 ms.author: pafarley
 ---
 
-# Describing images
+# Describe images with human-readable language
 
 Computer Vision's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision's algorithms generate various descriptions based on the visual features identified in the image. Each description is evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.
 

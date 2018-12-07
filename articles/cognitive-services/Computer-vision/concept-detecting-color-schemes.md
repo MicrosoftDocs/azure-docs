@@ -13,7 +13,7 @@ ms.date: 08/29/2018
 ms.author: pafarley
 ---
 
-# Detecting color schemes
+# Detect color schemes in images
 
 Computer Vision extracts colors from an image. The colors are then analyzed in three different contexts: the dominant foreground color, the dominant background color, and the dominant colors for the image as a whole. They are grouped into 12 dominant accent colors. Those accent colors are black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow. Computer Vision analyzes the colors extracted from an image to return an accent color that represents the most vibrant color for the image to viewers, through a combination of dominant colors and saturation. Depending on the colors in an image, simple black and white or accent colors may be returned in hexadecimal color codes. Computer Vision also returns a boolean value that indicates whether an image is black & white.
 

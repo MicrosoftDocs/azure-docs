@@ -12,7 +12,7 @@ ms.date: 11/14/2018
 ms.author: diberry
 ---
 
-# Configure containers
+# Configure Recognize Text containers
 
 Computer Vision provides the Recognize Text container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 

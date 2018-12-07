@@ -13,7 +13,7 @@ ms.date: 08/29/2018
 ms.author: pafarley
 ---
 
-# Generating thumbnails
+# Generating smart-cropped thumbnails with Computer Vision
 
 A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision feature helps solve the problem.
 

@@ -13,7 +13,7 @@ ms.date: 08/29/2018
 ms.author: pafarley
 ---
 
-# Detecting image types
+# Detecting image types with Computer Vision
 
 Computer Vision can analyze the content type of images by indicating whether an image is clip art, rating the likelihood on a scale, or a line drawing.
 

@@ -12,7 +12,7 @@ ms.date: 11/14/2018
 ms.author: diberry
 ---
 
-# Install and run containers
+# Install and run Recognize Text containers
 
 Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
