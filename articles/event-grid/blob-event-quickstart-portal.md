@@ -8,6 +8,7 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: seodec18
 ---
 # Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
