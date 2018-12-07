@@ -54,9 +54,9 @@ Configuring an Active Directory (AD) administrator enables you to use a single i
 * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
 * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
-1. Select **All Resources** from the left-hand menu and then select your SQL Server.
+1. Select **All Resources** from the left-hand menu and then select your SQL server.
 
-2. From your SQL Server's **Settings** menu, select **Active Directory Admin**.
+2. From your SQL server's **Settings** menu, select **Active Directory Admin**.
 
 3. From the AD admin page toolbar, select  **Set admin** and choose the user or group as your AD admin.
 
@@ -64,9 +64,9 @@ Configuring an Active Directory (AD) administrator enables you to use a single i
 
 4. From the AD admin page toolbar, select **Save**.
 
-5. Navigate to the **mySampleDatabase** database and, from the left-hand menu, select **Query editor (preview)**. The **Login** page appears.
-
-6. If you are an AD admin, then, on the right-hand side, under **Active Directory single sign-on**, a message appears saying you have been logged in. Select **OK**.
+5. Navigate to the **mySampleDatabase** database and, from the left-hand menu, select **Query editor (preview)**. The **Login** page appears. If you're an AD admin, then, on the right-hand side, under **Active Directory single sign-on**, a message appears saying you have been logged in. 
+   
+6. Select **OK**.
 
 
 ## View data
