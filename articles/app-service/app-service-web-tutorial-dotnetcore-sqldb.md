@@ -211,6 +211,10 @@ If this code detects that it is running in production (which indicates the Azure
 
 The `Database.Migrate()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration. 
 
+> [!IMPORTANT]
+> For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
+
 Save your changes, then commit it into your Git repository. 
 
 ```bash

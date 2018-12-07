@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database on Azure by using Visual Studi
 keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scenario
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart

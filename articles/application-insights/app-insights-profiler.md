@@ -1,20 +1,17 @@
-﻿---
+---
 title: Profile live Azure web apps with Application Insights | Microsoft Docs
 description: Profile live web apps on Azure with Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Profile live Azure web apps with Application Insights
 

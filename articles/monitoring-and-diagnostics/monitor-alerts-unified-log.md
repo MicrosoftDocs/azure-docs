@@ -12,10 +12,10 @@ ms.component: alerts
 # Log alerts in Azure Monitor
 This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
 
-Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). To learn more about its usage, see [creating log alerts in Azure](alert-log.md)
+Log Alert consists of Log Search rules created for [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). To learn more about its usage, see [creating log alerts in Azure](alert-log.md)
 
 > [!NOTE]
-> Popular log data from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](monitoring-metric-alerts-logs.md)
+> Popular log data from [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](monitoring-metric-alerts-logs.md)
 
 
 ## Log search alert rule - definition and types
@@ -23,7 +23,7 @@ Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-
 Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](monitoring-action-groups.md). 
 
 Log search rules are defined by the following details:
-- **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is created. Analytics query can also include [cross-application calls](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [cross workspace calls, and [cross-resource calls](../log-analytics/log-analytics-cross-workspace-search.md) provided the user has access rights to the external applications. 
+- **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is created. Analytics query can also include [cross-application calls](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [cross workspace calls, and [cross-resource calls](../azure-monitor/log-query/cross-workspace-query.md) provided the user has access rights to the external applications. 
 
     > [!IMPORTANT]
     > User must have [Azure Monitoring Contributor](monitoring-roles-permissions-security.md) role for creating, modifying, and updating log alerts in Azure Monitor; along with access & query execution rights for the analytics target(s) in alert rule or alert query. If the user creating doesn't have access to all analytics target(s) in alert rule or alert query - the rule creation may fail or the log alert rule will be executed with partial results.
@@ -32,7 +32,7 @@ Log search rules are defined by the following details:
 - **Frequency**.  Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time period.  If the value is greater than the time period, then you risk records being missed.<br>*For example, consider a time period of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated.*
 - **Threshold**.  The results of the log search are evaluated to determine whether an alert should be created.  The threshold is different for the different types of log search alert rules.
 
-Log search rules be it for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), can be of two types. Each of these types is described in detail in the sections that follow.
+Log search rules be it for [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), can be of two types. Each of these types is described in detail in the sections that follow.
 
 - **[Number of results](#number-of-results-alert-rules)**. Single alert created when the number records returned by the log search exceed a specified number.
 - **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold.
@@ -116,4 +116,4 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 * Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
 * Learn about [Azure Alerts](monitoring-overview-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
-* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md).    
+* Learn more about [Log Analytics](../azure-monitor/log-query/log-query-overview.md).    

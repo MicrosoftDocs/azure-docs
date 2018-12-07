@@ -76,7 +76,7 @@ To collect alerts on the Nagios server, perform the following steps.
 
 
 ## Alert records
-You can retrieve alert records from Nagios and Zabbix using [log searches](../../log-analytics/log-analytics-queries.md) in Log Analytics.
+You can retrieve alert records from Nagios and Zabbix using [log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
 
 ### Nagios Alert records
 
@@ -115,4 +115,4 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 
 ## Next steps
 * Learn about [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics.
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 

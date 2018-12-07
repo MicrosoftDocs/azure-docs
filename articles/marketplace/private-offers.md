@@ -21,7 +21,7 @@ ms.author: qianw211
 
 Private offers on [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) enable publishers to create SKUs that are only visible to targeted customers.
 
-## Unlock Enterprise Deals with Private Offers
+## Unlock enterprise deals with Private offers
 
 Enterprise customers increasingly use online marketplaces to find, try, and buy cloud solutions. Now with private offers, publishers can use marketplace to privately share customized solutions with targeted customers with capabilities that enterprises require:
 
@@ -33,13 +33,13 @@ Private offers allow publishers to take advantage of the scale and global availa
 
 Private offers are now available for Virtual Machine, Azure Application (implemented as solution templates or managed applications), and SaaS Apps offers. Like public offers, private offers can be created and managed via the [Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  Customers can be granted or revoked access to private offers in minutes.
 
-## Creating Private Offers Using SKUs and Plans
+## Creating Private offers using SKUs and plans
 
 For *new or existing offers with public SKUs or plans*, publishers can easily create new, private variations by creating new SKUs or plans and marking them as private.  [Private SKUs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus) and plans are components of an offer and are only visible and purchasable by the targeted customers. Private SKUs and plans can reuse the base images and/or offer metadata already published for a public SKU or plan. This option allows publishers to create multiple private variations of a public offer without having to publish multiple versions of the same base image and offer metadata. For Virtual Machine and Azure application offers only, when a private SKU shares a base image with a public SKU, any changes to the offer’s base image will propagate across all public and private SKUs using that base image.
 
 For *new offers that only include private SKUs or plans*, publishers can create their offers as any other offer, and then mark the SKUs or plans as private. The offers that only have private SKUs or plans will not be discoverable or accessible via [Azure Marketplace](https://azuremarketplace.microsoft.com) or the [Azure portal](https://azure.microsoft.com/features/azure-portal/) by customers that are not associated with the offer.
 
-## Targeting Customers with Private Offers
+## Targeting customers with Private offers
 For both new and existing private offers, publishers can target customers using subscription identifiers. Publishers using a Virtual Machine or Azure Application offer can constrain availability of a private SKU to an individual Azure subscription ID or upload a CSV of up to 20,000 Azure subscription IDs. While using a SaaS App private offer, publishers can associate either an Azure subscription ID or a tenant ID to constrain the availability of a private plan, using either the manual or CSV upload approach.
 
 Once an offer has been certified and published, customers can be updated or removed from the SKU or Plan within minutes by using the Sync Private Subscriptions feature. This capability enables  publishers to quickly and easily update the list of customers to which the private SKU or plan is presented without recertifying or republishing the offer.

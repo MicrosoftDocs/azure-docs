@@ -1,10 +1,11 @@
 ---
-title: Phrase lists to enhance entity detection
-titleSuffix: Azure Cognitive Services
+title: Phrase lists
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -15,6 +16,10 @@ ms.author: diberry
 # Use phrase lists to boost signal of word list
 
 You can add features to your LUIS app to improve its accuracy. Features help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary. 
+
+A [phrase list](luis-concept-feature.md) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed list entity (exact text matches) of matched words.
+
+A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
 
 ## Add phrase list
 

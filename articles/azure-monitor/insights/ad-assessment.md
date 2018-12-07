@@ -48,9 +48,9 @@ After you've added the solution and a check is completed, summary information fo
 
 To perform the health check against your domain controllers that are members of the domain to be evaluated, they require an agent and connectivity to Log Analytics using one of the following supported methods:
 
-1. Install the [Microsoft Monitoring Agent (MMA)](../../log-analytics/log-analytics-agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+1. Install the [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the domain controller can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
 The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
 
@@ -181,4 +181,4 @@ After the next scheduled health check runs, by default every seven days, the spe
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to learn how to analyze detailed AD Health Check data and recommendations.
+* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.

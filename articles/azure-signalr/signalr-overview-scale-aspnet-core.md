@@ -40,7 +40,7 @@ Another reason may be you have no requirements to actually host a web applicatio
 
 ## How does it scale?
 
-It is common to scale SignalR with SQL Server, Azure Service Bus, or Redis Cache. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each unit supports up to 1000 client connections.
+It is common to scale SignalR with SQL Server, Azure Service Bus, or Azure Cache for Redis. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each unit supports up to 1000 client connections.
 
 ## Next steps
 * [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-dotnet-core.md)  

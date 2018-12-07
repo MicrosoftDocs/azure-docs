@@ -197,7 +197,6 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Limitations
 
 -  HTTPS probes do not support mutual authentication with a client certificate.
--  SDK, PowerShell do not support HTTPS probes at this time.
 
 ## Next steps
 

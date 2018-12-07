@@ -1,5 +1,5 @@
 ---
-title: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data | Microsoft Docs
+title: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
 services: cosmos-db
 author: SnehaGunda

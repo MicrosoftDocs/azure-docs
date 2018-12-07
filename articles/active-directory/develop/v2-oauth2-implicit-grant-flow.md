@@ -32,7 +32,7 @@ With the v2.0 endpoint, you can sign users into your single-page apps with both 
 
 For these applications (AngularJS, Ember.js, React.js, etc), Azure Active Directory (Azure AD) supports the OAuth 2.0 Implicit Grant flow. The implicit flow is described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code. There are a few important security considerations to take into account when using the implicit flow specifically around [client](https://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use the open source JavaScript library, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use the open source JavaScript library, [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 However, if you prefer not to use a library in your single-page app and send protocol messages yourself, follow the general steps below.
 
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > To test signing in using the implicit flow, click <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> After signing in, your browser should be redirected to `https://localhost/myapp/` with an `id_token` in the address bar.
-> 
+>
 
 | Parameter |  | Description |
 | --- | --- | --- |
