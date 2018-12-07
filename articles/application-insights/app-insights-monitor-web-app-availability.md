@@ -167,10 +167,11 @@ From the details tab, on a specific test select the ellipsis on the far left to 
 Select **View test details** from a specific test to see its scatter plot and specific test location details.
 
 ![View test details,Edit and Disable a web test](./media/app-insights-monitor-web-app-availability/5viewdetails.png)
-![Disable a web test](./media/app-insights-monitor-web-app-availability/6disable.png)
-![Edit test](./media/app-insights-monitor-web-app-availability/8edittest.png)
 
 You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
+
+![Disable a web test](./media/app-insights-monitor-web-app-availability/6disable.png)
+![Edit test](./media/app-insights-monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>If you see failures
 Click a red dot.
