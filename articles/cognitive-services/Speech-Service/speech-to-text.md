@@ -1,7 +1,7 @@
 ---
-title: About Speech to Text
+title: About Speech to Text - Speech Services
 titleSuffix: Azure Cognitive Services
-description: An overview of the capabilities of Speech to Text API.
+description: The Speech-to-Text API transcribes audio streams into text that your app can display or act on as an input. The service is available via the SDK and a RESTful endpoint. 
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -11,7 +11,9 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
+
 # About the Speech to Text API
 
 The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST API.

@@ -10,9 +10,10 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# Best practices
+# Best practices of a QnA Maker knowledge base
 The [knowledge base development lifecycle](../Concepts/development-lifecycle-knowledge-base.md) guides you on how to manage your KB from beginning to end. Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
 
 ## Extraction
