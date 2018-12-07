@@ -158,7 +158,7 @@ Create a storage account and container for clean data to reside.
 
 10. Select **Create** to create the storage account.
 
-    ![Alt text](/media/azure-stack-solution-machine-learning/image1.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Choose the storage account recently created.
 
@@ -191,7 +191,7 @@ Create an Ubuntu Data Science Virtual Machine (DSVM) in the Azure portal.
     ![Alt text](media/azure-stack-solution-machine-learning/image6.png)
 
 > ![Important]  
-> **Choose** Password** as the*Authentication type*.
+> Choose **Password** as the **Authentication type**.
 
 Place the new DSVM in the same resource group as the newly created storage account. All Edge ML objects are deployed in Azure within this Resource Group.
 
@@ -308,7 +308,8 @@ Use the Azure portal to provision the Azure Machine Learning accounts:
 
 Azure Machine Learning Workbench is available for Windows or macOS. See the list of [supported platforms](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
-**Warning:** The installation might take around an hour to complete.
+> **Warning:**  
+> The installation might take around an hour to complete.
 
 1.  Download and launch the latest Workbench installer.
 
@@ -317,7 +318,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
 
 1.  Follow the on-screen instructions in the installer to completion.
 
-    **The installation might take as much as 30 minutes to complete. **
+    **The installation might take as much as 30 minutes to complete.**
     
     `Windows: C:\\Users\\<user>\\AppData\\Local\\AmlWorkbench`
     
@@ -881,7 +882,7 @@ In the previous part of the tutorial, the **iris_sklearn.py** script was run in 
 
 4.  Review the **iris_sklearn.py** file to see where the pickle file was generated. Select Ctrl+F to open the **Find** dialog box, and then find the word **pickle** in the Python code.
 
-This code snippet shows how the pickle output file was generated. The output pickle file is named **model.pkl** on the disk.
+    This code snippet shows how the pickle output file was generated. The output pickle file is named **model.pkl** on the disk.
 
     ```Python
         print("Export the model to model.pkl")
@@ -919,7 +920,7 @@ To deploy the web service along with the model file, scoring script is needed. O
 
     This script creates a JSON file in the **Outputs** section, which  captures the input data schema required by the model.
 
-1.  Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest** score_iris.py** job to display the green **Completed** status. Then select the hyperlink **score_iris.py** for the latest job run to see the run details.
+1.  Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **score_iris.py** job to display the green **Completed** status. Then select the hyperlink **score_iris.py** for the latest job run to see the run details.
 
 2.  On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file. Select the check box next to the file name, and then select **Download**. Save the file into the project root folder.
 
@@ -974,11 +975,11 @@ Use *local mode* deployment to run in Docker containers on the local computer, a
 
 The Docker engine must be running locally to complete the following steps to operationalize the model. Use the `-h` flag at the end of each command to show the corresponding help message.
 
-    > [!Note]  
-    > If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
+> [!Note]  
+> If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
 
-    > [!Note]  
-    > Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
+> [!Note]  
+> Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
 
 1.  Open the command-line interface (CLI). In the Machine Learning Workbench application, on the **File** menu, select **Open Command Prompt**.
 
@@ -1214,7 +1215,7 @@ Give the service principal access to the subscription so it may create resources
 
     ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image59.png)
 
-10\. Select **Basics** in the Create Kubernetes Cluster.
+10. Select **Basics** in the Create Kubernetes Cluster.
 
     ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
@@ -1257,7 +1258,7 @@ From within the WSL Environment run the following commands to install kubectl in
 
 ```PowerShell  
 Install-script -name install-kubectl -scope CurrentUser -force
-Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
+Install-kubectl.ps1 -downloadlocation "C:\Users\<Current User>\Documents\Kube"
 ```
 
 ### Install kubectl on the Windows subsystem for Linux Environment
@@ -1345,7 +1346,7 @@ Once the local JSON file is obtained, in a new WSL session, use the following co
     kubectl proxy
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl proxy
-    set KUBECONFIG=”/mnt/c/users/<current user>/documents/Kube/kubeconfig.json”
+    set KUBECONFIG="/mnt/c/users/<current user>/documents/Kube/kubeconfig.json"
     kubectl.exe config view
 ```
 
@@ -1404,7 +1405,7 @@ Save the **iris_deployment.yaml** file (located in /*mnt/c/users/<current user>/
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
+![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 Check the status of deployment:
 
@@ -1412,7 +1413,7 @@ Check the status of deployment:
 Kubectl get deployments
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
+![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 The Deployment can take some time.
 
@@ -1910,7 +1911,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
     ```Bash  
     git add .
-    git commit -m “Added Service YAML” 
+    git commit -m "Added Service YAML" 
     git push
     ```
 
@@ -1956,6 +1957,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
     ![Alt text](media/azure-stack-solution-machine-learning/image135.png)
 
+    .
 
     ![Alt text](media/azure-stack-solution-machine-learning/image136.png)
 
