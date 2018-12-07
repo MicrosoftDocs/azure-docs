@@ -174,6 +174,6 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutorial for configuring single sign-on](configure-single-sign-on-portal.md)
 * [Introduction to Managing Access to applications](what-is-access-management.md)
-* Download link: [Single sign-on deployment plan](http://aka.ms/SSODeploymentPlan).
+* Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).
 
 

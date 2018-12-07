@@ -38,6 +38,9 @@ The Batch Transcription API supports the following formats:
 | MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
 | OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
 
+> [!NOTE]
+> The Batch Transcription API requires an S0 key (paying tier). It does not work with a free (f0) key.
+
 For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model.
 
 ```json

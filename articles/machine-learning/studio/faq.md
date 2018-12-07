@@ -26,7 +26,7 @@ Azure Machine Learning has a forum on MSDN where members of the data science com
 ## General questions
 **What is Machine Learning Studio?**
 
-Machine Learning Studio is a workbench environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
+Machine Learning Studio is a drag-and-drop canvas environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
 
 For more information about Machine Learning Studio, see [What is Machine Learning Studio?](what-is-ml-studio.md)
 

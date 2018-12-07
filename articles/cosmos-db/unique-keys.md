@@ -1,14 +1,11 @@
 ---
-title: Unique keys in Azure Cosmos DB
+title: Use unique keys in Azure Cosmos DB
 description: Learn how to use unique keys in your Azure Cosmos DB database
 author: aliuy
-
+ms.author: andrl
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-
 ---
 
 # Unique keys in Azure Cosmos DB

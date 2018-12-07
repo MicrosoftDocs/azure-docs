@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 
 ---
@@ -25,7 +25,7 @@ You can copy data from any supported source data store to Data Lake Storage Gen2
 
 Specifically, this connector supports:
 
-- Copying data by using account key.
+- Copying data by using account key, service principal or managed identities for Azure resources authentications.
 - Copying files as-is or parsing or generating files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
@@ -45,7 +45,15 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for Data Lake Storage Gen2 linked service:
+Azure Data Lake Storage Gen2 connector support the following authentication types, refer to the corresponding section on details:
+
+- [Account key authentication](#account-key-authentication)
+- [Service principal authentication](#service-principal-authentication)
+- [Managed identities for Azure resources authentication](#managed-identity)
+
+### Account key authentication
+
+To use storage account key authentication, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -58,7 +66,7 @@ The following properties are supported for Data Lake Storage Gen2 linked service
 
 ```json
 {
-    "name": "AzureDataLakeStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
         "type": "AzureBlobFS",
         "typeProperties": {
@@ -67,6 +75,95 @@ The following properties are supported for Data Lake Storage Gen2 linked service
                 "type": "SecureString", 
                 "value": "<accountkey>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Service principal authentication
+
+To use service principal authentication, follow these steps:
+
+1. Register an application entity in Azure Active Directory (Azure AD) by following [Register your application with an Azure AD tenant](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Make note of the following values, which you use to define the linked service:
+
+    - Application ID
+    - Application key
+    - Tenant ID
+
+2. Grant the service principal proper permission in Azure storage.
+
+    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+These properties are supported in linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **AzureBlobFS**. |Yes |
+| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes | 
+| servicePrincipalId | Specify the application's client ID. | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Blob storage authentication similar to using your own service principal. It allows this designated factory to access and copy data from/to your Blob storage.
+
+To use managed identities for Azure resources authentication, follow these steps:
+
+1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+
+2. Grant the managed identity proper permission in Azure storage. 
+
+    - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
+    - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
+
+These properties are supported in linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **AzureBlobFS**. |Yes |
+| url | Endpoint for the Data Lake Storage Gen2 with the pattern of `https://<accountname>.dfs.core.windows.net`. | Yes | 
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

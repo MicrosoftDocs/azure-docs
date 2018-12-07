@@ -1,13 +1,11 @@
 ---
-title: Azure Cosmos DB PDF query cheat sheets | Microsoft Docs
+title: Azure Cosmos DB PDF query cheat sheets
 description: Printable PDF cheat sheets that helps you use Azure Cosmos DB's SQL, MongoDB, Graph, and Table APIs to query your data
 keywords: sql cheat sheet, sql cheat sheet pdf, sql query cheat sheet
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun

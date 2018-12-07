@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities number reference - Azure| Microsoft Docs
+title: Number Prebuilt entity
 titleSuffix: Azure
 description: This article contains number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -37,7 +38,7 @@ LUIS includes the recognized value of a **`builtin.number`** entity in the `reso
 ## Resolution for prebuilt number
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

@@ -10,6 +10,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
+ms.topic: overview
 ---
 # Organize your resources with Azure management groups
 

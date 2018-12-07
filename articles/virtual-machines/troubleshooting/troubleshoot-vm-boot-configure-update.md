@@ -109,7 +109,7 @@ If the OS Disk is encrypted, unlock the encrypted disk. To do this, follow these
 
 ### Create a snapshot
 
-To create a snapshot, follow the steps in [Snapshot a disk](..\windows\snapshot-copy-managed-disk.md).
+To create a snapshot, follow the steps in [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
 ## Collect an OS memory dump
 
