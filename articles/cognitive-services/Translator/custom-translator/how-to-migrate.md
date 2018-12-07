@@ -14,34 +14,34 @@ ms.topic: article
 
 # Migrate Hub workspace and projects to Custom Translator
 
-You can migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. The migration is initiated on Microsoft Hub by selecting a workspace or project that you wish to migrate, selecting a workspace in Custom Translator to migrate to and selecting what types of trainings you would like to transfer.  Once the migration is started, the selected training settings will be transferred along with all relevant documents.  Deployed models will be trained and will be optionally auto-deployed upon completion.
+You can migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. The migration is initiated on Microsoft Hub by selecting a workspace or project that you wish to migrate, selecting a workspace in Custom Translator to migrate to and selecting what types of trainings you would like to transfer.  Once the migration is started, the selected training settings will be transferred along with all relevant documents.  Deployed models will be trained and will be optionally autodeployed upon completion.
 
 The following actions will be taken in the Custom Translator during the course of the migration:
-* All documents and project definitions will have their names transferred with the addition of “Hub_” prefixed to the name.  Auto generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
-* Any trainings which were in the deployed state when the migration takes place will automatically be trained using the documents of the hub training.  This training will not be charged to your subscription.  If auto-deploy was selected for the migration, the trained model will be deployed upon completion. Regular hosting charges will be applied.  
+* All documents and project definitions will have their names transferred with the addition of “Hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
+* Any trainings that were in the deployed state when the migration takes place will automatically be trained using the documents of the hub training.  This training will not be charged to your subscription.  If auto-deploy was selected for the migration, the trained model will be deployed upon completion. Regular hosting charges will be applied.  
 * Any migrated trainings that were not in the deployed state will be put into the migrated draft state.   In this state, you will have the option of training a model with the migrated definition, but regular training charges will apply.
-* At any point the BLEU score migrated from the hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
+* At any point, the BLEU score migrated from the hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
 
 >[!Note]
 >For a training to succeed, Custom Translator requires minimum 10,000 extracted sentences. For less number of extracted sentences than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator can't conduct a training.
 
 ## Enable account migration 
 
-In order to use the Migration Tool, you will need to have your hub account migration enabled.  To do this please email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These should be the email addresses that you login with.
+In order to use the Migration Tool, you will need to have your hub account migration enabled.  To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
 
-## Find Custom Translator Workspace Id
+## Find Custom Translator Workspace ID
 
-To migrate [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace you need destination Workspace Id in Custom Translator. The destination workspace in Custom Translator is where all your Hub workspaces and projects shall be migrated to.
+To migrate [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace, you need destination Workspace ID in Custom Translator. The destination workspace in Custom Translator is where all your Hub workspaces and projects shall be migrated to.
 
-You will find your destination Workspace Id on Custom Translator Settings page: 
+You will find your destination Workspace ID on Custom Translator Settings page: 
 
 1.	Go to "Setting" page in the Custom Translator portal.
 
-2.	You will find the Workspace Id in the Basic Information section.
+2.	You will find the Workspace ID in the Basic Information section.
 
     ![How to find destination workspace ID](media/how-to/how-to-find-destination-ws-id.png)
 
-3. Keep your destination Workspace Id to refer during the migration process.
+3. Keep your destination Workspace ID to refer during the migration process.
 
 ## Migrate project
 
@@ -124,7 +124,7 @@ If you want more detailed migration report about your projects, trainings and do
 ## Implementation Notes
 * Migrating a project from Hub to Custom Translator will not have any impact on your Hub trainings or projects. We do not delete projects or documents from Hub during a migration and we do not undeploy models.
 * You are only permitted to migrate once per project.  If you need to repeat a migration on a project, please contact us.
-* Currently, the Custom Translator supports 36 languages translating from and to English and we are working hard to add additional languages.  Hub does not require baseline models and therefore supports several thousand languages.  You can migrate an unsupported language pair, however we will only perform the migration of documents and project definitions.  We will not be able to train the new model.  Furthermore, these documents and projects will be displayed as inactive in order to indicate that they can not be used at this time. If support is added for these projects and/or documents, they will become active and trainable.
+* Currently, the Custom Translator supports 36 languages translating from and to English and we are working hard to add additional languages.  Hub does not require baseline models and therefore supports several thousand languages.  You can migrate an unsupported language pair, however we will only perform the migration of documents and project definitions.  We will not be able to train the new model.  Furthermore, these documents and projects will be displayed as inactive in order to indicate that they can't be used at this time. If support is added for these projects and/or documents, they will become active and trainable.
 * Custom Translator does not currently support monolingual training data.  Like unsupported language pairs, you can migrate monolingual documents, but they show as inactive until monolingual data is supported.  
 * Custom Translator requires 10k parallel sentences in order to train.  Microsoft Hub could train on a smaller set of data.  If a training is migrated which does not meet this requirement, it will be trained.
 
