@@ -1,6 +1,6 @@
 ---
 title: Explore data in Hive tables with Hive queries | Microsoft Docs
-description: Explore data in Hive tables using Hive queries.
+description: Use sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Explore data in Hive tables with Hive queries
 

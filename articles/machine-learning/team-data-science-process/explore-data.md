@@ -1,6 +1,6 @@
 ---
 title: Explore data in the Team Data Science Process | Microsoft Docs
-description: How to explore data in various storage environments.
+description: Explore data in different storage environments that are typically used in the Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Explore data in the Team Data Science Process
 
