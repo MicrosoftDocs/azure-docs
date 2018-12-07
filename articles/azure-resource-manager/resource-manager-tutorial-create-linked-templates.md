@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -139,7 +139,64 @@ The linked template creates a storage account. The linked template is almost ide
 
 ## Upload the linked template
 
-The templates need to be accessible from where you run the deployment. This location could be an Azure storage account, Github, or Dropbox. If your templates contain sensitive information, make sure you protect access to them. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere.  To reduce the tasks of this tutorial, the linked template defined in the previous section has been uploaded to [an Azure storage account](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json).
+The main template and the linked template need to be accessible from where you run the deployment. This location could be an Azure storage account, Github, or Dropbox. If your templates contain sensitive information, make sure you protect access to them. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere securely. The following PowerShell script creates an Azure Storage account, uploads the template to the Storage account, and then generates a SAS token to grand limited access to the template file. To simply the tutorial, the script downloads a completed linked template from a shared location. If you want to use the linked template you created, you can use the [Cloud shell](https://shell.azure.com) to upload your linked template, and then modify the script to use your own linked template.
+
+> [AZURE.NOTE]
+> The script limits the SAS token to be used within eight hours. If you need more time to complete this tutorial, increase the expiry time.
+
+At the end of the script, it shows the resource group name and the template URI with an SAS token. You need the values later in the tutorial.
+
+```azurepowershell-interactive
+$projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+$resourceGroupName = $projectNamePrefix + "rg"
+$storageAccountName = $projectNamePrefix + "store"
+$containerName = "linkedtemplates" # The name of the Blob container to be created.
+
+$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the tutorial linked template
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+# Create a storage account
+$storageAccount = New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -Location $location `
+    -SkuName "Standard_LRS"
+
+$context = $storageAccount.Context
+
+# Create a container
+New-AzureStorageContainer -Name $containerName -Context $context
+
+# Upload the linked template
+Set-AzureStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$fileName" `
+    -Blob $fileName `
+    -Context $context
+
+# Generate a SAS token
+$templateURI = New-AzureStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $fileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(8.0) `
+    -FullUri
+
+echo "You need the following values later in the tutorial:"
+echo "Resource Group Name: $resourceGroupName"
+echo "Linked template URI with SAS token: $templateURI"
+```
+
+In practice, you generate a SAS token when you deploy the main template, and give the SAS token expiry a smaller window to make it more secure. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
 
 ## Call the linked template
 
@@ -172,9 +229,10 @@ The main template is called azuredeploy.json.
     * A `Microsoft.Resources/deployments` resource in the main template is used to link to another template.
     * The `deployments` resource has a name called `linkedTemplate`. This name is used for [configuring dependency](#configure-dependency).  
     * You can only use [Incremental](./deployment-modes.md) deployment mode when calling linked templates.
-    * `templateLink/uri` contains the linked template URI. The linked template has been uploaded to a shared storage account. You can update the URI if you upload the template another location on the Internet.
+    * `templateLink/uri` contains the linked template URI. Update the value to the URI you get when you upload the linked template (the one with a SAS token).
     * Use `parameters` to pass values from the main template to the linked template.
-4. Save the changes.
+4. Make sure you have updated the value of the `uri` element to the value you got when you upload the linked template (the one with a SAS token). In practice, you want to supply the URI with a parameter.
+5. Save the revised template
 
 ## Configure dependency
 
@@ -220,9 +278,16 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 3. Select the resource group name.  You shall see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
+## Additional practice
+
+Make the following additional changes to the completed project:
+
+1. Modify the main template (azuredeploy.json) so that it takes the linked template URI value via a parameter.
+2. Instead of generating a SAS token when you upload the linked template, generate the token when you deploy the main template. For more information, see [Provide SAS token during deployment](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+
 ## Next steps
 
-In this tutorial, you developed and deployed a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see
+In this tutorial, you developed and deployed a linked template. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
 > [Deploy virtual machine extensions](./deployment-manager-tutorial.md)

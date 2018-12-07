@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
 
@@ -74,9 +74,11 @@ To complete this article, you need:
 
 1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
 2. In **Filter by title**, enter **storage accounts**.
-3. Select **Reference/Template reference/Storage/Storage Accounts** as shown in the following screenshot:
+3. Select **Reference/Template reference/Storage/<Version>/Storage Accounts** as shown in the following screenshot:
 
     ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    If you don't know which version to choose, use the latest version.
 
 4. Find the encryption-related definition information.  
 
