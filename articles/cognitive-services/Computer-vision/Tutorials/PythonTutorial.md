@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
 ---
