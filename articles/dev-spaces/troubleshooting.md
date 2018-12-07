@@ -69,6 +69,7 @@ In Visual Studio:
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
     
+### Multi-stage Dockerfiles:
 You may see this error when attempting to use a multi-stage Dockerfile. The verbose output will look like this:
 
 ```cmd
@@ -85,6 +86,21 @@ Service cannot be started.
 ```
 
 This is because AKS nodes run an older version of Docker that does not support multi-stage builds. You will need to rewrite your Dockerfile to avoid multi-stage builds.
+
+### Re-running a service after controller re-creation
+You may see this error when attempting to re-run a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. The verbose output will look like this:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+This is because removing the Dev Spaces controller does not remove services previously installed by that controller. Recreating the controller and then attempting to run the services using the new controller fails because the old services are still in place.
+
+To address this, use the `kubectl delete` command to manually remove the old services from your cluster, then re-run Dev Spaces to install the new services.
 
 ## DNS name resolution fails for a public URL associated with a Dev Spaces service
 
@@ -189,6 +205,15 @@ You do not have the VS Code extension for Azure Dev Spaces installed on your dev
 
 ### Try:
 Install the [VS Code extension for Azure Dev Spaces](get-started-netcore.md).
+
+## Debugging error "Invalid 'cwd' value '/src'. The system cannot find the file specified." or "launch: program '/src/[path to project binary]' does not exist"
+Running the VS Code debugger reports the error `Invalid 'cwd' value '/src'. The system cannot find the file specified.` and/or `launch: program '/src/[path to project executable]' does not exist`
+
+### Reason
+By default, the VS Code extension uses `src` as the working directory for the project on the container. If you've updated your `Dockerfile` to specify a different working directory, you may see this error.
+
+### Try:
+Update the `launch.json` file under the `.vscode` subdirectory of your project folder. Change the `configurations->cwd` directive to point to the same directory as the `WORKDIR` defined in your project's `Dockerfile`. You may also need to update the `configurations->program` directive as well.
 
 ## The type or namespace name 'MyLibrary' could not be found
 

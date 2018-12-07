@@ -1,6 +1,6 @@
 ---
 title: Quotas and limits - Azure Event Hubs | Microsoft Docs
-description: Limits and quotas for Azure Event Hubs
+description: This article provides limits and quotas for Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy

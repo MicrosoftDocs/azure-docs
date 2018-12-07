@@ -1,7 +1,7 @@
 ---
 title: Collaborate on app with others
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Authoring access is available for owners and collaborators. 
+description: Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
