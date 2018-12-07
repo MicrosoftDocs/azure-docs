@@ -77,11 +77,11 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 
 3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Click **Save**.
 
-    ![Selse Application Settings and then edit DefaultAnswer for QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Select Application Settings and then edit DefaultAnswer for QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. Restart your App service
 
-    ![Once you change the DefaultAnswer, restart the QnA Maker appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![After you change the DefaultAnswer, restart the QnA Maker appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## Next steps
