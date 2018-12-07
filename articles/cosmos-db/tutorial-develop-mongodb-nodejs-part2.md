@@ -13,7 +13,7 @@ ms.author: jopapa
 ms.custom: seodec18
 
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app
 
 This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
 

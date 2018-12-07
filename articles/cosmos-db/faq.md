@@ -10,7 +10,7 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ---
-# Frequently asked questions in Azure Cosmos DB
+# Frequently asked questions about different APIs in Azure Cosmos DB
 
 ### What happened to the DocumentDB API?
 

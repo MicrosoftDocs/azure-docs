@@ -13,7 +13,7 @@ ms.author: jopapa
 ms.custom: seodec18
 
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 6: Add Post, Put, and Delete functions to the app
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 6: Add CRUD functions to the app
 
 This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database.
 
