@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Dedicated HSM Monitoring | Microsoft Docs
+title: Monitoring options - Azure Dedicated HSM | Microsoft Docs
 description: Overview of Azure Dedicated HSM monitoring options and monitoring responsibilities
 services: dedicated-hsm
 author: barclayn
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/07/2018
 ms.author: barclayn
 
 ---

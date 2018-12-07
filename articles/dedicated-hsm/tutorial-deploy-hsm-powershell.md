@@ -1,5 +1,5 @@
 ﻿---
-title: Tutorial – Azure dedicated HSM deployment into an existing virtual network using PowerShell | Microsoft Docs
+title: Tutorial deploy into an existing virtual network using PowerShell - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using PowerShell into an existing virtual network
 services: dedicated-hsm
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/07/2018
 ms.author: barclayn
 ---
 
@@ -135,6 +135,14 @@ $compute = New-AzureRmVirtualNetworkSubnetConfig `
 $delegation = New-AzureRmDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+
+```
+
+```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
 
 ```
 

@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Dedicated HSM supportability | Microsoft Docs
+title: Supportability - Azure Dedicated HSM | Microsoft Docs
 description: Support options and areas of responsibility for Azure Dedicated HSM in different scenarios
 services: dedicated-hsm
 author: barclayn
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
 
 ---

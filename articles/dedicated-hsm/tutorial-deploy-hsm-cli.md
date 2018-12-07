@@ -1,5 +1,5 @@
 ﻿---
-title: Tutorial – Azure Dedicated HSM Deployment into an existing virtual network using CLI | Microsoft Docs
+title: Tutorial deploy into an existing virtual network using the Azure CLI - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using the CLI into an existing virtual network
 services: dedicated-hsm
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/07/2018
 ms.author: barclayn
 ---
 
@@ -187,7 +187,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![provision status](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![provisioning output](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 You will also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand “subscriptions” on the left, expand your specific subscription for Dedicated HSM, expand “resource groups”, expand the resource group you used and finally select the “resources” item.
 
