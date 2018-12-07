@@ -14,6 +14,8 @@ ms.author: iainfou
 
 As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers is a key consideration. Containers that include out-of-date base images or application runtime introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers.
 
+As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers and container images is a key consideration. Containers that include out of date base images or unpatched application runtimes introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers at build time as well as runtime. The earlier in the process the vulnerability or out of date base image is caught, the more secure the cluster. In this article, *containers* means both the container images stored in a container registry, and the running containers.
+
 This article focuses on how to secure your containers in AKS. You learn how to:
 
 > [!div class="checklist"]
@@ -37,7 +39,7 @@ In a real-world example, you can use a continuous integration and continuous dep
 
 **Best practice guidance** - Limit the image registries that pods and deployments can use. Only allow trusted registries where you validate and control the images that are available.
 
-For additional security, you can also digitally sign your container images. You then only permit deployments of signed images. This process provides an additional layer of security in that limit to only images digitally signed and trusted by you, not just images that pass a vulnerability check.
+For additional security, you can also digitally sign your container images just like you can digitally sign your application code. You then only permit AKS to deploy signed images. This process provides an additional layer of security in that you limit AKS to only pull images digitally signed and trusted by you, not just images that pass a vulnerability check. You also make sure that the container image has not been tampered with and replaced by an image with the exact same name.
 
 Trusted registries that provide digitally signed container images add complexity to your environment, but may be required for certain policy or regulatory compliance. Azure Container Registry supports the use of trusted registries and signed images.
 
