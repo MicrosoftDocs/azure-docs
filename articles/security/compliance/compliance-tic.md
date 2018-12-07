@@ -153,7 +153,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service Environment               | GA               |
-|Azure Redis Cache                     | GA               |
+|Azure Cache for Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |Virtual machine scale set             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -260,7 +260,7 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Database | Azure Database for PostgreSQL | | | Yes |
 | Database | Azure SQL Data Warehouse | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
-| Database | Azure Redis Cache | | Yes | |
+| Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |
 | Storage | Azure Files | Yes | | |
 | Storage | Azure Queue storage | Yes | | |

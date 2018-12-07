@@ -1,5 +1,6 @@
 ---
-title: Use Load Balancer health probes to protect your service | Microsoft Docs
+title: Use Load Balancer health probes to protect your service
+titlesuffix: Azure Load Balancer
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -7,6 +8,7 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018

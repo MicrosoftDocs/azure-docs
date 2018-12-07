@@ -3,15 +3,13 @@ title: Connect a MongoDB app to Azure Cosmos DB by using Node.js
 description: Learn how to connect an existing Node.js MongoDB app to Azure Cosmos DB
 services: cosmos-db
 author: SnehaGunda
-
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter
+ms.custom: quick start connect, mvc, devcenter, seodec2018
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
-ms.author: sngun
-
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
@@ -41,13 +39,13 @@ If you choose to install and use the CLI locally, this topic requires that you a
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
+In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](https://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
 
 You should have working knowledge of Node.js. This quickstart is not intended to help you with developing Node.js applications in general.
 
 ## Clone the sample application
 
-Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application.
+Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](https://meanjs.org/) application.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -176,7 +174,7 @@ module.exports = {
 
 ## Retrieve the key
 
-In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) command to retrieve the primary key.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

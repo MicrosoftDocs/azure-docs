@@ -187,7 +187,7 @@ The below is a 2 step process.
     print(kvSecret.json()["value"])
 ```
 
-By running you should see the secret value 
+By running the below command you should see the secret value 
 
 ```
 python Sample.py

@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 
 # Data querying
 
-Azure Time Series Insights (TSI) enables data querying on events and metadata stored in the environment via public surface APIs. These APIs are the same as those used in the [TSI explorer](./time-series-insights-update-explorer.md).
+Azure Time Series Insights (TSI) enables data querying on events and metadata stored in the environment via public surface APIs. These APIs are also used in the [TSI explorer](./time-series-insights-update-explorer.md).
 
 There are three primary API categories that are available in Azure TSI:
 
@@ -35,35 +35,35 @@ Below are the core APIs we support.
 
 The following are the Environment APIs available:
 
-* [GET ENVIRONMENT API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Returns the list of environments that the caller is authorized to access.
-* [GET ENVIRONMENT AVAILABILITY API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events if exist.
-* [GET EVENT SCHEMA API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returns the event schema metadata for a given search span. This API helps retrieve all metadata/properties available in the schema for the given search span.
+* [Get Environment API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Returns the list of environments that the caller is authorized to access.
+* [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events if exist.
+* [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returns the event schema metadata for a given search span. This API helps retrieve all metadata/properties available in the schema for the given search span.
 
 ### Time Series Model-Query (TSM-Q) APIs
 
 The following are the Time Series Model-Query APIs available:
 
-* [MODEL SETTINGS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Enables get and patch on the default type and the model name of the environment.
-* [TYPES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Enables CRUD on Time Series Types and their associated Variables.
-* [HIERARCHIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Enables CRUD on Time Series Hierarchies and their associated field paths.
-* [INSTANCES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Enables CRUD on Time Series Instances and their associated instance fields.
+* [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Enables get and patch on the default type and the model name of the environment.
+* [Types API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Enables CRUD on Time Series Types and their associated Variables.
+* [Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Enables CRUD on Time Series Hierarchies and their associated field paths.
+* [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Enables CRUD on Time Series Instances and their associated instance fields.
 
 ### The Time Series Query (TSQ) APIs
 
 The following are the Time Series Query APIs available:
 
-* [GET EVENTS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): The getEvents API enables query and retrieval of TSI data from events as they are recorded in Azure TSI from the source provider.
+* [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): The Get Events API enables query and retrieval of TSI data from events as they are recorded in Azure TSI from the source provider.
 
-* [GET SERIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Azure TSI data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline.
+* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Azure TSI data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline.
 
     >[!NOTE]
-    > The Aggregation clause is ignored in getSeries, even if specified part of variables in model or provided inline.
+    > The Aggregation clause is ignored even if specified in a model or provided inline.
 
   The Get Series API returns a TSV (Time Series Value, a format TSI uses for output JSON from query) for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables.
 
-* [AGGREGATE SERIES API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of TSI data from captured events by sampling and aggregating recorded data.
+* [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of TSI data from captured events by sampling and aggregating recorded data.
 
-  The Aggregate Series API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The aggregateSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
+  The Aggregate Series API returns a TSV for each variable for each interval, based on the provided **Time Series ID** and the set of provided variables. The Aggregate Series API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
 
   Supported Aggregate types: `Min`, `Max`, `Sum`, `Count`, `Average`
 

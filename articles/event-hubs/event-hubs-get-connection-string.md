@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs Get Connection String | Microsoft Docs
+title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: Get an Azure Event Hubs connection string
 services: event-hubs
 documentationcenter: na
@@ -8,7 +8,8 @@ manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/15/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---

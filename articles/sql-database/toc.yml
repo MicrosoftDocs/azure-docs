@@ -123,9 +123,7 @@
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 
         - name: T-SQL differences
-          href: sql-database-transact-sql-information.md
-        - name: Transactional replication - single DBs and elastic pools
-          href: replication-to-sql-database.md 
+          href: sql-database-transact-sql-information.md 
     - name: Elastic pools
       items:
       - name: Elastic pools
@@ -170,8 +168,6 @@
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
-    - name: Transactional replication
-      href: replication-with-sql-database-managed-instance.md
   - name: Platform as a Service
     items:
     - name: Platform as a Service
@@ -230,10 +226,8 @@
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
-      - name: Threat detection - SQL Database
-        href: sql-database-threat-detection.md
-      - name: Threat detection - Managed Instance
-        href: sql-database-managed-instance-threat-detection.md
+      - name: Threat detection
+        href: sql-database-threat-detection-overview.md
     - name: Firewall rules
       items:
       - name: Create and manage
@@ -280,7 +274,7 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
-    - name: TDE with Azure SQL
+    - name: Transparent Data Encryption (TDE)
       items:
       - name: TDE with Azure SQL  
         href: transparent-data-encryption-azure-sql.md
@@ -472,16 +466,30 @@
       href: sql-database-in-memory-oltp-migration.md
 - name: How-to guides
   items:
-  - name: Migrate to SQL Database
-    items:
+  - name: Single Database 
+    items: 
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
+    - name: Manage SQL Database after migration
+      href: sql-database-manage-after-migration.md
+    - name: Configure transactional replication
+      href: replication-to-sql-database.md
+    - name: Configure threat detection
+      href: sql-database-threat-detection.md
+    - name: Manage file space
+      href: sql-database-file-space-management.md
+    - name: Use Resource Health for connectivity issues
+      href: sql-database-resource-health.md
+  - name: Managed Instance
+    items:
     - name: Migrate to Managed Instance
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed Instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Manage SQL Database after migration
-      href: sql-database-manage-after-migration.md
+    - name: Transactional replication
+      href: replication-with-sql-database-managed-instance.md
+    - name: Configure threat detection
+      href: sql-database-managed-instance-threat-detection.md
   - name: Load and move data
     items:
     - name: Copy a DB within Azure
@@ -508,10 +516,6 @@
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-  - name: Manage file space
-    href: sql-database-file-space-management.md
-  - name: Use Resource Health for connectivity issues
-    href: sql-database-resource-health.md
   - name: Develop apps
     items:
     - name: Connectivity

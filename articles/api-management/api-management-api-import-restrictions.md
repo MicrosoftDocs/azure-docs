@@ -22,7 +22,7 @@ ms.author: apipm
 When importing an API, you might come across some restrictions or identify issues that need to be rectified before you can successfully import. This article documents these, organized by the import format of the API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-If you are receiving errors importing your OpenAPI document, ensure you have validated it - either using the designer in the Azure portal (Design - Front End - OpenAPI Specification Editor), or with a third-party tool such as <a href="http://editor.swagger.io">Swagger Editor</a>.
+If you are receiving errors importing your OpenAPI document, ensure you have validated it - either using the designer in the Azure portal (Design - Front End - OpenAPI Specification Editor), or with a third-party tool such as <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 * Only JSON format for OpenAPI is supported.
 * Required parameters across both path and query must have unique names. (In OpenAPI a parameter name only needs to be unique within a location, e.g. path, query, header.  However, in API Management we allow operations to be discriminated by both path and query parameters (which OpenAPI does not support). Therefore we require parameter names to be unique within the entire URL template.)
@@ -30,6 +30,7 @@ If you are receiving errors importing your OpenAPI document, ensure you have val
 * **$ref** pointers can't reference external files.
 * **x-ms-paths** and **x-servers** are the only supported extensions.
 * Custom extensions are ignored on import and are not saved or preserved for export.
+* **Recursion** - Definitions that are defined recursively (for example, refer to themselves) are not supported by APIM.
 
 > [!IMPORTANT]
 > See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.

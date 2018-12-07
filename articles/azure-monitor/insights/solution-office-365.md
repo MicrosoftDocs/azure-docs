@@ -37,7 +37,7 @@ The following is required prior to this solution being installed and configured.
  
 
 ## Management packs
-This solution does not install any management packs in [connected management groups](../../log-analytics/log-analytics-om-agents.md).
+This solution does not install any management packs in [connected management groups](../../azure-monitor/platform/om-agents.md).
   
 ## Install and configure
 Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
