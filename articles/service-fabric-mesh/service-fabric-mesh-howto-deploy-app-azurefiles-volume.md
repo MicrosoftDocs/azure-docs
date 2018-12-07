@@ -25,13 +25,10 @@ To mount a volume in a service, create a volume resource in your Service Fabric 
 
 ## Prerequisites
 > [!NOTE]
-> Onebox deployment on Windows RS5: There is open [bug](https://microsoft.visualstudio.com/OS/_workitems/edit/19554344) with New-SmbGlobalMapping that affects mounting of Azurefile Volumes. The workaround for the issue is to i)Run below command as Powershell adminstrator and 2) perform a reboot of onebox environment.
-
+> **Known Issue with Onebox deployment on Windows RS5:** There is open [bug](https://microsoft.visualstudio.com/OS/_workitems/edit/19554344) with New-SmbGlobalMapping that affects mounting of Azurefile Volumes in this environment. The workaround for the issue is to 1)Run below command as Powershell adminstrator and 2)Perform a reboot of onebox environment.
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
->
-
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this article. 
 
 To use the Azure CLI locally with this article, ensure that `az --version` returns at least `azure-cli (2.0.43)`.  Install (or update) the Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
