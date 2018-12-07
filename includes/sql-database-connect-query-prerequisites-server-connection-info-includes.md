@@ -17,7 +17,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 1. Select **SQL databases** from the left menu, then select your database on the **SQL databases** page.
 
-1. On the **Overview** page for your database, review the fully qualified server name, as shown in the following image. To copy the server name, hover over it and select the **Copy** icon.  
+1. On the **Overview** page for your database, the fully qualified server name appears next to **Server name**. To copy the server name, hover over it and select the **Copy** icon.  
 
 ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
