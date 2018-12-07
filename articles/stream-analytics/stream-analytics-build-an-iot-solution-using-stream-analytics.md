@@ -1,5 +1,5 @@
 ---
-title: Build an IoT solution by using Azure Stream Analytics | Microsoft Docs
+title: Build an IoT solution by using Azure Stream Analytics
 description: Getting-started tutorial for the Stream Analytics IoT solution of a tollbooth scenario
 services: stream-analytics
 author: mamccrea
