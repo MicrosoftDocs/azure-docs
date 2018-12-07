@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create, publish, answer from knowledge base in QnA Maker portal"
+title: Create, publish, answer in QnA Maker
 titleSuffix: Azure Cognitive Services 
 description: This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
