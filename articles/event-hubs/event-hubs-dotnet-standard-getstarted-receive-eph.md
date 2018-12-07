@@ -1,6 +1,6 @@
 ---
 title: Receive events using .NET Core - Azure Event Hubs | Microsoft Docs
-description: Get started receiving messages with the EventProcessorHost in .NET Core
+description: This article provides a walkthrough for creating a .NET Core application that receives messages with the EventProcessorHost.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
