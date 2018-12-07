@@ -187,12 +187,12 @@ The Time Series Insights Preview terms editor panel takes the following paramete
 
 | Operation	| Supported types	| Notes |
 | --- | --- | --- |
-| `<`, `>`, `<=`, `>=` |	Double, DateTime,TimeSpan	| |
-| `=`, `!=`, `<>`	| String, Bool, Double, DateTime, TimeSpan, NULL	|
-| `IN` |	String, Bool, Double, DateTime, TimeSpan, NULL |	All operands should be of the same type or be NULL constant. |
-| `HAS` |	String |	Only constant string literals are allowed at right-hand side. Empty string and NULL are not allowed. |
+| `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
+| `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
+| `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
+| `HAS` | String | Only constant string literals are allowed at right-hand side. Empty string and NULL are not allowed. |
 
-Learn more about supported query operations and data types by reading [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
+Learn more about supported query operations and data types by reading [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
 
 ### Examples of Where clauses
 
