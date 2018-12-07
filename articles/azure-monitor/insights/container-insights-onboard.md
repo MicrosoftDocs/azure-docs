@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.author: magoedte
 ---
 
@@ -119,10 +119,10 @@ provisioningState       : Succeeded
 To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor, do the following:
 
 1. In the Azure portal, select **Monitor**. 
-2. Select **Containers (preview)** from the list.
-3. On the **Monitor - containers (preview)** page, select **Non-monitored clusters**.
+2. Select **Containers** from the list.
+3. On the **Monitor - containers** page, select **Non-monitored clusters**.
 4. From the list of non-monitored clusters, find the container in the list and click **Enable**.   
-5. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  
+5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription. 
 
     ![Enable AKS Container insights monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -143,8 +143,8 @@ To enable monitoring of your AKS container in the Azure portal, do the following
     ![The Kubernetes services link](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. In the list of containers, select a container.
-5. On the container overview page, select **Monitor container health**.  
-6. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.  
+5. On the container overview page, select **Monitor Containers**.  
+6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.  
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription. 
 
     ![Enable AKS container health monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
