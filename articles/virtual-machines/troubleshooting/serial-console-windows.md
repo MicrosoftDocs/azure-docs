@@ -97,7 +97,7 @@ If you need to enable Windows boot loader prompts to display in the serial conso
 
 ## Use serial console
 
-### Use serial console for CMD or Powershell
+### Use CMD or PowerShell in serial console
 
 1. Connect to the serial console. If you successfully connect, the prompt is **SAC>**:
 
