@@ -1,5 +1,5 @@
 ---
-title: What is Azure Event Hubs Event Processor Host and why use it | Microsoft Docs
+title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: Overview and introduction to Azure Event Hubs Event Processor Host
 services: event-hubs
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija 
 
 ---
 
-# Azure Event Hubs Event Processor Host overview
+# Receive events from Azure Event Hubs using Event Processor Host
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 

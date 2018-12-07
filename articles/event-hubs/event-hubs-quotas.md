@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs quotas and limits | Microsoft Docs
+title: Quotas and limits - Azure Event Hubs | Microsoft Docs
 description: Limits and quotas for Azure Event Hubs
 services: event-hubs
 documentationcenter: na

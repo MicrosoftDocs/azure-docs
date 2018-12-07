@@ -1,5 +1,5 @@
 ---
-title: Tutorial - create and run a Jupyter notebook on Azure | Microsoft Docs 
+title: Tutorial - create and run a Jupyter notebook on Azure
 description: How to create an run a Jupyter notebook in Azure Notebooks that demonstrates the process of linear regression in data science.
 services: app-service
 documentationcenter: ''
@@ -51,7 +51,12 @@ The linear regression model you create in the notebook draws data from a file in
 ### Upload the data file
 
 1. On your project dashboard in Azure Notebooks, select **Upload** > **From URL**
-1. In the popup, enter the URL `https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv` in **File URL** and *cricket_chirps.csv* in **File Name**, then select **Done**.
+1. In the popup, enter the following URL in **File URL** and *cricket_chirps.csv* in **File Name**, then select **Done**.
+
+    ```url
+    https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
+    ```
+
 1. The *cricket_chirps.csv* file should now appear in your project's file list:
 
     ![Newly created CSV file showing in the project file list](media/tutorial/csv-file-in-project.png)

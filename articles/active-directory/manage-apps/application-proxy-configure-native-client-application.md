@@ -52,8 +52,8 @@ For more detailed information about creating a new app registration, see [Integr
 Enable the native application to be exposed to other applications in your directory:
 
 1. Still in **App registrations**, select the new native application that you just created.
-2. Select **Required permissions**.
-3. Select **Add**.
+2. Select **API permissions**.
+3. Select **Add a permission**.
 4. Open the first step, **Select an API**.
 5. Use the search bar to find the Application Proxy app that you published in the first section. Choose that app, then click **Select**. 
 
