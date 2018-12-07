@@ -206,7 +206,7 @@ In the event of a failure while sending events to Azure Functions, Stream Analyt
 
 In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty (default), the value changes back to the previously entered value upon save. Manually enter the default values for these fields in this case.
 
-The use of [Http routing](https://docs.microsoft.com/en-us/sandbox/functions-recipes/routes?tabs=csharp) on your azure functions is currently not supported by Stream Analytics.
+The use of [Http routing](https://docs.microsoft.com/en-us/sandbox/functions-recipes/routes?tabs=csharp) on your Azure Functions is currently not supported by Stream Analytics.
 
 ## Clean up resources
 
