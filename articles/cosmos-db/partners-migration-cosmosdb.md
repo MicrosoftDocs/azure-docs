@@ -25,8 +25,7 @@ From NoSQL migration to application development, you can choose from a variety o
 |**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL migration; New app development | USA | [Website](https://www.10thmagnitude.com/)|
-|![Altoros Development LLC][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |     US, Norway, Finland, Belarus, Argentina
-    |  [Website](http://www.altoros.com/)       |
+|![Altoros Development LLC][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |   US, Norway, Finland, Belarus, Argentina |  [Website](http://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |    USA     |  [Website](http://www.attunix.com/)       |
 | ![Avanade][26] | New app development, <br/> App innovation (existing apps) | Austria, Germany, Switzerland, Italy, Norway, Spain, UK | [Website](https://www.avanade.com/)
 |![Bluemetal Architects][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
