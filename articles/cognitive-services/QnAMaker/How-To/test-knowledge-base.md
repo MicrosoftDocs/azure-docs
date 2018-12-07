@@ -10,8 +10,9 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Test your knowledge base
+# Test your knowledge base interactively in QnA Maker
 
 Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
 
