@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---
-# Collaborating
+# Collaborating with other authors
 
 LUIS provides collaboration to allow a group of people to author an app.
 

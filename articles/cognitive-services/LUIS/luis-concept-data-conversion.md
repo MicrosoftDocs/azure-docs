@@ -13,7 +13,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Data conversion concepts in LUIS
+# Convert data format of utterances
 LUIS uses Cognitive Services Speech service to convert utterances from spoken utterances to text utterances before prediction. 
 
 ## Speech to intent conversion concepts

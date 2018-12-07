@@ -13,7 +13,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Data alterations
+# Alter utterance data before or during prediction
 LUIS provides ways to manipulate the utterance before or during the prediction. These include fixing spelling, and fixing timezone issues for prebuild datetimeV2. 
 
 ## Correct spelling errors in utterance
