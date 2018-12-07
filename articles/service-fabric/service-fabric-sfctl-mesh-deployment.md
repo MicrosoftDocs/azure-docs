@@ -51,13 +51,18 @@ Creates a deployment of Service Fabric Mesh Resources.
 
 Consolidates and deploys all the resources to cluster by overriding the parameters mentioned in
 the yaml file
+
 sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters
 ./param.yaml
+
 Consolidates and deploys all the resources in a directory to cluster by overriding the
 parameters mentioned in the yaml file
+
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
+
 Consolidates and deploys all the resources in a directory to cluster by overriding the
 parameters which are passed directly as json object
+
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'myparam' :
 {'value' : 'myvalue'} }"
 

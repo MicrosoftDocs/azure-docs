@@ -86,6 +86,7 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 ### Examples
 
 Start a cluster configuration update
+
 sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
 policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 

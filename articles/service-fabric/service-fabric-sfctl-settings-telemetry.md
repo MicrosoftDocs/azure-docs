@@ -52,8 +52,11 @@ Turn on or off telemetry.
 ### Examples
 
 Turn off telemetry.
+
 sfctl settings telemetry set_telemetry --off
+
 Turn on telemetry.
+
 sfctl settings telemetry set_telemetry --on
 
 
