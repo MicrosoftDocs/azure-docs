@@ -102,9 +102,9 @@ Once the entities and intents have been defined in the LUIS app, you can add the
 ### Install Node.js dependencies
 Install the Node.js dependencies from NPM in the terminal/command line.
 
-````
+```console
 > npm install
-````
+```
 
 ### Change Configuration Settings
 In order to use this application, you need to change the values in the index.js file to your own endpoint key, and provide the name you want the app to have. You can also set the app's culture or change the version number.
