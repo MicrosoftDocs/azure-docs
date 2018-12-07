@@ -27,7 +27,7 @@ ms.author: moderakh
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](http://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
+The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynchronous operations with support of the [Netty library](https://netty.io/). The pre-existing [SQL API Java SDK](sql-api-sdk-java.md) does not support asynchronous operations. 
 
 <table>
 
@@ -109,7 +109,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 * Fixed Java header files for proper java doc generation.
 
 ### <a name="1.0.0"/>1.0.0
-* GA SDK with end-to-end support for non-blocking IO using the [Netty library](http://netty.io/) in gateway mode. 
+* GA SDK with end-to-end support for non-blocking IO using the [Netty library](https://netty.io/) in gateway mode. 
 
 ## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.

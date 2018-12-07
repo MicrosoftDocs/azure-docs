@@ -1,6 +1,6 @@
 ---
 title: Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Docs
-description: How to explore data stored in various Azure enviromnents.
+description: Sample data in Azure blob containers, SQL Server, and Hive tables to reduce it to a smaller but representative and more manageable size.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
 

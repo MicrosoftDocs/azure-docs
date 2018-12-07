@@ -1,11 +1,12 @@
 ---
-title: Publish your LUIS app to the prediction endpoint
-titleSuffix: Azure Cognitive Services 
+title: Publish app
+titleSuffix: Language Understanding - Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual

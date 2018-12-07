@@ -1,6 +1,6 @@
 ---
 title: Parallel bulk data import using SQL partition tables on an Azure VM
-description: Parallel Bulk Data Import Using SQL Partition Tables
+description: Build partitioned tables for fast parallel bulk importing of data to a SQL Server database.
 services: machine-learning
 author: marktab
 manager: cgronlun

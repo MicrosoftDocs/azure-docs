@@ -47,7 +47,7 @@ Make sure you have the following resources:
 
 * [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
 
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## Create an Azure Cosmos DB account
 
