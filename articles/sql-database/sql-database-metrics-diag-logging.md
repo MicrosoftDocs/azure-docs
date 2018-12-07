@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database metrics and diagnostics logging | Microsoft Docs
-description: Learn how to configure Azure SQL Database to store resource usage, track connectivity, and query execution statistics.
+description: Learn how to configure Azure SQL Database to store resource usage and query execution statistics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -16,10 +16,10 @@ ms.date: 09/20/2018
 
 # Azure SQL Database metrics and diagnostics logging
 
-Azure SQL Database, elastic pools, Managed Instance, and databases in Managed Instance can share metrics and diagnostics logs for easier performance monitoring. You can configure a database to stream resource usage, workers and sessions, and connectivity to one of the following Azure resources:
+Azure SQL Database, elastic pools, Managed Instance, and databases in Managed Instance can stream metrics and diagnostics logs for easier performance monitoring. You can configure a database to transmit resource usage, workers and sessions, and connectivity to one of the following Azure resources:
 
-* **Azure SQL Analytics**: to get intelligent, performance monitoring of your Azure databases that includes reports, alerts, and mitigation.
-* **Azure Event Hubs**: to integrate SQL Database telemetry with your custom monitoring solution or hot pipelines.
+* **Azure SQL Analytics**: to get intelligent monitoring of your Azure databases that includes performance reports, alerts, and mitigation recommendations.
+* **Azure Event Hubs**: to integrate SQL Database telemetry with your custom monitoring solutions or hot pipelines.
 * **Azure Storage**: to archive vast amounts of telemetry for a fraction of the price.
 
     ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -29,7 +29,7 @@ For more information about the metrics and log categories supported by the vario
 * [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Overview of Azure diagnostics logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 
-This article provides guidance to help you enable diagnostics telemetry for databases, elastic pools, and Managed Instance. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing streamed database diagnostics telemetry.
+This article provides guidance to help you enable diagnostics telemetry for databases, elastic pools, and Managed Instance. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing database diagnostics telemetry.
 
 ## Enable logging of diagnostics telemetry
 
@@ -41,7 +41,7 @@ You can enable and manage metrics and diagnostics telemetry logging by using one
 - Azure Monitor REST API
 - Azure Resource Manager template
 
-When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the data. Available options include:
+When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the diagnotics telemetry. Available options include:
 
 - Azure SQL Analytics
 - Azure Event Hubs
@@ -50,13 +50,13 @@ When you enable metrics and diagnostics logging, you need to specify the Azure r
 You can provision a new Azure resource or select an existing resource. After you choose a resource by using the **Diagnostic settings** option, specify which data to collect.
 
 > [!NOTE]
-> If you are also using elastic pools or Managed Instance, we recommend that you enable diagnostics telemetry for these resources as well. Elastic pools and Managed Instance when used in the role of database containers have separate diagnostics telemetry.
+> If you are also using elastic pools or Managed Instance, we recommend that you enable diagnostics telemetry for these resources as well. Database containers in elastic pools and Managed Instance have their own separate diagnostics telemetry.
 
 ## Enable logging for Azure SQL Database or databases in Managed Instance
 
 Enable the metrics and diagnostics logging on SQL Database and on databases in Managed Instance; they're not enabled by default.
 
-You can collect the following diagnostics telemetry for Azure SQL Databases and for databases in Managed Instance:
+You can set up Azure SQL Databases and databases in Managed Instance to collect the following diagnostics telemetry:
 
 | Monitoring telemetry for databases | Azure SQL Database support | Database in Managed Instance support |
 | :------------------- | ------------------- | ------------------- |
@@ -88,7 +88,7 @@ To enable streaming of diagnostics telemetry for Azure SQL Database, follow thes
    ![Enable diagnostics for SQL Database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Enter a setting name for your own reference.
 1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, **Deadlocks**.
+1. For the standard, event-based monitoring experience, select the following check boxes for database diagnostics log telemetry: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks**, and **Deadlocks**.
 1. For an advanced, one-minute-based monitoring experience, select the check box for **AllMetrics**.
 1. Select **Save**.
 
@@ -132,7 +132,7 @@ Enable diagnostic telemetry for elastic pools and Managed Instance as database c
 
    ![Elastic pool icon](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
 
-You can collect the following diagnostics telemetry for an elastic pool resource:
+You can set up an elastic pool resource to collect the following diagnostics telemetry:
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
@@ -148,7 +148,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 
 1. Enter a setting name for your own reference.
 1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. If you pick Log Analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
+1. For Log Analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or select an existing workspace.
 1. Select the check box for elastic pool diagnostics telemetry: **AllMetrics**.
 1. Select **Save**.
 
@@ -161,7 +161,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 
    ![Managed Instance icon](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
 
-You can collect the following diagnostics telemetry for a Managed Instance resource:
+You can set up a Managed Instance resource to collect the following diagnostics telemetry:
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
@@ -177,7 +177,7 @@ To enable streaming of diagnostics telemetry for a Managed Instance resource, fo
 
 1. Enter a setting name for your own reference
 1. Select a destination resource for the streaming diagnostics data: **Archive to storage account**, **Stream to an event hub**, or **Send to Log Analytics**.
-1. If you pick Log Analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or use an existing workspace.
+1. For Log Analytics, select **Configure** and create a new workspace by selecting **+Create New Workspace**, or use an existing workspace.
 1. Select the check box for instance diagnostics telemetry: **ResourceUsageStats**.
 1. Select **Save**.
 
