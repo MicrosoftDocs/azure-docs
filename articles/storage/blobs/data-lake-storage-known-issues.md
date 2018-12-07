@@ -23,11 +23,23 @@ If you need to use the same tool to work with all of the content that you upload
 
 ## Blob storage APIs
 
-Blob storage APIs aren't yet available to Azure Data Lake Storage Gen 2 accounts.
+Blob storage APIs aren't yet available to Azure Data Lake Storage Gen2 accounts.
 
 These APIs are disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
 
-Unmanaged Virtual Machine (VM) disks depend upon these APIs, so if you want to enable hierarchical namespaces on a storage account, consider placing unmanaged VM disks into a storage account that doesn't have hierarchical namespaces enabled.
+If you used these APIs to load data before they were disabled, and you have a production requirement to access that data, then please contact Microsoft Support with the following information:
+
+* Subscription ID (the GUID, not the name)
+
+* Storage account name(s)
+
+* Whether you are actively impacted in production, and if so, for which storage accounts?
+
+* Even if you are not actively impacted in production, tell us whether you need this data to be copied to another storage account for some reason, and if so, why?
+
+Under these circumstances, we can restore access to the Blob API for a limited period of time so that you can copy this data into a storage account that doesn't have hierarchical namespaces enabled.
+
+Unmanaged Virtual Machine (VM) disks depend upon the disabled Blob Storage APIs, so if you want to enable hierarchical namespaces on a storage account, consider placing unmanaged VM disks into a storage account that doesn't have hierarchical namespaces enabled.
 
 ## Azure Storage Explorer
 

@@ -35,7 +35,7 @@ What you'll learn:
 ## Availability
 
 > [!NOTE]
-> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Redis cache](api-management-howto-cache-external.md) instead.
+> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ With caching policies shown in this example, the first request to the **GetSpeak
     **Duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
 
 > [!TIP]
-> If you are using an external cache, as described in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `cache-preference` attribute of the caching policies. See [API Management caching policies](api-management-caching-policies.md) for more details.
+> If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `cache-preference` attribute of the caching policies. See [API Management caching policies](api-management-caching-policies.md) for more details.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 To see the caching in action, call the operation from the developer portal.
@@ -88,7 +88,7 @@ To see the caching in action, call the operation from the developer portal.
 ## <a name="next-steps"> </a>Next steps
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
-* For more information about using external Redis cache, see [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md).
+* For more information about using external Azure Cache for Redis, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

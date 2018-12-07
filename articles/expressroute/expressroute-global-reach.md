@@ -1,7 +1,6 @@
 ---
-title: 'About ExpressRoute Global Reach | Microsoft Docs'
-description: This article explains what ExpressRoute Global Reach is.
-documentationcenter: na
+title: 'Connect on-premises networks to Microsoft Cloud using Global Reach - Azure ExpressRoute | Microsoft Docs'
+description: This article explains ExpressRoute Global Reach.
 services: expressroute
 author: cherylmc
 
@@ -9,6 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 
