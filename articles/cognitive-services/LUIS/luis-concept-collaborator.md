@@ -1,17 +1,18 @@
 ---
-title: LUIS app collaboration - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Collaboration 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS apps require a single owner and optional collaborators.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---
-# Collaborating
+# Collaborating with other authors
 
 LUIS provides collaboration to allow a group of people to author an app.
 
