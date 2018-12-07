@@ -206,7 +206,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -_artifactsLocation $artifactsLocation `
     -_artifactsLocationSasToken $artifactsLocationSasToken `
     -bacpacFileName $bacpacFileName `
-    -TemplateFile originalbacpac.json
+    -TemplateFile azuredeploy.json
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).

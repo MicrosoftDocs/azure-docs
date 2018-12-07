@@ -1,5 +1,6 @@
 ---
-title: Where to deploy models with Azure Machine Learning service | Microsoft Docs
+title: Where to deploy models 
+titleSuffix: Azure Machine Learning service
 description: Learn about the different ways that you can deploy your models into production using the Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -9,6 +10,7 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/29/2018
+ms.custom: seodec18
 ---
 
 # Deploy models with the Azure Machine Learning service
