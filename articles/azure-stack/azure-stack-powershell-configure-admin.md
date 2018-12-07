@@ -53,8 +53,7 @@ Connect to the Azure Stack operator environment with PowerShell with Azure Activ
 
   ```PowerShell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your ARM endpoint value from your service provider.
-  Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
   $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
   $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]

@@ -61,8 +61,7 @@ Make sure you replace the following script variables with values from your Azure
 
   ```PowerShell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
   $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
