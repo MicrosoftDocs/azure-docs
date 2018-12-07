@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid overview
-description: Describes Azure Event Grid and its concepts.
+title: Publish and subscribe to application events - Azure Event Grid
+description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -9,6 +9,7 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 12/06/2018
 ms.author: babanisa
+ms.custom: seodec18
 ---
 
 # What is Azure Event Grid?
@@ -21,7 +22,7 @@ Currently, Azure Event Grid is available in all public regions. It isn't yet ava
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). 
 
-![Event Grid functional model](./media/overview/functional-model.png)
+![Event Grid model of sources and handlers](./media/overview/functional-model.png)
 
 Please note: this image shows how Event Grid connects sources and handlers, and isn't a comprehensive list of supported integrations.
 
@@ -86,19 +87,19 @@ Azure Event Grid provides several features that vastly improve serverless, ops a
 
 ### Serverless application architectures
 
-![Serverless application](./media/overview/serverless_web_app.png)
+![Serverless application architecture](./media/overview/serverless_web_app.png)
 
 Event Grid connects data sources and event handlers. For example, use Event Grid to trigger a serverless function that analyzes images when added to a blob storage container. 
 
 ### Ops Automation
 
-![Ops automation](./media/overview/Ops_automation.png)
+![Operations automation](./media/overview/Ops_automation.png)
 
 Event Grid allows you to speed automation and simplify policy enforcement. For example, use Event Grid to notify Azure Automation when a virtual machine or SQL database is created. Use the events to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
 
 ### Application integration
 
-![Application integration](./media/overview/app_integration.png)
+![Application integration with Azure](./media/overview/app_integration.png)
 
 Event Grid connects your app with other services. For example, create a custom topic to send your app's event data to Event Grid, and take advantage of its reliable delivery, advanced routing, and direct integration with Azure. Or, you can use Event Grid with Logic Apps to process data anywhere, without writing code. 
 
