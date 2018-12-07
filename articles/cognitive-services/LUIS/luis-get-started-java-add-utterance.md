@@ -68,14 +68,14 @@ ms.author: diberry
 
 Compile AddUtterance with the dependencies
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## Run code
 Calling `AddUtterance` with no arguments adds the LUIS utterances to the app, without training it.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

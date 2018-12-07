@@ -53,7 +53,7 @@ The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**.
 ### Write the C# code
 The **Program.cs** file should be:
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -123,7 +123,7 @@ Build the code in Visual Studio.
 
 In the project's /bin/Debug directory, run the application from a command line. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

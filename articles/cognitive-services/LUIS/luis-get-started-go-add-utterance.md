@@ -65,7 +65,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
 2. Run the Go application from the command line by entering the following text in the command prompt: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -74,7 +74,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
     This command-prompt displays the results:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

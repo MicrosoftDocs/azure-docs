@@ -75,7 +75,7 @@ Run the application from a command-line with Node.js.
 
 Calling `npm start`adds the utterances, trains, and gets training status.
 
-```CMD
+```console
 > npm start 
 ```
 

@@ -43,7 +43,7 @@ Run the application from a command-line with Python 3.6.
 
 Calling add-utterance with no arguments adds an utterance to the app, without training it.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
