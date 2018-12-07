@@ -154,8 +154,6 @@ There are a few things to know when working with the query editor.
 
 * There's a 5-minute timeout for query execution.
 
-* Email accounts (for example, outlook.com, hotmail.com, gmail.com, and so on) aren't yet supported as Active Directory administrators. Make sure to choose a user that was either created natively in the Azure Active Directory, or federated into the Azure Active Directory
-
 * The query editor only supports cylindrical projection for geography data types.
 
 * There's no support for IntelliSense for database tables and views. However, the editor does support autocomplete on names that have already been typed.
