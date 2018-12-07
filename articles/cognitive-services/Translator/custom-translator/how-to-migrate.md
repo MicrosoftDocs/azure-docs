@@ -14,7 +14,7 @@ ms.topic: article
 
 # Migrate Hub workspace and projects to Custom Translator
 
-You can migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. The migration is initiated on Microsoft Hub by selecting a workspace or project that you wish to migrate, selecting a workspace in Custom Translator to migrate to and selecting what types of trainings you would like to transfer.  Once the migration is started, the selected training settings will be transferred along with all relevant documents.  Deployed models will be trained and will be optionally autodeployed upon completion.
+You can easily migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. Migration is initiated from Microsoft Hub by selecting a workspace or project, then selecting a workspace in Custom Translator, and then selecting the trainings you want to transfer.  After the migration starts, the selected training settings will be transferred with all relevant documents.  Deployed models are trained and can be autodeployed upon completion.
 
 The following actions will be taken in the Custom Translator during the course of the migration:
 * All documents and project definitions will have their names transferred with the addition of “Hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
