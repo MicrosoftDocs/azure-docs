@@ -28,7 +28,7 @@ To complete the steps described in this topic, you have to:
 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
-- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md)/
+- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
 
 ## Define a filter  
 

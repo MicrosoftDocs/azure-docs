@@ -18,7 +18,7 @@ Azure Cosmos DB allows you to configure throughput at two granularities - **Azur
 
 ## Setting throughput on a container  
 
-The throughput provisioned on a Azure Cosmos container is exclusively reserved for the container. The container receives the provisioned throughput all the time. The provisioned throughput on a container is financially backed by SLAs. To configure throughput on a container, see [how to provision throughput on a Azure Cosmos container](how-to-provision-container-throughput.md).
+The throughput provisioned on an Azure Cosmos container is exclusively reserved for the container. The container receives the provisioned throughput all the time. The provisioned throughput on a container is financially backed by SLAs. To configure throughput on a container, see [how to provision throughput on a Azure Cosmos container](how-to-provision-container-throughput.md).
 
 Setting provisioned throughput on a container is the widely used option. While you can elastically scale throughput for a container by provisioning any amount of throughput (RUs), you cannot selectively specify the throughput for logical partition(s). When the workload running on a logical partition consumes more than the throughput that was allocated to the specific logical partition, your operations will get rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire container or retry the operation. For more information on partitioning, see [Logical partitions](partition-data.md).
 
@@ -30,9 +30,9 @@ Throughput provisioned on a Azure Cosmos container is uniformly distributed acro
 
 ## Setting throughput on a database
 
-When you provision throughput on a Azure Cosmos database, the throughput is shared across all the containers in the database, unless you’ve specified a provisioned throughput on specific containers. Sharing the database throughput among its containers is analogous to hosting a database on a cluster of machines. Since all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To configure throughput on a database, see [how to configure provisioned throughput on a Azure Cosmos database](how-to-provision-database-throughput.md).
+When you provision throughput on an Azure Cosmos database, the throughput is shared across all the containers in the database, unless you’ve specified a provisioned throughput on specific containers. Sharing the database throughput among its containers is analogous to hosting a database on a cluster of machines. Since all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To configure throughput on a database, see [how to configure provisioned throughput on a Azure Cosmos database](how-to-provision-database-throughput.md).
 
-Setting throughput on a Azure Cosmos database guarantees that you receive the provisioned throughput all the time. Since all containers within the database share the provisioned throughput, Azure Cosmos DB does not provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
+Setting throughput on an Azure Cosmos database guarantees that you receive the provisioned throughput all the time. Since all containers within the database share the provisioned throughput, Azure Cosmos DB does not provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
 
 * The number of containers
 * The choice of partition keys for various containers and
@@ -52,9 +52,9 @@ Multiple logical partitions sharing the throughput provisioned to a database can
 
 ## Setting throughput on a database and a container
 
-You can combine the two models, provisioning throughput on both database and the container is allowed. The following example shows how to provision throughput on a Azure Cosmos database and a container:
+You can combine the two models, provisioning throughput on both database and the container is allowed. The following example shows how to provision throughput on an Azure Cosmos database and a container:
 
-* You can create a Azure Cosmos database named 'Z' with provisioned throughput of 'K' RUs. 
+* You can create an Azure Cosmos database named 'Z' with provisioned throughput of 'K' RUs. 
 * Next, create five containers named A, B, C, D, and E within the database.
 * You can explicitly configure 'P' RUs of provisioned throughput on the container 'B'.
 * The 'K' RUs throughput is shared across the four containers – A, C, D, and E. The exact amount of throughput available to A, C, D, or E will vary and there are no SLAs for each individual container’s throughput.
@@ -64,7 +64,7 @@ You can combine the two models, provisioning throughput on both database and the
 
 |**Quota**  |**Throughput provisioned on a database**  |**Throughput provisioned on a container**|
 |---------|---------|---------|
-|Minimum RUs |400 |400|
+|Minimum RUs |400 (After the first four containers, each additional container requires a minimum of 100 RU/s.) |400|
 |Minimum RUs per container|100|400|
 |Minimum RUs required to consume 1 GB of storage|40|40|
 |Maximum RUs|Unlimited, on the database|Unlimited, on the container|
