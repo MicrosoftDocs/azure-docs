@@ -1,10 +1,11 @@
 ---
-title: LUIS Prebuilt entities datetimeV2 reference - Azure| Microsoft Docs
+title: DatetimeV2 Prebuilt entities
 titleSuffix: Azure
 description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -22,7 +23,7 @@ DatetimeV2 is managed from the [Recognizers-text](https://github.com/Microsoft/R
 ## Example JSON 
 The following example JSON response has a `datetimeV2` entity with a subtype of `datetime`. For examples of other types of datetimeV2 entities, see [Subtypes of datetimeV2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -98,7 +99,7 @@ For example, given the utterance "May 2nd":
 The following example shows the resolution of the entity "may 2nd". This resolution assumes that today's date is a date between May 2nd 2017 and May 1st 2018.
 Fields with `X` in the `timex` field are parts of the date that aren't explicitly specified in the utterance.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -127,7 +128,7 @@ Fields with `X` in the `timex` field are parts of the date that aren't explicitl
 
 The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fields specify the beginning and end of the range. For the utterance "May 2nd to May 5th", LUIS provides **daterange** values for both the current year and the next year. In the `timex` field, the `XXXX` values indicate the ambiguity of the year. `P3D` indicates the time period is three days long.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -158,7 +159,7 @@ The `datetimeV2` entity extracts date and time ranges. The `start` and `end` fie
 
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance "Tuesday to Thursday". In this example, the current date is June 19th. LUIS includes **daterange** values for both of the date ranges that precede and follow the current date.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -191,7 +192,7 @@ The values array has two time elements if the time, or time range is ambiguous. 
 
 The following example shows how LUIS uses **datetimeV2** to resolve the utterance that has a time range.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

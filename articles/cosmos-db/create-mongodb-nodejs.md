@@ -41,13 +41,13 @@ If you choose to install and use the CLI locally, this topic requires that you a
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
+In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](https://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
 
 You should have working knowledge of Node.js. This quickstart is not intended to help you with developing Node.js applications in general.
 
 ## Clone the sample application
 
-Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](http://meanjs.org/) application.
+Run the following commands to clone the sample repository. This sample repository contains the default [MEAN.js](https://meanjs.org/) application.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

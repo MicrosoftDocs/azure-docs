@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/06/2018
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
@@ -172,15 +172,23 @@ choose **Create**, for example:
    ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
    Azure starts deploying your environment, but this 
-   process might take *up to two hours* before finishing. 
+   process *might* take up to two hours before finishing. 
    To check deployment status, on your Azure toolbar, 
    choose the notifications icon, which opens the notifications pane.
 
    ![Check deployment status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   When deployment finishes successfully, Azure shows this notification:
+   If deployment finishes successfully, 
+   Azure shows this notification:
 
    ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+
+   > [!NOTE]
+   > If deployment fails or you delete your ISE, 
+   > Azure *might* take up to an hour before 
+   > releasing your subnets. So, you might 
+   > have to wait before reusing those 
+   > subnets in another ISE.
 
 1. To view your environment, choose **Go to resource** if Azure 
 doesn't automatically go to your environment after deployment finishes.  

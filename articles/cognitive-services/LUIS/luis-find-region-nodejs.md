@@ -1,10 +1,11 @@
 ---
-title: Find endpoint region with Node.js in LUIS
-titleSuffix: Azure Cognitive Services
+title: Endpoint region, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Programmatically find publish region with endpoint key and application ID for LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
