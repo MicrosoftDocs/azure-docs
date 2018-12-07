@@ -12,7 +12,7 @@ ms.component: hybrid
 ms.author: billmath
 ---
 
-## What is Azure AD Connect?
+# What is Azure AD Connect?
 
 Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals.  It provides the following features:
  	
