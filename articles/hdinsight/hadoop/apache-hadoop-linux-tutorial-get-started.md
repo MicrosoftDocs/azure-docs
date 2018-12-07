@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using Resource Manager template '
+title: 'Quickstart: Create Apache Hadoop clusters using Resource Manager - query data with Apache Hive'
+titlesuffix: Azure HDInsight
 description: Learn how to create HDInsight clusters, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
@@ -7,7 +8,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 05/07/2018
 
