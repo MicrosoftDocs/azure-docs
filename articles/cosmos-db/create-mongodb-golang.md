@@ -59,7 +59,7 @@ Clone the sample application and install the required packages.
     go get gopkg.in/mgo.v2
     ```
 
-The [mgo](http://labix.org/mgo) driver is a [MongoDB](http://www.mongodb.org/) driver for the [Go language](http://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
+The [mgo](https://labix.org/mgo) driver is a [MongoDB](https://www.mongodb.com/) driver for the [Go language](https://golang.org/) that implements a rich and well tested selection of features under a very simple API following standard Go idioms.
 
 <a id="connection-string"></a>
 
@@ -91,7 +91,7 @@ The following snippets are all taken from the main.go file.
 
 ### Connecting the Go app to Azure Cosmos DB
 
-Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
+Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
 The following Golang code snippet connects the Go app with Azure Cosmos DB MongoDB API. The *DialInfo* class holds options for establishing a session with a MongoDB cluster.
 
