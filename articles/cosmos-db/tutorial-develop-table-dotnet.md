@@ -92,7 +92,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     Use the copy buttons on the right side of the screen to copy the PRIMARY CONNECTION STRING.
 
@@ -175,7 +175,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 This client is initialized using the `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, and `TablePreferredLocations` configuration values if specified in the app settings.
 
 ## Create a table
-Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. Azure Cosmos DB supports both fixed size and unlimited tables. See [Partitioning in Azure Cosmos DB](partition-data.md) for details. 
+
+Then, you create a table using `CloudTable`. Tables in Azure Cosmos DB can scale independently in terms of storage and throughput, and partitioning is handled automatically by the service. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

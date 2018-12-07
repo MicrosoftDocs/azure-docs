@@ -32,7 +32,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 <table>
 
-<tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**SDK Download**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**API documentation**</td><td>[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
 

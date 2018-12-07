@@ -78,7 +78,7 @@ For example, with change feed you can perform the following tasks efficiently:
 
 The following are some of the scenarios you can easily implement with change feed:
 
-* Within your [serverless](http://azure.com/serverless) web or mobile apps, you can track events such as all the changes to your customer's profile, preferences, or their location and trigger certain actions, for example, sending push notifications to their devices using [Azure Functions](change-feed-functions.md). 
+* Within your [serverless](https://azure.microsoft.com/en-us/solutions/serverless/) web or mobile apps, you can track events such as all the changes to your customer's profile, preferences, or their location and trigger certain actions, for example, sending push notifications to their devices using [Azure Functions](change-feed-functions.md).
 
 * If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 

@@ -1,6 +1,6 @@
 ---
 title: Sample Data in SQL Server on Azure | Microsoft Docs
-description: Sample Data in SQL Server on Azure
+description: Sample data stored in SQL Server on Azure using SQL or the Python programming language, then move it to Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # <a name="heading"></a>Sample data in SQL Server on Azure
 
