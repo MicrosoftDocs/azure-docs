@@ -61,7 +61,7 @@
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
-    href: output-error-policy.md
+    href: stream-analytics-output-error-policy.md
 - name: How-to-guides
   items:
   - name: Manage

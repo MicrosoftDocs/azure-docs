@@ -1,5 +1,5 @@
 ---
-title: Send events to Azure Event Hubs using .NET Core | Microsoft Docs
+title: Send events using .NET Core - Azure Event Hubs | Microsoft Docs
 description: Get started sending events to Event Hubs in .NET Core
 services: event-hubs
 documentationcenter: na

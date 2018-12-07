@@ -11,9 +11,9 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-
+ms.custom: seodec18
 ---
-# QnA Maker REST API with Node.js 
+# How to use the QnA Maker REST API with Node.js 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Node.js to do the following.

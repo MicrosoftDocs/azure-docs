@@ -1,5 +1,5 @@
 ---
-title: Deploy models to IoT Edge devices from Azure Machine Learning service | Microsoft Docs
+title: Deploy models to IoT Edge devices - Azure Machine Learning service
 description: Learn how to deploy a model from the Azure Machine Learning service to Azure IoT Edge devices. Deploying a model to an edge device allows you to score data on the device instead of sending it to the cloud and waiting on a response.
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +10,7 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # Prepare to deploy models on IoT Edge

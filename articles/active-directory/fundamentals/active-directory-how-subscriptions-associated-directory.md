@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 ---
 
-# Associate or add an Azure subscription in Azure Active Directory
+# Associate or add an Azure subscription to your Azure Active Directory tenant
 The Azure subscription has a trust relationship with Azure Active Directory (Azure AD), which means that the subscription trusts Azure AD to authenticate users, services, and devices. Multiple subscriptions can trust the same Azure AD directory, but each subscription can only trust a single directory.
 
 If your subscription expires, you lose access to all the other resources associated with the subscription. However, the Azure AD directory remains in Azure, letting you associate and manage the directory using a different Azure subscription.

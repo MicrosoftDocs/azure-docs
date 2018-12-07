@@ -1,5 +1,5 @@
 ---
-title: 'The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset | Microsoft Docs'
+title: Use Azure HDInsight Hadoop Cluster on 1 TB dataset - Team Data Science Process
 description: Using the Team Data Science Process for an end-to-end scenario employing an HDInsight Hadoop cluster to build and deploy a model using a large (1 TB) publicly available dataset
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset
 
@@ -472,7 +472,7 @@ There can be millions of unique values for some categorical features of large da
 ##### Building counting transforms
 To build count features, use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
 
-![Build Counting Transform module](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Build Counting Transform module properties](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Build Counting Transform module](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 

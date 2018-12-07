@@ -1,5 +1,5 @@
 ---
-title: Create and share a Jupyter notebook on Azure | Microsoft Docs 
+title: Create and share a Jupyter notebook on Azure
 description: Quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
 services: app-service
 documentationcenter: ''
