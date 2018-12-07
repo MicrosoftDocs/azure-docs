@@ -10,9 +10,10 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# Glossary
+# Glossary for QnA Maker knowledge base and service
 
 ## QnA Maker Service
 A QnA Maker service is a pre-requisite to start using QnA Maker. Purchasing a QnA Maker tier sets up resources in your Azure subscription for creating and managing your knowledge base. Each QnA Maker user account can create multiple QnA Maker services in their Azure subscription.

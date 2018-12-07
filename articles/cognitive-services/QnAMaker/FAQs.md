@@ -10,8 +10,9 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Frequently Asked Questions
+# Frequently Asked Questions for QnA Maker
 
 ## Manage the knowledge base
 
