@@ -418,20 +418,40 @@ This is a typical response for `detailed` recognition.
 
 ## Text-to-speech API
 
+The text-to-speech REST API supports neural and traditional text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
+
+### Neural text-to-speech voices
+
+Neural text-to-speech can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural TTS has significantly reduced listening fatigue when you interact with AI systems.
+
+Neural text-to-speech voices are currently available in these Azure regions:
+
+* East US
+* Southeast Asia
+* West Europe
+
+| Locale | Language | Gender | Service name mapping |
+|--------|----------|---------|---------------------|
+| en-US | English | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+
+### Traditional text-to-speech voices
+
 These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 The Speech Service supports 24-KHz audio output, along with the 16-Khz outputs that were supported by Bing Speech. Four 24-KHz output formats and two 24-KHz voices are supported.
 
-### Voices
+This is a sample of traditional text-to-speech voices. See [supported languages](language-support.md#text-to-speech) for a complete list of available languages, locales, and voices.
 
-| Locale | Language   | Gender | Mapping |
-|--------|------------|--------|---------|
-| en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
-| en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
-
-A full list of available voices, see [supported languages](language-support.md#text-to-speech).
+| Locale | Language | Gender | Service name mapping |
+|--------|----------|---------|---------------------|
+| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" |
+| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" |
+| en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" |
+| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
+| en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
 
 ### Request headers
 

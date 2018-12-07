@@ -15,11 +15,11 @@ ms.author: erhopf
 
 # Speech Synthesis Markup Language
 
-The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more.
+The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more. For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
-For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) at the W3C.
+For a complete list of supported languages, locales, and voices (neural and traditional), see [supported languages](supported-languages.md).
 
-The following examples show how to use SSML for common speech synthesis needs:
+The following sections provide samples for common speech synthesis tasks. 
 
 ## Add a break
 ```xml
@@ -85,5 +85,4 @@ The following examples show how to use SSML for common speech synthesis needs:
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [Language support: voices, locales, languages](language-support.md)
