@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech in JavaScript in nodejs using the Speech Service SDK'
+title: 'Quickstart: Recognize speech in JavaScript in NodeJS using the Speech Service SDK'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in JavaScript in nodejs using the Speech Service SDK
+description: Learn how to recognize speech in JavaScript in NodeJS using the Speech Service SDK
 services: cognitive-services
 author: fmegen
 manager: cgronlun
@@ -17,7 +17,7 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you'll learn how to create a nodejs project using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
+In this article, you'll learn how to create a NodeJS project using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
 The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
@@ -27,79 +27,97 @@ The application is based on the Microsoft Cognitive Services Speech SDK ([Downlo
 * A text editor.
 * A current version of NodeJS.
 
-## Create a new Website folder
+## Create a new project folder
 
 Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
 
-## Unpack the Speech SDK for JavaScript into that folder
+Init the folder by issuing
+
+```nodejs
+npm init
+```
+
+and follow the steps to create a npm project.
+
+## Install the Speech SDK for JavaScript into that folder
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-The latter file is optional and used to help debugging into SDK code, if necessary.
+Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk`.
 
-## Create an index.html page
+This will download and install the latest version of the Speech SDK from npmjs to your folder and install in in the `node_modules\microsoft-cognitiveservices-speech-sdk`
+directory.
 
-Create a new file in the folder, named `index.html` and open this file with a text editor.
+As an alternative, you can download the installation package from TBD and add it from your local drive via `npm install microsoft-cognitiveservices-speech-sdk-1.2.0.tgz`.
 
-1. Create the following HTML skeleton:
+## Using the Speech SDK.
 
-  ```html
-  <html>
-  <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
-    <!-- UI code goes here -->
+Create a new file in the folder, named `main.js` and open this file with a text editor.
 
-    <!-- SDK reference goes here -->
+1. Create the following JavaScript skeleton:
 
-    <!-- Optional authorization token request goes here -->
-
-    <!-- Sample code goes here -->
-  </body>
-  </html>
+  ```javascript
+"use strict";
   ```
 
-1. Add the following UI code to your file, below the first comment:
+2. Add a reference to the Speech SDK
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+  <!-- [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)] -->
 
-1. Add a reference to the Speech SDK
+  ```javascript
+var sdk = require("microsoft-cognitiveservices-speech-sdk");
+  ```
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+3. Load the file content and prepare a PushStream.
 
-1. Wire up handlers for the recognition button, recognition result, and subscription related fields defined by the UI code:
+Please note that the Speech SDK does not support a microphone in NodeJS nor does it (currently) support the File data type.
+Both is only directly supported on browsers. Instead, please use the Stream interface to the Speech SDK, either through
+PullStream() or PushStream() support.
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+In this example, we will use the PushStream() interface.
 
-## Create the token source (optional)
+  ```javascript
+var fs = require("fs");
 
-In case you want to host the web page on a web server, you can optionally provide a token source for your demo application.
-That way, your subscription key will never leave your server while allowing users to use speech capabilities without entering any authorization code themselves.
+var filename = "YOUR_WAVE_FILENAME.wav"; // Please note, 16000Hz, Mono support only.
+var fileContents = fs.readFileSync(filename);
+var arrayBuffer = Uint8Array.from(fileContents).buffer;
 
-1. Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
+var p = sdk.AudioInputStream.createPushStream();
+p.write(arrayBuffer);
+p.close();
+  ```
 
-  [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+4. Perform the recognition.
 
-1. Edit the `index.html` file and add the following code to your file:
+  ```javascript
+var audioConfig = sdk.AudioConfig.fromStreamInput(p);
+var speechConfig = sdk.SpeechConfig.fromSubscription("YOUR_SUBSCRIPTION", "YOUR_REGIOM");
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+var recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 
-> [!NOTE]
-> Authorization tokens only have a limited lifetime.
-> This simplified example does not show how to refresh authorization tokens automatically. As a user, you can manually reload the page or hit F5 to refresh.
+recognizer.recognizeOnceAsync(
+    function (result) {
+      console.log(result);
 
-## Build and run the sample locally
+      recognizer.close();
+      recognizer = undefined;
+    },
+    function (err) {
+      console.trace("err - " + err);
 
-To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](regions.md) and trigger a recognition using the microphone.
+      recognizer.close();
+      recognizer = undefined;
+    });
+  ```
 
-## Build and run the sample via a web server
+## Running the sample
 
-To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
+To launch the app, adapt the subscription, region, and wave filename and then run it by executing `node main.js`.
+It will trigger a recognition using the provided filename and present the output on the console.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/js-browser` folder.
+Look for this sample in the `quickstart/js-node` folder.
 
 ## Next steps
 
