@@ -1,6 +1,6 @@
 ---
 title: What is the Azure Active Directory architecture? | Microsoft Docs
-description: Learn what an Azure Active Directory tenant is and how to manage Azure through Azure Azure Active Directory.
+description: Learn what an Azure Active Directory tenant is and how to manage Azure through Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman

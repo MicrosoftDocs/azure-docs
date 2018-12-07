@@ -273,6 +273,12 @@ The following are post-installation known issues for this build version.
 - Managed Disks usage is reported in hours as described in the [Azure Stack Usage FAQ](azure-stack-usage-related-faq.md#managed-disks). However, Azure Stack billing uses the monthly price instead so you may get incorrectly charged for Managed Disks usage on or before September 27th. We have temporarily suspended charges for Managed Disks after September 27th until the billing issue is addressed. If you have been charged incorrectly for Managed Disks usage, please contact Microsoft Billing Support.
 Usage reports produced from the Azure Stack usage APIs show correct quantities and can be used.
 
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks create two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is granted for each manage disks quota type. However, you may encounter the following issues:
+
+   1. For quota created before 1808 update, the Managed Disks quota will show 0 values in the Admin Portal, though 2048GiB is granted. You may increase or decrease the value based on your actual needs, and the newly set quota value will override the 2048 GiB default.
+   2. If you update the quota value in the UX to 0, it will be considered as taking the default value of 2048 GiB. As a workaround, set the quota value to 1.
+
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
 

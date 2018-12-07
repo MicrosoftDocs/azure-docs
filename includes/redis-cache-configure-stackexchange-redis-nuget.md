@@ -25,7 +25,7 @@ Type **StackExchange.Redis** or **StackExchange.Redis.StrongName** into the sear
 
 ![StackExchange.Redis NuGet package](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
-The NuGet package downloads and adds the required assembly references for your client application to access Azure Azure Cache for Redis with the StackExchange.Azure Cache for Redis client.
+The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the StackExchange.Azure Cache for Redis client.
 
 > [!NOTE]
 > If you have previously configured your project to use StackExchange.Redis, you can check for updates to the package from the **NuGet Package Manager**. To check for and install updated versions of the StackExchange.Redis NuGet package, click **Updates** in the **NuGet Package Manager** window. If an update to the StackExchange.Redis NuGet package is available, you can update your project to use the updated version.
