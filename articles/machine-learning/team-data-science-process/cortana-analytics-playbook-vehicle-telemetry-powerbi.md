@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Vehicle Telemetry Analytics Solution Template Power BI dashboard setup instructions
 
@@ -21,8 +21,8 @@ To review the summary description of this solution, see [Vehicle Telemetry Analy
 To explore this solution even further, see [Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## Prerequisites
-* Deploy the [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) Solution. 
-* [Install Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
+* Deploy the [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solutions/5bdb23f3abb448268b7402ab8907cc90) Solution. 
+* [Install Power BI Desktop](https://aka.ms/pbidesktopstore).
 * Obtain an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/). If you don't have an Azure subscription, get started with the Azure free subscription.
 * Open a Power BI account.
 
@@ -341,7 +341,7 @@ The following steps take about 10 to 15 minutes to complete.
 
 ### Configure Power BI reports
 
-1. Open the designer file **ConnectedCarsPbiReport.pbix** by using the Power BI Desktop. If you don't already have it, install the Power BI Desktop from the [Power BI Desktop installation](https://www.microsoft.com/download/details.aspx?id=45331) website.
+1. Open the designer file **ConnectedCarsPbiReport.pbix** by using the Power BI Desktop. If you don't already have it, install the Power BI Desktop from the [Power BI Desktop installation](https://aka.ms/pbidesktopstore) website.
 
 1. Select **Edit Queries**.
 

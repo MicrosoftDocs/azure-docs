@@ -1,5 +1,6 @@
 ---
-title: Manage and deploy models in Azure Machine Learning Service
+title: Manage and deploy models
+titleSuffix: Azure Machine Learning service
 description: Learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning Service, on your local machine, or from other sources.  
 services: machine-learning
 ms.service: machine-learning
@@ -9,6 +10,7 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # Manage, deploy, and monitor models with Azure Machine Learning Service
