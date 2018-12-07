@@ -25,7 +25,7 @@ This tutorial requires the following.
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 > [!NOTE]
-> Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL Server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.
+> Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.
 
 ## Sign in the Azure portal
 
@@ -48,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Connect using Azure Active Directory
 
-Configuring an Active Directory (AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an AD admin for your SQL Server.
+Configuring an Active Directory (AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an AD admin for your SQL server.
 
 > [!NOTE]
 * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
