@@ -324,7 +324,7 @@ To secure Azure services to multiple subnets within a virtual network or across 
 If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources using network virtual appliance filtering. For more information, see [egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### What happens when you access an Azure service account that has virtual network access control list (ACL) enabled from outside the VNet?
-The HTTP 404 error is returned.
+The HTTP 403 or HTTP 404 error is returned.
 
 ### Are subnets of a virtual network created in different regions allowed to access an Azure service account in another region? 
 Yes, for most of the Azure services, virtual networks created in different regions can access Azure services in another region through the VNet service endpoints. For example, if an Azure Cosmos DB account is in West US or East US and virtual networks are in multiple regions, the virtual network can access Azure Cosmos DB. Storage and SQL are exceptions and are regional in nature and both the virtual network and the Azure service need to be in the same region.
@@ -364,7 +364,7 @@ There is no limit on the total number of VNet service endpoints in a virtual net
 |Azure Storage|	100|
 |Azure SQL|	128|
 |Azure SQL Data Warehouse|	128|
-|Azure KeyVault|	128|
+|Azure KeyVault|	127|
 |Azure Cosmos DB|	64|
 |Azure Event Hub|	128|
 |Azure Service Bus|	128|
