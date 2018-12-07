@@ -35,7 +35,7 @@ The following Advisor recommendations are not currently available in Azure Gover
   * Eliminate unprovisioned ExpressRoute circuits 
 * Performance 
   * Improve App Service performance and reliability 
-  * Improve Redis Cache performance and reliability 
+  * Improve Azure Cache for Redis performance and reliability 
 
 ## Automation
 Automation is generally available in Azure Government.
