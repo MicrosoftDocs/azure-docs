@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ---
 # Create readable database replicas using active geo-replication
 
@@ -56,8 +56,6 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Active geo-replication terminology and capabilities
 
-The active geo-replication feature provides the following essential capabilities:
-
 - **Automatic Asynchronous Replication**
 
  You can only create a secondary database by adding to an existing database. The secondary can be created in any Azure SQL Database server. Once created, the secondary database is populated with the data copied from the primary database. This process is known as seeding. After secondary database has been created and seeded, updates to the primary database are asynchronously replicated to the secondary database automatically. Asynchronous replication means that transactions are committed on the primary database before they are replicated to the secondary database.
@@ -69,16 +67,24 @@ The active geo-replication feature provides the following essential capabilities
   > [!NOTE]
   > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
 
+- **Planned failover**
+
+  Planned failover performs full synchronization between primary and secondary databases before the secondary switches to the primary role. This guarantees no data loss. Planned failover is used the following scenarios: (a) to perform DR drills in production when the data loss is not acceptable; (b) to relocate the database to a different region; and (c) to return the database to the primary region after the outage has been mitigated (failback).
+
+- **Unplanned failover**
+
+  Unplanned or forced failover immediately switches the secondary to the primary role without any synchronization with the primary. This operation will result in data loss. Unplanned failover is used as a recovery method during outages when the primary is not accessible. When the original primary is back online, it will automatically re-connect without synchronization and become a new secondary.
+
 - **Multiple readable secondaries**
 
-  Two or more secondary databases increase redundancy and level of protection for the primary database and application. If multiple secondary databases exist, the application remains protected even if one of the secondary databases fails. If there is only one secondary database, and it fails, the application is exposed to higher risk until a new secondary database is created.
+  Up to 4 secondary databases can be created for each primary. If there is only one secondary database, and it fails, the application is exposed to higher risk until a new secondary database is created. If multiple secondary databases exist, the application remains protected even if one of the secondary databases fails. The additional secondaries can also be used to scale out the read-only workloads
 
   > [!NOTE]
   > If you are using active geo-replication to build a globally distributed application and need to provide read-only access to data in more than four regions, you can create secondary of a secondary (a process known as chaining). This way you can achieve virtually unlimited scale of database replication. In addition, chaining reduces the overhead of replication from the primary database. The trade-off is the increased replication lag on the leaf-most secondary databases.
 
-- **Support of elastic pool databases**
+- **Geo-replication of databases in an elastic pool**
 
-  Each replica can separately participate in an Elastic Pool or not be in any elastic pool at all. The pool choice for each replica is separate and does not depend upon the configuration of any other replica (whether Primary or Secondary). Each Elastic Pool is contained within a single region, therefore multiple replicas in the same topology can never share an Elastic Pool.
+  Each replica can separately participate in an elastic pool or not be in any elastic pool at all. The pool choice for each replica is separate and does not depend upon the configuration of any other replica (whether Primary or Secondary). Each Elastic Pool is contained within a single region, therefore multiple replicas in the same topology can never share an Elastic Pool.
 
 - **Configurable compute size of the secondary database**
 
@@ -110,7 +116,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### T-SQL: Active geo-replication failover with single and pooled databases
+### T-SQL: Manage failover of single and pooled databases
 
 > [!IMPORTANT]
 > These Transact-SQL commands only apply to active geo-replication and do not apply to failover groups. As such, they also do not apply to Managed Instances, as they only support failover groups.
@@ -126,7 +132,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |causes the application to wait until all committed transactions are replicated and acknowledged by the active secondary database. |
 |  | |
 
-### PowerShell: Active geo-replication failover with single and pooled databases
+### PowerShell: Manage failover of single and pooled databases
 
 | Cmdlet | Description |
 | --- | --- |
@@ -140,7 +146,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 > [!IMPORTANT]
 > For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### REST API: Active geo-replication failover with single and pooled databases
+### REST API: Manage failover of single and pooled databases
 
 | API | Description |
 | --- | --- |
