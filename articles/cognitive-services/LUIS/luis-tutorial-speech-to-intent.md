@@ -1,11 +1,11 @@
 ---
-title: Use Speech C# SDK with LUIS 
+title: Use Speech C# SDK
 titleSuffix: Azure Cognitive Services
 description: The Speech service allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech NuGet package, already included as a reference.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -63,7 +63,7 @@ This article uses the audio device on your computer. That can be a headset with 
 
 The Speech SDK is already included as a reference. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## Modify the C# code
 Open the `Program.cs` file and change the following variables:

@@ -446,7 +446,3 @@ The results returned are similar to the following JSON document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## Next steps
-
-Now that you have learned how to create a client for a deployed model, learn how to [Deploy a model to an IoT Edge device](how-to-deploy-to-iot.md).

@@ -52,7 +52,7 @@ The path to the output data in the blob follows this syntax:
 
 - A trained machine learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
-- An [AKS cluster](how-to-deploy-to-aks.md).
+- An Azure Kubernetes Service cluster. For information on how to create and deploy to one, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 - [Set up your environment](how-to-configure-environment.md) and install the [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
@@ -100,7 +100,7 @@ To enable it, you need to:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Create new image and deploy your service.](how-to-deploy-to-aks.md) 
+5. To create a new image and deploy the service, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:

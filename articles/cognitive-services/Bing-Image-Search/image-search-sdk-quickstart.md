@@ -48,8 +48,12 @@ string subscriptionKey = "ENTER YOUR KEY HERE";
 Images imageResults = null;
 // the image search term to be used in the query
 string searchTerm = "canadian rockies";
+
 //initialize the client
-var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+//NOTE: If you're using version 1.2.0 or below for the Bing Image Search SDK, 
+// use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+
+var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 ```
 
 ## Send a search query using the client
