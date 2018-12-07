@@ -40,7 +40,7 @@
       href: quickstart-objectivec-ios.md
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
     - name: 'Using Python'
-      href: quickstart-asr-python.md
+      href: quickstart-python.md
       displayName: recognize speech, speech recognition, speech to text, stt, python
   - name: Text-to-speech
     items:
