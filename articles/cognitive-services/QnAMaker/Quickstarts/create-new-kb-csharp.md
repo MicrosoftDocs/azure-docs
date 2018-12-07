@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
