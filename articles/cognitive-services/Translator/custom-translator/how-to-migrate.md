@@ -43,7 +43,7 @@ You will find your destination Workspace ID on Custom Translator Settings page:
 
 3. Keep your destination Workspace ID to refer during the migration process.
 
-## Migrate project
+## Migrate a project
 
 If you want to migrate your projects selectively, Microsoft Translator Hub gives you that ability.
 
