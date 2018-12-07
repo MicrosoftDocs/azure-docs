@@ -13,13 +13,18 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/07/2018
 ms.author: pbutlerm
 ---
 
 # Azure SaaS application offer
 
-<table> <tr> <td>This section explains how to publish a software as a service (SaaS) application offer to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>. Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will log on through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment. </td> <td><img src="./media/saas-icon.png"  alt="SaaS application icon" /></td> </tr> </table>
+This section explains how to publish a software as a service (SaaS) application offer to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
+
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will log on through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment. | ![SaaS application icon](./media/saas-icon.png)  |
+
 
 ## Benefits
 
