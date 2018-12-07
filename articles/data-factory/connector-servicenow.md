@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -73,7 +73,12 @@ The following properties are supported for ServiceNow linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by ServiceNow dataset.
 
-To copy data from ServiceNow, set the type property of the dataset to **ServiceNowObject**. There is no additional type-specific property in this type of dataset.
+To copy data from ServiceNow, set the type property of the dataset to **ServiceNowObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **ServiceNowObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -85,7 +90,8 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -101,7 +107,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Actual.alm_asset"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Actual.alm_asset"`. | No (if "tableName" in dataset is specified) |
 
 Note the following when specifying the schema and column for ServiceNow in query, and **refer to [Performance tips](#performance-tips) on copy performance implication**.
 

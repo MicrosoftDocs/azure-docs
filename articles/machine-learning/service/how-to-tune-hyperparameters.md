@@ -1,5 +1,6 @@
 ---
-title: Tune hyperparameters for your model using Azure Machine Learning service
+title: Tune hyperparameters for your model
+titleSuffix: Azure Machine Learning service
 description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will learn how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing runs. 
 ms.author: swatig
 author: swatig007

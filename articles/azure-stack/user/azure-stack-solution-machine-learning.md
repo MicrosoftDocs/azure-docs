@@ -353,7 +353,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
     | Project name | myIris | Enter a unique name that identifies the account. Use the departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. |
     | Project directory | c:\Temp\ | Specify the directory in which the project is created. |
     | Project description | leave blank | Optional field useful for describing the projects. |
-    | Visualstudio.com GIT Repository URL | leave blank | Optional field. Associate a project with a Git repository on Visual Studio Team Services for source control and collaboration. |
+    | Visualstudio.com GIT Repository URL | leave blank | Optional field. Associate a project with a Git repository on Azure Repos for source control and collaboration. |
     | Selected workspace | IrisGarden (if it exists) | Choose a workspace created for the Experimentation account in the Azure portal. <br>Using Quickstart, the workspace by the name of IrisGarden is listed. Otherwise, use the workspace with the name of the Experimentation account, or a preferred account name. |
     | Project template | Classifying Iris | Templates contain scripts and data used to explore the product. This template contains the scripts and data needed for this quickstart and other tutorials in this documentation site. |
 
@@ -1416,7 +1416,7 @@ Kubectl get deployments
 
 The Deployment can take some time.
 
-### Configure Visual Studio Team Services to deploy automatically
+### Configure Azure DevOps to deploy automatically
 
 #### Create a team project
 
@@ -1756,7 +1756,7 @@ Now that the connections are established, you will manually map the created Azur
 
     ![Alt text](media/azure-stack-solution-machine-learning/image110.png)
 
-1.  Name the Artifact **iris_deployment** and select the publish location to be **Visual Studio Team Services/TFS**.
+1.  Name the Artifact **iris_deployment** and select the publish location to be **Azure Pipelines**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image111.png)
 

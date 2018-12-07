@@ -1,5 +1,5 @@
 ---
-title: Receive events from Azure Event Hubs using Apache Storm | Microsoft Docs
+title: Receive events using Apache Storm - Azure Event Hubs | Microsoft Docs
 description: Get started receiving from Event Hubs using Apache Storm
 services: event-hubs
 documentationcenter: ''
@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 ---
 
@@ -36,7 +37,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
     ```
 4. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
    
-    ![][12]
+    ![File -> New -> Project][12]
 5. Select **Use default Workspace location**, then click **Next**
 6. Select the **maven-archetype-quickstart** archetype, then click **Next**
 7. Insert a **GroupId** and **ArtifactId**, then click **Finish**

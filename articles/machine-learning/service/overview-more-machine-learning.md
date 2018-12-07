@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 
 ---
 
-# What are the machine learning product options from Microsoft?
+# What are the machine learning products at Microsoft?
 
 Microsoft provides a variety of product options to build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
 

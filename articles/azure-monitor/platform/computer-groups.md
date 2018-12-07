@@ -78,7 +78,7 @@ When groups have been imported, the menu lists the number of computers with grou
 ### System Center Configuration Manager
 When you configure Log Analytics to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
-Before you can import Configuration Manager collections, you must [connect Configuration Manager to Log Analytics](../../log-analytics/log-analytics-sccm.md).  You can then configure the import from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
+Before you can import Configuration Manager collections, you must [connect Configuration Manager to Log Analytics](../../azure-monitor/platform/collect-sccm.md).  You can then configure the import from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
 
 ![Computer groups from SCCM](media/computer-groups/configure-sccm.png)
 

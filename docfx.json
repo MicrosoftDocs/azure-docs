@@ -268,6 +268,7 @@
         "articles/mysql/**/*.md": "https://feedback.azure.com/forums/597982-azure-database-for-mysql",
         "articles/network-watcher/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=195844",
         "articles/networking/**/*.md": "https://feedback.azure.com/forums/217313-networking",
+        "articles/notebooks/**/*.md": "https://github.com/microsoft/AzureNotebooks/issues",
         "articles/notification-hubs/**/*.md": "https://feedback.azure.com/forums/218849-notification-hubs",
         "articles/openshift/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/operations-management-suite/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",

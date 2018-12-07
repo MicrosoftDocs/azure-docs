@@ -1,5 +1,6 @@
 ---
-title: Train models with PyTorch and Azure Machine Learning service
+title: Train models with PyTorch
+titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of PyTorch models with the PyTorch estimator
 services: machine-learning
 ms.service: machine-learning

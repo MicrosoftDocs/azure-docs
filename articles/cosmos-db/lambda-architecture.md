@@ -28,7 +28,7 @@ A lambda architecture is a generic, scalable, and fault-tolerant data processing
 
 Source: http://lambda-architecture.net/
 
-The basic principles of a lambda architecture are described in the preceding diagram as per [https://lambda-architecture.net](http://lambda-architecture.net/).
+The basic principles of a lambda architecture are described in the preceding diagram as per [http://lambda-architecture.net](http://lambda-architecture.net/).
 
  1. All **data** is pushed into *both* the *batch layer* and *speed layer*.
  2. The **batch layer** has a master dataset (immutable, append-only set of raw data) and pre-computes the batch views.
@@ -272,4 +272,4 @@ If you haven't already, download the Spark to Azure Cosmos DB connector from the
 * [Change feed demos](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream processing changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
