@@ -41,7 +41,7 @@ You can either copy the code from this quickstart to a source file `speech.py` a
 
     python speech.py
 
-or you can download this quickstart tutorial as a [Jupyter](http://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
+or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
 
 ```python
 import azure.cognitiveservices.speech as speechsdk
