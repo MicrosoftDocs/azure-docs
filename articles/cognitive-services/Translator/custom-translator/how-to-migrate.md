@@ -27,7 +27,7 @@ These actions are performed during migration:
 
 ## Enable account migration 
 
-In order to use the Migration Tool, you will need to have your hub account migration enabled.  To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
+In order to use the Migration Tool, you'll need to have your hub account migration enabled.  To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
 
 ## Find Custom Translator Workspace ID
 
