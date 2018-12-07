@@ -1,6 +1,7 @@
 ---
-title: How to consume web service deployments - Azure Machine Learning
-description: Learn how to consume a web service created by deploying an Azure Machine Learning model. Deploying an Azure Machine Learning model creates a web service that exposes a REST API. You can create clients for this API using the programming language of your choice. In this document, learn how to access the API using Python and C#.
+title: Consume deployed web services
+titleSuffix: Azure Machine Learning service
+description: Learn how to consume a web service that was generated when a model was deployed with Azure Machine Learning model.The web service that exposes a REST API. Create clients for this API using the programming language of your choice. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,6 +10,9 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 12/03/2018
+ms.custom: seodec18
+
+
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 

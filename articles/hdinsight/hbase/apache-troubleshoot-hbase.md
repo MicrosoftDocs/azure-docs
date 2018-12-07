@@ -3,11 +3,11 @@ title: Troubleshoot HBase by using Azure HDInsight
 description: Get answers to common questions about working with HBase and Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: nitinver
-ms.author: nitinver
-ms.custom: hdinsightactive
+author: hrasheed-msft
+ms.author: hrasheed
+ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
-ms.date: 7/7/2017
+ms.date: 12/06/2018
 ---
 
 # Troubleshoot Apache HBase by using Azure HDInsight
