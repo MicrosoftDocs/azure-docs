@@ -14,7 +14,7 @@ ms.author: danlep
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying your private Azure container registry into an Azure virtual network, you can ensure that only resources in the virtual network are able to communicate with the container registry.
 
-Azure resources in the virtual network such as an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or a [virtual machine]() configured as a Docker host can securely connect to the container registry to pull or push container images without crossing a network boundary.
+For example, use this feature to permit Azure resources such as an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) configured as a Docker host to securely connect to the container registry to pull or push container images without crossing a network boundary.
 
 This article shows you how to use a virtual machine deployed in a virtual network to access a container registry in the same network.
 
@@ -23,30 +23,33 @@ This article shows you how to use a virtual machine deployed in a virtual networ
 
 ## Preview limitations
 
-* Currently, only the following resources can access a container registry in a properly configured virtual network: Azure AKS cluster, Azure virtual machine. Azure Container Instances are not supported.
-* In preview, only the following regions support container registries in virtual networks: West Central US, ...
+The following limitations apply to the preview:
 
-## Virtual network deployment limitations
+* Only the following resources can access a container registry in a properly configured virtual network: Azure AKS cluster, Azure virtual machine. Other Azure services including Azure Container Instances are not supported.
+* You can only manage default network access rules for a container registry through the Azure portal.
+* Only the following regions support container registries in virtual networks: West Central US... [add others?]
+
+## Virtual network configuration overview
+
+Perform the following steps to configure a container registry to allow access only from specific virtual networks:
+
+1. Enable a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Container Registry within the virtual network. A service endpoint represents a range of IP addresses in Azure regions that make resources for an Azure service available only from a virtual network. This endpoint gives traffic an optimal route to the Azure Container Registry service. The identities of the virtual network and the subnet are also transmitted with each request.
+
+1. Configure network rules for the container registry that allow requests to be received from specific subnets in each virtual network. Clients granted access via these network rules must continue to [authenticate to the container registry](/container-registry-authentication.md) to access the data. 
+
+### Virtual network deployment limitations
 
 Certain limitations apply when you deploy a container registry to a virtual network.
 
 * The container registry and virtual network must be in the same Azure subscription and region.
 
-* Only **Premium** container registries can be deployed to a virtual network. For information about service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
+* Only a **Premium** container registry can be deployed to a virtual network. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
 
-* Operations on a container registry in a virtual network using `az acr` commands or other Azure APIs can only be performed within the virtual network.
-
-## Grant access from a virtual network
-
-You can configure a container registry to allow access only from specific VNets.
-Enable a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Container Registry within the VNet. This endpoint gives traffic an optimal route to the Azure Container Registry service. The identities of the virtual network and the subnet are also transmitted with each request. Administrators can then configure network rules for the container registry that allow requests to be received from specific subnets in the VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the container registry to access the data.
-Each registry supports up to 100 [confirm??] virtual network rules, which may be combined with IP network rules.
-
-## Prerequisites
-
-This article assumes you will use a Docker-enabled virtual machine in a virtual network to access an Azure container registry. If you already have a virtual machine, you can skip the first step to create the virtual machine in a virtual network.
+* Each registry supports up to XXX [number??] virtual network rules, which may be combined with IP network rules [confirm??].
 
 ## Create a Docker-enabled virtual machine
+
+This article assumes you will use a Docker-enabled virtual machine in a virtual network to access an Azure container registry. If you already have a virtual machine in a supported region, skip this first step to create the virtual machine.
 
 First, create a resource group to contain the virtual machine and virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *westcentralus* location:
 
@@ -70,7 +73,13 @@ It takes a few minutes for the VM to be created. When the VM has been created, t
 
 ### Install Docker
 
-After the VM is running, make an SSH connection to the public IP address of the VM. When the connection is established, run the following command to install Docker:
+After the VM is running, make an SSH connection to the VM. Replace *publicIpAddress* with the public IP address of your VM.
+
+```bash
+ssh azureuser@publicIpAddress
+```
+
+ When the connection is established, run the following command to install Docker:
 
 ```bash
 sudo apt install docker.io -y
@@ -81,6 +90,15 @@ After installation, run the following command to verify that Docker is running p
 ```bash
 sudo docker run -it hello-world
 ```
+
+Output:
+
+```
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+[...]
+```
+Exit the SSH connection.
 
 ## Add a service endpoint to the virtual network
 
@@ -101,9 +119,7 @@ Output:
 ]
 ```
 
-Now add a service endpoint for Azure Container Registry to your virtual network and subnet. A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) in Azure represents a range of IP addresses in Azure regions that make resources for an Azure service available only from a virtual network. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
-
-Use the [az network vnet subnet update][az-network-vnet-subnet-update] command to add a **Microsoft.ContainerRegistry** service endpoint to your virtual network and subnet. Substitute the names of your virtual network and subnet in the following command:
+Now use the [az network vnet subnet update][az-network-vnet-subnet-update] command to add a **Microsoft.ContainerRegistry** service endpoint to your virtual network and subnet. Substitute the names of your virtual network and subnet in the following command:
 
 ```azurecli
 az network vnet subnet update \
@@ -115,7 +131,7 @@ az network vnet subnet update \
 
 ## Create and configure a container registry 
 
-Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry717* is used. Update this to a unique value.
+Create an Azure container registry instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry717* is used. Update this to a unique value.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry717 --sku Premium
