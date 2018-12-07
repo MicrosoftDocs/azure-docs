@@ -17,17 +17,17 @@ ms.topic: article
 You can easily migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. Migration is initiated from Microsoft Hub by selecting a workspace or project, then selecting a workspace in Custom Translator, and then selecting the trainings you want to transfer.  After the migration starts, the selected training settings will be transferred with all relevant documents.  Deployed models are trained and can be autodeployed upon completion.
 
 These actions are performed during migration:
-* All documents and project definitions will have their names transferred with the addition of “Hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
-* Any trainings that were in the deployed state when the migration takes place will automatically be trained using the documents of the hub training.  This training will not be charged to your subscription.  If auto-deploy was selected for the migration, the trained model will be deployed upon completion. Regular hosting charges will be applied.  
+* All documents and project definitions will have their names transferred with the addition of “hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
+* Any trainings that were in the deployed state when the migration takes place will automatically be trained using the documents of the Hub training.  This training will not be charged to your subscription.  If auto-deploy was selected for the migration, the trained model will be deployed upon completion. Regular hosting charges will be applied.  
 * Any migrated trainings that were not in the deployed state will be put into the migrated draft state.   In this state, you will have the option of training a model with the migrated definition, but regular training charges will apply.
-* At any point, the BLEU score migrated from the hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
+* At any point, the BLEU score migrated from the Hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
 
 >[!Note]
 >For a training to succeed, Custom Translator requires minimum 10,000 extracted sentences. For less number of extracted sentences than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator can't conduct a training.
 
 ## Enable account migration 
 
-In order to use the Migration Tool, you'll need to have your hub account migration enabled.  To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
+In order to use the Migration Tool, you'll need to have your Hub account migration enabled.  To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
 
 ## Find Custom Translator Workspace ID
 
