@@ -1,17 +1,18 @@
 ---
-title: Modeling document data for a NoSQL database
-description: Learn about modeling data for NoSQL databases
-keywords: modeling data
-services: cosmos-db
+title: Modeling document data in a NoSQL database
+titleSuffix: Azure Cosmos DB
+description: Learn about data modeling in NoSQL databases, differences between modeling data in a relational database and a document database.
 author: aliuy
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2016
+ms.date: 12/06/2018
 ms.author: andrl
+ms.custom: seodec18
 
 ---
 # Modeling document data for NoSQL databases
+
 While schema-free databases, like Azure Cosmos DB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy? 

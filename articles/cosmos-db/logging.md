@@ -1,17 +1,16 @@
 ---
-title: Azure Cosmos DB diagnostic logging
-description: Use this tutorial to help you get started with Azure Cosmos DB logging.
-services: cosmos-db
+title: Diagnostic logging in Azure Cosmos DB 
+description: Learn about the different ways to log and monitor data stored in Azure Cosmos DB.
 author: SnehaGunda
-tags: azure-resource-manager
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 
 ---
-# Azure Cosmos DB diagnostic logging
+# Diagnostic logging in Azure Cosmos DB 
 
 After you start to use one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. This article provides an overview of the logs that are available on the Azure platform. You learn how to enable diagnostic logging for monitoring purposes to send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), how to stream logs to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and how to export logs to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/).
 

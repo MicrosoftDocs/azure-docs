@@ -1,14 +1,13 @@
 ---
-title: Azure Cosmos DB as a key value store – Cost overview
-description: Learn about the low cost of using Azure Cosmos DB as a key value store.
-keywords: key value store
-services: cosmos-db
+title: Request unit charges for Azure Cosmos DB as a key value store
+description: Learn about the request unit charges of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store.
 author: SnehaGunda
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 ---
 
 # Azure Cosmos DB as a key value store – Cost overview
