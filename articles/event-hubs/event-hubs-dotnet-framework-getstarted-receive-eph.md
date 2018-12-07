@@ -1,5 +1,5 @@
 ---
-title: Receive events from Azure Event Hubs using the .NET Framework | Microsoft Docs
+title: Receive events using the .NET Framework - Azure Event Hubs | Microsoft Docs
 description: Follow this tutorial to receive events from Azure Event Hubs using the .NET Framework.
 services: event-hubs
 documentationcenter: ''

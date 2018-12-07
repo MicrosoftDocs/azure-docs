@@ -81,7 +81,7 @@ If one of the source values is a multi-value attribute, then every value in that
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
-| **source1  … sourceN ** |Required, variable-number of times |String |String values to be joined together. |
+| **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
 
 - - -
 ### Mid
@@ -150,6 +150,7 @@ Replaces values within a string. It works differently depending on the parameter
   * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
 
 **Parameters:**<br> 
+
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the source object. |
@@ -177,7 +178,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
+| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
 
 
 - - -
