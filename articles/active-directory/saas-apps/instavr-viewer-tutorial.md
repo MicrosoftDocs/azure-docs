@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 12/7/2018
 ms.author: jeedes
 
 ---
@@ -108,15 +108,10 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
 	> There is no fixed pattern for Sign on URL. It is generated when the InstaVR Viewer customer does web packaging. It is unique for every customer and package. For getting the exact Sign on URL you need to login to your InstaVR Viewer instance and do web packaging.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-
-	| | |
-	|-|-|
-	| `https://dev-console.instavr.co/auth/saml/sp/<WEBPackagedURL>`|
-	| `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>` |
-	| | |
-
+	`https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
+	
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. you will get the Identifier value which is explained later in this tutorial. Contact [InstaVR Viewer Client support team](mailto:contact@instavr.co) to get this value.
+	> The Identifier value is not real. Update this value with the actual Identifier value which is explained later in this tutorial.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and **Federation Metadata File** from the given options as per your requirement and save it on your computer.
 
