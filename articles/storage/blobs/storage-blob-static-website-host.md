@@ -46,7 +46,7 @@ The first step is to configure your storage account to host a static website in 
 
 1. Open the [Azure portal](https://portal.azure.com/) in your web browser. 
 1. Locate your storage account and display the account overview.
-1. Select **Static website (preview)** to display the configuration page for static websites.
+1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.
 1. In the **Index document name** field, specify a default index page of *index.html*. The default index page is displayed when a user navigates to the root of your static website.  
 1. In the **Error document path** field, specify a default error page of *404.html*. The default error page is displayed when a user attempts to navigate to a page that does not exist in your static website.
