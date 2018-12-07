@@ -12,7 +12,7 @@ ms.date: 11/27/2018
 ms.author: tulasim
 ms.custom: seodec18
 ---
-# Frequently Asked Questions
+# Frequently Asked Questions for QnA Maker
 
 The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
