@@ -30,9 +30,9 @@ Run the following prerequisites either from the [development kit](./asdk/asdk-co
  - Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
  - Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
 
-## Configure the operator environment and sign in to Azure Stack
+## Connect with Azure AD
 
-Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure AD tenantName, GraphAudience endpoint, and ArmEndpoint values with your own environment configuration.
+Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure AD tenantName, and ArmEndpoint values with your own environment configuration. <!-- GraphAudience endpoint -->
 
 ```PowerShell  
     # Set your tenant name
@@ -42,8 +42,32 @@ Configure the Azure Stack operator environment with PowerShell. Run one of the f
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
+
+## Connect with AD FS
+
+Configure the Azure Stack operator environment with PowerShell. Run one of the following scripts: Replace the Azure AD tenantName, and ArmEndpoint values with your own environment configuration. <!-- GraphAudience endpoint -->
+
+  ```PowerShell  
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" -ArmEndpoint "https://management.local.azurestack.external"
+
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+  # Sign in to your environment
+
+  $cred = get-credential
+
+  Login-AzureRmAccount `
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $tenantId `
+    -Credential $cred
+  ```
+
+
 
 ## Test the connectivity
 
