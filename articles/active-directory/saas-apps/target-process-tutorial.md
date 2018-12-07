@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 
 8. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 9-13.
 
-If you want to configure the application manually perform the following steps:
+	**If you want to configure the application manually perform the following steps:**
 
 9. Sign-on to your TargetProcess application as an administrator.
 
