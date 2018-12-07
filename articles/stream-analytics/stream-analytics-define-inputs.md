@@ -1,5 +1,5 @@
 ---
-title: Stream data as input into Azure Stream Analytics | Microsoft Docs
+title: Stream data as input into Azure Stream Analytics
 description: Learn about setting up a data connection in Azure Stream Analytics. Inputs include a data stream from events, and also reference data.
 services: stream-analytics
 author: mamccrea
