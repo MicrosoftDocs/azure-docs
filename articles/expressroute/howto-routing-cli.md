@@ -1,5 +1,5 @@
 ---
-title: 'How to configure routing for a circuit - ExpresssRoute: Azure CLI | Microsoft Docs'
+title: 'How to configure peering for a circuit - ExpresssRoute: Azure CLI | Microsoft Docs'
 description: This article helps you create and provision the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: cherylmc
@@ -10,9 +10,9 @@ ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ---
-# Create and modify routing for an ExpressRoute circuit using CLI
+# Create and modify peering for an ExpressRoute circuit using CLI
 
-This article helps you create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+This article helps you create and manage routing configuration/peering for an ExpressRoute circuit in the Resource Manager deployment model using CLI. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -122,7 +122,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 The output is similar to the following example:
 
-```azurecli-interactive
+```azurecli
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
