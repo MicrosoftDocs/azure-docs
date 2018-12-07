@@ -8,7 +8,7 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
+ms.custom: "mvc, seodec18"
 ---
 
 # Tutorial: Deploy Azure Machine Learning as an IoT Edge module (preview)
@@ -110,7 +110,7 @@ Check that your container image was successfully created and stored in the Azure
 
 1. In the **Registry Settings** section, add the credentials that you copied from your Azure container registry. 
 
-   ![Add registry credentials](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![Add registry credentials to manifest](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. If you've previously deployed the tempSensor module to your IoT Edge device, it may autopopulate. If it's not already in your list of modules, add it.
 
@@ -177,7 +177,7 @@ The following steps show you how to set up Visual Studio Code to monitor device-
 
 2. Select **...** then select **Set IoT Hub Connection String** from the menu.
 
-   ![IoT Hub Devices more menu](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Set IoT Hub Connection String](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. In the text box that opens at the top of the page, enter the iothubowner connection string for your IoT Hub. Your IoT Edge device should appear in the IoT Hub Devices list.
 

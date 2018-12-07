@@ -1,6 +1,6 @@
 ---
 title: Learn how modules run logic on your devices - Azure IoT Edge | Microsoft Docs 
-description: Learn about Azure IoT Edge modules and how they are configured
+description: Azure IoT Edge modules are containerized units of logic that can be deployed and managed remotely so that you can run business logic on IoT Edge devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -27,7 +27,7 @@ The images exist in the cloud and they can be updated, changed, and deployed in 
 
 Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. Two devices in different parts of the world could use the same module image; however each would have their own module instance when the module is started on the device. 
 
-![Module images in cloud - module instances on devices](./media/iot-edge-modules/image_instance.png)
+![Diagram - Module images in cloud, module instances on devices](./media/iot-edge-modules/image_instance.png)
 
 In implementation, modules images exist as container images in a repository, and module instances are containers on devices. 
 
@@ -42,7 +42,7 @@ The identity associated with a module instance depends on the identity of the de
 
 Clearly, in scenarios when you need to deploy one module image multiple times on the same device, you can deploy the same image multiple times with different names.
 
-![Module identities are unique](./media/iot-edge-modules/identity.png)
+![Diagram - Module identities are unique within devices and across devices](./media/iot-edge-modules/identity.png)
 
 ## Module twins
 

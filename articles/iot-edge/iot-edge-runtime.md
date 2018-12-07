@@ -25,7 +25,7 @@ The IoT Edge runtime performs the following functions on IoT Edge devices:
 * Facilitates communication between modules on the IoT Edge device.
 * Facilitates communication between the IoT Edge device and the cloud.
 
-![IoT Edge runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
+![Runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
 The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
 
@@ -45,7 +45,7 @@ The Edge hub is not a full version of IoT Hub running locally. There are some th
 
 To reduce the bandwidth your IoT Edge solution uses, the Edge hub optimizes how many actual connections are made to the cloud. Edge hub takes logical connections from clients like modules or leaf devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. 
 
-![Edge hub acts as a gateway between multiple physical devices and the cloud](./media/iot-edge-runtime/Gateway.png)
+![Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the Edge hub’s module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. 
 
@@ -53,7 +53,7 @@ Edge hub can determine whether it's connected to IoT Hub. If the connection is l
 
 Edge Hub facilitates module to module communication. Using Edge Hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages. A solution developer then stitches these inputs and outputs together so that the modules process data in the order specific to that solution. 
 
-![Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/ModuleEndpoints.png)
+![Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/module-endpoints.png)
 
 To send data to the Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on output1:
 
@@ -75,7 +75,7 @@ The solution developer is responsible for specifying the rules that determine ho
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Routes between modules](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
+![Routes between modules go through Edge hub](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## IoT Edge agent
 

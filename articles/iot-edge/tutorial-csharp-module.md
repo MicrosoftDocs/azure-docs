@@ -10,9 +10,8 @@ ms.author: kgremban
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: 
-    - mvc
-    - seodec18
+ms.custom: "mvc, seodec18"
+
 ---
 
 # Tutorial: Develop a C# IoT Edge module and deploy to your simulated device

@@ -8,9 +8,7 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: 
-    - mvc
-    - seodec18
+ms.custom: "mvc, seodec18"
 #Customer intent: As an IoT developer, I want to use Azure Functions to execute logic on edge devices to filter data and communications that are sent to the cloud.
 ---
 
@@ -25,7 +23,7 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * View filtered data.
 
 <center>
-![Tutorial architecture diagram](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagram - Tutorial architecture, stage and deploy function module](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -61,7 +59,7 @@ You can use any Docker-compatible registry to hold your container images. Two po
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
 
-    ![Create a container registry](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Create a container registry in Azure portal](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Provide the following values to create your container registry:
 

@@ -1,6 +1,6 @@
 ---
 title: Certificates for device security - Azure IoT Edge | Microsoft Docs 
-description: Learn about Azure IoT Edge certificates and how they are used.
+description: Azure IoT Edge uses certificate to validate devices, modules, and leaf devices and establish secure connections between them. 
 author: stevebus
 manager: philmea
 ms.author: stevebus

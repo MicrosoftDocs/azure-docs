@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure IoT Edge | Microsoft Docs 
-description: Resolve common issues and learn troubleshooting skills for Azure IoT Edge 
+title: Troubleshoot - Azure IoT Edge | Microsoft Docs 
+description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs, and resolve common issues
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,6 +8,7 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Common issues and resolutions for Azure IoT Edge
@@ -238,7 +239,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 1. In the Azure portal, navigate to the overview page of your virtual machine. 
 2. Select **configure** under DNS name. If your virtual machine already has a DNS name configured, you don't need to configure a new one. 
 
-   ![Configure DNS name](./media/troubleshoot/configure-dns.png)
+   ![Configure DNS name of virtual machine](./media/troubleshoot/configure-dns.png)
 
 3. Provide a value for **DNS name label** and select **Save**.
 4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
@@ -269,7 +270,7 @@ In the UI:
 
 In the portal from *Device Details*->*Set Modules*->*Configure advanced Edge Runtime settings*, create an environment variable called *OptimizeForPerformance* that is set to *false* for the *Edge Hub*.
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![OptimizeForPerformance set to false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **OR**
 

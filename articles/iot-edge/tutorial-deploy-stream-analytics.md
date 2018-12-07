@@ -7,10 +7,7 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: 
-    - mvc
-    - seodec18
+ms.custom: "mvc, seodec18"
 ---
 
 # Tutorial: Deploy Azure Stream Analytics as an IoT Edge module (preview)
@@ -31,7 +28,7 @@ In this tutorial, you learn how to:
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
 <center>
-![Tutorial architecture diagram](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagram - Tutorial architecture, stage and deploy ASA job](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 >[!NOTE]
@@ -97,7 +94,7 @@ Using the three elements of input, output, and query, this section creates a job
 
 1. Under **Job Topology**, select **Inputs** then **Add stream input**.
 
-   ![Azure Stream Analytics input](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure Stream Analytics add input](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Choose **Edge Hub** from the drop-down list.
 
@@ -107,7 +104,7 @@ Using the three elements of input, output, and query, this section creates a job
 
 1. Under **Job Topology**, open **Outputs** then select **Add**.
 
-   ![Azure Stream Analytics output](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics add output](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Choose **Edge Hub** from the drop-down list.
 
@@ -204,7 +201,7 @@ For this tutorial, you deploy two modules. The first is **tempSensor**, which is
 
     You should see the new Stream Analytics module running, along with the IoT Edge agent module and the IoT Edge hub.
 
-    ![Module output](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![tempSensor and ASA module reported by device](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## View data
 
@@ -226,7 +223,7 @@ Now you can go to your IoT Edge device to check out the interaction between the 
 
 You should be able to watch the machine's temperature gradually rise until it reaches 70 degrees for 30 seconds. Then the Stream Analytics module triggers a reset, and the machine temperature drops back to 21. 
 
-   ![Docker log](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Reset command output into module logs](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## Clean up resources 
 

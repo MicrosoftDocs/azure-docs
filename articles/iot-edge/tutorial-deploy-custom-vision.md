@@ -9,9 +9,7 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: 
-    - mvc
-    - seodec18
+ms.custom: "mvc, seodec18"
 #Customer intent: As an IoT developer, I want to perform image recognition directly on my IoT Edge device so that I can have faster results and lower costs for data transfers.
 ---
 
@@ -98,7 +96,7 @@ Creating an image classifier requires a set of training images, as well as test 
 
 5. Select **Upload 10 files**. 
 
-   ![Upload hemlock-tagged files](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Upload hemlock tagged files to Custom Vision](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. When the images are uploaded successfully, select **Done**.
 
@@ -116,7 +114,7 @@ Creating an image classifier requires a set of training images, as well as test 
 
 1. After training your classifier, select **Export** on the Performance page of the classifier. 
 
-   ![Export image classifier](./media/tutorial-deploy-custom-vision/export.png)
+   ![Export your trained image classifier](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Select **DockerFile** for the platform. 
 

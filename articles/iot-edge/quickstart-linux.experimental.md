@@ -8,9 +8,7 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: 
-   - mvc
-   - seodec18
+ms.custom: "mvc, seodec18"
 
 experimental: false
 experiment_id: "b0354115-dc43-45" 
@@ -29,7 +27,7 @@ In this quickstart you learn how to:
 3. Install and start the IoT Edge runtime on your device.
 4. Remotely deploy a module to an IoT Edge device.
 
-![Quickstart architecture](./media/quickstart-linux/install-edge-full.png)
+![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
 This quickstart turns your Linux computer or virtual machine into an IoT Edge device. Then you can deploy a module from the Azure portal to your device. The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
@@ -73,7 +71,7 @@ IoT Edge device:
 
 Start the quickstart by creating your IoT hub with Azure CLI.
 
-![Create IoT Hub](./media/quickstart-linux/create-iot-hub.png)
+![Diagram - Create an IoT hub in the cloud](./media/quickstart-linux/create-iot-hub.png)
 
 The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can use that IoT hub. Each subscription can only have one free IoT hub. 
 
@@ -88,7 +86,7 @@ The following code creates a free **F1** hub in the resource group **IoTEdgeReso
 ## Register an IoT Edge device
 
 Register an IoT Edge device with your newly created IoT hub.
-![Register a device](./media/quickstart-linux/register-device.png)
+![Diagram - Register a device with an IoT Hub identity](./media/quickstart-linux/register-device.png)
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity. 
 
@@ -113,7 +111,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 ## Connect the IoT Edge device to IoT Hub
 
 Install and start the Azure IoT Edge runtime on your IoT Edge device. 
-![Register a device](./media/quickstart-linux/start-runtime.png)
+![Diagram - Start the runtime on device](./media/quickstart-linux/start-runtime.png)
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
@@ -173,7 +171,7 @@ Your IoT Edge device is now configured. It's ready to run cloud-deployed modules
 ## Deploy a module
 
 Manage your Azure IoT Edge device from the cloud to deploy a module that will send telemetry data to IoT Hub.
-![Register a device](./media/quickstart-linux/deploy-module.png)
+![Diagram - deploy module from cloud to device](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 

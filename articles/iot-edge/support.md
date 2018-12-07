@@ -1,6 +1,6 @@
 ---
 title: Supported operating systems, container engines - Azure IoT Edge | Microsoft Docs 
-description: Platforms supported by Azure IoT Edge
+description: Learn which operating systems can run the Azure IoT Edge daemon and runtime, and supported container engines for your production devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -11,7 +11,8 @@ services: iot-edge
 ms.custom: seodec18
 ---
 
-# Azure IoT Edge support
+# Azure IoT Edge supported systems
+
 There are a variety of ways to seek support for the Azure IoT Edge product.
 
 **Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Fixes rapidly make their way from the project in to product updates.
