@@ -1,6 +1,6 @@
 ---
-title: 'The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Docs'
-description: Advanced Analytics Process and Technology in Action
+title: Build and deploy a machine learning model using SQL Data Warehouse | Microsoft Docs'
+description: Build and deploy a machine learning model using SQL Data Warehouse with a publicly available dataset.
 services: machine-learning
 author: marktab
 manager: cgronlun
