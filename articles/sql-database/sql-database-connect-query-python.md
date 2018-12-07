@@ -1,6 +1,6 @@
 ---
 title: Use Python to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use Python to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
+description: This topic shows you how to use Python to create a program that connects to an Azure SQL database and query it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -27,11 +27,11 @@ To complete this quickstart, make sure you have the following:
   
 - Python, the Python driver for SQL Server, and other required apps for your operating system:
   
-  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
+  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
     
-  - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
+  - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
     
-  - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Windows](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
+  - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Windows](https://www.microsoft.com/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
 
 ## Get SQL server connection information
 
@@ -67,7 +67,7 @@ To complete this quickstart, make sure you have the following:
 
 1. At a command prompt, run the following command:
 
-   ```python
+   ```cmd
    python sqltest.py
    ```
 
@@ -76,6 +76,6 @@ To complete this quickstart, make sure you have the following:
 ## Next steps
 
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [Microsoft Python Drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
-- [Python Developer Center](https://azure.microsoft.com/develop/python/?v=17.23h)
+- [Microsoft Python drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Python developer center](https://azure.microsoft.com/develop/python/?v=17.23h)
 
