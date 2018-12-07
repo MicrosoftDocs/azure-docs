@@ -13,7 +13,7 @@ ms.date: 12/03/2018
 
 # Azure Time Series Insights Preview use cases
 
-This article provides an overview of several common use cases for Azure Time Series Insights. The recommendations in this article serve as a starting point as you develop applications and solutions with Time Series Insights.
+This article provides an overview of several common use cases for Azure Time Series Insights Preview. The recommendations in this article serve as a starting point as you develop applications and solutions with Time Series Insights.
 
 After you read this article, you can answer the following questions:
 
@@ -26,7 +26,7 @@ This document provides an overview of the use cases that the Azure Time Series I
 
 ## Introduction
 
-Azure Time Series Insights is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad-hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Time Series Insights is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad-hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 
@@ -58,7 +58,7 @@ Streaming and continuous processing of data coming from operational processes ca
 
 These patterns often start with IoT-enabled platforms that ingest billions of events from devices and sensors that span various locales. These systems process and analyze streaming data to derive real-time insights and actions. Data is typically archived to warm and cold storage for near real-time and batch analytics. 
 
-Data that's collected goes through a series of processing to cleanse and contextualize it for downstream querying and analytics scenarios. Azure offers rich services that can be applied to IoT scenarios such as asset maintenance and manufacturing. These services include Azure Time Series Insights, IoT Hub, Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning, and Power BI.
+Data that's collected goes through a series of processing to cleanse and contextualize it for downstream querying and analytics scenarios. Azure offers rich services that can be applied to IoT scenarios such as asset maintenance and manufacturing. These services include Time Series Insights, IoT Hub, Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning, and Power BI.
 
 Solution architecture can be achieved in the following manner:
 

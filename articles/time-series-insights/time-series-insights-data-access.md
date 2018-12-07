@@ -1,6 +1,6 @@
 ﻿---
-title: Configure security to access and manage Azure Time Series Insights | Microsoft Docs
-description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights.
+title: Configure security to access and manage Azure Time Series Insights Preview | Microsoft Docs
+description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -37,7 +37,7 @@ Follow these steps to grant data access for a user principal.
 
     * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-    Select **OK** to confirm the role choice.
+   Select **OK** to confirm the role choice.
 
     ![Data-access-three][3]
 
@@ -76,11 +76,11 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
 1. Choose **Select role**. Choose the appropriate access role for the guest user:
 
-    a. Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    b. Otherwise, select **Reader** to allow user query data in the environment and save personal, not shared, queries in the environment.
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-    c. Select **OK** to confirm the role choice.
+   Select **OK** to confirm the role choice.
 
     ![Data-access-ten][10]
 
@@ -110,7 +110,7 @@ After the guest user selects your tenant, they see the Time Series Insights envi
 
 ## Next steps
 
-* Learn [how to add an Azure Event Hub event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure Time Series Insights environment.
+* Learn [how to add an Azure Event Hubs event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Time Series Insights environment.
 * Send [events to the event source](./time-series-insights-send-events.md).
 * View [your environment in the Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 

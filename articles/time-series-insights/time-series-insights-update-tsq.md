@@ -13,9 +13,9 @@ ms.date: 12/04/2018
 
 # Data querying
 
-Azure Time Series Insights enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used in the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+Azure Time Series Insights Preview enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used in the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
-Three primary API categories are available in Azure Time Series Insights:
+Three primary API categories are available in Time Series Insights:
 
 * **Environment APIs**: Enables queries of the Time Series Insights environment itself. Examples of queries are the list of environments the caller has access to and environment metadata.
 
@@ -25,7 +25,7 @@ Three primary API categories are available in Azure Time Series Insights:
 
 The [Time Series Expression (TSX) language](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) is a powerful fourth category. It uses Time Series Models to enable composition of advanced computation.
 
-## Azure Time Series Insights core APIs
+## Azure Time Series Insights Preview core APIs
 
 The following core APIs are supported.
 
@@ -54,7 +54,7 @@ The following Time Series Query APIs are available:
 
 * [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Enables query and retrieval of Time Series Insights data from events as they're recorded in Time Series Insights from the source provider.
 
-* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Azure Time Series Insights data from captured events by using data recorded on the wire. The values that are returned are based on the variables that were defined in the model or provided inline.
+* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Time Series Insights data from captured events by using data recorded on the wire. The values that are returned are based on the variables that were defined in the model or provided inline.
 
     >[!NOTE]
     > The Aggregation clause is ignored even if it's specified in a model or provided inline.
