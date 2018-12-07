@@ -31822,11 +31822,6 @@
 			"redirect_document_id": true
 		},
         {
-        	"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-        	"redirect_url": "/azure/application-insights/app-insights-app-map",
-        	"redirect_document_id": true
-        },
-        {
             "source_path":  "articles/cognitive-services/Speech-Service/how-to-text-to-speech.md",
             "redirect_url":  "/azure/cognitive-services/speech-service/quickstart-python-text-to-speech",
             "redirect_document_id":  true
