@@ -15,6 +15,8 @@ ms.component: B2C
 
 # JavaScript samples for use in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. This article describes how you can change your [custom policy](active-directory-b2c-overview-custom.md) to enable script execution.
 
 ## Prequisites
