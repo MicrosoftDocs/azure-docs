@@ -1,6 +1,6 @@
 ---
 title: Tasks for the team lead in the Team Data Science Process Team - Azure
-description: An outline of the tasks for a team lead on a data science team project.
+description: An outline of the tasks that a team lead on a data science team project is expected to complete for their data science team.
 author: marktab
 manager: cgronlun
 editor: cgronlun

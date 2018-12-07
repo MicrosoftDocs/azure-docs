@@ -12,7 +12,7 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, "(previous author=fboylu, ms.author=fboylu)"
 ---
-# Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
+# Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace
 
 >[!Important]
 This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).

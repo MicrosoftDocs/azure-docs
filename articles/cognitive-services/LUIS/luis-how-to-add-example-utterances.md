@@ -1,10 +1,11 @@
 ---
-title: Add example utterances in LUIS apps
-titleSuffix: Azure Cognitive Services
+title: Add example utterances
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how to add utterances in Language Understanding (LUIS) applications.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
