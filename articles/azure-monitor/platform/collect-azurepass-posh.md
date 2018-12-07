@@ -64,7 +64,7 @@ Perform the following steps to download and execute the script.
 
 The script will run against each and every resource matching selected criteria and enable metrics collection for them. After it’s finished, you will see a message indicating configuration is complete.  
 
-Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../../log-analytics/log-analytics-azure-sql.md) and [Azure Web Apps Analytics](../../log-analytics/log-analytics-azure-web-apps-analytics.md) management solutions.   
+Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) and [Azure Web Apps Analytics](../../azure-monitor/insights/azure-web-apps-analytics.md) management solutions.   
 
 ## Update a resource to send data to another workspace
 If you have a resource that is already sending data to a Log Analytics workspace and you later decide to reconfigure it to reference another workspace, you can run the script with the `-Update` parameter.  

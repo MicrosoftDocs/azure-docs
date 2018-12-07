@@ -20,7 +20,7 @@ You can use Livy to run interactive Spark shells or submit batch jobs to be run 
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against an HDInsight Spark cluster.
+* [cURL](https://curl.haxx.se/). This article uses cURL to demonstrate how to make REST API calls against an HDInsight Spark cluster.
 
 ## Submit an Apache Livy Spark batch job
 Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).

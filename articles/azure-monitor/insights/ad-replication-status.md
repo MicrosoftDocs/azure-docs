@@ -28,7 +28,7 @@ The AD Replication Status solution pack regularly monitors your Active Directory
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 * Add the Active Directory Replication Status solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).  There is no further configuration required.
 
 ## AD Replication Status data collection details
@@ -43,7 +43,7 @@ If you don't want to connect any of your domain controllers directly to Log Anal
 
 ### To enable a non-domain controller to send AD data to Log Analytics
 1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
-2. [Connect the Windows computer to Log Analytics](../../log-analytics/log-analytics-om-agents.md) or [connect it using your existing Operations Manager environment to Log Analytics](../../log-analytics/log-analytics-om-agents.md), if it is not already connected.
+2. [Connect the Windows computer to Log Analytics](../../azure-monitor/platform/om-agents.md) or [connect it using your existing Operations Manager environment to Log Analytics](../../azure-monitor/platform/om-agents.md), if it is not already connected.
 3. On that computer, set the following registry key:
 
    * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -144,7 +144,7 @@ A: Normal user permissions to Active Directory are sufficient.
 ## Troubleshoot data collection problems
 In order to collect data, the AD Replication Status solution pack requires at least one domain controller to be connected to your Log Analytics workspace. Until you connect a domain controller, a message appears indicating that **data is still being collected**.
 
-If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Log Analytics](../../log-analytics/log-analytics-om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Log Analytics](../../azure-monitor/platform/om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

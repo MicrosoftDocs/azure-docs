@@ -73,6 +73,8 @@
         href: operator-best-practices-cluster-security.md
       - name: Container image management
         href: operator-best-practices-container-image-management.md
+      - name: Storage
+        href: operator-best-practices-storage.md
       - name: Business continuity (BC) and disaster recovery (DR)
         href: operator-best-practices-multi-region.md
     - name: For application developers
@@ -218,6 +220,12 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
+    - name: Use Istio
+      items:
+      - name: Install and configure
+        href: istio-install.md
+      - name: Intelligent routing and canary releases
+        href: istio-scenario-routing.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true

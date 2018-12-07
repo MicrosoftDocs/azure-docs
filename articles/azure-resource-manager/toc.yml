@@ -31,6 +31,8 @@
     href: resource-manager-tutorial-deploy-vm-extensions.md
   - name: Deploy SQL extensions
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+  - name: Secure artifacts
+    href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
     href: deployment-manager-tutorial.md
 - name: Samples

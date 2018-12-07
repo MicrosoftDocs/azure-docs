@@ -1,7 +1,7 @@
 ---
 title: LUIS and QnAMaker - Bot Integration 
 titleSuffix: Azure Cognitive Services
-description: A step-by-step tutorial on integrating QnA Maker and LUIS in a bot.
+description: As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
+ms.custom: seodec18
 ---
 
 # Integrate QnA Maker and LUIS to distribute your knowledge base

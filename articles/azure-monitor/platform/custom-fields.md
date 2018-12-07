@@ -6,17 +6,23 @@ documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
+
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2018
+ms.date: 12/04/2018
 ms.author: bwren
 ms.component: 
 ---
 
-# Custom fields in Log Analytics
+# Create custom fields in Log Analytics
+
+> [!NOTE]
+> This article describes how to parse text data in Log Analytics as it's collected. There are advantages to parsing text datain a query after it's collected as described in [Parse text data in Log Analytics](../log-query/parse-text.md).
+
 The **Custom Fields** feature of Log Analytics allows you to extend existing records in Log Analytics by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
 ![Custom Fields overview](media/custom-fields/overview.png)
@@ -40,9 +46,9 @@ The following sections provide the procedure for creating a custom field.  At th
 > 
 
 ### Step 1 – Identify records that will have the custom field
-The first step is to identify the records that will get the custom field.  You start with a [standard log search](../../azure-monitor/log-query/log-query-overview.md) and then select a record to act as the model that Log Analytics will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
+The first step is to identify the records that will get the custom field.  You start with a [standard log query](../log-query/log-query-overview.md) and then select a record to act as the model that Log Analytics will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
 
-1. Go to **Log Search** and use a [query to retrieve the records](../../azure-monitor/log-query/log-query-overview.md) that will have the custom field.
+1. Go to **Log Search** and use a [query to retrieve the records](../log-query/log-query-overview.md) that will have the custom field.
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
 3. Click the button to the left of any text property of the record and select **Extract fields from**.
 4. The **Field Extraction Wizard is opened**, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
@@ -75,7 +81,7 @@ You can view a list of all custom fields in your management group from the **Adv
 There are two ways to remove a custom field.  The first is the **Remove** option for each field when viewing the complete list as described above.  The other method is to retrieve a record and click the button to the left of the field.  The menu will have an option to remove the custom field.
 
 ## Sample walkthrough
-The following section walks through a complete example of creating a custom field.  This example extracts the service name in Windows events that indicate a service changing state.  This relies on events created by Service Control Manager in the System log on Windows computers.  If you want to follow this example, you must be [collecting Information events for the System log](../../azure-monitor/platform/data-sources-windows-events.md).
+The following section walks through a complete example of creating a custom field.  This example extracts the service name in Windows events that indicate a service changing state.  This relies on events created by Service Control Manager in the System log on Windows computers.  If you want to follow this example, you must be [collecting Information events for the System log](data-sources-windows-events.md).
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
@@ -134,6 +140,6 @@ We can now use the custom field like any other record property.  To illustrate t
 ![Group by query](media/custom-fields/query-group.png)
 
 ## Next steps
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to build queries using custom fields for criteria.
-* Monitor [custom log files](../../azure-monitor/platform/data-sources-custom-logs.md) that you parse using custom fields.
+* Learn about [log searches](../log-query/log-query-overview.md) to build queries using custom fields for criteria.
+* Monitor [custom log files](data-sources-custom-logs.md) that you parse using custom fields.
 

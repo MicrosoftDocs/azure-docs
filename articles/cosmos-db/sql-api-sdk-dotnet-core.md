@@ -207,7 +207,7 @@ The Azure Cosmos DB .NET Core Preview SDK has feature parity with the latest ver
 * [Partitioned collections](partition-data.md). 
 * [Multi-region database accounts and geo-replication](distribute-data-globally.md).
 
-If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+If you have questions related to this SDK, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## Release & Retirement Dates
 
