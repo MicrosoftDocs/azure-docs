@@ -4,7 +4,6 @@ description: This article describes how to scale Stream Analytics jobs that use 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
@@ -40,6 +39,7 @@ The following example includes a Stream Analytics job with the sentiment analysi
 
 The query is a simple fully partitioned query followed by the **sentiment** function, as shown following:
 
+```SQL
     WITH subquery AS (
         SELECT text, sentiment(text) as result from input
     )
@@ -47,7 +47,7 @@ The query is a simple fully partitioned query followed by the **sentiment** func
     Select text, result.[Score]
     Into output
     From subquery
-
+```
 Consider the following scenario; with a throughput of 10,000 tweets per second a Stream Analytics job must be created to perform sentiment analysis of the tweets (events). Using 1 SU, could this Stream Analytics job be able to handle the traffic? Using the default batch size of 1000 the job should be able to keep up with the input. Further the added Machine Learning function should generate no more than a second of latency, which is the general default latency of the sentiment analysis Machine Learning web service (with a default batch size of 1000). The Stream Analytics job’s **overall** or end-to-end latency would typically be a few seconds. Take a more detailed look into this Stream Analytics job, *especially* the Machine Learning function calls. Having the batch size as 1000, a throughput of 10,000 events take about 10 requests to web service. Even with 1 SU, there are enough concurrent connections to accommodate this input traffic.
 
 If the input event rate increases by 100x, then the Stream Analytics job needs to process 1,000,000 tweets per second. There are two options to accomplish the increased scale:
