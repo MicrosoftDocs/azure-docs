@@ -1,5 +1,5 @@
 ---
-title: Send events to Azure Event Hubs using Python | Microsoft Docs
+title: Send events using Python - Azure Event Hubs | Microsoft Docs
 description: Get started sending events to Event Hubs using Python
 services: event-hubs
 author: ShubhaVijayasarathy

@@ -1,5 +1,5 @@
 ---
-title: Receive events from Azure Event Hubs using Python | Microsoft Docs
+title: Receive events using Python - Azure Event Hubs | Microsoft Docs
 description: Get started receiving events from Event Hubs using Python
 services: event-hubs
 author: ShubhaVijayasarathy

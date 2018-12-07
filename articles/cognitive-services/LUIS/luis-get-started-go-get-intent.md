@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: get intent - Go" 
+title: Get intent, Go
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using GO, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain. 
+description: In this Go quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services
 author: diberry
 manager: cgronlun
