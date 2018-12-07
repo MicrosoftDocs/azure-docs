@@ -1,17 +1,16 @@
 ---
-title: Azure Cosmos DB frequently asked questions
+title: Frequently asked questions about different APIs in Azure Cosmos DB
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 ---
-# Azure Cosmos DB FAQ
-
-## Azure Cosmos DB fundamentals
+# Frequently asked questions in Azure Cosmos DB
 
 ### What happened to the DocumentDB API?
 
