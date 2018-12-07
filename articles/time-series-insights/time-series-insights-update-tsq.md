@@ -59,11 +59,11 @@ The following Time Series Query APIs are available:
     >[!NOTE]
     > The Aggregation clause is ignored even if it's specified in a model or provided inline.
 
-  The Get Series API returns a Time Series value for each variable for each interval. A Time Series Value is a format that Time Series Insights uses for output JSON from a query. The values that are returned are based on the **Time Series ID** and the set of variables that were provided.
+  The Get Series API returns a Time Series value for each variable for each interval. A Time Series Value is a format that Time Series Insights uses for output JSON from a query. The values that are returned are based on the Time Series ID and the set of variables that were provided.
 
 * [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
 
-  The Aggregate Series API returns a Time Series value for each variable for each interval. The values are based on the **Time Series ID** and the set of variables that were provided. The Aggregate Series API achieves reduction by using variables stored in the Time Series Model or provided inline to aggregate or sample data.
+  The Aggregate Series API returns a Time Series value for each variable for each interval. The values are based on the Time Series ID and the set of variables that were provided. The Aggregate Series API achieves reduction by using variables stored in the Time Series Model or provided inline to aggregate or sample data.
 
   Supported Aggregate types: `Min`, `Max`, `Sum`, `Count`, `Average`
 
