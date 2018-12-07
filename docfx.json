@@ -274,7 +274,7 @@
         "articles/postgresql/**/*.md": "https://feedback.azure.com/forums/597976-azure-database-for-postgresql",
         "articles/power-bi-embedded/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/power-bi-workspace-collections/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/redis-cache/**/*.md": "https://feedback.azure.com/forums/169382-cache",
+        "articles/azure-cache-for-redis/**/*.md": "https://feedback.azure.com/forums/169382-cache",
         "articles/resiliency/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/scheduler/**/*.md": "https://feedback.azure.com/forums/230896-scheduler",
         "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",        

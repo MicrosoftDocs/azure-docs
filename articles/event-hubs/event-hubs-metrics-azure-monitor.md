@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -33,13 +34,13 @@ Metrics are enabled by default, and you can access the most recent 30 days of da
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![View successful metrics][1]
 
 You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics (preview)**.
 
 For metrics supporting dimensions, you must filter with the desired dimension value as shown in the following example:
 
-![][2]
+![Filter with dimension value][2]
 
 ## Billing
 
