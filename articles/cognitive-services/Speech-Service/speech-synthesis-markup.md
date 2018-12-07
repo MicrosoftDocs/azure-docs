@@ -1,15 +1,14 @@
 ---
-title: Speech Synthesis Markup Language
+title: Speech Synthesis Markup Language - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/08/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ---
 
@@ -19,7 +18,7 @@ The Speech Synthesis Markup Language (SSML) is an XML-based markup language that
 
 For a complete list of supported languages, locales, and voices (neural and traditional), see [supported languages](supported-languages.md).
 
-The following sections provide samples for common speech synthesis tasks. 
+The following sections provide samples for common speech synthesis tasks.
 
 ## Add a break
 ```xml

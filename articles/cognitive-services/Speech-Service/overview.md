@@ -5,11 +5,10 @@ description: "The Speech Service, part of Azure Cognitive Services, unites sever
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ---
 
