@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Use the Python SDK to create a machine learning service workspace - Azure Machine Learning"
-description: Get started with Azure Machine Learning. Install the Python SDK and use it to create a workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Azure Machine Learning.  
+title: "Quickstart:  Get started in Python"
+titleSuffix: Azure Machine Learning service
+description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,9 +10,11 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
-# Quickstart: Use Python to get started with Azure Machine Learning
+# Quickstart: Use Python SDK to get started with Azure Machine Learning
 
 In this quickstart, you use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. In this quickstart, you start by configuring your own Python environment and Jupyter notebook server. To run with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
 
@@ -34,7 +37,7 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.2 
+> Code in this article requires Azure Machine Learning SDK version 1.0.2 or later. 
 
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.

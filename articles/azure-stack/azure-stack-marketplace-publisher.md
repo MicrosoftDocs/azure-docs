@@ -25,7 +25,7 @@ Adding your content to the [Azure Stack Marketplace](azure-stack-marketplace.md)
 
 ## Prerequisites
 
- - You must run the toolkit on the Azure Stack host or have [VPN](.\asdk\asdk-connect.md#connect-with-vpn) connectivity to the ASDK host from the machine on which you run the tool.
+ - You must run the toolkit on the Azure Stack host or have [VPN](./asdk/asdk-connect.md#connect-with-vpn) connectivity to the ASDK host from the machine on which you run the tool.
 
  - Download the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) and extract.
 

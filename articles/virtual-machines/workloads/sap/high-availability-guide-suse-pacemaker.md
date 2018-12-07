@@ -433,7 +433,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Also, make sure to remove the parameter mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -446,6 +446,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {

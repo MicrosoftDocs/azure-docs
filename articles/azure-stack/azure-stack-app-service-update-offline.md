@@ -97,7 +97,7 @@ To upgrade App Service in a disconnected environment, you must first create an o
 
    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         * If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click  **Sign In**.
-        * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, *cloudadmin@azurestack.local*. Enter your password, and click **Sign In**.
+        * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example _cloudadmin@azurestack.local_. Enter your password, and click **Sign In**.
    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
    4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.

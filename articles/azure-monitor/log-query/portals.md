@@ -71,6 +71,6 @@ Open the Log search page from **Logs (Classic)** in the Log Analytics menu or fr
 
 ## Next steps
 
-- Walk through a [tutorial using Log Search](../../log-analytics/log-analytics-tutorial-viewdata.md) to learn how to create queries using the query language
+- Walk through a [tutorial using Log Search](../../azure-monitor/learn/tutorial-viewdata.md) to learn how to create queries using the query language
 - Walk through a [lesson using the Advanced Analytics portal](../../azure-monitor/log-query/get-started-portal.md) which provides the same experience as the Log Analytics page.
 

@@ -1,5 +1,6 @@
 ---
-title: ONNX and Azure Machine Learning | Create and deploy models
+title: Create and deploy interoperable ONNX models
+titleSuffix: Azure Machine Learning service
 description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # ONNX and Azure Machine Learning: Create and deploy interoperable AI models

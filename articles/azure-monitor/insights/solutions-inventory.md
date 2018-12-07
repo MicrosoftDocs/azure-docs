@@ -26,10 +26,10 @@ The following table lists the [management solutions](solutions.md) in Azure prov
 Explanations of the columns are as follows:
 
 - **Microsoft monitoring agent** - Agent used on Windows and Linux to run managements pack from SCOM and management solutions from Azure. In this configuration, the agent is connected directly to Log Analytics without being connected to an Operations Manager management group. 
-- **Operations Manager** - Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../../log-analytics/log-analytics-om-agents.md) that's connected to Log Analytics. 
+- **Operations Manager** - Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../../azure-monitor/platform/om-agents.md) that's connected to Log Analytics. 
 -  **Azure Storage** - Solution collects data from an Azure storage account. 
 - **Operations Manager required?** - A connected Operations Manager management group is required for data collection by the management solution. 
-- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../../log-analytics/log-analytics-om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. It will need to be able to communicate to Log Analytics through the [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
+- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../../azure-monitor/platform/om-agents.md), then data is sent to Log Analytics from the management server. In this case, the agent doesn't need to connect directly to Log Analytics. If this box isn't selected, then data is sent from the agent directly to Log Analytics even if the agent is connected to a SCOM management group. It will need to be able to communicate to Log Analytics through the [Log Analytics gateway](../../azure-monitor/platform/gateway.md).
 - **Collection frequency** - Specifies the frequency that data is collected by the management solution. 
 
 
@@ -49,12 +49,12 @@ Explanations of the columns are as follows:
 | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Azure Network Security Group Analytics (Deprecated)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
-| [Azure SQL Analytics (Preview)](../../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minute |
+| [Azure SQL Analytics (Preview)](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 minute |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | on notification |
 | [Capacity and Performance (Preview)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |on arrival |
 | [Change Tracking](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
 | [Change Tracking](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |hourly |
-| [Containers](../../log-analytics/log-analytics-containers.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
+| [Containers](../../azure-monitor/insights/containers.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
 | [Key Vault Analytics](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |on notification |
 | [Malware Assessment](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
 | [Network Performance Monitor](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP handshakes every 5 seconds, data sent every 3 minutes |

@@ -1,6 +1,7 @@
 ---
-title: Deployment troubleshooting guide for Azure Machine Learning service
-description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with Azure Machine Learning service.
+title: Deployment troubleshooting guide
+titleSuffix: Azure Machine Learning service
+description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,12 +9,13 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
-# Troubleshooting Azure Machine Learning service deployments
+# Troubleshooting Azure Machine Learning service AKS and ACI deployments
 
-In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Machine Learning service.
+In this article, you will learn how to work around or solve the common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
 
 When deploying a model in Azure Machine Learning service, the system performs a number of tasks. This is a complex sequence of events and sometimes issues arise. The deployment tasks are:
 

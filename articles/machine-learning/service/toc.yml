@@ -82,13 +82,12 @@
       href: how-to-set-up-training-targets.md
     - name: Access data in training
       href: how-to-access-data.md
-    - name: Create estimators
+    - name: Create estimators in training
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md  
+    - name: Use PyTorch
+      href: how-to-train-pytorch.md
+    - name: Use TensorFlow
+      href: how-to-train-tensorflow.md  
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md    
@@ -109,18 +108,10 @@
   - name: Deploy models	
     items:    
     - name: Where to deploy models
-      displayName: publish
+      displayName: publish, azure kubernetes, azure container instances
       href: how-to-deploy-and-where.md
-    - name: Deploy to ACI
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: Deploy to AKS
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
     - name: Deploy to FPGAs
       href: how-to-deploy-fpga-web-service.md  
-    - name: Deploy to IoT Edge
-      href: how-to-deploy-to-iot.md 
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
@@ -174,7 +165,7 @@
     href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
-    - name: How to migrate
+    - name: How to migrate from Workbench
       displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md    
     - name: Export or delete account data (deprecated)
@@ -338,8 +329,6 @@
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: Model data collection API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Old concepts
-      href: ../desktop-workbench/overview-general-concepts.md    
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    

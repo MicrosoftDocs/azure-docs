@@ -1,10 +1,11 @@
 ---
-title: Python Quickstart - change model and train LUIS app
-titleSuffix: Azure Cognitive Services
-description: In this Python quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
+title: Change, train app, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this Python quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
@@ -42,7 +43,7 @@ Run the application from a command-line with Python 3.6.
 
 Calling add-utterance with no arguments adds an utterance to the app, without training it.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -79,7 +80,7 @@ The following shows the result of a successful request to train:
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

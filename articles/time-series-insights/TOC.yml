@@ -123,12 +123,12 @@
     - name: Azure Time Series Insights (Preview)
       href: /rest/api/time-series-insights/preview
       items:
-      - name: Time Series Environment API
-        href: /rest/api/time-series-insights/preview-env
-      - name: Time Series Model
-        href: /rest/api/time-series-insights/preview-model
       - name: Time Series Query
         href: /rest/api/time-series-insights/preview-query
+      - name: Time Series Model
+        href: /rest/api/time-series-insights/preview-model
+      - name: Time Series Environment API
+        href: /rest/api/time-series-insights/preview-env
       - name: Time Series Expression and Syntax
         href: /rest/api/time-series-insights/preview-tsx
 - name: Related

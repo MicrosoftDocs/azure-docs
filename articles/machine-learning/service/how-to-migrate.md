@@ -1,5 +1,6 @@
 ---
-title: Migrate to Azure Machine Learning service
+title: Migrate from Workbench
+titleSuffix: Azure Machine Learning service
 description: Learn how to upgrade or migrate to the late version of Azure Machine Learning service from an earlier version.
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +13,7 @@ author: haining
 ms.date: 09/24/2018
 ---
 
-# Migrate to the latest version of Azure Machine Learning service 
+# Migrate from Workbench to the latest version of Azure Machine Learning service 
 
 **If you have installed the Workbench  application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
