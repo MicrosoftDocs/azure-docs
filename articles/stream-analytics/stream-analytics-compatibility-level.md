@@ -1,5 +1,5 @@
 ---
-title: Understand compatibility level for Azure Stream Analytics jobs | Microsoft Docs
+title: Understand compatibility level for Azure Stream Analytics jobs
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
 services: stream-analytics
 author: mamccrea
