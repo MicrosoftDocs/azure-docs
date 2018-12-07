@@ -5,18 +5,11 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-<<<<<<< HEAD
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-=======
-ms.custom: quick start connect, mvc, devcenter, seodec2018
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 06/19/2017
->>>>>>> 343d381bafc198bbe4c236be48413e758fd9cacf
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
