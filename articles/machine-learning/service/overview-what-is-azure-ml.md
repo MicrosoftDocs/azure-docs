@@ -1,6 +1,6 @@
 ---
 title: What is Azure Machine Learning service?
-description: Machine learning in the cloud and what you can use it for. Overview of Azure Machine Learning service -- an integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
+description: Overview of Azure Machine Learning service -- an integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,6 +10,7 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # What is Azure Machine Learning service?

@@ -48,7 +48,7 @@ For Log Analytics to collect these Azure Diagnostics logs, the logs must be in t
 >
 >
 
-For virtual machines, you have the option of installing the [Log Analytics agent](../../log-analytics/log-analytics-quick-collect-azurevm.md) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
+For virtual machines, you have the option of installing the [Log Analytics agent](../../azure-monitor/learn/quick-collect-azurevm.md) into your virtual machine to enable additional insights. In addition to being able to analyze IIS logs and Event Logs, you can perform additional analysis including configuration change tracking, SQL assessment, and update assessment.
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection
 Use the following procedure to enable Azure diagnostics in a virtual machine for Event Log and IIS log collection using the Microsoft Azure portal.
@@ -143,7 +143,7 @@ In approximately 30 minutes, you are able to see data from the storage account i
 >
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection using PowerShell
-Use the steps in [Configuring Log Analytics to index Azure diagnostics](../../log-analytics/log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
+Use the steps in [Configuring Log Analytics to index Azure diagnostics](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
 For more information, see [Enabling Diagnostics in Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
