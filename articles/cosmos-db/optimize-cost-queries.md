@@ -10,9 +10,9 @@ ms.date: 12/07/2018
 ms.author: rimman
 ---
 
-# Optimize request units and cost required to run queries in Azure Cosmos DB
+# Optimize the cost required to run queries in Azure Cosmos DB
 
-Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations vary based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
+Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
 
 Queries in Azure Cosmos DB are typically ordered from fastest/most efficient to slower/less efficient in terms of throughput as follows:  
 
@@ -52,7 +52,7 @@ while (queryable.HasMoreResults)
 
 Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
 
-In some cases you may see a sequence of 200 and 429 responses, and variable request units in a paged execution of queries, that is because queries will run as fast as possible based on the available RUs. You may see a query execution breaks into multiple pages/round trips between server and client. For example, 10,000 items may be returned as multiple pages, each charged based on the computation performed for that page. When you sum across these pages, you should get the same number of RUs as you would get for the entire query.  
+In some cases you may see a sequence of 200 and 429 responses, and variable request units in a paged execution of queries, that is because queries will run as fast as possible based on the available RUs. You may see a query execution break into multiple pages/round trips between server and client. For example, 10,000 items may be returned as multiple pages, each charged based on the computation performed for that page. When you sum across these pages, you should get the same number of RUs as you would get for the entire query.  
 
 ## Metrics for troubleshooting
 
@@ -88,23 +88,19 @@ Consider the following best practices when optimizing queries for cost:
 
 * **Colocate multiple entity types**
 
-   Try to colocate multiple entity types within a single or smaller number of containers. This method yields benefits not only from a pricing perspective, but also for query execution and transactions. Queries are scoped to a single container; and atomic transactions over multiple records via stored procedures/triggers are scoped to a partition key within a single container. Colocating entities within the same container can reduce the number of network round trips to resolve relationships across records. So it increases the end-to-end performance, enables atomic transactions over multiple records for a larger dataset and as a result lowers costs. If colocating multiple entity types within a single or smaller number of containers is difficult for your scenario, usually because you are migrating an existing application and you do not want to make any code changes - you should then consider provisioning throughput at the database level.  
+   Try to colocate multiple entity types within a single or smaller number of containers. This method yields benefits not only from a pricing perspective, but also for query execution and transactions. Queries are scoped to a single container; and atomic transactions over multiple records via stored procedures/triggers are scoped to a partition key within a single container. Colocating entities within the same container can reduce the number of network round trips to resolve relationships across records. So it increases the end-to-end performance, enables atomic transactions over multiple records for a larger dataset, and as a result lowers costs. If colocating multiple entity types within a single or smaller number of containers is difficult for your scenario, usually because you are migrating an existing application and you do not want to make any code changes - you should then consider provisioning throughput at the database level.  
 
 * **Measure and tune for lower request units/second usage**
 
    The complexity of a query impacts how many request units (RUs) are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set. All these factors influence the cost of query operations. 
 
-   Request charge returned in the request header indicates the cost of a given query. For example, if a query returns 1000 1KB items, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [request units](request-units.md) article and the request unit calculator. 
+   Request charge returned in the request header indicates the cost of a given query. For example, if a query returns 1000 1-KB items, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [request units](request-units.md) article and the request unit calculator. 
 
 ## Next steps
 
+Next you can proceed to learn more about cost optimization in Azure Cosmos DB with the following articles:
+
 * Learn more about [How Cosmos pricing works](how-pricing-works.md)
-* Learn more about [Request Units](request-units.md) in Azure Cosmos DB
-* Learn to [provision throughput on a database or a container](set-throughput.md)
-* Learn more about [logical partitions](partition-data.md)
-* Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
-* Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
-* Learn more about [How Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md)
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Understanding your Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
@@ -112,7 +108,4 @@ Consider the following best practices when optimizing queries for cost:
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn more about [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
-* Learn more about [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)
-* Learn more about [Cosmos DB Emulator](local-emulator.md)
-* Learn more about [Azure Free account](https://azure.microsoft.com/free/)
-* Learn more about [Try Cosmos DB for free](https://azure.microsoft.com/en-us/try/cosmosdb/)
+
