@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.author: alkohli
 ---
 
@@ -79,7 +79,7 @@ If using online data transfer, use the table in the following section for high n
 
 ### High network bandwidth
 
-|                                     |    Tools AzCopy, PowerShell, CLI             |    Azure Storage REST APIs                   |    Data Box Gateway or Data Box Edge (preview)           |    Azure Data Factory                                            |
+|                                     |    Tools AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST APIs, SDKs                   |    Data Box Gateway or Data Box Edge (preview)           |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Data type                  |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Supports 70+ data connectors for data stores and formats    |
 |    Form factor                |    Command-line tools                        |    Programmatic interface                    |    Microsoft supplies a virtual <br>or physical device     |    Service in Azure portal                                            |
