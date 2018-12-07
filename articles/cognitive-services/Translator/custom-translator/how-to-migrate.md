@@ -65,7 +65,7 @@ To migrate a project:
 
 5.	Click "Submit Request".
 
-## Migrate workspace
+## Migrate a workspace
 
 In addition to migrating a single project, you may also migrate all projects with successful trainings in a workspace.  This will cause each project in the workspace to be evaluated as though the migrate link had been pressed.  This feature is suitable for users with many projects who want to migrate all of them to Custom Translator with the same settings.  A workspace migration can be initiated from the settings page of Translator Hub.
 
