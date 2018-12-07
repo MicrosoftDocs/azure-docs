@@ -34,7 +34,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 ![Metrics](media/overview/metrics.png)
 
-Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Analytics page](../log-analytics/log-analytics-log-search-portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Log data collected by Azure Monitor is stored in Log Analytics which includes a [rich query language](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using the [Log Analytics page](../azure-monitor/log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 The Log Analytics query language is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../azure-monitor/log-query/get-started-queries.md) that are available.  Particular guidance is provided to users who are already familiar with [SQL](../azure-monitor/log-query/sql-cheatsheet.md) and [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
@@ -56,7 +56,7 @@ Extend the data you're collecting into the actual operation of the resources by 
 [Add an instrumentation package to your application](../application-insights/app-insights-azure-web-apps.md),  to enable Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../application-insights/app-insights-monitor-web-app-availability.md) to simulate user traffic.
 
 ### Custom sources
-Azure Monitor can collect log data from any REST client using the [Data Collector API](../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 
 
@@ -114,7 +114,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Log Analytics View](media/overview/view.png)
 
 ### Power BI
-[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](../log-analytics/log-analytics-powerbi.md) to take advantage of these additional visualizations.
+[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](../azure-monitor/platform/powerbi.md) to take advantage of these additional visualizations.
 
 
 ![Power BI](media/overview/power-bi.png)

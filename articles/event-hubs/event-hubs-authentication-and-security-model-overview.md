@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Event Hubs authentication and security model | Microsoft Docs
+title: Authentication and security model - Azure Event Hubs | Microsoft Docs
 description: Event Hubs authentication and security model overview.
 services: event-hubs
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Event Hubs authentication and security model overview
+# Azure Event Hubs - Authentication and security model
 
 The Azure Event Hubs security model meets the following requirements:
 

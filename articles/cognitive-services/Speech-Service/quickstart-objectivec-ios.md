@@ -21,8 +21,11 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
-* A Mac with Xcode 9.4.1 installed as iOS development environment. This tutorial targets iOS versions 11.4. If you don't have Xcode yet, you can install it from the [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Before you get started, here's a list of prerequisites:
+
+* A [subscription key](get-started.md) for the Speech Service
+* A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later
+* The target set to iOS version 11.4 or later
 
 ## Get the Speech SDK for iOS
 
@@ -33,7 +36,7 @@ The current version of the Cognitive Services Speech SDK is `1.1.0`.
 The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.
 
-## Create an Xcode Project 
+## Create an Xcode Project
 
 Start Xcode, and start a new project by clicking **File** > **New** > **Project**.
 In the template selection dialog, choose the "iOS Single View App" template.
@@ -100,4 +103,3 @@ Look for this sample in the `quickstart/objectivec-ios` folder.
 
 > [!div class="nextstepaction"]
 > [Get our samples](speech-sdk.md#get-the-samples)
-

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for VMs (preview) | Microsoft Docs
+title: Deploy Azure Monitor for VMs Preview | Microsoft Docs
 description: This article describes how you deploy and configure Azure Monitor for VMs so you can start understanding how your distributed application is performing and what health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ---
 
-# Deploy Azure Monitor for VMs (preview)
+# Deploy Azure Monitor for VMs Preview
 This article describes how to set up Azure Monitor for VMs. The service monitors the operating system health of your Azure virtual machines (VMs) and virtual machine scale sets, and the virtual machines in your environment. This monitoring includes the discovery and mapping of application dependencies that might be hosted on them. 
 
 You enable Azure Monitor for VMs by using one of the following methods:  
@@ -47,10 +47,10 @@ A Log Analytics workspace is currently supported in the following regions:
 >
 
 If you don't have a workspace, you can create one with one of the following methods:
-* [The Azure CLI](../../log-analytics/log-analytics-quick-create-workspace-cli.md)
-* [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md)
-* [The Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md)
-* [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md) 
+* [The Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
+* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [The Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md) 
 
 If you're enabling monitoring for a single Azure VM in the Azure portal, you can create a workspace during this process. 
 
@@ -177,7 +177,7 @@ To enable and access the features in Azure Monitor for VMs, you need to be assig
 
 - To view performance, health, and map data, you must have the *Monitoring Reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.  
 
-For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md).
+For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
 ## Enable monitoring in the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
@@ -194,7 +194,7 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../log-analytics/log-analytics-quick-create-workspace.md) in one of the supported regions listed earlier.  
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md) in one of the supported regions listed earlier.  
 
 After you've enabled monitoring, it might take about 10 minutes before you can view the health metrics for the virtual machine. 
 
@@ -208,6 +208,8 @@ Before you deploy your VMs, pre-configure your Log Analytics workspace by doing 
 
 1. If you don't already have a workspace, create one that can support Azure Monitor for VMs.  
     Before you proceed, see [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) to understand the cost, management, and compliance considerations.      
+
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
 
 1. Enable performance counters in the workspace for collection on Linux and Windows VMs.
 

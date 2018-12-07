@@ -29,23 +29,23 @@ This section describes how to create an Azure TSI (Preview) environment using th
 1. Select **+ Create a resource** in the upper left.
 1. Select the **Internet of Things** category, then select **Time Series Insights**.
 
-  ![tutorial-one][1]
+   ![tutorial-one][1]
 
-1. On the Time Series Insights environment page, fill in the required parameters and click on **Next: Event Source**
+1. On the Time Series Insights environment page, fill in the required parameters and click on **Next: Event Source**. For this tutorial, set the **Time Series ID** as `Id`. To learn more about **Time Series IDs**, read [Time Series IDs](./time-series-insights-update-how-to-id.md).
 
-  ![tutorial-two][2]
+   ![tutorial-two][2]
 
-1. On the **Event source** page, fill in the required parameters and click on **Review + Create**.
+1. On the **Event source** page, fill in the required parameters and click on **Review + Create**. For this tutorial, set the **Timestamp** property field as `Timestamp`.
 
-  ![tutorial-three][3]
+   ![tutorial-three][3]
 
 1. Review all the details and click **Create** to start provisioning your environment.
 
-  ![tutorial-four][4]
+   ![tutorial-four][4]
 
 1. You will receive a notification once the deployment has completed successfully.
 
-  ![tutorial-five][5]
+   ![tutorial-five][5]
 
 ## Send events to your TSI environment
 
@@ -64,9 +64,9 @@ In this section, you will use a windmill device simulator to send events to your
 
   1. Click on **Click to Start** pushing events to your Event Hub. At this stage, a file named `instances.json` will be downloaded to your machine. Save this file as we will need this later.
 
-  1. Go back to your event hub. You should now see the new events being received by the hub.d
+  1. Go back to your Event Hub. You should now see the new events being received by the hub.d
 
-     ![tutorial-eight][8]
+      ![tutorial-eight][8]
 
 ## Analyze data in your environment
 
@@ -78,37 +78,37 @@ In this section, you will perform basic analytics on your time series data using
 
   1. In the explorer, click on the **Unparented Instances** nodes to see all the Time Series instances in the environment.
 
-     ![tutorial-ten][10]
+      ![tutorial-ten][10]
 
   1. In this tutorial, we’re going to analyze data sent within the last day. To do so, click on **Quick Times** and select the **Last 24 Hours** option.
 
-     ![tutorial-eleven][11]
+      ![tutorial-eleven][11]
 
   1. Select **Sensor_0** and choose **Show Avg Value** to visualize data being sent from this time series instance.
 
-     ![tutorial-twelve][12]
+      ![tutorial-twelve][12]
 
   1. Similarly, you can plot data coming from other time series instances to perform basic analytics.
 
-     ![tutorial-thirteen][13]
+      ![tutorial-thirteen][13]
 
-## Define a Type & Hierarchy 
+## Define a Type and Hierarchy
 
 In this section, you will author a type, hierarchy, and associate them with your time series instances. Read more about [Time Series Models](./time-series-insights-update-tsm.md).
 
   1. In the explorer, click on the **Model** tab in the app bar.
 
-     ![tutorial-fourteen][14]
+      ![tutorial-fourteen][14]
 
   1. In the Types section, click on **+ Add**. This will let you create a new Time Series Model Type.
 
-     ![tutorial-fifteen][15]
+      ![tutorial-fifteen][15]
 
   1. In the type editor, enter a **Name**, **Description**, and create variables for **Average**, **Min**, and **Max** values as shown below. Click on **Create** to save the type.
 
-     ![tutorial-sixteen][16]
+      ![tutorial-sixteen][16]
 
-     ![tutorial-seventeen][17]
+      ![tutorial-seventeen][17]
 
   1. In the **Hierarchies** section, click on **+ Add**. This will let you create a new Time Series Model Hierarchy.
 

@@ -18,7 +18,7 @@
   items:
   - name: Connectivity models
     href: expressroute-connectivity-models.md
-  - name: Circuits and routing domains
+  - name: Circuits and peering
     href: expressroute-circuit-peerings.md
   - name: Locations and partners
     href: expressroute-locations.md

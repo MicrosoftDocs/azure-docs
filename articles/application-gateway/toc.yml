@@ -145,7 +145,7 @@
         href: application-gateway-create-probe-ps.md
   - name: Troubleshoot
     items:
-      - name: Troubleshoot an Application Gateway in Aure – ILB ASE
+      - name: Troubleshoot an Application Gateway – ILB ASE
         href: create-gateway-internal-load-balancer-app-service-environment.md
       - name: Troubleshoot Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
@@ -186,6 +186,6 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
+    href: https://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: FAQ
     href: application-gateway-faq.md

@@ -17,10 +17,10 @@ This article shows you how to set up log alerts using the alerts interface insid
 - Criteria: Specific condition or logic that when seen in Signal, should trigger action
 - Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
 
-The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](monitor-alerts-unified-log.md).
+The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Popular log data from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](monitoring-metric-alerts-logs.md)
+> Popular log data from [Azure Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](monitoring-metric-alerts-logs.md)
 
 ## Managing log alerts from the Azure portal
 
@@ -101,7 +101,7 @@ For **Log Alerts** alerts can be based on:
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
+Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../azure-monitor/log-query/portals.md#log-analytics-page
 ) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alert-log/AlertsAnalyticsCreate.png)

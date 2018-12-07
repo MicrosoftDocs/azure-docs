@@ -1,10 +1,11 @@
 ---
-title: C# Quickstart - predict intent - LUIS
-titleSuffix: Azure Cognitive Services
+title: "Quickstart: get intent - C#" 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using C#, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.  
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart

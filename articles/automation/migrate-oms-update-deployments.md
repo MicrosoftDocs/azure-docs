@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Migrate your OMS Update Deployments to Azure
 
-The Operations Management Suite (OMS) portal is being [deprecated](../log-analytics/log-analytics-oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal. This article provides the information you need in order to migrate to the Azure portal.
+The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/platform/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal. This article provides the information you need in order to migrate to the Azure portal.
 
 ## Key information
 
