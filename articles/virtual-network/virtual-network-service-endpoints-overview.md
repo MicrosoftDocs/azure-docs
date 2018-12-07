@@ -134,6 +134,9 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 
 Virtual Network service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources, over service endpoints. Service endpoint policies provide granular access control for virtual network traffic to Azure services. More Info: [Virtual Network Service Endpoint Policies](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
+## FAQs
+
+For FAQs, look at [Virtual Network Service Endpoint FAQs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
 
 ## Next steps
 
