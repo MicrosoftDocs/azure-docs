@@ -8,8 +8,7 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: "Active"
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ---
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
