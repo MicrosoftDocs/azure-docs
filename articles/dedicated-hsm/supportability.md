@@ -1,6 +1,6 @@
 ﻿---
 title: Azure Dedicated HSM supportability | Microsoft Docs
-description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
+description: Support options and areas of responsibility for Azure Dedicated HSM in different scenarios
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,6 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seodec18
 ms.date: 11/19/2018
 ms.author: barclayn
 

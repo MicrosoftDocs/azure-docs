@@ -1,21 +1,21 @@
 ﻿---
 title: Azure Dedicated HSM deployment architecture | Microsoft Docs
-description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
+description: Basic design considerations when using Azure Dedicated HSM as part of an application architecture
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
-
+ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: barclayn
 
 ---
 
-# Deployment architecture
+# Azure Dedicated HSM Deployment architecture
 
 Azure Dedicated HSM provides cryptographic key storage in Azure. It meets stringent security requirements. Customers will benefit from using Azure Dedicated HSM if they:
 

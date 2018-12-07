@@ -1,6 +1,6 @@
 ﻿---
-title: Tutorial – Deploying Azure dedicated HSMs into an existing virtual network using PowerShell| Microsoft Docs
-description: Deploy HSMs into an existing virtual network using PowerShell
+title: Tutorial – Azure dedicated HSM deployment into an existing virtual network using PowerShell | Microsoft Docs
+description: Tutorial showing how to deploy a dedicated HSM using PowerShell into an existing virtual network
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -9,10 +9,10 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/06/2018
 ms.author: barclayn
 ---
 
