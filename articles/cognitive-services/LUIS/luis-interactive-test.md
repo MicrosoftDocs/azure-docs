@@ -1,10 +1,11 @@
 ---
-title: Test your LUIS app inside the LUIS portal
-titleSuffix: Azure Cognitive Services
+title: Test app in LUIS portal
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

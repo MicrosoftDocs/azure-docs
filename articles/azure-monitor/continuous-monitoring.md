@@ -47,7 +47,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 
 [Infrastructure as code](/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
 
--  Use [Resource Manager templates](../log-analytics/log-analytics-template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
+-  Use [Resource Manager templates](../azure-monitor/platform/template-workspace-configuration.md) to enable monitoring and configure alerts over a large set of resources.
 - Use [Azure Policy](../governance/policy/overview.md) to enforce different rules over your resources. This ensures that those resources stay compliant with your corporate standards and service level agreements. 
 
 

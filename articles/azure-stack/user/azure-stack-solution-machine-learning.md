@@ -77,9 +77,8 @@ Prior knowledge of Azure and Azure Stack is required. To learn more before proce
 
  -  Deployment of [Azure Container Services (ACS) Kubernetes on Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
- -  Deployment of Azure Machine Learning service (preview) [4-part tutorial](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
+ -  Deployment of Azure Machine Learning service [2-part tutorial](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 
- -  Azure Machine Learning Experimentation [account](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/experimentation-service-template)
 
 **Azure Stack**
 
@@ -354,7 +353,7 @@ Azure Machine Learning Workbench is available for Windows or macOS. See the list
     | Project name | myIris | Enter a unique name that identifies the account. Use the departmental or project name that best identifies the experiment. The name should be 2 to 32 characters. It should include only alphanumeric characters and the dash (-) character. |
     | Project directory | c:\Temp\ | Specify the directory in which the project is created. |
     | Project description | leave blank | Optional field useful for describing the projects. |
-    | Visualstudio.com GIT Repository URL | leave blank | Optional field. Associate a project with a Git repository on Visual Studio Team Services for source control and collaboration. [Learn how to set up a repository](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
+    | Visualstudio.com GIT Repository URL | leave blank | Optional field. Associate a project with a Git repository on Visual Studio Team Services for source control and collaboration. |
     | Selected workspace | IrisGarden (if it exists) | Choose a workspace created for the Experimentation account in the Azure portal. <br>Using Quickstart, the workspace by the name of IrisGarden is listed. Otherwise, use the workspace with the name of the Experimentation account, or a preferred account name. |
     | Project template | Classifying Iris | Templates contain scripts and data used to explore the product. This template contains the scripts and data needed for this quickstart and other tutorials in this documentation site. |
 
