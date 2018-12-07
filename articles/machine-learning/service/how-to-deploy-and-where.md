@@ -128,7 +128,16 @@ Image creation takes around 5 minutes.
 
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a id="aci"></a> Deploy to Azure Container Instances
+## Deploy the image
+
+When you get to deployment, the process is slightly different depending on the compute target that you deploy to. Use the information in the following sections to learn how to deploy to:
+
+* [Azure Container Instances](#aci)
+* [Azure Kubernetes Services](#aks)
+* [Project Brainwave (field-programmable gate arrays)](#fpga)
+* [Azure IoT Edge devices](#iot)
+
+### <a id="aci"></a> Deploy to Azure Container Instances
 
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
@@ -152,7 +161,7 @@ To deploy to Azure Container Instances, use the following steps:
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) classes.
 
-## <a id="aks"></a> Deploy to Azure Kubernetes Service
+### <a id="aks"></a> Deploy to Azure Kubernetes Service
 
 To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
@@ -193,7 +202,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     **Time estimate**: Approximately 20 minutes.
 
     > [!TIP]
-    > If you already have AKS cluster in your Azure subscription, and it is version 1.11.3, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
+    > If you already have AKS cluster in your Azure subscription, and it is version 1.11.*, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
     >
     > ```python
     > # Set the resource group that contains the AKS cluster and the cluster name
@@ -233,11 +242,39 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) classes.
 
-## <a id="fpga"></a> Deploy to field-programmable gate arrays (FPGA)
+### <a id="fpga"></a> Deploy to field-programmable gate arrays (FPGA)
 
 Project Brainwave makes it possible to achieve ultra-low latency for real-time inferencing requests. Project Brainwave accelerates deep neural networks (DNN) deployed on field-programmable gate arrays in the Azure cloud. Commonly used DNNs are available as featurizers for transfer learning, or customizable with weights trained from your own data.
 
 For a walkthrough of deploying a model using Project Brainwave, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
+
+### <a id="iotedge"></a> Deploy to Azure IoT Edge
+
+An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Machine learning models can be deployed to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
+
+Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
+
+Use the following steps to get the container registry credentials for your Azure Machine Learning service workspace:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
+
+1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
+
+    ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+1. Once in the container registry, select **Access Keys** and then enable the admin user.
+
+    ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
+
+1. Save the values for **login server**, **username**, and **password**. 
+
+Once you have the credentials, use the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
+
+> [!NOTE]
+> If you're unfamiliar with Azure IoT, see the following documents for information on getting started with the service:
+>
+> * [Quickstart: Deploy your first IoT Edge module to a Linux device](../../iot-edge/quickstart-linux.md)
+> * [Quickstart: Deploy your first IoT Edge module to a Windows device](../../iot-edge/quickstart.md)
 
 ## Testing web service deployments
 
@@ -273,34 +310,6 @@ print(service.state)
 
 > [!NOTE]
 > When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
-
-## <a id="iotedge"></a> Deploy to Azure IoT Edge
-
-An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Machine learning models can be deployed to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
-
-Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
-
-Use the following steps to get the container registry credentials for your Azure Machine Learning service workspace:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
-
-1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
-
-    ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
-
-1. Once in the container registry, select **Access Keys** and then enable the admin user.
-
-    ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
-
-1. Save the values for **login server**, **username**, and **password**. 
-
-Once you have the credentials, use the steps in the [Deploy Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) document to deploy the image to your device. When configuring the __Registry settings__ for the device, use the __login server__, __username__, and __password__ for your workspace container registry.
-
-> [!NOTE]
-> If you're unfamiliar with Azure IoT, see the following documents for information on getting started with the service:
->
-> * [Quickstart: Deploy your first IoT Edge module to a Linux device](../../iot-edge/quickstart-linux.md)
-> * [Quickstart: Deploy your first IoT Edge module to a Windows device](../../iot-edge/quickstart.md)
 
 ## Clean up
 
