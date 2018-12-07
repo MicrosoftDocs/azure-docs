@@ -94,5 +94,7 @@ You’ve successfully completed the tutorial and deployed a static website to Az
 
 In part one of this tutorial, you learned how to configure your Azure Storage account for static website hosting, and how to create and deploy a static website to an Azure endpoint.
 
+Now advance to part two, where you configure a custom domain with SSL for your static website with Azure CDN.
+
 > [!div class="nextstepaction"]
-> [Next steps button](storage-blob-static-website-custom-domain.md)
+> [Use Azure CDN to enable a custom domain with SSL for a static website](storage-blob-static-website-custom-domain.md)

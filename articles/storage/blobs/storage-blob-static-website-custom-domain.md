@@ -61,4 +61,4 @@ In part two of this tutorial, you learned how to configure a custom domain with 
 Follow this link to learn more about static website hosting on Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Next steps button](storage-blob-static-website.md)
+> [Learn more about static websites](storage-blob-static-website.md)
