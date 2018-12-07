@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights
+# Add LUIS results to Application Insights with a Bot in C#
 
 This tutorial adds LUIS response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
