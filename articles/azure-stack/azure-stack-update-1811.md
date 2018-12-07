@@ -36,9 +36,9 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, the Extenstion Host is enabled. The Extension Host simplifies network integration and increases the security posture of Azure Stack.
+- With this release, the Extenstion Host is enabled. The Extension Host simplifies network integration and improves the security posture of Azure Stack.
 
-- Enhanced Azure Stack operator experience for managing updates from the **Update** blade.
+- Enhanced Azure Stack operator experience for [managing updates](azure-stack-updates.md) from the **Update** blade.
 
 - Support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 - This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
@@ -55,13 +55,10 @@ This update includes the following improvements for Azure Stack:
 
 - This release adds support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the right upper corner of the administrator and user portals, the same way as it is available in the Azue portal.
+- Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the right upper corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
-
-- Added new scale unit node operations that allow an Azure Stack operator to start, stop, and shut down a scale unit node. 
-<!-- @Matt add link to updated node actions doc -->
 
 - Added new privileged endpoint command to update the BMC credential: the username and password are used to communicate with the physical machines. 
 <!-- @Matt add link to updated bmc doc -->
@@ -71,6 +68,9 @@ This update includes the following improvements for Azure Stack:
 - Added extended data at rest encryption protection to include also all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack. For more information, see [data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
 
 ### Fixed issues
+
+<!-- 3099544 – IS, ASDK --> 
+- Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the USD/Month column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
 
 <!-- 2930718 - IS ASDK --> 
 - Fixed an issue in which the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name did not appear. The user subscription name now appears.
@@ -91,17 +91,17 @@ This update includes the following improvements for Azure Stack:
 - Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
-- Fixed: - The account you use to sign in to the Azure Stack admin or user portal displays as **Unidentified user**. This message is displayed when the account does not have either a *First* or *Last* name specified. To work around this issue, edit the user account to provide either the First or Last name. You must then sign out and then sign back in to the portal.  
+- Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a *First* or *Last* name specified.   
 
 <!--  2873083 - IS ASDK --> 
-- Fixed: -  When you use the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown doesn’t load correctly when you use Internet Explorer. To work around this problem, use another browser while using the portal to create a VMSS.  
+- Fixed an issue in which using the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown did not load correctly when using Internet Explorer. This browser now works correctly.  
 
 <!-- 3190553 - IS ASDK -->
-- Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance unavailable or Scale Unit Node offline.
+- Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
 ### Changes
 
-A new way to view and edit the quotas in a plan is introduced. see <link> for details
+A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
 ### Common Vulnerabilities and Exposures
 
@@ -173,10 +173,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-
-
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-<!-- Hotfix link here -->  
+
+- No hotfix for 1811 available yet.
 
 ## Known issues (post-installation)
 
@@ -202,35 +201,27 @@ The following are post-installation known issues for this build version.
 
 ### Health and monitoring
 
-
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
 
-   Alert #1:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+    Alert #1:
+    - NAME:  Infrastructure role unhealthy
+    - SEVERITY: Warning
+    - COMPONENT: Health controller
+    - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-  Alert #2:
-   - NAME:  Infrastructure role unhealthy
-   - SEVERITY: Warning
-   - COMPONENT: Health controller
-   - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+    Alert #2:
+     - NAME:  Infrastructure role unhealthy
+     - SEVERITY: Warning
+     - COMPONENT: Health controller
+     - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-  Both alerts can be safely ignored and they'll close automatically over time.  
-
-
-<!-- 2368581 - IS, ASDK --> 
-- An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
+    Both alerts can be safely ignored and they'll close automatically over time.  
 
 ### Compute
 
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
-
-<!-- 3099544 – IS, ASDK --> 
-- When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
@@ -256,8 +247,6 @@ The following are post-installation known issues for this build version.
 - When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page doesn't show metrics data.
 
    To find metrics data, such as the CPU Percentage chart for the VM, go to the Metrics window and show all the supported Windows VM guest metrics.
-
-
 
 ### Networking  
 
@@ -298,8 +287,9 @@ The following are post-installation known issues for this build version.
 
 ## Download the update
 
-You can download the Azure Stack 1811 update package from [here](https://aka.ms/azurestackupdatedownload).
-  
+You can download the Azure Stack 1811 update package from [here](https://aka.ms/azurestackupdatedownload). 
+
+In disconnected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 
