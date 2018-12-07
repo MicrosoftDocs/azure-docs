@@ -9,10 +9,10 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
 ---
 
-# Deploy models in production
+# Deploy models to production to play an active role in making business decisions
 
 Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions.
 

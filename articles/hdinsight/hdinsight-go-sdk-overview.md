@@ -6,8 +6,9 @@ author: tylerfox
 
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 9/21/2018
+ms.date: 09/21/2018
 ms.author: tyfox
+ms.custom: seodec18
 
 ---
 

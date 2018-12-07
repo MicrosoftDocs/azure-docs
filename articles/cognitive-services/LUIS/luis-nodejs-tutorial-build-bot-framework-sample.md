@@ -1,10 +1,11 @@
 ﻿---
-title: LUIS Bot with Node.js - Web app Bot - Bot Framework SDK 3.0
+title: LUIS Bot with Node.js 
 titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -73,7 +74,7 @@ Install NPM packages with the following steps:
 
 5. A new browser window opens. In the console, enter the following command:
 
-    ```
+    ```console
     cd site\wwwroot && npm install
     ```
 
@@ -110,7 +111,7 @@ Go to the second browser window if it is still open or in the first browser wind
 
 In the code editor, open `app.js`. It contains the following code:
 
-```javascript
+```nodejs
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -201,7 +202,7 @@ The existing intents in the app.js are ignored. You can leave them.
 
 Copy the following code and add it to `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -218,7 +219,7 @@ The [matches][matches] option on the [triggerAction][triggerAction] attached to 
 
 Copy the following code and add it to `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);
