@@ -1,4 +1,4 @@
-﻿---
+---
 title: Send events to an Azure Time Series Insights environment | Microsoft Docs
 description: Learn how to configure an event hub and run a sample application to push events you can view in Azure Time Series Insights.
 ms.service: time-series-insights
@@ -66,19 +66,18 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection sting-primary key**.
 
-   ![Copy the value for the primary key connection string][5]
+    ![Copy the value for the primary key connection string][5]
 
 1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in [Push events](#push-events).
-
-
-  ![Paste the primary key connection string in the Event Hub Connection String box][6]
+  
+    ![Paste the primary key connection string in the Event Hub Connection String box][6]
 
 1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
 
 1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub:
 
-   ![An event hub Overview page that shows metrics for the event hub][7]
+    ![An event hub Overview page that shows metrics for the event hub][7]
 
 <a id="json"></a>
 
@@ -206,7 +205,7 @@ A JSON object with a nested JSON array that contains two JSON objects. This inpu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View your environment](https://insights.timeseries.azure.com) in the Time Series Insights explorer.
+> [View your environment](https://insights.timeseries.azure.com) in the Time Series Insights explorer
 
 <!-- Images -->
 [1]: media/send-events/updated.png
