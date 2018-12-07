@@ -31,7 +31,7 @@ Azure Machine Learning service provides a cloud-based environment you can use to
 (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning service fully supports open-source technologies, so you can use tens of thousands of open-source Python packages with machine learning components such as TensorFlow and scikit-learn.
-Support for rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](http://aka.ms/VSToolsforAI) extension, makes it easy to interactively explore data, transform it, and then develop, and test models.
+Support for rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension, makes it easy to interactively explore data, transform it, and then develop, and test models.
 Azure Machine Learning service also includes features that [automate model generation and tuning](tutorial-auto-train-models.md) to help you create models with ease, efficiency, and accuracy.
 
 Azure Machine Learning service lets you start training on your local machine, and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md) such as Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster, using the power of the cloud.
