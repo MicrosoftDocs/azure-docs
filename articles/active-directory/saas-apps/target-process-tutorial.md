@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 12/7/2018
 ms.author: jeedes
 
 ---
@@ -107,9 +107,9 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier.  Contact [TargetProcess Client support team](mailto:support@targetprocess.com) to get these values.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 6. On the **Set up TargetProcess** section, copy the appropriate URL(s) as per your requirement.
 
@@ -126,6 +126,8 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 	![image](./media/target-process-tutorial/install_extension.png)
 
 8. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 9-13.
+
+If you want to configure the application manually perform the following steps:
 
 9. Sign-on to your TargetProcess application as an administrator.
 
