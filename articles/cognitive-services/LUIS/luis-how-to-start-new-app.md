@@ -66,7 +66,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 ## Export app
 1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
-    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
+    [![Screenshot of pop-up dialog of per-app actions](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
 2. Select **Export app** from the menu. 
 
