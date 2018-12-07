@@ -24,6 +24,13 @@ This article describes how to mount an Azure Files based volume in a service of 
 To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files](#declare-a-volume-resource-and-update-the-service-resource-yaml) or the [JSON-based deployment template](#declare-a-volume-resource-and-update-the-service-resource-json). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## Prerequisites
+> [!NOTE]
+> Onebox deployment on Windows RS5: There is open [bug](https://microsoft.visualstudio.com/OS/_workitems/edit/19554344) with New-SmbGlobalMapping that affects mounting of Azurefile Volumes. The workaround for the issue is to i)Run below command as Powershell adminstrator and 2) perform a reboot of onebox environment.
+
+```powershell
+PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
+```
+>
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this article. 
 
