@@ -22,7 +22,7 @@ This setup deploys a few Azure resources. Together, these resources manage the k
 
 2.  Click on **Add new resource**, and type "qna maker" in search, and select the QnA Maker resource
 
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![Create a new QnA Maker service - Add new resource](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  Click on **Create** after reading the terms and conditions.
 
@@ -30,7 +30,7 @@ This setup deploys a few Azure resources. Together, these resources manage the k
 
 4. In **QnA Maker**, select the appropriate tiers and regions.
 
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Create a new QnA Maker service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * Fill the **Name** with a unique name to identify this QnA Maker service. This name also identifies the QnA Maker endpoint to which your knowledge bases will be associated.
     * Choose the **Subscription** in which the QnA Maker resource will be deployed.
@@ -52,7 +52,7 @@ This setup deploys a few Azure resources. Together, these resources manage the k
 
 6.  Once the deployment is done, you will see the following resources created in your subscription.
 
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## Next steps
 

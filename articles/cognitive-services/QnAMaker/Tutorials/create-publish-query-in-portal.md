@@ -93,7 +93,7 @@ Select the **Publish** button from the top menu. Once you are on the publish pag
 
 After the KB is published, the endpoint is displayed
 
-![Publish](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Publish page's endpoint settings](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## Use curl to query for an FAQ answer
 
