@@ -7,7 +7,8 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Azure Stream Analytics on IoT Edge
@@ -17,7 +18,7 @@ Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real
 Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, you can deploy and manage ASA jobs using IoT Hub. This feature is in preview. If you have any questions or feedback, you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team. 
 
 ## Scenarios
-![High-level diagram](media/stream-analytics-edge/ASAedge_highlevel.png)
+![High-level diagram of IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **Low-latency command and control**: For example, manufacturing safety systems must respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real-time, and issue commands when you detect anomalies to stop a machine or trigger alerts.
 *	**Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels, or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
@@ -33,7 +34,7 @@ ASA Edge jobs run as modules within [Azure IoT Edge runtime](https://docs.micros
 
 ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
-![Edge job](media/stream-analytics-edge/ASAedge_job.png)
+![Azure Stream Analytics Edge job](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
 
 ### Installation instructions
@@ -64,7 +65,7 @@ A storage container is required in order to export the ASA compiled query and th
 
 2. In the creation screen, select **Edge** as **hosting environment** (see the following picture)
 
-   ![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
+   ![Create Stream Analytics job on Edge](media/stream-analytics-edge/create-asa-edge-job.png)
 3. Job Definition
     1. **Define Input Stream(s)**. Define one or several input streams for your job.
     2. Define Reference data (optional).
@@ -99,7 +100,7 @@ These steps are described in the IoT Edge documentation for [Windows](https://do
 - In the Azure portal, open IoT Hub, navigate to **IoT Edge** and click on the device you want to target for this deployment.
 - Select **Set modules**, then select **+ Add** and choose **Azure Stream Analytics Module**.
 - Select the subscription and the ASA Edge job that you created. Click Save.
-![Add ASA module in your deployment](media/stream-analytics-edge/set_module.png)
+![Add ASA module in your deployment](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
@@ -115,7 +116,8 @@ IoT Edge provides a way to declaratively route messages between modules, and bet
 Names of the inputs and outputs created in the ASA job can be used as endpoints for routing.  
 
 ###### Example
-```
+
+```json
 {
 "routes": {                                              
     "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
@@ -126,7 +128,7 @@ Names of the inputs and outputs created in the ASA job can be used as endpoints 
 
 ```
 This example shows the routes for the scenario described in the following picture. It contains an edge job called "**ASA**", with an input named "**temperature**" and an output named "**alert**".
-![Example of routing](media/stream-analytics-edge/RoutingExample.png)
+![Diagram example of message routing](media/stream-analytics-edge/edge-message-routing-example.png)
 
 This example defines the following routes:
 - Every message from the **tempSensor** is sent to the module named **ASA** to the input named **temperature**,
@@ -191,7 +193,7 @@ To create a job with reference data on Edge:
 
 4. Set the file path. For Windows Host OS and Windows container, use the absolute path: `E:\<PathToFile>\v1.csv`. For a Windows Host OS and Linux container or a Linux OS and Linux container, use the path in the volume: `<VolumeName>/file1.txt`.
 
-![New reference data input for Azure Stream Analytics job on IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
+![New reference data input for Azure Stream Analytics job on IoT Edge](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
 The reference data on IoT Edge update is triggered by a deployment. Once triggered, the ASA module picks the updated data without stopping the running job.
 
