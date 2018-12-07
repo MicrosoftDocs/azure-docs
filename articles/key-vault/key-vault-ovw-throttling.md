@@ -39,7 +39,7 @@ The following are **best practices** for throttling your app:
 
 When you implement your app's error handling, use the HTTP error code 429 to detect the need for client-side throttling. If the request fails again with an HTTP 429 error code, you are still encountering an Azure service limit. Continue to use the recommended client-side throttling method, retrying the request until it succeeds.
 
-Implement code that does exponential backoff. For example in this [tutorial](tutorial-net-create-vault-azure-web-app.md) we show how to do exponential backoff
+Code that implements exponential backoff is shown below. For example in this [tutorial](tutorial-net-create-vault-azure-web-app.md) we show how to do exponential backoff
 ```
      public async Task OnGetAsync()
      {
