@@ -158,7 +158,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-If the operation is successful, `result` contains the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` contains information about the operation.
+If the operation is successful, `result` contains the [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` contains information about the operation.
 
 Example response:
 

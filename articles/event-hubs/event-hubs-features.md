@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs features overview | Microsoft Docs
+title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: Overview and details about Azure Event Hubs features
 services: event-hubs
 documentationcenter: .net

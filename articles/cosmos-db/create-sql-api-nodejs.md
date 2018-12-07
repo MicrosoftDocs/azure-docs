@@ -35,7 +35,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 * In addition:
 	* [Node.js](https://nodejs.org/en/) version v6.0.0 or higher
-	* [Git](http://git-scm.com/)
+	* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -131,7 +131,7 @@ The following snippets are all taken from the **app.js** file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 

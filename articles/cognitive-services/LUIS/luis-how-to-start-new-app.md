@@ -1,10 +1,11 @@
 ---
-title: Create a new app with Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Create a new app
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -65,7 +66,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 ## Export app
 1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
-    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
+    [![Screenshot of pop-up dialog of per-app actions](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
 2. Select **Export app** from the menu. 
 

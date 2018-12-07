@@ -1,5 +1,5 @@
 ---
-title: Restrict access to Azure Event Hubs using IP filters | Microsoft Docs
+title: Restrict access using IP filters - Azure Event Hubs | Microsoft Docs
 description: Use IP filtering to block connections from specific IP addresses to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''

@@ -30,7 +30,7 @@ This tutorial covers the following tasks:
 
 * Get the latest version of [Java Development Kit (JDK)](https://aka.ms/azure-jdks) 
 
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) the [Maven](http://maven.apache.org/) binary archive 
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) the [Maven](https://maven.apache.org/) binary archive 
   - On Ubuntu, you can run `apt-get install maven` to install Maven. 
 
 ## Create a database account 
@@ -57,7 +57,7 @@ This tutorial covers the following tasks:
 
 Get the connection string information from Azure portal, and copy it into the Java configuration file. The connection string enables your app to communicate with your hosted database. 
 
-1. From the [Azure portal](http://portal.azure.com/), navigate to your Cosmos DB account. 
+1. From the [Azure portal](https://portal.azure.com/), navigate to your Cosmos DB account. 
 
 2. Open the **Connection String** pane.  
 
