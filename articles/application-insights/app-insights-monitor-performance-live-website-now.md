@@ -118,7 +118,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
 * If you have MMA/SCOM (Systems Center Operations Manager) installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
-* Status Monitor logs can be found at this location "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
+* Status Monitor logs can be found at this location by default: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * See [Troubleshooting][qna].
 
 ## System Requirements
@@ -223,7 +223,7 @@ When you select a web app for Status Monitor to instrument:
 
 ### What version of Application Insights SDK does Status Monitor install?
 
-As of now, Status Monitor can install Application Insights SDK versions 2.3 or 2.4.
+As of now, Status Monitor can only install Application Insights SDK versions 2.3 or 2.4.
 
 ### Do I need to run Status Monitor whenever I update the app?
 
