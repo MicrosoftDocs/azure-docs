@@ -84,7 +84,7 @@
       - name: Connect other IoT clouds
         href: howto-build-iotc-device-bridge.md
 
-  - name : Adminstration
+  - name : Administration
     items:
       - name: Administer your application
         href: howto-administer.md  

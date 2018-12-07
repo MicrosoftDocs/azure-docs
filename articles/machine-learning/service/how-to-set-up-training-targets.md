@@ -1,5 +1,6 @@
 ---
-title: Set up compute targets for model training with Azure Machine Learning service | Microsoft Docs
+title: Create and use compute targets for model training
+titleSuffix: Azure Machine Learning service
 description: Learn how to select and configure the training environments (compute targets) used to train your machine learning models. The Azure Machine Learning service lets you easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
 author: heatherbshapiro
@@ -10,8 +11,9 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
-# Select and use a compute target to train your model
+# Set up compute targets for model training
 
 With the Azure Machine Learning service, you can train your model on different compute resources. These compute resources, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
 
@@ -133,7 +135,8 @@ You can create Azure Machine Learning Compute on-demand when you schedule a run,
 
 You can create Azure Machine Learning Compute as a compute target at run-time. In this case, the compute is automatically created for your run, scales up to max_nodes that you specify in your run config, and is then __deleted automatically__ after the run completes.
 
-This functionality is currently in Preview state, and will not work with Hyperparameter Tuning or Automated Machine Learning jobs.
+> [!IMPORTANT]
+> Run-based creation of Azure Machine Learning compute is currently in Preview state. Do not use run-based creation if you are using Hyperparameter Tuning or Automated Machine Learning. If you need to use Hyperparameter Tuning or Automated Machine Learning, create the Azure Machine Learning compute before submitting a run.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

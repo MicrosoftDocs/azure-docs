@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -173,7 +173,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 > Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## Known issues (post-installation)
 
@@ -226,7 +226,7 @@ The following are post-installation known issues for this build version.
    
   Run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
 
-  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4477849/), so be sure to install this hotfix if you're experiencing the issue. 
+  This issue is fixed in the latest [1809 hotfix release](https://support.microsoft.com/help/4481548/), so be sure to install this hotfix if you're experiencing the issue. 
 
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  

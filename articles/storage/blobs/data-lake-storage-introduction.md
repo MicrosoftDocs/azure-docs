@@ -38,7 +38,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 
--   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. As data transitions through its complete lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob storage lifecycle](../common/storage-lifecycle-management-concepts.md).
+-   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. As data transitions through its complete lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
 
 -   **Optimized driver**: The abfs driver is [optimized specifically](data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
 
@@ -73,9 +73,10 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | Platform |  Supported version(s) | More information |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.0+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Claudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime Versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[HortenWorks](https://hortonworks.com/)| 2.6+ | [HortenWorks Documentation](https://docs.hortonworks.com/) |
 
 ## Next steps
 

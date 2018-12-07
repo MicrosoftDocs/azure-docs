@@ -18,7 +18,7 @@ To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you ca
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an AKS cluster
 

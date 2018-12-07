@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: "(previous author=alokkirpal, ms.author=alok)"
+ms.custom: seodec18, "(previous author=alokkirpal, ms.author=alok)"
 ---
 
 # Machine Learning Anomaly Detection API
@@ -32,9 +32,9 @@ The Anomaly Detection offering comes with useful tools to get you started.
 > [!NOTE]
 > Try **IT Anomaly Insights solution** powered by [this API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
 > 
+<!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
-> 
->
+--> 
 
 ## API Deployment
 In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two AzureML Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [AzureML web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).

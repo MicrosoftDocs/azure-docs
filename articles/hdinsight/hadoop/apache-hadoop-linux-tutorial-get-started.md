@@ -15,7 +15,7 @@ ms.date: 05/07/2018
 ---
 # Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using Resource Manager template
 
-In this article, you learn how to create [Apache Hadoop](http://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
+In this article, you learn how to create [Apache Hadoop](https://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
 In this quickstart, you use a Resource Manager template to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).
 

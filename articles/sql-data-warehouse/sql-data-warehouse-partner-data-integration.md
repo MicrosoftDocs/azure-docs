@@ -65,7 +65,7 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 <!--Website Links -->
 [alteryx_designer_website]:http://www.alteryx.com/partners/microsoft/
 [attunity_cloudbeam_website]:http://www.attunity.com/attunity-cloudbeam-for-azure/
-[bryte_systems_azure_website]:http://www.bryte.com.au/azure-integration/
+[bryte_systems_azure_website]:http://www.bryteflow.com/
 [informatica_Cloud_Services_website]:https://www.informatica.com/products/cloud-integration.html
 [informatica_PowerCenter_website]:https://www.informatica.com/products/data-integration/powercenter.html
 [redgate_website]:http://dataplatformstudio.com/

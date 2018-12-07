@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -30,18 +31,20 @@ To complete this tutorial, you need the following prerequisites:
 ## Create an Event Hubs namespace and an event hub
 The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
+Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
+
 ## Create a console application
 
 In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
-![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+![Create console application](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ## Add the Event Hubs NuGet package
 
 1. In Solution Explorer, right-click the **Sender** project, and then click **Manage NuGet Packages for Solution**. 
 2. Click the **Browse** tab, then search for `WindowsAzure.ServiceBus`. Click **Install**, and accept the terms of use. 
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
+    ![Install Service Bus NuGet package](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
     Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
@@ -53,7 +56,7 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Add the following fields to the **Program** class, substituting the placeholder values with the name of the event hub you created in the previous section, and the namespace-level connection string you saved previously.
+2. Add the following fields to the **Program** class, substituting the placeholder values with the name of the event hub you created in the previous section, and the namespace-level connection string you saved previously. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal).
    
     ```csharp
     static string eventHubName = "Your Event Hub name";

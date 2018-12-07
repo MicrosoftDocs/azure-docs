@@ -1,5 +1,6 @@
 ---
-title: Load data with the Azure Machine Learning Data Prep SDK - Python
+title: Load and prep data with the Data Prep Python SDK
+titleSuffix: Azure Machine Learning service
 description: Learn about loading data with Azure Machine Learning Data Prep SDK. You can load different types of input data, specify data file types and parameters, or use the SDK smart reading functionality to automatically detect file type.
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # Load and read data with Azure Machine Learning
