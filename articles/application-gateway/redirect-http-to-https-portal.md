@@ -1,11 +1,11 @@
 ---
-title: Create an application gateway with HTTP to HTTPS redirection - Azure portal
+title: Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 12/7/2018
 ms.author: victorh
 
 ---
@@ -24,7 +24,7 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later to create a certificate. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To run the commands in this tutorial, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+This tutorial requires the Azure PowerShell module version 3.6 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To run the commands in this tutorial, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a self-signed certificate
 
@@ -124,7 +124,7 @@ First, add the listener named *myListener* for port 80.
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings.
+In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway.
 
 1. On the portal upper left corner, select **+Create a resource**.
 2. Select **Compute**.
@@ -173,7 +173,7 @@ Finally, you must upgrade the scale set with these changes.
 
 ### Install IIS
 
-The easiest way to install IIS on the scale set is to use PowerShell. From the portal, click the Cloud Shell icon and ensure that **PowerShell** is selected.
+An easy way to install IIS on the scale set is to use PowerShell. From the portal, click the Cloud Shell icon and ensure that **PowerShell** is selected.
 
 Paste the following code into the PowerShell window and press Enter.
 
@@ -192,6 +192,15 @@ Update-AzureRmVmss `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss
 ```
+
+### Upgrade the scale set
+
+After changing the instances with IIS , you must once again upgrade the scale set with this change.
+
+1. Select the **myvmss** scale set.
+2. Under **Settings**, select **Instances**.
+3. Select both instances, and then select **Upgrade**.
+4. Select **Yes** to confirm.
 
 ## Test the application gateway
 
