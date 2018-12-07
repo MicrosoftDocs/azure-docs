@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Perform an image search with Python - Bing Image Search API"
-description: Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Python application sends a search query to the API and displays the raw results.
+title: "Quickstart: Search for images - Bing Image Search REST API and Python"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,9 +10,10 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
+ms.custom: seodec2018
 ---
 
-# Quickstart: Send search queries using the REST API and Python
+# Quickstart: Search for images using the Bing Image Search REST API and Python
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Python application sends a search query to the API and displays the raw results.
 

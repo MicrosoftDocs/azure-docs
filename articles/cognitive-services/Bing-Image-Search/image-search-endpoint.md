@@ -1,5 +1,5 @@
 ---
-title: Image search endpoints - Bing Image Search API
+title: Endpoints for the Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: A list of available endpoints for the Bing Image Search API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/30/2017
 ms.author: v-gedod
 ---
 
-# Image Search endpoints
+# Endpoints for the Bing Image Search API
 
 The **Image Search API**  includes three endpoints.  Endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
 ## Endpoints
