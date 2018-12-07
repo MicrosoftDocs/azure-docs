@@ -35,7 +35,7 @@ Azure Machine Learning service also includes features that [automate model gener
 
 Azure Machine Learning service lets you start training on your local machine, and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md) such as Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster, using the power of the cloud.
 
-When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md), or you can use the container in your own deployments, either on-premises or in the cloud.
+When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to Azure Container Instances or Azure Kubernetes Service, or you can use the container in your own deployments, either on-premises or in the cloud. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 You can manage the deployed models, and track multiple runs as you experiment to find the best solution.
 Once deployed, your model can return predictions in [real-time](how-to-consume-web-service.md), or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
@@ -55,7 +55,7 @@ You can choose from many machine learning components available in open-source Py
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-Once you have a model, you use it to create a container (such as Docker) that can be deployed locally for testing. Once testing is done, the model can be deployed as a production web service in either [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+Once you have a model, you use it to create a container (such as Docker) that can be deployed locally for testing. Once testing is done, the model can be deployed as a production web service in either Azure Container Instances or Azure Kubernetes Service. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 You then can manage your deployed models using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or the [Azure portal](https://portal.azure.com/).
 You can evaluate model metrics, retrain, and redeploy new versions of the model, all while tracking the model's experiments.

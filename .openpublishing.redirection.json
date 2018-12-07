@@ -2,6 +2,21 @@
     "redirections": [
 
         {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-iot.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
             "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
             "redirect_document_id": true

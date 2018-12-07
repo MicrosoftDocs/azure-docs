@@ -217,9 +217,7 @@ def run(input_data):
 ## Next steps
 
 Learn more about deployment: 
-* [How to deploy to ACI](how-to-deploy-to-aci.md)
-
-* [How to deploy to AKS](how-to-deploy-to-aks.md)
+* [How to deploy and where](how-to-deploy-and-where.md)
 
 * [Tutorial part 1: train model](tutorial-train-models-with-aml.md)
 

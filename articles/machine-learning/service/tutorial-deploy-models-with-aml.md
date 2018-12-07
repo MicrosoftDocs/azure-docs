@@ -28,7 +28,7 @@ In this part of the tutorial, you use Azure Machine Learning service to:
 > * Deploy the model to ACI
 > * Test the deployed model
 
-ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 ## Get the notebook
 

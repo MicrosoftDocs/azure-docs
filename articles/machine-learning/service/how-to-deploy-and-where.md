@@ -73,7 +73,7 @@ model = Model.register(model_path = "model.pkl",
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## Create an image configuration
+## <a id="configureimage"></a> Create an image configuration
 
 Deployed models are packaged as an image. The image contains the dependencies needed to run the model.
 
@@ -284,11 +284,11 @@ Use the following steps to get the container registry credentials for your Azure
 
 1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
 
-    ![An image of the container registry entry](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
+    ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
 
 1. Once in the container registry, select **Access Keys** and then enable the admin user.
 
-    ![An image of the access keys screen](./media/how-to-deploy-to-iot/findaccesskey.png)
+    ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
 
 1. Save the values for **login server**, **username**, and **password**. 
 
