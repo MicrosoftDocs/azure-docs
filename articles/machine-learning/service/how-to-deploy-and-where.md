@@ -1,7 +1,7 @@
 ---
-title: Where to deploy models 
+title: How and where to deploy models 
 titleSuffix: Azure Machine Learning service
-description: Learn about the different ways that you can deploy your models into production using the Azure Machine Learning service.
+description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.custom: seodec18
 ---
 

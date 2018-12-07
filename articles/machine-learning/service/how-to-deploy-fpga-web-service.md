@@ -1,7 +1,7 @@
 ---
 title: Deploy models as web services on FPGAs
 titleSuffix: Azure Machine Learning service
-description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning. 
+description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inferencing. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/29/2018
+ms.date: 12/06/2018
 ms.custom: seodec18
 ---
 
-# Deploy a model as a web service on an FPGA with Azure Machine Learning
+# Deploy a model as a web service on an FPGA with Azure Machine Learning service
 
 You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md).  Using FPGAs provides ultra-low latency inferencing, even with a single batch size.   
 
