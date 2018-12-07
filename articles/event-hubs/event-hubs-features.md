@@ -1,6 +1,6 @@
 ---
 title: Overview of features - Azure Event Hubs | Microsoft Docs
-description: Overview and details about Azure Event Hubs features
+description: This article provides details about features and terminology of Azure Event Hubs. 
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
