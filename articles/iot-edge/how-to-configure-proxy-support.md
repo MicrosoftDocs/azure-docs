@@ -169,7 +169,7 @@ To configure the Edge agent and Edge hub modules, select **Configure advanced Ed
 
 Add the **https_proxy** environment variable to both the Edge agent and Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config.yaml file on your IoT Edge device, add that to the Edge agent module definition too. 
 
-![Set environment variables](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Set https_proxy environment variable](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 All other modules that you add to a deployment manifest follow the same pattern. In the page where you set the module name and image, there is an environment variables section.
 

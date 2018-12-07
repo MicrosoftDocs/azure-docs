@@ -105,7 +105,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 2. At the bottom of the Explorer, expand the **Azure IoT Hub Devices** section. 
 
-   ![Expand Azure IoT Hub Devices](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices section](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
 

@@ -1,6 +1,6 @@
 ---
 title: Register a new device from command line - Azure IoT Edge | Microsoft Docs 
-description: Use the IoT extension for Azure CLI to register a new IoT Edge device
+description: Use the IoT extension for Azure CLI to register a new IoT Edge device and retrieve the connection string
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -39,7 +39,7 @@ This command includes three parameters:
 * **hub-name**: Provide the name of your IoT hub.
 * **edge-enabled**: This parameter declares that the device is for use with IoT Edge.
 
-   ![Create IoT Edge device](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![az iot hub device-identity create output](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## View all devices
 

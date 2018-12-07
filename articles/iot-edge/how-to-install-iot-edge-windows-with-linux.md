@@ -1,6 +1,6 @@
 ---
 title: Install Azure IoT Edge on Windows with Linux containers | Microsoft Docs
-description: Azure IoT Edge installation instructions on Windows with Linux containers
+description: Azure IoT Edge installation instructions on Windows devices configured for Linux containers
 author: kgremban
 manager: philmea
 # this is the PM responsible
