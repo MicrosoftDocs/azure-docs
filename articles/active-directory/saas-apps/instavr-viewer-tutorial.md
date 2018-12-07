@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and **Federation Metadata File** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link](common/metadata-certificatebase64.png)
 
 6. On the **Set up InstaVR Viewer** section, copy the appropriate URL(s) as per your requirement.
 
