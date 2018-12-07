@@ -12,7 +12,13 @@ ms.date: 12/12/2018
 ms.author: cshoe
 ---
 
-# Manually run a non HTTP-triggered functions
+# Manually run a non HTTP-triggered function
+
+
+
+![](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+
+
 
 [Postman](https://www.getpostman.com/)
 
