@@ -37,7 +37,7 @@ The following steps create a new subnet in the Managed Instance VNet so an Azure
 
    ![Managed Instance subnets](./media/sql-database-managed-instance-configure-vm/subnets.png)
 
-3. Fill out the form with the requested information, using the information in this table:
+3. Fill out the form using the information in this table:
 
    | Setting| Suggested value | Description |
    | ---------------- | ----------------- | ----------- | 
@@ -66,7 +66,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Fill out the form with the requested information, using the information in the following table:
+2. Fill out the form using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ---------------- | ----------------- | ----------- |
@@ -87,7 +87,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
    If you used the suggested VNet name and the default subnet in [creating your Managed Instance](sql-database-managed-instance-get-started.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
 
-3. Select the **I agree to terms and conditions stated above** checkbox.
+3. Select the **I agree to the terms and conditions stated above** checkbox.
 4. Select **Purchase** to deploy the Azure VM in your network.
 5. Select the **Notifications** icon to view the status of deployment.
 
@@ -127,7 +127,7 @@ You're connected to your virtual machine in the Server Manager dashboard.
 1. In the virtual machine, open SQL Server Management Studio (SSMS).
  
    It takes a few moments to open as it needs to complete its configuration since this is the first time SSMS has been started.
-2. In the **Connect to Server** dialog box, enter the fully qualified **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your username and password, and then select **Connect**.
+2. In the **Connect to Server** dialog box, enter the fully qualified **host name** for your Managed Instance in the **Server name** box. Select **SQL Server Authentication**, provide your username and password, and then select **Connect**.
 
     ![ssms connect](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
@@ -137,4 +137,4 @@ After you connect, you can view your system and user databases in the Databases 
 
 - For a quickstart showing how to connect from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md).
 - For an overview of the connection options for applications, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
-- To restore an existing SQL Server database from on-premises to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
+- To restore an existing SQL Server database from on-premises to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
