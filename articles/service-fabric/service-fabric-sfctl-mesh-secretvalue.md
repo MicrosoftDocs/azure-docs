@@ -52,7 +52,7 @@ Deletes the secret value resource identified by the name. The name of the resour
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl mesh secretvalue list
-List names of all values of the the specified secret resource.
+List names of all values of the specified secret resource.
 
 Gets information about all secret value resources of the specified secret resource. The information includes the names of the secret value resources, but not the actual values.
 

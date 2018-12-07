@@ -34,8 +34,8 @@ Creates a deployment of Service Fabric Mesh Resources.
 
 |Argument|Description|
 | --- | --- |
-| --input-yaml-files [Required] | Comma separated relative/absolute file paths of all the yaml files or relative/absolute path of the directory (recursive) which contain yaml files. |
-| --parameters | A relative/absolute path to yaml file or a json object which contains the parameters that need to be overridden. |
+| --input-yaml-files [Required] | Comma-separated relative/absolute file paths of all the yaml files or relative/absolute path of the directory (recursive) which contain yaml files. |
+| --parameters | A relative/absolute path to yaml file or a json object that contains the parameters that need to be overridden. |
 
 ### Global Arguments
 
@@ -61,10 +61,10 @@ parameters mentioned in the yaml file
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 
 Consolidates and deploys all the resources in a directory to cluster by overriding the
-parameters which are passed directly as json object
+parameters, which are passed directly as json object
 
-sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'myparam' :
-{'value' : 'myvalue'} }"
+sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :
+{'value' : 'my_value'} }"
 
 
 ## Next steps
