@@ -190,7 +190,7 @@ Create an Ubuntu Data Science Virtual Machine (DSVM) in the Azure portal.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image6.png)
 
-> ![Important]  
+> ![!Important]  
 > Choose **Password** as the **Authentication type**.
 
 Place the new DSVM in the same resource group as the newly created storage account. All Edge ML objects are deployed in Azure within this Resource Group.
@@ -205,7 +205,8 @@ Place the new DSVM in the same resource group as the newly created storage accou
 
     d.  For the **Diagnostics Storage Account**, select the storage account created earlier.
 
-    e.  Note: With AAD enabled and configured for the Azure Subscription, managed identities for Azure resources can be enabled as well.
+    > [!Note]  
+    > With AAD enabled and configured for the Azure Subscription, managed identities for Azure resources can be enabled as well.
 
 2.  Select **OK**.
 
@@ -308,7 +309,7 @@ Use the Azure portal to provision the Azure Machine Learning accounts:
 
 Azure Machine Learning Workbench is available for Windows or macOS. See the list of [supported platforms](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
-> **Warning:**  
+> [!Warning]  
 > The installation might take around an hour to complete.
 
 1.  Download and launch the latest Workbench installer.
@@ -955,17 +956,17 @@ Deploy and use Azure Container Registry.
 
 Create an Azure Container registry with the **az acr create** command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The resource group is the same.
 
-    ```CLI
-        az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
-    ```
+```CLI
+    az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
+```
 
 ### Container registry login
 
 Use the **az acr login** command to log in to the ACR instance. Provide the unique name given to the container registry when it was created.
 
-    ```CLI
-        az acr login --name <acrName>
-    ```
+```CLI
+    az acr login --name <acrName>
+```
 
 The command returns a 'Login Succeeded message once completed.
 
@@ -1201,7 +1202,7 @@ Give the service principal access to the subscription so it may create resources
 
 3.  Select the subscription created.
 
-4.  Select **Access control (IAM)** > Select **+ Add**.
+4.  Select **Access control (IAM)** > select **+ Add**.
 
 5.  Select the **Owner** role.
 
@@ -1298,7 +1299,7 @@ For example, when running a Kubernetes cluster on a local laptop, a tool may be 
 If kubectl cluster-info returns the url response but the cluster is still not accessible, check for proper configuration by using:
 
 ```Bash  
-> kubectl cluster-info dump
+    kubectl cluster-info dump
 ```
 
 ### Enable shell autocompletion
@@ -1957,7 +1958,7 @@ Once the kubernetes UI is running, browse to the deployment at [**https://localh
 
     ![Alt text](media/azure-stack-solution-machine-learning/image135.png)
 
-    .
+    
 
     ![Alt text](media/azure-stack-solution-machine-learning/image136.png)
 
@@ -2011,7 +2012,7 @@ A validation message similar to the one below should be displayed:
 
 A function app is required to host the execution of each function. A function app allows function grouping as a logic unit for easier management, deployment, and sharing of resources.
 
-1.  From the Azure Stack user portal, select the **+ New** button found on the upper left-hand corner, then select**Web + Mobile** >**Function App**.
+1.  From the Azure Stack user portal, select the **+ New** button found on the upper left-hand corner, then select **Web + Mobile** >**Function App**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image141.png)
 
@@ -2019,13 +2020,13 @@ A function app is required to host the execution of each function. A function ap
 
     ![Define new function app  settings](media/azure-stack-solution-machine-learning/image142.png)
 
-1.  Select**Create**to provision and deploy the function app.
+1.  Select **Create**to provision and deploy the function app.
 
-2.  Select the Notification icon in the upper-right corner of the portal and watch for the**Deployment succeeded** message.
+2.  Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
     ![Define new function app settings](media/azure-stack-solution-machine-learning/image143.png)
 
-1.  Select**Go to resource** to view the new function app.
+1.  Select **Go to resource** to view the new function app.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image144.png)
 
@@ -2101,13 +2102,13 @@ Create an Azure Stack storage account and Storage Queue for data.
 
 6.  Select **Local** for the location for the storage account.
 
-7.  Select**Create**to create the storage account.
+7.  Select **Create**to create the storage account.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Choose the storage account recently created.
 
-2.  Select on**Queues**.
+2.  Select on **Queues**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image157.png)
 
@@ -2127,7 +2128,7 @@ Create an Azure Stack storage account and Storage Queue for data.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image161.png)
 
-1.  Enter the name of the storage account in the **Name** field, adding to the end; _STORAGE
+1.  Enter the name of the storage account in the **Name** field, adding to the end, `_STORAGE`.
 
 This allows the application to understand that this is a storage account endpoint.
 
