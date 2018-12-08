@@ -147,17 +147,17 @@ Azure uses certificates to authenticate VPN clients for Point-to-Site VPNs. You 
 
 If you use self-signed certificates, they must be created by using specific parameters. You can create a self-signed certificate by using the instructions for [PowerShell and Windows 10](vpn-gateway-certificates-point-to-site.md), or [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). It's important to follow the steps in these instructions when you use self-signed root certificates and generate client certificates from the self-signed root certificate. Otherwise, the certificates you create won't be compatible with P2S connections and you'll receive a connection error.
 
-### Part 1: Obtain the public key (.cer) for the root certificate
+### Acquire the public key (.cer) for the root certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### Part 2: Generate a client certificate
+### Generate a client certificate
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
 ## Upload the root certificate .cer file
 
-After the gateway has been created, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Don't upload the private key for the root certificate to Azure. After you upload a .cer file, Azure uses it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
+After the gateway has been created, upload the .cer file (which contains the public key information) for a trusted root certificate to the Azure server. (Don't upload the private key for the root certificate.) After you upload the certificate, Azure uses it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
 
 1. On the **VPN connections** section of the page for your VNet, select the **clients** graphic to open the **Point-to-site VPN connection** page.
 
@@ -182,22 +182,22 @@ To connect to a VNet by using a Point-to-Site VPN, each client must install a pa
 
 You can use the same VPN client configuration package on each client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the [Point-to-Site connections FAQ](#point-to-site-faq).
 
-### Part 1: Generate and install the VPN client configuration package
+### Generate and install a VPN client configuration package
 
 1. In the Azure portal, in the **Overview** page for your VNet, in **VPN connections**, select the client graphic to open the **Point-to-site VPN connection** page.
 
-2. At the top of the **Point-to-site VPN connection** page, select the download package that corresponds to the client operating system on which it will be installed:
+2. From the **Point-to-site VPN connection** page, select the download package that corresponds to the client operating system on which it will be installed:
 
   * For 64-bit clients, select **VPN Client (64-bit)**.
   * For 32-bit clients, select **VPN Client (32-bit)**.
 
   ![Download VPN client configuration package](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
-3. After the package generates, download and install it on your client computer. If you see a SmartScreen popup, select **More info**, then **Run anyway**. You can also save the package to install on other client computers.
+3. After the package generates, download it and then install it on your client computer. If you see a SmartScreen popup, select **More info**, then select **Run anyway**. You can also save the package to install on other client computers.
 
-### Part 2: Install the client certificate
+### Install a client certificate
 
-If you want to create a P2S connection from a different client computer than the one you used to generate the client certificates, install a client certificate. When you install a client certificate, you need the password that was created when the client certificate was exported. Usually, you only need to double-click the certificate to install it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
+To create a P2S connection from a different client computer than the one used to generate the client certificates, install a client certificate. When you install a client certificate, you need the password that was created when the client certificate was exported. Typically, you'll only need to double-click the certificate to install it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
 
 ## Connect to Azure
 
@@ -208,11 +208,11 @@ If you want to create a P2S connection from a different client computer than the
 >
 >
 
-1. To connect to your VNet, on the client computer, navigate to **VPN connections** and locate the VPN connection that you created. It has the same name as your virtual network. Select **Connect**. A pop-up message may appear that refers to using the certificate. If this message appears, select **Continue** to use elevated privileges.
-2. On the **Connection** status page, select **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the displayed client certificate is the one that you want to use to connect. If it's not, select the correct certificate from the drop-down list, and then select **OK**.
+1. To connect to your VNet, on the client computer, navigate to **VPN connections** in the Azure portal and locate the VPN connection that you created. The VPM connection has the same name as your virtual network. Select **Connect**. If a pop-up message about the certificate appears, select **Continue** to use elevated privileges.
+2. On the **Connection** status page, select **Connect** to start the connection. If you see the **Select Certificate** screen, verify that the displayed client certificate is the correct one. If not, select the correct certificate from the drop-down list, and then select **OK**.
 
   ![VPN client connection](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientconnect.png)
-3. Your connection is established.
+3. If your connection succeeds, you'll see a **Connected** notification.
 
   ![Established connection](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
@@ -222,7 +222,7 @@ If you want to create a P2S connection from a different client computer than the
 
 ### Verify the VPN connection
 
-1. To verify that your VPN connection is active, from your client computer, open an elevated command prompt, and run **ipconfig/all**.
+1. Verify that your VPN connection is active. Open an elevated command prompt on your client computer, and run **ipconfig/all**.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site connectivity address range that you specified when you created your VNet. The results should be similar to this example:
 
   ```
@@ -244,7 +244,7 @@ If you want to create a P2S connection from a different client computer than the
 
 ## Add or remove trusted root certificates
 
-You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate, and thus won't be able to connect. If you want a client to authenticate and connect, install a new client certificate generated from a root certificate that's trusted (uploaded) to Azure.
+You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate and unable to connect. If you want a client to authenticate and connect, install a new client certificate generated from a root certificate that's trusted (uploaded) to Azure.
 
 ### To add a trusted root certificate
 
