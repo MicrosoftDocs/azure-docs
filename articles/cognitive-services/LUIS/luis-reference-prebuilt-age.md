@@ -13,7 +13,7 @@ ms.date: 11/27/2018
 ms.author: diberry
 ---
 
-# Age entity
+# Age prebuilt entity for a LUIS app
 The prebuilt age entity captures the age value both numerically and in terms of days, weeks, months, and years. Because this entity is already trained, you do not need to add example utterances containing age to the application intents. Age entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
 
 ## Types of age

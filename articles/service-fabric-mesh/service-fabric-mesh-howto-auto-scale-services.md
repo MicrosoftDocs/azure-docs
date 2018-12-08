@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to scale for demand by autoscaling services in a Service Fabric Mesh application.
@@ -26,9 +26,9 @@ One of the main advantages of deploying applications to Service Fabric Mesh is t
 ## Options for creating an auto scaling policy, trigger, and mechanism
 An auto scaling policy is defined for each service you want to scale. The policy is defined in either the YAML service resource file or the JSON deployment template. Each scaling policy consists of two parts: a trigger and a scaling mechanism.
 
-The trigger defines when an autoscaling policy is invoked.  Specify the kind of trigger (average load) and the metric to monitor (CPU or memory).  Upper and lower load thresholds specified as a percentage. The scale interval defines how often to check (in seconds) the specified utilization (such as average CPU load) across all the currently deployed service instances.  The mechanism is triggered when the monitored metric drops below the lower threshold or increases above the upper threshold.  For more information, see [AutoScalingTrigger](/rest/api/servicefabric/sfmeshrp-model-autoscalingtrigger).
+The trigger defines when an autoscaling policy is invoked.  Specify the kind of trigger (average load) and the metric to monitor (CPU or memory).  Upper and lower load thresholds specified as a percentage. The scale interval defines how often to check (in seconds) the specified utilization (such as average CPU load) across all the currently deployed service instances.  The mechanism is triggered when the monitored metric drops below the lower threshold or increases above the upper threshold.  
 
-The scaling mechanism defines how to perform the scaling operation when the policy is triggered.  Specify the kind of mechanism (add/remove replica), the minimum and maximum replica counts (as integers).  The number of service replicas will never be scaled below the minimum count or above the maximum count.  Also specify the scale increment as an integer, which is the number of replicas that will be added or removed in a scaling operation.  For more information, see [AutoScalingMechanism](/rest/api/servicefabric/sfmeshrp-model-autoscalingmechanism).
+The scaling mechanism defines how to perform the scaling operation when the policy is triggered.  Specify the kind of mechanism (add/remove replica), the minimum and maximum replica counts (as integers).  The number of service replicas will never be scaled below the minimum count or above the maximum count.  Also specify the scale increment as an integer, which is the number of replicas that will be added or removed in a scaling operation.  
 
 ## Define an auto scaling policy in a JSON template
 
