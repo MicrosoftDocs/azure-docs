@@ -25,7 +25,14 @@ To mount a volume in a service, create a volume resource in your Service Fabric 
 
 ## Prerequisites
 > [!NOTE]
-> **Known Issue with Onebox deployment on Windows RS5:** There is open [bug](https://microsoft.visualstudio.com/OS/_workitems/edit/19554344) with New-SmbGlobalMapping that affects mounting of Azurefile Volumes in this environment. The workaround for the issue is to 1)Run below command as Powershell adminstrator and 2)Perform a reboot of onebox environment.
+> **Known Issue with deployment on Windows RS5 development machine:** There is open bug with Powershell cmdlet New-SmbGlobalMapping on RS5 Windows machines that prevents mounting of Azurefile Volumes. Below is sample error that is encountered when  AzureFile based volume is being mounted on local development machine.
+```
+Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
+There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
+Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
+```
+The workaround for the issue is to 
+1)Run below command as Powershell adminstrator and 2)Reboot the machine.
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
