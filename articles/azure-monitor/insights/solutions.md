@@ -24,18 +24,18 @@ Management solutions typically collect log data and provide queries and views to
 
 You can add management solutions to Azure Monitor for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
 
-## Using management solutions
-The **Overview** page for each Log Analytics workspace displays a tile for each solution installed in the workspace. Open the **Overview** page with the following procedure.
+## Use management solutions
+Open the **Overview** page for your Log Analytics workspace display a tile for each solution installed in the workspace. 
 
 1. Log in to the Azure portal.
 1. Open **All services** and locate **Monitor**.
-1. Under **Insights**, select **More**.
-1. Use the dropdown boxes at the top of the screen to change the resource group or the time range used for the tiles.
+1. Under the **Insights** menu, select **More**.
+1. Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles.
 1. Click on the tile for a solution to open its view which includes more detailed analysis its collected data.
 
 ![Overview](media/solutions/overview.png)
 
-Management solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in **Query explorer**. You can use those queries when performing ad hoc analysis with Log Analytics.
+Management solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/get-started-portal.md#load-queries) You can use those queries when performing ad hoc analysis with Log Analytics.
 
 ## List installed management solutions 
 Use the following procedure to list the management solutions installed in your subscription.
@@ -55,13 +55,13 @@ Click on the name of a solution to open its summary page. This page displays any
 
 
 ## Install a management solution
-Management solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure.
+Management solutions from Microsoft and partners are available from the [Azure Marketplace](https://azuremarketplace.microsoft.com). You can search available solutions and install them using the following procedure. When you install a solution, you must select a [Log Analytics workspace](../platform/manage-access.md) where the solution will be installed and where its data will be collected.
 
 1. From the [list of solutions for your subscription](#list-installed-monitoring-solutions), click **Add**. 
 1. To the right of **Management Solutions**, click **More**. 
 1. Locate the management solution you want and read through its description.
 1. Click **Create** to start the installation process.
-1. When the installation process starts, you're prompted to provide required configuration which varies for each solution. All of them require you to select a Log Analytics workspace where the solution will be installed and where its data will be collected. 
+1. When the installation process starts, you're prompted to provide required configuration which varies for each solution.
 
 ![Install a solution](media/solutions/install-solution.png)
 
@@ -78,7 +78,7 @@ Members of the community can submit management solutions to Azure Quickstart Tem
 
 
 ## Log Analytics workspace and Automation account
-All management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
+All management solutions require a [Log Analytics workspace](../platform/manage-access.md) to store data collected by the solution and to host its log searches and views. Some solutions also require an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources. The workspace and account must meet the following requirements.
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
