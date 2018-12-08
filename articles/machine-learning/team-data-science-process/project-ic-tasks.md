@@ -1,5 +1,5 @@
 ---
-title: Tasks for an individual contributor in the Team Data Science Process - Azure
+title: Tasks for an individual contributor in the Team Data Science Process
 description: An outline of the tasks for an individual contributor on a data science team project.
 author: marktab
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 
