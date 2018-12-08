@@ -11,13 +11,17 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # Azure CLI examples for Azure Media Services
 
 The following table includes links to the Azure CLI examples for Azure Media Services.
+
+## Examples
 
 |  |  |
 |---|---|
