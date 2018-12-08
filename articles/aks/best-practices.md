@@ -37,7 +37,7 @@ As a cluster operator, work together with application owners and developers to u
     * Includes securing access to the API server, limiting container access, and managing upgrades and node reboots.
 * [Best practices for container image management and security](operator-best-practices-container-image-management.md)
     * Includes securing the image and runtimes, using trusted registries, and automated builds on base image updates..
-* [Best practices for pod security](developer-best-practices-advanced-pod-security.md)
+* [Best practices for pod security](developer-best-practices-pod-security.md)
     * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
 
 **Network and storage**
@@ -58,7 +58,7 @@ As a developer or application owner, you can simplify your development experienc
 
 * [Best practices for application developers to manage resources](developer-best-practices-resource-management.md)
     * Includes defining pod resource requests and limits, configuring development tools to work with AKS, and checking for application issues.
-* [Best practices for pod security](developer-best-practices-advanced-pod-security.md)
+* [Best practices for pod security](developer-best-practices-pod-security.md)
     * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
 
 ## Kubernetes / AKS concepts
