@@ -13,7 +13,7 @@ ms.date: 11/27/2018
 ms.author: diberry
 ---
 
-# URL entity
+# URL prebuilt entity for a LUIS app
 URL entity extracts URLs with domain names or IP addresses. Because this entity is already trained, you do not need to add example utterances containing URLs to the application. URL entity is supported in `en-us` culture only. 
 
 ## Types of URLs

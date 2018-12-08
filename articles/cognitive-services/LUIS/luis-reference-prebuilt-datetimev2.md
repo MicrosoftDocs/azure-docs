@@ -13,7 +13,7 @@ ms.date: 11/26/2018
 ms.author: diberry
 ---
 
-# DatetimeV2 entity
+# DatetimeV2 prebuilt entity for a LUIS app
 
 The **datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents. 
 
