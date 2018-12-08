@@ -27,7 +27,7 @@ An app has a single author, the owner, but can have many collaborators. To allow
 
 2. Select **Add Collaborator** from the toolbar.
 
-    [![](./media/luis-how-to-collaborate/add-collaborator.png "Add collaborator")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+    [![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png "Add collaborator")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 3. Enter the email address the collaborator uses to sign in to the LUIS portal.
 
