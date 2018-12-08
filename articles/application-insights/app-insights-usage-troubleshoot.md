@@ -50,5 +50,5 @@ If your app is sending too many custom event names, change the name in the code 
 * [User behavior analytics tools overview](app-insights-usage-overview.md)
 
 ## Get help
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

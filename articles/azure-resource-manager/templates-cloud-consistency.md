@@ -430,7 +430,7 @@ Resources can have references to other services on the platform. For example, a 
 The following two examples are common endpoint namespaces that need to be explicitly specified when creating a resource:
 
 * Storage accounts (blob, queue, table and file)
-* Connection strings for databases and Redis Cache
+* Connection strings for databases and Azure Cache for Redis
 
 Endpoint namespaces can also be used in the output of a template as information for the user when the deployment completes. The following are common examples:
 

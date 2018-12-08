@@ -62,7 +62,7 @@ When creating a Log Analytics workspace from the Azure portal and you choose the
 When the daily limit is reached, the collection of billable data types stops for the rest of the day. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
 ### Identify what daily data limit to define 
-Review [Log Analytics Usage and estimated costs](../../log-analytics/log-analytics-usage.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
+Review [Log Analytics Usage and estimated costs](../../azure-monitor/platform/data-usage.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
 
 ### Manage the maximum daily data volume 
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics will ingest per day.  
@@ -120,4 +120,4 @@ Log Analytics uses UTC time. The reset time varies between workspaces to prevent
 
 ## Next steps  
 
-To determine how much data is collected, which sources are sending it, and the different types of data sent to help manage consumption and cost, see [Analyze data usage in Log Analytics](../../log-analytics/log-analytics-usage.md).
+To determine how much data is collected, which sources are sending it, and the different types of data sent to help manage consumption and cost, see [Analyze data usage in Log Analytics](../../azure-monitor/platform/data-usage.md).

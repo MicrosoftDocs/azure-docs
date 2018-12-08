@@ -103,7 +103,7 @@ Services for storing and managing data:
 
 - Microsoft Azure StorSimple
 
-- Azure Redis Cache
+- Azure Cache for Redis
 
 ### Application services
 

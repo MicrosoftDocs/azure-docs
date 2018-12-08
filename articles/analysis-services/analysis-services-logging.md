@@ -1,4 +1,4 @@
-﻿---
+---
 title: Diganostic logging for Azure Analysis Services | Microsoft Docs
 description: Learn about setting up diagnostic logging for Azure Analysis Services.
 author: minewiskan
@@ -77,7 +77,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Log Analytics**. To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-logs-in-log-analytics) in this article.
+    * **Send to Log Analytics**. To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-logs-in-log-analytics) in this article.
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
     * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.

@@ -1,16 +1,18 @@
 ---
-title: Enable Azure Disk Encryption for Windows IaaS VMs | Microsoft Docs
+title: Enable Azure Disk Encryption for Windows IaaS VMs 
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/12/2018
+ms.date: 12/07/2018
+
+ms.custom: seodec18
 
 ---
 
-# Enable Azure Disk Encryption for Windows IaaS VMs 
+# Enable Azure Disk Encryption for Windows IaaS VMs
 
 You can enable many disk-encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Windows IaaS VMs. Before you can use disk encryption, the [Azure Disk Encryption prerequisites](../security/azure-security-disk-encryption-prerequisites.md) need to be completed. 
 
@@ -196,13 +198,13 @@ Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/
 
 ### Register for disk encryption preview using Azure CLI
 
-The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [az feature register](/cli/azure/feature#az_feature_register). You only need to perform the following steps the first time that you use the disk encryption preview feature:
+The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [az feature register](/cli/azure/feature#az-feature-register). You only need to perform the following steps the first time that you use the disk encryption preview feature:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az_feature_show). When the `State` reports *Registered*, re-register the *Microsoft.Compute* provider with [az provider register](/cli/azure/provider#az_provider_register):
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az-feature-show). When the `State` reports *Registered*, re-register the *Microsoft.Compute* provider with [az provider register](/cli/azure/provider#az-provider-register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

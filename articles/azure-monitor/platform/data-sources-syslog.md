@@ -41,7 +41,7 @@ You can add a new facility by typing in its name and clicking **+**.  For each f
 By default, all configuration changes are automatically pushed to all agents.  If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 
 ### Configure Syslog on Linux agent
-When the [Log Analytics agent is installed on a Linux client](../../log-analytics/log-analytics-quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
+When the [Log Analytics agent is installed on a Linux client](../../azure-monitor/learn/quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
@@ -134,7 +134,7 @@ You can remove a facility by removing its section of the configuration file.  Yo
 
 
 ### Collecting data from additional Syslog ports
-The OMS agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location:
+The Log Analytics agent listens for Syslog messages on the local client on port 25224.  When the agent is installed, a default syslog configuration is applied and found in the following location:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -205,4 +205,4 @@ The following table provides different examples of log queries that retrieve Sys
 ## Next steps
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
 * Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
-* [Configure Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) to collect other types of data.
+* [Configure Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) to collect other types of data.

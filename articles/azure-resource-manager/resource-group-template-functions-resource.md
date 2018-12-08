@@ -286,9 +286,9 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
-The reference function can retrieve the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
+The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
 
-The reference function derives its value from a runtime state, and therefore can't be used in the variables section. It can be used in outputs section of a template or [linked template](resource-group-linked-templates.md#link-or-nest-a-template). It can't be used in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template. 
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment.
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
 

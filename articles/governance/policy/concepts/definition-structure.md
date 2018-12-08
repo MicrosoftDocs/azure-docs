@@ -4,19 +4,19 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ---
 # Azure Policy definition structure
 
-Resource policy definition used by Azure Policy enables you to establish conventions for resources
-in your organization by describing when the policy is enforced and what effect to take. By defining
-conventions, you can control costs and more easily manage your resources. For example, you can
-specify that only certain types of virtual machines are allowed. Or, you can require that all
-resources have a particular tag. Policies are inherited by all child resources. So, if a policy is
-applied to a resource group, it is applicable to all the resources in that resource group.
+Resource policy definitions are used by Azure Policy to establish conventions for resources. Each
+definition describes resource compliance and what effect to take when a resource is non-compliant.
+By defining conventions, you can control costs and more easily manage your resources. For example,
+you can specify that only certain types of virtual machines are allowed. Or, you can require that
+all resources have a particular tag. Policies are inherited by all child resources. If a policy is
+applied to a resource group, it's applicable to all the resources in that resource group.
 
 The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -75,16 +75,16 @@ are:
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
-parameter manually. If the policy definition does not contain a **mode** value it defaults to `all`
-in Azure PowerShell and to `null` in Azure CLI, which is equivalent to `indexed`, for backwards
-compatibility.
+parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
+in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
+backwards compatibility.
 
-`indexed` should be used when creating policies that will enforce tags or locations. This isn't
-required but it will prevent resources that don't support tags and locations from showing up as
-non-compliant in the compliance results. The one exception to this is **resource groups**. Policies
-that are attempting to enforce location or tags on a resource group should set **mode** to `all`
-and specifically target the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example,
-see [Enforce resource group tags](../samples/enforce-tag-rg.md).
+`indexed` should be used when creating policies that enforce tags or locations. While note
+required, it prevents resources that don't support tags and locations from showing up as
+non-compliant in the compliance results. The exception is **resource groups**. Policies that
+enforce location or tags on a resource group should set **mode** to `all` and specifically target
+the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource
+group tags](../samples/enforce-tag-rg.md).
 
 ## Parameters
 
@@ -99,9 +99,8 @@ definition, you can reuse that policy for different scenarios by using different
 > initial creation of the policy or initiative. The parameters definition can't be changed later.
 > This prevents existing assignments of the policy or initiative from indirectly being made invalid.
 
-For example, you could define a policy for a resource property to limit the locations where
-resources can be deployed. In this case, you would declare the following parameters when you create
-your policy:
+As an example, you could define a policy to limit the locations where resources can be deployed.
+You'd declare the following parameters when you create your policy:
 
 ```json
 "parameters": {
@@ -141,20 +140,20 @@ function syntax:
 
 ## Definition location
 
-While creating an initiative or policy, it is necessary to specify the definition location. The
-definition location must be a management group or a subscription and determines the scope to which
-the initiative or policy can be assigned. Resources must be direct members of or children within
-the hierarchy of the definition location to target for assignment.
+While creating an initiative or policy, it's necessary to specify the definition location. The
+definition location must be a management group or a subscription. This location determines the
+scope to which the initiative or policy can be assigned. Resources must be direct members of or
+children within the hierarchy of the definition location to target for assignment.
 
 If the definition location is a:
 
 - **Subscription** - Only resources within that subscription can be assigned the policy.
-- **Management group** - Only resources within child management groups and child subscriptions can be assigned the policy. If you plan to apply the policy definition to multiple subscriptions, the location must be a management group that contains those subscriptions.
+- **Management group** - Only resources within child management groups and child subscriptions can be assigned the policy. If you plan to apply the policy definition to several subscriptions, the location must be a management group that contains those subscriptions.
 
 ## Display name and description
 
-You can use **displayName** and **description** to identify the policy definition and provide
-context for when it is used.
+You use **displayName** and **description** to identify the policy definition and provide context
+for when it's used.
 
 ## Policy rule
 
@@ -224,17 +223,17 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-When using the **like** and **notLike** conditions, you can provide a wildcard `*` in the value.
-The value should not contain more than one wildcard `*`.
+When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
+The value shouldn't have more than one wildcard `*`.
 
-When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a
-letter, `.` to match all characters, and any other character to represent that actual character. For examples, see [Allow
-multiple name patterns](../samples/allow-multiple-name-patterns.md).
+When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
+letter, `.` to match all characters, and any other character to match that actual character. For
+examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
-Conditions are formed by using fields. A field represents properties in the resource request
-payload that is used to describe the state of the resource.
+Conditions are formed by using fields. A field matches properties in the resource request
+payload and describes the state of the resource.
 
 The following fields are supported:
 
@@ -249,7 +248,7 @@ The following fields are supported:
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
   - Example: `tags.CostCenter` where **CostCenter** is the name of the tag.
 - `tags[<tagName>]`
-  - This bracket syntax supports tag names that contain periods.
+  - This bracket syntax supports tag names that have a period.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
   - Example: `tags[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
@@ -259,11 +258,11 @@ The following fields are supported:
 Policy supports the following types of effect:
 
 - **Deny**: generates an event in the activity log and fails the request
-- **Audit**: generates a warning event in activity log but does not fail the request
+- **Audit**: generates a warning event in activity log but doesn't fail the request
 - **Append**: adds the defined set of fields to the request
-- **AuditIfNotExists**: enables auditing if a resource does not exist
-- **DeployIfNotExists**: deploys a resource if it does not already exist
-- **Disabled**: does not evaluate resources for compliance to the policy rule
+- **AuditIfNotExists**: enables auditing if a resource doesn't exist
+- **DeployIfNotExists**: deploys a resource if it doesn't already exist
+- **Disabled**: doesn't evaluate resources for compliance to the policy rule
 
 For **append**, you must provide the following details:
 
@@ -277,11 +276,10 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object.
 
-With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related
-resource and apply a rule and a corresponding effect when that resource does not exist. For
-example, you can require that a network watcher is deployed for all virtual networks. For an
-example of auditing when a virtual machine extension is not deployed, see [Audit if extension does
-not exist](../samples/audit-ext-not-exist.md).
+**AuditIfNotExists** and **DeployIfNotExists** evaluate the existence of a related resource and
+apply a rule. If the resource doesn't match the rule, the effect is implemented. For example, you
+can require that a network watcher is deployed for all virtual networks. For more information, see
+the [Audit if extension doesn't exist](../samples/audit-ext-not-exist.md) example.
 
 The **DeployIfNotExists** effect requires the **roleDefinitionId** property in the **details**
 portion of the policy rule. For more information, see [Remediation - Configure policy
@@ -302,7 +300,7 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
-A subset of [Resource Manager template
+Several [Resource Manager template
 functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to use
 within a policy rule. The functions currently supported are:
 
@@ -311,9 +309,10 @@ within a policy rule. The functions currently supported are:
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-Additionally, the `field` function is available to policy rules. This function is primarily for use
-with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that is
-being evaluated. An example of this can be seen on the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+Additionally, the `field` function is available to policy rules. `field` is primarily used with
+**AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
+evaluated. An example of this use can be seen in the [DeployIfNotExists
+example](effects.md#deployifnotexists-example).
 
 #### Policy function examples
 
@@ -358,11 +357,11 @@ on the new resource.
 ## Aliases
 
 You use property aliases to access specific properties for a resource type. Aliases enable you to
-restrict what values or conditions are permitted for a property on a resource. Each alias maps to
+restrict what values or conditions are allowed for a property on a resource. Each alias maps to
 paths in different API versions for a given resource type. During policy evaluation, the policy
 engine gets the property path for that API version.
 
-The list of aliases is always growing. To discover what aliases are currently supported by Azure
+The list of aliases is always growing. To find what aliases are currently supported by Azure
 Policy, use one of the following methods:
 
 - Azure PowerShell
@@ -406,8 +405,8 @@ another that has **[\*]** attached to it. For example:
 The first example is used to evaluate the entire array, where the **[\*]** alias evaluates each
 element of the array.
 
-Let's look at a policy rule as an example. This policy will **Deny** a storage account which has
-ipRules configured and if **none** of the ipRules have a value of "127.0.0.1".
+Let's look at a policy rule as an example. This policy will **Deny** a storage account that has
+ipRules configured and if **none** of the ipRules has a value of "127.0.0.1".
 
 ```json
 "policyRule": {
@@ -468,14 +467,14 @@ Here's how this example is processed:
     - "127.0.0.1" != "192.168.1.1" evaluates as true.
     - At least one _value_ property in the **ipRules** array evaluated as false, so the evaluation will stop.
 
-As a condition evaluated to false, the **Deny** effect is not triggered.
+As a condition evaluated to false, the **Deny** effect isn't triggered.
 
 ## Initiatives
 
 Initiatives enable you to group several related policy definitions to simplify assignments and
-management because you work with a group as a single item. For example, you can group all related
-tagging policy definitions in a single initiative. Rather than assigning each policy individually,
-you apply the initiative.
+management because you work with a group as a single item. For example, you can group related
+tagging policy definitions into a single initiative. Rather than assigning each policy
+individually, you apply the initiative.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
 and `productName`. It uses two built-in policies to apply the default tag value.
@@ -558,5 +557,5 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 - Review [Understanding policy effects](effects.md)
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md)
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md)
-- Discover how to [remediate non-compliant resources](../how-to/remediate-resources.md)
+- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md)
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)
