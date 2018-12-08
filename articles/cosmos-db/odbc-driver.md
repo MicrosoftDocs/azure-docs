@@ -22,11 +22,11 @@ The Azure Cosmos DB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 s
 > Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB SQL API accounts only.
 
 ## Why do I need to normalize my data?
-Azure Cosmos DB is a schemaless database, so it enables rapid development of apps by enabling applications to iterate their data model on the fly and not confine them to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
+Azure Cosmos DB is a schemaless database, which enables rapid application development and the ability to iterate on data models without being confined to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
 
-This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalize data in Azure Cosmos DB into tables and views fitting to your data analytic and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them, they enable you to leverage ODBC-compliant tools to access the data. So now your Azure Cosmos DB database will not only be a favorite for your development team, but your data analysts will love it too.
+This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalize data in Azure Cosmos DB into tables and views that fit your data analytics and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them. Rather, they enable you to leverage ODBC-compliant tools to access the data. So, now your Azure Cosmos DB database will not only be a favorite for your development team, but your data analysts will love it too.
 
-Now lets get started with the ODBC driver.
+Let's get started with the ODBC driver.
 
 ## <a id="install"></a>Step 1: Install the Azure Cosmos DB ODBC driver
 
@@ -42,7 +42,7 @@ q
 
 1. Complete the installation wizard using the default input to install the ODBC driver.
 
-1. Open the **ODBC Data source Administrator** app on your computer, you can do this by typing **ODBC Data sources** in the Windows search box. 
+1. Open the **ODBC Data source Administrator** app on your computer. You can do this by typing **ODBC Data sources** in the Windows search box. 
     You can confirm the driver was installed by clicking the **Drivers** tab and ensuring **Microsoft Azure Cosmos DB ODBC Driver** is listed.
 
     ![Azure Cosmos DB ODBC Data Source Administrator](./media/odbc-driver/odbc-driver.png)
@@ -53,7 +53,7 @@ q
 
 1. In the **Create New Data Source** window, select **Microsoft Azure Cosmos DB ODBC Driver**, and then click **Finish**.
 
-1. In the **Azure Cosmos DB ODBC Driver SDN Setup** window, fill in the following: 
+1. In the **Azure Cosmos DB ODBC Driver SDN Setup** window, fill in the following information: 
 
     ![Azure Cosmos DB ODBC Driver DSN Setup window](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Data Source Name**: Your own friendly name for the ODBC DSN. This name is unique to your Azure Cosmos DB account, so name it appropriately if you have multiple accounts.
@@ -113,7 +113,7 @@ The following steps create a schema for the data in one or more collections usin
 
     a. In the **Attributes** box, type the name of a delimiter property. This is a property in your document that you want to scope the sampling to, for instance, City and press enter. 
 
-    b. If you only want to scope the sampling to certain values for the attribute you just entered, select the attribute in the selection box, then enter a value in the **Value** box, for example, Seattle and press enter. You can continue to add multiple values for attributes. Just ensure that the correct attribute is selected when you're entering values.
+    b. If you only want to scope the sampling to certain values for the attribute you entered above, select the attribute in the selection box, enter a value in the **Value** box (e.g. Seattle), and press enter. You can continue to add multiple values for attributes. Just ensure that the correct attribute is selected when you're entering values.
 
     For example, if you include an **Attributes** value of City, and you want to limit your table to only include rows with a city value of New York and Dubai, you would enter City in the Attributes box, and New York and then Dubai in the **Values** box.
 
@@ -181,13 +181,20 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ``` 
 
 ## (Optional) Creating views
-You can define and create views as part of the sampling process. These views are equivalent to SQL views. They are read-only and are scope the selections and projections of the Azure Cosmos DB SQL defined. 
+You can define and create views as part of the sampling process. These views are equivalent to SQL views. They are read-only and are scope the selections and projections of the Azure Cosmos DB SQL query defined. 
 
-To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the collection to sample. Then in the **View Definitions** window, do the following:
+To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the collection to sample. 
+    ![Create a view of data](./media/odbc-driver/odbc-driver-create-view.png)
+
+
+Then in the **View Definitions** window, do the following:
 
 1. Click **New**, enter a name for the view, for example, EmployeesfromSeattleView and then click **OK**.
 
-1. In the **Edit view** window, enter an Azure Cosmos DB query. This must be an Azure Cosmos DB SQL query, for example`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`, and then click **OK**.
+1. In the **Edit view** window, enter an Azure Cosmos DB query. This must be an [Azure Cosmos DB SQL query](how-to-sql-query.md), for example `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, and then click **OK**.
+
+    ![Add query when creating a view](./media/odbc-driver/odbc-driver-create-view-2.png)
+
 
 You can create a many views as you like. Once you are done defining the views, you can then sample the data. 
 
@@ -199,7 +206,7 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. Click **Get Data**.
 
-    ![Get Data in PowerBI Desktop](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
+    ![Get Data in Power BI Desktop](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
 
 1. In the **Get Data** window, click **Other** | **ODBC** | **Connect**.
 
