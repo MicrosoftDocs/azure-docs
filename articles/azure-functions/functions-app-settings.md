@@ -170,7 +170,7 @@ Valid values are either a URL that resolves to the location of a deployment pack
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-Controlls whether calls 
+Controls whether calls 
 
 |Key|Value|Description|
 |-|-|-|
@@ -180,12 +180,12 @@ Controlls whether calls
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
-This setting controlls whether %2F is decoded as slashes in route paramaters when they are insterted into the backend URL. 
+This setting controls whether %2F is decoded as slashes in route parameters when they are inserted into the backend URL. 
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Route paramates with encoded slashes will have them decoded. `example.com/api%2ftest` will become `example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|This is the default behavior. All route paramaters will be passed along unchanged|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Route parameters with encoded slashes will have them decoded. `example.com/api%2ftest` will become `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|This is the default behavior. All route parameters will be passed along unchanged|
 
 ### Example
 
