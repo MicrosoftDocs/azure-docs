@@ -145,7 +145,7 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 > [!NOTE] 
 > The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
 
-### <a name="disableProxies"></a>Disable individual proxies
+### <a name="disableProxies"></a> Disable individual proxies
 
 You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondidtion to return 404.
 ```json
@@ -162,6 +162,22 @@ You can disable individual proxies by adding `"disabled": true` to the proxy in 
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Application Settings
+
+The proxy behavior can be controlled by several app settings. They are all outlined in the [Functions App Settings reference](./functions-app-settings.md)
+
+* AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+* AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+### <a name="reservedChars"></a> Reserved Characters (string formatting)
+
+Proxies read all strings without interpretation, with the exception of curly braces and slashes
+
+|Character|Escaped Character|Example|
+|-|-|-|
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 
@@ -226,22 +242,6 @@ An example configuration might look like the following:
 ```
 > [!NOTE] 
 > In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
-
-## Application Settings
-
-The proxy behavior can be controlled by several app settings. They are all outlined the the [Functions App settings page](./functions-app-settings.md)
-
-* AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
-* AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
-
-## Reserved Characters (string formatting)
-
-Proxies read all strings without interpretation, with the exception of curley braces and slashes
-
-|Character|Escaped Character|Example|
-|-|-|-|
-|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
 
 [Azure portal]: https://portal.azure.com
 [HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
