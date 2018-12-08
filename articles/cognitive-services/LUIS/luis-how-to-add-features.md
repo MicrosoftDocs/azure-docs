@@ -33,11 +33,11 @@ A phrase list adds to the vocabulary of the app domain as a second signal to LUI
 
 4. LUIS can propose related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values, or click **Add All** to add them all.
 
-    ![Phrase List Proposed Values](./media/luis-add-features/related-values.png)
+    ![Phrase List Proposed Values - add all](./media/luis-add-features/related-values.png)
 
 5. Click **These values are interchangeable** if the added phrase list values are alternatives that can be used interchangeably.
 
-    ![Phrase List Proposed Values](./media/luis-add-features/interchangeable.png)
+    ![Phrase List Proposed Values - select interchangeable box ](./media/luis-add-features/interchangeable.png)
 
 6. Click **Save**. The "Cities" phrase list is added to the **Phrase lists** page.
 
