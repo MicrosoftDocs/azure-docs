@@ -1,25 +1,24 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box
+title: Copy data to Azure Data Box Blob storage REST APIs| Microsoft Docs
+description: Learn how to copy data to your Azure Data Box Blob storage REST APIs
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/07/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data via Azure Data Box Blob storage REST APIs  
 
-This tutorial describes procedures to connect a Windows system to Data Box using Azure Blob storage REST APIs. The connection to the Data Box Blob storage REST APIs can be over *http* or *https*. Once connected, the steps required to copy the data to Data Box and prepare the Data Box to ship, are also described.
+This tutorial describes procedures to connect to Azure Data Box Blob storage REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect to Data Box Blob storage via http
-> * Connect to Data Box Blob storage via https
+> * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
 > * Prepare to ship
 
@@ -34,27 +33,26 @@ Before you begin, make sure that:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds will be impacted.
 5. [Download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
-6. You have access to a GPv1 storage account associated with your Data Box. You'll copy data to this account.
 
 
 ## Connect to Data Box Blob storage
 
-Based on the storage account selected, Data Box creates upto three shares for each associated GPv1 storage account. Depending on whether you are connecting to Data Box Blob storage over *http* or *https*, the steps can be different.
+You can connect to Data Box Blob storage over *http* or *https*. In general, *https* is the secure and recommended way to connect to Data Box Blob storage. *Http* is used  when connecting over trusted networks. Depending on whether you are connecting to Data Box Blob storage over *http* or *https*, the steps can be different.
 
-## Connect via http
+### Connect via http
 
-Connection to Data Box Blob storage REST APIs over *http* require the following steps:
+Connection to Data Box Blob storage REST APIs over *http* requires the following steps:
 
 - Add the device IP and blob service endpoint to the remote host
 - Configure third-party software and verify the connection
 
 Each of these steps is described in the following sections.
 
-### Add device IP address and blob service endpoint to the remote host
+#### Add device IP address and blob service endpoint to the remote host
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-### Configure partner software and verify connection
+#### Configure partner software and verify connection
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -83,7 +81,7 @@ Use the Azure portal to download certificate.
  
 ### Prepare the host for remote management
 
-Follow these steps to prepare the Windows client for a remote connection that uses an HTTPS session:
+Follow these steps to prepare the Windows client for a remote connection that uses an *https* session:
 
 - Import the .cer file into the root store of the client or remote host.
 - Add the device IP address and blob service endpoint to the hosts file on your Windows client.
@@ -102,8 +100,6 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
     ```
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
-
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ps-1.png)
 
 **Using Windows Server UI**
 
@@ -130,25 +126,24 @@ The steps to follow are identical to what you used while connecting over *http*.
 
 ## Copy data to Data Box
 
-Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
+Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, review the following considerations:
 
-- Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
+- Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure fails.
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
-You'll use AzCopy to copy data to Azure. The copy procedure has the following steps:
+In this tutorial, AzCopy is used to copy data to Data Box Blob storage. You can also use Azure Storage Explorer (if you prefer a GUI-based tool) or a partner software to copy the data.
+The copy procedure has the following steps:
 
 - Create a container
 - Upload contents of a folder to Data Box Blob storage
 - Upload modified files to Data Box Blob storage
 
-Each of these steps is described in detail in the following sections. For more up-to-date and complete information on how to migrate data using AzCopy, go to [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](/azure/storage/common/storage-use-azcopy-migrate-on-premises-data#upload-contents-of-a-folder-to-blob-storage).
+Each of these steps is described in detail in the following sections.
 
 ### Create a container
 
-The first step is to create a container, because blobs are always uploaded into a container. Containers organize groups of blobs like you organize files in folders on your computer.
-
-Follow these steps to create a blob container.
+The first step is to create a container, because blobs are always uploaded into a container. Containers organize groups of blobs like you organize files in folders on your computer. Follow these steps to create a blob container.
 
 1. Open Storage Explorer.
 2. In the left pane, expand the storage account within which you wish to create the blob container.
@@ -160,7 +155,6 @@ Follow these steps to create a blob container.
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
    ![Blob container created](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
-
 
 ### Upload contents of a folder to Data Box Blob storage
 
@@ -214,8 +208,7 @@ If you only want to copy source resources that do not exist in the destination, 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
-> * Connect to Data Box Blob storage via http
-> * Connect to Data Box Blob storage via https
+> * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
 > * Prepare to ship
 
