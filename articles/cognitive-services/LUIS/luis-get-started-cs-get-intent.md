@@ -43,11 +43,11 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
 
 1. Create a new console application in Visual Studio. 
 
-    ![LUIS user settings menu access](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Create a new console application in Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. In the Visual Studio project, in the Solutions Explorer, select **Add reference**, then select **System.Web** from the Assemblies tab.
 
-    ![LUIS user settings menu access](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![select Add reference, then select System.Web from the Assemblies tab](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Overwrite Program.cs with the following code:
     
