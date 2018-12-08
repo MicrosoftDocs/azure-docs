@@ -5,23 +5,23 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/08/2018
 ms.author: raynew
 ---
 
 
 # Best practices for securing and managing workloads migrated to Azure
 
-As you plan and design for migration, in addition to thinking about the migration itself, you need to plan for your security and management model in Azure after migration. This article describes planning and best practices for securing your Azure deployment after migrating, and for ongoing tasks to keep your deployment running at any optimal level. 
+As you plan and design for migration, in addition to thinking about the migration itself, you need to consider your security and management model in Azure after migration. This article describes planning and best practices for securing your Azure deployment after migrating, and for ongoing tasks to keep your deployment running at an optimal level. 
 
 > [!IMPORTANT]
-> The best practices and opinions described in this article are based on the Azure platform and service features vailable at the time of writing. Features and capabilities change over time.
+> The best practices and opinions described in this article are based on the Azure platform and service features available at the time of writing. Features and capabilities change over time.
 
 ## Secure migrated workloads
 
-After migration, the most critical task is to secure migrated workloads from internal and external threats. Best practices include:
+After migration, the most critical task is to secure migrated workloads from internal and external threats. These best practices help you to do that:
 
-- Work with Azure Security Center: Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
+- **Work with Azure Security Center**: Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
 - **Encrypt your data**: Get best practices for encrypting your data in Azure.
 - **Set up antimalware**: Protect your VMs from malware and malicious attacks.
 - **Secure web apps**: Keep sensitive information secure in migrated web apps.
