@@ -15,7 +15,7 @@ ms.custom: seodec18
  
 Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Azure Stream Analytics is designed for low latency, resiliency, efficient use of bandwidth, and compliance. Enterprises can now deploy control logic close to the industrial operations and complement Big Data analytics done in the cloud.  
 
-Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, you can deploy and manage ASA jobs using IoT Hub. This feature is in preview. If you have any questions or feedback, you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team. 
+Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, you can deploy and manage ASA jobs using IoT Hub.
 
 ## Scenarios
 ![High-level diagram of IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
@@ -202,8 +202,8 @@ There are two ways to update the reference data:
 * Update the IoT Edge deployment.
 
 ## License and third-party notices
-* [Azure Stream Analytics on IoT Edge preview license](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [Third-party notice for Azure Stream Analytics on IoT Edge preview](https://go.microsoft.com/fwlink/?linkid=862828).
+* [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 
+* [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Get help
 For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
@@ -213,7 +213,6 @@ For further assistance, try the [Azure Stream Analytics forum](https://social.ms
 
 * [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 * [Develop Stream Analytics Edge jobs using Visual Studio tools](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [Implement CI/CD for Stream Analytics using APIs](stream-analytics-cicd-api.md)
 
