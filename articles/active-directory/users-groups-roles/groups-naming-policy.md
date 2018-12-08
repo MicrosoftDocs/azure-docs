@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/07/2018
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -117,7 +117,7 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   
 ### Set the naming policy and custom blocked words
 
-1. Set the group name prefixes and suffixes in Azure AD PowerShell.
+1. Set the group name prefixes and suffixes in Azure AD PowerShell. GroupName is required. 
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
