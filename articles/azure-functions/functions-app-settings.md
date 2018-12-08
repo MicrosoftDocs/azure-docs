@@ -170,7 +170,7 @@ Valid values are either a URL that resolves to the location of a deployment pack
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-Controls whether calls 
+By default Functions proxies will utilize a shortcut to send API calls from proxies directly to functions in the same Function App, rather than creating a new HTTP request. This setting allows you to disable that behavior.
 
 |Key|Value|Description|
 |-|-|-|
