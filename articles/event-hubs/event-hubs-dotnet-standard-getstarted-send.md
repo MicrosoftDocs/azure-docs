@@ -1,6 +1,6 @@
 ---
 title: Send events using .NET Core - Azure Event Hubs | Microsoft Docs
-description: Get started sending events to Event Hubs in .NET Core
+description: This article provides a walkthrough for creating a .NET Core application that sends events to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---

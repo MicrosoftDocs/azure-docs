@@ -1,5 +1,5 @@
 ---
-title: Data acquisition and understanding of Team Data Science Process - Azure
+title: Data acquisition and understanding of Team Data Science Process
 description: The goals, tasks, and deliverables for the data acquisition and understanding stage of your data-science projects
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Data acquisition and understanding stage of the Team Data Science Process
 
