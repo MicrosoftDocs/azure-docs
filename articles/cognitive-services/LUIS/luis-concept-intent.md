@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: diberry
 ---
-# Concepts abut intents in your LUIS app
+# Concepts about intents in your LUIS app
 
 An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](luis-concept-utterance.md).
 
