@@ -96,7 +96,7 @@ az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEn
 Upload objects to the *$web* container from a source directory:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d "\$web" --account-name <ACCOUNT_NAME>
 ```
 
 ## Deployment
