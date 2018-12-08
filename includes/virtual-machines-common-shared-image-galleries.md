@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/20/2018
+ ms.date: 12/07/2018
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -44,9 +44,9 @@ Regional support for shared image galleries is in limited preview, but will expa
 | South Central US   |East US 2|
 | Southeast Asia     |West US|
 | West Europe        |West US 2|
-|                    |Central US|
-|                    |North Central US|
-|                    |Canada Central|
+| West US            |Central US|
+| East US            |North Central US|
+| Canada Central     |Canada Central|
 |                    |Canada East|
 |                    |North Europe|
 |                    |West Europe|
@@ -54,6 +54,7 @@ Regional support for shared image galleries is in limited preview, but will expa
 |                    |Southeast Asia|
 
 
+Australia Central and Australia Central 2 are not supported unless the subscription is whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
@@ -83,6 +84,25 @@ As the Shared Image Gallery, Shared Image and Shared Image version are all resou
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
 - Storage costs of storing the Shared Image versions. This depends on the number of replicas of the version and the number of regions the version is replicated to.
 - Network egress charges for replication from the source region of the version to the replicated regions.
+
+## SDK support
+
+The following SDKs support creating Shared Image Galleries:
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/en-us/go/azure/)
+
+## Templates
+
+You can create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+
+- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## Frequently asked questions 
 
