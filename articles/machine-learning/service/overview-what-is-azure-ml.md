@@ -35,7 +35,8 @@ Azure Machine Learning service also includes features that [automate model gener
 
 By using Azure Machine Learning service, you can start training on your local machine and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), such as Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
-When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md). Or you can use the container in your own deployments, either on-premises or in the cloud.
+When you have the right model, you can easily deploy it in a container such as Docker. So it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md). Or you can use the container in your own deployments, either on-premises or in the cloud.
+
 You can manage the deployed models and track multiple runs as you experiment to find the best solution.
 After it's deployed, your model can return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
@@ -74,7 +75,7 @@ Use Machine Learning service if you work in a Python environment, you want more 
 > Models created in Azure Machine Learning Studio can't be deployed or managed by Azure Machine Learning service.
 
 ## Free trial
-If you aren't a subscriber, you can [open an Azure account for free](https://aka.ms/amlfree). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which gives you credit every month that you can use for paid Azure services.
+If you aren't a subscriber, you can [open an Azure account for free](https://aka.ms/amlfree). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credit every month that you can use for paid Azure services.
 
 ## Next steps
 
@@ -88,7 +89,7 @@ If you aren't a subscriber, you can [open an Azure account for free](https://aka
 
 - Read the in-depth [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) article.
 
-- For more information on other machine learning products from Microsoft, see [other machine learning products from Microsoft](./overview-more-machine-learning.md).
+- For more information, see [other machine learning products from Microsoft](./overview-more-machine-learning.md).
 
 
 <!-- 

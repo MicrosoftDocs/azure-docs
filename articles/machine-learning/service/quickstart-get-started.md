@@ -13,14 +13,14 @@ ms.date: 12/04/2018
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
 
-In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. This quickstart uses cloud resources and requires no installation. To configure your own Jupyter notebook server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).
+In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. This quickstart uses cloud resources and requires no installation. To configure your own Jupyter Notebook server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-In this quickstart, you:
+In this quickstart, you take the following actions:
 
 * Create a workspace in your Azure subscription.
-* Try it out with Python in an Azure notebook, and log values across multiple iterations.
+* Try it out with Python in an Azure notebook and log values across multiple iterations.
 * View the logged values in your workspace.
 
 The following Azure resources are added automatically to your workspace when they're regionally available:
@@ -30,7 +30,7 @@ The following Azure resources are added automatically to your workspace when the
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning, such as compute cluster size. Learn more about [the default limits and how to increase your quota](how-to-manage-quotas.md).
+The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning, such as compute cluster size. Learn more about the [default limits and how to increase your quota](how-to-manage-quotas.md).
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
@@ -41,12 +41,12 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 On the workspace page, select `Explore your Azure Machine Learning service workspace`.
 
- ![Explore workspace](./media/quickstart-get-started/explore_aml.png)
+ ![Explore the workspace](./media/quickstart-get-started/explore_aml.png)
 
 
 ## Use the workspace
 
-Now see how a workspace helps you manage your machine learning scripts. In this section, you:
+Now see how a workspace helps you manage your machine learning scripts. In this section, you take the following steps:
 
 * Open a notebook in Azure Notebooks.
 * Run code that creates some logged values.
@@ -56,7 +56,7 @@ This example shows how the workspace can help you keep track of information gene
 
 ### Open a notebook 
 
-Azure Notebooks provides a free cloud platform for Jupyter notebooks that are preconfigured with everything you need to run Machine Learning.  
+Azure Notebooks provides a free cloud platform for Jupyter Notebooks that are preconfigured with everything you need to run Machine Learning.  
 
 Select `Open Azure Notebooks` to try your first experiment.
 
