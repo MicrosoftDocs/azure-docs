@@ -1,6 +1,6 @@
 ---
 title: Design of a multi-DRM content protection system with cccess control using Azure Media Services | Microsoft Docs
-description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
+description: Learn about licensing the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: willzhan
+ms.custom: seodec18
 
 ---
 # Design of a multi-DRM content protection system with access control 
