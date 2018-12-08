@@ -227,35 +227,6 @@ An example configuration might look like the following:
 > [!NOTE] 
 > In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
-### Application Settings
-The behavior of Function Proxies can be controlled with a few application settings, listed below.
-
-**AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL** (Values: "true","false")
-
-If a proxy is forwarding request to a local function on the function app, by default, there will be optimizations in place where the request will not go thru the entire outgoing/incoming http pipeline and the local function will be invoked internally instead.
-If this app setting is set to ‘true’ then this optimization will be disabled and forwarding to backend request will go thru the entire http pipeline as if it’s a remote endpoint. This may cause some perf degradations and should only be added if truly needed for the scenario.
-
-
-**AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES**
-
-This is about encoding slashes in backend url. By default, if backend url is constructed by using parameters and parameter contains slash “/”, than this will be encoded as “%2F”.
-For example, this config may produce backend url as http://example.com/path1%2Fpath2 if route was /path1/path2:
-
-```JSON
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "root": {
-            "matchCondition": {
-                "route": "/{*all}"
-            },
-            "backendUri": "http://example.com/{all}"
-        }
-    }
-}
-```
-
-
 [Azure portal]: https://portal.azure.com
 [HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
