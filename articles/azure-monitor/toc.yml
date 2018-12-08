@@ -122,7 +122,7 @@
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
     - name: Classic alerts 
-      href: azure-monitor/platform/alerts-classic.overview.md  
+      href: platform/alerts-classic.overview.md  
     - name: Smart groups
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json  
     - name: Autoscale
