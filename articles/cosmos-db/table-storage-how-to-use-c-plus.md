@@ -19,7 +19,7 @@ ms.author: sngun
 This guide will show you how to perform common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 
 ## Create an Azure service account
@@ -37,7 +37,7 @@ In this guide, you will use storage features that can be run within a C++ applic
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
 * **Linux:** Follow the instructions given on the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press Enter.  
+* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](/nuget/tools/package-manager-console) and press Enter.  
   
      Install-Package wastorage
 
@@ -473,5 +473,5 @@ Follow these links to learn more about Azure Storage and the Table API in Azure 
 * [Introduction to the Table API](table-introduction.md)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
-* [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
+* [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

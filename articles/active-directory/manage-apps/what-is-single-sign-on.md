@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
 
@@ -57,7 +57,6 @@ SAML-based single sign-on is supported for applications that use any of these pr
 
 - SAML 2.0
 - WS-Federation
-- OpenID connect
 
 To configure an application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-portal.md). Also, many applications have [application-specific tutorials](../saas-apps/tutorial-list.md) that step you through configuring SAML-based single sign-on for specific applications. 
 

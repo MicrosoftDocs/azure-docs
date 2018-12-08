@@ -80,7 +80,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
 
