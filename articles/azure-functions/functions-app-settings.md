@@ -168,6 +168,18 @@ Enables your function app to run from a mounted package file.
 
 Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
+## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Controlls whether calls 
+
+|Key|Value|Description|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a "backendurl" directing to the Function App hosting the proxy will no longer shortcut directly to the function, and will instead be directed back to the HTTP front-end for the Function App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a "backendurl" directing to the Function App hosting the proxy will be forwarded directly to that Function|
+
+
+## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
 ## Next steps
 
 [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)

@@ -227,6 +227,22 @@ An example configuration might look like the following:
 > [!NOTE] 
 > In this example, the response body is set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
 
+## Application Settings
+
+The proxy behavior can be controlled by several app settings. They are all outlined the the [Functions App settings page](./functions-app-settings.md)
+
+* AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+* AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+## Reserved Characters (string formatting)
+
+Proxies read all strings without interpretation, with the exception of curley braces and slashes
+
+|Character|Escaped Character|Example|
+|-|-|-|
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
+
 [Azure portal]: https://portal.azure.com
 [HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
