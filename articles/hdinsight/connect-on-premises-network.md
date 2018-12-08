@@ -1,23 +1,18 @@
 ---
-title: Connect HDInsight to your on-premises network - Azure HDInsight | Microsoft Docs 
+title: Connect HDInsight to your on-premises network - Azure HDInsight  
 description: Learn how to create an HDInsight cluster in an Azure Virtual Network, and then connect it to your on-premises network. Learn how to configure name resolution between HDInsight and your on-premises network by using a custom DNS server.
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/21/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 02/23/2018
+ms.author: hrasheed
 
 ---
 
-# Connect HDInsight to your on-premise network
+# Connect HDInsight to your on-premises network
 
 Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides planning information on:
 
@@ -30,9 +25,6 @@ Learn how to connect HDInsight to your on-premises network by using Azure Virtua
 * Ports provided by HDInsight on the virtual network.
 
 ## Create the Virtual network configuration
-
-> [!IMPORTANT]
-> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
 
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
     
@@ -70,7 +62,10 @@ In the following diagram, green lines are requests for resources that end in the
 To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
 > [!NOTE]
-> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) and [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) documents.
+> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the following documents:
+>
+> * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. From the [Azure portal](https://portal.azure.com), select __+__, __Compute__, and __Ubuntu Server 16.04 LTS__.
 
@@ -271,13 +266,13 @@ You can use network security groups (NSG) or user-defined routes (UDR) to contro
 
 > [!WARNING]
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
->
-> 1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Allow inbound traffic from the IP addresses.
->
->    * __NSG__: Allow __inbound__ traffic on port __443__ from the __Internet__.
->    * __UDR__: Set the __Next Hop__ type of the route to __Internet__.
+
+1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. For the IP addresses identified in step 1, allow inbound traffic from that IP addresses.
+
+   * If you are using __NSG__: Allow __inbound__ traffic on port __443__ for the IP addresses.
+   * If you are using __UDR__: Set the __Next Hop__ type of the route to __Internet__ for the IP addresses.
 
 For an example of using Azure PowerShell or the Azure CLI to create NSGs, see the [Extend HDInsight with Azure Virtual Networks](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) document.
 
@@ -296,6 +291,8 @@ Use the steps in the [Create an HDInsight cluster using the Azure portal](./hdin
 ## Connecting to HDInsight
 
 Most documentation on HDInsight assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses the public gateway, which is not available if you have used NSGs or UDRs to restrict access from the internet.
+
+Some documentation also references `headnodehost` when connecting to the cluster from an SSH session. This address is only available from nodes within a cluster, and is not usable on clients connected over the virtual network.
 
 To directly connect to HDInsight through the virtual network, use the following steps:
 
@@ -321,12 +318,12 @@ To directly connect to HDInsight through the virtual network, use the following 
 	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
 	```
 
-2. To determine the port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+2. To determine the port that a service is available on, see the [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
     > [!IMPORTANT]
     > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it fails, switch to the other head node.
     >
-    > For example, Ambari is only active on one head node at a time. If you try accessing Ambari on one head node and it returns a 404 error, then it is running on the other head node.
+    > For example, Apache Ambari is only active on one head node at a time. If you try accessing Ambari on one head node and it returns a 404 error, then it is running on the other head node.
 
 ## Next steps
 
@@ -334,6 +331,6 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
 
-* For more information on user-defined routes, see [USer-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+* For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

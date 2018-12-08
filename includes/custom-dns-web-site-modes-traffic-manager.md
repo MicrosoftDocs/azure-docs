@@ -1,4 +1,11 @@
-Setting a custom domain name on a web app in Azure App Service that is load balanced by Traffic Manager is only available for **Standard** mode websites. Before switching a web app from the Free App Service plan mode to the Shared, Basic or Standard mode, you must first remove spending caps in place for your App Service subscription. 
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+---
+Setting a custom domain name on a web app that is integrated with Traffic Manager is only available for the **Standard** pricing tier.  
 
-For more information on the App Service plan modes, including how to change the mode of your site, see [How to scale web sites](../articles/app-service-web/web-sites-scale.md).
+For more information on the App Service pricing tiers, including how to change your app's pricing tier, see [Scale up an app in Azure](../articles/app-service/web-sites-scale.md).
 

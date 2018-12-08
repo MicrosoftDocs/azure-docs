@@ -1,29 +1,29 @@
-﻿---
-title: Usage analysis for web applications with Azure Application Insights | Microsoft docs
-description: Understand your users and what they do with your web app.
+---
+title: Usage analysis with Azure Application Insights | Microsoft docs
+description: Understand your users and what they do with your app.
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: NumberByColors
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
-ms.topic: article
-ms.date: 05/03/2017
-ms.author: bwren
+ms.topic: conceptual
+ms.date: 10/10/2017
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
 ---
 
-# Usage analysis for web applications with Application Insights
+# Usage analysis with Application Insights
 
-Which features of your web app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your web app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?  [Azure Application Insights](app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data driven decisions about your next development cycles.
 
 ## Send telemetry from your app
 
 The best experience is obtained by installing Application Insights both in your app server code, and in your web pages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), or [other](app-insights-platforms.md) app.
 
     * *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
 
@@ -31,15 +31,16 @@ The best experience is obtained by installing Application Insights both in your 
 
     ![Copy the script into the head of your master web page.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](app-insights-mobile-center-quickstart.md).
 
-3. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
+4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
 ## Include user and session ID in your telemetry
 To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
 
-Start sending these IDs [here](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Start sending user and session IDs using [this process](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
@@ -50,30 +51,10 @@ The Users and Sessions reports filter your data by pages or custom events, and s
 
 Insights on the right point out interesting patterns in the set of data.  
 
-* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. (Users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.)
+* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, then they will be counted more than once.
 * The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
 
 [More about the Users, Sessions, and Events tools](app-insights-usage-segmentation.md)  
-
-## Page views
-
-From the Usage blade, click through the Page Views tile to get a breakdown of your most popular pages:
-
-![From the Overview blade, click the Page views chart](./media/app-insights-usage-overview/05-games.png)
-
-The example above is from a games web site. From the charts, we can instantly see:
-
-* Usage hasn't improved in the past week. Maybe we should think about search engine optimization?
-* Tennis is the most popular game page. Let's focus on further improvements to this page.
-* On average, users visit the Tennis page about three times per week. (There are about three times more sessions than users.)
-* Most users visit the site during the U.S. working week, and in working hours. Perhaps we should provide a "quick hide" button on the web page.
-* The [annotations](app-insights-annotations.md) on the chart show when new versions of the website were deployed. None of the recent deployments had a noticeable effect on usage.
-
-What if you want to investigate the traffic to your site in more detail, like splitting by a custom property your site sends in its page view telemetry?
-
-1. Open the **Events** tool in the Application Insights resource menu. This tool lets you analyze how many page views and custom events were sent from your app, based on a variety of filtering, cohorting, and segmentation options.
-2. In the "Who used" dropdown, select "Any Page View".
-3. In the "Split by" dropdown, select a property by which to split your page view telemetry.
 
 ## Retention - how many users come back?
 
@@ -91,22 +72,22 @@ The retention controls on top allow you to define specific events and time range
 
 ## Custom business events
 
-To get a clear understanding of what users do with your web app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
+To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
 
 Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
 
 With specific business events, you can chart your users' progress through your site. You can find out their preferences for different options, and where they drop out or have difficulties. With this knowledge, you can make informed decisions about the priorities in your development backlog.
 
-Events can be logged in the web page:
+Events can be logged from the client side of the app:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Or in the server side of the web app:
+Or from the server side:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -137,7 +118,7 @@ In the Application Insights portal, filter and split your data on the property v
 
 To do this, [set up a telemetry initializer](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -152,7 +133,7 @@ To do this, [set up a telemetry initializer](app-insights-api-filtering-sampling
 
 In the web app initializer such as Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {

@@ -1,18 +1,19 @@
 ---
-title: Call the Computer Vision API | Microsoft Docs
-description: Learn how to call the Computer Vision API by using REST in Cognitive Services.
+title: "Example: Call the Computer Vision API"
+titlesuffix: Azure Cognitive Services
+description: Learn how to call the Computer Vision API by using REST in Azure Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: computer-vision
-ms.topic: article
+ms.component: computer-vision
+ms.topic: sample
 ms.date: 01/20/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
-# How to Call Computer Vision API
+# Example: How to call the Computer Vision API
 
 This guide demonstrates how to call Computer Vision API using REST. The samples are written both in C# using the Computer Vision API client library, and as HTTP POST/GET calls. We will focus on:
 
@@ -44,7 +45,7 @@ To obtain a subscription key, see [How to Obtain Subscription Keys](../Vision-AP
 
 **1.** Passing the subscription key through a query string, see below as a Computer Vision API example:
 
-```https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
 
 **2.** Passing the subscription key can also be specified in the HTTP request header:
 
@@ -61,7 +62,7 @@ Here’s how to get "Tags" and "Description" for a given image:
 
 **Option One:** Get list of "Tags" and one "Description"
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
 ```
 using Microsoft.ProjectOxford.Vision;
@@ -80,13 +81,13 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ###### Tags-only:
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v1.0/tag&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag&subscription-key=<Your subscription key>
 var analysisResult = await visionClient.GetTagsAsync("http://contoso.com/example.jpg");
 ```
 
 ###### Description-only:
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v1.0/describe&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe&subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
   analysisResult = await visionClient.DescribeAsync(fs);
@@ -96,19 +97,19 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 **Option One:** Scoped Analysis - Analyze only a given model
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v1.0/models/celebrities/analyze
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
 ```
 For this option, all other query parameters {visualFeatures, details} are not valid. If you want to see all supported models, use: 
 ```
-GET https://westus.api.cognitive.microsoft.com/vision/v1.0/models 
+GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
 **Option Two:** Enhanced Analysis - Analyze to provide additional details with [86-categories taxonomy](../Category-Taxonomy.md)
 
 For applications where you want to get generic image analysis in addition to details from one or more domain-specific models, we extend the v1 API with the models query parameter.
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze?details=celebrities
+POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
 ```
 When this method is invoked, we will call the 86-category classifier first. If any of the categories match that of a known/matching model, a second pass of classifier invocations will occur. For example, if "details=all", or "details" include ‘celebrities’, we will call the celebrities model after the 86-category classifier is called and the result includes the category person. This will increase latency for users interested in celebrities, compared to Option One.
 
@@ -220,5 +221,5 @@ These are identical to vision.analyze, with the additional error of NotSupported
 
 These are the basic functionalities of the Computer Vision API: how you can upload images and retrieve valuable metadata in return.
 
-To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739).
+To use the REST API, go to [Computer Vision API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44).
  

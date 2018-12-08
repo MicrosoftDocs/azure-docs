@@ -10,10 +10,10 @@ tags: top-support-issue
 
 ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
 ms.service: virtual-machines-windows
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 06/13/2017
+ms.date: 06/15/2018
 ms.devlang: na
 ms.author: delhan
 

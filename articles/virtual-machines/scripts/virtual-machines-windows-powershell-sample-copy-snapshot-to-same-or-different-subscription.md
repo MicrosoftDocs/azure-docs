@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Copy snapshot of a managed disk in same subscription or different subscription with PowerShell
 
-This script creates a copy of a snapshot in the same same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
+This script creates a copy of a snapshot in the same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -47,4 +47,4 @@ This script uses following commands to create a snapshot in the target subscript
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

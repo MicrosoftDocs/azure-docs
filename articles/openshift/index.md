@@ -2,15 +2,15 @@
 title:  OpenShift Origin on Azure
 description: OpenShift Origin on Azure 
 services: multiple
-author: mlearned
-manager: douge
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.service: multiple
 ms.tgt_pltfrm: na
 ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
-ms.author: mlearned
+ms.author: carolz
 ---
 <div class="content">
     <h1>OpenShift on Azure</h1>
@@ -20,7 +20,7 @@ ms.author: mlearned
         </div>
     </div>
 <h2>5-Minute Quickstarts</h2>
-<a href="https://azure.microsoft.com/resources/templates/openshift-origin-rhel/">Deploy OpenShift Origin community template</a> 
+<a href="https://docs.microsoft.com/azure/virtual-machines/linux/openshift-okd">Deploy OpenShift Origin community template</a> 
 <h2>Step-By-Step Tutorials</h2>
 <p>Learn how to deploy OpenShift on Azure.</p>
 <ol>

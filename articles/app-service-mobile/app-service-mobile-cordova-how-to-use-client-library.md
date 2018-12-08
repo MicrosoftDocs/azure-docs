@@ -3,8 +3,8 @@ title: How to Use Apache Cordova Plugin for Azure Mobile Apps
 description: How to Use Apache Cordova Plugin for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # How to use Apache Cordova client library for Azure Mobile Apps
@@ -184,7 +184,7 @@ or the PNS.  The PNS could ban your traffic as a result of such attacks.
 
 ## More information
 
-You can find detailed API details in our [API documentation](http://azure.github.io/azure-mobile-apps-js-client/).
+You can find detailed API details in our [API documentation](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com
@@ -193,9 +193,9 @@ You can find detailed API details in our [API documentation](http://azure.github
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
+[your first Apache Cordova app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

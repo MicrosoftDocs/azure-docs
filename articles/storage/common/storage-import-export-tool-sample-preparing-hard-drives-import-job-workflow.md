@@ -2,20 +2,12 @@
 title: Sample workflow to prep hard drives for an Azure Import/Export import job | Microsoft Docs
 description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid:
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-
+ms.component: common
 ---
 
 # Sample workflow to prepare hard drives for an import job
@@ -31,7 +23,7 @@ This example imports the following data into an Azure storage account named `mys
 |H:\Video\ |A collection of videos|12 TB|
 |H:\Photo\ |A collection of photos|30 GB|
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image|25 GB|
-|\\\bigshare\john\music\|A collection of music files on a network share|10 GB|
+|\\\bigshare\john\music\ |A collection of music files on a network share|10 GB|
 
 ## Storage account destinations
 

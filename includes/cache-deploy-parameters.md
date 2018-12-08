@@ -1,6 +1,13 @@
+---
+author: wesmc7777
+ms.service: redis-cache 
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: wesmc
+---
 
 ### cacheSKUName
-The pricing tier of the new Azure Redis Cache.
+The pricing tier of the new Azure Cache for Redis.
 
     "cacheSKUName": {
       "type": "string",
@@ -10,7 +17,7 @@ The pricing tier of the new Azure Redis Cache.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -33,7 +40,7 @@ The family for the sku.
 
 
 ### cacheSKUCapacity
-The size of the new Azure Redis Cache instance. 
+The size of the new Azure Cache for Redis instance. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -48,11 +55,11 @@ The size of the new Azure Redis Cache instance.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 
 
-The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (1) if no value is specified. Those numbers correspond to following cache sizes: 
+The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (0) if no value is specified. Those numbers correspond to following cache sizes: 
 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

@@ -1,19 +1,11 @@
 ---
 title: How to manage concurrent writes to resources in Azure Search
 description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Search indexes, indexers, data sources.
-services: search
-documentationcenter: ''
 author: HeidiSteen
-manager: jhubbard
-editor: ''
-tags: azure-portal
-
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 
@@ -221,4 +213,4 @@ Try modifying either of the following samples to include ETags or AccessConditio
 
   [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
   [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
-  [Index operations (REST API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
+  [Index operations (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 #### To create a cloud appliance
 
 1. In the Azure portal, go to the **StorSimple Device Manager** service.
@@ -20,7 +27,7 @@
    7. Select the checkbox to indicate that you understand that the data stored on the cloud appliance is hosted in a Microsoft datacenter.
        * When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it.
 
-       * When you use a cloud appliance, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a cloud appliance](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * When you use a cloud appliance, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a cloud appliance](../articles/storsimple/storsimple-security.md).
    8. Click **Create** to provision the cloud appliance. The device may take around 30 minutes to be provisioned. You are notified when the cloud appliance is successfully created. Go to Devices blade, and the list of devices refreshes to display the cloud appliance. The status of the appliance is **Ready to set up**.
       
       ![StorSimple Cloud Appliance ready to set up](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

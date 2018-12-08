@@ -1,24 +1,21 @@
 ---
-title: Create an Internal load balancer - Azure CLI classic | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
+title: Create an internal Load Balancer - Azure classic CLI
+titlesuffix: Azure Load Balancer
+description: Learn how to create an internal load balancer using the Azure classic CLI in the classic deployment model
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
-editor: ''
-tags: azure-service-management
-
-ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
+author: genlin
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-ms.author: kumud
+ms.date: 10/31/2018
+ms.author: genli
 ---
 
-# Get started creating an internal load balancer (classic) using the Azure CLI
+# Get started creating an internal load balancer using the Azure classic CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -34,17 +31,17 @@ ms.author: kumud
 
 ## To create an internal load balancer set for virtual machines
 
-To create an internal load balancer set and the servers that will send their traffic to it, you must do the following:
+To create an internal load balancer set and the servers that sends their traffic to it, you must do the following:
 
-1. Create an instance of Internal Load Balancing that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
-2. Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.
-3. Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
+1. Create an instance of Internal Load Balancing that is the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
+2. Add endpoints corresponding to the virtual machines that can receive the incoming traffic.
+3. Configure the servers to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
 
-## Step by step creating an internal load balancer using CLI
+## Step by step creating an internal load balancer using classic CLI
 
 This guide shows how to create an internal load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used classic CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
@@ -59,7 +56,7 @@ This guide shows how to create an internal load balancer based on the scenario a
 
 The scenario assumes the virtual machines "DB1" and "DB2" in a cloud service called "mytestcloud". Both virtual machines are using a virtual network called my "testvnet" with subnet "subnet-1".
 
-This guide will create an internal load balancer set using port 1433 as private port and 1433 as local port.
+This guide creates an internal load balancer set using port 1433 as private port and 1433 as local port.
 
 This is a common scenario where you have SQL virtual machines on the back end using an internal load balancer to guarantee the database servers won't be exposed directly using a public IP address.
 
@@ -88,7 +85,7 @@ Here follows an example of the output:
 
 ### Step 2
 
-You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
+You configure the internal load balancer set when you add the first endpoint. You can associate the endpoint, virtual machine, and probe port to the internal load balancer set in this step.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -102,7 +99,7 @@ Verify the load balancer configuration using `azure vm show` *virtual machine na
 azure vm show DB1
 ```
 
-The output will be:
+The output is as follows:
 
     azure vm show DB1
     info:    Executing command vm show

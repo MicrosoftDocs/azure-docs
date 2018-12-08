@@ -1,11 +1,18 @@
-## Scenario
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: kumud
+---
+## Configuration scenario
 
-You are creating an internal load balancer according to the following scenario
+In this scenario, we're creating an internal load balancer in a virtual network as shown in the following figure:
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Internal load balancer scenario](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-An internal load balancer is configured in a virtual network
+The configuration for our scenario is as follows:
 
-* 2 virtual machines called DB1 and DB2
-* Endpoints
-* Internal load balancer
+* Two virtual machines named **DB1** and **DB2**
+* Endpoints for the internal load balancer
+* An internal load balancer

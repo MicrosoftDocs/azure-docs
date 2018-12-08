@@ -4,7 +4,7 @@ description: Learn about PowerShell script tools to add, remove, start, and stop
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,hpc-pack
 
@@ -60,7 +60,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### Parameters
 * **ServiceName**: Name of the cloud service that new compute node VMs are added to.
-* **ImageName**: Azure VM image name, which can be obtained through the Azure classic portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
+* **ImageName**: Azure VM image name, which can be obtained through the Azure portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
   
   1. A Windows operating system must be installed.
   2. HPC Pack must be installed in the compute node role.

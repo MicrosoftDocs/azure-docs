@@ -8,9 +8,9 @@ manager: timlt
 editor: tysonn
 
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 ---
 # Share Azure dashboards by using Role-Based Access Control
-After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using Azure [Role-Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
+After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using Azure [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
 
 All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
 
@@ -41,7 +41,7 @@ Here is an example.  Let's say you have an Azure subscription and various member
 However, you could also assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. You assign those users to a role for that dashboard. 
 
 ## Publish dashboard
-Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 1. In the dashboard, select **Share**.
    
@@ -71,6 +71,6 @@ Your dashboard is now published. If the permissions inherited from the subscript
      ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## Next steps
-* For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
+* For a list of roles, see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md).
 * To learn about managing resources, see [Manage Azure resources through portal](resource-group-portal.md).
 

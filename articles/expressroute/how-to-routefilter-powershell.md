@@ -1,28 +1,29 @@
----
-title: 'Configure route filters for Azure ExpressRoute Microsoft peering: PowerShell | Microsoft Docs'
+﻿---
+title: 'Configure route filters for Microsoft peering - ExpressRoute : PowerShell: Azure | Microsoft Docs'
 description: This article describes how to configure route filters for Microsoft Peering using PowerShell
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
+author: ganesr
 
-ms.assetid:
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.topic: conceptual
+ms.date: 10/30/2018
+ms.author: ganesr
+ms.custom: seodec18
 
 ---
-# Configure route filters for Microsoft peering
+# Configure route filters for Microsoft peering: PowerShell
+> [!div class="op_single_selector"]
+> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
 
-Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoint Online, and Skype for Business, are accessible through the Microsoft peering. When Microsoft peering is configured in an ExpressRoute circuit, all prefixes related to these services are advertised through the BGP sessions that are established. A BGP community value is attached to every prefix to identify the service that is offered through the prefix. For a list of the BGP community values and the services they  map to, see [BGP communities](expressroute-routing.md#bgp).
+Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoint Online, and Skype for Business, and Azure public services, such as storage and SQL DB are accessible through Microsoft peering. Azure public services are selectable on a per region basis and cannot be defined per public service. 
+
+When Microsoft peering is configured on an ExpressRoute circuit and a route filter is attached, all prefixes that are selected for these services are advertised through the BGP sessions that are established. A BGP community value is attached to every prefix to identify the service that is offered through the prefix. For a list of the BGP community values and the services they  map to, see [BGP communities](expressroute-routing.md#bgp).
 
 If you require connectivity to all services, a large number of prefixes are advertised through BGP. This significantly increases the size of the route tables maintained by routers within your network. If you plan to consume only a subset of services offered through Microsoft peering, you can reduce the size of your route tables in two ways. You can:
 
@@ -62,54 +63,52 @@ To be able to successfully connect to services through Microsoft peering, you mu
 
 Before you begin configuration, make sure you meet the following criteria:
 
- - Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShelll](/powershell/azure/install-azurerm-ps).
-
-  > [!NOTE]
-  > Download the latest version from the PowerShell Gallery, rather than using the Installer. The Installer currently does not support the required cmdlets.
-  > 
-
  - Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
  - You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state.
 
- - You must have an active Microsoft peering. Follow instructions at [Create and modifying peering configuration](expressroute-circuit-peerings.md)
+ - You must have an active Microsoft peering. Follow the instructions in the [Create and modifying peering configuration](expressroute-circuit-peerings.md) article.
+
+
+### Working with Azure PowerShell
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### Log in to your Azure account
 
 Before beginning this configuration, you must log in to your Azure account. The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
 
-Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
+Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect. If you are using Azure Cloud Shell, you don't need to run this cmdlet, as you'll be automatically signed in.
 
-```powershell
-Login-AzureRmAccount
+```azurepowershell
+Connect-AzureRmAccount
 ```
 
 If you have multiple Azure subscriptions, check the subscriptions for the account.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmSubscription
 ```
 
 Specify the subscription that you want to use.
 
-```powershell
+```azurepowershell-interactive
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Step 1. Get a list of prefixes and BGP community values
+## <a name="prefixes"></a>Step 1: Get a list of prefixes and BGP community values
 
 ### 1. Get a list of BGP community values
 
 Use the following cmdlet to get the list of BGP community values associated with services accessible through Microsoft peering, and the list of prefixes associated with them:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmBgpServiceCommunity
 ```
 ### 2. Make a list of the values that you want to use
 
 Make a list of BGP community values you want to use in the route filter. As an example, the BGP community value for Dynamics 365 services is 12076:5040.
 
-## <a name="filter"></a>Step 2. Create a route filter and a filter rule
+## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
 A route filter can have only one rule, and the rule must be of type 'Allow'. This rule can have a list of BGP community values associated with it.
 
@@ -117,7 +116,7 @@ A route filter can have only one rule, and the rule must be of type 'Allow'. Thi
 
 First, create the route filter. The command 'New-AzureRmRouteFilter' only creates a route filter resource. After you create the resource, you must then create a rule and attach it to the route filter object. Run the following command to create a route filter resource:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
@@ -125,7 +124,7 @@ New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup
 
 You can specify a set of BGP communities as a comma-separated list, as shown in the example. Run the following command to create a new rule:
  
-```powershell
+```azurepowershell-interactive
 $rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
 ```
 
@@ -133,64 +132,67 @@ $rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -R
 
 Run the following command to add the filter rule to the route filter:
  
-```powershell
+```azurepowershell-interactive
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Step 3. Attach the route filter to an ExpressRoute circuit
+## <a name="attach"></a>Step 3: Attach the route filter to an ExpressRoute circuit
 
 Run the following command to attach the route filter to the ExpressRoute circuit, assuming you have only Microsoft peering:
 
-```powershell
+```azurepowershell-interactive
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>To get the properties of a route filter
+## <a name="tasks"></a>Common tasks
+
+### <a name="getproperties"></a>To get the properties of a route filter
 
 To get the properties of a route filter, use the following steps:
 
 1. Run the following command to get the route filter resource:
 
-  ```powershell
+  ```azurepowershell-interactive
   $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
   ```
 2. Get the route filter rules for the route-filter resource by running the following command:
 
-  ```powershell
+  ```azurepowershell-interactive
   $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>To update the properties of a route filter
+### <a name="updateproperties"></a>To update the properties of a route filter
 
-If the route filter is already attached to a circuit, updates to the BGP community list automatically propagates appropriate prefix advertisement changes through the established BGP sessions. You can update the BGP community list of your route filter using the following command:
+If the route filter is already attached to a circuit, updates to the BGP community list automatically propagate appropriate prefix advertisement changes through the established BGP sessions. You can update the BGP community list of your route filter using the following command:
 
-```powershell
+```azurepowershell-interactive
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
+### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
 Once a route filter is detached from the ExpressRoute circuit, no prefixes are advertised through the BGP session. You can detach a route filter from an ExpressRoute circuit using the following command:
   
-```powershell
+```azurepowershell-interactive
 $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>To delete a route filter
+### <a name="delete"></a>To delete a route filter
 
 You can only delete a route filter if it is not attached to any circuit. Ensure that the route filter is not attached to any circuit before attempting to delete it. You can delete a route filter using the following command:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## Next steps
+## Next Steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

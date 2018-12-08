@@ -1,21 +1,14 @@
 ---
-title: Modeling document data for a NoSQL database | Microsoft Docs
+title: Modeling document data for a NoSQL database
 description: Learn about modeling data for NoSQL databases
 keywords: modeling data
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: mimig1
-documentationcenter: ''
+author: aliuy
 
-ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2016
-ms.author: arramac
+ms.author: andrl
 
 ---
 # Modeling document data for NoSQL databases
@@ -36,7 +29,7 @@ When you start modeling data in a document store, such as Azure Cosmos DB, try t
 
 Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database. 
 
-![Relational database model](./media/documentdb-modeling-data/relational-data-model.png)
+![Relational database model](./media/sql-api-modeling-data/relational-data-model.png)
 
 When working with relational databases, we've been taught for years to normalize, normalize, normalize.
 
@@ -68,7 +61,7 @@ Now let's take a look at how we would model the same data as a self-contained en
             }
         ],
         "contactDetails": [
-            {"email: "thomas@andersen.com"},
+            {"email": "thomas@andersen.com"},
             {"phone": "+1 555 555-5555", "extension": 5555}
         ] 
     }
@@ -282,12 +275,12 @@ Switching things around a bit would result in a model that still represents the 
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a a reference to the publisher on each book document.
+In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a reference to the publisher on each book document.
 
 ### How do I model many:many relationships?
 In a relational database *many:many* relationships are often modeled with join tables, which just join records from other tables together. 
 
-![Join tables](./media/documentdb-modeling-data/join-table.png)
+![Join tables](./media/sql-api-modeling-data/join-table.png)
 
 You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.
 
@@ -342,9 +335,9 @@ Consider the following JSON.
         "countOfBooks": 3,
          "books": ["b1", "b2", "b3"],
         "images": [
-            {"thumbnail": "http://....png"}
-            {"profile": "http://....png"}
-            {"large": "http://....png"}
+            {"thumbnail": "https://....png"}
+            {"profile": "https://....png"}
+            {"large": "https://....png"}
         ]
     },
     {
@@ -354,7 +347,7 @@ Consider the following JSON.
         "countOfBooks": 1,
         "books": ["b1"],
         "images": [
-            {"thumbnail": "http://....png"}
+            {"thumbnail": "https://....png"}
         ]
     }
 
@@ -363,15 +356,15 @@ Consider the following JSON.
         "id": "b1",
         "name": "Azure Cosmos DB 101",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
         ]
     },
     {
         "id": "b2",
         "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
         ]
     }
 
@@ -392,4 +385,4 @@ Just as there is no single way to represent a piece of data on a screen, there i
 
 To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page. 
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](documentdb-partition-data.md). 
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](sql-api-partition-data.md). 

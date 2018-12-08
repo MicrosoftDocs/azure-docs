@@ -3,8 +3,8 @@ title: Create and Manage an Azure Virtual Machine Using Java | Microsoft Docs
 description: Use Java and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: zr-msft
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: zarhoads
 
 ---
 # Create and manage Windows VMs in Azure using Java
@@ -35,7 +35,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
 2. Install [Maven](http://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     
@@ -113,7 +113,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 ### Create the authorization file
 
@@ -468,5 +468,5 @@ It should take about five minutes for this console application to run completely
 
 
 ## Next steps
-* Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).
+* Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
 

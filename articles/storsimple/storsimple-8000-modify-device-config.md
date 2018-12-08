@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 09/28/2017
 ms.author: alkohli
 
 ---
@@ -61,7 +61,7 @@ Your device must synchronize time in order to authenticate with your cloud stora
 
  Select your time zone from the drop-down list. You can specify up to two Network Time Protocol (NTP) servers:
 
- - **Primary NTP server** -  The configuration is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure portal, but you must use the Windows PowerShell interface to change it. Use the `Set-HcsNTPClientServerAddress` cmdlet to modify the Primary NTP server of your device. For more information, go to synxtax for [Set-HcsNTPClientServerAddress] (https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+ - **Primary NTP server** -  The configuration is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure portal, but you must use the Windows PowerShell interface to change it. Use the `Set-HcsNTPClientServerAddress` cmdlet to modify the Primary NTP server of your device. For more information, go to synxtax for [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 - **Secondary NTP server** - The configuration is optional. You can use the portal to configure a secondary NTP server.
 
@@ -134,14 +134,14 @@ For each network interface, the following parameters are displayed:
 
 ### Configure DATA 0
 
-DATA 0 is cloud-enabled by default. When configuring DATA 0, you are also required to configure two fixed IP addresses, one for each controller. These fixed IP addresses can be used to access the device controllers directly and are useful when you install updates on the device or when you access the controllers for the purpose of troubleshooting.
+DATA 0 is cloud-enabled by default. When configuring DATA 0, you are also required to configure two fixed IP addresses, one for each controller. These fixed IP addresses can be used to access the device controllers directly and are useful when you install updates on the device, for garbage collection to work properly or when you access the controllers for the purpose of troubleshooting.
 
 You can reconfigure the fixed IP controllers via the DATA 0 settings blade.
 
 ![Configure network interface - DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> The fixed IP addresses for the controller are used for servicing the updates to the device. Therefore, the fixed IPs must be routable and able to connect to the Internet.
+> The fixed IP addresses for the controller are used for servicing the updates to the device and for space reclamation algorithms (garbage collection) to work properly. Therefore, the fixed IPs must be routable and able to connect to the Internet.
 
 ### Configure DATA 1 - DATA 5
 

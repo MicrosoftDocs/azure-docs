@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
@@ -121,7 +121,6 @@ The following tables list some of the StorSimple alerts that you might encounter
 * [Job failure alerts](#job-failure-alerts)
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
-* [Update alerts](#update-alerts)
 
 ### Cloud connectivity alerts
 
@@ -143,6 +142,11 @@ The following tables list some of the StorSimple alerts that you might encounter
 | Backup of <*device name*> couldn’t be completed. |Backup job failure. |Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation. |
 | Clone of <*device name*> couldn’t be completed. |Clone job failure. |Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation. |
 
+### Networking alerts
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
+| Could not connect to the authentication service. |Datapath error |The URL that is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
+
 ### Performance alerts
 
 | Alert text | Event | More information / recommended actions |
@@ -155,13 +159,6 @@ The following tables list some of the StorSimple alerts that you might encounter
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
-
-### Update alerts
-
-| Alert text | Event | More information / recommended actions |
-|:--- |:--- |:--- |
-| New updates are available for your device. |Updates to the StorSimple Virtual Array are available. |You can install new updates from the **Maintenance** page. |
-| Could not scan for new updates on <*device name*>. |Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md). |
 
 ## Next steps
 

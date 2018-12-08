@@ -9,7 +9,7 @@ manager: vipulm
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
@@ -21,7 +21,7 @@ ms.author: kavyako
 Starting with the 5.7 release of Service Fabric, reverse proxy events are available for collection. 
 The events are available in two channels, one with only error events related to request processing failure at the reverse proxy and second channel containing verbose events with entries for both successful and failed requests.
 
-Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) to enable collecting events from these channels in local and Azure Service Fabric clusters.
+Refer to [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) to enable collecting events from these channels in local and Azure Service Fabric clusters.
 
 ## Troubleshoot using diagnostics logs
 Here are some examples on how to interpret the common failure logs that one can encounter:
@@ -156,11 +156,11 @@ The second event indicates that the request failed while forwarding to service, 
     
     If collection is enabled for critical/error events only, you see one event with details about the timeout and the number of resolve attempts. 
     
-    If the service intends to send a 404 status code back to the user, it should be accompanied by an "X-ServiceFabric" header. After fixing this, you will see that reverse proxy forwards the status code back to the client.  
+    Services that intend to send a 404 status code back to the user, should add an "X-ServiceFabric" header in the response. After the header is added to the response, reverse proxy forwards the status code back to the client.  
 
 4. Cases when the client has disconnected the request.
 
-    The below event is recorded when reverse proxy is forwarding the response to client but the client disconnects:
+    Following event is recorded when reverse proxy is forwarding the response to client but the client disconnects:
 
     ```
     {
@@ -177,6 +177,18 @@ The second event indicates that the request failed while forwarding to service, 
         "winHttpError": "ERROR_SUCCESS"
       }
     }
+    ```
+5. Reverse Proxy returns 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+
+    FABRIC_E_SERVICE_DOES_NOT_EXIST error is returned if the URI scheme is not specified for the service endpoint in the service manifest.
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    To resolve the problem, specify the URI scheme in the manifest.
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
     ```
 
 > [!NOTE]

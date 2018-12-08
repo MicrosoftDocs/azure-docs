@@ -3,7 +3,7 @@ title: Create Azure Service Bus topic subscription and rule using Azure Resource
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,13 +13,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
-ms.author: sethm;shvija
+ms.date: 09/11/2018
+ms.author: spelluru
 
 ---
 # Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription, and rule (filter). You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace with a topic, subscription, and rule (filter). The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
 For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
 
@@ -39,7 +39,7 @@ For the complete template, see the [Service Bus namespace with topic, subscripti
 > 
 > 
 
-## What will you deploy?
+## What do you deploy?
 
 With this template, you deploy a Service Bus namespace with topic, subscription, and rule (filter).
 
@@ -47,7 +47,7 @@ With this template, you deploy a Service Bus namespace with topic, subscription,
 
 ## What are rules (filters)?
 
-In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this, you can configure subscriptions to find messages that have specific properties and then perform modifications to those properties. Although Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This is accomplished using subscription filters. To learn more about rules (filters), see [Rules and actions](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this custom processing, you can configure subscriptions to find messages that have specific properties and then perform modifications to those properties. Although Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. It is accomplished using subscription filters. To learn more about rules (filters), see [Rules and actions](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 To run the deployment automatically, click the following button:
 
@@ -55,7 +55,7 @@ To run the deployment automatically, click the following button:
 
 ## Parameters
 
-With Azure Resource Manager, you should define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for those values that vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
+With Azure Resource Manager, define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. Define a parameter for those values that vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
 The template defines the following parameters:
 
@@ -97,9 +97,12 @@ The name of the rule(filter) created in the Service Bus namespace.
 The Service Bus API version of the template.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## Resources to deploy
 Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription and rules.
@@ -112,7 +115,6 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
         "location": "[variables('location')]",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
@@ -140,8 +142,10 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
                         "[parameters('serviceBusSubscriptionName')]"
                     ],
                     "properties": {
-                        "filter": {
-                            "sqlExpression": "StoreName = 'Store1'"
+                        "filterType": "SqlFilter",
+                        "sqlFilter": {
+                            "sqlExpression": "StoreName = 'Store1'",
+                            "requiresPreprocessing": "false"
                         },
                         "action": {
                             "sqlExpression": "set FilterTag = 'true'"

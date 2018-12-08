@@ -1,5 +1,5 @@
 ---
-title: Convert Azure Cloud Services apps to microservices | Microsoft Docs
+title: Convert Azure Cloud Services apps to Service Fabric | Microsoft Docs
 description: This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
@@ -53,7 +53,7 @@ Worker Role and Service Fabric service APIs offer similar entry points:
 | Open listener for client requests |N/A |<ul><li> `CreateServiceInstanceListener()` for stateless</li><li>`CreateServiceReplicaListener()` for stateful</li></ul> |
 
 ### Worker Role
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -78,7 +78,7 @@ namespace WorkerRole1
 ```
 
 ### Service Fabric Stateless Service
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -135,7 +135,7 @@ Each of these packages can be independently versioned and upgraded. Similar to C
 #### Cloud Services
 Configuration settings from ServiceConfiguration.*.cscfg can be accessed through `RoleEnvironment`. These settings are globally available to all role instances in the same Cloud Service deployment.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -146,7 +146,7 @@ Each service has its own individual configuration package. There is no built-in 
 
 Configuration settings are accesses within each service instance through the service's `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -167,7 +167,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### Cloud Services
 The `RoleEnvironment.Changed` event is used to notify all role instances when a change occurs in the environment, such as a configuration change. This is used to consume configuration updates without recycling role instances or restarting a worker process.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -188,7 +188,7 @@ Each of the three package types in a service - Code, Config, and Data - have eve
 
 These events are available to consume changes in service packages without restarting the service instance.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -204,7 +204,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## Startup tasks
 Startup tasks are actions that are taken before an application starts. A startup task is typically used to run setup scripts using elevated privileges. Both Cloud Services and Service Fabric support start-up tasks. The main difference is that in Cloud Services, a startup task is tied to a VM because it is part of a role instance, whereas in Service Fabric a startup task is tied to a service, which is not tied to any particular VM.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Configuration location |ServiceDefinition.csdef |
 | Privileges |"limited" or "elevated" |

@@ -1,5 +1,12 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: spelluru
+---
 ## Create a Ruby application
-For instructions, see [Create a Ruby Application on Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+For instructions, see [Create a Ruby Application on Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
 ## Configure Your application to Use Service Bus
 To use Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.

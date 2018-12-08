@@ -3,7 +3,7 @@ title: "User profile templates in Azure API Management | Microsoft Docs"
 description: Learn how to customize the content of the User Profile pages in the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -31,6 +31,8 @@ Azure API Management provides you the ability to customize the content of develo
   
 > [!NOTE]
 >  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="Profile"></a> Profile  
  The **profile** template allows you to customize the user profile section of the user profile page in the developer portal.  
@@ -562,7 +564,7 @@ Azure API Management provides you the ability to customize the content of develo
 ```  
   
 ##  <a name="UpdateAccountInfo"></a> Update account info  
- The **Uodate account info** template allows you to customize the **Update account information** page in the developer portal.  
+ The **Update account info** template allows you to customize the **Update account information** page in the developer portal.  
   
  ![User Account Info Page Developer Portal Templates](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM User Account Info Page Developer Portal Templates")  
   

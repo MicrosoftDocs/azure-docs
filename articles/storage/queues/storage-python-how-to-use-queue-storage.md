@@ -2,20 +2,14 @@
 title: How to use Queue storage from Python | Microsoft Docs
 description: Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages.
 services: storage
-documentationcenter: python
-author: robinsh
-manager: timlt
-editor: tysonn
-
-ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
+author: tamram
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
-
+ms.author: tamram
+ms.component: queues
 ---
 # How to use Queue storage from Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -28,6 +22,26 @@ This guide shows you how to perform common scenarios using the Azure Queue stora
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## Download and Install Azure Storage SDK for Python
+
+Azure Storage SDK for Python requires Python 2.7, 3.3, 3.4, 3.5, or 3.6, and comes in 4 different packages: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` and `azure-storage-queue`. In this tutorial we are going to use `azure-storage-queue` package.
+ 
+### Install via PyPi
+
+To install via the Python Package Index (PyPI), type:
+
+```bash
+pip install azure-storage-queue
+```
+
+
+> [!NOTE]
+> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
+> 
+> 
+
+For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
 
 ## How To: Create a Queue
 The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Storage:
@@ -134,8 +148,8 @@ queue_service.delete_queue('taskqueue')
 Now that you've learned the basics of Queue storage, follow these links
 to learn more.
 
-* [Python Developer Center](/develop/python/)
-* [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage Team Blog]
 * [Microsoft Azure Storage SDK for Python]
 

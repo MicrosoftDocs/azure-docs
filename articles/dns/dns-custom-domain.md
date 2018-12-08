@@ -3,16 +3,16 @@ title: Integrate Azure DNS with your Azure resources | Microsoft Docs
 description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: vhorne
+manager: jeconnoc
 
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: gwallace
+ms.date: 1/19/2018
+ms.author: victorh
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
@@ -23,7 +23,7 @@ Azure DNS provides DNS for a custom domain for any of your Azure resources that 
 
 In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
 
-You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Azure IoT](#azure-iot), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).
+You can configure a vanity or custom domain for [Azure Function Apps](#azure-function-app), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), [Blob storage](#blob-storage), and [Azure CDN](#azure-cdn).
 
 ## Azure Function App
 
@@ -52,27 +52,6 @@ Navigate back to your function app, click **Platform features**, and under **NET
 On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record was able to be found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
 
 ![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
-
-## Azure IoT
-
-Azure IoT does not have any customizations that are needed on the service itself. To use a custom domain with an IoT Hub only a CNAME record pointed to the resources is needed.
-
-Navigate to **Internet of Things** > **IoT Hub** and select your IoT hub. On the **Overview** blade, note the FQDN of the IoT hub.
-
-![IoT hub blade](./media/dns-custom-domain/iot.png)
-
-Next, navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
-
-
-|Property  |Value  |Description  |
-|---------|---------|---------|
-|Name     | myiothub        | This value along with the domain name label is the FQDN for the IoT hub.        |
-|Type     | CNAME        | Use a CNAME record is using an alias.
-|TTL     | 1        | 1 is used for 1 hour        |
-|TTL unit     | Hours        | Hours are used as the time measurement         |
-|Alias     | adatumIOT.azure-devices.net        | The DNS name you are creating the alias for, in this example it is the adatumIOT.azure-devices.net host name provided by the IoT hub.
-
-Once the record is created, test name resolution with the CNAME record using `nslookup`
 
 ## Public IP address
 
@@ -131,9 +110,9 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
-To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service-web/custom-dns-web-site-buydomains-web-app.md) to learn more about App Service domains.
+If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/custom-dns-web-site-buydomains-web-app.md) to learn more about App Service domains.
 
 ## Blob storage
 

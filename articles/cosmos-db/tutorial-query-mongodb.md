@@ -1,25 +1,17 @@
 ---
-title: 'Azure Cosmos DB: How to query using the DocumentDB API? | Microsoft Docs'
-description: Learn to query with the DocumentDB API for Azure Cosmos DB
+title: 'Azure Cosmos DB: How to query using the MongoDB API?'
+description: Learn to query with the MongoDB API for Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 05/10/2017
-ms.author: mimig
-
+ms.component: cosmosdb-mongo
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 03/29/2018
 ---
 
-# Azure Cosmos DB: How to query with API for MongoDB?
+# Tutorial: Query Azure Cosmos DB by using the MongoDB API
 
 The Azure Cosmos DB [API for MongoDB](mongodb-introduction.md) supports [MongoDB shell queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
@@ -27,6 +19,8 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Querying data with MongoDB
+
+You can get started by using the examples in this document and watch the [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) video .
 
 ## Sample document
 
@@ -66,7 +60,7 @@ Given the sample family document above, the following query returns the document
 
 **Query**
     
-    db.families.find({ id: “WakefieldFamily”})
+    db.families.find({ id: "WakefieldFamily"})
 
 **Results**
 
@@ -116,7 +110,7 @@ The next query returns all the children in the family.
 
 **Query**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **Results**
 
@@ -145,7 +139,7 @@ The next query returns all the children in the family.
 
 ## <a id="examplequery3"></a>Example query 3 
 
-The next query returns all the families which are registered. 
+The next query returns all the families that are registered. 
 
 **Query**
     
@@ -155,7 +149,7 @@ The next query returns all the families which are registered.
 
 ## <a id="examplequery4"></a>Example query 4
 
-The next query returns all the families which are not registered. 
+The next query returns all the families that are not registered. 
 
 **Query**
     
@@ -199,7 +193,7 @@ The next query returns all the families which are not registered.
 
 ## <a id="examplequery5"></a>Example query 5
 
-The next query returns all the families which are not registered and state is NY. 
+The next query returns all the families that are not registered and state is NY. 
 
 **Query**
     
@@ -298,7 +292,7 @@ The next query returns all the families where size of children array is 3.
 
 **Results**
 
-No results will be returned as we do not have more than 2 children. Only when parameter is 2 this query will succeed and return the full document.
+No results will be returned as there are no families with more than two children. Only when parameter is 2 this query will succeed and return the full document.
 
 ## Next steps
 
@@ -310,5 +304,5 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+> [Distribute your data globally](tutorial-global-distribution-sql-api.md)
 

@@ -1,21 +1,13 @@
 ---
-title: Back up VMware servers with Azure Backup Server | Microsoft Docs
+title: Back up VMware servers with Azure Backup Server
 description: Use Azure Backup Server to back up a VMware vCenter/ESXi servers to Azure or disk. This article provides step=by-step instruction for backing up (or protecting) your VMware workloads.
 services: backup
-documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
-
-
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-
+ms.author: adigan
 ---
 # Back up a VMware server to Azure
 
@@ -57,7 +49,7 @@ To fix this issue, and create a secure connection, download the trusted root CA 
 4. Right-click **download.zip**, and then select **Extract All** to extract the contents.
 
     The .zip file extracts its contents to a folder named **certs**. Two types of files appear in the certs folder. The root certificate file has an extension that begins with a numbered sequence like .0 and .1.
-    
+
     The CRL file has an extension that begins with a sequence like .r0 or .r1. The CRL file is associated with a certificate.
 
     ![Download file extracted locally ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
@@ -153,8 +145,8 @@ To add a vCenter Server role and its privileges for a backup administrator:
 
   After you click **OK**, the new role appears in the list on the Roles panel.
 
-|Privileges for vCenter 6.0| Privileges for vCenter 5.5|
-|--------------------------|---------------------------|
+|Privileges for vCenter 6.0 and 6.5| Privileges for vCenter 5.5|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |
@@ -251,7 +243,7 @@ Before you add the VMware server to Azure Backup Server, install [Update 1 for A
     ![Azure Backup Server Add Credential dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Click **Add** to add the new credential to Azure Backup Server. The new credential appears in the list in the **Manage Credentials** dialog box.
-    
+
     ![Azure Backup Server Manage Credentials dialog box](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. To close the **Manage Credentials** dialog box, click the **X** in the upper-right corner.
@@ -273,7 +265,7 @@ To open Production Server Addition Wizard, complete the following procedure:
 
 2. On the **Select Production Server type** page, select **VMware Servers**, and then click **Next**.
 
-3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name.
+3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server (the host ESXi server). If all the ESXi servers are managed by the same vCenter, you can use the vCenter name.
 
     ![Specify VMware server FQDN or IP address](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

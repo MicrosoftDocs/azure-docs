@@ -4,7 +4,7 @@ description: Describes the new features, issues, and workarounds for StorSimple 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: alkohli
 
 ---
@@ -28,6 +28,7 @@ Update 5 can be applied to any StorSimple device running Update 0.1 through Upda
 Review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
+> * Update 5 is a mandatory update and must be installed immediately. For more information, see how to [Apply Update 5](storsimple-8000-install-update-5.md).
 > * Update 5 has device software, disk firmware, OS security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 5 to keep your device up-to-date.
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these updates will become available soon.
 
@@ -39,7 +40,7 @@ The following key improvements and bug fixes have been made in Update 5.
 
     If the authentication URL is not included in the firewall rules, the users will see a critical alert that their StorSimple device could not authenticate with the service. If the users see this alert, they need to include the new authentication URL. For more information, go to [StorSimple networking alerts](storsimple-8000-manage-alerts.md#networking-alerts).
 
-* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5. We recommend that you update to this version. This version is compatible with all the StorSimple devices that are running Update 3 or later. For more information, go to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* **New version of StorSimple Snapshot Manager** - A new version of StorSimple Snapshot Manager is released with Update 5 and is compatible with all the StorSimple devices that are running Update 4 or later. We recommend that you update to this version. The previous version of StorSimple Snapshot Manager is used for StorSimple devices that are running Update 3 or earlier. [Download the appropriate version of StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220) and refer to [deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 
 ## Issues fixed in Update 5

@@ -1,25 +1,18 @@
 ---
-title: Troubleshoot Azure File storage problems in Windows | Microsoft Docs
-description: Troubleshooting Azure File storage problems in Windows
+title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
+description: Troubleshooting Azure Files problems in Windows
 services: storage
-documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: jeffpatt24
 tags: storage
-
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
-ms.author: genli
-
+ms.date: 10/30/2018
+ms.author: jeffpatt
+ms.component: files
 ---
-# Troubleshoot Azure File storage problems in Windows
+# Troubleshoot Azure Files problems in Windows
 
-This article lists common problems that are related to Microsoft Azure File storage when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
 
 <a id="error53-67-87"></a>
@@ -33,20 +26,21 @@ When you try to mount a file share from on-premises or from a different datacent
 
 ### Cause 1: Unencrypted communication channel
 
-For security reasons, connections to Azure file shares are blocked if the communication channel isn’t encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Communication channel encryption is provided only if the user’s client OS supports SMB encryption.
+For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. Communication channel encryption is provided only if the user's client OS supports SMB encryption.
 
 Windows 8, Windows Server 2012, and later versions of each system negotiate requests that include SMB 3.0, which supports encryption.
 
 ### Solution for cause 1
 
-Connect from a client that does one of the following:
+1. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account.
+2. Connect from a client that does one of the following:
 
-- Meets the requirements of Windows 8 and Windows Server 2012 or later versions
-- Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
+    - Meets the requirements of Windows 8 and Windows Server 2012 or later versions
+    - Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
 
 ### Cause 2: Port 445 is blocked
 
-System error 53 or system error 67 can occur if port 445 outbound communication to an Azure File storage datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+System error 53 or system error 67 can occur if port 445 outbound communication to an Azure Files datacenter is blocked. To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 To understand whether this is the reason behind the "System error 53" message, you can use Portqry to query the TCP:445 endpoint. If the TCP:445 endpoint is displayed as filtered, the TCP port is blocked. Here is an example query:
 
@@ -64,7 +58,7 @@ Work with your IT department to open port 445 outbound to [Azure IP ranges](http
 
 ### Cause 3: NTLMv1 is enabled
 
-System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure File storage supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure File storage. 
+System error 53 or system error 87 can occur if NTLMv1 communication is enabled on the client. Azure Files supports only NTLMv2 authentication. Having NTLMv1 enabled creates a less-secure client. Therefore, communication is blocked for Azure Files. 
 
 To determine whether this is the cause of the error, verify that the following registry subkey is set to a value of 3:
 
@@ -79,7 +73,7 @@ Revert the **LmCompatibilityLevel** value to the default value of 3 in the follo
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## Error 1816 “Not enough quota is available to process this command” when you copy to an Azure file share
+## Error 1816 "Not enough quota is available to process this command" when you copy to an Azure file share
 
 ### Cause
 
@@ -90,14 +84,14 @@ Error 1816 happens when you reach the upper limit of concurrent open handles tha
 Reduce the number of concurrent open handles by closing some handles, and then retry. For more information, see [Microsoft Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## Slow file copying to and from Azure File storage in Windows
+## Slow file copying to and from Azure Files in Windows
 
 You might see slow performance when you try to transfer files to the Azure File service.
 
-- If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
+- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+-	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 -	Use the right copy method:
-    -	Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#file-copy) for any transfer between two file shares.
+    -	Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
     -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
 
 ### Considerations for Windows 8.1 or Windows Server 2012 R2
@@ -149,7 +143,7 @@ You can use either of the following steps to work around the problem:
 - Put double quotation marks around the key to work around this problem--unless the forward slash is the first character. If it is, either use the interactive mode and enter your password separately or regenerate your keys to get a key that doesn't start with a forward slash.
 
 <a id="cannotaccess"></a>
-## Application or service cannot access a mounted Azure File storage drive
+## Application or service cannot access a mounted Azure Files drive
 
 ### Cause
 
@@ -161,6 +155,12 @@ Use one of the following solutions:
 
 -	Mount the drive from the same user account that contains the application. You can use a tool such as PsExec.
 - Pass the storage account name and key in the user name and password parameters of the net use command.
+- Use the cmdkey command to add the credentials into Credential Manager. Perform this from a command line under the service account context, either through an interactive login or by using runas.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Map the share directly without using a mapped drive letter. Some applications may not reconnect to the drive letter properly, so using the full UNC path may be more reliable. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 After you follow these instructions, you might receive the following error message when you run net use for the system/network service account: "System error 1312 has occurred. A specified logon session does not exist. It may already have been terminated." If this occurs, make sure that the username that is passed to net use includes domain information (for example: "[storage account name].file.core.windows.net").
 
@@ -170,7 +170,7 @@ After you follow these instructions, you might receive the following error messa
 When a file is copied over the network, the file is decrypted on the source computer, transmitted in plaintext, and re-encrypted at the destination. However, you might see the following error when you're trying to copy an encrypted file: "You are copying the file to a destination that does not support encryption."
 
 ### Cause
-This problem can occur if you are using Encrypting File System (EFS). BitLocker-encrypted files can be copied to Azure File storage. However, Azure File storage does not support NTFS EFS.
+This problem can occur if you are using Encrypting File System (EFS). BitLocker-encrypted files can be copied to Azure Files. However, Azure Files does not support NTFS EFS.
 
 ### Workaround
 To copy a file over the network, you must first decrypt it. Use one of the following methods:
@@ -183,6 +183,24 @@ To copy a file over the network, you must first decrypt it. Use one of the follo
   - Value = 1
 
 Be aware that setting the registry key affects all copy operations that are made to network shares.
+
+## Slow enumeration of files and folders
+
+### Cause
+
+This problem can occur if there is no enough cache on client machine for large directories.
+
+### Solution
+
+To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry value  to allow caching of larger directory listings in the client machine:
+
+- Location: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Value mane: DirectoryCacheEntrySizeMax 
+- Value type:DWORD
+ 
+ 
+For example, you can set it to 0x100000 and see if the performance become better.
+
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
