@@ -288,7 +288,7 @@ The following are post-installation known issues for this build version.
 
 You can download the Azure Stack 1811 update package from [here](https://aka.ms/azurestackupdatedownload). 
 
-In disconnected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md#using-the-update-tile-to-manage-updates).
+In connected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md#using-the-update-tile-to-manage-updates).
 
 ## Next steps
 
