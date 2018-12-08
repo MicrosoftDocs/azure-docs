@@ -1,6 +1,6 @@
 ﻿---
-title: What is Dedicated HSM? | Microsoft Docs
-description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
+title: What is Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
+description: Overview of Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: "mvc, seodec18"
+ms.date: 12/07/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
-# What is Dedicated HSM?
+# What is Azure Dedicated HSM?
 
-Azure Dedicated HSM provides cryptographic key storage in Azure that meets the most stringent security requirements. Dedicated HSM is the ideal solution for customers requiring FIPS 140-2 Level 3 validated devices and complete and exclusive control of the HSM appliance. The HSM devices are deployed globally across several Azure regions and can be easily provisioned as a pair of devices and configured for high availability. HSMs may also be provisioned across regions to assure against regional level failover. Microsoft has delivered the Dedicated HSM service using the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) appliance from Gemalto. This device offers the highest levels of performance and cryptographic integration options. When provisioned, HSMs are connected directly to a customer’s virtual network and could also be accessed by on-premises application and management tools by configuring point-to-site or site-to-site VPN connectivity. Customers will acquire software and documentation to configure and manage HSM devices from Gemalto’s support portal.
+Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure. Dedicated HSM meets the most stringent security requirements. It is the ideal solution for customers requiring FIPS 140-2 Level 3 validated devices and complete and exclusive control of the HSM appliance. The HSM devices are deployed globally across several Azure regions and can be easily provisioned as a pair of devices and configured for high availability. HSMs may also be provisioned across regions to assure against regional level failover. Microsoft has delivered the Dedicated HSM service using the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) appliance from Gemalto. This device offers the highest levels of performance and cryptographic integration options. When provisioned, HSMs are connected directly to a customer’s virtual network and could also be accessed by on-premises application and management tools by configuring point-to-site or site-to-site VPN connectivity. Customers will acquire software and documentation to configure and manage HSM devices from Gemalto’s support portal.
 
 ## Why use Azure dedicated HSM?
 

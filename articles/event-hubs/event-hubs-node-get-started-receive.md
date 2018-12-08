@@ -1,6 +1,6 @@
 ---
 title: Receive events using Node.js - Azure Event Hubs | Microsoft Docs
-description: Learn how to receive events from Event Hubs using Node.js.
+description: This article provides a walkthrough for creating a Node.js application that receives events from Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb

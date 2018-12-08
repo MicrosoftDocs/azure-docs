@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: get intent - C#" 
+title: Get intent, C#
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this C# quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services

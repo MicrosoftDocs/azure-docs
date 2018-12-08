@@ -1,16 +1,18 @@
 ---
-title: Azure Table Storage Design Guide
-description: Design Scalable and Performant Tables in Azure Table Storage
-services: cosmos-db
+title: Design Azure Cosmos DB tables to support scaling and performance 
+description: "Azure Storage Table Design Guide: Designing scalable and performant tables in Azure Cosmos DB and Azure Storage Table"
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: conceptual
-ms.date: 11/03/2017
+ms.date: 12/07/2018
+ms.author: sngun
 ms.custom: seodec18
+
 ---
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 To design scalable and performant tables you must consider a number of factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations will be familiar to you, but while there are some similarities between the Azure Table service storage model and relational models, there are also many important differences. These differences typically lead to different designs that may look counter-intuitive or wrong to someone familiar with relational databases, but that do make good sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences will reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (rows in relational database terminology) of data or for datasets that must support high transaction volumes: therefore, you need to think differently about how you store your data and understand how the Table service works. A well designed NoSQL data store can enable your solution to scale much further (and at a lower cost) than a solution that uses a relational database. This guide helps you with these topics.  
