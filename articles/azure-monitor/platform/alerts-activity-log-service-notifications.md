@@ -36,19 +36,19 @@ For information on how to configure service health notification alerts by using 
 ## Create an alert on a service health notification for a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
-    ![The "Service Health" service](./media/alerts-activity-log-service-notifications/home-servicehealth.png)
+    ![The "Service Health" service](media/alerts-activity-log-service-notifications/home-servicehealth.png)
 
 1. In the **Alerts** section, select **Health alerts**.
 
-    ![The "Health alerts" tab](./media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
+    ![The "Health alerts" tab](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
 
 1. Select **Create service health alert** and fill in the fields.
 
-    ![The "Create service health alert" command](./media/alerts-activity-log-service-notifications/service-health-alert.png)
+    ![The "Create service health alert" command](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
 1. Select the **Subscription**, **Services**, and **Regions** you want to be alerted for.
 
-    ![The "Add activity log alert" dialog box](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
+    ![The "Add activity log alert" dialog box](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
@@ -61,7 +61,7 @@ For information on how to configure service health notification alerts by using 
 
 1. Create a new action group by selecting **New action group**. Enter a name in the **Action group name** box and enter a name in the **Short name** box. The short name is referenced in the notifications that are sent when this alert fires.
 
-    ![Create a new action group](./media/alerts-activity-log-service-notifications/action-group-creation.png)
+    ![Create a new action group](media/alerts-activity-log-service-notifications/action-group-creation.png)
 
 1. Define a list of receivers by providing the receiver's:
 

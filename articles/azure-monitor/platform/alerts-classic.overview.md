@@ -24,7 +24,7 @@ In the past Azure Monitor, Application Insights, Log Analytics and Service Healt
 
 You can view classic alerts only in the classic alerts user screen in the Azure Portal. You get this screen from the **View classic alerts** button on the alerts screen. 
 
- ![Alert choices in Azure portal](./media/alerts-classic.overview/monitor-alert-screen2.png)
+ ![Alert choices in Azure portal](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 The new alerts user experience has the following benefits over the classic alerts experience:
 -	**Better notification system** - All newer alerts use action groups, which are named groups of notifications and actions that can be reused in multiple alerts. Classic metric alerts and older Log Analytics alerts do not use action groups.
@@ -55,7 +55,7 @@ For Diagnostic Log data available through Azure Monitor, route the data into Log
 
 The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
 
-![Alerts explained](./media/alerts-classic.overview/Alerts_Overview_Resource_v5.png)
+![Alerts explained](media/alerts-classic.overview/Alerts_Overview_Resource_v5.png)
 
 ## Taxonomy of alerts (classic)
 Azure uses the following terms to describe classic alerts and their functions:
