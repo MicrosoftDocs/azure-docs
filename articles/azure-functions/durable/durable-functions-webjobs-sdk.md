@@ -30,7 +30,7 @@ To complete the steps in this article:
 
 * [Install Visual Studio 2017 version 15.6 or later](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload.
 
-  If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**. 
+  If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
 
   (You can use [Visual Studio Code](https://code.visualstudio.com/) instead, but some of the instructions are specific to Visual Studio.)
 
@@ -38,7 +38,7 @@ To complete the steps in this article:
 
 ## WebJobs SDK versions
 
-This article explains how to develop a WebJobs SDK 2.x project (equivalent to Azure Functions version 1.x). For information about version 3.x, see [WebJobs SDK 3.x](#webjobs-sdk-3x) later in this article. 
+This article explains how to develop a WebJobs SDK 2.x project (equivalent to Azure Functions version 1.x). For information about version 3.x, see [WebJobs SDK 3.x](#webjobs-sdk-3x) later in this article.
 
 ## Create console app
 
@@ -211,8 +211,8 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
 
 1. Choose the prerelease version 3.x of the following packages:
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+* `Microsoft.Azure.WebJobs.Extensions`
+* `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. Change `Main` method code to get the Storage connection string and the Application Insights instrumentation key from an *appsettings.json* file, using the .NET Core configuration framework.  Here's an example:
 
@@ -230,7 +230,7 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -253,4 +253,3 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
 ## Next steps
 
 To learn more about the WebJobs SDK, see [How to use the WebJobs SDK](../../app-service/webjobs-sdk-how-to.md).
-
