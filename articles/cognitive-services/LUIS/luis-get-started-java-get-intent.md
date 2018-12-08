@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: get intent - Java" 
+title: Get intent, Java
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this Java quickstart, use an available public LUIS app to determine a user's intention from conversational text.    
 author: diberry

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
@@ -21,14 +21,13 @@ The purpose of an entity is to extract important data contained within the utter
 
 **Example utterances include:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Example utterances|
+|--|
+|Where is HRF-123456?|
+|Who authored HRF-123234?|
+|HRF-456098 is published in French?|
+|HRF-456098|
+|HRF-456098 date?|
  
 A regular expression is a good choice for this type of data when:
 

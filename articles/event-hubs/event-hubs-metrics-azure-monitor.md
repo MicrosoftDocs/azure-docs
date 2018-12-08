@@ -1,6 +1,6 @@
 ---
 title: Metrics in Azure Monitor (preview) - Azure Event Hubs | Microsoft Docs
-description: Use Azure Monitoring to monitor Event Hubs
+description: This article provides information on how to use Azure Monitoring to monitor Azure Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy

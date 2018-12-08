@@ -145,7 +145,7 @@
         href: azure-stack-powershell-install.md
       - name: Download tools
         href: azure-stack-powershell-download.md
-      - name: Configure PowerShell - Cloud operator
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-admin.md
     - name: Access privileged endpoint
       href: azure-stack-privileged-endpoint.md
