@@ -43,7 +43,7 @@ Then, you can learn about the additional mechanisms that you can use to recover 
 - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **logical server has not been deleted**.
 - [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
 - [Active geo-replication](sql-database-active-geo-replication.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
-- [Auto-failover group](sql-database-auto-failover-group.md#auto-failover-group-erminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
+- [Auto-failover group](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
 
 Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
@@ -85,7 +85,7 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 > [!IMPORTANT]
 > To use active geo-replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and fail over using the Azure portal, PowerShell, or the REST API using Azure subscription permissions or using Transact-SQL with SQL Server permissions.
 
-Use active auto-failover groups if your application meets any of these criteria:
+Use auto-failover groups if your application meets any of these criteria:
 
 - Is mission critical.
 - Has a service level agreement (SLA) that does not allow for 12 hours or more of downtime.

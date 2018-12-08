@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ---
 # Use auto-failover groups to enable automatic failover to database groups
 
@@ -38,24 +38,29 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Auto-failover group terminology and capabilities
 
-Auto-failover groups provide group level geo-replication and automatic failover. In addition, it removes the necessity to change the SQL connection string after failover by providing the additional listener end-points.
-
 - **Failover group**
 
-  - Single or pooled databases on a logical server: One or many failover groups can be created between two logical servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region.
-  - Managed Instance: A single group can be created with all user databases in the Managed Instance in the group.
+  A failover group is a group of databases manged by single a logical server or within a single managed instance that can fail over as a unit in case all or some primary databases become unavailable due to an outage in the primary region.
 
-- **Primary server**
+  - **Logical servers**
 
-  A server that hosts the primary databases in the failover group.
+     With logical servers, some or all of the user databases on a single server can be placed in a failover group. Also, a logical server supports multiple failover groups on a single server.
 
-- **Secondary server**
+  - **Managed Instances**
+  
+     With Managed Instance, a failover group contains all user databases in the Managed Instance and therefore a Managed Instance only supports a single failover group.
 
-  A server that hosts the secondary databases in the failover group. The secondary server cannot be in the same region as the primary server.
+- **Primary**
 
-- **Adding databases to failover group**
+  The logical server or Managed Instance that hosts the primary databases in the failover group.
 
-  You can put several databases within a server or within an elastic pool into the same failover group. If you add a single database to the group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
+- **Secondary**
+
+  The logical server or Managed Instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary. 
+
+- **Adding databases to failover group on a logical server**
+
+  You can put several databases or within an elastic pool on the same logical server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
 
   > [!NOTE]
   > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
@@ -68,22 +73,37 @@ Auto-failover groups provide group level geo-replication and automatic failover.
 
 - **Failover group read-only listener**
 
-  A DNS CNAME record formed as `failover-group-name.secondary.database.windows.net`**` that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules.
+  - **Logical server DNS CNAME record**
 
-  > [!IMPORTANT]
-  > When a failover group is created on a Managed Instance, the DNS CNAME records for the listeners are `failover-group-name.zone_id.database.windows.net` and `failover-group-name;.secondary.zone_id.database.windows.net.` See [Best practices for failover groups with Managed Instances](#best-practices-of-using-failover-groups-for-business-continuity-with-managed-instances) for details of using zone_id with managed instance.
+     A DNS CNAME record formed as `failover-group-name.secondary.database.windows.net` that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules.
+
+  - **Managed Instance DNS CNAME record**
+
+     When a failover group is created on a Managed Instance, the DNS CNAME records for the listeners are `failover-group-name.zone_id.database.windows.net` and `failover-group-name;.secondary.zone_id.database.windows.net.` See [Best practices for failover groups with Managed Instances](#best-practices-of-using-failover-groups-for-business-continuity-with-managed-instances) for details of using zone_id with managed instance.
 
 - **Automatic failover policy**
 
-  By default, the failover group is configured with an automatic failover policy. The system triggers failover after the failure is detected and the grace period has expired. The system must verify that the outage cannot be mitigated by the built-in high availability infrastructure of the SQL Database service due to the scale of the impact. If you want to control the failover workflow from the application, you can turn off automatic failover.
+  By default, a failover group is configured with an automatic failover policy. The SQL Database service triggers failover after the failure is detected and the grace period has expired. The system must verify that the outage cannot be mitigated by the built-in [high availability infrastructure of the SQL Database service](sql-database-high-availability.md) due to the scale of the impact. If you want to control the failover workflow from the application, you can turn off automatic failover.
 
 - **Read-only failover policy**
 
-  By default, the failover of the read-only listener is disabled. It ensures that the performance of the primary is not impacted when the secondary is offline. However, it also means the read-only sessions will not be able to connect until the secondary is recovered. If you cannot tolerate downtime for the readonly sessions and are OK to temporarily use the primary for both read-only and read-write traffic at the expense of the potential performance degradation of the primary, you can enable failover for the read-only listener. In that case the read-only traffic will be automatically redirected to the primary server if the secondary server is not available.  
+  By default, the failover of the read-only listener is disabled. It ensures that the performance of the primary is not impacted when the secondary is offline. However, it also means the read-only sessions will not be able to connect until the secondary is recovered. If you cannot tolerate downtime for the read-only sessions and are OK to temporarily use the primary for both read-only and read-write traffic at the expense of the potential performance degradation of the primary, you can enable failover for the read-only listener. In that case the read-only traffic will be automatically redirected to the primary if the secondary is not available.
+
+- **Planned failover**
+
+   Planned failover performs full synchronization between primary and secondary databases before the secondary switches to the primary role. This guarantees no data loss. Planned failover is used in the following scenarios:
+
+   - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
+   - Relocate the databases to a different region
+   - Return the databases to the primary region after the outage has been mitigated (failback).
+
+- **Unplanned failover**
+
+   Unplanned or forced failover immediately switches the secondary to the primary role without any synchronization with the primary. This operation will result in data loss. Unplanned failover is used as a recovery method during outages when the primary is not accessible. When the original primary is back online, it will automatically re-connect without synchronization and become a new secondary.
 
 - **Manual failover**
 
-  You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured, manual failover is required to recover databases in the failover group. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the active server to the primary region. When failover is completed, the DNS records are automatically updated to ensure connectivity to the correct server.
+  You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured, manual failover is required to recover databases in the failover group to the secondary. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the primary to the secondary region. When failover is completed, the DNS records are automatically updated to ensure connectivity to the new primary
 
 - **Grace period with data loss**
 
@@ -99,7 +119,7 @@ Auto-failover groups provide group level geo-replication and automatic failover.
   > [!IMPORTANT]
   > Managed Instance does not support multiple failover groups.
 
-## Best practices of using failover groups with single and pooled databases
+## Best practices of using failover groups with single databases and elastic pools
 
 The auto-failover group must be configured on the primary logical server and will connect it to the secondary logical server in a different Azure region.  The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
 
@@ -152,7 +172,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Enable replication traffic between two instances**
 
-  Because each instance is isolated in its own VNET, two-directional traffic between these VNETs must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+  Because each instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 - **Configure a failover group to manage failover of entire instance**
 
@@ -173,9 +193,10 @@ If your application uses Managed Instance as the data tier, follow these general
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
   > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net.
   > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net.
+
 - **Be prepared for perf degradation**
 
-  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the network security guidelines in this article <link>.
+  SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#Failover groups-and-network-security).
 
 - **Prepare for data loss**
 
@@ -220,12 +241,21 @@ The above configuration will ensure that the automatic failover will not block c
 > [!IMPORTANT]
 > To guarantee business continuity for regional outages you must ensure geographic redundancy for both front-end components and the databases.
 
-## Enabling replication between managed instances and their VNETs
+## Enabling geo-replication between Managed Instances and their VNets
 
-When you set up a failover groups between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNET. To allow replication traffic between these VNETs follow these steps:
+When you set up a failover groups between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNet. To allow replication traffic between these VNets follow ensure these prerequisites are met:
 
-1. Connect them through either Express Route circuit (https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) or a VPN Gateway  (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-2. Setup each NSG such that ports 5022 and the range 11000-12000 are open for inbound connections from the other VNET.
+1. The two Managed Instances need to be in different Azure regions.
+2. Your secondary must be empty (no user databases).
+3. The primary and secondary Managed Instances need to be in the same Resource Group.
+4. The VNets that the Managed Instances are part of need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Global VNet Peering is not supported.
+5. The two Managed Instance VNets cannot have overlapping IP addresses.
+6. You need to setup your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other Managed Instanced subnet. This is to allow replication traffic between the instances
+
+    > [!IMPORTANT]
+    > Misconfigured NSG security rules leads to stuck database copy operations.
+
+7. You need to configure DNS zone partner on secondary instance. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the `.database.windows.net` prefix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same subnet share the same DNS zone value. For Manged Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DNS zone value. You accomplish this by specifying the DnsZonePartner parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
 
 ## Upgrading or downgrading a primary database
 
@@ -241,11 +271,15 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** prevents data loss after failover, but does not guarantee full synchronization for read access. The delay caused by a **sp_wait_for_database_copy_sync** procedure call can be significant and depends on the size of the transaction log at the time of the call.
 
-## Programmatically managing failover groups and active geo-replication
+## Failover groups and point-in-time restore
+
+For information about using point-in-time restore with failover groups, see [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## Programmatically managing failover groups
 
 As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### PowerShell: Manage SQL database failover with single and pooled databases
+### PowerShell: Manage SQL database failover with single databases and elastic pools
 
 | Cmdlet | Description |
 | --- | --- |
@@ -279,16 +313,6 @@ As discussed previously, auto-failover groups and active geo-replication can als
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
-
-#### Prerequisites Before Setting Up
-
-- The two Managed Instances need to be in different geographical regions.
-- Your secondary must be empty (no user databases).
-- The primary and secondary Managed Instances need to be in the same Resource Group.
-- The VNets that the Managed Instances are part of need to be [connected through a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet Peering is not supported.
-- The two Managed Instance subnets cannot have overlapping IP addresses.
-- You need to setup your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open to connections from the other vnet. This is to allow replication traffic between the instances.
-- You need to configure a DNS zone & Dns zone partner. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the .database.windows.net suffix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same VNet  share the same DNS zone value. For Manged Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DBS zone value. You accomplish this by specifying the `DnsZonePartner` parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
 
 #### Powershell commandlets to create an instance failover group
 
