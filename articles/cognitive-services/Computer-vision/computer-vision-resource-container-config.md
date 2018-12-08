@@ -36,7 +36,7 @@ Environment variable values override command-line argument values, which in turn
 
 ### Configuration settings as environment variables
 
-You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) to specify configuration settings.
+You can use the [ASP.NET Core environment variable syntax](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) to specify configuration settings.
 
 The container reads user environment variables when the container is instantiated. If an environment variable exists, the value of the environment variable overrides the default value for the specified configuration setting. The benefit of using environment variables is that multiple configuration settings can be set before instantiating containers, and multiple containers can automatically use the same set of configuration settings.
 
