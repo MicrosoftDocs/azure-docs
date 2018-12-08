@@ -29,7 +29,7 @@ For this example, you must also have Docker installed locally. Docker provides p
 
 The following limitations currently apply to the preview:
 
-* Only an Azure AKS cluster or Azure virtual machine can be used as a client to access a container registry in a virtual network. Other Azure services including Azure Container Instances aren't currently supported.
+* Only an Azure virtual machine or Azure AKS cluster can be used as a client to access a container registry in a virtual network. Other Azure services including Azure Container Instances aren't currently supported.
 * You can only use the Azure portal to manage default network access rules for a container registry.
 * Container registries in virtual networks are only supported in the following regions: West Central US... [add others?]
 
@@ -138,6 +138,16 @@ Create an Azure container registry instance using the [az acr create][az-acr-cre
 az acr create --resource-group myResourceGroup --name myContainerRegistry717 --sku Premium
 ```
 
+### Log in to the registry
+
+Before pushing and pulling container images, you must log in to the registry instance. To do so, use the [az acr login][az-acr-login] command.
+
+```azurecli
+az acr login --name myContainerRegistry717
+```
+
+The command returns a `Login Succeeded` message once completed.
+
 ### Push a sample image to the registry
 
 To push an image to an Azure container registry, you must first have an image. If you don't yet have any local container images, run the following local Docker command to pull an existing image from Docker Hub.
@@ -222,15 +232,12 @@ Several virtual network resources and features were discussed in this article, t
 * [Subnet](../virtual-network/virtual-network-manage-subnet.md)
 * [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-
 <!-- IMAGES -->
-[aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
@@ -244,6 +251,7 @@ Several virtual network resources and features were discussed in this article, t
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
+[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-run]: /cli/azure/acr#az-acr-run
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
