@@ -180,6 +180,36 @@ Controlls whether calls
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
+This setting controlls whether %2F is decoded as slashes in route paramaters when they are insterted into the backend URL. 
+
+|Key|Value|Description|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Route paramates with encoded slashes will have them decoded. `example.com/api%2ftest` will become `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|This is the default behavior. All route paramaters will be passed along unchanged|
+
+### Example
+
+Here is an example proxies.json in a function app at the URL myfunction.com
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|URL Decoding|Input|Output|
+|-|-|-|
+|true|myfunction.com/test%2fapi|example.com/test/api
+|false|myfunction.com/test%2fapi|example.com/test%2fapi|
+
+
 ## Next steps
 
 [Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
