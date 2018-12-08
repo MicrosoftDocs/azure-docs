@@ -29,17 +29,11 @@ Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.
 
 You can get started with using the emulator or the free Azure Cosmos DB accounts with the following articles:
 
-* Learn more about [Cosmos DB Emulator](local-emulator.md)
-* Learn more about [Try Cosmos DB for free](https://azure.microsoft.com/en-us/try/cosmosdb/)
-* Learn more about [Azure Free account](https://azure.microsoft.com/free/)
-* Learn more about [How Cosmos pricing works](how-pricing-works.md)
-* Learn more about [How Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md)
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
-* Learn more about [Understanding your Cosmos DB bill](understand-your-bill.md)
+* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](optimize-cost-queries)
-* Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
-* Learn more about [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
-* Learn more about [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)
+* Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
+

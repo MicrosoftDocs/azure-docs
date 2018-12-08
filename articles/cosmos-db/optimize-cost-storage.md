@@ -51,9 +51,9 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 Next you can proceed to learn more about cost optimization in Azure Cosmos DB with the following articles:
 
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
-* Learn more about [Understanding your Cosmos DB bill](understand-your-bill.md)
+* Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](optimize-cost-queries)
-* Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
+* Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
 

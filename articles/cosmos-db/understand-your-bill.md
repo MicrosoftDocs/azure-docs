@@ -11,9 +11,9 @@ ms.author: rimman
 
 # Understanding your Azure Cosmos DB bill
 
-As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for provisioned throughput and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premise or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service is a substantial reduction in costs compared to existing on-premise / IaaS solutions.
+As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for provisioned throughput and consumed storage. There is no additional license fees, hardware, utility costs, or facility costs compared to on-premise or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service is a substantial reduction in costs compared to existing on-premise or IaaS solutions.
 
-On Cosmos DB, you are billed hourly based on the provisioned throughput and the consumed storage (see [How Azure Cosmos DB pricing works](how-pricing-works.md)). For the provisioned throughput, the unit for billing is 100 RU/sec per hour, charged $0.008 per hour, assuming standard public pricing (see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)). For the consumed storage, you are billed $0.25 per 1 GB of storage per month (see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)). Let's use a few examples to help understand what you will see on the actual monthly bill. The numbers below may be different if your Cosmos containers have a different amount of throughput provisioned or span different number of regions or exist for a different number of hours over the course of a month.
+On Azure Cosmos DB, you are billed hourly based on the provisioned throughput and the consumed storage (see [How Azure Cosmos DB pricing works](how-pricing-works.md)). For the provisioned throughput, the unit for billing is 100 RU/sec per hour, charged $0.008 per hour, assuming standard public pricing (see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)). For the consumed storage, you are billed $0.25 per 1 GB of storage per month (see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)). Let's use a few examples to help understand what you will see on the actual monthly bill. The numbers below may be different if your Azure Cosmos containers have a different amount of throughput provisioned or span different number of regions or exist for a different number of hours over the course of a month.
 
 ## Billing examples
 
@@ -53,7 +53,7 @@ If you increase provisioned throughput for a container or a set of containers at
 
 **Billing example: multiple containers, each with dedicated provisioned throughput mode**
 
-* If you create a Cosmos account in East US 2 with two containers with provisioned throughput of 500 RU/sec and 700 RU/sec, respectively, you would have a total provisioned throughput of 1,200 RU/sec.  
+* If you create a Azure Cosmos account in East US 2 with two containers with provisioned throughput of 500 RU/sec and 700 RU/sec, respectively, you would have a total provisioned throughput of 1,200 RU/sec.  
 
 * You would be charged 1,200/100 * $0.008 = $0.096/hour. 
 
@@ -67,7 +67,7 @@ If you increase provisioned throughput for a container or a set of containers at
 
 **Billing example: containers with shared throughput mode**
 
-* If you create a Cosmos account in East US 2 with two Cosmos databases (with a set of containers sharing the throughput at the database level) with the provisioned throughput of 50K RU/sec and 70K RU/sec, respectively, you would have a total provisioned throughput of 120K RU/sec.  
+* If you create a Azure Cosmos account in East US 2 with two Azure Cosmos databases (with a set of containers sharing the throughput at the database level) with the provisioned throughput of 50K RU/sec and 70K RU/sec, respectively, you would have a total provisioned throughput of 120K RU/sec.  
 
 * You would be charged 1200 x $0.008 = $9.60/hour. 
 
@@ -81,11 +81,11 @@ If you increase provisioned throughput for a container or a set of containers at
 
 ## Billing examples with geo-replication and multi-master  
 
-You can add/remove Azure regions anywhere in the world to your Cosmos DB database account at any time. The throughput that you have configured for various Cosmos DB databases and containers will be reserved in each of the Azure regions associated with your Cosmos DB database account. If the sum of provisioned throughput (RU/sec) configured across all the databases and containers within your Cosmos DB database account (provisioned per hour) is T and the number of Azure regions associated with your database account is N, then the total provisioned throughput for a given hour, for your Cosmos DB database account, (a) configured with a single write region is equal to T x N RU/sec and (b) configured with all regions capable of processing writes is equal to T x (N+1) RU/sec, respectively. Provisioned throughput (single write region) costs $0.008/hour per 100 RU/sec and provisioned throughput with multiple writable regions (multi-master config) costs $0.016/per hour per 100 RU/sec (see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)). Whether its single write region, or multiple write regions, Cosmos DB allows you to read data from any region.
+You can add/remove Azure regions anywhere in the world to your Azure Cosmos DB database account at any time. The throughput that you have configured for various Azure Cosmos DB databases and containers will be reserved in each of the Azure regions associated with your Azure Cosmos database account. If the sum of provisioned throughput (RU/sec) configured across all the databases and containers within your Azure Cosmos database account (provisioned per hour) is T and the number of Azure regions associated with your database account is N, then the total provisioned throughput for a given hour, for your Azure Cosmos database account, (a) configured with a single write region is equal to T x N RU/sec and (b) configured with all regions capable of processing writes is equal to T x (N+1) RU/sec, respectively. Provisioned throughput (single write region) costs $0.008/hour per 100 RU/sec and provisioned throughput with multiple writable regions (multi-master config) costs $0.016/per hour per 100 RU/sec (see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)). Whether its single write region, or multiple write regions, Azure Cosmos DB allows you to read data from any region.
 
-**Billing example: multi-region Cosmos account, single region writes**
+**Billing example: multi-region Azure Cosmos account, single region writes**
 
-Let’s assume you have a Cosmos container in West US. The container is created with throughput 10K RU/sec and you store 1 TB of data this month. Let’s assume you add three regions (East US, North Europe, and East Asia) to your Cosmos account, each with the same storage and throughput. Your total monthly bill will be (assuming 30 days in a month). Your bill would be as follows: 
+Let’s assume you have a Azure Cosmos container in West US. The container is created with throughput 10K RU/sec and you store 1 TB of data this month. Let’s assume you add three regions (East US, North Europe, and East Asia) to your Azure Cosmos account, each with the same storage and throughput. Your total monthly bill will be (assuming 30 days in a month). Your bill would be as follows: 
 
 |Item  |Usage (month) |Rate |Monthly Cost |
 |---------|---------|---------|-------|
@@ -97,9 +97,9 @@ Let’s assume you have a Cosmos container in West US. The container is created 
 
 *Let’s also assume that you egress 100 GB of data every month from the container in West US to replicate data into East US, North Europe, and East Asia. You're billed for egress as per data transfer rates.*
 
-**Billing example: multi-region Cosmos account, multi region writes**
+**Billing example: multi-region Azure Cosmos account, multi region writes**
 
-Let’s assume you create a Cosmos container in West US. The container is created with throughput 10K RU/sec and you store 1 TB of data this month. Let’s assume you add three regions (East US, North Europe, and East Asia), each with the same storage and throughput and you want the ability to write to the containers in all regions associated with your Cosmos account. Your total monthly bill will be (assuming 30 days in a month) as follows:
+Let’s assume you create a Azure Cosmos container in West US. The container is created with throughput 10K RU/sec and you store 1 TB of data this month. Let’s assume you add three regions (East US, North Europe, and East Asia), each with the same storage and throughput and you want the ability to write to the containers in all regions associated with your Azure Cosmos account. Your total monthly bill will be (assuming 30 days in a month) as follows:
 
 |Item  |Usage (month) |Rate |Monthly Cost |
 |---------|---------|---------|-------|
@@ -111,13 +111,13 @@ Let’s assume you create a Cosmos container in West US. The container is create
 
 *Let’s also assume that you egress 100 GB of data every month from the container in West US to replicate data into East US, North Europe, and East Asia. You're billed for egress as per data transfer rates.*
 
-**Billing example: real-life example with Cosmos account with multi-master, database-level throughput including dedicated throughput mode for some containers**
+**Billing example: real-life example with Azure Cosmos account with multi-master, database-level throughput including dedicated throughput mode for some containers**
 
-Let’s consider the following example, where we have a multi-region Cosmos account where all regions are writable (multi-master config). For simplicity, we will assume storage size stays constant and doesn’t change and omit it here to keep the example simpler. The provisioned throughput during the month varied as follows (assuming 30 days or 720 hours): 
+Let’s consider the following example, where we have a multi-region Azure Cosmos account where all regions are writable (multi-master config). For simplicity, we will assume storage size stays constant and doesn’t change and omit it here to keep the example simpler. The provisioned throughput during the month varied as follows (assuming 30 days or 720 hours): 
 
 [0-100 hours]:  
 
-* We created a three region Cosmos account (West US, East US, North Europe), where all regions are writable 
+* We created a three region Azure Cosmos account (West US, East US, North Europe), where all regions are writable 
 
 * We created a database (D1) with shared throughput 10K RU/sec 
 
@@ -139,7 +139,7 @@ Let’s consider the following example, where we have a multi-region Cosmos acco
 
 [301-400 hours]:  
 
-* We removed one of the regions from Cosmos account (# of writable regions is now 2) 
+* We removed one of the regions from Azure Cosmos account (# of writable regions is now 2) 
 
 * We scaled down database (D1) to 10K RU/sec 
 
@@ -220,9 +220,9 @@ Total Monthly Cost = $25.00 + $53.57 = $78.57
 
 *Pricing may vary by region. For up-to-date pricing, see the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/).*
 
-## Billing with Cosmos DB reserved capacity
+## Billing with Azure Cosmos DB reserved capacity
 
-Cosmos DB reserved capacity enables you to purchase provisioned throughput in advance (a reserved capacity or a reservation) that can be applied to all Cosmos DB databases and containers (for any API or data model) across all Azure regions. Because provisioned throughput price varies per region, it helps to think of reserved capacity as a monetary credit that you’ve purchased at a discount, that can be drawn from for the provisioned throughput at the respective price in each region. For example, let’s say you have a Cosmos account with a single container provisioned with 50K RU/sec and globally replicated two regions -  East US and Japan East. If you choose the pay-as-you-go option, you would pay:  
+Azure Cosmos DB reserved capacity enables you to purchase provisioned throughput in advance (a reserved capacity or a reservation) that can be applied to all Azure Cosmos DB databases and containers (for any API or data model) across all Azure regions. Because provisioned throughput price varies per region, it helps to think of reserved capacity as a monetary credit that you’ve purchased at a discount, that can be drawn from for the provisioned throughput at the respective price in each region. For example, let’s say you have a Azure Cosmos account with a single container provisioned with 50K RU/sec and globally replicated two regions -  East US and Japan East. If you choose the pay-as-you-go option, you would pay:  
 
 * in East US: for 50K RU/sec at the rate of $0.008 per 100 RU/sec in that region 
 
@@ -253,6 +253,7 @@ What you’ve effectively purchased is a credit of $8 per hour, for 100K RU/
 |Net Bill|||$0.50 |$360 |
 
 ## Next Steps
+
 
 * Learn more about [How Cosmos pricing works](how-pricing-works.md)
 * Learn more about [Request Units](request-units.md) in Azure Cosmos DB
