@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: seodec18,mvc
 ---
 
-# Tutorial: Create container image for deployment to Azure Container Instances
+# Tutorial: Create a container image for deployment to Azure Container Instances
 
 Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting a higher-level service. In this tutorial, you package a small Node.js web application into a container image that can be run using Azure Container Instances.
 
