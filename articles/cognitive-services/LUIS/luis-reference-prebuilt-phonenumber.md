@@ -13,7 +13,7 @@ ms.date: 11/27/2018
 ms.author: diberry
 ---
 
-# Phonenumber entity
+# Phonenumber prebuilt entity for a LUIS app
 The `phonenumber` entity extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances to the application. The `phonenumber` entity is supported in `en-us` culture only. 
 
 ## Types of phonenumber

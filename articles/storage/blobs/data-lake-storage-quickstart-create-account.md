@@ -130,7 +130,7 @@ Uninstall-Module AzureRM.Storage -Force
 Install the Az.Storage module
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion .07 –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
 Enable compatibility mode for AzureRM.

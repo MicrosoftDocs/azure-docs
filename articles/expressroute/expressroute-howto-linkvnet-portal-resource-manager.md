@@ -1,21 +1,14 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: Azure portal | Microsoft Docs'
+title: 'Link a virtual network to a circuit - ExpressRoute: Azure portal | Microsoft Docs'
 description: Connect a VNet to an Azure ExpressRoute Circuit. How-to steps.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using the portal
