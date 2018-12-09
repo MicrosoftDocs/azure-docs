@@ -16,7 +16,7 @@ ms.author: diberry
 If you have the LUIS app ID and the LUIS subscription ID, you can find which region to use for endpoint queries.
 
 > [!NOTE] 
-> The complete C# solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> The complete C# solution is available from the [**LUIS-Samples** GitHub repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
 
 ## LUIS endpoint query strategy
 Each LUIS endpoint query requires:
