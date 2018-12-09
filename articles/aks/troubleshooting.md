@@ -17,7 +17,7 @@ When you create or manage Azure Kubernetes Service (AKS) clusters, you may occas
 ## In general, where do I find information about debugging Kubernetes issues?
 
 Try the [official guide to troubleshooting Kubernetes clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
-There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), published by a Microsoft engineer for troubleshooting pods, nodes, clusters, and features.
+There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), published by a Microsoft engineer for troubleshooting pods, nodes, clusters, and other features.
 
 ## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
 
@@ -32,7 +32,7 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based upon 2) above, the subnet size should be greater than the product of the number of nodes and the maximum pods per node: 
 
-    `subnet size > number of nodes in the cluster * maximum pods per node`
+    subnet size > number of nodes in the cluster * maximum pods per node
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -45,7 +45,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 
 Unfortunately, enabling role-based access control (RBAC) on existing clusters is not supported at this time. You must explicitly create new clusters. If you use the CLI, RBAC is enabled by default. If you use the AKS portal, a toggle button to enable RBAC is available in the creation workflow.
 
-## I created a cluster with RBAC enabled by using either the Azure CLI with defaults or the Azure portal, and now I see numerous warnings in the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
+## I created a cluster with RBAC enabled by using either the Azure CLI with defaults or the Azure portal, and now I see numerous warnings on the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
 
 The reason for the warnings on the dashboard is that the cluster is now enabled with RBAC and access to it has been disabled by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
