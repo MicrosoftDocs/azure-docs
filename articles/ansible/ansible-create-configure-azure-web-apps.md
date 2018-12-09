@@ -227,4 +227,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Azure App Service web apps by using Ansible](ansible-scale-azure-web-apps)
+> [Scale Azure App Service web apps by using Ansible](https://docs.microsoft.com/azure/ansible/ansible-scale-azure-web-apps)
