@@ -123,7 +123,12 @@
         },
         {
             "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
-            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "redirect_document_id": true
         },
         {
