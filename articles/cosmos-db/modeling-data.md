@@ -33,7 +33,7 @@ Before we dive in too much further, let us take a few steps back and have a look
 
 When working with relational databases, we've been taught for years to normalize, normalize, normalize.
 
-Normalizing your data typically involves taking an entity, such as a person, and breaking it down in to discrete pieces of data. In the example above, a person can have multiple contact detail records as well as multiple address records. We even go one step further and break down contact details by further extracting common fields like a type. Same for address, each record here has a type like *Home* or *Business* 
+Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete pieces of data. In the example above, a person can have multiple contact detail records as well as multiple address records. We even go one step further and break down contact details by further extracting common fields like a type. Same for address, each record here has a type like *Home* or *Business* 
 
 The guiding premise when normalizing data is to **avoid storing redundant data** on each record and rather refer to data. In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively aggregate your data at run time.
 
