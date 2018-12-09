@@ -21,13 +21,13 @@ As you plan and design for migration, in addition to thinking about the migratio
 
 After migration, the most critical task is to secure migrated workloads from internal and external threats. These best practices help you to do that:
 
-- **Work with Azure Security Center**: Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
-- **Encrypt your data**: Get best practices for encrypting your data in Azure.
-- **Set up antimalware**: Protect your VMs from malware and malicious attacks.
-- **Secure web apps**: Keep sensitive information secure in migrated web apps.
-- **Review subscriptions**: Verify who can access your Azure subscriptions and resources after migration.
-- **Work with logs**: Review your Azure auditing and security logs on a regular basis.
-- **Advanced security features**: Understand and evaluate other security features that Azure offers.
+- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
+- [Encrypt your data](#best-practice-encrypt-data): Get best practices for encrypting your data in Azure.
+- [Set up antimalware](#best-practice-protect-vms-with-antimalware): Protect your VMs from malware and malicious attacks.
+- [Secure web apps](#best-practice-secure-web-apps): Keep sensitive information secure in migrated web apps.
+- [Review subscriptions](#best-practice-review-subscriptions-and-resource-permissions): Verify who can access your Azure subscriptions and resources after migration.
+- [Work with logs](#best-practice-review-audit-and-security-logs): Review your Azure auditing and security logs on a regular basis.
+- [Review other security features](#best-practice-evaluate-other-security-features): Understand and evaluate advanced security features that Azure offers.
 
 ## Best practice: Follow Azure Security Center recommendations
 
@@ -43,9 +43,8 @@ In addition to assessments and recommendations, the Security Center provides a n
 - **Just In Time (JIT) access**: Reduce your network attack surface with just in time, controlled access to management ports on Azure VMs.
     - Having VM RDP port 3389 open on the internet exposes VMs to continual bad actor activity. Azure IP addresses are well-known, and hackers continually probe them for attacks on open 3389 ports. 
     - Just in time uses network security groups (NSGs) and incoming rules that limit the amount of time that a specific port is open.
-    - With just in time enabled. Security Center checks that a user has role-based access control (RBAC) write access permissions for a VM. In addition, specify rules for how users can connect to VMs. If permissions are OK, an access request is approved and Security Center configures NSGs to allow inbound traffic to the selected ports for the amount of time you specify. NSGs are return to their previous state when the time expires.
-- **Adaptive application controls**: Keep software and malware off VMs by control which apps run on them.
-    - with dynamic app whitelisting.
+    - With just in time enabled, Security Center checks that a user has role-based access control (RBAC) write access permissions for a VM. In addition, specify rules for how users can connect to VMs. If permissions are OK, an access request is approved and Security Center configures NSGs to allow inbound traffic to the selected ports for the amount of time you specify. NSGs are return to their previous state when the time expires.
+- **Adaptive application controls**: Keep software and malware off VMs by controlling which apps run on them using dynamic app whitelisting.
     - Adaptive application controls allow you to white list apps, and prevent rogue users or administrators from installing unapproved or vetting software apps on your VMs.
     - You can block or alert attempts to run malicious apps, avoid unwanted or malicious apps, and ensure compliance with your organization's app security policy.
 - **File Integrity Monitoring**: Ensure the integrity of files running on VMs.
@@ -172,7 +171,7 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 
 Azure Active Directory (AD) provides activity logs that appear in Azure Monitor. The logs capture the operations performed in Azure tenancy, when they occurred, and who performed them. 
 
-- Audit logs show the history of tasks in the tenant. Sign-ins activity logs show who carried out the tasks. 
+- Audit logs show the history of tasks in the tenant. Sign-in activity logs show who carried out the tasks. 
 - Access to security reports depends on your Azure AD license. In Free and Basic you get a list of risky users and sign-ins. In Premium 1 and Premium 2 editions you get underlying event information.
 - You can route activity logs to a number of endpoints for long-term retention and data insights.
 - Make it a common practice to review the logs or integrate your security information and event management (SIEM) tools to automatically review abnormalities.  If you're not using Premium 1 or 2, you'll need to do a lot of analysis yourself or using your SIEM system.  Analysis includes looking for risky sign-ins and events, and other user attack patterns.
@@ -224,7 +223,7 @@ Ensuring that your resource groups have meaningful names that admins and support
 
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) naming conventions
+- [Learn about](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) naming conventions
 
 ## Best practice: Implement delete locks for resource groups
 
@@ -287,11 +286,11 @@ Just as blueprint allows engineers and architects to sketch a project's design p
 Building secure, scalable, and manageable workloads in Azure can be daunting.  With continual changes, it can be difficult to keep up with different features for an optimal environment. Having a reference to learn from can be helpful when designing and migrating your workloads.  Azure and Azure partners have built several sample reference architectures for various types of environments. These samples are designed to provide ideas that you can learn from and build on. 
 
 Reference architectures are arranged by scenario. They contain recommend practices, and advice on management, availability, scalability, and security.
-
+The Azure App Service Environment provides a fully isolated and dedicated environment in which to run App Service apps, including Windows and Linux web apps, Docker containers, mobile apps, and functions. App Service adds the power of Azure to your application, with security, load balancing, autoscaling, and automated management. You can also take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps and GitHub, package management, staging environments, custom domain, and SSL certificates. App Service is useful for apps that need isolation and secure network access, and those that use high amounts of memory and other resources that need to scale.
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure reference architectures.
-[Review](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure example scenarios.
+- [Learn about](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure reference architectures.
+- [Review](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure example scenarios.
 
 ## Best practice: Manage resources with Management Groups
 
@@ -408,9 +407,9 @@ Azure VMs are stored as page blobs in Azure Storage.
 
 **Learn more:**
 
-- [Learn about](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction Azure blob storage.
+- [Learn about](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) Azure blob storage.
 - [Learn how to](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) create a blob snapshot.
-- Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup/) for blob storage backup.
+- [Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) for blob storage backup.
 - [Read about](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) soft delete.
 - [Review](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) What to do if an Azure Storage outage occurs?
 
