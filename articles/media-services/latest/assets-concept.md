@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets in Azure Media Services | Microsoft Docs
+title: Assets in Media Services - Azure | Microsoft Docs
 description: This article gives an explanation of what assets are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
