@@ -60,27 +60,27 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
         Netstat -anob |more
 2. If Termservice.exe is using 8080 port, go to step 2. If another service or application other than Termservice.exe is using 8080 port, follow these steps:
 
-    A. Stop the service for the application that is using the 3389 service:
+    1. Stop the service for the application that is using the 3389 service:
 
         Stop-Service -Name <ServiceName>
 
-    B. Start the terminal service:
+    2. Start the terminal service:
 
         Start-Service -Name Termservice
 
 2. If the application cannot be stopped, or if this method does not apply to you, change the port for RDP:
 
-    A. Change the port:
+    1. Change the port:
 
         Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
         Stop-Service -Name Termservice Start-Service -Name Termservice
 
-    B. Set the firewall for the new port:
+    2. Set the firewall for the new port:
 
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
-    C. [Update the network security group for the new port](../../virtual-network/security-overview.md) in the Azure portal RDP port.
+    3. [Update the network security group for the new port](../../virtual-network/security-overview.md) in the Azure portal RDP port.
 
 #### Step 2: Set correct permissions on the RDP self-signed certificate
 
