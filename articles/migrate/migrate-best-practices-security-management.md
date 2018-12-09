@@ -50,10 +50,7 @@ In addition to assessments and recommendations, the Security Center provides a n
 - **File Integrity Monitoring**: Ensure the integrity of files running on VMs.
     - You don’t need to install software to cause VM issues.  Changing a system file can also cause VM failure or performance degradation.  File integrity Monitoring examines system files and registry settings for changes, and notifies you if something is updated.
     - Security Center recommends which files you should monitor.
-Read more about Best Practice:
-•	Manage virtual machine access using just in time
-•	Adaptive application controls in Azure Security Center
-•	File Integrity Monitoring in Azure Security Center
+
 
 **Learn more:**
 
@@ -200,15 +197,15 @@ Azure provides a number of other security features that provide advanced securit
 
 In this section we'll recommend some best practices for Azure management, including:
 
-- **Manage resources**: Best practices for Azure resource groups and resources, including smart naming, preventing accidental deletion, managing resource permissions, and effective resource tagging.
-- **Use blueprints**: Get a quick overview on using blueprints for building and managing your deployment environments.
-- **Review architectures**: Review sample Azure architectures to learn from as you build your post-migration deployments.
-- **Set up management groups**: If you have multiple subscriptions, you can gather them into management groups, and apply governance settings to those groups.
-- **Set up access policies**: Apply compliance policies to your Azure resources.
-- **Implement a BCDR strategy**: Put together a business continuity and disaster recovery (BCDR) strategy to keep data safe, your environment resilient, and resources up and running when outages occur.
-- **Manage VMs**: Group VMs into availability groups for resilience and high availability. Use managed disks for ease of VM disk and storage management.
-- **Monitor resource usage**: Enable diagnostic logging for Azure resources, build alerts and playbooks for proactive troubleshooting, and use the Azure dashboard for a unified view of your deployment health and status.
-- **Manage support and updates**: Understand your Azure support plan and how to implement it, get best practices for keeping VMs up-to-date, and put processes in place for change management.
+- [Manage resources](#best-practice-name-resource-groups): Best practices for Azure resource groups and resources, including smart naming, preventing accidental deletion, managing resource permissions, and effective resource tagging.
+- [Use blueprints](#best-practice-implement-blueprints): Get a quick overview on using blueprints for building and managing your deployment environments.
+- [Review architectures](#best-practice-review-azure-reference-architectures): Review sample Azure architectures to learn from as you build your post-migration deployments.
+- [Set up management groups](#best-practice-manage-resources-with-management-groups): If you have multiple subscriptions, you can gather them into management groups, and apply governance settings to those groups.
+- [Set up access policies](#best-practice-deploy-azure-policy): Apply compliance policies to your Azure resources.
+- [Implement a BCDR strategy](#best-practice-implement-a-bcdr-strategy): Put together a business continuity and disaster recovery (BCDR) strategy to keep data safe, your environment resilient, and resources up and running when outages occur.
+- [Manage VMs](#best-practice-use-managed-disks-and-availability-sets): Group VMs into availability groups for resilience and high availability. Use managed disks for ease of VM disk and storage management.
+- [Monitor resource usage](#best-practice-monitor-resource-usage-and-performance): Enable diagnostic logging for Azure resources, build alerts and playbooks for proactive troubleshooting, and use the Azure dashboard for a unified view of your deployment health and status.
+- [Manage support and updates](#best-practice-manage-updates): Understand your Azure support plan and how to implement it, get best practices for keeping VMs up-to-date, and put processes in place for change management.
 
 
 ## Best practice: Name resource groups
@@ -281,7 +278,7 @@ Just as blueprint allows engineers and architects to sketch a project's design p
 - [Read](https://docs.microsoft.com/azure/governance/blueprints/overview) about blueprints.
 - [Review](https://azure.microsoft.com/blog/customizing-azure-blueprints-to-accelerate-ai-in-healthcare/) a blueprint example used to accelerate AI in healthcare.
 
-## Best practice - Review Azure reference architectures
+## Best practice: Review Azure reference architectures
 
 Building secure, scalable, and manageable workloads in Azure can be daunting.  With continual changes, it can be difficult to keep up with different features for an optimal environment. Having a reference to learn from can be helpful when designing and migrating your workloads.  Azure and Azure partners have built several sample reference architectures for various types of environments. These samples are designed to provide ideas that you can learn from and build on. 
 
@@ -551,7 +548,7 @@ If the compute infrastructure in Azure fails, an Azure function app might become
 - [Learn about](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) disaster recovery and geo-distribution for durable Azure functions.
 
 
-### Best practice: Use managed disks and availability sets
+## Best practice: Use managed disks and availability sets
 
 Azure uses availability sets to logically group VMs together, and to isolate VMs in a set from other resources. VMs in an availability set are spread across multiple fault domains with separate subsystems, to protect against local failures, and are also spread across multiple update domains so that not all VMs in a set reboot at the same time.
 
@@ -660,7 +657,7 @@ At some point you will need to collaborate with your support staff or Microsoft 
 - [Get an overview](https://azure.microsoft.com/support/options/) of Azure support plans.
 - [Learn about](https://azure.microsoft.com/support/legal/sla/) service level agreements (SLAs).
 
-## Best practice - Manage updates
+## Best practice: Manage updates
 
 Keeping Azure VMs updated with the latest operating system and software updates is a massive chore. The ability to surface all VMs, to figure out which updates they need, and to automatically push those updates is extremely valuable.
 
