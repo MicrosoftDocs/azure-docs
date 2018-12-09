@@ -21,13 +21,13 @@ As you plan and design for migration, in addition to thinking about the migratio
 
 After migration, the most critical task is to secure migrated workloads from internal and external threats. These best practices help you to do that:
 
-- [Work with Azure Security Center](best-practice-follow-azure-security-center8recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
-- [Encrypt your data](best-practice-encrypt-data): Get best practices for encrypting your data in Azure.
-- [Set up antimalware](best-practice-protect-vms-with-antimalware): Protect your VMs from malware and malicious attacks.
-- [Secure web apps](best-practice-secure-web-apps): Keep sensitive information secure in migrated web apps.
-- [Review subscriptions](best-practice-review-subscriptions-and-resource-permissions): Verify who can access your Azure subscriptions and resources after migration.
-- [Work with logs](best-practice-review-audit-and-security-logs): Review your Azure auditing and security logs on a regular basis.
-- [Review other security features](best-practice-evaluate-other-security-features): Understand and evaluate advanced security features that Azure offers.
+- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
+- [Encrypt your data](#best-practice-encrypt-data): Get best practices for encrypting your data in Azure.
+- [Set up antimalware](#best-practice-protect-vms-with-antimalware): Protect your VMs from malware and malicious attacks.
+- [Secure web apps](#best-practice-secure-web-apps): Keep sensitive information secure in migrated web apps.
+- [Review subscriptions](#best-practice-review-subscriptions-and-resource-permissions): Verify who can access your Azure subscriptions and resources after migration.
+- [Work with logs](#best-practice-review-audit-and-security-logs): Review your Azure auditing and security logs on a regular basis.
+- [Review other security features](#best-practice-evaluate-other-security-features): Understand and evaluate advanced security features that Azure offers.
 
 ## Best practice: Follow Azure Security Center recommendations
 
