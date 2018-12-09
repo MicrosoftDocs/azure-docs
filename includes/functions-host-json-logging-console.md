@@ -22,3 +22,5 @@ Controls the console logging when not in debugging mode.
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|false|Enables or disables console logging.| 
+
+

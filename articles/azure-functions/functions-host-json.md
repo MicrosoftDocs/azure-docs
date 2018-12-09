@@ -185,23 +185,9 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 ## console
 
-This setting is a child of [logging](#logging). Controls the console logging when not in debugging mode.
+This setting is a child of [logging](#logging).
 
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|false|Enables or disables console logging.| 
+[!INCLUDE [logging-console](../../includes/functions-host-json-logging-console.md)]
 
 ## queues
 
