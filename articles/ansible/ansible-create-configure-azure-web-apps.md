@@ -1,5 +1,5 @@
 ---
-title: Create Azure web apps by using Ansible (preview)
+title: Create Azure web apps by using Ansible
 description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
@@ -7,10 +7,10 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 12/08/2018
 ---
 
-# Create Azure App Service web apps by using Ansible (preview)
+# Create Azure App Service web apps by using Ansible
 [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (or just Web Apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a web app by using the Java runtime. 
@@ -20,7 +20,7 @@ Ansible enables you to automate the deployment and configuration of resources in
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You can install the Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. After Ansible 2.7 is released, you won't need to specify a version here because the default version will be 2.7. 
+> Ansible 2.7 is required to run the following the sample playbooks in this tutorial.
 
 ## Create a simple App service
 This section presents a sample Ansible playbook that defines the following resources:
@@ -217,4 +217,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Azure App Service web apps by using Ansible](ansible-scale-azure-web-app)
