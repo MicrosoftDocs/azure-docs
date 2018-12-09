@@ -31,8 +31,9 @@ This section presents a sample Ansible playbook that defines the following resou
 - hosts: localhost
   connection: local
   vars:
-    resource_group: myfirstResourceGroup
+    resource_group: myResourceGroup
     webapp_name: myfirstWebApp
+    plan_name: myAppServicePlan
     location: eastus
   tasks:
     - name: Create a resource group
@@ -46,7 +47,7 @@ This section presents a sample Ansible playbook that defines the following resou
         name: "{{ webapp_name }}"
         plan:
           resource_group: "{{ resource_group }}"
-          name: myappplan
+          name: "{{ plan_name }}"
           is_linux: true
           sku: S1
           number_of_workers: 1
@@ -67,16 +68,21 @@ ansible-playbook firstwebapp.yml
 The output from running the Ansible playbook shows that the web app was successfully created:
 
 ```
+PLAY [localhost] *************************************************
+
+TASK [Gathering Facts] *************************************************
+ok: [localhost]
+
 TASK [Create a resource group] *************************************************
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] ******************************
- [WARNING]: Azure API profile latest does not define an entry for
-WebSiteManagementClient
+TASK [Create App Service on Linux with Java Runtime] *************************************************
+ [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
+
 changed: [localhost]
 
-PLAY RECAP *********************************************************************
-localhost                  : ok=2    changed=2    unreachable=0    failed=0   
+PLAY RECAP *************************************************
+localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
 ## Create an app service by using Traffic Manager
@@ -97,29 +103,29 @@ This section presents a sample Ansible playbook that defines the following resou
 - hosts: localhost
   connection: local
   vars:
+    resource_group_webapp: myResourceGroupWebapp
     resource_group: myResourceGroup
-    plan_resource_group: planResourceGroup
-    app_name: myLinuxWebApp
+    webapp_name: myLinuxWebApp
+    plan_name: myAppServicePlan
     location: eastus
-    linux_plan_name: myAppServicePlan
     traffic_manager_profile_name: myTrafficManagerProfile
     traffic_manager_endpoint_name: myTrafficManagerEndpoint
 
   tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
+        name: "{{ resource_group_webapp }}"
         location: "{{ location }}"
 
   - name: Create secondary resource group
     azure_rm_resourcegroup:
-        name: "{{ plan_resource_group }}"
+        name: "{{ resource_group }}"
         location: "{{ location }}"
 
   - name: Create App Service Plan
     azure_rm_appserviceplan:
-      resource_group: "{{ plan_resource_group }}"
-      name: "{{ linux_plan_name }}"
+      resource_group: "{{ resource_group }}"
+      name: "{{ plan_name }}"
       location: "{{ location }}"
       is_linux: true
       sku: S1
@@ -127,11 +133,11 @@ This section presents a sample Ansible playbook that defines the following resou
 
   - name: Create App Service on Linux with Java Runtime
     azure_rm_webapp:
-        resource_group: "{{ resource_group }}"
-        name: "{{ app_name }}"
+        resource_group: "{{ resource_group_webapp }}"
+        name: "{{ webapp_name }}"
         plan:
-          resource_group: "{{ plan_resource_group }}"
-          name: "{{ linux_plan_name }}"
+          resource_group: "{{ resource_group }}"
+          name: "{{ plan_name }}"
           is_linux: true
           sku: S1
           number_of_workers: 1
@@ -146,13 +152,13 @@ This section presents a sample Ansible playbook that defines the following resou
 
   - name: Get web app facts
     azure_rm_webapp_facts:
-      resource_group: "{{ resource_group }}"
-      name: "{{ app_name }}"
+      resource_group: "{{ resource_group_webapp }}"
+      name: "{{ webapp_name }}"
     register: webapp
     
   - name: Create Traffic Manager Profile
     azure_rm_trafficmanagerprofile:
-      resource_group: "{{ resource_group }}"
+      resource_group: "{{ resource_group_webapp }}"
       name: "{{ traffic_manager_profile_name }}"
       location: global
       routing_method: performance
@@ -166,13 +172,12 @@ This section presents a sample Ansible playbook that defines the following resou
 
   - name: Add endpoint to traffic manager profile, using created web site
     azure_rm_trafficmanagerendpoint:
-      resource_group: "{{ resource_group }}"
+      resource_group: "{{ resource_group_webapp }}"
       profile_name: "{{ traffic_manager_profile_name }}"
       name: "{{ traffic_manager_endpoint_name }}"
       type: azure_endpoints
       location: "{{ location }}"
       target_resource_id: "{{ webapp.webapps[0].id }}"
-
 ```
 Save the preceding playbook as **webapp.yml**, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
@@ -183,6 +188,11 @@ ansible-playbook webapp.yml
 
 The output from running the Ansible playbook shows that the App service plan, web app, Traffic Manager profile, and endpoint were successfully created:
 ```
+PLAY [localhost] *************************************************
+
+TASK [Gathering Facts] *************************************************
+ok: [localhost]
+
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]
 
@@ -217,4 +227,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Azure App Service web apps by using Ansible](ansible-scale-azure-web-app)
+> [Azure App Service web apps by using Ansible](ansible-scale-azure-web-apps)

@@ -11,7 +11,7 @@ ms.date: 12/08/2018
 ---
 
 # Scale Azure App Service web apps by using Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (or just Web Apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to scale your app in Azure App Service.
 
@@ -23,58 +23,93 @@ Ansible enables you to automate the deployment and configuration of resources in
 ## Scale up an App in App Service
 You can scale up by changing the pricing tier of the App Service plan that your app belongs to. This section presents a sample Ansible playbook that defines following operation:
 - Get facts of an existing App Service plan
-- Update the App service plan to S2 with two workers
+- Update the App service plan to S2 with three workers
 
 ```
 - hosts: localhost
   connection: local
   vars:
-    resource_group_name: myResourceGroup
+    resource_group: myResourceGroup
     plan_name: myAppServicePlan
     location: eastus
 
+  tasks:
   - name: Get facts of existing App serivce plan
     azure_rm_appserviceplan_facts:
-      resource_group: "{{ resource_group_name }}"
+      resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
     register: facts
 
+  - debug: 
+      var: facts.appserviceplans[0].sku
+
   - name: Scale up the App service plan
     azure_rm_appserviceplan:
-      resource_group: "{{ resource_group_name }}"
+      resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
       is_linux: true
       sku: S2
-      number_of_workers: 2
+      number_of_workers: 3
       
   - name: Get facts
     azure_rm_appserviceplan_facts:
-      resource_group: "{{ resource_group_name }}"
+      resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
+    register: facts
+
+  - debug: 
+      var: facts.appserviceplans[0].sku
 ```
 
-Save this playbook as *appserviceplan_scale.yml*, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/appserviceplan_scale.yml).
+Save this playbook as *webapp_scaleup.yml*.
 
 To run the playbook,  use the **ansible-playbook** command as follows:
 ```bash
-ansible-playbook appserviceplan_scale.yml
+ansible-playbook webapp_scaleup.yml
 ```
 
-After running the playbook, output similiar to the following example shows that the App service plan has been successfully updated to S2:
+After running the playbook, output similiar to the following example shows that the App service plan has been successfully updated to S2 with three workers:
 ```
-TASK [Get facts of existing App serivce plan] *************************************************
-[WARNING]: Azure API profile latest does not define an entry for
-WebSiteManagementClient
+PLAY [localhost] **************************************************************
 
-changed: [localhost]
-TASK [Scale up the App Service Plan] *******************************************
+TASK [Gathering Facts] ********************************************************
+ok: [localhost]
 
-changed: [localhost]
-TASK [Get facts] ***************************************************************
+TASK [Get facts of existing App serivce plan] **********************************************************
+ [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
-PLAY RECAP *********************************************************************
-localhost                  : ok=3    changed=3    unreachable=0    failed=0  
+
+TASK [debug] ******************************************************************
+ok: [localhost] => {
+    "facts.appserviceplans[0].sku": {
+        "capacity": 1,
+        "family": "S",
+        "name": "S1",
+        "size": "S1",
+        "tier": "Standard"
+    }
+}
+
+TASK [Scale up the App service plan] *******************************************
+changed: [localhost]
+
+TASK [Get facts] ***************************************************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "facts.appserviceplans[0].sku": {
+        "capacity": 3,
+        "family": "S",
+        "name": "S2",
+        "size": "S2",
+        "tier": "Standard"
+    }
+}
+
+PLAY RECAP **********************************************************************
+localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## Next steps
