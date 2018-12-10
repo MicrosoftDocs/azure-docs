@@ -100,7 +100,25 @@ To identify the issue on a single-node local cluster you can re-run failed jobs 
 
 ## Quotas
 
-After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The most common quota limit reached is the CPU Cores quota that exists at the subscription, region, and VM series levels. For example, your subscription may have a 200 core total limit, with a 30 core limit in your region, and a 30 core limit on VM instances. You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The most common quota limit reached is the CPU Cores quota that exists at the subscription, region, and VM series levels. For example, your subscription may have a 200 core total limit, with a 30 core limit in your region, and a 30 core limit on VM instances. If you need to request a quota increase, please do the following:
+
+1. Go to the Windows Azure portal
+1. Click on **Help and Support** on the bottom left side of the page.
+1. Click on **New support request**.
+1. On the **New support request** page, under **Basics**, select the following options:
+    - **Issue type**: **Service and subscription limits (quotas)**, 
+    - **Subscription**: the subscription you want to modify
+    - **Quota type**: **HDInsight**
+    - **Support plan**: the support plan that you have
+1. Click **Next**.
+1. On the **Details** page, select the severity of the issue, enter any details you'd like to provide, and upload a file if necessary.
+1. Click **Next**.
+1. On the *Contact information** page, fill in all of the required fields and then click **Create**.
+
+> [!Note]
+> If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
+
+You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
