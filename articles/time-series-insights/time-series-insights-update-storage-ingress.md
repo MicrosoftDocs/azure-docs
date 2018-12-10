@@ -130,15 +130,15 @@ You can access your data in three general ways:
 * From the Time Series Insights Preview APIs.
 * Directly from an Azure storage account.
 
-### From the Time Series Insights Preview explorer
+#### From the Time Series Insights Preview explorer
 
 You can export data as a CSV file from the Time Series Insights Preview explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
-### From the Time Series Insights Preview APIs
+#### From the Time Series Insights Preview APIs
 
 The API endpoint can be reached at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
 
-### From an Azure storage account
+#### From an Azure storage account
 
 * You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
 
