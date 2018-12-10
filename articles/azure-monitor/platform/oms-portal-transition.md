@@ -12,7 +12,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # OMS portal moving to Azure

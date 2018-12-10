@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: 
 ---
  
 # Manage cost by controlling data volume and retention in Log Analytics
