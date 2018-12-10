@@ -6,7 +6,6 @@ documentationcenter: ''
 author: richrundmsft
 manager: jochan
 editor: ''
-
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -15,7 +14,6 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.component: 
 ---
 
 # Manage Log Analytics using PowerShell

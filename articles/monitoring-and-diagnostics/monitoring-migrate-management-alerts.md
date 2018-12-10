@@ -87,7 +87,7 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 Each alert is separated by a dashed line and details include the resource ID of the alert and the specific rule being monitored.
 
 This functionality has been transitioned to [Azure Monitor Activity Log Alerts](monitoring-activity-log-alerts.md). These new alerts enable you to set a condition on Activity Log events and receive a notification when a new event matches the condition. They also offer several improvements from alerts on management events:
-* You can reuse your group of notification recipients (“actions”) across many alerts using [Action Groups](monitoring-action-groups.md), reducing the complexity of changing who should receive an alert.
+* You can reuse your group of notification recipients (“actions”) across many alerts using [Action Groups](../azure-monitor/platform/action-groups.md), reducing the complexity of changing who should receive an alert.
 * You can receive a notification directly on your phone using SMS with Action Groups.
 * You can [create Activity Log Alerts with Resource Manager templates](../azure-monitor/platform/alerts-activity-log.md).
 * You can create conditions with greater flexibility and complexity to meet your specific needs.
@@ -109,4 +109,4 @@ Alerts on management events that you have previously created will not be automat
 * Configure [Activity Log Alerts via Resource Manager](../azure-monitor/platform/alerts-activity-log.md)
 * Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
 * Learn more about [Service Notifications](monitoring-service-notifications.md)
-* Learn more about [Action Groups](monitoring-action-groups.md)
+* Learn more about [Action Groups](../azure-monitor/platform/action-groups.md)
