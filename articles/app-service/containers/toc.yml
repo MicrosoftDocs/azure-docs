@@ -42,7 +42,7 @@
     - name: Python with Postgres
       href: tutorial-python-postgresql-app.md
     - name: Java with Spring Data
-      href: app-service-web-tutorial-java-cosmosdb.md
+      href: tutorial-java-spring-cosmosdb.md
     - name: Java Enterprise with Postgres
       href: tutorial-java-enterprise-postgresql-app.md
   - name: Multi-container app

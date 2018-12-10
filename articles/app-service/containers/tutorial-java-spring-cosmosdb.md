@@ -6,7 +6,7 @@ manager: angerobe
 ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 12/10/2018
 ms.custom: mvc
 ---
 
@@ -118,7 +118,7 @@ public interface TodoItemRepository extends DocumentDbRepository<TodoItem, Strin
 }
 ```
 
-Then the sample app uses the `@Document` annotation imported from `com.microsoft.azure.spring.data.cosmosdb.core.mapping.Document` to set up an entity type to be managed by Cosmos DB:
+Then the sample app uses the `@Document` annotation imported from `com.microsoft.azure.spring.data.cosmosdb.core.mapping.Document` to set up an entity type to be stored and managed by Cosmos DB:
 
 ```java
 @Document
@@ -160,7 +160,7 @@ bash-3.2$ mvn package spring-boot:run
 
 You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/app-service-web-tutorial-java-mysql/spring-todo-app-running-locally.jpg)
+ ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 If you see exceptions instaead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
 
@@ -251,6 +251,10 @@ bash-3.2$ mvn azure-webapp:deploy
 ```bash
 open https://spring-todo-app.azurewebsites.net
 ```
+
+You should see the app running with the remote URL in the address bar:
+
+ ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## View logs to troubleshoot the app
 
