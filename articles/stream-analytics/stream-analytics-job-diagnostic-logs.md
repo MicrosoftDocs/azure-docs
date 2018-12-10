@@ -4,11 +4,11 @@ description: This article describes how to analyze diagnostics logs in Azure Str
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
@@ -30,15 +30,15 @@ Diagnostics logs are **off** by default. To turn on diagnostics logs, complete t
 
 1.  Sign in to the Azure portal, and go to the streaming job blade. Under **Monitoring**, select **Diagnostics logs**.
 
-    ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Select **Turn on diagnostics**.
 
-    ![Turn on diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Turn on Stream Analytics diagnostics logs](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
 3.  On the **Diagnostics settings** page, for **Status**, select **On**.
 
-    ![Change status for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![Change status for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
 4.  Set up the archival target (storage account, event hub, Log Analytics) that you want. Then, select the categories of logs that you want to collect (Execution, Authoring). 
 
@@ -46,7 +46,7 @@ Diagnostics logs are **off** by default. To turn on diagnostics logs, complete t
 
 The diagnostics configuration takes about 10 minutes to take effect. After that, the logs start appearing in the configured archival target (you can see these on the **Diagnostics logs** page):
 
-![Blade navigation to diagnostics logs - archival targets](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![Blade navigation to diagnostics logs - archival targets](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
 For more information about configuring diagnostics, see [Collect and consume diagnostics data from your Azure resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 

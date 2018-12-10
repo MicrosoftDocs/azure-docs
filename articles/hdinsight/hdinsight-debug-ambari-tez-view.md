@@ -99,6 +99,6 @@ Use the following steps to run a Hive query that uses Tez:
 
 Now that you have learned how to use the Apache Tez view, learn more about [Using Apache Hive on HDInsight](hadoop/hdinsight-use-hive.md).
 
-For more detailed technical information on Apache Tez, see the [Apache Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
+For more detailed technical information on Apache Tez, see the [Apache Tez page at Hortonworks](https://hortonworks.com/hadoop/tez/).
 
 For more information on using Apache Ambari with HDInsight, see [Manage HDInsight clusters using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)

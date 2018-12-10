@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
-
+ms.custom: seodec18
 ---
 # Get started with Azure Machine Learning for Visual Studio Code
 
@@ -22,7 +22,8 @@ Use the Azure Machine Learning extension in Visual Studio code to use the Azure 
 
 + [Install Python 3.5 or greater](https://www.anaconda.com/download/).
 
-+ If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+>[!Note]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Install the Azure Machine Learning for VS Code extension
 
@@ -59,11 +60,11 @@ To work with Azure Machine Learning, we need to turn VS Code into a Python IDE. 
 
 1. Type 'Install Azure ML SDK' to find the pip install command for the SDK. A local private Python environment is created that has the Visual Studio Code prerequisites for working with Azure Machine Learning.
 
-   ![install](./media/vscode-tools-for-ai/install-sdk.png)
+   ![install Azure Machine Learning SDK for Python](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. In the integrated terminal window, specify the Python interpreter to use or you can hit **Enter** to use your default Python           interpreter.
 
-   ![install](./media/vscode-tools-for-ai/python.png)
+   ![Choose the interpreter](./media/vscode-tools-for-ai/python.png)
 
 ## Get started with Azure Machine Learning
 
@@ -71,7 +72,7 @@ Before you start training and deploying machine learning models using VS Code, y
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure Machine Learning sidebar appears.
 
-   [![install](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![Sidebar](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
 
 1. Right-click your Azure subscription and select **Create Workspace**. A list appears. In the animated image, the subscription name is 'Free Trial' and the workspace is 'TeamWorkspace'. 
 

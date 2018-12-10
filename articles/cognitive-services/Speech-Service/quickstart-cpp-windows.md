@@ -1,11 +1,10 @@
 ---
-title: 'Quickstart: Recognize speech in C++ on Windows by using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, C++ (Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on Windows Desktop by using the Speech Service SDK
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
@@ -27,11 +26,11 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 1. Start Visual Studio 2017.
 
-1. Make sure the **Desktop development with C++** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, skip to the next step. 
+1. Make sure the **Desktop development with C++** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, skip to the next step.
 
     ![Screenshot of Visual Studio Workloads tab](media/sdk/vs-enable-cpp-workload.png)
 
-    Otherwise, check the box next to **Desktop development with C++**. 
+    Otherwise, check the box next to **Desktop development with C++**.
 
 1. Make sure the **NuGet package manager** component is available. Switch to the **Individual components** tab of the Visual Studio installer dialog box, and select **NuGet package manager** if it is not already enabled.
 

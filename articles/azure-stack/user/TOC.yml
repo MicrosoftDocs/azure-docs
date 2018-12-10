@@ -145,7 +145,7 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: Configure PowerShell
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-user.md
       - name: Download Azure Stack tools
         href: ../azure-stack-powershell-download.md

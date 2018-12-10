@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service Documentation
+title: Speech Services Documentation
 metadata:
-  title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
-  meta.description: |
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
+  title: Speech Services documentation - Tutorials, quickstarts, API reference
+  titleSuffix: Azure Cognitive Services
+  description: Speech Services gives developers an easy way to add powerful speech-enabled features to their applications.
     Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
@@ -15,11 +15,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 
 abstract:
-  description: Learn how to use the Speech Service and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
+  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Service also has a REST API that works with any programming language that can make HTTP requests.
 sections:
 - items:
     - type: list
@@ -28,15 +29,15 @@ sections:
       columns: 3
       items:
         - href: /azure/cognitive-services/speech-service/overview
-          html: <p>Learn about Azure Speech Service.</p>
+          html: <p>Learn about the Azure Speech Services.</p>
           image:
             src: ../media/index/i_overview.svg
           title: What is Speech Service?
         - href: /azure/cognitive-services/speech-service/get-started
-          html: <p>Learn how to sign up for the Speech service for free.</p>
+          html: <p>Sign up for free.</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Sign up for Speech Service
+          title: Sign up for Speech Services
         - href: /azure/cognitive-services/speech-service/speech-devices-sdk
           html: <p>Learn about the speech-enabled hardware reference.</p>
           image:

@@ -22,13 +22,13 @@ ms.component:
 
 ![Alert Management icon](media/alert-management-solution/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) or [imported from Nagios or Zabbix](../../log-analytics/log-analytics-quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](../../azure-monitor/platform/om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) or [imported from Nagios or Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](../../azure-monitor/platform/om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
 - For Log Analytics alerts, [create alert rules](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to create alert records directly in the repository.
-- For Nagios and Zabbix alerts, [configure those servers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) to send alerts to Log Analytics.
+- For Nagios and Zabbix alerts, [configure those servers](../../azure-monitor/learn/quick-collect-linux-computer.md) to send alerts to Log Analytics.
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](../../azure-monitor/platform/om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
@@ -48,7 +48,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Support | Description |
 |:--- |:--- |:--- |
 | [Windows agents](agent-windows.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
-| [Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers that require the Linux agent. |
+| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers that require the Linux agent. |
 | [System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md) |Yes |Alerts that are generated on Operations Manager agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  Operations Manager agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
 
 
