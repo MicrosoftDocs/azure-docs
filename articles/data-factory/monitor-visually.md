@@ -18,18 +18,18 @@ ms.author: shlo
 ---
 # Visually monitor Azure data factories
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
-In this quick start, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
+In this quickstart, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Monitor Data Factory pipelines
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. Log in to the  [Azure portal](https://portal.azure.com/).
-3. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile. This will launch the ADF v2 visual monitoring experience.
+3. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile to launch the Data Factory visual monitoring experience.
 
 ## List-View Monitoring
 
-Monitor pipeline and activity runs with a simple list view interface. All the runs are displayed in local browser time zone. You can change the time zone and all the date time fields will snap to the selected time zone.  
+Monitor pipeline and activity runs with a simple list view interface. All the runs are displayed in local browser time zone. You can change the time zone and all the date time fields snap to the selected time zone.  
 
 ### Monitoring Pipeline Runs
 List view showcasing each pipeline run for your data factory v2 pipelines. Included columns:
@@ -44,7 +44,7 @@ List view showcasing each pipeline run for your data factory v2 pipelines. Inclu
 | Status | Failed, Succeeded, In Progress |
 | Parameters | Pipeline run parameters (name, value pairs) |
 | Error | Pipeline run error (if/any) |
-| Run ID | Id of the pipeline run |
+| Run ID | ID of the pipeline run |
 
 ![Monitor pipeline runs](media/monitor-visually/pipeline-runs.png)
 
@@ -54,7 +54,7 @@ List view showcasing activity runs corresponding to each pipeline run. Click **'
 | **Column Name** | **Description** |
 | --- | --- |
 | Activity Name | Name of the activity inside the pipeline. |
-| Activity Type | Type of the activity i.e. Copy, HDInsightSpark, HDInsightHive etc. |
+| Activity Type | Type of the activity, such as Copy, HDInsightSpark, HDInsightHive, etc. |
 | Run Start | Activity run start date time (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | Run duration (HH:MM:SS) |
 | Status | Failed, Succeeded, In Progress |
@@ -85,17 +85,17 @@ Order pipeline runs in desc/asc by Run Start and filter pipeline runs by followi
 | --- | --- |
 | Pipeline Name | Name of the pipeline. Options include quick filters for 'Last 24 hours', 'Last week',  'Last 30 days' or select a custom date time. |
 | Run Start | Pipeline run start date time |
-| Run Status | Filter runs by status i.e. Succeeded, Failed, In Progress |
+| Run Status | Filter runs by status - Succeeded, Failed, In Progress |
 
 ![Filter](media/monitor-visually/filter.png)
 
 ### Add/Remove columns in list view
-Right click the list view header and choose columns that you want to appear in the list view
+Right-click the list view header and choose columns that you want to appear in the list view
 
 ![Columns](media/monitor-visually/columns.png)
 
 ### Reorder column widths in list view
-Increase and decrease the column widths in list view by simply hovering over the column header
+Increase and decrease the column widths in list view by hovering over the column header
 
 ### User properties
 
@@ -146,7 +146,7 @@ You can raise alerts on supported metrics in Data Factory. Select Monitor -> Ale
 
     ![](media/monitor-visually/alerts05.png)
 
-1.  Configure the Alert logic. You can create an alert for the selected metric for all pipelines and corresponding activities. You can also select a particular activity type, activity name, pipeline name or a failure type.
+1.  Configure the Alert logic. You can create an alert for the selected metric for all pipelines and corresponding activities. You can also select a particular activity type, activity name, pipeline name, or a failure type.
 
     ![](media/monitor-visually/alerts06.png)
 
