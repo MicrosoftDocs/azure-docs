@@ -31,7 +31,7 @@ Let's get started with the ODBC driver.
 ## <a id="install"></a>Step 1: Install the Azure Cosmos DB ODBC driver
 
 1. Download the drivers for your environment:
-q
+
     | Installer | Supported operating systems| 
     |---|---| 
     |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) for 64-bit Windows| 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.| 
