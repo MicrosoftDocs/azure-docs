@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.component: alerts
 ---
 
 # Create activity log alerts on service notifications
@@ -29,7 +28,7 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../../azure-monitor/platform/action-groups.md).
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](alerts-activity-log.md).
 
@@ -196,4 +195,4 @@ After you create an alert, it's visible in the **Alerts** section of **Monitor**
 - Learn about [notification rate limiting](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 - Get an [overview of activity log alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md), and learn how to receive alerts. 
-- Learn more about [action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Learn more about [action groups](../../azure-monitor/platform/action-groups.md).

@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ""
 ---
 # Azure Monitor retirement of classic deployment model APIs for metrics and autoscale
 
