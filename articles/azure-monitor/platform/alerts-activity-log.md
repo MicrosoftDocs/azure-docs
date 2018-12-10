@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
 ---
 # Create, view, and manage activity log alerts using Azure Monitor  
 

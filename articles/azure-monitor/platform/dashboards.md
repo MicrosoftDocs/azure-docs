@@ -10,11 +10,9 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Create a custom dashboard for use in Log Analytics

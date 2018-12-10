@@ -15,9 +15,10 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin;msangapu
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
+
 ---
 
 # Bind a custom SSL certificate to a web app using CLI
