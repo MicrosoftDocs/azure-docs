@@ -21,7 +21,7 @@ ms.author: cwatson
 
 Use Azure APIs to programmatically get information for your organization about Azure service or software reservations.
 
-## Identify reservation plans to buy
+## Find reservation plans to buy
 
 Use the Reservation recommendation API to get recommendations on which reservations plan to buy based on your organization's usage. For more information, see [Get reservation recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 
@@ -67,13 +67,13 @@ Get the list of all reservations that a user has access to by using the [Reserva
 
 After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. You can change the reservation scope so that it applies to all subscriptions within the same billing context. But for cost management or budgeting purposes, you may want to keep the scope as "single subscription" and assign reservation instances to a specific subscription. 
 
-To split a reservation, use the API [Reservation - Split](/rest/api/reserved-vm-instances/reservation/split). You can also split a reservation by using PowerShell. For more information, see [Manage reservations for Azure resources](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
+To split a reservation, use the API [Reservation - Split](/rest/api/reserved-vm-instances/reservation/split). You can also split a reservation by using PowerShell. For more information, see [Manage reservations - Split reservation into two reservations](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
 To merge two reservations into one reservation, use the API [Reservation - Merge](/rest/api/reserved-vm-instances/reservation/merge).
 
 ## Change scope for a reservation
 
-The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running resources in the selected subscription. If you set the scope to shared, Azure matches the reservation to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription you used to buy the reservation. For more information, see [Manage Reservations for Azure resources](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running resources in the selected subscription. If you set the scope to shared, Azure matches the reservation to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription you used to buy the reservation. For more information, see [Manage Reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
 
 To change the scope programmatically, use the API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 
