@@ -1,6 +1,6 @@
 ---
-title: Design of a multi-DRM content protection system with cccess control using Azure Media Services | Microsoft Docs
-description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
+title: Design of a multi-DRM content protection system with acccess control - Azure Media Services | Microsoft Docs
+description: Learn about licensing the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
+ms.custom: seodec18
 
 ---
 # Design of a multi-DRM content protection system with access control 
@@ -397,15 +398,15 @@ The following screenshots show different sign-in pages used by different domain 
 
 **Custom Azure AD tenant domain account**: The customized sign-in page of the custom Azure AD tenant domain.
 
-![Custom Azure AD tenant domain account](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Custom Azure AD tenant domain account one](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft domain account with smart card**: The sign-in page customized by Microsoft corporate IT with two-factor authentication.
 
-![Custom Azure AD tenant domain account](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Custom Azure AD tenant domain account two](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft account**: The sign-in page of the Microsoft account for consumers.
 
-![Custom Azure AD tenant domain account](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Custom Azure AD tenant domain account three](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### Use Encrypted Media Extensions for PlayReady
 On a modern browser with Encrypted Media Extensions (EME) for PlayReady support, such as Internet Explorer 11 on Windows 8.1 or later and Microsoft Edge browser on Windows 10, PlayReady is the underlying DRM for EME.

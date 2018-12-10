@@ -1,5 +1,5 @@
 ---
-title: Data exploration and modeling with Spark | Microsoft Docs
+title: Data exploration and modeling with Spark - Team Data Science Process
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Data exploration and modeling with Spark
 

@@ -1,5 +1,5 @@
 ---
-title: Deep dive into how to predict vehicle health and driving habits - Azure | Microsoft Docs
+title: Deep dive into how to predict vehicle health and driving habits - Team Data Science Process
 description: Drill down into each of the stages of a solution for gaining real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution
 
