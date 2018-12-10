@@ -150,13 +150,13 @@
     items:
     - name: Managed instances
       href: sql-database-managed-instance-index.yml
-    - name: Managed Instance overview
+    - name: Managed instance overview
       href: sql-database-managed-instance.md
     - name: Create and manage
       href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
-    - name: VNet Integration
+    - name: VNet integration
       items:
       - name: VNet configuration
         href: sql-database-managed-instance-vnet-configuration.md
@@ -185,13 +185,7 @@
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
     - name: Failover groups and geo-replication
-      items: 
-      - name: Failover groups and geo-replication
-        href: sql-database-geo-replication-overview.md
-      - name: Configure geo-replication - Portal
-        href: sql-database-geo-replication-portal.md
-      - name: Configure security for replicas
-        href: sql-database-geo-replication-security-config.md
+      href: sql-database-geo-replication-overview.md
     - name: Database recovery options
       items:
       - name: Recovery using backups
@@ -233,17 +227,7 @@
       - name: Logins and users
         href: sql-database-manage-logins.md
     - name: Azure AD authentication
-      items:
-      - name: Azure AD authentication
-        href: sql-database-aad-authentication.md
-      - name: Configure Azure AD auth
-        href: sql-database-aad-authentication-configure.md
-      - name: Conditional access
-        href: sql-database-conditional-access.md
-      - name: Multi-factor auth
-        href: sql-database-ssms-mfa-authentication.md
-      - name: Configure multi-factor auth
-        href: sql-database-ssms-mfa-authentication-configure.md
+      href: sql-database-aad-authentication.md
     - name: Auditing
       items:
       - name: Auditing - Servers, pools, and databases
@@ -253,11 +237,7 @@
       - name: Table auditing (deprecated)
         href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Dynamic data masking
-      items:
-      - name: Dynamic data masking
-        href: sql-database-dynamic-data-masking-get-started.md
-      - name: Configure masking
-        href: sql-database-dynamic-data-masking-get-started-portal.md
+      href: sql-database-dynamic-data-masking-get-started.md
     - name: Always encrypted
       items:
       - name: Use the certificate store
@@ -270,12 +250,6 @@
         href: transparent-data-encryption-azure-sql.md
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
-      - name: Configure TDE with BYOK
-        href: transparent-data-encryption-byok-azure-sql-configure.md
-      - name: Rotate TDE BYOK keys
-        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-      - name: Remove TDE protector
-        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
   - name: Elastic scalability
     items:
     - name: Resource scalability
@@ -416,9 +390,9 @@
         href: sql-database-elastic-query-vertical-partitioning.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-  - name: Databases Features
+  - name: Databases features
     items:
-    - name: Databases Features
+    - name: Databases features
       href: sql-database-develop-overview.md
     - name: JSON data
       href: sql-database-json-features.md
@@ -428,29 +402,35 @@
       href: sql-database-temporal-tables.md
 - name: How-to guides
   items:
-  - name: Single Database 
+  - name: Single database 
     items: 
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
-    - name: Manage SQL Database after migration
+    - name: Manage SQL database after migration
       href: sql-database-manage-after-migration.md
     - name: Configure transactional replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
-    - name: Configure Backup retention using Azure blob storage
+    - name: Configure backup retention using Azure blob storage
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Configure Backup retention using Azure vault (deprecated)
+    - name: Configure dynamic data masking
+      href: sql-database-dynamic-data-masking-get-started-portal.md
+    - name: Configure geo-replication - Portal
+      href: sql-database-geo-replication-portal.md
+    - name: Configure security for geo-replicas
+      href: sql-database-geo-replication-security-config.md
+    - name: Configure backup retention using Azure vault (deprecated)
       href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
       href: sql-database-resource-health.md
-  - name: Managed Instance
+  - name: Managed instance
     items:
-    - name: Migrate to Managed Instance
+    - name: Migrate to Managed instance
       href: sql-database-managed-instance-migrate.md
-    - name: Migrate TDE cert to Managed Instance
+    - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
     - name: Transactional replication
       href: replication-with-sql-database-managed-instance.md
@@ -502,8 +482,22 @@
         href: sql-database-xevent-code-ring-buffer.md
   - name: Configure features
     items:
+    - name: Configure Azure AD auth
+      href: sql-database-aad-authentication-configure.md
+    - name: Conditional access
+      href: sql-database-conditional-access.md
+    - name: Multi-factor AAD auth
+      href: sql-database-ssms-mfa-authentication.md
+    - name: Configure multi-factor auth
+      href: sql-database-ssms-mfa-authentication-configure.md
     - name: Configure temporal retention policy
       href: sql-database-temporal-tables-retention-policy.md
+    - name: Configure TDE with BYOK
+      href: transparent-data-encryption-byok-azure-sql-configure.md
+    - name: Rotate TDE BYOK keys
+      href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+    - name: Remove TDE protector
+      href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
     - name: Configure In-Memory OLTP
       href: sql-database-in-memory-oltp-migration.md
   - name: Develop apps
