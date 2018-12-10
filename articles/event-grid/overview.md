@@ -83,11 +83,11 @@ For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between
 
 ## What can I do with Event Grid?
 
-Azure Event Grid provides several features that vastly improve serverless, ops automation, and integration work: 
+Azure Event Grid provides several features that vastly improve serverless, ops automation, and [integration](http://azure.com/integration) work: 
 
 ### Serverless application architectures
 
-![Serverless application architecture](./media/overview/serverless_web_app.png)
+![Serverless application architecture](./media/overview/serverless_web_app.png[)](http://azure.com/integration)
 
 Event Grid connects data sources and event handlers. For example, use Event Grid to trigger a serverless function that analyzes images when added to a blob storage container. 
 
