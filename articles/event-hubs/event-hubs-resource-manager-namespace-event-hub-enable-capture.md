@@ -1,5 +1,5 @@
 ---
-title: Create Azure Event Hubs namespace with capture enabled | Microsoft Docs
+title: Create an event hub with capture enabled - Azure Event Hubs | Microsoft Docs
 description: Create an Azure Event Hubs namespace with one event hub and enable Capture using Azure Resource Manager template
 services: event-hubs
 documentationcenter: .net

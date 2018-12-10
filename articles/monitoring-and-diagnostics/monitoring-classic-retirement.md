@@ -40,14 +40,14 @@ Newer metrics for Azure resources are available as:
 
 ## Retirement of Classic monitoring and alerting platform
 
-As stated earlier, the classic monitoring and alerting platform currently usable from the [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal will be retired in coming months given they have been replaced by the newer system.
+As stated earlier, the classic monitoring and alerting platform currently usable from the [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal will be retired in coming months given they have been replaced by the newer system.
 Older classic monitoring and alerting will be retired on 30 June 2019; including the closure of related APIs, Azure portal interface, and Services in it. Specifically, these features will be deprecated:
 
-- Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal; accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
-- Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
-- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal
+- Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal; accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
+- Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
+- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal
 
-All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal page](alert-metric-classic.md), and [Resource Template](monitoring-enable-alerts-using-template.md) will remain usable until end of June 2019. 
+All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal page](../azure-monitor/platform/alerts-classic-portal.md), and [Resource Template](monitoring-enable-alerts-using-template.md) will remain usable until end of June 2019. 
 
 At the end of June 2019, in Azure Monitor:
 
@@ -55,7 +55,7 @@ At the end of June 2019, in Azure Monitor:
 - Any alert rules that continue to exist in Alerts (classic) beyond June 2019 will continue to execute and fire notifications, but not be available for modification.
 - Starting July 2019, any alert rules in classic monitoring & alerting will be automatically migrated by Microsoft to their equivalent in the new Azure monitor platform. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
 
-We will soon provide tools to allow you to voluntarily migrate your alerts from [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal to the new Azure alerts. All rules configured in Alerts (classic) that are migrated to new Azure Monitor will remain free and not be charged. Migrated classic alert rules will also not bear any charge for pushing notifications via email, webhook, or LogicApp. However, use of the newer notification or action types (such as SMS, Voice Call, ITSM integration, etc.) will be chargeable whether added to a migrated or new alert. For more information, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
+We will soon provide tools to allow you to voluntarily migrate your alerts from [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal to the new Azure alerts. All rules configured in Alerts (classic) that are migrated to new Azure Monitor will remain free and not be charged. Migrated classic alert rules will also not bear any charge for pushing notifications via email, webhook, or LogicApp. However, use of the newer notification or action types (such as SMS, Voice Call, ITSM integration, etc.) will be chargeable whether added to a migrated or new alert. For more information, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 Additionally, the following will be chargeable under the ambit of [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/):
 

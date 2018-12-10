@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
 
 ---
@@ -211,6 +211,7 @@ The following list provides a general summary of Azure services that can be move
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
+* Recovery Services vault - you must be enrolled in a private preview. See [Recovery Services limitations](#recovery-services-limitations).
 * Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search
@@ -255,7 +256,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Microsoft Genomics
 * NetApp
 * Public IP - see [Public IP limitations](#pip-limitations)
-* Recovery Services vault - also don't move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * SAP HANA on Azure
 * Security
 * Site Recovery
@@ -442,6 +442,8 @@ The operation may run for several minutes.
 
 ## Recovery Services limitations
 
+To move a Recovery Services vault, you must enroll in a private preview. To try it out, write to AskAzureBackupTeam@microsoft.com.
+
 Move isn't enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery.
 
 For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You can't move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
@@ -450,7 +452,9 @@ To move a VM enrolled in **Azure backup** between resource groups:
  1. Temporarily stop backup and retain backup data
  2. Move the VM to the target resource group
  3. Reprotect it under the same/new vault
+
 Users can restore from the available restore points created before the move operation.
+
 If the user moves the backed-up VM across subscriptions, step 1 and step 2 remain the same. In step 3, user needs to protect the VM under a new vault present/ created in the target subscription. Recovery Services vault doesn't support cross subscription backups.
 
 ## HDInsight limitations

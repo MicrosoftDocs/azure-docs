@@ -1,7 +1,7 @@
 ---
 title: Endpoint region, C#
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Programmatically find publish region with endpoint key and application ID for LUIS.
+description: With C#, find publish region with endpoint key and application ID for LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 # Find endpoint region with C# 
 If you have the LUIS app ID and the LUIS subscription ID, you can find which region to use for endpoint queries.
 
 > [!NOTE] 
-> The complete C# solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> The complete C# solution is available from the [**LUIS-Samples** GitHub repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
 
 ## LUIS endpoint query strategy
 Each LUIS endpoint query requires:

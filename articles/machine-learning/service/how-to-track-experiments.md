@@ -290,7 +290,7 @@ Learn more about:
 + [Model explain ability](#model-explain-ability-and-feature-importance)
 
 
-### How to see run charts:
+### View the run charts
 
 1. Go to your workspace. 
 

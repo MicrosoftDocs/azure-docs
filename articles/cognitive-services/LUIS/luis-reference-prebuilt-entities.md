@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# Entities per culture
+# Entities per culture in your LUIS model
 
 Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity is included in your application, LUIS includes the corresponding entity prediction in the endpoint response. All example utterances are also labeled with the entity. The behavior of prebuilt entities **can't** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 

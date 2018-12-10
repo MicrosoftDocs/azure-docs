@@ -1,6 +1,6 @@
 ---
 title: Role-Based Access Control preview - Azure Event Hubs | Microsoft Docs
-description: Azure Event Hubs Role-Based Access Control
+description: This article provides information on role-based access control for Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -31,7 +31,7 @@ For the initial public preview, you can only add Azure AD accounts and service p
 
 The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to sign on, how to grant Event Hubs access to that user account, and how to use that identity to access Event Hubs. 
 
-This introduction describes a simple console application, the [code for which is on Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+This introduction describes a simple console application, the [code for which is on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### Create an Active Directory user account
 

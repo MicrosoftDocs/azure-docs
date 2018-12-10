@@ -4,7 +4,7 @@ description: This article walks you through programmatically creating and managi
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -25,7 +25,7 @@ Before you begin, make sure that the following prerequisites are met:
 
 1. Update your AzureRM PowerShell module to the latest version. For more information about the latest version, see [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Register the Policy Insights resource provider using Azure PowerShell to ensure that your subscription works with the resource provider. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
+1. Register the Policy Insights resource provider using Azure PowerShell to validate that your subscription works with the resource provider. To register a resource provider, you must have permission to run the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
 
    ```azurepowershell-interactive
    Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'

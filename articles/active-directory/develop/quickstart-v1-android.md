@@ -49,7 +49,7 @@ You can use this app for all Azure AD accounts. It supports both single-tenant a
 
 ## Sample code
 
-You can find the full sample code [on Github](https://github.com/Azure-Samples/active-directory-android).
+You can find the full sample code [on GitHub](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
