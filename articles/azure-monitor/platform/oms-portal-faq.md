@@ -12,7 +12,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
