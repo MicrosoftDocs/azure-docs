@@ -205,4 +205,4 @@ print(faces)
 
 [How to install and run Text Analytics API containers](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 
-[How to install and run Language Understanding (LIUS) containers](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-container-howto)
+[How to install and run Language Understanding (LIUS) containers](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto)
