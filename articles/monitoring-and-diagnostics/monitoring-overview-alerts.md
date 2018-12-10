@@ -47,7 +47,7 @@ The key attributes of an alert rule are:
 
 **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
 
-**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](monitoring-action-groups.md).
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../azure-monitor/platform/action-groups.md).
 
 ## What you can alert on
 
@@ -117,7 +117,7 @@ You create a new alert rule with the following three steps:
  
 This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you are guided through defining the logic of the alert rule automatically.  
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](alert-metric.md).
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
 
@@ -175,7 +175,7 @@ For more information, see [Alerts classic](./../azure-monitor/platform/alerts-cl
 ## Next steps
 
 - [Learn more about Smart Groups](https://aka.ms/smart-groups)
-- [Learn about action groups](monitoring-action-groups.md)
+- [Learn about action groups](../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
 
