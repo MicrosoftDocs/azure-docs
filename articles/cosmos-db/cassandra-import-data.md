@@ -2,13 +2,13 @@
 title: 'Tutorial: Migrate your data to a Cassandra API account in Azure Cosmos DB'
 description: In this tutorial, learn how to use the CQL Copy command & Spark to copy data from Apache Cassandra to a Cassandra API account in Azure Cosmos DB.
 author: kanshiG
-
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.author: govindk
 ms.topic: tutorial
 ms.date: 12/03/2018
-ms.reviewer: sngun
+ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ---
 
@@ -68,8 +68,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 You can move data from existing Cassandra workloads to Azure Cosmos DB by using the following options:
 
-* [Using cqlsh COPY command](#using-cqlsh-copy-command)  
-* [Using Spark](#using-spark) 
+* [Using cqlsh COPY command](#migrate-data-using-cqlsh-copy-command)  
+* [Using Spark](#migrate-data-using-spark) 
 
 ## Migrate data using cqlsh COPY command
 

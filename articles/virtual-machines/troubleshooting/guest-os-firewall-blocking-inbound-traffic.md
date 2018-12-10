@@ -1,6 +1,6 @@
 ---
 title: Azure VM Guest OS firewall is blocking inbound traffic | Microsoft Docs
-description: 
+description:
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -28,17 +28,17 @@ You cannot use an RDP connection to connect to an Azure virtual machine (VM). Fr
 
 ## Cause
 
-### Cause 1 
+### Cause 1
 
 The RDP rule is not set up to allow the RDP traffic.
 
-### Cause 2 
+### Cause 2
 
 The guest system firewall profiles are set up to block all inbound connections, including the RDP traffic.
 
 ![Firewall setting](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## Solution 
+## Solution
 
 Before you follow these steps, take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -46,7 +46,7 @@ To fix the issue, use one of the methods in [How to use remote tools to troubles
 
 ### Online troubleshooting
 
-Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to "[Repair the VM Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to "[Repair the VM Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### Mitigation 1
 
@@ -77,7 +77,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     Otherwise, to open the specific Remote Desktop (TCP-In) rule, run the following command:
 
     ```cmd
@@ -91,7 +91,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
     ```
 
     After you finish troubleshooting and setting the firewall correctly, re-enable the firewall.
-    
+
     > [!Note]
     > You don't have to restart the VM to apply these changes.
 
@@ -125,11 +125,11 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
     ```
 
     > [!Note]
-    > You don't have to restart the VM to apply the changes. 
+    > You don't have to restart the VM to apply the changes.
 
 4.	Try again to access your VM through RDP.
 
-### Offline Mitigations 
+### Offline Mitigations
 
 1.	[Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -156,7 +156,7 @@ See [How to Enable-Disable a Firewall rule on a Guest OS DOC]().
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

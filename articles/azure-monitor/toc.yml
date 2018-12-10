@@ -122,7 +122,7 @@
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
     - name: Classic alerts 
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json  
+      href: platform/alerts-classic.overview.md  
     - name: Smart groups
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json  
     - name: Autoscale
@@ -735,9 +735,9 @@
         - name: Create, view and manage metric alerts in Azure Monitor
           href: ../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json
         - name: Create, view and manage classic metric alerts in Azure Monitor
-          href: ../monitoring-and-diagnostics/alert-metric-classic.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-classic-portal.md
         - name: Alerts with dynamic thresholds
-          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Create a newer metric alert with a Resource Manager template
@@ -757,11 +757,11 @@
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
-          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log.md
         - name: Migrate to activity log alerts
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
         - name: Configure alerts on service notifications
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log-service-notifications.md
       - name: Use application alerts
         items:
         - name: Availability
@@ -819,7 +819,7 @@
       - name: View service notifications
         href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
       - name: Configure alerts on service notifications
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
@@ -104,8 +104,9 @@ Once deployment has completed, browse to the deployed application using the foll
 
 ## Next steps
 
-In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then deployed a web archive packaged Java app to App Service on Linux. To learn how to connect databases, set up logging and monitoring, configure security, and set runtime options, continue to the Java Developer's Guide for App Service on Linux.
+In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then deployed a web archive packaged Java app to App Service on Linux. Refer to the following tutorials and how-to articles for more information hosting Java applications on App Serivce on Linux.
 
-> [!div class="nextstepaction"]
-> [App Service on Linux Java Developer's Guide](app-service-linux-java.md)
+- [Tutorial: Deploy a Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Configure a Tomcat Data Source](app-service-linux-java.md#connecting-to-data-sources)
+- [Configure application performance monitoring tools](how-to-java-apm-monitoring.md)
 

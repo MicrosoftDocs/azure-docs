@@ -1,7 +1,7 @@
 ---
 title: Add example utterances
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Learn how to add utterances in Language Understanding (LUIS) applications.
+description: Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
@@ -85,7 +85,7 @@ The employee name, John Smith, is a prebuilt [personName](luis-reference-prebuil
 
 1. Enter the composite entity name in the drop-down list.
 
-    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Screenshot of enter the composite entity name in the drop-down list](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     When you wrap the entities correctly, a green line is under the entire phrase.
 
@@ -113,7 +113,7 @@ In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin 
 
 1. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent detail page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
 
-    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Screenshot of Intents details page, where you need to assign the word to a child entity](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
@@ -130,7 +130,7 @@ Select the words that are underlined in red in the utterance.
 
 The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select **Entity status** then select the item to the right.
 
-![Screenshot of Entity status prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Screenshot of selecting correct item to fix prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 The red-line can appear at any of the following times:
 

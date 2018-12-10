@@ -28,7 +28,7 @@ with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupy
 
 ## Download the example code
 
-1. Navigate to the [tutorial notebook in Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
+1. Navigate to the [tutorial notebook in GitHub](https://github.com/MicrosoftAnomalyDetection/python-sample).
 2. Click on the green button to clone or download the tutorial. 
 
 ## Opening the tutorial notebook in Jupyter

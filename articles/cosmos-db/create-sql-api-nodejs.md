@@ -55,7 +55,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 ## Clone the sample application
 
-Now let's clone a SQL API app from Github, set the connection string, and run it.
+Now let's clone a SQL API app from GitHub, set the connection string, and run it.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
