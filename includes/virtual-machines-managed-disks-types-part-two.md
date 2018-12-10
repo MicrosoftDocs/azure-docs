@@ -11,7 +11,7 @@
 ---
 **Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/bandwidth/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
-**Transactions**: You are billed for the number of transactions that you perform on a standard managed disk.
+**Transactions**: You are billed for the number of transactions that you perform on a standard managed disk. Azure charges $0.0036 per 100,000 transactions for standard HDDs. Transactions include both read and write operations to storage.
 
 Standard SSD Disks use IO Unit size of 256KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.
 
@@ -27,7 +27,7 @@ Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/deta
 
 ## Disk comparison
 
-The following table provides a comparison of Standard HDD, Standard SSD, and Premium SSD for unmanaged and managed disks to help you decide what to use. Sizes denoted with an asterisk are currently in preview.
+The following table provides a comparison of Standard HDD, Standard SSD, Premium SSD, and Ultra SSD for managed disks to help you decide what to use. Sizes denoted with an asterisk are currently in preview.
 
 |   |Azure Ultra SSD (Preview)   |Azure Premium Disk   |Azure Standard SSD   |Azure Standard HDD   |
 |---------|---------|---------|---------|---------|
