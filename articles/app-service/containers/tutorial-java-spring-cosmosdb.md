@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from App Service
 > * Add additional instances to scale out the sample app
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
