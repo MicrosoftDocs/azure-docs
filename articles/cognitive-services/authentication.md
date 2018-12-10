@@ -49,7 +49,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## Authenticate with a multi-service subscription key (Cognitive Services)
+## Authenticate with a multi-service subscription key
 
 >[!WARNING]
 > At this time, these services are **not** supported: QnA Maker, Speech Services, and Custom Vision.
@@ -104,7 +104,6 @@ Use this URL to exchange a subscription key for an authentication token: `https:
 curl -v -X POST \
 "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
--H "Content-Length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -119,7 +118,6 @@ Supported regions for multi-service authentication: `australiaeast`, `brazilsout
 curl -v -X POST \
 "https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
--H "Content-Length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
