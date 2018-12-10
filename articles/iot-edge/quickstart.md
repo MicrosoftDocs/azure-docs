@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/10/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -57,12 +57,9 @@ IoT Edge device:
 * A Windows computer or virtual machine to act as your IoT Edge device. Use a supported Windows version:
   * Windows 10 or newer
   * Windows Server 2016 or newer
-* If it's a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V.
-* If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
-* Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and make sure it's running.
-
-> [!TIP]
-> There is an option during Docker setup to use Windows containers or Linux containers. This quickstart describes how to configure the IoT Edge runtime for use with Linux containers.
+* Enable virtualization so that your device can host containers
+   * If it's a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V.
+   * If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
 
 ## Create an IoT hub
 
@@ -114,7 +111,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 During the runtime installation, you're asked for a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure.
 
-The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
+The instructions in this section configure the IoT Edge runtime with Windows containers. If you want to use Linux containers, see [Install Azure IoT Edge runtime on Windows to use with Linux containers](how-to-install-iot-edge-windows-with-linux.md).
 
 ### Connect to your IoT Edge device
 
@@ -130,7 +127,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
@@ -213,25 +210,13 @@ Remove the **IoTEdgeResources** group.
 
 ### Remove the IoT Edge runtime
 
-If you plan on using the IoT Edge device for future testing, but want to stop the tempSensor module from sending data to your IoT hub while not in use, use the following command to stop the IoT Edge service.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-You can restart the service when you're ready to start testing again
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 If you want to remove the installations from your device, use the following commands.  
 
 Remove the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.

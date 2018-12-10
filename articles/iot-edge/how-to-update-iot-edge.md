@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2018
+ms.date: 12/10/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -43,14 +43,16 @@ Uninstall the security daemon in an administrator PowerShell session.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-UnInstall-SecurityDaemon
+Uninstall-SecurityDaemon
 ```
 
-Reinstall the security daemon depending on whether your IoT Edge device uses Windows containers or Linux containers. Replace the phrase **\<Windows or Linux\>** with one of the container operating systems. 
+Running the `Uninstall-SecurityDaemon` command without any parameters removes the security daemon from your device, along with the two runtime container images. The config.yaml file is preseverd, as well as data from the Moby container engine. 
+
+Reinstall the security daemon depending on whether your IoT Edge device uses Windows containers or Linux containers. Replace the phrase **\<Windows or Linux\>** with one of the container operating systems. Use the **-ExistingConfig** flag to point to the existing config.yaml file on your device, instead of reprovisioning and configuring the device. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
+Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
 ```
 
 ## Update the runtime containers
@@ -72,7 +74,7 @@ The Edge agent and Edge hub images are tagged with the IoT Edge version that the
 
 If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0**) then you need to force the container runtime on your device to pull the latest version of the image. 
 
-Delete the local version of the image from your IoT Edge device. 
+Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security daemon also removes the runtime images, so you don't need to take this step again. 
 
 ```cmd/sh
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0

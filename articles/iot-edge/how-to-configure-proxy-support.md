@@ -45,7 +45,7 @@ If you're installing the IoT Edge runtime on a Windows device, you need to go th
 Install-SecurityDaemon -Manual -ContainerOs Windows
 ```
 
-For more information and installation options, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md) or [Install Azure IoT Edge runtime on Windows to use with Linux containers](how-to-install-iot-edge-windows-with-linux.md).
+For more information and installation options, see [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
 Once the IoT Edge runtime is installed, use the following section to configure it with your proxy information. 
 
