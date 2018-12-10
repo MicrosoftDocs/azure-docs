@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Back up a web app | Microsoft Docs
 description: Azure CLI Script Sample - Back up a web app
 services: app-service\web
 documentationcenter: 
-author: cephalin;msangapu
+author: msangapu
 manager: jeconnoc
 editor: 
 tags: azure-service-management
