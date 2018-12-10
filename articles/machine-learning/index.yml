@@ -36,37 +36,37 @@ sections:
   - type: paragraph
     text: 'Learn how to quickly set up and use Azure Machine Learning Service:'
 
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-
-    rows:
-      - title: Get started with the service in Azure portal
+  - type: paragraph
+    text: 'Learn how to set up an experiment and operationalize your models.'
+  - type: paragraph
+    text: '<b>Quickstarts:</b>'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="service/quickstart-create-workspace-with-python">Use Python to get started</a>
+    - html: <a href="service/quickstart-get-started">Use Azure portal to get started</a>
+  - type: paragraph
+    text: '<b>Image classification tutorial with MNIST data.</b>'
+  - type: list
+    style: unordered
+    items:
+    - html: Part 1&#58; <a href="service/tutorial-train-models-with-aml">Train your own machine learning model</a>
+    - html: Part 2&#58; <a href="service/tutorial-deploy-models-with-aml">Deploy that model</a></br>&nbsp;
+  - type: paragraph
+    text: '<b>Regression modeling tutorial with NYC taxi data.</b>'
+  - type: list
+    style: unordered
+    items:
+    - html: Part 1&#58; <a href="service/tutorial-data-prep">Prepare NYC Taxi data for modeling</a>
+    - html: Part 2&#58; <a href="service/tutorial-auto-train-models">Use automated machine learning to build models</a>
+  - type: paragraph
+    text: '<b>Consume your models</b>'
+      - title: Request-response model consumption
         values:
-        - href: /azure/machine-learning/service/quickstart-get-started
-      - title: Get started with the service in Python
+        - href: service/how-to-consume-web-service
+      - title: Batch predictions
         values:
-        - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
-      - title: Prepare data for modeling
-        values:
-        - href: /azure/machine-learning/service/tutorial-data-prep
-      - title: Build your own machine learning model
-        values:
-        - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-      - title: Automatically generate and tune algorithms
-        values:
-        - href: /azure/machine-learning/service/tutorial-auto-train-models
-      - title: Deploy your model as a web service
-        values:
-        - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-      - title: Consume your machine learning models
-        values:
-        - href: /azure/machine-learning/service/how-to-consume-web-service
-      - title: Build and manage machine learning pipelines
-        values:
-        - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
+        - href: service/how-to-run-batch-predictions
 
 - title: Other Microsoft machine learning technologies
   items:

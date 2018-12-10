@@ -1,5 +1,6 @@
 ---
-title: Get started with Azure Machine Learning for Visual Studio Code
+title: Use Visual Studio Code with
+titleSuffix: Azure Machine Learning service
 description: Learn how to install Azure Machine Learning for Visual Studio Code and create a simple experiment in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
