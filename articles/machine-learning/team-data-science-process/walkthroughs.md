@@ -1,5 +1,5 @@
 ---
-title: Walkthroughs executing the Team Data Science Process on Azure  | Microsoft Docs
+title: Walkthroughs executing the Team Data Science Process on Azure 
 description: How to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Walkthroughs executing the Team Data Science Process
 

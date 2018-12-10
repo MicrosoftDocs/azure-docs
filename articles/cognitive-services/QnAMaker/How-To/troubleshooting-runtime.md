@@ -35,11 +35,11 @@ QnAMaker service hostname is useful for debugging purposes when you contact QnAM
 	
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
-    ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![QnAMaker Azure resource group in Azure portal](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 2. Click on the App Service
 
-     ![QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+     ![Select QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 3. The hostname URL is available in the Overview section
 

@@ -123,7 +123,12 @@
         },
         {
             "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
-            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "redirect_document_id": true
         },
         {
@@ -29044,6 +29049,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-enable.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
@@ -31811,15 +31826,236 @@
             "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
             "redirect_document_id":  false
         },
-        {
-        	"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-        	"redirect_url": "/azure/application-insights/app-insights-app-map",
-        	"redirect_document_id": true
+		{
+			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
+			"redirect_url": "/azure/application-insights/app-insights-app-map",
+			"redirect_document_id": true
         },
+        {
+			"source_path": "articles/machine-learning/service/how-to-automated-ml.md",
+			"redirect_url": "/azure/machine-learning/service/concept-automated-ml",
+			"redirect_document_id": true
+		},
         {
             "source_path":  "articles/cognitive-services/Speech-Service/how-to-text-to-speech.md",
             "redirect_url":  "/azure/cognitive-services/speech-service/quickstart-python-text-to-speech",
             "redirect_document_id":  true
+        },
+		{
+
+            "source_path": "articles/redis-cache/index.md",
+            "redirect_url": "/azure/azure-cache-for-redis/",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-administration.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-administration",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-aspnet-output-cache-provider.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-aspnet-output-cache-provider",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-aspnet-session-state-provider.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-aspnet-session-state-provider",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-configure.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-configure",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-dotnet-core-quickstart.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-dotnet-core-quickstart",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-faq.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-faq",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-geo-replication.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-geo-replication",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-import-export-data.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-import-export-data",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-howto-manage-redis-cache-powershell.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-monitor.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-monitor",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-premium-clustering.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-clustering",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-premium-persistence.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-persistence",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-premium-vnet.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-vnet",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-redis-cli-tool.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-scale.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-scale",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-troubleshoot.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-troubleshoot",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-java-get-started.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-java-get-started",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-manage-cli.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-manage-cli",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-migrate-to-redis.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-migrate-to-redis",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-nodejs-get-started.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-nodejs-get-started",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-overview.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-premium-tier-intro.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-premium-tier-intro",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-python-get-started.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-python-get-started",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-redis-cache-arm-provision.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-redis-cache-arm-provision",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-redis-samples.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-redis-samples",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-web-app-arm-with-redis-cache-provision.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-web-app-cache-aside-leaderboard.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-web-app-howto.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-web-app-howto",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cli-samples.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cli-samples",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/cache-keys-ports.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/cache-keys-ports",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/create-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/create-cache",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/create-premium-cache-cluster.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/delete-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/delete-cache",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/show-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+            "redirect_document_id": false
         }
     ]
 }

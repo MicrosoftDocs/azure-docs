@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process group manager tasks - Azure  | Microsoft Docs
+title: Team Data Science Process group manager tasks
 description: An outline of the tasks for a group manager on a data science team project.
 author: marktab
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 

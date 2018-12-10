@@ -1,6 +1,6 @@
 ---
 title: Send events using Node.js - Azure Event Hubs | Microsoft Docs
-description: Get started sending events to Event Hubs using Node.js.
+description: This article provides a walkthrough for creating a Node.js application that sends events from Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
