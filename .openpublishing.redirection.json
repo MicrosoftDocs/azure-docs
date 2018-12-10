@@ -32085,7 +32085,7 @@
         {
 
             "source_path": "articles/machine-learning/service/how-to-data-prep.md",
-            "redirect_url": "/azure/dataprep/intro?view=azure-dataprep-py",
+            "redirect_url": "https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py",
             "redirect_document_id": false
         }
     ]
