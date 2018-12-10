@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/21/2018
 ms.author: helohr
 ---
-# Create a host pool with PowerShell
+# Create a host pool with PowerShell (Preview)
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 

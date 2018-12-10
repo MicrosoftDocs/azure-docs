@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/21/2018
 ms.author: helohr
 ---
-# Create a User Profile Disk share for a host pool
+# Create a User Profile Disk share for a host pool (Preview)
 
 This section will tell you how to set up a User Profile Disk share for a host pool. (We need more information here.)
 

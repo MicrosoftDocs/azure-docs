@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/21/2018
 ms.author: helohr
 ---
-# Create a host pool with Azure Marketplace
+# Create a host pool with Azure Marketplace (Preview)
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
@@ -39,18 +39,19 @@ To use the provided Windows 10 Enterprise multi-session image for your session h
     2. Select **Access keys** on the left-hand pane and copy down the "key1" key for your records.
 6. Use Azure’s AzCopy tool to copy the Windows 10 Enterprise multi-session images into your storage account.
     1. [Download and install the latest stable version of AzCopy](https://aka.ms/downloadazcopy).
-    2. Run the following AzCopy command with the following format:
+    2. Run the following AzCopy command:
+   
         ```azcopy
         AzCopy /Source:”https://rdmipreview.blob.core.windows.net/vhds?< Windows-10-Enterprise-multi-session-SaS-Key>” /Dest:<url-to-container> /DestKey:<your-key> /S
         ```
-    3. Replace `<url-to-container>` with the URL from step 4, `<Windows-10-Enterprise-multi-session-SaS-Key>` with the Windows 10 Enterprise multi-session account key you should have received during the initial whitelisting, and `<your-key>` with the key from step 5.
+        
+        Replace `<url-to-container>` with the URL from step 4, `<Windows-10-Enterprise-multi-session-SaS-Key>` with the Windows 10 Enterprise multi-session account key you should have received during the initial whitelisting, and `<your-key>` with the key from step 5.
 
 Now that you have the Windows 10 Enterprise multi-session.vhd files in your storage account, you can carry out the instructions in the following section.
 
 ### Run the Azure Marketplace offering to provision a new host pool
 
->[!NOTE]
->The Windows Virtual Desktop Marketplace offerings are hidden by default. You must send your subscription ID to Microsoft to whitelist your subscription before you can complete this section’s instructions.
+The Windows Virtual Desktop Marketplace offerings are hidden by default. You must send your subscription ID to Microsoft to whitelist your subscription before you can complete this section’s instructions.
 
 To run the Azure Marketplace offering to provision a new host pool:
 

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 11/21/2018
 ms.author: helohr
 ---
-# Create a host pool with an ARM template
+# Create a host pool with an ARM template (Preview)
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
-Follow the instructions in this article to complete the end-to-end process of creating a host pool within a Windows Virtual Desktop tenant with an Azure Resource Manager (ARM) template provided by Microsoft. You will create a host pool in Windows Virtual Desktop and a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
+Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager (ARM) template provided by Microsoft. You will create a host pool in Windows Virtual Desktop and a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
 
 ## Create a VM image
 
@@ -47,18 +47,17 @@ To create a virtual machine for the host pool:
 2. Select **+** or **+ Create a resource**.
 3. In the Search Everything field, search for and select one of the following:
     1. Windows Server 2016 Datacenter.
-    2. A custom image of your creation. (There are currently no images available in Azure Gallery for Windows 10 RS5. Follow the instructions in Prepare a Windows VHD or VHDX to upload to Azure to create a custom image. This will require an Enterprise Azure subscription.)
+    2. A custom image of your creation. (This will require an Enterprise Azure subscription.)
 4. Select **Create**. (We recommend selecting **Resource Manager**.)
-5. On the Create virtual machine blades, enter in the required information based on the following examples:
-    1. Name: rdsh-x (rdsh-0, rdsh-1, and so on) or win10-x (win10-1, win10-2, and so on).
-    2. User name: a local admin user name you will remember.
-    3. Password: a local admin password that meets the Azure VM password complexity requirements.
-    4. Resource group: the resource group you want to manage your Azure resources. This may be the same resource group as the virtual network or a new resource group.
-    5. Size: Your choice. DS1_V2 (SSD) or A1_V2 (HDD) are good for testing.
-    6. Select View all to see all VM sizes available.
-    7. Virtual Network: Select the virtual network created in Prepare Active Directory for the Windows Virtual Desktop tenant environment.
-    8. Public IP address: Leave with default settings, like a public IP. This is only required during setup to connect to the VM, join the AD domain, and register with Windows Virtual Desktop. Once these steps have been completed, you can remove all public IP addresses for the session host VMs.
-    9. Network security group (firewall): Create a new network security group (NSG) for the host pool with the default port rules. You can later use this NSG to disable all inbound ports to secure the Windows Virtual Desktop tenant environment.
+5. On the **Create virtual machine** blades, enter the required information based on the following examples:
+    1. **Name**: rdsh-x (rdsh-0, rdsh-1, and so on) or win10-x (win10-1, win10-2, and so on).
+    2. **User name**: a local admin user name you will remember.
+    3. **Password**: a local admin password that meets the Azure VM password complexity requirements.
+    4. **Resource group**: the resource group you want to manage your Azure resources. This may be the same resource group as the virtual network or a new resource group.
+    5. ** Size**: Select **View all** to see all VM sizes available and select whichever option works best for you. We suggest **DS1_V2 (SSD)** or **A1_V2 (HDD)** for testing.
+    6. Virtual Network: Select the virtual network created in Prepare Active Directory for the Windows Virtual Desktop tenant environment.
+    7. Public IP address: Leave with default settings, like a public IP. This is only required during setup to connect to the VM, join the AD domain, and register with Windows Virtual Desktop. Once these steps have been completed, you can remove all public IP addresses for the session host VMs.
+    8. Network security group (firewall): Create a new network security group (NSG) for the host pool with the default port rules. You can later use this NSG to disable all inbound ports to secure the Windows Virtual Desktop tenant environment.
 6. Select **Create** and then **Purchase**. (Deployment takes about 10 minutes.)
 7. Repeat steps 3–7 for each VM in the host pool.
 
@@ -96,9 +95,7 @@ You’ll need to download the following packages from the Azure Advisors Yammer 
 To manually join session hosts to the Windows Virtual Desktop deployment:
 
 1. Install the Windows Virtual Desktop Agent on the new session host
-    1. Copy and paste the RDInfraAgentInstall folder and the file containing the registration token onto the VM.
-Note:
-Use the registration token file you created in Create new host pool.
+    1. Copy and paste the RDInfraAgentInstall folder and the file containing the registration token onto the VM. Use the registration token file you created in Create new host pool.
     2. Double-click the .msi file from the RDInfraAgentInstall folder to run the GUI.
     3. Select **Next**.
     4. Copy the Registration Token string from the file that was copied to the VM and paste the string into the Registration Token field.
