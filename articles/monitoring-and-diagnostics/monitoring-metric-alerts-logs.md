@@ -12,7 +12,7 @@ ms.component: alerts
 # Create Metric Alerts for Logs in Azure Monitor  
 
 ## Overview
-Azure Monitor supports [metric alert type](monitoring-near-real-time-metric-alerts.md) which has benefits over the [classic alerts](alert-metric-classic.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
+Azure Monitor supports [metric alert type](monitoring-near-real-time-metric-alerts.md) which has benefits over the [classic alerts](../azure-monitor/platform/alerts-classic-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premise. The supported Log Analytics solutions are listed below:
 - [Performance counters](../azure-monitor/platform/data-sources-performance-counters.md) for Windows & Linux machines

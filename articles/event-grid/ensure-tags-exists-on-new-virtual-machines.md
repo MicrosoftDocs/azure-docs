@@ -14,7 +14,7 @@ ms.author: eamono
 
 ---
 
-# Integrate Azure Automation with Event Grid and Microsoft Teams
+# Tutorial: Integrate Azure Automation with Event Grid and Microsoft Teams
 
 In this tutorial, you learn how to:
 

@@ -179,15 +179,15 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 
  - **Resolution**
-  1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-  2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
-      - ``/usr/local/InMage/config/`` on ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
-  3.	The ProxyInfo.conf should have the proxy settings in the following INI format. </br>
+   1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
+   2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+       - ``/usr/local/InMage/config/`` on ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+   3.	The ProxyInfo.conf should have the proxy settings in the following INI format. </br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+   4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
