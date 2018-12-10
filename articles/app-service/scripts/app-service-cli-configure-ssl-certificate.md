@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Bind a custom SSL certificate to a web ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: erikre
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
