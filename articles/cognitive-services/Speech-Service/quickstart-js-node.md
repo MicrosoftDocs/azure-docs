@@ -127,14 +127,20 @@ Here is a sample output of running main.java after updating the subscription key
 
 ```json
 SpeechRecognitionResult {
-  privResultId: '9E30EEBD41AC4571BB77CF9164441F46',
-  privReason: 3,
-  privText: 'What\'s the weather like?',
-  privDuration: 15900000,
-  privOffset: 300000,
-  privErrorDetails: undefined,
-  privJson: '{"RecognitionStatus":"Success","DisplayText":"What\'s the weather like?","Offset":300000,"Duration":15900000}',
-  privProperties: undefined }
+  "privResultId": "9E30EEBD41AC4571BB77CF9164441F46",
+  "privReason": 3,
+  "privText": "What's the weather like?",
+  "privDuration": 15900000,
+  "privOffset": 300000,
+  "privErrorDetails": null,
+  "privJson": {
+    "RecognitionStatus": "Success",
+    "DisplayText": "What's the weather like?",
+    "Offset": 300000,
+    "Duration": 15900000
+  },
+  "privProperties": null
+}
 ```
 
 For the complete quickstart code and more samples, please visit our Samples Repository.
