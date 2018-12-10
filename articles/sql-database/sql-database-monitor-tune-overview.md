@@ -89,6 +89,13 @@ Once you are certain that you are not facing a high-CPU, running-related perform
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returns information about all the waits encountered by threads that executed during operation. You can use this aggregated view to diagnose performance issues with Azure SQL Database and also with specific queries and batches.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returns information about the wait queue of tasks that are waiting on some resource.
 
+In high-CPU scenarios, the Query Store and wait statistics do not always reflect CPU utilization for these two reasons:
+
+- High-CPU consuming queries may still be executing and the queries haven't finished
+- The high-CPU consuming queries were running when a failover occurred
+
+Query Store and wait statistics-tracking dynamic management views only show results for successfully completed and timed-out queries and do not show data for currently executing statements (until they complete).  The dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) allows you to track currently-executing queries and the associated worker time.
+
 As shown in the previous chart, the most common waits are:
 
 - Locks (blocking)
