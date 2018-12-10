@@ -40,7 +40,7 @@ The list of versions show which versions are published, where they are published
 
 Select a version from the list, then select **Make Active** from the toolbar. 
 
-[![Manage section, versions page](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Manage section, versions page, make a version action](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page, make a version action")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## Import version
 
@@ -48,7 +48,7 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 2. In the **Import new version** pop-up window, enter the new ten character version name. You only need to set a version ID if the version in the JSON file already exists in the app.
 
-    ![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Manage section, versions page, importing new version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Once you import a version, the new version becomes the active version.
 

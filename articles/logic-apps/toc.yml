@@ -317,10 +317,10 @@
   - name: Architecture patterns
     href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
-    - name: Simple enterprise integration
+    - name: Basic enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     - name: Enterprise integration with queues and events
-      href: logic-apps-architectures-enterprise-integration-with-queues-events.md
+      href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/
   - name: Limits and config
