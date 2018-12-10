@@ -16,13 +16,13 @@ ms.author: cshoe
 
 This article demonstrates how to manually run a deployed non HTTP-triggered function.
 
-In some contexts, you may need to run on-demand an Azure Function that is triggered by timed schedule or by another resource's action. This article demonstrates how you can manually run a non HTTP-triggered function by sending a specially-formatted HTTP request to the Function app.
+In some contexts, you may need to run on-demand an Azure Function that is triggered by timed schedule or by another resource's action. This article demonstrates how you can manually run a non HTTP-triggered function by sending a specially formatted HTTP request to the Function app.
 
 [Postman](https://www.getpostman.com/) is used in the following example, but you may use [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
 ## Define the request location
 
-To run a non HTTP-triggered function, you need to a way to send a request to Azure to run the function. The URL used to initiate this request takes a specific form.
+To run a non HTTP-triggered function, you need to a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
 
 ![Define the request location: host name + folder path + function name](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
@@ -62,7 +62,7 @@ Open Postman and follow these steps:
 
 Postman should return with a **Status of 202 Accepted**.
 
-Next, return to your function in the Azure Portal. Locate the *Logs* window and you'll see messages from the function as a result of the manual call from Postman.
+Next, return to your function in the Azure Portal. Locate the *Logs* window and you'll see messages from the function coming from the manual call to the function.
 
 ![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
