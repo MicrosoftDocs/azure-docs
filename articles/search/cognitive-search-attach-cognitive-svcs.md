@@ -88,7 +88,7 @@ Content-Type: application/json
     "cognitiveServices": {
     	"@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey"
     	"description": "mycogsvcs",
-    	"key": "424a1157cfe74e85816b71fb7bd1b835"
+    	"key": "your key goes here"
     }
 }
 ```
