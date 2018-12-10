@@ -14,15 +14,15 @@ ms.author: ramkris
 
 # Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector
  
-The Apache Spark to Azure Cosmos DB connector enables Azure Cosmos DB to be an input or output for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems. You can use Azure Cosmos DB to quickly persist and query data. The connector efficiently uses the native Azure Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing, globally distributed data. This kind of data can range from Internet of Things (IoT) to data science and analytics scenarios.
+The Apache Spark to Azure Cosmos DB connector enables Azure Cosmos DB to be an input or output for Apache Spark jobs. Connecting [Spark](https://spark.apache.org//) to [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) accelerates your ability to solve fast-moving data science problems. You can use Azure Cosmos DB to quickly persist and query data. The connector efficiently uses the native Azure Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing, globally distributed data. This kind of data can range from Internet of Things (IoT) to data science and analytics scenarios.
 
 ## Connector components
 
 The Spark to Azure Cosmos DB connector has the following components:
 
-* [Azure Cosmos DB](http://documentdb.com) enables you to provision and elastically scale both throughput and storage, across any number of geographical regions.  
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) enables you to provision and elastically scale both throughput and storage, across any number of geographical regions.  
 
-* [Apache Spark](http://spark.apache.org/) is a powerful open source processing engine, built around speed, ease of use, and sophisticated analytics.  
+* [Apache Spark](https://spark.apache.org/) is a powerful open source processing engine, built around speed, ease of use, and sophisticated analytics.  
 
 * [Apache Spark cluster on Azure Databricks](https://docs.azuredatabricks.net/getting-started/index.html) enables you to run Spark jobs on the Spark cluster.
 
@@ -174,7 +174,7 @@ Communication between Spark and Azure Cosmos DB is significantly faster, because
 
 4. Extract the contents of the Twitter feed sample and open the config.py file. Update the masterKey, host, databaseId, collectionId, and preferredLocations values.  
 
-5. Go to `http://apps.twitter.com/`, and register the Twitter feed application. After choosing a name for your application, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the Twitter feed application programmatic access to Twitter.   
+5. Go to `https://apps.twitter.com/`, and register the Twitter feed application. After choosing a name for your application, you will be provided with a **consumer key, consumer secret, access token and access token secret**. Copy these values and update them in config.py file to provide the Twitter feed application programmatic access to Twitter.   
 
 6. Save the config.py file. Open a command prompt, and run the Python application by using the following command:
 
@@ -508,4 +508,4 @@ If you haven't already, download the Spark to Azure Cosmos DB connector from the
 * [Aggregations examples](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Sample scripts and notebooks](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html), and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html), and the [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) article.

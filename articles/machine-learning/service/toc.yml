@@ -41,7 +41,10 @@
   displayName: example, examples, jupyter, azure notebooks, python, notebook, github
   href: samples-notebooks.md
 - name: Concepts   
-  items: 
+  items:
+  - name: Automated machine learning
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: Model management
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -66,8 +69,7 @@
       - name: Train and deploy        
         href: how-to-vscode-train-deploy.md
   - name: Prepare data
-    displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md   
+    displayName: data prep, etl, elt, data preparation 
     items:
     - name: Load data
       href: how-to-load-data.md
@@ -94,8 +96,7 @@
     - name: Track experiments and metrics
       href: how-to-track-experiments.md
   - name: Automate machine learning
-    displayName: automl, auto ml
-    href: how-to-automated-ml.md	
+    displayName: automl, auto ml	
     items:
     - name: Configure auto training
       href: how-to-configure-auto-train.md 
@@ -108,18 +109,10 @@
   - name: Deploy models	
     items:    
     - name: Where to deploy models
-      displayName: publish
+      displayName: publish, azure kubernetes, azure container instances
       href: how-to-deploy-and-where.md
-    - name: Deploy to ACI
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: Deploy to AKS
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
     - name: Deploy to FPGAs
       href: how-to-deploy-fpga-web-service.md  
-    - name: Deploy to IoT Edge
-      href: how-to-deploy-to-iot.md 
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
@@ -173,7 +166,7 @@
     href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
-    - name: How to migrate from Workbench
+    - name: Migrate from Workbench
       displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md    
     - name: Export or delete account data (deprecated)

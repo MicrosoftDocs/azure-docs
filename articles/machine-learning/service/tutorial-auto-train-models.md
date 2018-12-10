@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ---
 
-# Tutorial (part 2): Use automated machine learning to build and train a regression model
+# Tutorial (part 2): Use automated machine learning to build your regression model
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [prepared the NYC taxi data for regression modeling](tutorial-data-prep.md).
 
@@ -649,7 +649,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### Train the automatic regression model
 
-Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment, and set the output to `true` to view progress during the experiment.
+Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment, and set the output to `True` to view progress during the experiment.
 
 
 ```python
@@ -713,7 +713,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter Widget run details](./media/tutorial-auto-train-models/jup-widget-auto.png)
+![Jupyter Widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter Widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### Option 2: Get and examine all run iterations in Python
 
