@@ -35,7 +35,7 @@ The data movement can be of the following types:
 
 The following visual illustrates how the various Azure data transfer tools can be used depending upon the network bandwidth available for transfer, data size intended for transfer, and frequency of the transfer.
 
-![Azure data transfer tools](media/storage-choose-data-transfer-solution/azure-data-transfer-options-2.png)
+![Azure data transfer tools](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
 
 ## Selecting a data transfer solution
 
