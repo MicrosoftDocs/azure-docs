@@ -31,25 +31,25 @@ To take this capability for a spin, [sign up for the preview](https://aka.ms/Dyn
 
 Alerts with dynamic thresholds can be configured through Alerts in Azure Monitor
 
-![Alerts preview](./media/monitoring-alerts-dynamic-thresholds/0001.png)
+![Alerts preview](media/alerts-dynamic-thresholds/0001.png)
 
 ## Creating an alert rule with dynamic thresholds
 
 1. From the Alerts pane under Monitor, select the **New Alert Rule** button to create a new alert in Azure.
 
-   ![New Alert Rule](./media/monitoring-alerts-dynamic-thresholds/002.png)
+   ![New Alert Rule](media/alerts-dynamic-thresholds/002.png)
 
 2. The Create rule section is shown with the three parts consisting of: _Define alert condition_, _Define alert details_, and _Define action group_. First begin with the _Define alert condition_ section use the **Select Target** link to specify the target, by selecting a resource. Once an appropriate resource is chosen, click the Done button.
 
-   ![Select Target](./media/monitoring-alerts-dynamic-thresholds/0003.png)
+   ![Select Target](media/alerts-dynamic-thresholds/0003.png)
 
 3. Next use the **Add criteria** button to view a list of signal options available for the resource and from the signal list choose an appropriate **metric** option. (For example Percentage CPU.)
 
-   ![Add criteria](./media/monitoring-alerts-dynamic-thresholds/004.png)
+   ![Add criteria](media/alerts-dynamic-thresholds/004.png)
 
 4. On the Configure signal logic screen, in the Alert logic section you have the option to switch the condition to a type of Dynamic, which will automatically generate the Dynamic thresholds (red lines) alongside the metric (blue line).
 
-   ![Dynamic](./media/monitoring-alerts-dynamic-thresholds/005.png)
+   ![Dynamic](media/alerts-dynamic-thresholds/005.png)
 
 5. The thresholds appearing in the chart are calculated based on the last seven days of historical data, once an alert is created, the Dynamic thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
 
@@ -64,12 +64,12 @@ Alerts with dynamic thresholds can be configured through Alerts in Azure Monitor
        - Med – Less sensitive than high, fewer alerts than with high sensitivity (default)
        - Low – The least sensitive threshold.
 
-    ![Alert logic settings](./media/monitoring-alerts-dynamic-thresholds/00007.png)
+    ![Alert logic settings](media/alerts-dynamic-thresholds/00007.png)
 
 7. Evaluated based on:
     -  What time duration, the Alert should look for the specified condition by choosing from the **Period**.
 
-    ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/007.png)
+    ![Evaluated based on](media/alerts-dynamic-thresholds/007.png)
 
    > [!NOTE]
    > Supported Period values: 5 minutes, 10 minutes, 30 minutes and 1 hour.
@@ -78,15 +78,15 @@ Alerts with dynamic thresholds can be configured through Alerts in Azure Monitor
 
     To trigger an alert when the issue is continuous for 15 minutes, 3 consecutive times in a given period of 5 minutes, use the following settings:
 
-   ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/0008.png)
+   ![Evaluated based on](media/alerts-dynamic-thresholds/0008.png)
 
     To trigger an alert when there was a violation from a Dynamic threshold in 15 minutes out of the last 30 minutes with period of 5 minutes, use the following settings:
 
-   ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/0009.png)
+   ![Evaluated based on](media/alerts-dynamic-thresholds/0009.png)
 
 8. Currently users can have alerts with dynamic threshold criteria as a single criteria.
 
-   ![Create rule](./media/monitoring-alerts-dynamic-thresholds/010.png)
+   ![Create rule](media/alerts-dynamic-thresholds/010.png)
 
 ## Q & A
 
