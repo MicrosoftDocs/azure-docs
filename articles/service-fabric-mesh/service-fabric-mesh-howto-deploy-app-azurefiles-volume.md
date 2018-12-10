@@ -36,6 +36,7 @@ The workaround for the issue is to
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
+
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this article. 
 
 To use the Azure CLI locally with this article, ensure that `az --version` returns at least `azure-cli (2.0.43)`.  Install (or update) the Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
