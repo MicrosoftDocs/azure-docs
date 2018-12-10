@@ -16,9 +16,9 @@ ms.author: cshoe
 
 This article demonstrates how to manually run a deployed non HTTP-triggered function.
 
-In some contexts you may need to run on-demand an Azure Function that is triggered as a result of a timed schedule or as a result of an action on another resource. This article demonstrates how you can manually run a non HTTP-triggered function by sending a specially-formatted HTTP request to the Function app.
+In some contexts, you may need to run on-demand an Azure Function that is triggered by timed schedule or by another resource's action. This article demonstrates how you can manually run a non HTTP-triggered function by sending a specially-formatted HTTP request to the Function app.
 
-[Postman](https://www.getpostman.com/) is used in the following example, but you may use [Fiddler](https://www.telerik.com/fiddler) or any other like tool to initiate HTTP requests.
+[Postman](https://www.getpostman.com/) is used in the following example, but you may use [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
 ## Define the request location
 
@@ -26,8 +26,8 @@ To run a non HTTP-triggered function, you need to a way to send a request to Azu
 
 ![Define the request location: host name + folder path + function name](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
-- **Host name:** The function app's public location which is made up from the function app's name plus *azurewebsites.net*.
-- **Folder path:** To access non HTTP-triggered functions via a HTTP request you have to send the request through the folders *admin/functions*.
+- **Host name:** The function app's public location that is made up from the function app's name plus *azurewebsites.net*.
+- **Folder path:** To access non HTTP-triggered functions via an HTTP request, you have to send the request through the folders *admin/functions*.
 - **Function name:** The name of the function you want to run.
 
 You use this request location in Postman along with the master key to send a request to Azure to run the function.
@@ -38,7 +38,7 @@ Navigate to your function in the Azure Portal and click on **Manage** and find t
 
 ![Copy master key from Function Management screen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-After copying the master key, click on the function name to return to the code file window and click on **Logs**. You will see messages from the function logged here when you manually run the function from Postman.
+After copying the master key, click on the function name to return to the code file window and click on **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
 
 ### Set up the request
 
@@ -58,11 +58,11 @@ Open Postman and follow these steps:
 
 7. Click **Send**.
 
-![Postman send request](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 
 Postman should return with a **Status of 202 Accepted**.
 
-Next, return to your function in the Azure Portal. Locate the *Logs* window and you will see messages from the function as a result of the manual call from Postman.
+Next, return to your function in the Azure Portal. Locate the *Logs* window and you'll see messages from the function as a result of the manual call from Postman.
 
 ![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
