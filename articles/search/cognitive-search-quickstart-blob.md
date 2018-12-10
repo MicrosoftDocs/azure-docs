@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
 >
 > The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-svcs.md).
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ First, sign up for the Azure Search service.
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
   > [!NOTE]
-  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-svcs.md).
+  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-services.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 

@@ -62,7 +62,7 @@
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
     - name: Associate Cognitive Services with skillset
-      href: cognitive-search-attach-cognitive-svcs.md
+      href: cognitive-search-attach-cognitive-services.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
     - name: Process and extract information from images
