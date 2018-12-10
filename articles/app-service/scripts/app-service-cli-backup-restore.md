@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Restore a web app from a backup | Microsoft Doc
 description: Azure CLI Script Sample - Restore a web app from a backup
 services: app-service\web
 documentationcenter: 
-author: cephalin;
+author: msangapu
 manager: jeconnoc
 editor: 
 tags: azure-service-management
