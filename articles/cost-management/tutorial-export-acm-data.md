@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom:
+ms.custom: seodec18
 ---
 
 # Tutorial: Create and manage exported data
@@ -45,11 +45,11 @@ Cost Management + Billing &gt; Cost Management &gt; select a subscription or res
 
 Type a name for the export and select the "Daily export of month-to-date costs" option. Click **Next**.
 
-![New export: export type](./media/tutorial-export-acm-data/basics_exports.png)
+![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)
 
 Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to.  Click **Next**.
 
-![New export: storage](./media/tutorial-export-acm-data/storage_exports.png)
+![New export example showing storage account details](./media/tutorial-export-acm-data/storage_exports.png)
 
 Review your export details and click **Create**.
 
@@ -63,15 +63,15 @@ You can easily verify that your Cost Management data is being collected and view
 
 In the export list, click the storage account name. On the storage account page, click Open in Explorer. If you see a confirmation box, click **Yes** to open the file in Azure Storage Explorer.
 
-![Storage account page](./media/tutorial-export-acm-data/storage-account-page.png)
+![Storage account page showing example information and link to Open in Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 
 In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then click **Open**.
 
-![Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
+![Example information shown in Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
 
 The file opens with the program or application that's set to open CSV file extensions. Here's an example in Excel.
 
-![Example export data](./media/tutorial-export-acm-data/example-export-data.png)
+![Example exported CSV data shown in Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## Access exported data from other systems
 

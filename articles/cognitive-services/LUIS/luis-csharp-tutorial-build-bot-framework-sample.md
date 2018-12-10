@@ -1,5 +1,5 @@
 ---
-title: Bot with C# 
+title: Bot - C# - v3
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution.
 services: cognitive-services
@@ -32,11 +32,11 @@ Using C#, build a chat bot integrated with language understanding (LUIS). This c
 
 1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the top left menu.
 
-    ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Create new resource in Azure portal](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. In the search box, search for **Web App Bot**. 
 
-    ![Create new resource](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![Select web app bot as resource type](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. In the Web App Bot window, click **Create**.
 

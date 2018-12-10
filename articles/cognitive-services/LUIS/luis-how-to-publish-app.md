@@ -34,7 +34,7 @@ The app is published to all regions associated with the LUIS resources added in 
 
 When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
 
-![Publishing pop-up window](./media/luis-how-to-publish-app/publish-success.png)
+![Publishing pop-up window with link to endpoint](./media/luis-how-to-publish-app/publish-success.png)
 
 If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
 

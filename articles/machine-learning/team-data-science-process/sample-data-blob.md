@@ -1,5 +1,5 @@
 ---
-title: Sample data in Azure blob storage | Microsoft Docs
+title: Sample data in Azure blob storage - Team Data Science Process
 description: Sampling data stored in Azure blob storage by downloading it programmatically and then sampling it using procedures written in Python.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Sample data in Azure blob storage
 
