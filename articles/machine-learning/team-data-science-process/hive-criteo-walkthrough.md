@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action - Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset
 
@@ -472,7 +472,7 @@ There can be millions of unique values for some categorical features of large da
 ##### Building counting transforms
 To build count features, use the **Build Counting Transform** module that is available in Azure Machine Learning. The module looks like this:
 
-![Build Counting Transform module](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Build Counting Transform module properties](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Build Counting Transform module](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 

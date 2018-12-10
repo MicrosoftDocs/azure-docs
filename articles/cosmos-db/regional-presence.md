@@ -1,12 +1,13 @@
 ---
-title: Regional presence of Azure Cosmos DB
-description: This article explains about the regional presence of Azure Cosmos DB and different cloud environments that are available.
+title: Regional presence with Azure Cosmos DB
+description: This article explains about the regional presence of Azure Cosmos DB and different cloud environments.
 author: rimman
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: rimman
+ms.custom: seodec18
 ---
 
 # Regional presence of Azure Cosmos DB

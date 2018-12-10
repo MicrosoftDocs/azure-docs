@@ -1,15 +1,16 @@
 ---
-title: Send custom events for Azure Event Grid to storage queue | Microsoft Docs
+title: Send custom events to storage queue - Event Grid, Azure CLI
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint. 
 services: event-grid 
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: seodec18
 ---
-# Route custom events to Azure Queue storage with Azure CLI and Event Grid
+# Quickstart: Route custom events to Azure Queue storage with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Queue storage is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the Queue storage.
 

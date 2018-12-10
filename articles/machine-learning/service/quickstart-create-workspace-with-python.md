@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:  Get started in Python"
+title: 'Quickstart:  Get started in Python'
 titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
@@ -39,9 +39,8 @@ The following Azure resources are added automatically to your workspace when the
 >[!NOTE]
 > Code in this article requires Azure Machine Learning SDK version 1.0.2 or later. 
 
-
-If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
-
+>[!Note]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Install the SDK
 

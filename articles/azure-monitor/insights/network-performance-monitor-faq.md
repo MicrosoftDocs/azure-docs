@@ -159,17 +159,8 @@ This can happen if either the host firewall or the intermediate firewall (networ
 As the network paths between A to B can be different from the network paths between B to A, different values for loss and latency can be observed.
 
 ### Why are all my ExpressRoute circuits and peering connections not being discovered?
-This can happen if your circuit and peering connections are distributed across multiple subscriptions. NPM discovers only those ExpressRoute private peering connections in which the VNETs connected to the ExpressRoute are in the same subscription as the one linked with the NPM workspace. Additionally, NPM discovers those Microsoft peering connections in which the connected ExpressRoute circuit is in the same subscription as the one linked with the NPM workspace. This can be clarified from the below example:
+NPM now discovers ExpressRoute circuits and peering connections in all subscriptions to which the user has access. Choose all the subscriptions where your Express Route resources are linked and enable monitoring for each discovered resource. NPM looks for connection objects when discovering a private peering, so please check if a VNET is associated with your peering.
 
- If you have 2 VNETS- VNET A in subscription A and VNET B in subscription B respectively, connected to an ExpressRoute in subscription C. Additionally, there is another VNET -VNET C in subscription C. The ER also has MS peering in subscription C. 
-
-Then,
-
-* If NPM workspace is linked with subscription A, then you will be able to monitor connectivity via ER to VNET A only.
-* If NPM workspace is linked with subscription B, then you will be able to monitor connectivity via ER to VNET B only.
-* If NPM workspace is linked with subscription C, then you will be able to monitor connectivity via ER to VNET C as well as MS peering.
-
-The cross-subscription support will soon be available. After this you will be able to monitor all your ExpressRoute private and Microsoft peering connections in different subscriptions, from one workspace.
 ### The ER Monitor capability has a diagnostic message "Traffic is not passing through ANY circuit". What does that mean?
 
 There can be a scenario where there is a healthy connection between the on-premises and Azure nodes but the traffic is not going over the ExpressRoute circuit configured to be monitored by NPM. 
