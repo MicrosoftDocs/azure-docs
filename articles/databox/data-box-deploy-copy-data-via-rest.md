@@ -39,7 +39,7 @@ Before you begin, make sure that:
 
 You can connect to Data Box Blob storage over *http* or *https*. In general, *https* is the secure and recommended way to connect to Data Box Blob storage. *Http* is used  when connecting over trusted networks. Depending on whether you are connecting to Data Box Blob storage over *http* or *https*, the steps can be different.
 
-### Connect via http
+## Connect via http
 
 Connection to Data Box Blob storage REST APIs over *http* requires the following steps:
 
