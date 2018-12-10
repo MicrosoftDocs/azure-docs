@@ -10,9 +10,10 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# Create a knowledge base
+# Create a knowledge base in QnA Maker
 
 QnA Maker makes it simple to add your existing data sources when creating a knowledge base. You can create a new QnA Maker knowledge base from the following document types:
 

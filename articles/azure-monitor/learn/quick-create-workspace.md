@@ -26,8 +26,8 @@ In the Azure portal you can set up a Log Analytics workspace, which is a unique 
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-*  [Collect data from Azure virtual machines](../../log-analytics/log-analytics-quick-collect-azurevm.md) 
-*  [Collect data from hybrid Linux computer](../../log-analytics/log-analytics-quick-collect-linux-computer.md)
+*  [Collect data from Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md) 
+*  [Collect data from hybrid Linux computer](../../azure-monitor/learn/quick-collect-linux-computer.md)
 *  [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -59,5 +59,5 @@ Now that you have a workspace available, you can configure collection of monitor
 
 * To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
 * [Add System Center Operations Manager as a data source](../../azure-monitor/platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace. 
-* Connect [Configuration Manager](../../log-analytics/log-analytics-sccm.md) to import computers that are members of collections in the hierarchy.  
+* Connect [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
 * Review the [management solutions](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) available and how to add or remove a solution from your workspace.

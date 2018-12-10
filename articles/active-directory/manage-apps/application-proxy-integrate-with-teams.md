@@ -27,7 +27,7 @@ Your users can add cloud apps to their Teams channels [using tabs](https://suppo
 
 ## Install the Application Proxy connector and publish your app
 
-If you haven't already, [configure Application Proxy for your tenant and install the connector](application-proxy-enable.md). Then, [publish your on-premises application](application-proxy-publish-azure-portal.md) for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
+If you haven't already, [configure Application Proxy for your tenant and install the connector](application-proxy-add-on-premises-application.md). Then, [publish your on-premises application](application-proxy-add-on-premises-application.md) for remote access. When you're publishing the app, make note of the external URL because it's used to add the app to Teams.
 
 If you already have your apps published but don't remember their external URLs, look them up in the [Azure portal](https://portal.azure.com). Sign in, then navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** > select your app > **Application proxy**.
 
