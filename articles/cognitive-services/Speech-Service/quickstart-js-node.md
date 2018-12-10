@@ -115,7 +115,7 @@ recognizer.recognizeOnceAsync(
 
 ## Running the sample
 
-To launch the app, adapt the subscription, region, and wave filename and then run it by executing
+To launch the app, adapt "YOUR_SUBSCRIPTION", "YOUR_REGION" and "YOUR_WAVE_FILENAME.wav". The you can execute it by calling
 
 ```nodejs
 node index.js
