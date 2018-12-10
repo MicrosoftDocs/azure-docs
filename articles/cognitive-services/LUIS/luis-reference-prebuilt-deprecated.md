@@ -13,7 +13,7 @@ ms.date: 11/26/2018
 ms.author: diberry
 ---
 
-# Deprecated entities
+# Deprecated prebuilt entities in a LUIS app
 The following prebuilt entities are deprecated and can't be added to new LUIS apps.
 
 * **Datetime**: Existing LUIS apps that use **datetime** should be migrated to **datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.

@@ -1,14 +1,14 @@
 ---
-title: What are HDInsight and the Apache Hadoop and Apache Spark technology stack? - Azure
+title: What are the Apache Hadoop and Apache Spark technology stack? - Azure HDInsight
 description: An introduction to HDInsight, and to the Apache Hadoop and Apache Spark technology stack and components, including Kafka, Hive, Storm, and HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017, mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 05/07/2018
+ms.date: 12/07/2018
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on-prem clusters.
 ---
 # What is Azure HDInsight and the Apache Hadoop technology stack
@@ -77,6 +77,7 @@ You can use HDInsight to extend your existing on-premises big data infrastructur
 ![HDInsight architecture: Hybrid](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight hybrid architecture")
 
 ## Cluster types in HDInsight
+
 HDInsight includes specific cluster types and cluster customization capabilities, such as the capability to add components, utilities, and languages. HDInsight offers the following cluster types:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: A framework that uses HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.
@@ -107,9 +108,9 @@ HDInsight clusters, including Spark, HBase, Kafka, Hadoop, and others, support m
 |Default programming language support     | By default, HDInsight clusters support:<ul><li>Java</li><li>Python</li></ul> You can install additional languages by using [script actions](../hdinsight-hadoop-script-actions-linux.md).       |
 |Java virtual machine (JVM) languages     | Many languages other than Java can run on a Java virtual machine (JVM). However, if you run some of these languages, you might have to install additional components on the cluster. The following JVM-based languages are supported on HDInsight clusters: <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
 |Hadoop-specific languages     | HDInsight clusters support the following languages that are specific to the Hadoop technology stack: <ul><li>Pig Latin for Pig jobs</li><li>HiveQL for Hive jobs and SparkSQL</li></ul>        |
- 
 
-## Development tools for HDInsight 
+## Development tools for HDInsight
+
 You can use HDInsight development tools, including IntelliJ, Eclipse, Visual Studio Code, and Visual Studio, to author and submit HDInsight data query and job with seamless integration with Azure.
 
 * [Azure toolkit for IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
@@ -121,6 +122,7 @@ You can use HDInsight development tools, including IntelliJ, Eclipse, Visual Stu
 * [Azure data lake tools for Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
 ## Business intelligence on HDInsight
+
 Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver:
 
 * [Apache Spark BI using data visualization tools with Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
@@ -129,14 +131,13 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 
-* [Connect Excel to Hadoop with Power Query](apache-hadoop-connect-excel-power-query.md) (requires Windows) 
+* [Connect Excel to Hadoop with Power Query](apache-hadoop-connect-excel-power-query.md) (requires Windows)
 
 * [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md) (requires Windows) 
 
 * [Use SQL Server Analysis Services with HDInsight](https://msdn.microsoft.com/library/dn749857.aspx)
 
 * [Use SQL Server Reporting Services with HDInsight](https://msdn.microsoft.com/library/dn749856.aspx)
-
 
 ## Next steps
 

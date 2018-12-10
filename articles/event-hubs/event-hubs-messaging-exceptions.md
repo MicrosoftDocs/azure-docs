@@ -1,6 +1,6 @@
 ---
 title: Messaging exceptions - Azure Event Hubs | Microsoft Docs
-description: List of Azure Event Hubs messaging exceptions and suggested actions.
+description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy

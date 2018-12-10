@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process roles and tasks - Azure  | Microsoft Docs
+title: Team Data Science Process roles and tasks 
 description: An outline of the key components, personnel roles, and associated tasks for a data science team project.
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # Team Data Science Process roles and tasks
