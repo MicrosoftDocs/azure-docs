@@ -39,9 +39,8 @@ The following Azure resources are added automatically to your workspace when the
 >[!NOTE]
 > Code in this article requires Azure Machine Learning SDK version 1.0.2 or later. 
 
-
-If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
-
+>[!Note]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Install the SDK
 
