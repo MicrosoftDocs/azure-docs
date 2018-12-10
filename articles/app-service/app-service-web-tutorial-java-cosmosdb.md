@@ -10,21 +10,21 @@ ms.date: 11/02/2018
 ms.custom: mvc
 ---
 
-# Tutorial: Build a Java wb app using Spring Boot, Spring Data for Cosmos DB, Azure Cosmos DB and App Service on Linux
+# Tutorial: Build a Java web app using Spring and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
-![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/spring-todo-app-running-locally.jpg)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Cosmos DB database.
-> * Connect a simple TODO app running locally to the database
-> * Deploy the TODO sample app to Azure
-> * Stream diagnostic logs from Azure
-> * Scale out the web app 
+> * Connect a sample app to the database and test it locally
+> * Deploy the sample app to Azure
+> * Stream diagnostic logs from App Service
+> * Add additional instances to scale out the sample app
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,16 +37,16 @@ In this tutorial, you learn how to:
 
 ## Clone the sample TODO app and prepare the repo
 
-This tutorial uses a sample TODO list app developed consisting of a Spring MVC REST API alongside [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). The following commands clone the sample repo and then set up the app environment.
+This tutorial uses a sample TODO list app with a web UI that calls a Spring REST API backed by [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). To learn more about writing Java apps using Spring and Cosmos DB, see the [Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
+
+
+Run the folllowing commands in your terminal to clone the sample repo and set up the sample app environment.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
 cd e2e-java-experience-in-app-service-linux-part-2
 yes | cp -rf .prep/* .
 ```
-
-This tutorial focuses on how to deploy this application to Azure App Service on Linux and not how to write Java applications using Spring Data Azure Cosmos DB. To learn more about writing Java apps using Spring and Cosmos DB, see the [H Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
-
 
 ## Create an Azure Cosmos DB
 
@@ -63,14 +63,14 @@ az account set -s <your-subscription-id>
 az group create -n <your-azure-group-name> \
     -l <your-resource-group-region>
 ```
-3. Create Azure Cosmos DB with GlobalDocumentDB kind. 
+3. Create Azure Cosmos DB with the `GlobalDocumentDB` kind. 
 The name of Cosmos DB must use only lower case letters. Note down the `documentEndpoint` field in the response from the command.
 ```bash
 az cosmosdb create --kind GlobalDocumentDB \
     -g <your-azure-group-name> \
     -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
 ```
-4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` handy as you'll need them in the next step.
+4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 ```bash
 az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
 ```
@@ -97,11 +97,36 @@ export RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
 export WEBAPP_NAME=<put-your-Webapp-name-here>
 export REGION=<put-your-REGION-here>
 ```
-   
-These environment variables are used to populate values `application.properties` in the TODO list app without risking leaking secrets into version control history.
+
+Then run the script:
 
 ```bash
 source .scripts/set-env-variables.sh
+```
+   
+These environment variables are used in `application.properties` in the TODO list app. The fields in the properties file set up a default repository configuration for Spring Data:
+
+```properties
+azure.cosmosdb.uri=${COSMOSDB_URI}
+azure.cosmosdb.key=${COSMOSDB_KEY}
+azure.cosmosdb.database=${COSMOSDB_DBNAME}
+```
+
+```java
+@Repository
+public interface TodoItemRepository extends DocumentDbRepository<TodoItem, String> {
+}
+```
+
+Then the sample app uses the `@Document` annotation imported from `com.microsoft.azure.spring.data.cosmosdb.core.mapping.Document` to set up an entity type to be managed by Cosmos DB:
+
+```java
+@Document
+public class TodoItem {
+    private String id;
+    private String description;
+    private String owner;
+    private boolean finished;
 ```
 
 ## Run the sample app
@@ -135,7 +160,7 @@ bash-3.2$ mvn package spring-boot:run
 
 You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/spring-todo-app-running-locally.jpg)
+ ![](./media/app-service-web-tutorial-java-mysql/spring-todo-app-running-locally.jpg)
 
 If you see exceptions instaead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
 
@@ -226,7 +251,6 @@ bash-3.2$ mvn azure-webapp:deploy
 ```bash
 open https://spring-todo-app.azurewebsites.net
 ```
-![](./media/spring-todo-app-running-in-app-service.jpg)
 
 ## View logs to troubleshoot the app
 
@@ -310,4 +334,4 @@ and
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)
+> [Java in App Service Linux dev guide](/azure/app-service/containers/app-service-linux-java)
