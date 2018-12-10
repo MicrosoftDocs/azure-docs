@@ -56,15 +56,9 @@ This update includes the following improvements for Azure Stack:
 
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
-<!--  2712869   | IS  ASDK -->  
-- **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
-
-- Added new privileged endpoint command to update the BMC credential: the username and password are used to communicate with the physical machines. 
-<!-- @Matt add link to updated bmc doc -->
-
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
-- Added extended data at rest encryption protection to include all the infrastructure data stored on local disks (not on cluster shared volumes). This effectively completes the effort of protecting all data, both infrastructure and users, that is stored on your Azure Stack. The encryption keys are protected by the TPM modules inside your Azure Stack. For more information, see [data at rest encryption in Azure Stack](azure-stack-security-bitlocker.md).
+
 
 ### Fixed issues
 
@@ -133,8 +127,6 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 > [!Important]  
 > Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
-
-- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md). 
 
 - Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/).
 
