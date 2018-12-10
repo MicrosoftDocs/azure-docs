@@ -10,7 +10,7 @@ ms.component: alerts
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 
-Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](alert-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
+Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](../../monitoring-and-diagnostics/alert-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
 
 ## With Azure portal
 
@@ -18,11 +18,11 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 2. In the **MONITORING** section, select **Alerts (Classic)**. The text and icon might vary slightly for different resources. If you don't find **Alerts (Classic)** here, you might find it in **Alerts** or **Alert Rules**.
 
-    ![Monitoring](media/alert-metric-classic/AlertRulesButton.png)
+    ![Monitoring](media/alerts-classic-portal/AlertRulesButton.png)
 
 3. Select the **Add metric alert (classic)** command, and then fill in the fields.
 
-    ![Add Alert](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Add Alert](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
 
 4. **Name** your alert rule. Then choose a **Description**, which also appears in notification emails.
 
@@ -124,5 +124,5 @@ This sections shows how to use PowerShell commands create, view and manage class
 
 ## Next steps
 
-- [Create a classic metric alert with a Resource Manager template](monitoring-enable-alerts-using-template.md).
-- [Have a classic metric alert notify a non-Azure system using a webhook](insights-webhooks-alerts.md).
+- [Create a classic metric alert with a Resource Manager template](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Have a classic metric alert notify a non-Azure system using a webhook](../../monitoring-and-diagnostics/insights-webhooks-alerts.md).

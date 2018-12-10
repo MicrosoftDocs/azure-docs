@@ -125,7 +125,7 @@ Previously, Azure Monitor, Application Insights, Log Analytics, and Service Heal
 
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
-| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Web availability tests | Not supported. See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 
@@ -169,7 +169,7 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information, see [Alerts classic](./monitoring-overview-alerts-classic.md)
+For more information, see [Alerts classic](./../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## Next steps
