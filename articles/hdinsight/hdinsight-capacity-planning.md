@@ -102,7 +102,7 @@ To identify the issue on a single-node local cluster you can rerun failed jobs a
 
 After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. If you need to request a quota increase, do the following steps:
 
-1. Go to the Windows Azure portal
+1. Go to the Azure portal
 1. Click on **Help and Support** on the bottom-left side of the page.
 1. Click on **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
