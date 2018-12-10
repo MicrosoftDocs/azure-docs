@@ -13,20 +13,28 @@ ms.date: 12/10/2018
 
 # How to provision and manage Azure Time Series Insights Preview
 
-This document describes how to create and manage a new Azure Time Series Insights update environment in the Azure portal.
+This document describes how to create and manage an Azure Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
 
 ## Overview
 
-In brief, here is how provisioning works in the Azure Time Series Insights update:
+A brief overview about how to provision a new Azure Time Series Insights Preview environment is described below:
 
-* Provision a Time Series Insights update (PAYG) environment. 
-* As part of the creation process you will need to provide a time series ID. It can be up to 3 keys. You can learn more about Time Series ID’s here. 
-* When you provision a Time Series Insights update environment you create two Azure resources, a Time Series Insights update environment and an Azure storage general purpose V1 account. 
-* In the future, new Azure customers will by default only be allowed to provision an Azure storage general purpose V2 account, therefore we will support it when that change occurs. 
-* For V2 accounts, please do not enable cold/archival properties on the storage account you will be using. 
-* You can then optionally connect the update environment to a Time Series Insight supported event source (e.g. IoT Hub). 
-* Here you want to provide the timestamp ID property and provide a unique consumer group to ensure that the environment has access to all your events. 
-* After provisioning, you can then optionally manage access policies and other environment attributes that support your business requirements.
+* Azure Time Series Insights Preview environments are **PAYG** environments.
+  * As part of the creation process you will need to provide a Time Series ID. Time Series IDs can be up to 3 keys. Learn more about selecting a Time Series ID by reading [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md).
+  * When you provision an Azure Time Series Insights Preview environment you create two Azure resources:
+
+    * An Azure Time Series Insights Preview environment  
+    * An Azure Storage general purpose V1 account
+  
+    Learn [How to plan your environment](./time-series-insights-update-plan.md).
+
+    >[!IMPORTANT]
+    > For customers using V2 accounts, do not enable cold/archival properties on the storage account you will be using.
+
+* Each Azure Time Series Insights Preview environment can be (optionally) associated with an event source. Read [How to add an Event Hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md) and [How to add an IoT Hub source](./time-series-insights-how-to-add-an-event-source-iothub.md) for more information.
+  * You will provide a Timestamp ID property and a unique consumer group during this step. Doing so, ensures that the environment has access to the appropriate events.
+
+* Once provisioning is complete, you may modify your access policies and other environment attributes to suite your business requirements.
 
 ## New environment creation
 
@@ -35,6 +43,11 @@ The following steps describee how to create an Azure Time Series Insights Previe
 1. Select the PAYG button under the SKU menu. You’ll also input an environment name, designate which subscription and resource group you wish to create the environment in, and select a supported location for the environment to reside in.
 
 1. Input Time Series ID property
+
+    >[!NOTE]
+    > * The Time Series ID is case-sensitive and immutable (it can't be changed after it is set).
+    > * Time Series IDs can be up to 3 keys.
+    > * Read more about selecting a Time Series ID by reading [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md).
 
 1. Create a new Azure Storage account by selecting a storage account name and designating a replication choice. This will automatically create a new Azure storage general purpose V1 account in the same region as the Time Series Insights update environment you previously selected. 
 
