@@ -24,6 +24,15 @@ Until now, licenses could only be assigned at the individual user level, which c
 
 To address those challenges, Azure AD now includes group-based licensing. You can assign one or more product licenses to a group. Azure AD ensures that the licenses are assigned to all members of the group. Any new members who join the group are assigned the appropriate licenses. When they leave the group, those licenses are removed. This eliminates the need for automating license management via PowerShell to reflect changes in the organization and departmental structure on a per-user basis.
 
+## Licensing requirements
+You must have one of the following licenses to use group-based licensing:
+
+- Paid or trial subscription for Azure AD Basic
+
+- Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 and above
+
+### Required number of licenses
+For any groups you assign a license, you must also have a license for each unique member. While you don't have to assign each member of the group a license, you must have at least enough licenses to include all of the members. For exmaple, if you have 1,000 unique members who are part of licensed groups in your tenant, you must have at least 1,000 licenses to meet the licensing agreement.
 
 ## Features
 
@@ -42,8 +51,6 @@ Here are the main features of group-based licensing:
 - A user can be a member of multiple groups with license policies specified. A user can also have some licenses that were directly assigned, outside of any groups. The resulting user state is a combination of all assigned product and service licenses. If a user is assigned same license from multiple sources, the license will be consumed only once.
 
 - In some cases, licenses cannot be assigned to a user. For example, there might not be enough available licenses in the tenant, or conflicting services might have been assigned at the same time. Administrators have access to information about users for whom Azure AD could not fully process group licenses. They can then take corrective action based on that information.
-
-- A paid or trial subscription for Azure AD Basic or a paid or trial Office 365 Enterprise E3, Office 365 A3 and above editions is required in the tenant to use group-based license management. This feature requires license for each unique user that is a member of groups which are assigned license. You don't have to assign licenses to users for them to be members of groups which are assigned license, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all groups with licenses assigned in your tenant, you would need at least 1,000 licenses to meet the license requirement.
 
 ## Your feedback is welcome!
 
