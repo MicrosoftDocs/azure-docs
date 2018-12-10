@@ -24,7 +24,7 @@ Provisioned throughput, specified as [Request Units](request-units.md) per secon
 
 For more information, see the [Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and [Understanding your Cosmos DB bill](understand-your-bill.md).
 
-The pricing model in Azure Cosmos DB is consistent across all APIs. To learn more, see [How Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md). There is a minimum throughput required on a database or a container to ensure the SLAs and you can increase or decrease the provisioned throughput by $6 for each 100 RU/s.
+The pricing model in Azure Cosmos DB is consistent across all APIs. To learn more, see [How Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md). There is a minimum throughput required on a database or a container to ensure the SLAs and you can increase or decrease the provisioned throughput by $6 for each 100 RU/s.
 
 Currently the minimum price for both database and the container-based throughput is $24/month (see the [Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest information. If your workload uses multiple containers, it can be optimized for cost by using database level throughput because database level throughput allows you to have any number of containers in a database sharing the throughput among the containers. The following table summarizes  provisioned throughput and the costs for different entities:
 

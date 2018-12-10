@@ -148,7 +148,7 @@
         - name: Pricing model
           href: how-pricing-works.md
         - name: Total Cost of Ownership (TCO) 
-          href: total-cost-of-ownership.md
+          href: total-cost-ownership.md
         - name: Understand your bill 
           href: understand-your-bill.md          
         - name: Optimize provisioned throughput cost

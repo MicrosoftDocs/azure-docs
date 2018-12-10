@@ -25,7 +25,7 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 
 * **No NoSQL devops administration is required:** With Azure Cosmos DB one does not need to employ devops to manage deployments, perform maintenance, scale, or patch. You can execute the all the workloads that you would do with OSS NoSQL cluster hosted on-premises or on cloud infrastructure.
 
-![Azure Cosmos DB cost of ownership](./media/total-cost-of-ownership/tco.png)
+![Azure Cosmos DB cost of ownership](./media/total-cost-ownership/tco.png)
 
 * **Ability to elastically scale:** Azure Cosmos DB throughput can be scaled up and down, allowing you to reduce the cost of ownership during non-peak times. OSS NoSQL clusters deployed on cloud infrastructure offer limited elasticity, and on-premises deployments aren't elastic by definition. In Azure Cosmos DB, if you provision more throughput, your throughput is guaranteed to scale linearly. This guarantee is backed up by financial SLAs and at the 99th percentile at any scale.
 
@@ -53,7 +53,7 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 
 ## Next steps
 
-* Learn more about [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md)
+* Learn more about [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md)
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)

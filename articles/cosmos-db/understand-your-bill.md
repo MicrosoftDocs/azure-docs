@@ -258,7 +258,7 @@ What you’ve effectively purchased is a credit of $8 per hour, for 100 K RU
 
 Next you can proceed to learn about cost optimization in Azure Cosmos DB with the following articles:
 
-* Learn more about [How Cosmos DB pricing model is cost-effective for customers](total-cost-of-ownership.md)
+* Learn more about [How Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md)
 * Learn more about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
