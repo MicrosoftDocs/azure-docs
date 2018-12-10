@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
-
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Create custom fields in Log Analytics
