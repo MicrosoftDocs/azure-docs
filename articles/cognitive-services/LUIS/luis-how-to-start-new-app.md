@@ -13,7 +13,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Create an app
+# Create a new LUIS app in the LUIS portal
 There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 ## Using the LUIS portal

@@ -1,5 +1,5 @@
 ﻿---
-title: LUIS Bot with Node.js
+title: Bot - Node.js - v4 
 titleSuffix: Azure Cognitive Services
 description: Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
@@ -193,7 +193,7 @@ Before changing any code or settings, verify the bot works.
 3. Create a file to hold the environment variables the bot code looks for. Name the file `.env`. Add the following environment variables:
 
     <!--there is no code language that represents an .env file correctly-->
-    ```
+    ```env
     botFilePath=
     botFileSecret=
     ```

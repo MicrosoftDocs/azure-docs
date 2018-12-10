@@ -1,7 +1,7 @@
 ---
 title: v1 to v2 API Migration  
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate to the latest API set.
+description: The version 1 endpoint and authoring APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
-# API v2 Migration guide
-The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs will be deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+# API v1 to v2 Migration guide for LUIS apps
+The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
 ## New Azure regions
 LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different website for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.

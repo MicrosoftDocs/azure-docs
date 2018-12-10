@@ -9,10 +9,10 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
-# Phrase list features in LUIS
+# Phrase list features in your LUIS app
 
 In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes. 
 

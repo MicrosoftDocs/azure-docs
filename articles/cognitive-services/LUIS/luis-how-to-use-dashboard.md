@@ -13,7 +13,7 @@ ms.date: 11/26/2018
 ms.author: diberry
 ---
 
-# Application Dashboard
+# Model and usage statistics in the dashboard
 The app dashboard enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
 > [!CAUTION]
@@ -66,7 +66,7 @@ The **Intent Breakdown** displays a breakdown of intents based on labeled uttera
 
 To control whether the breakdown is based on labeled utterances or endpoint hits:
 
-1. Click **Additional Settings** ![Additional Settings button](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
+1. Click **Additional Settings** ![Additional Settings button to access list](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
 
     ![Intent Breakdown List](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Select a value from the list and then click the back arrow ![Back Arrow](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) to display the chart.
@@ -78,7 +78,7 @@ The dashboard displays a breakdown of entities based on labeled utterances or en
 
 To control whether the breakdown is based on labeled utterances or endpoint hits:
 
-1. Click **Additional Settings** ![Additional Settings button](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
+1. Click **Additional Settings** ![Additional Settings button to get list](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) to access the list as in the following image:
 
     ![Entity Breakdown List](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Select a value from the list and then click the back arrow ![Back Arrow](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) to display the chart accordingly.

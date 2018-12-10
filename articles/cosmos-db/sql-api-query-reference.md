@@ -1,15 +1,14 @@
 ---
-title: "Azure Cosmos DB: SQL syntax query reference"
-description: Reference documentation for the Azure Cosmos DB SQL query language.
-services: cosmos-db
+title: SQL language syntax in Azure Cosmos DB 
+description: This article explains the SQL query language syntax used in Azure Cosmos DB, different operators, and keywords available in this language. 
 author: LalithaMV
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.topic: reference
-ms.date: 08/19/2018
+ms.date: 12/07/2018
 ms.author: laviswa
-
+ms.custom: seodec18
 ---
 
 # Azure Cosmos DB SQL language reference 

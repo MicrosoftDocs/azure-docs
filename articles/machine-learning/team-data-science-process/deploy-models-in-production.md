@@ -1,5 +1,5 @@
 ---
-title: Deploy models in production - Azure Machine Learning | Microsoft Docs
+title: Deploy models in production - Team Data Science Process
 description: How to deploy models to production enabling them to play an active role in making business decisions.
 author: marktab
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # Deploy models to production to play an active role in making business decisions
