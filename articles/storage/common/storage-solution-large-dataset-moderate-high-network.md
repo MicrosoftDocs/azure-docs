@@ -29,7 +29,7 @@ The options recommended in this scenario depend on whether you have moderate net
 
 With moderate network bandwidth, you need to project the time for data transfer over the network.
 
-Use the following table to estimate the time and based on that, choose between an offline transfer or over the network transfer. The table shows the projected time for network data transfer, for various available network bandwidths.  
+Use the following table to estimate the time and based on that, choose between an offline transfer or over the network transfer. The table shows the projected time for network data transfer, for various available network bandwidths (assuming 90% utilization).  
 
 ![Network transfer or offline transfer](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: alkohli
 ---
 
@@ -26,7 +26,7 @@ Large datasets imply that you have few TBs to few PBs of data. You have limited 
 
 In all the above instances, use a physical device to do a one-time bulk data  transfer. Choose from Data Box Disk, Data Box, Data Box Heavy devices which are supplied by Microsoft, or Import/Export using your own disks.
 
-To confirm whether a physical device is the right option, use the following table. It shows the projected time for network data transfer, for various available bandwidths. If network transfer is projected to be too slow, you should use a physical device.  
+To confirm whether a physical device is the right option, use the following table. It shows the projected time for network data transfer, for various available bandwidths (assuming 90% utilization). If network transfer is projected to be too slow, you should use a physical device.  
 
 ![Network transfer or offline transfer](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
