@@ -13,15 +13,15 @@ ms.author: erhopf
 
 # Authenticate requests to Azure Cognitive Services
 
-Each request to an Azure Cognitive Service must include an authentication header. The authentication header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
+Each request to an Azure Cognitive Service must include an authentication header. This header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
 * [Authenticate with a single-service subscription key](#authenticate-with-a-single-service-subscription-key)
 * [Authenticate with a multi-service subscription key](#authenticate-with-a-multi-service-subscription-key)
-* [Authenticate with a Bearer token](#authenticate-with-a-bearer-token)
+* [Authenticate with a token](#authenticate-with-a-bearer-token)
 
 ## Authentication headers
 
-Before we get too deep into authentication, let's quickly review the authentication headers available for use with Azure Cognitive Services.
+Let's quickly review the authentication headers available for use with Azure Cognitive Services.
 
 | Header | Description |
 |--------|-------------|
@@ -81,7 +81,14 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ## Authenticate with a Bearer token
 
-Some Azure Cognitive Services accept, and in some cases require, an authentication token. These include these services. As the services that support authentication tokens may change over time, please check the API reference for a service before using this auth method.
+Some Azure Cognitive Services accept, and in some cases require, an authentication token. The following services support authentication tokens:
+
+* Text Translation API
+* Speech Services: Speech-to-text REST API
+* Speech Services: Text-to-speech REST API
+
+>[!WARNING]
+> The services that support authentication tokens may change over time, please check the API reference for a service before using this auth method.
 
 Both single service and multi-service subscription keys can be exchanged for authentication tokens. Authentication tokens are valid for 10 minutes.
 
