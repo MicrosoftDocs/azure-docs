@@ -1,7 +1,7 @@
 ---
-title: How to add pre-built entities to a Conversation Learner model - Microsoft Cognitive Services | Microsoft Docs
+title: How to add Pre-trained Entities to a Conversation Learner Model - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to add pre-built entities to a Conversation Learner model.
+description: Learn how to add Pre-trained Entities to a Conversation Learner Model.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -12,8 +12,8 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to add pre-built entities
-This tutorial shows how to add "pre-built" entities to your Conversation Learner model.
+# How to add Pre-trained Entities
+This tutorial shows how to add Pre-trained Entities to your Conversation Learner Model.
 
 ## Video
 
@@ -26,25 +26,25 @@ This tutorial requires that the general tutorial bot is running
 
 ## Details
 
-Pre-built entities recognize common types of entities, such as numbers, dates, monetary amounts, and others.  Unlike custom entities, they work "out-of-the-box" and do not require any training.  Unlike custom entities, their behavior cannot be changed.  By default, pre-built entities are multi-valued - that is, the bot's memory will accumulate every identified instance of the entity.
+Pre-trained Entities recognize common types of Entities, such as numbers, dates, monetary amounts, and others.  They work "out-of-the-box," do not require any training and their behavior cannot be changed unlike custom entities.  By default, Pre-trained Entities are multi-valued, accumulating every identified instance of the Entity.
 
 ## Steps
 
-### Create the model
+### Create the Model
 
 1. In the Web UI, click New Model
 2. In Name, enter BuiltInEntities. Then click Create.
 
-### Create an entity
+### Create an Entity
 
 1. Click Entities, then New Entity.
 2. Click on EntityType drop-down, and select datetimev2.
-	- Programmable and Negatable options are disabled, because they do not apply to pre-built entities.
+	- Programmable and Negatable options are disabled as they do not apply to Pre-trained Entities.
 3. Click Create.
 
 ![](../media/tutorial7_entities_a.PNG)
 
-### Create two actions
+### Create two Actions
 
 1. Click Actions, then New Action.
 1. In Response, type 'The date is $builtin-datetimev2'.
@@ -53,7 +53,7 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 
 ![](../media/tutorial7_actions_a.PNG)
 
-Then create the second action:
+Then create the second Action:
 
 1. Click Actions, then New Action to create a second action.
 1. In Response, type 'What's the date?'.
@@ -62,9 +62,9 @@ Then create the second action:
 
 ![](../media/tutorial7_actions2_a.PNG)
 
-Now you have two actions.
+Now you have two Actions.
 
-### Train the bot
+### Train the Bot
 
 1. Click Train Dialogs, then New Train Dialog.
 2. Type 'hello'.
