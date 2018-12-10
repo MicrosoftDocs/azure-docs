@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
 
 ---
 # Resolve errors for resource provider registration
 
-This article describes the errors you may encounter when using a resource provider that you have not previously used in your subscription.
+This article describes the errors you may encounter when using a resource provider that you haven't previously used in your subscription.
 
 ## Symptom
 
@@ -37,13 +37,13 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider.
+The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you're using, but not all. If you haven't used a particular resource provider before, you may need to register that provider.
 
 ## Cause
 
 You receive these errors for one of three reasons:
 
-1. The resource provider has not been registered for your subscription
+1. The resource provider hasn't been registered for your subscription
 1. API version not supported for the resource type
 1. Location not supported for the resource type
 
@@ -97,10 +97,22 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 You can see the registration status and register a resource provider namespace through the portal.
 
+1. From the portal, select **All services**.
+
+   ![Select all services](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. Select **Subscriptions**.
+
+   ![Select subscriptions](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. From the list of subscriptions, select the subscription you want to use for registering the resource provider.
+
+   ![Select subscription to register resource provider](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+
 1. For your subscription, select **Resource providers**.
 
-   ![select resource providers](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Select resource providers](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you are trying to deploy.
+1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you're trying to deploy.
 
-   ![list resource providers](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![List resource providers](./media/resource-manager-register-provider-errors/list-resource-providers.png)

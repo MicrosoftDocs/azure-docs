@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
@@ -152,13 +152,13 @@ For a Human Resources app, you can have a list of all departments along with any
 
 1. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
 
-    ![Screenshot of adding Origin role to Location entity](./media/add-entities/hr-list-2.png)
+    ![Screenshot of selecting Recommend feature to see options](./media/add-entities/hr-list-2.png)
 
 
 1. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
     You can import values into an existing list entity using the following JSON format:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

@@ -1,7 +1,7 @@
 ---
 title: Manage settings
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Use LUIS website to manage your account settings.
+description: Use LUIS website to manage your user account settings and the authoring key used across all of your apps.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 

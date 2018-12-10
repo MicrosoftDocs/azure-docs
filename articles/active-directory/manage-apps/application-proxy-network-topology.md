@@ -169,7 +169,7 @@ You can also consider using one other variant in this situation. If most users i
 
 ## Next steps
 
-- [Enable Application Proxy](application-proxy-enable.md)
+- [Enable Application Proxy](application-proxy-add-on-premises-application.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
