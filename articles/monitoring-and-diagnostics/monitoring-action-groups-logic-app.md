@@ -290,5 +290,5 @@ Logic Apps has a number of different connectors that allow you to trigger action
 
 ## Next steps
 * Get an [overview of Azure activity log alerts](monitoring-overview-alerts.md) and learn how to receive alerts.  
-* Learn how to [configure alerts when an Azure Service Health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+* Learn how to [configure alerts when an Azure Service Health notification is posted](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Learn more about [action groups](monitoring-action-groups.md).
