@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ---
-# ETL with Azure Databricks – Setup Instructions
+# Transform data by using Databricks in Azure Data Factory
 
 In this tutorial, you create an end-to-end pipeline containing **Lookup**, **Copy**, and **Databricks notebook** activities in Data Factory.
 
@@ -25,7 +25,7 @@ In this tutorial, you create an end-to-end pipeline containing **Lookup**, **Cop
 
 -   **Databricks notebook activity** triggers the Databricks notebook that transforms the dataset, and adds it to a processed folder/ SQL DW.
 
-We don't create a scheduled trigger in this template to keep it simple. You can add that if necessary.
+To keep this template simple, the template doesn't create a scheduled trigger. You can add that if necessary.
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
@@ -91,7 +91,7 @@ We don't create a scheduled trigger in this template to keep it simple. You can 
 
     1.  **Databricks** – for connecting to Databricks cluster
 
-        Create a Databricks linked service using access key generated in [prerequisite 2.c](#prerequisite). If you have an *interactive cluster*, you may select that. (in this case, we use a *New job cluster* option)
+        Create a Databricks linked service using access key generated in [prerequisite 2.c](#prerequisite). If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 
@@ -143,8 +143,10 @@ We don't create a scheduled trigger in this template to keep it simple. You can 
 
     ![18](media/solution-template-Databricks-notebook/Databricks-tutorial-image18.png)
 
-    You can also verify the data file using storage explorer. (For correlating with Data Factory pipeline runs, we appended pipeline run ID from data factory to the output folder. This way you can track back the files generated via each run.)
+    You can also verify the data file using storage explorer. (For correlating with Data Factory pipeline runs, this example appends the pipeline run ID from data factory to the output folder. This way you can track back the files generated via each run.)
 
 ![19](media/solution-template-Databricks-notebook/Databricks-tutorial-image19.png)
 
 ## Next steps
+
+- [Introduction to Azure Data Factory](introduction.md)
