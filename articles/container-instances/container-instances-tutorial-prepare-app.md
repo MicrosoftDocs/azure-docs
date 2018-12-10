@@ -1,5 +1,5 @@
 ---
-title: Azure Container Instances tutorial - Prepare your app
+title: Tutorial - Prepare container image for Azure Container Instances
 description: Azure Container Instances tutorial part 1 of 3 - Prepare an app in a container image for deployment to Azure Container Instances
 services: container-instances
 author: dlepow
@@ -8,7 +8,7 @@ ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: seodec18,mvc
+ms.custom: "seodec18, mvc"
 ---
 
 # Tutorial: Create a container image for deployment to Azure Container Instances
