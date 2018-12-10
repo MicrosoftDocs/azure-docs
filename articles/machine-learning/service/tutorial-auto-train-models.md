@@ -1,5 +1,5 @@
 ---
-title: "Regression model tutorial: Automatically train models"
+title: 'Regression model tutorial: Automatically train models'
 titleSuffix: Azure Machine Learning service
 description: Learn how to generate a ML model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
 services: machine-learning
@@ -31,7 +31,8 @@ In this tutorial, you learn how to:
 > * Explore the results
 > * Register the best model
 
-If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+>[!Note]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.0

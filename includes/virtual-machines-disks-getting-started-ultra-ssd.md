@@ -80,6 +80,6 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 - Ultra SSD supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. ONce a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 - Growing the disk capacity does require a virtual machine to be de-allocated.
 
-# Next steps
+## Next steps
 
 If you would like to try the new disk type and haven't signed up for the preview yet, [request access through this survey](https://aka.ms/UltraSSDPreviewSignUp).

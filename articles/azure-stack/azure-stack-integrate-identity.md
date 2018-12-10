@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -126,7 +126,7 @@ The following information is required as input for the automation parameters:
 
 |Parameter|Description|Example|
 |---------|---------|---------|
-|CustomAdfsName|Name of the claims provider.<cr>It appears that way on the AD FS landing page.|Contoso|
+|CustomAdfsName|Name of the claims provider.<br>It appears that way on the AD FS landing page.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
