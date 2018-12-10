@@ -305,6 +305,8 @@ Next, create a couple routes:
 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
+>[!NOTE]
+> To use force tunnelling to on-premises, you must use UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to the **AzureFirewallSubnet**.
 
 ```azurepowershell
 #Create a route table
