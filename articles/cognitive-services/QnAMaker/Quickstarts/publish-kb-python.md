@@ -31,7 +31,7 @@ This quickstart calls QnA Maker APIs:
     If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-nodejs.md).
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-python** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-python** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a knowledge base Python file
 

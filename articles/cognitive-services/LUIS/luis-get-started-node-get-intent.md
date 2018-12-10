@@ -30,7 +30,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
 
 > [!NOTE] 
-> The complete Node.js solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> The complete Node.js solution is available from the [**LUIS-Samples** GitHub repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## Get LUIS key
 

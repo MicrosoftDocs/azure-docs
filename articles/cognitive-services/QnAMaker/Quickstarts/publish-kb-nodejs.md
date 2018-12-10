@@ -32,7 +32,7 @@ This quickstart calls QnA Maker APIs:
 
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-nodejs** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-nodejs** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
 
 ## Create a knowledge base Node.js file
 

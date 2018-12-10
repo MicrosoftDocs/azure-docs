@@ -8,7 +8,7 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: tylerfox
 
 ---
