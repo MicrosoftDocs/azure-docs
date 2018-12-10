@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/10/2018
 ms.author: jeedes
 
 ---
@@ -109,9 +109,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. In the **User Claims** section on the **User Attributes & Claims** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |    
-	| username | user.userprincipalname |
+	| Attribute Name | Attribute Value | Namespace |
+	| ---------------| --------------- | ----------- |   
+	| username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -152,25 +152,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
 
-9. On the **Tableau Server Configuration** page, perform the following steps:
-   
-    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+9. On the **CONFIGURATION** tab, select **User Identity & Access**, and then select the **Authentication** Method tab.
 
-    a. In the Tableau Server configuration, click the **SAML** tab. 
-  
-    b. Select the checkbox of **Use SAML for single sign-on**.
-   
-    c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as http://tableau_server. Using http://localhost is not recommended. Using a URL with a trailing slash (for example, http://tableau_server/) is not supported. Copy **Tableau Server return URL** and paste it to Azure AD **Sign On URL** textbox in **Tableau Server Domain and URLs** section.
-   
-    d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it to Azure AD **Identifier** textbox in **Tableau Server Domain and URLs** section.
-     
-    e. Click the **Export Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it to Azure AD **Reply URL** textbox in **Tableau Server Domain and URLs** section.
-   
-    f. Locate your Federation Metadata file downloaded from Azure portal, and then upload it in the **SAML Idp metadata file**.
-   
-    g. Click the **OK** button in the Tableau Server Configuration page.
-   
-    >[!NOTE] 
+	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+10. On the **CONFIGURATION** page, perform the following steps:
+
+	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+	a. For **Authentication Method**, select SAML.
+	
+	b. Select the checkbox of **Enable SAML Authentication for the server**.
+
+	c. Tableau Server return URL—The URL that Tableau Server users will be accessing, such as http://tableau_server. Using http://localhost is not recommended. Using a URL with a trailing slash (for example, http://tableau_server/) is not supported. Copy **Tableau Server return URL** and paste it to Azure AD **Sign On URL** textbox in **Tableau Server Domain and URLs** section.
+
+	d. SAML entity ID—The entity ID uniquely identifies your Tableau Server installation to the IdP. You can enter your Tableau Server URL again here, if you like, but it does not have to be your Tableau Server URL. Copy **SAML entity ID** and paste it to Azure AD **Identifier** textbox in **Tableau Server Domain and URLs** section.
+
+	e. Click the **Download XML Metadata File** and open it in the text editor application. Locate Assertion Consumer Service URL with Http Post and Index 0 and copy the URL. Now paste it to Azure AD **Reply URL** textbox in **Tableau Server Domain and URLs** section.
+
+	f. Locate your Federation Metadata file downloaded from Azure portal, and then upload it in the **SAML Idp metadata file**.
+
+	g. Click **Save**
+
+	>[!NOTE] 
 	>Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow.
 	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
