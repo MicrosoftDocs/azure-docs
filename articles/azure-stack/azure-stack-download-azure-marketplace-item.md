@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/26/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
 ---
@@ -85,6 +85,8 @@ There are two parts to this scenario:
 
 - The marketplace syndication tool is downloaded during the first procedure. 
 
+- You can install [AzCopy](../storage/common/storage-use-azcopy.md) for optimal download performance, but this is not required.
+
 ### Use the marketplace syndication tool to download marketplace items
 
 1. On a computer with an Internet connection, open a PowerShell console as an administrator.
@@ -138,7 +140,7 @@ There are two parts to this scenario:
 
 ### Import the download and publish to Azure Stack Marketplace (1811 and higher)
 
-1. The files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.
+1. The files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment. The marketplace syndication tool must also be available to your Azure Stack environment.
 
    The following image shows a folder structure example. `D:\downloadfolder` contains all the downloaded marketplace items. Each sub-folder is a marketplace item (for example, `microsoft.custom-script-linux-arm-2.0.3`), named by the product ID. Inside each sub-folder is the marketplace item's downloaded content.
 
