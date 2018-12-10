@@ -38,7 +38,7 @@
           href: tutorial-python-windows-virtual-machine.md
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
-  - name: ARM Template
+  - name: Azure Resource Manager Template
     href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
   - name: Set up key rotation and auditing
     href: key-vault-key-rotation-log-monitoring.md
