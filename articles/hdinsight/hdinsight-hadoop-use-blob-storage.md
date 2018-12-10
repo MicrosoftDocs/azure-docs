@@ -1,6 +1,5 @@
 ---
-title: Query data from HDFS-compatible Azure storage
-titleSuffix: Azure HDInsight
+title: Query data from HDFS-compatible Azure storage - Azure HDInsight
 description: Learn how to query data from Azure storage and Azure Data Lake Store to store results of your analysis.
 services: hdinsight,storage
 author: hrasheed-msft

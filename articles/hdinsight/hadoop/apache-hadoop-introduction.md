@@ -1,6 +1,5 @@
 ---
-title: What are HDInsight and the Apache Hadoop and Apache Spark technology stack?
-titleSuffix: Azure HDInsight
+title: What are the Apache Hadoop and Apache Spark technology stack? - Azure HDInsight
 description: An introduction to HDInsight, and to the Apache Hadoop and Apache Spark technology stack and components, including Kafka, Hive, Storm, and HBase for big data analysis.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 services: hdinsight
