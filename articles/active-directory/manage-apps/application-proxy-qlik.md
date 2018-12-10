@@ -22,13 +22,13 @@ Azure Active Directory Application Proxy and Qlik Sense have partnered together 
 The remainder of this scenario assumes you done the following:
  
 - Configured [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Installed an Application Proxy connector](application-proxy-enable.md#install-and-register-a-connector) 
+- [Installed an Application Proxy connector](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## Publish your applications in Azure 
 To publish QlikSense, you will need to publish two applications in Azure.  
 
 ### Application #1: 
-Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md). 
 
 
 1. Sign in to the Azure portal as a global administrator. 
@@ -58,6 +58,6 @@ For more information about publishing Qlik Sense with Application Proxy, refer t
 
 ## Next steps
 
-- [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md)
+- [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md)
 - [Working with Application Proxy connectors](application-proxy-connector-groups.md)
 

@@ -4,29 +4,31 @@
   expanded: true
   items:
   - name: What is Azure Machine Learning service?
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: How the service works
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md    
   - name: What's happening to Workbench?
-    displayName: desktop
+    displayName: desktop ui 
     href: overview-what-happened-to-workbench.md 
   - name: Release notes
-    displayName: what's new
+    displayName: what's new issues bugs
     href: azure-machine-learning-release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Portal
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: Get started - Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
     items:
     - name: 1. Train a model
+      displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. Deploy a model
       href: tutorial-deploy-models-with-aml.md
@@ -101,6 +103,7 @@
     - name: Configure auto training
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX models	
     items:    
@@ -109,9 +112,9 @@
   - name: Deploy models	
     items:    
     - name: Where to deploy models
-      displayName: publish, azure kubernetes, azure container instances
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: Deploy to FPGAs
+    - name: FPGAs
       href: how-to-deploy-fpga-web-service.md  
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md 
@@ -120,7 +123,7 @@
   - name: Consume web services
     items:  
     - name: Consume in real-time
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
     - name: Run batch predictions
       href: how-to-run-batch-predictions.md
@@ -136,18 +139,18 @@
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Use the Machine Learning CLI
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: Reference
   items:    
   - name: Machine learning SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: Data prep SDK
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk 
 - name: Resources
   items:  
@@ -158,6 +161,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Known issues
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
@@ -167,7 +171,7 @@
   - name: Deprecated docs
     items:  
     - name: Migrate from Workbench
-      displayName: Workbench, upgrade, update, transfer
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md    
     - name: Export or delete account data (deprecated)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
