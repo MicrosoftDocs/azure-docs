@@ -1,13 +1,11 @@
 ---
-title: Azure Standard Load Balancer overview | Microsoft Docs
+title: What is Azure Standard Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-
-ms.assetid: 
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
