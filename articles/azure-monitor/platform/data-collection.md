@@ -1,6 +1,6 @@
 ---
 title: Monitoring data collected by Azure Monitor | Microsoft Docs
-description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near real-time scenarios and logs that are stored in Log Analytics for advanced analysis.
+description: Monitoring data collected by Azure Monitor is separated into metrics that are lightweight and capable of supporting near real-time scenarios and logs that are used for advanced analysis.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/05/2018
 ms.author: bwren
 
 ---
 
 # Monitoring data collected by Azure Monitor
-[Azure Monitor](../../azure-monitor/overview.md) is a service that helps you monitor your applications and the resources they rely on. Central to this function is storage of telemetry and other data from monitored resources. This article provides a complete description of how this data is stored and used by Azure Monitor.
+[Azure Monitor](../overview.md) is a service that helps you monitor your applications and the resources they rely on. Central to this function is storage of telemetry and other data from monitored resources. This article provides a complete description of how this data is stored and used by Azure Monitor.
 
 All data collected by Azure Monitor fits into one of two fundamental types, [metrics](#metrics) and [logs](#logs). Metrics are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. Logs contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
@@ -32,7 +32,7 @@ Specific attributes of metrics in Azure include the following:
 
 * Collected at one-minute frequency unless specified otherwise in the metric's definition.
 * Uniquely identified by a metric name and a namespace that acts as a category.
-* Stored for 93 days. You can copy metrics to Log Analytics for long term trending.
+* Stored for 93 days. You can copy metrics to logs for long term trending.
 
 Each metric value has the following properties:
 * The time the value was collected.
@@ -95,9 +95,9 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 Tasks that you can perform with metrics include the following:
 
 - Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to analyze collected metrics and plot them on a chart. Track the performance of a resource (such as a VM, website, or logic app) by pinning charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
-- Configure a [metric alert rule](../../monitoring-and-diagnostics/alert-metric.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the metric crosses a threshold.
+- Configure a [metric alert rule](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the metric crosses a threshold.
 - Use [Autoscale](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) to increase or decrease resources based on a metric crossing a threshold.
-- Route metrics to Log Analytics to analyze metric data together with log data and to store metric values for longer than 93 days. 
+- Route metrics to logs to analyze metric data together with log data and to store metric values for longer than 93 days. 
 - Stream metrics to an [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
 - [Archive](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) or [REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
@@ -105,9 +105,9 @@ Tasks that you can perform with metrics include the following:
 
 
 ### Viewing metrics
-Metrics in Azure are collected in the Azure Monitor metrics database. This is a time series database optimized for quick retrieval and stores metric values for 93 days. Copy metrics to Log Analytics for long term analysis and trending.
+Metrics in Azure Monitor are stored in a time series database optimized for quick retrieval and stores metric values for 93 days. Copy metrics to logs for long term analysis and trending.
 
-Metric data is used in a variety of ways as described above. Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Metric data is used in a variety of ways as described above. Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze metric data in Azure Monitor and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 
@@ -124,26 +124,19 @@ Logs are especially useful for combining data from a variety of sources, for com
 
 
 
-### Log Analytics
-Logs collected by Azure Monitor are stored in Log Analytics which collects telemetry and other data from a variety of sources. It provides a rich query language and an analytics engine that gives you insights into the operation of your applications and resources. Other Azure services such as [Azure Security Center](../../security-center/security-center-intro.md) store their data in Log Analytics in order to provide a common data platform across Azure management.
-
-> [!IMPORTANT]
-> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md) to analyze application data together with other log data.
-
-
 ### Sources of log data
-Log Analytics can collect data from a variety of sources both within Azure and from on-premises resources. Sources of data written to Log Analytics include the following:
+Azure Monitor can collect log data from a variety of sources both within Azure and from on-premises resources. Sources of log data include the following:
 
-- [Activity logs](../../azure-monitor/platform/collect-activity-logs.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) that provide insights into their operation.
-- Agents on [Windows](../../log-analytics/log-analytics-windows-agent.md) and [Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](../../azure-monitor/platform/agent-data-sources.md) that you configure.
+- [Activity logs](../../log-analytics/log-analytics-activity.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) that provide insights into their operation.
+- Agents on [Windows](../../log-analytics/log-analytics-agent-windows.md) and [Linux](../../log-analytics/log-analytics-linux-agents.md) virtual machines that send telemetry from the guest operating system and applications to Azure Monitor according to [Data Sources](data-sources.md) that you configure.
 - Application data collected by [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data providing insights into a particular application or service from [monitoring solutions](../insights/solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.
 - Security data collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Metrics](#metrics) from Azure resources. This allows you to store metrics for longer than 93 days and to analyze it with other log data.
-- Telemetry written to [Azure Storage](../../azure-monitor/platform/azure-storage-iis-table.md).
-- Custom data from any REST API client using the [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) client or from an [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) workflow.
+- Telemetry written to [Azure Storage](azure-storage-iis-table.md).
+- Custom data from any REST API client using the [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) client or from an [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) workflow.
 
-![Log Analytics components](media/data-collection/logs-overview.png)
+![Logs overview](media/data-collection/logs-overview.png)
 
 
 
@@ -151,26 +144,30 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 ### What can you do with logs?
 Tasks that you can perform with logs include the following:
 
-- Use the [Log Analytics page](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write queries analyzing log data.  Pin results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
+- Use [Log Analytics](../../log-analytics/query-language/get-started-analytics-portal.md) in the Azure portal to write queries analyzing log data.  Pin results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configure a [log alert rule](../../monitoring-and-diagnostics/alert-log.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the results of the query match a particular result.
-- Build a workflow based on data in Log Analytics using [Logic Apps](~/articles/logic-apps/index.yml).
-- Export the results of a query to [Power BI](../../azure-monitor/platform/powerbi.md) to use different visualizations and share with users outside of Azure.
+- Build a workflow based on log data using [Logic Apps](/azure/logic-apps/).
+- Export the results of a query to [Power BI](../../log-analytics/log-analytics-powerbi.md) to use different visualizations and share with users outside of Azure.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).
 
 ### Viewing log data
-All data from Log Analytics is retrieved using a [log query](../../azure-monitor/log-query/log-query-overview.md) that specifies a particular set of data. Queries are written using the [Log Analytics query language](../../azure-monitor/log-query/get-started-queries.md) which is a rich query language to quickly retrieve, consolidate, and analyze collected data. Use the [Log Analytics page](../../azure-monitor/log-query/portals.md) in the Azure portal to  directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+All log data in Azure Monitor is retrieved using a [log query](../log-query/log-query-overview.md)  written with the [Data Explorer query language](../log-query/get-started-queries.md), which allows you to quickly retrieve, consolidate, and analyze collected data. Use [Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) to write and test queries in the Azure portal. You can  work with results interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve logs by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+> [!IMPORTANT]
+> Data from Application Insights is stored in a separate partition than other log data in Azure Monitor. This supports the same functionality as other log data, but you must use the [Application Insights console](/application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../log-analytics/log-analytics-cross-workspace-search.md) to analyze application data together with other log data.
 
 ![Logs](media/data-collection/logs.png)
+
 
 ## Convert monitoring data
 
 ### Metrics to logs
-You can copy metrics to Log Analytics to perform complex analysis with other data types by using its rich query language. You can also retain log data for longer periods than metrics, which enables you to perform trending over time. When metrics or any other performance data is stored in Log Analytics, that data acts as a log. Use metrics to support near real-time analysis and alerting while using logs for trending and analysis with other data.
+You can copy metrics to logs to perform complex analysis with other data types using Azure Monitor's rich query language. You can also retain log data for longer periods than metrics, which enables you to perform trending over time. Use metrics to support near real-time analysis and alerting while using logs for trending and analysis with other data.
 
-You can get guidance for collecting metrics from Azure resources at [Collect Azure service logs and metrics for use in Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md). Get guidance for collecting resources metrics from Azure PaaS resources at [Configure collection of Azure PaaS resource metrics with Log Analytics](../../azure-monitor/platform/collect-azurepass-posh.md).
+You can get guidance for collecting metrics from Azure resources at [Collect Azure service logs and metrics for use in Azure Monitor](../../log-analytics/log-analytics-azure-storage.md). Get guidance for collecting resources metrics from Azure PaaS resources at [Configure collection of Azure PaaS resource metrics with Azure Monitor](../../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### Logs to metrics
-As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in the Azure metrics database.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into the metrics database, where they are available for alerting and for analysis with Metrics explorer.
+As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. A significant amount of numeric data is stored as logs that would be suitable for metrics but isn't stored as metrics in Azure Monitor.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into metrics, where they are available for alerting and for analysis with Metrics Explorer.
 
 The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). The list of values support is available at 
 [Supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
