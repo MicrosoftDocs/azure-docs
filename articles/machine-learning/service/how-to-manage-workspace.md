@@ -43,7 +43,7 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
 
 1. Select the workspace you just created to display its properties.
 
-   ![png](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+   ![Workspace properties](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## Delete a workspace
 

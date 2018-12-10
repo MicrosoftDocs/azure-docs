@@ -15,11 +15,13 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 
-# Bind a custom SSL certificate to a web app
+# Bind a custom SSL certificate to a web app using CLI
 
 This sample script creates a web app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you need:
 
