@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 
@@ -25,7 +25,7 @@ ms.reviewer: guanghu
 > [!Note]  
 > Aure Cognitive Services on Azure Stack is in preview.
 
-You can use container support in Azure Cognitive Services on Azure Stack. Container support in Azure Cognitive Services allows you to use the same rich APIs that are available in Azure. Your use of containers enables flexibility in where to deploy and host the services delivered in [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
+You can use Azure Cognitive Services with container support on Azure Stack. Container support in Azure Cognitive Services allows you to use the same rich APIs that are available in Azure. Your use of containers enables flexibility in where to deploy and host the services delivered in [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies and configuration, are packaged as a container image. With little or no modification, you can deploy an image to a container host. Each container is isolated from other containers and from the underlying operating system. The system, itself, only has the components needed to run your image. A container host has a smaller footprint than a virtual machine. In addition, you can create containers from images for short-term tasks, and removed when no longer needed.
 
@@ -43,7 +43,7 @@ Containerization is an approach to software distribution in which an application
 - **High throughput and low latency**  
    Provide your app users the ability to scale with spikes in traffic for high throughput and low latency. Enable Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
 
-With Azure Stack, deploy Cognitive Services containers in a Kubernetes cluster along with your application containers for high availability and elastic scaling. You can develop your application by combining Cognitive services with components built on App Services, Functions, Blob storage or SQL or mySQL databases. 
+With Azure Stack, deploy Cognitive Services containers in a Kubernetes cluster along with your application containers for high availability and elastic scaling. You can develop your application by combining Cognitive services with components built on App Services, Functions, Blob storage, or SQL or mySQL databases. 
 
 For more details on Cognitive Services containers, go to [Container support in Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support).
 
