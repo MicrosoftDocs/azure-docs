@@ -52,9 +52,11 @@ Regional support for shared image galleries is in limited preview, but will expa
 |                    |West Europe|
 |                    |South India|
 |                    |Southeast Asia|
+|                    |Australia Central &#42;|
+|                    |Australia Central 2 &#42;|
 
 
-Australia Central and Australia Central 2 are not supported unless the subscription is whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
+&#42; To replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## Scaling
 Shared Image Gallery allows you to specify the number of replicas you want Azure to keep of the images. This helps in multi-VM deployment scenarios as the VM deployments can be spread to different replicas reducing the chance of instance creation processing being throttled due to overloading of a single replica.
