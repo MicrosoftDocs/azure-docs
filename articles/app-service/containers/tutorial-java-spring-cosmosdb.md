@@ -15,7 +15,7 @@ ms.custom: mvc
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
-![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/spring-todo-app-running-locally.jpg)
+![Java app running in Azure appservice](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 In this tutorial, you learn how to:
 
