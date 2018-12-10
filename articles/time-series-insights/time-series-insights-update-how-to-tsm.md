@@ -55,7 +55,7 @@ Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.m
 
 ### How to create a single hierarchy
 
-1. Start by heading to the TSM model selector panel and select hierarchies from the menu. Then, collapse the panel to focus on TSM types:
+1. Start by heading to the TSM model selector panel and select **Hierarchies** from the menu. Then, collapse the panel to focus on TSM types:
 
     ![portal_six][6]
 
