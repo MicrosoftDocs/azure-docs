@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -41,7 +41,10 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 
 2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **My user account**.
 
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
+3.  Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**.
+
+    - For the ASDK,  find **AzureStackSelfSignedRootCert**.
+    - For an integrated system, find the root certificate.
 
     ![Load the Azure Stack root certificate through mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
