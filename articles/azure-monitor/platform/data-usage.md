@@ -183,7 +183,7 @@ The following query uses a simple formula to predict when more than 100 GB of da
 
 To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
 
-Use the steps described in [create a new log alert](../../monitoring-and-diagnostics/alert-metric.md) to be notified when data collection is higher than expected.
+Use the steps described in [create a new log alert](../../azure-monitor/platform/alerts-metric.md) to be notified when data collection is higher than expected.
 
 When creating the alert for the first query -- when there is more than 100 GB of data in 24 hours, set the:  
 
@@ -197,7 +197,7 @@ When creating the alert for the first query -- when there is more than 100 GB of
    - **Name** to *Data volume greater than 100 GB in 24 hours*
    - **Severity** to *Warning*
 
-Specify an existing or create a new [Action Group](../../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified.
+Specify an existing or create a new [Action Group](../../azure-monitor/platform/action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When creating the alert for the second query -- when it is predicted that there will be more than 100 GB of data in 24 hours, set the:
 
@@ -211,13 +211,13 @@ When creating the alert for the second query -- when it is predicted that there 
    - **Name** to *Data volume expected to greater than 100 GB in 24 hours*
    - **Severity** to *Warning*
 
-Specify an existing or create a new [Action Group](../../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified.
+Specify an existing or create a new [Action Group](../../azure-monitor/platform/action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
 
 ## Next steps
 * See [Log searches in Log Analytics](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-* Use the steps described in [create a new log alert](../../monitoring-and-diagnostics/alert-metric.md) to be notified when a search criteria is met.
+* Use the steps described in [create a new log alert](../../azure-monitor/platform/alerts-metric.md) to be notified when a search criteria is met.
 * Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
 * To configure an effective security event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
 * Change [performance counter configuration](data-sources-performance-counters.md).

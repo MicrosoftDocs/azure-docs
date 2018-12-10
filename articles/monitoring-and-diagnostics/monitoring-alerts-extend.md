@@ -22,7 +22,7 @@ There are several advantages of creating and managing alerts in the Azure portal
 - Unlike in the Operations Management Suite portal, where only 250 alerts could be created and viewed, Azure Alerts has no such limitation.
 - From Azure Alerts, you can manage, enumerate, and view all your alert types. Previously, you could only do so for Log Analytics alerts.
 - You can limit access to users to only monitoring and alerting, by using the [Azure Monitor role](monitoring-roles-permissions-security.md).
-- In Azure Alerts, you can use [action groups](monitoring-action-groups.md). This allows you to have more than one action for each alert. You can SMS, send a voice call, invoke an Azure Automation runbook, invoke a webhook, and configure an IT Service Management (ITSM) Connector. 
+- In Azure Alerts, you can use [action groups](../azure-monitor/platform/action-groups.md). This allows you to have more than one action for each alert. You can SMS, send a voice call, invoke an Azure Automation runbook, invoke a webhook, and configure an IT Service Management (ITSM) Connector. 
 
 ## Process of extending your alerts
 The process of moving alerts from Log Analytics into Azure Alerts does not involve changing your alert definition, query, or configuration in any way. The only change required is that in Azure, you perform all actions by using an action group. If action groups are already associated with your alert, they are included when extended into Azure.

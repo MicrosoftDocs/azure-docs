@@ -16,12 +16,12 @@ This article shows you how to resolve common issues seen when setting up log ale
 The term **Log Alerts** describes alerts that fire based on a custom query in [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> This article doesn't consider cases when the Azure portal shows and alert rule triggered and a notification performed by an associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](monitoring-action-groups.md).
+> This article doesn't consider cases when the Azure portal shows and alert rule triggered and a notification performed by an associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](../azure-monitor/platform/action-groups.md).
 
 
 ## Log alert didn't fire
 
-Here are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
+Here are some common reasons why a configured [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
 
 ### Data Ingestion time for Logs
 Log alert periodically runs your query based on [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
@@ -36,7 +36,7 @@ Therefore, check that time period in the configuration matches your query. For t
 ![Time Period](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### Suppress Alerts option is set
-As described in step 8 of the article on [creating a log alert rule in Azure portal](alert-log.md#managing-log-alerts-from-the-azure-portal), log alerts provide a **Suppress Alerts** option to suppress triggering and notification actions for a configured amount of time. As a result, you may think that an alert didn't fire while in actuality it did, but was suppressed.  
+As described in step 8 of the article on [creating a log alert rule in Azure portal](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), log alerts provide a **Suppress Alerts** option to suppress triggering and notification actions for a configured amount of time. As a result, you may think that an alert didn't fire while in actuality it did, but was suppressed.  
 
 ![Suppress Alerts](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
@@ -65,7 +65,7 @@ As “Aggregate Upon” is timestamp – the data is sorted on timestamp column (as in
 - (Or) reconfigure alert rule to use alert logic based on *total breach* instead appropriately
  
 ## Log alert fired unnecessarily
-Detailed next are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) may be triggered when viewed in [Azure Alerts](monitoring-alerts-managing-alert-states.md), when you don't expect it to be fired.
+Detailed next are some common reasons why a configured [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-log.md) may be triggered when viewed in [Azure Alerts](monitoring-alerts-managing-alert-states.md), when you don't expect it to be fired.
 
 ### Alert triggered by partial data
 Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Data ingestion time in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
