@@ -6,10 +6,8 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

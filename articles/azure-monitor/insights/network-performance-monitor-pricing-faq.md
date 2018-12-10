@@ -9,13 +9,11 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: 
 ---
 
 # Pricing changes for Azure Network Performance Monitor

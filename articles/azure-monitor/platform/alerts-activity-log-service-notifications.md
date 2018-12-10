@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.component: alerts
 ---
 
 # Create activity log alerts on service notifications

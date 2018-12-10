@@ -1,22 +1,18 @@
 ---
 title: Saved searches and alerts in management solutions | Microsoft Docs
 description: Management solutions typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
-services:  monitoring
+services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
-ms.service:  monitoring
-ms.devlang: na
+ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
-
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Adding Log Analytics saved searches and alerts to management solution (Preview)
