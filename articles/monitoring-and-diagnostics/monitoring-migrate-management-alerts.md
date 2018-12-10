@@ -89,7 +89,7 @@ Each alert is separated by a dashed line and details include the resource ID of 
 This functionality has been transitioned to [Azure Monitor Activity Log Alerts](monitoring-activity-log-alerts.md). These new alerts enable you to set a condition on Activity Log events and receive a notification when a new event matches the condition. They also offer several improvements from alerts on management events:
 * You can reuse your group of notification recipients (“actions”) across many alerts using [Action Groups](monitoring-action-groups.md), reducing the complexity of changing who should receive an alert.
 * You can receive a notification directly on your phone using SMS with Action Groups.
-* You can [create Activity Log Alerts with Resource Manager templates](alert-activity-log.md).
+* You can [create Activity Log Alerts with Resource Manager templates](../azure-monitor/platform/alerts-activity-log.md).
 * You can create conditions with greater flexibility and complexity to meet your specific needs.
 * Notifications are delivered more quickly.
  
@@ -97,7 +97,7 @@ This functionality has been transitioned to [Azure Monitor Activity Log Alerts](
  
 To create a new Activity Log Alert, you can either:
 * Follow [our guide on how to create an alert in the Azure portal](monitoring-activity-log-alerts.md)
-* Learn how to [create an alert using a Resource Manager template](alert-activity-log.md)
+* Learn how to [create an alert using a Resource Manager template](../azure-monitor/platform/alerts-activity-log.md)
  
 Alerts on management events that you have previously created will not be automatically migrated to Activity Log Alerts. You need to use the preceding PowerShell script to list the alerts on management events that you currently have configured and manually recreate them as Activity Log Alerts. This must be done before October 1, after which alerts on management events will no longer be visible in your Azure subscription. Other types of Azure alerts, including Azure Monitor metric alerts, Application Insights alerts, and Log Analytics alerts are unaffected by this change. If you have any questions, post in the comments below.
 
@@ -106,7 +106,7 @@ Alerts on management events that you have previously created will not be automat
 
 * Learn more about [Activity Log](monitoring-overview-activity-logs.md)
 * Configure [Activity Log Alerts via Azure portal](monitoring-activity-log-alerts.md)
-* Configure [Activity Log Alerts via Resource Manager](alert-activity-log.md)
+* Configure [Activity Log Alerts via Resource Manager](../azure-monitor/platform/alerts-activity-log.md)
 * Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md)
 * Learn more about [Service Notifications](monitoring-service-notifications.md)
 * Learn more about [Action Groups](monitoring-action-groups.md)
