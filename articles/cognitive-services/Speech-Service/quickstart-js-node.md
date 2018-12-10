@@ -18,26 +18,36 @@ ms.author: fmegen
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a Node.js project using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
 * A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
-* A PC or Mac.
-* A text editor.
-* A current version of Node.js.
+* A current version of [Node.js](https://nodejs.org).
 
 ## Create a new project folder
 
-Create a new, empty folder. In case you want to host the sample on a web server, make sure that the web server can access the folder.
-
-Init the folder by issuing
+Create a new, empty folder and run the following command
 
 ```nodejs
 npm init
 ```
 
-and follow the steps to create a npm module.
+This will initialize `package.json` with the information you provide. For this quickstart, simply leave the default values:
+
+```json
+{
+  "name": "quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "author",
+  "license": "MIT"
+}
+```
 
 ## Install the Speech SDK for JavaScript into that folder
 
@@ -45,7 +55,7 @@ and follow the steps to create a npm module.
 
 Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk`.
 
-This will download and install the latest version of the Speech SDK from npmjs to your folder and install it in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory. In addition, it will download and install any prerequisite package, as needed.
+This will download and install the latest version of the Speech SDK from npmjs to your folder and install it in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory. In addition, it will download any required prerequisites.
 
 As an alternative, you can download the installation package from TBD and install it from your local directory via `npm install microsoft-cognitiveservices-speech-sdk-1.2.0.tgz`.
 
@@ -67,30 +77,29 @@ Create a new file in the folder, named `index.js` and open this file with a text
 var sdk = require("microsoft-cognitiveservices-speech-sdk");
   ```
 
-3. Load the file content and prepare a PushStream.
+3. Load the file content and prepare a PushAudioInputStream.
 
-Please note that the Speech SDK does not support a microphone in Node.js nor does it (currently) support the File data type.
-Both is only supported on browsers. Instead, use the Stream interface to the Speech SDK, either through
-PullStream() or PushStream() support.
+> [!NOTE]
+> Please note that in Node.js the Speech SDK does not support the microphone or the File data type. Both are only supported on browsers. Instead, use the Stream interface to the Speech SDK, either through `AudioInputStream.createPushStream()` or `AudioInputStream.createPullStream()`.
 
-In this example, we will use the PushStream() interface.
+In this example, we will use the `PushAudioInputStream` interface.
 
   ```javascript
 var fs = require("fs"); // provides access to the file system
 
-var filename = "YOUR_WAVE_FILENAME.wav"; // Please note, 16000Hz, Mono support only.
+var filename = "YOUR_WAVE_FILENAME.wav"; // 16000Hz, Mono support only.
 var fileContents = fs.readFileSync(filename);
 var arrayBuffer = Uint8Array.from(fileContents).buffer;
 
-var p = sdk.AudioInputStream.createPushStream();
-p.write(arrayBuffer);
-p.close();
+var audioStream = sdk.AudioInputStream.createPushStream();
+audioStream.write(arrayBuffer);
+audioStream.close();
   ```
 
 4. Perform the recognition.
 
   ```javascript
-var audioConfig = sdk.AudioConfig.fromStreamInput(p);
+var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream);
 var speechConfig = sdk.SpeechConfig.fromSubscription("YOUR_SUBSCRIPTION", "YOUR_REGIOM");
 
 var recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
@@ -120,7 +129,7 @@ node index.js
 
 It will trigger a recognition using the provided filename and present the output on the console.
 
-Here is a sample output of running main.java after updating the subscription data.
+Here is a sample output of running main.java after updating the subscription key and using the file `whatstheweatherlike.wav`.
 
 ```json
 SpeechRecognitionResult {
