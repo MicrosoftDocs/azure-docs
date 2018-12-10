@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: alerts
 ---
 
 # What are classic alerts in Microsoft Azure?
