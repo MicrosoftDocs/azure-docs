@@ -172,11 +172,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	f. Locate your Federation Metadata file downloaded from Azure portal, and then upload it in the **SAML Idp metadata file**.
 
-	g. Click **Save**
+	g. Enter the names for the attributes that the IdP uses to hold the user names, display names, and email addresses.
+
+	h. Click **Save**
 
 	>[!NOTE] 
 	>Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow.
-	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
 ### Creating an Azure AD test user
 
