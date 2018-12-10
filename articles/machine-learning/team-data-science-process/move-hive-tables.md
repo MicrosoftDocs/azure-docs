@@ -1,5 +1,5 @@
 ---
-title: Create Hive tables and load data from Azure Blob Storage | Microsoft Docs
+title: Create Hive tables and load data from Blob storage - Team Data Science Process
 description: Use Hive queries to create Hive tables and load data from Azure blob storage. Partition Hive tables and use the Optimized Row Columnar (ORC) formatting to improve query performance.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Create Hive tables and load data from Azure Blob Storage
 

@@ -1,16 +1,17 @@
 ---
-title: Apache Hadoop Oozie workflows in Azure HDInsight clusters with Enterprise Security Package
-description: Use Hadoop Oozie in a Linux-based HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
+title: Secure Apache Oozie workflows with Enterprise Security Package - Azure HDInsight
+description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 # Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package
+
 Apache Oozie is a workflow and coordination system that manages Apache Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 - Apache MapReduce
 - Apache Pig
@@ -20,6 +21,7 @@ Apache Oozie is a workflow and coordination system that manages Apache Hadoop jo
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
 ## Prerequisite
+
 - An Azure HDInsight Hadoop cluster with Enterprise Security Package (ESP). See [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
@@ -220,8 +222,11 @@ nano workflow.xml
    This properties file needs to be present locally when running Oozie jobs.
 
 ## Create custom Hive scripts for Oozie jobs
+
 You can create the two Hive scripts for Hive server 1 and Hive server 2 as shown in the following sections.
+
 ### Hive server 1 file
+
 1.	Create and edit a file for Hive server 1 actions:
     ```bash
     nano countrowshive1.hql
@@ -240,6 +245,7 @@ You can create the two Hive scripts for Hive server 1 and Hive server 2 as shown
     ```
 
 ### Hive server 2 file
+
 1.	Create and edit a field for Hive server 2 actions:
     ```bash
     nano countrowshive2.hql
@@ -258,11 +264,13 @@ You can create the two Hive scripts for Hive server 1 and Hive server 2 as shown
     ```
 
 ## Submit Oozie jobs
+
 Submitting Oozie jobs for ESP clusters is like submitting Oozie jobs in non-ESP clusters.
 
 For more information, see [Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## Results from an Oozie job submission
+
 Oozie jobs are run for the user. So both Apache YARN and Apache Ranger audit logs show the jobs being run as the impersonated user. The command-line interface output of an Oozie job looks like the following code:
 
 
@@ -300,6 +308,7 @@ Oozie jobs are run for the user. So both Apache YARN and Apache Ranger audit log
 The Ranger audit logs for Hive server 2 actions show Oozie running the action for the user. The Ranger and YARN views are visible only to the cluster admin.
 
 ## Configure user authorization in Oozie
+
 Oozie by itself has a user authorization configuration that can block users from stopping or deleting other users' jobs. To enable this configuration, set the `oozie.service.AuthorizationService.security.enabled` to `true`. 
 
 For more information, see [Oozie Installation and Configuration](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
@@ -307,6 +316,7 @@ For more information, see [Oozie Installation and Configuration](https://oozie.a
 For components like Hive server 1 where the Ranger plug-in isn't available or supported, only coarse-grained HDFS authorization is possible. Fine-grained authorization is available only through Ranger plug-ins.
 
 ## Get the Oozie web UI
+
 The Oozie web UI provides a web-based view into the status of Oozie jobs on the cluster. To get the web UI, take the following steps in ESP clusters:
 
 1. Add an [edge node](../hdinsight-apps-use-edge-node.md) and enable [SSH Kerberos authentication](../hdinsight-hadoop-linux-use-ssh-unix.md).

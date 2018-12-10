@@ -325,7 +325,7 @@ Find the `<td>` element that contains the `asp-action` tag helpers. Just above t
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

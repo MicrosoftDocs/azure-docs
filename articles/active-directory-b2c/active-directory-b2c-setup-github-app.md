@@ -19,7 +19,7 @@ ms.component: B2C
 > This feature is in preview.
 > 
 
-To use a Github account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Github account, you can get it at [https://www.github.com/](https://www.github.com/).
+To use a GitHub account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a GitHub account, you can get it at [https://www.github.com/](https://www.github.com/).
 
 ## Create a GitHub OAuth application
 
@@ -36,7 +36,7 @@ To use a Github account as an identity provider in Azure Active Directory (Azure
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
-5. Provide a **Name**. For example, enter *Github*.
-6. Select **Identity provider type**, select **Github (Preview)**, and click **OK**.
-7. Select **Set up this identity provider** and enter the Client Id that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the Github account application that you created earlier.
-8. Click **OK** and then click **Create** to save your Github account configuration.
+5. Provide a **Name**. For example, enter *GitHub*.
+6. Select **Identity provider type**, select **GitHub (Preview)**, and click **OK**.
+7. Select **Set up this identity provider** and enter the Client Id that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the GitHub account application that you created earlier.
+8. Click **OK** and then click **Create** to save your GitHub account configuration.

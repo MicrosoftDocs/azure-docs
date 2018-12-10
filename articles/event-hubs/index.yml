@@ -77,7 +77,7 @@ sections:
       text: C
       href: /azure/event-hubs/event-hubs-c-getstarted-send   
   - type: paragraph
-    text: 'Learn how to <b>receive events</b> to an event hub:'
+    text: 'Learn how to <b>receive events</b> from an event hub:'
   - type: list
     style: icon48
     items: 

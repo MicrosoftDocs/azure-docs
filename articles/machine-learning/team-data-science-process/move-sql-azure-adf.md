@@ -1,5 +1,5 @@
 ---
-title: Move data from an on-premises SQL Server to SQL Azure with Azure Data Factory | Microsoft Docs
+title: SQL Server data to SQL Azure with Azure Data Factory - Team Data Science Process
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data from an on-premises SQL server to SQL Azure with Azure Data Factory
 
