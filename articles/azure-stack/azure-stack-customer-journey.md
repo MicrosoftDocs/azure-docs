@@ -22,18 +22,18 @@ ms.reviewer: asganesh
 
 This article describes the end-to-end Azure Stack customer experience from purchasing an integrated solution through to a successful on-site deployment by a solution provider. Use this information to ease your journey and to help set expectations on what you, as an Azure Stack customer, should expect when integrating Azure Stack into your datacenter.
 
-As an Azure Stack customer, you should anticipate following datacenter integration phases:
+As an Azure Stack customer, you should anticipate the following datacenter integration phases:
 
 |     |Planning phase|Order process|Pre-deployment|Factory process|Hardware delivery|Onsite deployment|
 |-----|-----|-----|-----|-----|-----|-----|
 |**Microsoft**|Engage with partner to provide presales support.|Prepare software licensing and contracts as needed.|Provide required tooling to collect datacenter integration requirements and documentation to customer.|Provide the latest baseline builds and tool chain updates on a monthly cadence.|N/A|Microsoft support engineers assist with any deployment issues.|
-|**Partner**|Recommend solution options based on customer requirements.<br><br>Propose proof of concept (POC) if necessary.<br><br>Establish business relationship.<br><br>Decide on level of support.|Prepare necessary contracts with the customer.<br><br>Create customer purchase order.<br><br>Decide on delivery timeline.<br><br>Connect customer with Microsoft if necessary.|Provides the customer with necessary training to ensure that the customer understands all deployment prerequisites and datacenter integration options.<br><br>Assist the customer with validation of collected data to ensure completeness and accuracy.|Apply the last validated baseline build.<br><br>Apply the required Microsoft deployment toolkit.|Ship hardware to customer site.|Deployment handled by an onsite engineer.<br><br>Rack and stack.<br><br>Hardware lifecycle host (HLH) deployment.<br><br>Azure Stack deployment.<br><br>Hand off to customer.|
-|**Customer**|Describe intended use cases and lay down requirements.|Determine the billing model to use, review and approve contracts.|Complete the deployment worksheet, and ensure all deployment prerequisites are met and ready for deployment.|N/A|Prepare datacenter by ensuring all required power and cooling, border connectivity, and other required datacenter integration requirement are in place.|Be available during deployment to provide subscription credentials and support if there are questions on the provided data.|
+|**Partner**|Recommend solution options based on customer requirements.<br><br>Propose proof of concept (POC) if necessary.<br><br>Establish business relationship.<br><br>Decide on level of support.|Prepare necessary contracts with the customer.<br><br>Create customer purchase order.<br><br>Decide on delivery timeline.<br><br>Connect customer with Microsoft if necessary.|Provide customer with necessary training to ensure understanding of all deployment prerequisites and datacenter integration options.<br><br>Assist the customer with validation of collected data to ensure completeness and accuracy.|Apply the last validated baseline build.<br><br>Apply the required Microsoft deployment toolkit.|Ship hardware to customer site.|Deployment handled by an onsite engineer.<br><br>Rack and stack.<br><br>Hardware lifecycle host (HLH) deployment.<br><br>Azure Stack deployment.<br><br>Hand off to customer.|
+|**Customer**|Describe intended use cases and specify requirements.|Determine the billing model to use, review and approve contracts.|Complete the deployment worksheet, and ensure all deployment prerequisites are met and ready for deployment.|N/A|Prepare datacenter by ensuring all required power and cooling, border connectivity, and other required datacenter integration requirement are in place.|Be available during deployment to provide subscription credentials and support if there are questions on the provided data.|
 | | | | | | | |
 
 
 ## Planning phase
-The planning phase is when Microsoft or the Azure Stack solution partner will work with you to evaluate and understand your needs to determine if Azure Stack is the right solution for you:
+The planning phase is when Microsoft, or the Azure Stack solution partner, will work with you to evaluate and understand your needs to determine if Azure Stack is the right solution for you:
 
 They will help you decide on the following:
 
@@ -45,15 +45,15 @@ They will help you decide on the following:
 
 -   What are the power and cooling requirements?
 
-To ensure that the hardware solution will best fit your needs, the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) is intended to aid in pre-purchase planning to determine appropriate capacity and configuration of Azure Stack hardware solutions.
+To ensure that the hardware solution will best fit your needs, the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) can be used to assist in pre-purchase planning to determine the appropriate capacity and configuration for your Azure Stack hardware solution.
 
-The spreadsheet is *not* intended to be used as a substitute to your own investigation and analysis for hardware solutions that best suit your needs. When planning for an Azure Stack deployment, you should also review the [general datacenter integration considerations](.\azure-stack-datacenter-integration.md) for Azure Stack integrated systems. 
+The spreadsheet is *not* intended to be used as a substitute for your own investigation and analysis of hardware solutions that best suit your needs. When planning for an Azure Stack deployment, you should also review the [general datacenter integration considerations](.\azure-stack-datacenter-integration.md) for Azure Stack integrated systems. 
 
 ## Order process phase
 At this stage, many of your questions with regards to feasibility would have been answered. Now that you are ready to commit to purchasing Azure Stack, and after signing all the required contracts and purchase orders, you will be asked to provide the integration requirements data to your solution provider.
 
 ## Pre-deployment phase
-During this phase, you will need to decide on how you want to integrate Azure Stack into your datacenter. To ease this process, Microsoft, in collaboration with the solution providers, put together a requirements template to help you gather the necessary information to plan an integrated system deployment within your environment.
+During this phase, you will need to decide how you want to integrate Azure Stack into your datacenter. To ease this process, Microsoft, in collaboration with the solution providers, put together a requirements template to help you gather the necessary information to plan for an integrated system deployment within your environment.
 
 The [general datacenter integration considerations](.\azure-stack-datacenter-integration.md) article provides information that helps you complete the template, known as the Deployment Worksheet. 
 
@@ -107,7 +107,7 @@ The following is what you should expect from the onsite engineer during the depl
 > A deployment procedure by the onsite engineer might take about one business week to complete.
 
 ## Post-integration phase
-Several steps must be performed by the partner before the solution is off to the customer in the post-integration phase. In this phase, validation is important to ensure the system is deployed and performing correctly. 
+Several steps must be performed by the partner before the solution is handed off to the customer in the post-integration phase. In this phase, validation is important to ensure the system is deployed and performing correctly. 
 
 Actions that should be taken by the OEM Partner are:
 
