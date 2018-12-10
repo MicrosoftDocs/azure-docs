@@ -31840,6 +31840,12 @@
             "source_path":  "articles/cognitive-services/Speech-Service/how-to-text-to-speech.md",
             "redirect_url":  "/azure/cognitive-services/speech-service/quickstart-python-text-to-speech",
             "redirect_document_id":  true
+        },
+		{
+
+            "source_path": "articles/redis-cache/index.md",
+            "redirect_url": "/azure/azure-cache-for-redis/",
+            "redirect_document_id": false
         }
     ]
 }
