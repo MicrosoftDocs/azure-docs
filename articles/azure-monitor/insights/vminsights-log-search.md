@@ -234,5 +234,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## Next steps
-* If you are new to writing queries in Log Analytics, review [how to use the Log Analytics page](../../log-analytics/query-language/get-started-analytics-portal.md) in the Azure portal to write Log Analytics queries.
-* Learn about [writing search queries](../../log-analytics/query-language/search-queries.md).
+* If you are new to writing queries in Log Analytics, review [how to use the Log Analytics page](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write Log Analytics queries.
+* Learn about [writing search queries](../../azure-monitor/log-query/search-queries.md).

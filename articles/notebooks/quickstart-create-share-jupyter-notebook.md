@@ -1,5 +1,5 @@
 ---
-title: Create and share a Jupyter notebook on Azure | Microsoft Docs 
+title: Create and share a Jupyter notebook on Azure
 description: Quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
 services: app-service
 documentationcenter: ''
@@ -93,11 +93,11 @@ ms.author: kraigb
 
 ## Share the notebook
 
-1. To share your notebook, switch back to the project page if needed, right-click the notebook file, select **Copy Link** (keyboard shortcut: y), and paste that link into an appropriate message (email, IM, etc.).
+To share your notebook, switch back to the project page if needed, right-click the notebook file, select **Copy Link** (keyboard shortcut: y), and paste that link into an appropriate message (email, IM, etc.).
 
-    On the project page, you can also use the **Share** menu to obtain a link, create an email message with the link, or obtain HTML and Markdown embed code:
+On the project page, you can also use the **Share** menu to obtain a link, create an email message with the link, or obtain HTML and Markdown embed code:
 
-    ![Project share command](media/quickstarts/share-project-command.png)
+![Project share command](media/quickstarts/share-project-command.png)
 
 ## Next steps
 

@@ -178,6 +178,8 @@
     items:   
     - name: Connect to SQL Database
       href: functions-scenario-database-table-cleanup.md
+    - name: Connect to a Virtual Network
+      href: functions-create-vnet.md
     - name: Create an Open API 2.0 definition
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow
@@ -268,7 +270,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-functions
+    href: https://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
   - name: Provide product feedback

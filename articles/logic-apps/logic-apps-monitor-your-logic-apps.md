@@ -104,7 +104,7 @@ that monitors your cloud and on-premises environments
 to help you maintain their availability and performance. 
 
 Before you start, you need to have a Log Analytics workspace. Learn 
-[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your logic app. 
@@ -204,7 +204,7 @@ diagnostic data with other Azure services, for example:
 
 You can then get real-time monitoring by using telemetry and analytics from other services, 
 like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

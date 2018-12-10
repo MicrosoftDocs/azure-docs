@@ -39,7 +39,7 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 ### Improvements in Mobile Apps Node.js server SDK
 Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides many improvements, including:
 
-* Based on the [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up
+* Based on the [Express framework](https://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up
   with new Node versions as they come out. You can customize the application behavior with Express middleware.
 * Significant performance improvements compared to the Mobile Services SDK.
 * You can now host a website together with your mobile backend; similarly, it's easy to add the Azure Mobile SDK to any
@@ -195,7 +195,7 @@ completely upgraded to an App Service Mobile App using the latest Mobile Apps se
 [Authentication Quickstart]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -204,6 +204,6 @@ completely upgraded to an App Service Mobile App using the latest Mobile Apps se
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS Middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

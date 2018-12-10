@@ -1,5 +1,5 @@
 ---
-title: Clone a Jupyter notebook from GitHub with Azure Notebooks | Microsoft Docs 
+title: Clone a Jupyter notebook from GitHub with Azure Notebooks
 description: Quickly clone a Jupyter notebook from a GitHub repository and run it in your Azure Notebooks account.
 services: app-service
 documentationcenter: ''
@@ -22,7 +22,7 @@ Many data scientists and developers store their notebooks in [GitHub repositorie
 
 Cloning creates a copy of a GitHub notebook in your Azure Notebooks account instead. This clone is independent from its original repository; changes are stored in your Azure Notebooks account only and don't affect the original. Because your clone is in the cloud, you can share the project with other collaborators who need not make any local copies or even have Jupyter installed on their own computers. You might also clone a notebook simply as a starting point for a project of your own or to obtain data files.
 
-## Clone the Azure Cognitive Services notebooks
+## Clone Azure Cognitive Services notebooks
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 

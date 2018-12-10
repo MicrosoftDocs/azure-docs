@@ -63,11 +63,11 @@ When you enable replication for a virtual machine either starting [from the virt
 
 1. If there are new updates available for the Mobility Service installed on your Azure VMs, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
 
-     ![Replicated items window](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Replicated items window](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Select the notification to open the virtual machine selection page.
 4. Select the virtual machines you want to upgrade mobility service on, and select **OK**.
 
-     ![Replicated items VM list](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Replicated items VM list](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 The Update Mobility Service job starts for each of the selected virtual machines.
 

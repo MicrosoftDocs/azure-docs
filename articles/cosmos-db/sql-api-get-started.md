@@ -1,10 +1,9 @@
 ---
-title: 'Azure Cosmos DB: SQL API getting started tutorial | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL API getting started tutorial'
 description: A tutorial that creates an online database and C# console application using the SQL API.
 keywords: nosql tutorial, online database, c# console application
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql

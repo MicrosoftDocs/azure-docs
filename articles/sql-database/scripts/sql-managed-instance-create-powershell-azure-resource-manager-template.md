@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example - create an Azure SQL Database Managed Instance | Microsoft Docs
 description: Azure PowerShell example script to create an Azure SQL Database Managd Instance
 services: sql-database
@@ -11,9 +11,9 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer:
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
-# Use PowerShell with Azure Resource Manager template to create a Azure SQL Database Managed Instance with specified and configure a firewall rule
+# Use PowerShell with Azure Resource Manager template to create an Azure SQL Database Managed Instance
 
 Azure SQL Database Managed Instance can be created using Azure PowerShell library and Azure Resource Manager templates. 
 
@@ -27,9 +27,18 @@ Azure PowerShell commands can start deployment using predefined Azure Resource M
 - SQL administrator username and password. 
 - Size of the instance (number of cores and max storage size).
 - VNet and subnet where the instance will be placed.
-- Server-level collation of the instance.
+- Server-level collation of the instance (Preview).
 
 Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be changed later. Other instance properties can be changed.
+
+## Prerequisites
+
+This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-vnet-configuration.md#create-a-new-virtual-network-for-a-managed-instance) for your Managed Instance. The sample uses the commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) and [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) so make sure that you have installed the following PowerShell modules:
+
+```
+Install-Module AzureRM.Network
+Install-Module AzureRM.Resources
+```
 
 ## Azure Resource Manager template
 
@@ -61,7 +70,7 @@ The following content should be placed in a file that represents a template that
             },			
             "sku": {
                 "name": "GP_Gen4",
-				"tier": "GeneralPurpose"
+                "tier": "GeneralPurpose"
             },
             "properties": {
                 "administratorLogin": "[parameters('user')]",
@@ -106,7 +115,7 @@ $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwor
 $subnetId = $subnet.Id
 
 # Deploy Instance using Azure Resource Manager template:
-New-AzureRmResourceGroupDeployment  -Name Poland2 -ResourceGroupName $resourceGroup  `
+New-AzureRmResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```

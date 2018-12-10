@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -209,7 +207,7 @@ The Azure Cosmos DB .NET Core Preview SDK has feature parity with the latest ver
 * [Partitioned collections](partition-data.md). 
 * [Multi-region database accounts and geo-replication](distribute-data-globally.md).
 
-If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+If you have questions related to this SDK, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## Release & Retirement Dates
 

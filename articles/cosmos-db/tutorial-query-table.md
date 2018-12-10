@@ -3,11 +3,10 @@ title: How to query table data in Azure Cosmos DB?
 description: Learn to query table data in Azure Cosmos DB
 services: cosmos-db
 author: kanshiG
-manager: kfile
+ms.author: govindk
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.author: govindk
 ms.custom: mvc
 ms.date: 11/15/2017
 ---

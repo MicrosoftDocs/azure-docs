@@ -12,8 +12,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 11/11/2018
-  ms.author: jovanpop-msft
+  ms.date: 12/05/2018
+  ms.author: jovanpop
 abstract:
   description: Azure SQL Database Managed Instance is a fully managed SQL Server Database Engine Instance hosted in Azure cloud. This is the best PaaS option for migrating your SQL Server database to the cloud. Learn how to create and use Managed Instance with our quickstarts, tutorials, and samples.
   aside:
@@ -60,6 +60,19 @@ sections:
       - title: Advanced security
         href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
+- title: New and preview features
+  items:
+  - type: paragraph
+    text: 'We are continously improving Managed Instance with new features:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="sql-database-managed-instance#business-critical-service-tier">Business Critical service tier</a> is now in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">General Availability (GA)</a>.
+    - html: (Preview) <a href="https://aka.ms/managed-instance-aadlogins">Create Azure AD logins</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
+    - html: (Preview) Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>.
+    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
+    - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> to keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario.
+    - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -118,7 +131,6 @@ sections:
     - html: Verify that your database can be migrated using <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Asisstant</a> or <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
     - html: Bring your databases to Managed Instance using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Native restore</a> or <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Move your SSIS packages to <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tabular models to <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, and SSRS reports to <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
-    - html: Optimize your data storage in <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/">General Purpose tier</a>.
     - html: Find the best practices and recommendations for <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">securing your instance</a>.
     - html: Distribute your data using <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transactional replication</a>.
 - title: Reference

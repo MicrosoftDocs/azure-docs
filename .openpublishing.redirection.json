@@ -2,6 +2,21 @@
     "redirections": [
 
         {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-to-iot.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
             "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
             "redirect_document_id": true
@@ -108,7 +123,12 @@
         },
         {
             "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
-            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "redirect_document_id": true
         },
         {
@@ -1049,7 +1069,7 @@
         },
         {
             "source_path": "articles/active-directory/pp/msi-howto-assign-access-portal.md",
-            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal",
             "redirect_document_id": false
         },
         {
@@ -3967,7 +3987,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-session-state-caching.md",
-            "redirect_url": "/azure/redis-cache/cache-aspnet-session-state-provider",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-aspnet-session-state-provider",
             "redirect_document_id": false
         },
         {
@@ -7982,17 +8002,17 @@
         },
         {
             "source_path": "articles/cache/cache-dotnet-how-to-use-in-role.md",
-            "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#in-role-cache",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#in-role-cache",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/cache/cache-dotnet-how-to-use-service.md",
-            "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#managed-cache-service",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#managed-cache-service",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/cache/index.md",
-            "redirect_url": "https://docs.microsoft.com/azure/redis-cache/cache-faq#managed-cache-service",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#managed-cache-service",
             "redirect_document_id": false
         },
         {
@@ -11301,11 +11321,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-scale.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started",
             "redirect_document_id": false
@@ -11603,6 +11618,11 @@
         {
             "source_path": "articles/storage/common/storage-quickstart-create-storage-account-powershell.md",
             "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
             "redirect_document_id": false
         },
         {
@@ -14007,6 +14027,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-app-scale-out.md",
+            "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-scale-services",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/scripts/service-fabric-powershell-create-test-cluster.md",
             "redirect_url": "/azure/service-fabric/scripts/service-fabric-powershell-create-secure-cluster-cert",
             "redirect_document_id": false
@@ -15043,7 +15068,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnect-health-faq.md",
-            "redirect_url": "/azure/active-directory/connect-health/active-directory-aadconnect-health-faq",
+            "redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
             "redirect_document_id": false
         },
         {
@@ -15546,7 +15571,7 @@
 },
 {
 "source_path": "articles/active-directory/connect/active-directory-aadconnect-health-version-history.md",
-"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-faq",
+"redirect_url": "/azure/active-directory/hybrid/reference-connect-health-version-history",
 "redirect_document_id": false
 },
 {
@@ -19539,16 +19564,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/active-directory/active-directory-reporting-irregular-sign-in-activity.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-migration",
             "redirect_document_id": false
@@ -19859,6 +19874,11 @@
         {
             "source_path": "articles/storage/common/storage-account-options.md",
             "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/storage/common/storage-lifecycle-management-concepts.md",
+            "redirect_url": "/azure/storage/blobs/storage-lifecycle-management-concepts",
             "redirect_document_id": true
         },
         {
@@ -24152,7 +24172,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/redis-cache/cache-java-spring-boot-initializer-with-redis-cache.md",
+            "source_path": "articles/azure-cache-for-redis/cache-java-spring-boot-initializer-with-redis-cache.md",
             "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
             "redirect_document_id": false
         },
@@ -27469,7 +27489,127 @@
         },
         {
             "source_path": "articles/storage/data-lake-storage/index.md",
-            "redirect_url": "/azure/storage/data-lake-storage/introduction",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/abfs-driver.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-abfs-driver",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-data-lake-storage-access-control.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-data-lake-storage-best-practices.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/compatible-oss-other-applications.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-compatible-oss-other-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/data-scenarios.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/evaluation.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-evaluation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/handle-data-using-databricks.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-handle-data-using-databricks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/introduction-abfs-uri.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction-abfs-uri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/introduction.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/namespace.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-namespace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-guidance.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-mapreduce.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-mapreduce",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-spark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/performance-tuning-storm.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-storm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/quickstart-create-databricks-account.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/tutorial-extract-transform-load-hive.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/using-databricks-spark.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/use-distcp.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-tutorial-use-distcp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/use-hdfs-data-lake-storage.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/use-hdi-cluster.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-use-hdi-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/data-lake-storage/known-issues.md",
+            "redirect_url": "/azure/storage/blobs/data-lake-storage-known-issues",
             "redirect_document_id": false
         },
         {
@@ -28891,6 +29031,16 @@
         {
             "source_path": "articles/active-directory/manage-apps/single-sign-on-modes.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-enable.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
             "redirect_document_id": false
         },
         {
@@ -30450,8 +30600,8 @@
         {
             "source_path": "articles/azure-portal/tutorial-azureportal-devops.md",
             "redirect_url": "https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav",
-            "redirect_document_id": false 
-        },        
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
@@ -30472,7 +30622,7 @@
             "redirect_url": "/visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address",
             "redirect_document_id": true
@@ -30482,152 +30632,152 @@
             "redirect_url": "/visualstudio/azure/vs-azure-tools-command-line-build",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-configure-roles-for-cloud-service.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service",
             "redirect_document_id": true
-        },                
-        {   
+        },
+        {
             "source_path": "articles/vs-azure-tools-configuring-an-azure-project.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-connected-services-add-mobile-services.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-connected-services-add-mobile-services",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-connected-services-storage.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-connected-services-storage",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-debug-cloud-services-virtual-machines.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-debugging-cloud-services-overview.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-edit-and-refresh.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-edit-and-refresh",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-hosting-web-apps-in-docker.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-hosting-web-apps-in-docker",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-machine-azure-config.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-machine-azure-config",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-setup.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-setup",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-docker-troubleshooting-docker-errors.md",
             "redirect_url": "/visualstudio/docker/vs-azure-tools-docker-troubleshooting-docker-errors",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-emulator-express-debug-run.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-emulator-express-debug-run",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-intellitrace-debug-published-cloud-services.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-migrate-publish-web-app-to-cloud-service.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-migrate-publish-web-app-to-cloud-service",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-multiple-services-project-configurations.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-multiple-services-project-configurations",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-optimizing-azure-code-in-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-optimizing-azure-code-in-visual-studio",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-performance-profiling-cloud-services.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-performance-profiling-cloud-services",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publish-azure-application-wizard.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publish-webapplicationvm.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publish-webapplicationvm",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publish-webapplicationwebsite-windows-powershell-script.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publish-webapplicationwebsite-windows-powershell-script",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publishing-a-cloud-service.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publishing-a-cloud-service",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-publishing-using-powershell-scripts.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-publishing-using-powershell-scripts",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-resources-managing-with-cloud-explorer.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-service-configurations-and-profiles-how-to-manage.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-service-configurations-and-profiles-how-to-manage",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-setting-up-named-authentication-credentials.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-setting-up-named-authentication-credentials",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-storage-resources-server-explorer-browse-manage.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-table-designer-construct-filter-strings.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-table-designer-construct-filter-strings",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-upgrade-projects-to-the-current-version-of-the-azure-tools.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-upgrade-projects-to-the-current-version-of-the-azure-tools",
             "redirect_document_id": true
         },
-        {   
+        {
             "source_path": "articles/vs-azure-tools-virtual-machines-access-from-server-explorer.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-virtual-machines-access-from-server-explorer",
             "redirect_document_id": true
@@ -30806,7 +30956,7 @@
             "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
             "redirect_document_id" : false
         },
-	    {  
+	    {
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
@@ -30859,6 +31009,11 @@
         {
             "source_path":  "articles/monitoring/monitoring-solutions-solution-file.md",
             "redirect_url":  "/azure/azure-monitor/insights/solutions-solution-file",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/key-vault/tutorial-web-application-keyvault.md",
+            "redirect_url":  "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
             "redirect_document_id":  "false"
         },
         {
@@ -31340,6 +31495,592 @@
             "source_path":  "articles/log-analytics/log-analytics-queries.md",
             "redirect_url":  "/azure/azure-monitor/log-query/log-query-overview",
             "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/splunk-cheatsheet.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/splunk-cheatsheet",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/sql-cheatsheet.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/sql-cheatsheet",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/get-started-analytics-portal.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/get-started-portal",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/get-started-queries.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/get-started-queries",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/search-queries.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/search-queries",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/useful-operators.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/useful-operators",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/advanced-aggregations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/advanced-aggregations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/advanced-query-writing.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/advanced-query-writing",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/aggregations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/aggregations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/charts.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/charts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/datetime-operations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/datetime-operations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/joins.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/joins",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/json-data-structures.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/json-data-structures",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/string-operations.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/string-operations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/app-expression.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/app-expression",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/examples.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/examples",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/query-language.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/query-language",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/workspace-expression.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/workspace-expression",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/data-explorer-difference.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/data-explorer-difference",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/query-language/functions.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/functions",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-cross-workspace-search.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/cross-workspace-query",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-custom-fields.md",
+            "redirect_url":  "/azure/azure-monitor/platform/custom-fields",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-collector-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-collector-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-ingestion-time.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-ingestion-time",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-data-security.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-security",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-faq.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-flow-tutorial.md",
+            "redirect_url":  "/azure/azure-monitor/platform/flow-tutorial",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-itsmc-service-manager-script.md",
+            "redirect_url":  "/azure/azure-monitor/platform/itsmc-service-manager-script",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-log-search-portals.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/portals",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-log-search-takeaction.md",
+            "redirect_url":  "/azure/azure-monitor/log-query/take-action",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-sql.md",
+            "redirect_url":  "/azure/azure-monitor/insights/azure-sql",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-azure-web-apps-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/insights/azure-web-apps-analytics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-containers.md",
+            "redirect_url":  "/azure/azure-monitor/insights/containers",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-om-agents.md",
+            "redirect_url":  "/azure/azure-monitor/platform/om-agents",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-windows-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-windows-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-cli.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-create-workspace-posh.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-create-workspace-posh",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-service-providers.md",
+            "redirect_url":  "/azure/azure-monitor/platform/service-providers",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-standard-properties.md",
+            "redirect_url":  "/azure/azure-monitor/platform/log-standard-properties",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-template-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/template-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-response.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-response",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-tutorial-viewdata.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-viewdata",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-access.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-access",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-cost-storage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-manage-del-workspace.md",
+            "redirect_url":  "/azure/azure-monitor/platform/delete-workspace",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-network-performance-monitor-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/network-performance-monitor-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-portal-faq.md",
+            "redirect_url":  "/azure/azure-monitor/platform/oms-portal-faq",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-oms-portal-transition.md",
+            "redirect_url":  "/azure/azure-monitor/platform/oms-portal-transition",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-personal-data-mgmt.md",
+            "redirect_url":  "/azure/azure-monitor/platform/personal-data-mgmt",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-powerbi.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powerbi",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-powershell-workspace-configuration.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-workspace-configuration",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-azurevm.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-azurevm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-quick-collect-linux-computer.md",
+            "redirect_url":  "/azure/azure-monitor/learn/quick-collect-linux-computer",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-sccm.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-sccm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/log-analytics-usage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-usage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-activity-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log-service-notifications",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts-classic.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic.overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric-classic.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-portal",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-powershell",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-create-activity-log-resource-manager-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-dynamic-thresholds",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/log-analytics/powershell-samples.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-samples",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
+            "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
+            "redirect_url":  "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/marketplace/toc_old.md",
+            "redirect_url":  "/azure/marketplace",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path":  "articles/azure-stack/user/media/azure-stack-app-service-deploy-offline/temp.md",
+            "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
+            "redirect_document_id":  false
+        },
+		{
+			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
+			"redirect_url": "/azure/application-insights/app-insights-app-map",
+			"redirect_document_id": true
+        },
+        {
+			"source_path": "articles/machine-learning/service/how-to-automated-ml.md",
+			"redirect_url": "/azure/machine-learning/service/concept-automated-ml",
+			"redirect_document_id": true
+		},
+        {
+            "source_path":  "articles/cognitive-services/Speech-Service/how-to-text-to-speech.md",
+            "redirect_url":  "/azure/cognitive-services/speech-service/quickstart-python-text-to-speech",
+            "redirect_document_id":  true
+        },
+		{
+
+            "source_path": "articles/redis-cache/index.md",
+            "redirect_url": "/azure/azure-cache-for-redis/",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-administration.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-administration",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-aspnet-output-cache-provider.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-aspnet-output-cache-provider",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-aspnet-session-state-provider.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-aspnet-session-state-provider",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-configure.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-configure",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-dotnet-core-quickstart.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-dotnet-core-quickstart",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-faq.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-faq",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-geo-replication.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-geo-replication",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-import-export-data.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-import-export-data",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-howto-manage-redis-cache-powershell.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-monitor.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-monitor",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-premium-clustering.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-clustering",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-premium-persistence.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-persistence",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-premium-vnet.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-vnet",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-redis-cli-tool.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-scale.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-scale",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-how-to-troubleshoot.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-troubleshoot",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-java-get-started.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-java-get-started",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-manage-cli.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-manage-cli",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-migrate-to-redis.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-migrate-to-redis",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-nodejs-get-started.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-nodejs-get-started",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-overview.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-premium-tier-intro.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-premium-tier-intro",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-python-get-started.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-python-get-started",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-redis-cache-arm-provision.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-redis-cache-arm-provision",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-redis-samples.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-redis-samples",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-web-app-arm-with-redis-cache-provision.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-web-app-cache-aside-leaderboard.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cache-web-app-howto.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-web-app-howto",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/cli-samples.md",
+            "redirect_url": "/azure/azure-cache-for-redis/cli-samples",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/cache-keys-ports.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/cache-keys-ports",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/create-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/create-cache",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/create-premium-cache-cluster.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/delete-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/delete-cache",
+            "redirect_document_id": false
+        },
+		{
+
+            "source_path": "articles/redis-cache/scripts/show-cache.md",
+            "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
+            "redirect_document_id": false
         }
     ]
 }

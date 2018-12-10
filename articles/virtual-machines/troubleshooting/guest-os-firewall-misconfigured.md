@@ -1,6 +1,6 @@
 ---
 title: Azure VM Guest OS firewall is misconfigured | Microsoft Docs
-description: 
+description:
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -30,7 +30,7 @@ This article introduce how to fix misconfigured guest operating system firewall 
 
 ## Cause
 
-A misconfiguration of the guest system firewall can block some or all kinds of network traffic to the VM. 
+A misconfiguration of the guest system firewall can block some or all kinds of network traffic to the VM.
 
 ## Solution
 
@@ -40,11 +40,11 @@ To troubleshoot this issue, use the Serial Console or [repair the VM offline](tr
 
 ## Online mitigations
 
-Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to the "Repair the VM Offline" section of the following Azure article:
+Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to the "Repair the VM Offline" section of the following Azure article:
 
  [An internal error occurs when you try to connect to an Azure VM through Remote Desktop](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-The following rules can be edited to either enable access to the VM (through RDP) or to provide an easier troubleshooting experience: 
+The following rules can be edited to either enable access to the VM (through RDP) or to provide an easier troubleshooting experience:
 
 *   Remote Desktop (TCP-In): This is the standard rule that provides primary access to the VM by allowing RDP in Azure.
 
@@ -52,7 +52,7 @@ The following rules can be edited to either enable access to the VM (through RDP
 
 *   File and Printer Sharing (SMB-In): This rule enables network share access as a troubleshooting option.
 
-*   File and Printer Sharing (Echo Request - ICMPv4-In): This rule enables you to ping the VM. 
+*   File and Printer Sharing (Echo Request - ICMPv4-In): This rule enables you to ping the VM.
 
 In the Serial Console Access instance, you can query the current status of the firewall rule.
 
@@ -80,7 +80,7 @@ In the Serial Console Access instance, you can query the current status of the f
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   For troubleshooting, you can turn the firewall profiles OFF: 
+*   For troubleshooting, you can turn the firewall profiles OFF:
 
     ```cmd
     netsh advfirewall set allprofiles state off

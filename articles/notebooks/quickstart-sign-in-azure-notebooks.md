@@ -1,5 +1,5 @@
 ---
-title: Sign in to Azure Notebooks | Microsoft Docs
+title: Sign in to Azure Notebooks
 description: Quickly sign into Azure notebooks and set a user ID, which gives you the ability to access saved projects and share notebooks with others.
 services: app-service
 documentationcenter: ''
@@ -50,9 +50,9 @@ Although you can always view Azure Notebooks without signing in, you must sign i
 
 ## Sign out
 
-1. To sign out, select your username on the upper right of the page, then select **Sign out**:
+To sign out, select your username on the upper right of the page, then select **Sign out**:
 
-    ![Location of sign-out command on Azure Notebooks](media/accounts/sign-out-command.png)
+![Location of sign-out command on Azure Notebooks](media/accounts/sign-out-command.png)
 
 ## Next steps
 

@@ -125,18 +125,18 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 1.	[Download and install Fiddler](https://www.telerik.com/fiddler).
 2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.	Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
-  1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
-  2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
+    1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
+    2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.onmicrosoft.com. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+    If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. Save and close the CustomRules file.
 

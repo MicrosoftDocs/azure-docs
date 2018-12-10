@@ -4,7 +4,7 @@ description: Learn about SQL Database and SQL Data Warehouse security management
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

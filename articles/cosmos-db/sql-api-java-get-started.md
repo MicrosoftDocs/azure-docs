@@ -1,10 +1,9 @@
 ---
-title: 'NoSQL tutorial: SQL API for Azure Cosmos DB Java SDK | Microsoft Docs'
+title: 'NoSQL tutorial: SQL API for Azure Cosmos DB Java SDK'
 description: A NoSQL tutorial that creates an online database and Java console application using the SQL API for Azure Cosmos DB. Azure SQL is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -53,7 +52,7 @@ Make sure you have the following:
 
 * [Git](https://git-scm.com/downloads).
 * [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## Step 1: Create an Azure Cosmos DB account
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Clone the GitHub project](#GitClone). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Clone the GitHub project](#GitClone).

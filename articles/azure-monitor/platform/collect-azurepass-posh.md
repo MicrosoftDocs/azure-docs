@@ -64,7 +64,7 @@ Perform the following steps to download and execute the script.
 
 The script will run against each and every resource matching selected criteria and enable metrics collection for them. After it’s finished, you will see a message indicating configuration is complete.  
 
-Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../../log-analytics/log-analytics-azure-sql.md) and [Azure Web Apps Analytics](../../log-analytics/log-analytics-azure-web-apps-analytics.md) management solutions.   
+Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) and [Azure Web Apps Analytics](../../azure-monitor/insights/azure-web-apps-analytics.md) management solutions.   
 
 ## Update a resource to send data to another workspace
 If you have a resource that is already sending data to a Log Analytics workspace and you later decide to reconfigure it to reference another workspace, you can run the script with the `-Update` parameter.  
@@ -78,6 +78,6 @@ You will be prompted to answer the same information as when you ran the script t
 
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md)( to parse the event records into individual fields.
+* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md)( to parse the event records into individual fields.
 
 * Review [Create a custom dashboard for use in Log Analytics](../../azure-monitor/platform/dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.

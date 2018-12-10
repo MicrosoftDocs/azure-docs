@@ -95,7 +95,15 @@
     - name: Sign to Powershell and CLI using Managed Identity
       href: how-to-use-vm-sign-in.md
     - name: Use with Azure SDKs
-      href: how-to-use-vm-sdk.md    
+      href: how-to-use-vm-sdk.md
+  - name: Assign a managed identity access to another Azure resource
+    items:
+    - name: Portal
+      href: howto-assign-access-portal.md
+    - name: CLI
+      href: howto-assign-access-cli.md
+    - name: PowerShell
+      href: howto-assign-access-powershell.md
   - name: Manage user-assigned managed identities
     items:
     - name: Portal
@@ -108,6 +116,14 @@
       href: how-to-manage-ua-identity-arm.md
     - name: REST
       href: how-to-manage-ua-identity-rest.md
+  - name: View managed identity service principals
+    items:
+    - name: Portal
+      href: how-to-view-managed-identity-service-principal-portal.md
+    - name: CLI
+      href: how-to-view-managed-identity-service-principal-cli.md
+    - name: PowerShell
+      href: how-to-view-managed-identity-service-principal-powershell.md
 - name: Reference
   items:
   - name: CLI

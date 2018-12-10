@@ -4,7 +4,6 @@ description: Tutorial on how to set up build and release workflow in Azure DevOp
 services: cosmos-db
 keywords: Azure Cosmos DB Emulator
 author: deborahc
-manager: kfile
 
 ms.service: cosmos-db
 ms.topic: tutorial

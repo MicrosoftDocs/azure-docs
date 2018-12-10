@@ -109,7 +109,10 @@ This example shows how to configure NSG rules for a VM to replicate.
 
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the screenshot below.
+
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
 
    **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
@@ -122,7 +125,7 @@ These rules are required so that replication can be enabled from the target regi
 
 1. Create an outbound HTTPS (443) security rule for "Storage.CentralUS" on the NSG.
 
-2. Create outbound HTTPS (443) rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG.
 
 3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the source location:
 

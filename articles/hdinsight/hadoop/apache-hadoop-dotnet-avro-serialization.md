@@ -23,7 +23,7 @@ This topic shows how to use the [Microsoft Avro Library](https://github.com/Azur
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## Apache Avro
-The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses <a href="http://www.json.org" target="_blank">JSON</a> to define a language-agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro Specification</a>. 
+The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses <a href="http://www.json.org" target="_blank">JSON</a> to define a language-agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the <a href="https://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro Specification</a>. 
 
 >[!NOTE]
 >The Microsoft Avro Library does not support the remote procedure calls (RPCs) part of this specification.
@@ -54,7 +54,7 @@ The following are required before you install the library:
 ## Compile schemas using Avro Library
 The Microsoft Avro Library contains a code generation utility that allows creating C# types automatically based on the previously defined JSON schema. The code generation utility is not distributed as a binary executable, but can be easily built via the following procedure:
 
-1. Download the .zip file with the latest version of HDInsight SDK source code from <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK For Hadoop</a>. (Click the **Download** icon, not the **Downloads** tab.)
+1. Download the .zip file with the latest version of HDInsight SDK source code from <a href="https://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK For Hadoop</a>. (Click the **Download** icon, not the **Downloads** tab.)
 2. Extract the HDInsight SDK to a directory on the machine with .NET Framework 4 installed and connected to the Internet for downloading necessary dependency NuGet packages. Below, we assume that the source code is extracted to C:\SDK.
 3. Go to the folder C:\SDK\src\Microsoft.Hadoop.Avro.Tools and run build.bat. (The file calls MSBuild from the 32-bit distribution of the .NET Framework. If you would like to use the 64-bit version, edit build.bat, following the comments inside the file.) Ensure that the build is successful. (On some systems, MSBuild may produce warnings. These warnings do not affect the utility as long as there are no build errors.)
 4. The compiled utility is located in C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
@@ -848,7 +848,7 @@ The data is then read from the file and deserialized into a collection of object
 ## Sample 5: Serialization using object container files with a custom compression codec
 The fifth example shows how to use a custom compression codec for Avro object container files. A sample containing the code for this example can be downloaded from the [Azure code samples](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
-The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing a new codec such as Snappy (mentioned as a supported optional codec in the [Avro Specification](http://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5 implementation of the [**Deflate**][deflate-110] codec, which provides a better compression algorithm based on the [zlib](http://zlib.net/) compression library than the default .NET Framework 4 version.
+The [Avro Specification](https://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing a new codec such as Snappy (mentioned as a supported optional codec in the [Avro Specification](https://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5 implementation of the [**Deflate**][deflate-110] codec, which provides a better compression algorithm based on the [zlib](https://zlib.net/) compression library than the default .NET Framework 4 version.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1347,7 +1347,7 @@ The sixth example illustrates some programming techniques related to interacting
 The sample does the following tasks:
 
 * Connects to an existing HDInsight service cluster.
-* Serializes several CSV files and uploads the result to Azure Blob storage. (The CSV files are distributed together with the sample and represent an extract from AMEX Stock historical data distributed by [Infochimps](http://www.infochimps.com/) for the period 1970-2010. The sample reads CSV file data, converts the records to instances of the **Stock** class, and then serializes them by using reflection. Stock type definition is created from a JSON schema via the Microsoft Avro Library code generation utility.
+* Serializes several CSV files and uploads the result to Azure Blob storage. (The CSV files are distributed together with the sample and represent an extract from AMEX Stock historical data distributed by [Infochimps](https://www.infochimps.com/) for the period 1970-2010. The sample reads CSV file data, converts the records to instances of the **Stock** class, and then serializes them by using reflection. Stock type definition is created from a JSON schema via the Microsoft Avro Library code generation utility.
 * Creates a new external table called **Stocks** in Hive, and links it to the data uploaded in the previous step.
 * Executes a query by using Hive over the **Stocks** table.
 
@@ -1374,5 +1374,5 @@ To clean up the cluster, run the following command:
 
     AvroHDISample clean
 
-[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
+[deflate-100]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx

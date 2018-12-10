@@ -21,7 +21,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring) are captured.
   * **Redis** calls made via the Jedis client are captured.
-  * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server and Oracle DB commands are automatically captured. For MySQL, if the call takes longer than 10s, the agent reports the query plan.
+  * **[JDBC calls](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server and Oracle DB commands are automatically captured. For MySQL, if the call takes longer than 10s, the agent reports the query plan.
 * **Caught exceptions:** Information about exceptions that are handled by your code.
 * **Method execution time:** Information about the time it takes to execute specific methods.
 

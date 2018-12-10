@@ -25,9 +25,9 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
 
     Most steps in this document work on both Windows- and Linux-based clusters. However, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * A text editor or Java IDE
 

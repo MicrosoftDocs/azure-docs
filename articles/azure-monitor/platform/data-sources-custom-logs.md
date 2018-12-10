@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/19/2018
 ms.author: bwren
 ms.component: 
 ---
 
 # Custom logs in Log Analytics
-The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog.  Once collected, you can parse each record in the login to individual fields using the [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) feature of Log Analytics.
+The Custom Logs data source in Log Analytics allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
 
 ![Custom log collection](media/data-sources-custom-logs/overview.png)
 
@@ -101,13 +101,10 @@ Once Log Analytics starts collecting from the custom log, its records will be av
 
 > [!NOTE]
 > If the RawData property is missing from the search, you may need to close and reopen your browser.
->
->
+
 
 ### Step 6. Parse the custom log entries
-The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties stored in the record.  You do this using the [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) feature of Log Analytics.
-
-Detailed steps for parsing the custom log entry are not provided here.  Please refer to the [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) documentation for this information.
+The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Log Analytics](../log-query/parse-text.md) for options on parsing **RawData** into multiple properties.
 
 ## Removing a custom log
 Use the following process in the Azure portal to remove a custom log that you previously defined.
@@ -119,7 +116,7 @@ Use the following process in the Azure portal to remove a custom log that you pr
 ## Data collection
 Log Analytics will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Log Analytics will collect entries from where it last left off, even if those entries were created while the agent was offline.
 
-The entire contents of the log entry are written to a single property called **RawData**.  You can parse this into multiple properties that can be analyzed and searched separately by defining [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) after you have created the custom log.
+The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
 
 ## Custom log record properties
 Custom log records have a type with the log name that you provide and the properties in the following table.
@@ -128,18 +125,8 @@ Custom log records have a type with the log name that you provide and the proper
 |:--- |:--- |
 | TimeGenerated |Date and time that the record was collected by Log Analytics.  If the log uses a time-based delimiter then this is the time collected from the entry. |
 | SourceSystem |Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or System Center Operations Manager <br> Linux – All Linux agents |
-| RawData |Full text of the collected entry. |
+| RawData |Full text of the collected entry. You will most likely want to [parse this data into individual properties](../log-query/parse-text.md). |
 | ManagementGroupName |Name of the management group for System Center Operations Manage agents.  For other agents, this is AOI-\<workspace ID\> |
-
-## Log searches with custom log records
-Records from custom logs are stored in the Log Analytics workspace just like records from any other data source.  They will have a type matching the name that you provide when you define the log, so you can use the Type property in your search to retrieve records collected from a specific log.
-
-The following table provides different examples of log searches that retrieve records from custom logs.
-
-| Query | Description |
-|:--- |:--- |
-| MyApp_CL |All events from a custom log named MyApp_CL. |
-| MyApp_CL &#124; where Severity_CF=="error" |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |
 
 
 ## Sample walkthrough of adding a custom log
@@ -177,5 +164,5 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 ![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
 
 ## Next steps
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse the entries in the custom login to individual fields.
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
+* Learn about [log searches](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.

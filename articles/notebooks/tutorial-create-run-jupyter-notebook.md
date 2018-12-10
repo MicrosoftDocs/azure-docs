@@ -1,5 +1,5 @@
 ---
-title: Tutorial - create and run a Jupyter notebook on Azure | Microsoft Docs 
+title: Tutorial - create and run a Jupyter notebook on Azure
 description: How to create an run a Jupyter notebook in Azure Notebooks that demonstrates the process of linear regression in data science.
 services: app-service
 documentationcenter: ''
@@ -51,7 +51,12 @@ The linear regression model you create in the notebook draws data from a file in
 ### Upload the data file
 
 1. On your project dashboard in Azure Notebooks, select **Upload** > **From URL**
-1. In the popup, enter the URL `https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv` in **File URL** and *cricket_chirps.csv* in **File Name**, then select **Done**.
+1. In the popup, enter the following URL in **File URL** and *cricket_chirps.csv* in **File Name**, then select **Done**.
+
+    ```url
+    https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
+    ```
+
 1. The *cricket_chirps.csv* file should now appear in your project's file list:
 
     ![Newly created CSV file showing in the project file list](media/tutorial/csv-file-in-project.png)
@@ -84,7 +89,7 @@ The linear regression model you create in the notebook draws data from a file in
 
 1. Select **Save File** to save the file and return to the project dashboard.
 
-## Install Python packages at the project level
+## Install project level packages
 
 Within a notebook, you can always use commands like `!pip install` in a code cell to install required packages. However, such commands are run every time you run the notebook's code cells, and can take considerable time. For this reason, you can instead install packages at the project level using a `requirements.txt` file.
 
@@ -110,7 +115,7 @@ Within a notebook, you can always use commands like `!pip install` in a code cel
 
 With this setup step in place, any notebook you run in the project will run in an environment where those packages are installed.
 
-## Create the notebook file and start Jupyter
+## Create and run a notebook
 
 With the data file ready and the project environment set, you can now create and open the notebook.
 
@@ -122,7 +127,7 @@ With the data file ready and the project environment set, you can now create and
 
     [![](media/tutorial/tutorial-new-notebook.png "Initial view of a new notebook in Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## A brief tour of the notebook interface
+## Tour the notebook interface
 
 With the notebook running, you can add code and Markdown cells, run those cells, and manage the operation of the notebook. First, however, it's worth taking a few minutes to familiarize yourself with the interface. For full documentation, select the **Help** > **Notebook Help** menu command.
 
@@ -401,7 +406,7 @@ You can also use the **File** > **Make a Copy** command at any time to make a co
 
 When you're done with a notebook, use the **File** > **Close and halt** command, which closes the notebook and shuts down the kernel that's been running it. Azure Notebooks then closes the browser tab automatically.
 
-## Debugging code in a notebook using Visual Studio Code
+## Debug notebooks using Visual Studio Code
 
 If the code cells in your notebook don't behave in the way you expect, you may have code bugs or other defects. However, other than using `print` statements to show the value of variables, a Jupyter notebook doesn't offer any debugging facilities.
 
