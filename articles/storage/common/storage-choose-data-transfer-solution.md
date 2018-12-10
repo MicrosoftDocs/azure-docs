@@ -33,9 +33,11 @@ The data movement can be of the following types:
     - **On-premises devices** - We supply you a physical or virtual device that resides in your datacenter and optimizes data transfer over the network. These devices also provide a local cache of frequently used files. The physical device is the Data Box Edge and the virtual device is the Data Box Gateway. Both run permanently in your premises and connect to Azure over the network.
     - **Managed data pipeline** - You can set up a cloud pipeline to regularly transfer files between several Azure services, on-premises or a combination of two. Use Azure Data Factory to set up and manage data pipelines, and move and transform data for analysis.
 
-The following visual illustrates how the various Azure data transfer tools can be used depending upon the network bandwidth available for transfer, data size intended for transfer, and frequency of the transfer.
+The following visual illustrates the guidelines to choose the various Azure data transfer tools depending upon the network bandwidth available for transfer, data size intended for transfer, and frequency of the transfer.
 
 ![Azure data transfer tools](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
+
+*The upper limits of the offline transfer devices - Data Box Disk, Data Box, and Data Box Heavy can be extended by placing multiple orders of a device type.
 
 ## Selecting a data transfer solution
 
