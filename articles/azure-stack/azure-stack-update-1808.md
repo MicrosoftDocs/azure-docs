@@ -358,8 +358,10 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
 
 ## Download the update
-You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload).
-  
+
+You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload). 
+
+In connected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 - To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  
