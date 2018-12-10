@@ -63,7 +63,7 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 
 ## How do I manage the workspace?
 
-You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../log-analytics/log-analytics-manage-access.md) manually.
+You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../azure-monitor/platform/manage-access.md) manually.
 
 Don't delete the workspace created by Azure Migrate, unless you delete the migration project. If you do, the dependency visualization functionality will not work as expected.
 

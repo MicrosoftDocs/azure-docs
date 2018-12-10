@@ -1,21 +1,14 @@
 ---
-title: 'How to configure routing (peering) for an ExpressRoute circuit: Resource Manager: Azure | Microsoft Docs'
+title: 'Configure peering for a circuit - ExpressRoute: Azure | Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Create and modify peering for an ExpressRoute circuit
