@@ -54,8 +54,10 @@ After the app copy operation succeeds, you  can go to the new application that w
 
 ### Delete an application
 
-Use the **Delete** button to permanently delete your IoT Central application. 
-Doing this will permanently delete all data that's associated with that application. To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Use the **Delete** button to permanently delete your IoT Central application. Doing this will permanently delete all data that's associated with that application.
 
 ## Manage users
 
