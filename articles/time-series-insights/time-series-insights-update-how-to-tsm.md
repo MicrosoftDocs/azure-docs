@@ -1,5 +1,5 @@
 ---
-title: Data modeling in Azure Time Series Insights | Microsoft Docs
+title: Azure Time Series Insights data modeling - How to model data in Azure Time Series Insights. | Microsoft Docs
 description: Understanding data modeling in Azure Time Series Insights
 author: ashannon7
 ms.author: anshan
@@ -8,12 +8,13 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/10/2018
+ms.custom: seodec18
 ---
 
-# Data modeling in Azure Time Series Insights
+# How to model data in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following the Azure Time Series Insights (Preview). It details several common data scenarios.
+This document describes how to work with Time Series Models following the Azure Time Series Insights (Preview). It details several common data scenarios.
 
 Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.md) article, to learn more about navigating the update.
 
@@ -21,7 +22,7 @@ Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.m
 
 ### How to create a single type
 
-1. Start by heading to the TSM model selector panel and select types from the menu. Then, collapse the panel to focus on TSM types:
+1. Start by heading to the TSM model selector panel and select **Types** from the menu. Then, collapse the panel to focus on Time Series Model types:
 
     ![portal_one][1]
 
@@ -32,9 +33,9 @@ Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.m
 
 ### How to bulk upload one or more types
 
-1. Click on **upload JSON**.
+1. Click on **Upload JSON**.
 1. Choose that file that contains the type payload.
-1. Click on **upload**
+1. Click on **Upload**
 
     ![portal_three][3]
 

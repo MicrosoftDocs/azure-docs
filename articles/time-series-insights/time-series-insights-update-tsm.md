@@ -1,5 +1,5 @@
 ﻿---
-title: Time Series Model | Microsoft Docs
+title: Azure Time Series Insights - Time Series Model | Microsoft Docs
 description: Understanding Time Series Model
 author: ashannon7
 ms.author: anshan
