@@ -1,12 +1,12 @@
 ---
-title: Run containerized tasks in Azure Container Instances with restart policies
+title: Use restart policies with containerized tasks in Azure Container Instances 
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
 author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
 ---
 
@@ -86,6 +86,11 @@ Output:
  ('in', 399),
  ('HAMLET', 386)]
 ```
+
+## Manually stop and start a container group
+
+Regardless of the restart policy configured for a container group, you can manually stop the group at any time - for example, using the [az container stop][az-container-stop] command.
+
 
 This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
 
