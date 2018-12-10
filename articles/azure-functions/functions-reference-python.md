@@ -326,7 +326,7 @@ Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/
 > If you continue to experience issues, please let us know by [opening an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and including a description of the problem. 
 
 
-To build your dependencies and publish using a continuous integration (CI) and continuous delivery (CD) system, you can use an [Azure Pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-yaml?view=vsts) or [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/). 
+To build your dependencies and publish using a continuous integration (CI) and continuous delivery (CD) system, you can use an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) or [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/). 
 
 Following is an example `azure-pipelines.yml` script for the build and publishing process.
 ```yml
