@@ -1,5 +1,5 @@
 ---
-title: Tracking the progress of data science projects - Azure Machine Learning | Microsoft Docs
+title: Tracking the progress of data science projects - Team Data Science Process
 description: How data science group managers, team lease, and project leads can track the progress of a data science project.
 author: marktab
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 

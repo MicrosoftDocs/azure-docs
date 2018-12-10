@@ -1,7 +1,7 @@
 ---
 title: Use Speech C# SDK
 titleSuffix: Azure Cognitive Services
-description: The Speech service allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech NuGet package, already included as a reference.
+description: The Speech service allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
 #dfb - verified this tutorial works on 6/26 using logitech wireless headset

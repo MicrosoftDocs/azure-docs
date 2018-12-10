@@ -1,5 +1,5 @@
 ---
-title: Review user utterances
+title: Review user utterance
 titleSuffix: Language Understanding - Azure Cognitive Services
 description:  With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
 services: cognitive-services
