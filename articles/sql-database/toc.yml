@@ -432,17 +432,9 @@
         href: sql-database-elastic-query-vertical-partitioning.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-  - name: Multi-tenant SaaS
+  - name: Databases Features
     items:
-    - name: SaaS design patterns
-      href: saas-tenancy-app-design-patterns.md
-    - name: SaaS video indexer
-      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
-    - name: SaaS app security
-      href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
-  - name: Develop databases
-    items:
-    - name: Develop databases
+    - name: Databases Features
       href: sql-database-develop-overview.md
     - name: JSON data
       href: sql-database-json-features.md
@@ -450,10 +442,6 @@
       href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
-    - name: Retention policies
-      href: sql-database-temporal-tables-retention-policy.md
-    - name: Configure In-Memory
-      href: sql-database-in-memory-oltp-migration.md
 - name: How-to guides
   items:
   - name: Single Database 
@@ -510,6 +498,12 @@
       href: sql-database-load-from-csv-with-bcp.md
     - name: Load data with ADF
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+    - name: Configure features
+      items:
+      - name: Configure temporal retention policy
+        href: sql-database-temporal-tables-retention-policy.md
+      - name: Configure In-Memory OLTP
+        href: sql-database-in-memory-oltp-migration.md
   - name: Develop apps
     items:
     - name: Connectivity
@@ -534,68 +528,76 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: App design
+  - name: Design applications
     items:
     - name: Design for disaster recovery
       href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
     - name: Design for elastic pools
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Design for app upgrades
-      href: sql-database-manage-application-rolling-upgrade.md
-    - name: Multi-tenant SaaS sample application
+      href: sql-database-manage-application-rolling-upgrade.md  
+    - name: Multi-tenant SaaS
       items:
-      - name: Wingtip Tickets sample
-        href: saas-tenancy-welcome-wingtip-tickets-app.md
-      - name: General guidance
-        href: saas-tenancy-wingtip-app-guidance-tips.md
-      - name: Standalone application
+      - name: SaaS design patterns
+        href: saas-tenancy-app-design-patterns.md
+      - name: SaaS video indexer
+        href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
+      - name: SaaS app security
+        href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+      - name: Multi-tenant SaaS sample application
         items:
-        - name: Deploy example app
-          href: saas-standaloneapp-get-started-deploy.md
-        - name: Provision tenants
-          href: saas-standaloneapp-provision-and-catalog.md
-      - name: Database per tenant
-        items:
-        - name: Tutorial intro
-          href: saas-dbpertenant-wingtip-app-overview.md
-        - name: Deploy example app
-          href: saas-dbpertenant-get-started-deploy.md
-        - name: Provision tenants
-          href: saas-dbpertenant-provision-and-catalog.md
-        - name: Monitor database performance
-          href: saas-dbpertenant-performance-monitoring.md
-        - name: Monitor with log analytics
-          href: saas-dbpertenant-log-analytics.md
-        - name: Restore one tenant
-          href: saas-dbpertenant-restore-single-tenant.md
-        - name: Manage tenant schema
-          href: saas-tenancy-schema-management.md
-        - name: Cross-tenant reporting
-          href: saas-tenancy-cross-tenant-reporting.md
-        - name: Tenant analytics
+        - name: Wingtip Tickets sample
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: General guidance
+          href: saas-tenancy-wingtip-app-guidance-tips.md
+        - name: Standalone application
           items:
-          - name: With SQL DB
-            href: saas-tenancy-tenant-analytics.md
-          - name: With SQL DW
-            href: saas-tenancy-tenant-analytics-adf.md
-      - name: Disaster recovery using geo-restore
-        href: saas-dbpertenant-dr-geo-restore.md
-      - name: Disaster recovery using database geo-replication
-        href: saas-dbpertenant-dr-geo-replication.md
-    - name: Multi-tenant database
-      items:
-      - name: Deploy example app
-        href: saas-multitenantdb-get-started-deploy.md
-      - name: Provision tenants
-        href: saas-multitenantdb-provision-and-catalog.md
-      - name: Monitor database performance
-        href: saas-multitenantdb-performance-monitoring.md
-      - name: Run ad-hoc queries
-        href: saas-multitenantdb-adhoc-reporting.md
-      - name: Manage tenant schema
-        href: saas-multitenantdb-schema-management.md
-      - name: ETL for analytics
-        href: saas-multitenantdb-tenant-analytics.md
+          - name: Deploy example app
+            href: saas-standaloneapp-get-started-deploy.md
+          - name: Provision tenants
+            href: saas-standaloneapp-provision-and-catalog.md
+        - name: Database per tenant
+          items:
+          - name: Tutorial intro
+            href: saas-dbpertenant-wingtip-app-overview.md
+          - name: Deploy example app
+            href: saas-dbpertenant-get-started-deploy.md
+          - name: Provision tenants
+            href: saas-dbpertenant-provision-and-catalog.md
+          - name: Monitor database performance
+            href: saas-dbpertenant-performance-monitoring.md
+          - name: Monitor with log analytics
+            href: saas-dbpertenant-log-analytics.md
+          - name: Restore one tenant
+            href: saas-dbpertenant-restore-single-tenant.md
+          - name: Manage tenant schema
+            href: saas-tenancy-schema-management.md
+          - name: Cross-tenant reporting
+            href: saas-tenancy-cross-tenant-reporting.md
+          - name: Tenant analytics
+            items:
+            - name: With SQL DB
+              href: saas-tenancy-tenant-analytics.md
+            - name: With SQL DW
+              href: saas-tenancy-tenant-analytics-adf.md
+        - name: Disaster recovery using geo-restore
+          href: saas-dbpertenant-dr-geo-restore.md
+        - name: Disaster recovery using database geo-replication
+          href: saas-dbpertenant-dr-geo-replication.md
+      - name: Multi-tenant database
+        items:
+        - name: Deploy example app
+          href: saas-multitenantdb-get-started-deploy.md
+        - name: Provision tenants
+          href: saas-multitenantdb-provision-and-catalog.md
+        - name: Monitor database performance
+          href: saas-multitenantdb-performance-monitoring.md
+        - name: Run ad-hoc queries
+          href: saas-multitenantdb-adhoc-reporting.md
+        - name: Manage tenant schema
+          href: saas-multitenantdb-schema-management.md
+        - name: ETL for analytics
+          href: saas-multitenantdb-tenant-analytics.md
 - name: Reference
   items:
   - name: Azure PowerShell
