@@ -1,6 +1,5 @@
 ---
-title: Optimizing the cost of reads and writes
-titleSuffix: Azure Cosmos DB
+title: Optimizing the cost of reads and writes in Azure Cosmos DB
 description: This article explains explains how to reduce Azure Cosmos DB costs when performing read and write operations on the data.
 author: rimman
 
@@ -41,7 +40,7 @@ When you perform write operations, you should provision enough capacity to suppo
 
 If you are running other workloads concurrently, for example, query/read/update/delete, you should add the additional request units required for those operations too. If the write operations are rate-limited, you can customize the retry/backoff policy by using Azure Cosmos DB SDKs. For instance, you can increase the load until a small rate of requests gets rate-limited. If rate-limit occurs, the client application should back off on rate-limiting requests for the specified retry interval. Before retrying writes, you should have a minimal amount of time gap between retries. Retry policy support is included in SQL .NET, Java, Node.js, and Python SDKs and all the supported versions of the .NET Core SDKs. 
 
-You can also bulk insert data into Azure Cosmos DB or copy data from any supported source data store to Azure Cosmos DB by using [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-cosmos-db). Azure Data Factory natively integrates with the Azure Cosmos DB Bulk API to provide the best performance, when you write data.
+You can also bulk insert data into Azure Cosmos DB or copy data from any supported source data store to Azure Cosmos DB by using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Azure Data Factory natively integrates with the Azure Cosmos DB Bulk API to provide the best performance, when you write data.
 
 ## Next steps
 
