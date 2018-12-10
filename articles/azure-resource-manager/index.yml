@@ -31,7 +31,7 @@ sections:
       text: Create a template by using Visual Studio Code
       href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code
     - image: 
-        src: https://docs.microsoft.com/azure/media/logos/logo_visual-studio.svg
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text: Create a template by using Visual Studio
       href: https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy
 - title: Step-by-Step Tutorials
