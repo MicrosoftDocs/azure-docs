@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Tutorial: Create a tenant in Windows Virtual Desktop
+# Tutorial: Create a tenant in Windows Virtual Desktop (Preview)
 
 Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool is made up of multiple identical session hosts, virtual machines running Windows 10 Enterprise multi-session with an installed and registered Windows Virtual Desktop host agent. With a tenant, you can build out host pools, assign users, and make connections through the service.
 

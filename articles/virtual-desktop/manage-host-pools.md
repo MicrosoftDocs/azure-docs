@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Tutorial: Create a host pool for Windows Virtual Desktop
+# Tutorial: Create a host pool for Windows Virtual Desktop (Preview)
 
 After you've created a tenant, you'll need to create a host pool for your Windows Virtual Desktop environment's virtual machines. Follow this tutorial to do just that with [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
 

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Tutorial: Connect to Windows Virtual Desktop
+# Tutorial: Connect to Windows Virtual Desktop (Preview)
 
 You can connect to a Windows Virtual Desktop deployment with the Remote Desktop Windows client.
 

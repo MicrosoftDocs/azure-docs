@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Tutorial: Manage app groups for Windows Virtual Desktop
+# Tutorial: Manage app groups for Windows Virtual Desktop (Preview)
 
 The default app group created for a new host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
 
