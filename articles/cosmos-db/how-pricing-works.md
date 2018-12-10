@@ -61,7 +61,7 @@ You can learn more about optimizing the costs for your Azure Cosmos DB resources
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn about [Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 * Learn about [Cosmos DB pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)
