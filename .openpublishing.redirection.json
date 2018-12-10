@@ -123,7 +123,12 @@
         },
         {
             "source_path": "articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
-            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
+            "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
             "redirect_document_id": true
         },
         {
@@ -29044,6 +29049,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-enable.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
@@ -31811,11 +31826,16 @@
             "redirect_url":  "/azure/azure-stack/azure-stack-app-service-deploy-offline",
             "redirect_document_id":  false
         },
-        {
-        	"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
-        	"redirect_url": "/azure/application-insights/app-insights-app-map",
-        	"redirect_document_id": true
+		{
+			"source_path": "articles/application-insights/app-insights-monitor-multi-role-apps.md",
+			"redirect_url": "/azure/application-insights/app-insights-app-map",
+			"redirect_document_id": true
         },
+        {
+			"source_path": "articles/machine-learning/service/how-to-automated-ml.md",
+			"redirect_url": "/azure/machine-learning/service/concept-automated-ml",
+			"redirect_document_id": true
+		},
         {
             "source_path":  "articles/cognitive-services/Speech-Service/how-to-text-to-speech.md",
             "redirect_url":  "/azure/cognitive-services/speech-service/quickstart-python-text-to-speech",
