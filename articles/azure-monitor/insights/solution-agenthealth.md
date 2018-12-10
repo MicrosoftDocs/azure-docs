@@ -6,16 +6,13 @@ documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: ''
-
-ms.assetid:
+ms.assetid: 
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-
 ---
 #  Agent Health solution in Azure
 The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace or a System Center Operations Manager management group  connected to Log Analytics, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    

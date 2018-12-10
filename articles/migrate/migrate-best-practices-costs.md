@@ -127,7 +127,7 @@ Storage accounts can use different types of redundancy for resilience and high a
 **Type** | **Details** | **Usage**
 --- | --- | ---
 **Locally Redundant Storage (LRS)** | Protects against a local outage by replicating within a single storage unit to a separate fault domain and update domain. Keeps multiple copies of your data in one datacenter. Provides at least 99.999999999 % (11 9\'s) durability of objects over a given year. | Consider if your app stores data that can be easily reconstructed.
-**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple data centers or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permenently affected.
+**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple data centers or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permanently affected.
 **Geographically Redundant Storage (GRS)** | Protects against an entire region outage by replicating data to a secondary region hundreds of miles away from the primary. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year. | Replica data isn't available unless Microsoft initiates a failover to the secondary region. If failover occurs, read and write access is available.
 **Read-Access Geographically Redundant Storage (RA-GRS)** | Similar to GRS. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year | Provides and 99.99 % read availability by allowing read access from the second region used for GRS.
 
@@ -209,7 +209,7 @@ In Cost Management, you can:
 
 
 - **Create a budget**: Create a budget for financial accountability.
-    - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and ascope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
+    - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
     - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
     - Email notifications can be sent when budget thresholds are reached.
     - You can export costs management data to Azure storage, for analysis.
@@ -237,7 +237,7 @@ In Cost Management, you can:
 
 ## Best practice: Monitor resource utilization
 
-In Azure you pay for what you use, when when resources are consumed, and you don't pay when they aren't. For VMs, billing occurs when a VM is allocated, and you aren't charged after a VM is deallocated. With this in mind you should monitor VMs in use, and verify VM sizing.
+In Azure you pay for what you use, when resources are consumed, and you don't pay when they aren't. For VMs, billing occurs when a VM is allocated, and you aren't charged after a VM is deallocated. With this in mind you should monitor VMs in use, and verify VM sizing.
 
 - Continually evaluate your VM workloads to determine baselines.
 - For example, if your workload is used heavily Monday through Friday, 8am to 6pm, but hardly used outside those hours, you could downgrade VMs outside peak times. This might mean changing VM sizes, or using virtual machine scale sets to autoscale VMs up or down.

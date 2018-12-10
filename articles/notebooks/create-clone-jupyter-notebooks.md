@@ -38,7 +38,7 @@ What you can do on the dashboard depends on whether you're signed in with the ac
 | **Delete** | Owner | Deletes the selected project. This operation cannot be undone. |
 | **Terminal** | Owner | Starts the project server, then opens a new browser window with the bash terminal for that server. |
 | **+ New Project** | Owner | Creates a new project. See [Create a new project](#create-a-new-project). |
-| **Upload Github Repo** | Owner | Imports a project from GitHub. [Import a project from GitHub](#import-a-project-from-github). |
+| **Upload GitHub Repo** | Owner | Imports a project from GitHub. [Import a project from GitHub](#import-a-project-from-github). |
 | **Clone** | Anyone | Copies a selected project into your own account. Prompts you to sign in if not already. See [Clone a project](#clone-a-project). |
 
 ### Obtain a launch badge
