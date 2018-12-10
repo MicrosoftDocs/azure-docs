@@ -13,7 +13,7 @@ ms.date: 11/26/2018
 ms.author: diberry
 ---
 
-# Number entity
+# Number prebuilt entity for a LUIS app
 There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. Because this entity is already trained, you do not need to add example utterances containing number to the application intents. 
 
 ## Types of number

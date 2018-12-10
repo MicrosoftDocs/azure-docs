@@ -13,7 +13,7 @@ ms.date: 11/26/2018
 ms.author: diberry
 ---
 
-# Currency entity
+# Currency prebuilt entity for a LUIS app
 The prebuilt currency entity detects currency in many denominations and countries, regardless of LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing currency to the application intents. Currency entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
 
 ## Types of currency

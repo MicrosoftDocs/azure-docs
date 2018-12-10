@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Jenkins for a Java app on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
 services: service-fabric
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Configure a Jenkins environment to enable CI/CD for a Java application on Service Fabric
 
-This tutorial is part five of a series. It shows you how to use Jenkins to deploy upgrades to your application. In this tutorial, the Service Fabric Jenkins plugin is used in combination with a Github repository hosting the Voting application to deploy the application to a cluster.
+This tutorial is part five of a series. It shows you how to use Jenkins to deploy upgrades to your application. In this tutorial, the Service Fabric Jenkins plugin is used in combination with a GitHub repository hosting the Voting application to deploy the application to a cluster.
 
 In part five of the series, you learn how to:
 > [!div class="checklist"]
@@ -80,7 +80,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 ## Create and configure a Jenkins job
 
-1. First, if you do not have a repository that you can use to host the Voting project on Github, create one. The repository is called **dev_test** for the remaining of this tutorial.
+1. First, if you do not have a repository that you can use to host the Voting project on GitHub, create one. The repository is called **dev_test** for the remaining of this tutorial.
 
 1. Create a **new item** on your Jenkins dashboard at ``http://<HOST-IP>:8080``.
 
@@ -177,7 +177,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     </CodePackage>
     ```
 
-1. To initialize a Jenkins job that performs an application upgrade, push your new changes to your Github repository.
+1. To initialize a Jenkins job that performs an application upgrade, push your new changes to your GitHub repository.
 
 1. In Service Fabric Explorer, click on the **Applications** dropdown. To see the status of your upgrade, click on the **Upgrades in Progress** tab.
 

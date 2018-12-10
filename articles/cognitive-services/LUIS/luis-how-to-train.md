@@ -13,7 +13,7 @@ ms.date: 10/18/2018
 ms.author: diberry
 ---
 
-# Train your LUIS app version
+# Train your active version of the LUIS app 
 
 Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances. 
 
