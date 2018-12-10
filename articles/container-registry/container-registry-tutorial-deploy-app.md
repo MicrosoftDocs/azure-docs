@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Deploy web app from a geo-replicated Azure container registry
+# Tutorial: Deploy a web app from a geo-replicated Azure container registry
 
 This is part two in a three-part tutorial series. In [part one](container-registry-tutorial-prepare-registry.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you take advantage of the network-close aspect of the geo-replicated registry by deploying the container to Web App instances in two different Azure regions. Each instance then pulls the container image from the closest registry.
 
