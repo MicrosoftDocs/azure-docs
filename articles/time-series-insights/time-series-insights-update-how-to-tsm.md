@@ -95,7 +95,7 @@ Read the [Azure TSI (Preview) explorer](./time-series-insights-update-explorer.m
 
 ### How to create a single instance
 
-1. Start by heading to the TSM model selector panel and select instances from the menu. Then,  collapse the panel to focus on TSM types:
+1. Start by heading to the TSM model selector panel and select **Instances** from the menu. Then, collapse the panel to focus on TSM types:
 
     ![portal_thirteen][13]
 
