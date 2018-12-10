@@ -51,7 +51,7 @@ You should define any queries that you think will be helpful to the user even if
 
 If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](/powershell/azure/overview) which the runbook would leverage to perform such functionality.
 
-If your solution requires external functionality in response to an alert, then you can use a [webhook response](../../monitoring-and-diagnostics/alert-metric.md).  This allows you to call an external web service sending information from the alert.
+If your solution requires external functionality in response to an alert, then you can use a [webhook response](../../azure-monitor/platform/alerts-metric.md).  This allows you to call an external web service sending information from the alert.
 
 ### Views
 Views in Log Analytics are used to visualize data from the Log Analytics repository.  Each solution will typically contain a single view with a [tile](../../azure-monitor/platform/view-designer-tiles.md) that is displayed on the user's main dashboard.  The view can contain any number of [visualization parts](../../azure-monitor/platform/view-designer-parts.md) to provide different visualizations of the collected data to the user.
