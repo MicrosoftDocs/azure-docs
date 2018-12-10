@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -40,9 +40,9 @@ This update includes the following improvements for Azure Stack:
 
 - This release enhances the Azure Stack operator experience for [managing updates](azure-stack-updates.md) from the **Update** blade.
 
-- Support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
+- Added support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
-- Support for Service Principals using a client secret with Active Directory Federated Services (AD FS). [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)
+- Added support for Service Principals using a client secret with Active Directory Federated Services (AD FS). For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)
 
 - This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
@@ -59,8 +59,6 @@ This update includes the following improvements for Azure Stack:
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
-
-
 
 ### Fixed issues
 
@@ -215,6 +213,8 @@ The following are post-installation known issues for this build version.
 
 ### Compute
 
+- When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack.
+
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
 
@@ -222,9 +222,7 @@ The following are post-installation known issues for this build version.
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
 
 <!--  2795678 – IS, ASDK --> 
-- When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. 
-
-   You can safely ignore the warning that says: *You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.*
+- When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: **You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.**
 
 <!-- 2967447 - IS, ASDK --> 
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
