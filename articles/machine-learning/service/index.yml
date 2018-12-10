@@ -58,7 +58,7 @@ sections:
     - html: Part 1&#58; <a href="tutorial-data-prep">Prepare NYC Taxi data for modeling</a>
     - html: Part 2&#58; <a href="tutorial-auto-train-models">Use automated machine learning to build models</a>
   - type: paragraph
-    text: '<b>Sample notebooks</b>: Explore the service with <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">these Jupyter notebooks</a>, available on GitHub.'
+    text: '<b>Sample notebooks</b>: Explore the service with these <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
 
 - title: Reference
   items:
