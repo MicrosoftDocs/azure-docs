@@ -229,7 +229,7 @@ Property |	Description	| Default Value
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
 `model_explainability` | _Optional_ True/False <br/>  True enables experiment to perform feature importance for every iteration. You can also use explain_model() method on a specific iteration to enable feature importance on-demand for that iteration after experiment is complete. | False
 `enable_ensembling`|Flag to enable an ensembling iteration after all the other iterations complete.| True 
-`ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.| min(15, `iterations`)
+`ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.| 15
 `experiment_timeout_minutes`| Limits the amount of time (minues) that the whole experiment run can take | None
 
 ## Data pre-processing and featurization
