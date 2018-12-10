@@ -1,6 +1,6 @@
 ---
 title: Active geo-replication - Azure SQL Database | Microsoft Docs
-description: Use active geo-replication to create readable replicas of individual databases in the same or different data center (region).
+description: Use active geo-replication to create readable secondary databases of individual databases in the same or different data center (region).
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,9 +13,9 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/10/2018
 ---
-# Create readable database replicas using active geo-replication
+# Create readable secondary databases using active geo-replication
 
-Active geo-replication is Azure SQL Database feature that allows you to create readable replicas of individual databases on a logical server in the same or different data center (region).
+Active geo-replication is Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a logical server in the same or different data center (region).
 
 > [!NOTE]
 > Active geo-replication is not supported by Managed Instance.
@@ -84,7 +84,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Geo-replication of databases in an elastic pool**
 
-  Each replica can separately participate in an elastic pool or not be in any elastic pool at all. The pool choice for each replica is separate and does not depend upon the configuration of any other replica (whether Primary or Secondary). Each Elastic Pool is contained within a single region, therefore multiple replicas in the same topology can never share an Elastic Pool.
+  Each secondary database can separately participate in an elastic pool or not be in any elastic pool at all. The pool choice for each secondary database is separate and does not depend upon the configuration of any other secondary database (whether primary or secondary). Each Elastic Pool is contained within a single region, therefore multiple secondary databases in the same topology can never share an Elastic Pool.
 
 - **Configurable compute size of the secondary database**
 
@@ -152,8 +152,8 @@ As discussed previously, active geo-replication can also be managed programmatic
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Creates, updates, or restores a primary or a secondary database. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returns the status during a create operation. |
-| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Sets which replica database is primary by failing over from the current primary replica database. **This option is not supported for Managed Instance.**|
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. **This option is not supported for Managed Instance.**|
+| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Sets which secondary database is primary by failing over from the current primary database. **This option is not supported for Managed Instance.**|
+| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which secondary database is primary by failing over from the current primary database. This operation might result in data loss. **This option is not supported for Managed Instance.**|
 | [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. **This option is not supported for Managed Instance.**|
 | [Replication Links - List By Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |

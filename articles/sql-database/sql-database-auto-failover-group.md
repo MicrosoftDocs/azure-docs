@@ -1,6 +1,6 @@
 ---
 title: Failover groups - Azure SQL Database | Microsoft Docs
-description: Use auto-failover groups with active geo-replication and enable automatic failover in the event of an outage.
+description: Auto-failover groups is a SQL Database feature that allows you to manage replication and automatic / coordinated failover of a group of databases on a logical server or all databases in managed instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,9 +13,9 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/10/2018
 ---
-# Use auto-failover groups to enable automatic failover to database groups
+# Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
-Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in managed instance. It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy using a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in managed instance to another region. It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy using a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
 > [!IMPORTANT]
 > Auto-failover groups support replication of all databases in the group to only one secondary server in a different region. In case of Managed Instance, all databases are replicated to only one secondary instance in a different region.
@@ -40,7 +40,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group**
 
-  A failover group is a group of databases manged by single a logical server or within a single managed instance that can fail over as a unit in case all or some primary databases become unavailable due to an outage in the primary region.
+  A failover group is a group of databases manged by a single logical server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.
 
   - **Logical servers**
 
@@ -56,7 +56,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Secondary**
 
-  The logical server or Managed Instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary. 
+  The logical server or Managed Instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary.
 
 - **Adding databases to failover group on a logical server**
 
@@ -69,17 +69,27 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group read-write listener**
 
-  A DNS CNAME record formed as **&lt;failover-group-name&gt;.database.windows.net** that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover.
+  A DNS CNAME record formed that points to the current primary's URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover.
+
+  - **Logical server DNS CNAME record for read-write listener**
+
+     On a logical server, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `failover-group-name.database.windows.net`.
+
+  - **Managed Instance DNS CNAME record for read-write listener**
+
+     On a Managed Instance, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `failover-group-name.zone_id.database.windows.net`.
 
 - **Failover group read-only listener**
 
-  - **Logical server DNS CNAME record**
+  A DNS CNAME record formed that points to the the read-only listener that points to the secondary's URL. It allows the read-only SQL applications to transparently connect to the secondary using the specified load-balancing rules.
 
-     A DNS CNAME record formed as `failover-group-name.secondary.database.windows.net` that points to the secondary server’s URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules.
+  - **Logical server DNS CNAME record for read-only listener**
 
-  - **Managed Instance DNS CNAME record**
+     On a logical server, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `failover-group-name.secondary.database.windows.net`.
 
-     When a failover group is created on a Managed Instance, the DNS CNAME records for the listeners are `failover-group-name.zone_id.database.windows.net` and `failover-group-name;.secondary.zone_id.database.windows.net.` See [Best practices for failover groups with Managed Instances](#best-practices-of-using-failover-groups-for-business-continuity-with-managed-instances) for details of using zone_id with managed instance.
+  - **Managed Instance DNS CNAME record for read-only listener**
+
+     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `failover-group-name.zone_id.database.windows.net`.
 
 - **Automatic failover policy**
 
@@ -93,9 +103,9 @@ To achieve real business continuity, adding database redundancy between datacent
 
    Planned failover performs full synchronization between primary and secondary databases before the secondary switches to the primary role. This guarantees no data loss. Planned failover is used in the following scenarios:
 
-   - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
-   - Relocate the databases to a different region
-   - Return the databases to the primary region after the outage has been mitigated (failback).
+  - Perform disaster recovery (DR) drills in production when the data loss is not acceptable
+  - Relocate the databases to a different region
+  - Return the databases to the primary region after the outage has been mitigated (failback).
 
 - **Unplanned failover**
 
@@ -108,9 +118,6 @@ To achieve real business continuity, adding database redundancy between datacent
 - **Grace period with data loss**
 
   Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring **GracePeriodWithDataLossHours**, you can control how long the system waits before initiating the failover that is likely to result data loss.
-
-  > [!NOTE]
-  > When system detects that the databases in the group are still online (for example, the outage only impacted the service control plane), it immediately activates the failover with full data synchronization (friendly failover) regardless of the value set by **GracePeriodWithDataLossHours**. This behavior ensures that there is no data loss during the recovery. The grace period takes effect only when a friendly failover is not possible. If the outage is mitigated before the grace period expires, the failover is not activated.
 
 - **Multiple failover groups**
 
@@ -133,11 +140,11 @@ When designing a service with business continuity in mind, follow these general 
 
 - **Use read-write listener for OLTP workload**
 
-  When performing OLTP operations, use **&lt;failover-group-name&gt;.database.windows.net** as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
+  When performing OLTP operations, use `failover-group-name.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
 
 - **Use read-only listener for read-only workload**
 
-  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use **&lt;failover-group-name&gt;.secondary.database.windows.net** as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using **ApplicationIntent=ReadOnly**.
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `failover-group-name.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using **ApplicationIntent=ReadOnly**.
 
 - **Be prepared for perf degradation**
 
@@ -166,7 +173,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Create the secondary instance in the same DNS zone as the primary instance**
 
-  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id`.database.windows.net. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
+  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id.database.windows.net`. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
   For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#managing-failover-groups-with-managed-instances-preview).
 
@@ -183,16 +190,16 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Use read-write listener for OLTP workload**
 
-  When performing OLTP operations, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
+  When performing OLTP operations, use `failover-group-name.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
 
 - **Connect directly to geo-replicated secondary for read-only queries**
 
-  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use &lt;server&gt;.secondary.&lt;zone_id&gt;.database.windows.net as the server URL and the connection is made directly to the geo-replicated secondary.
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `server.secondary.zone_id.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
   > [!NOTE]
   > In certain service tiers, Azure SQL Database supports the use of [read-only replicas](sql-database-read-scale-out.md) to load balance read-only query workloads using the capacity of one read-only replica and using the `ApplicationIntent=ReadOnly` parameter in the connection string. When you have configured a geo-replicated secondary, you can use this capability to connect to either a read-only replica in the primary location or in the geo-replicated location.
-  > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.&lt;zone_id&gt;.database.windows.net.
-  > - To connect to a read-only replica in the primary location, use &lt;failover-group-name&gt;.secondary.&lt;zone_id&gt;.database.windows.net.
+  > - To connect to a read-only replica in the primary location, use `failover-group-name.zone_id.database.windows.net`.
+  > - To connect to a read-only replica in the primary location, use `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Be prepared for perf degradation**
 

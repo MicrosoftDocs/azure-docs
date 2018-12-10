@@ -57,7 +57,7 @@ Let’s take a deeper dive in Managed Instance connectivity architecture. The fo
 
 ![connectivity architecture diagram virtual cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients connect to Managed Instance using the host name that has a form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to private IP address although it is registered in public DNS zone and is publicly resolvable.
+Clients connect to Managed Instance using the host name that has a form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to private IP address although it is registered in public DNS zone and is publicly resolvable. The `zone-id` is automatically generated when the cluster is created. If a newly created cluster is hosting a secondary managed instance, it shares its zone id with the primary cluster. For more information, see [Auto-failover groups](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
 
 This private IP address belongs to the Managed Instance Internal Load Balancer (ILB) that directs traffic to the Managed Instance Gateway (GW). As multiple Managed Instances could potentially run inside the same cluster, GW uses Managed Instance host name to redirect traffic to the correct SQL Engine service.
 
