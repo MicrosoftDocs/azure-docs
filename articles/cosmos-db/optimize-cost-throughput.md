@@ -61,7 +61,7 @@ By provisioning throughput at different levels, you can optimize your costs base
 
 ## Optimize with rate-limiting your requests
 
-When a client attempts to exceed the provisioned throughput, there is no performance degradation at the server and throughput capacity beyond the reserved level is not used. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request. 
+For workloads that aren't sensitive to latency, you can provision less throughput and let the application handle rate-limiting when the actual throughput exceeds the provisioned throughput. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the `x-ms-retry-after-ms` header indicating the amount of time, in milliseconds, that the user must wait before retrying the request. 
 
 ```html
 HTTP Status 429, 
@@ -85,7 +85,7 @@ connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3;
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
-## Partitioning strategy and throughput costs
+## Partitioning strategy and provisioned throughput costs
 
 Good partitioning strategy is important to optimize costs in Azure Cosmos DB. Ensure that there is no skew of partitions, which are exposed through storage metrics. Ensure that there is no skew of throughput for a partition, which is exposed with throughput metrics. Ensure that there is no skew towards particular partition keys. Dominant keys in storage are exposed through metrics but the key will be dependent on your application access pattern. It's best to think about the right logical partition key. A good partition key is expected to have the following characteristics:
 
@@ -179,6 +179,6 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
 

@@ -45,7 +45,7 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 
 * **Deep integration of Azure Cosmos DB with other Azure services.** Azure Cosmos DB has a native integration with Networking, Compute, Azure Functions (serverless), Azure IoT, and others Azure services. With this integration, you get the best performance, speed of data replication across the world with robust guarantees. The third party solutions won't be able to match or would typically charge a premium to offer such features.
 
-* **You automatically get high availability, with at least 10-12 fault domains by default:** Azure Cosmos DB supports the distribution of workloads across fault domains, a feature that is critical for high availability. It offers 99.999 high availability for reads and writes at the 99th percentile across anywhere in the world. The cost of implementing something like this on your own or through a third-party solution, would be high.
+* **You automatically get high availability, with at least 10-20 fault domains by default:** Azure Cosmos DB supports the distribution of workloads across fault domains, a feature that is critical for high availability. It offers 99.999 high availability for reads and writes at the 99th percentile across anywhere in the world. The cost of implementing something like this on your own or through a third-party solution, would be high.
 
 * **You automatically get all enterprise capabilities, at no additional cost.** Azure Cosmos DB offers the most comprehensive set of compliance certifications, security, and encryption at rest and in motion at no additional cost (compared to our competition). You automatically get regional availability anywhere in the world. You can span your database across any number of Azure regions and add or remove regions at any point.
 
@@ -58,6 +58,6 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn more about [The Total Cost of (Non) Ownership of a NoSQL Database Cloud Service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

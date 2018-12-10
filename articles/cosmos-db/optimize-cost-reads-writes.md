@@ -51,5 +51,5 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)

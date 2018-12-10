@@ -34,6 +34,6 @@ You can get started with using the emulator or the free Azure Cosmos DB accounts
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
 
