@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ms.author: rolyon
 
 ---
@@ -223,7 +223,7 @@ You can edit some details of Terms of use, but you can't modify an existing docu
 
 1. Click **Save** to save your changes.
 
-    Once you save your changes, users will have to reaccept the new terms.
+    Once you save your changes, users will not have to reaccept these edits.
 
 ## Add a Terms of use language
 The following procedure describes how to add a Terms of use language.
@@ -340,7 +340,7 @@ A: The user counts in the Terms of use report and who accepted/declined are stor
 A: The Terms of use report is stored for the lifetime of that Terms of use, while the Azure AD audit logs are stored for 30 days. Also, the Terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the Terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
 
 **Q: If I edit the details for a Terms of use, does it require users to accept again?**</br>
-A: Yes, if an administrator edits the details for a Terms of use, it requires users to reaccept the new terms.
+A: No, if an administrator edits the details for a Terms of use (name, display name, require users to expand, or add a language), it does not require users to reaccept the new terms.
 
 **Q: Can I update an existing Terms of use document?**</br>
 A: Currently, you can't update an existing Terms of use document. To change a Terms of use document, you will have to create a new Terms of use instance.
@@ -349,7 +349,7 @@ A: Currently, you can't update an existing Terms of use document. To change a Te
 A: The PDF is rendered by default as a JPEG, so hyperlinks are not clickable. Users have the option to select **Having trouble viewing? Click here**, which renders the PDF natively where hyperlinks are supported.
 
 **Q: Can a Terms of use support multiple languages?**</br>
-A: Yes. Currently there are 108 different languages an administrator can configure for a single Terms of use.
+A: Yes. Currently there are 108 different languages an administrator can configure for a single Terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.
 
 **Q: When is the Terms of use triggered?**</br>
 A: The Terms of use is triggered during the sign-in experience.

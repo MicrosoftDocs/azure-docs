@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Scale a web app worldwide with a high-availabil
 description: Azure CLI Script Sample - Scale a web app worldwide with a high-availability architecture
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Scale a web app worldwide with a high-availability architecture
+# Scale a web app worldwide with a high-availability architecture using Azure CLI
 
 This sample script creates a resource group, two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints. Once the exercise is complete, you have a high-available architecture, which provides global availability of your web app based on the lowest network latency.
 
