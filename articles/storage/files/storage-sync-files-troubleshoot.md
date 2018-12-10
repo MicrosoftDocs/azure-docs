@@ -109,14 +109,14 @@ This issue can occur if a management operation on the server endpoint fails. If 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
-Get-AzureRmStorageSyncServerEndpoint `
+Get-AzStorageSyncServerEndpoint `
     -SubscriptionId mysubguid `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
     -SyncGroupName mysyncgroup
 
 # Update the free space percent policy for the server endpoint
-Set-AzureRmStorageSyncServerEndpoint `
+Set-AzStorageSyncServerEndpoint `
     -Id serverendpointid `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
@@ -581,20 +581,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzureRmAccount
+$acctInfo = Connect-AzAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -607,7 +607,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -618,7 +618,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzureRmStorageSync `
+Login-AzStorageSync `
     –SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
@@ -628,7 +628,7 @@ Login-AzureRmStorageSync `
 # exists.
 $syncServices = [System.String[]]@()
 
-Get-AzureRmStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
+Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
     $syncServices += $_.DisplayName
 }
 
@@ -639,7 +639,7 @@ if ($storageSyncServices -notcontains $syncService) {
 # Check to make sure the provided Sync Group exists
 $syncGroups = [System.String[]]@()
 
-Get-AzureRmStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
     $syncGroups += $_.DisplayName
 }
 
@@ -648,13 +648,13 @@ if ($syncGroups -notcontains $syncGroup) {
 }
 
 # Get reference to cloud endpoint
-$cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
+$cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
     -ResourceGroupName $resourceGroup `
     -StorageSyncServiceName $storageSyncService `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -688,7 +688,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 
 # [PowerShell](#tab/powershell)
 ```PowerShell
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
     $_.IsSnapshot -eq $false
 }
@@ -716,7 +716,7 @@ if ($fileShare -eq $null) {
 # [PowerShell](#tab/powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {

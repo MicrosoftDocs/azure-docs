@@ -106,14 +106,14 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId $SubscriptionID
 
     # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+    New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
     # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
+    New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
       -Name StorageAccountName `
       -Location $Location `
       -SkuName Standard_LRS `
@@ -121,9 +121,9 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
       -HierarchialNamespace $True
 
     # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+    $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+    New-AzStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
 > Creating a container is synonymous with creating a file system in Data Lake Storage Gen2.

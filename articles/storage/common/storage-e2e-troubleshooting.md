@@ -108,13 +108,13 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 4. Enable storage logging for the Blob service:
    
 	```powershell
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+	Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
 	```
 
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
    
 	```powershell
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+	Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
 	```
 
 ### Configure .NET client-side logging

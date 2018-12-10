@@ -28,7 +28,7 @@ This how-to article covers common Azure Table storage operations. You learn how 
 
 This how-to article shows you how to create a new Azure Storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing Storage account, you can do that instead.
 
-The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
 
 After Azure PowerShell is installed or updated, you must install module **AzureRmStorageTable**, which has the commands for managing the entities. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
 
@@ -38,10 +38,10 @@ Install-Module AzureRmStorageTable
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## Retrieve list of locations
@@ -49,28 +49,28 @@ Connect-AzureRmAccount
 If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. These examples use **eastus**. Store this value in the variable **location** for future use.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 ```
 
 ## Create resource group
 
-Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) command. 
+Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/New-azResourceGroup) command. 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Store the resource group name in a variable for future use. In this example, a resource group named *pshtablesrg* is created in the *eastus* region.
 
 ```powershell
 $resourceGroup = "pshtablesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## Create storage account
 
-Create a standard general-purpose storage account with locally-redundant storage (LRS) using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
+Create a standard general-purpose storage account with locally-redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -81,40 +81,40 @@ $ctx = $storageAccount.Context
 
 ## Create a new table
 
-To create a table, use the [New-AzureStorageTable](/powershell/module/azure.storage/New-AzureStorageTable) cmdlet. In this example, the table is called `pshtesttable`.
+To create a table, use the [New-AzStorageTable](/powershell/module/azure.storage/New-AzStorageTable) cmdlet. In this example, the table is called `pshtesttable`.
 
 ```powershell
 $tableName = "pshtesttable"
-New-AzureStorageTable –Name $tableName –Context $ctx
+New-AzStorageTable –Name $tableName –Context $ctx
 ```
 
 ## Retrieve a list of tables in the storage account
 
-Retrieve a list of tables in the storage account using [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Retrieve a list of tables in the storage account using [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzStorageTable).
 
 ```powershell
-Get-AzureStorageTable –Context $ctx | select Name
+Get-AzStorageTable –Context $ctx | select Name
 ```
 
 ## Retrieve a reference to a specific table
 
-To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable). 
+To perform operations on a table, you need a reference to the specific table. Get a reference using [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzStorageTable). 
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
+$storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ```
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
 
 ## Delete a table
 
-To delete a table, use [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable). This cmdlet removes the table, including all of its data.
+To delete a table, use [Remove-AzStorageTable](/powershell/module/azure.storage/Remove-AzStorageTable). This cmdlet removes the table, including all of its data.
 
 ```powershell
-Remove-AzureStorageTable –Name $tableName –Context $ctx
+Remove-AzStorageTable –Name $tableName –Context $ctx
 
 # Retrieve the list of tables to verify the table has been removed.
-Get-AzureStorageTable –Context $Ctx | select Name
+Get-AzStorageTable –Context $Ctx | select Name
 ```
 
 ## Clean up resources
@@ -122,7 +122,7 @@ Get-AzureStorageTable –Context $Ctx | select Name
 If you created a new resource group and storage account at the beginning of this how-to,  you can remove all of the assets you have created in this exercise by removing the resource group. This command deletes all resources contained within the group as well as the resource group itself.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## Next steps

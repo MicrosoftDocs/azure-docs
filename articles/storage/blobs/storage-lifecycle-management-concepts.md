@@ -42,11 +42,11 @@ To submit a request, run the following PowerShell or CLI commands.
 To submit a request:
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
+Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
 ```
 You can check the registration approval status with the following command:
 ```powershell
-Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 If the feature is approved and properly registered, you should receive the "Registered" state.
 
@@ -80,9 +80,9 @@ You can add, edit, or remove a policy using Azure portal, [PowerShell](https://w
 ```powershell
 $rules = '{ ... }' 
 
-Set-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
-Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
 ```
 
 > [!NOTE]
