@@ -15,12 +15,8 @@ ms.date: 12/10/2018
 ---
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
 
-Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in managed instance to another region. It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy using a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
+Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a logical server or all databases in a Managed Instance to another region (currently in public preview for Managed Instance). It uses the same underlying technology as [active geo-replication](sql-database-active-geo-replication.md). You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy using a user-defined policy. The latter option allows you to automatically recover multiple related databases in a secondary region after a catastrophic failure or other unplanned event that results in full or partial loss of the SQL Database service’s availability in the primary region. Additionally, you can use the readable secondary databases to offload read-only query workloads. Because auto-failover groups involve multiple databases, these databases must be configured on the primary server. Both primary and secondary servers for the databases in the failover group must be in the same subscription. Auto-failover groups support replication of all databases in the group to only one secondary server in a different region.
 
-> [!IMPORTANT]
-> Auto-failover groups support replication of all databases in the group to only one secondary server in a different region. In case of Managed Instance, all databases are replicated to only one secondary instance in a different region.
-> [!IMPORTANT]
-> Support for auto-failover for Managed Instances is in public preview.
 > [!NOTE]
 > When working with single or pooled databases on a logical server and you want multiple secondaries in the same or different regions, use [active geo-replication](sql-database-active-geo-replication.md).
 
@@ -60,11 +56,9 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Adding databases to failover group on a logical server**
 
-  You can put several databases or within an elastic pool on the same logical server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group.
-
-  > [!NOTE]
-  > When adding a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
-  > [!IMPORTANT]
+  You can put several single databases or databases within an elastic pool on the same logical server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
+  
+> [!IMPORTANT]
   > In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
 
 - **Failover group read-write listener**
@@ -207,12 +201,12 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Prepare for data loss**
 
-  If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by GracePeriodWithDataLossHours. If you specified GracePeriodWithDataLossHours, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
+  If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by `GracePeriodWithDataLossHours`. If you specified `GracePeriodWithDataLossHours`, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
 
-> [!IMPORTANT]
-> Use manual group failover to move primaries back to the original location: When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
-> [!IMPORTANT]
-> The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using the Azure portal then the UI will indicate completion status. If it is initiated using the REST API, use standard ARM’s polling mechanism to monitor for completion.
+  The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using the Azure portal then the UI will indicate completion status. If it is initiated using the REST API, use standard Azure Resource Manager’s polling mechanism to monitor for completion.
+
+  > [!IMPORTANT]
+  > Use manual group failover to move primaries back to the original location. When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
 
 ## Failover groups and network security
 
@@ -312,7 +306,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
       install-module powershellget -MinimumVersion 1.6.5 -force
    ```
 
-2. In a new powershell window, execute the following commands:
+2. In a new PowerShell window, execute the following commands:
 
    ```Powershell
       import-module powershellget
