@@ -35,7 +35,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## November/December 2018
 
-### Breaking Change: Updated audit logs schema through Azure Monitor
+### Breaking Change: Updates to the audit and sign-in logs schema through Azure Monitor
 
 **Type:** Changed feature  
 **Service category:** Reporting  
