@@ -5,9 +5,8 @@ keywords: machine learning basics,algorithm examples,machine learning for beginn
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.custom: garyericson
+ms.author: garye
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
