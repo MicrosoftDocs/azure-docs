@@ -1,5 +1,5 @@
 ---
-title: How and where to deploy models 
+title: Deploy models as web services
 titleSuffix: Azure Machine Learning service
 description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
 services: machine-learning

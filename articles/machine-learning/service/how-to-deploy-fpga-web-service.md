@@ -1,5 +1,5 @@
 ---
-title: Deploy models as web services on FPGAs
+title: Deploy models on FPGAs
 titleSuffix: Azure Machine Learning service
 description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inferencing. 
 services: machine-learning

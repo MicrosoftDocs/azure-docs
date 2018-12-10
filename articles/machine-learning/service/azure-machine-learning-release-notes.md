@@ -1,5 +1,5 @@
 ---
-title: What's new
+title: What's new in the release?
 titleSuffix: Azure Machine Learning service
 description: Learn about the latest updates to Azure Machine Learning service.
 services: machine-learning
