@@ -127,7 +127,7 @@ Any user from the partner organization who manages a customer's Azure resources 
 
 Yes. A linked partner ID can be changed, added, or removed.
 
-**What if a user has an account in more than one customer tenants?**
+**What if a user has an account in more than one customer tenant?**
 
 The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
 
