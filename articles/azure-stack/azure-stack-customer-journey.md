@@ -1,6 +1,6 @@
 ---
 title: Azure Stack datacenter integration walkthrough | Microsoft Docs
-description: Learn what to expect for a successfull on-site deployment of Azure Stack in your datacenter.
+description: Learn what to expect for a successful on-site deployment of Azure Stack in your datacenter.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -18,7 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: asganesh
 ---
  
-# Azure Stack Customer Journey
+# Azure Stack customer journey
 
 This article describes the end-to-end Azure Stack customer experience from purchasing an integrated solution through to a successful on-site deployment by a solution provider. Use this information to ease your journey and to help set expectations on what you, as an Azure Stack customer, should expect when integrating Azure Stack into your datacenter.
 
