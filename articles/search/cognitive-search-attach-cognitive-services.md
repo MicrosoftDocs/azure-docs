@@ -1,5 +1,5 @@
 ---
-title: Attach Cognitive Services to your Skillset (Azure Search) | Microsoft Docs
+title: Attach Cognitive Services to your skillset (Azure Search) | Microsoft Docs
 description: Instructions for attaching a Cognitive Services All-in-One subscription to a Cognitive Skillset
 manager: cgronlun
 author: HeidiSteen
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: luisca
 ---
-# Associate Cognitive Services resource with a Skillset 
+# Associate Cognitive Services resource with a skillset 
 
 > [!NOTE]
 > Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
@@ -28,29 +28,29 @@ The Cognitive Services resource you select will power the built-in cognitive ski
 ## Limits when no Cognitive Services resource is selected
 Starting Feb 1, 2019, if you do not associate a Cognitive Services subscription with your skillset, you will only be able to enrich a small number of documents for free (20 documents per day). 
 
-## Associating a Cognitive Services resource with a new skillset.
+## Associating a Cognitive Services resource with a new skillset
 
 1. As part of the *Import data* experience, after you have Connected to your data source you will navigate to the *Add cognitive search* optional step. 
 
 1. Expand the *Attach Cognitive Services* section. This will show you any Cognitive Service resources you have in the same regions as your Search Service. 
-![Expanded Attach Cognitive Service](./media/cognitive-search-attach-cognitive-svcs/attach2.png "Expanded Attach Cognitive Services")
+![Expanded Attach Cognitive Service](./media/cognitive-search-attach-cognitive-services/attach1.png "Expanded Attach Cognitive Services")
 
 1. Select an existing Cognitive Services resource, or *Create a new Cognitive Services resource*. If you select the *Free (Limited Enrichments) resource*, you will only be able to enrich a small number of documents for free (20 documents per day). If you clicked on *Create a new Cognitive Services resource*, a new tab will open that will allow you to create the Cognitive Services resource. 
 
 1. If you created a new resource, click *Refresh* to refresh the list of Cognitive Services resources, and select the resource. 
-![Selected Cognitive Service Resource](./media/cognitive-search-attach-cognitive-svcs/attach3.png "Selected Cognitive Service Resource")
+![Selected Cognitive Service Resource](./media/cognitive-search-attach-cognitive-services/attach2.png "Selected Cognitive Service Resource")
 
 1. Once you have done this, you can expand the *Add Enrichments* section to select the specific cognitive skills you want to run over your data and proceed with the rest of the flow.
 
-## Associating a Cognitive Services resource with an existing skillset.
+## Associating a Cognitive Services resource with an existing skillset
 
 1. On the Service Overview page, select the *Skillsets* tab.
-![Skillsets tab](./media/cognitive-search-attach-cognitive-svcs/attach-existing1.png "Skillsets tab")
+![Skillsets tab](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Skillsets tab")
 
 1. *Click* on the skillset you would like to modify. This will open a blade that will allow you to edit a skillset.
 
 1. Select an existing Cognitive Services resource or *Create a new Cognitive Services resource*. If you select the *Free (Limited Enrichments) resource*, you will only be able to enrich a small number of documents for free (20 documents per day). If you clicked on *Create a new Cognitive Services resource*, a new tab will open that will allow you to create the Cognitive Services resource. <n/> 
-<img src="./media/cognitive-search-attach-cognitive-svcs/attach-existing2.png" width="350">
+<img src="./media/cognitive-search-attach-cognitive-services/attach-existing2.png" width="350">
 
 1. If you created a new resource, click *Refresh* to refresh the list of Cognitive Services resources, and select the resource.
 1. Click *OK* to confirm your changes

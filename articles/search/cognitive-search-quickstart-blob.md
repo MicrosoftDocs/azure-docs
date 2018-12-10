@@ -77,7 +77,7 @@ First, sign up for the Azure Search service.
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
   > [!NOTE]
-  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Lear [more](cognitive-search-attach-cognitive-svcs.md).
+  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-svcs.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
