@@ -45,9 +45,9 @@ and follow the steps to create a npm module.
 
 Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk`.
 
-This will download and install the latest version of the Speech SDK from npmjs to your folder and install in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory. In addition, it will download and install any prerequisite package, as needed.
+This will download and install the latest version of the Speech SDK from npmjs to your folder and install it in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory. In addition, it will download and install any prerequisite package, as needed.
 
-As an alternative, you can download the installation package from TBD and add it from your local drive via `npm install microsoft-cognitiveservices-speech-sdk-1.2.0.tgz`.
+As an alternative, you can download the installation package from TBD and install it from your local directory via `npm install microsoft-cognitiveservices-speech-sdk-1.2.0.tgz`.
 
 ## Using the Speech SDK
 
@@ -70,7 +70,7 @@ var sdk = require("microsoft-cognitiveservices-speech-sdk");
 3. Load the file content and prepare a PushStream.
 
 Please note that the Speech SDK does not support a microphone in Node.js nor does it (currently) support the File data type.
-Both is only directly supported on browsers. Instead, use the Stream interface to the Speech SDK, either through
+Both is only supported on browsers. Instead, use the Stream interface to the Speech SDK, either through
 PullStream() or PushStream() support.
 
 In this example, we will use the PushStream() interface.
