@@ -40,7 +40,7 @@ Navigate to your function in the Azure Portal and click on **Manage** and find t
 
 After copying the master key, click on the function name to return to the code file window and click on **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
 
-### Set up the request
+## Call the function
 
 Open Postman and follow these steps:
 
