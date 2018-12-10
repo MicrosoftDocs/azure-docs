@@ -14,7 +14,7 @@ metadata:
   ms.date: 12/04/2018
   ms.author: anshan
 abstract:
-  description: Learn how to set up a Time Series Insights environment and explore and analyze time series data of your IoT solutions or connected things. The documentation describes prerequisites, how to get started, API references, and other articles to help you get started in minutes.
+  description: Learn how to set up a Time Series Insights environment and explore and analyze time series data for your IoT solutions or connected things. The documentation describes prerequisites and provides how-tos, API references, and other articles to help you get started in minutes.
   aside:
     image:
       alt: A video introduction to Azure IoT Time Series Insights features.
@@ -28,7 +28,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to deploy Log Analytics and configure the collection of data from Azure, other cloud providers, and on-premises resources.
+    text: Learn how to deploy Azure Log Analytics and configure data collection from Azure, other cloud providers, and on-premises resources.
   - type: list
     style: icon48
     items: 
