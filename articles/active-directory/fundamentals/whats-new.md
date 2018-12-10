@@ -37,7 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### New Azure AD Cloud Device Administrator role (Public preview)
 
-**Type:** New feature
+**Type:** New feature  
 **Service category:** Device Registration and Management  
 **Product capability:** Access control
 
@@ -49,7 +49,7 @@ For more information about roles and permissions, see [Assigning administrator r
 
 ### Manage your devices using the new activity timestamp in Azure AD (Public preview)
 
-**Type:** New feature
+**Type:** New feature  
 **Service category:** Device Registration and Management  
 **Product capability:** Device Lifecycle Management
 
@@ -67,7 +67,7 @@ For more information about how to get and use this timestamp, see [How To: Manag
  
 Administrators can now turn on the **Require users to consent on every device** option to require your users to accept your Terms of use on every device they're using on your tenant.
 
-For more information, see the [Per-device Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/en-us/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
+For more information, see the [Per-device Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
 
 ---
 
@@ -80,7 +80,7 @@ For more information, see the [Per-device Terms of use section of the Azure Acti
 
 Administrators can now turn on the **Expire consents** option to make a Terms of use expire for all of your users based on your specified recurring schedule. The schedule can be annually, bi-annually, quarterly, or monthly. After the Terms of use expires, users must reaccept.
 
-For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/en-us/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
 
 ---
 
@@ -92,7 +92,7 @@ For more information, see the [Add Terms of use section of the Azure Active Dire
 
 Administrators can now specify a duration that user must reaccept a Terms of use. For example, administrators can specify that users must reaccept a Terms of use every 90 days.
 
-For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/en-us/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+For more information, see the [Add Terms of use section of the Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
  
 ---
 
@@ -114,7 +114,7 @@ Customers using Azure AD Privileged Identity Management (PIM) can now receive a 
 
 - Number of users "made permanent" in PIM
 
-For more information about PIM and the available email notifications, see [Email notifications in PIM](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-email-notifications).
+For more information about PIM and the available email notifications, see [Email notifications in PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications).
 
 ---
 
@@ -126,7 +126,7 @@ For more information about PIM and the available email notifications, see [Email
 
 Group-based licensing is out of public preview and is now generally available. As part of this general release, we've made this feature more scalable and have added the ability to reprocess group-based licensing assignments for a single user and the ability to use group-based licensing with Office 365 E3/A3 licenses.
 
-For more information about group-based licensing, see [What is group-based licensing in Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal)
+For more information about group-based licensing, see [What is group-based licensing in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal)
 
 ---
 
