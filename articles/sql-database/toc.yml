@@ -62,19 +62,23 @@
       href: sql-database-connect-query-r.md
 - name: Tutorials
   items:
-  - name: 1 - Design DB using SSMS
-    href: sql-database-design-first-database.md
-  - name: 2 - Design DB using .NET
-    href: sql-database-design-first-database-csharp.md
-  - name: 3 - Migrate to a single Azure SQL database using DMS
-    href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-  - name: 4 - Secure your SQL DB
+  - name: Design Database
+    items:
+    - name: Design DB using SSMS
+      href: sql-database-design-first-database.md
+    - name: Design DB using .NET
+      href: sql-database-design-first-database-csharp.md
+  - name: Migrate to Azure SQL Database
+    items:
+    - name: Migrate to a Single Database using DMS
+      href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+    - name: Migrate to a Managed Instance using DMS
+      href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+  - name: Secure your database
     href: sql-database-security-tutorial.md
-  - name: 5 - Implement a geo-distributed database
+  - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
-  - name: 6 - Migrate to a Managed Instance using DMS
-    href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: 7 - Set up Azure SQL Data Sync
+  - name: Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Samples
   items:
@@ -179,13 +183,7 @@
     - name: Automated backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
-      items:
-      - name: Long-term backup retention
-        href: sql-database-long-term-retention.md
-      - name: Configure using Azure blob storage
-        href: sql-database-long-term-backup-retention-configure.md
-      - name: Configure using Azure vault (deprecated)
-        href: sql-database-long-term-backup-retention-configure-vault.md
+      href: sql-database-long-term-retention.md
     - name: Failover groups and geo-replication
       items: 
       - name: Failover groups and geo-replication
@@ -204,14 +202,6 @@
         href: sql-database-disaster-recovery.md
       - name: Recovery drills
         href: sql-database-disaster-recovery-drills.md
-    - name: App design
-      items:
-      - name: Design for disaster recovery
-        href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-      - name: Design for elastic pools
-        href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-      - name: Design for app upgrades
-        href: sql-database-manage-application-rolling-upgrade.md
   - name: Security   
     items:
     - name: Security
@@ -476,6 +466,10 @@
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
+    - name: Configure Backup retention using Azure blob storage
+      href: sql-database-long-term-backup-retention-configure.md
+    - name: Configure Backup retention using Azure vault (deprecated)
+      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
@@ -540,42 +534,50 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-  - name: Multi-tenant SaaS sample application
+  - name: App design
     items:
-    - name: Wingtip Tickets sample
-      href: saas-tenancy-welcome-wingtip-tickets-app.md
-    - name: General guidance
-      href: saas-tenancy-wingtip-app-guidance-tips.md
-    - name: Standalone application
+    - name: Design for disaster recovery
+      href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+    - name: Design for elastic pools
+      href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+    - name: Design for app upgrades
+      href: sql-database-manage-application-rolling-upgrade.md
+    - name: Multi-tenant SaaS sample application
       items:
-      - name: Deploy example app
-        href: saas-standaloneapp-get-started-deploy.md
-      - name: Provision tenants
-        href: saas-standaloneapp-provision-and-catalog.md
-    - name: Database per tenant
-      items:
-      - name: Tutorial intro
-        href: saas-dbpertenant-wingtip-app-overview.md
-      - name: Deploy example app
-        href: saas-dbpertenant-get-started-deploy.md
-      - name: Provision tenants
-        href: saas-dbpertenant-provision-and-catalog.md
-      - name: Monitor database performance
-        href: saas-dbpertenant-performance-monitoring.md
-      - name: Monitor with log analytics
-        href: saas-dbpertenant-log-analytics.md
-      - name: Restore one tenant
-        href: saas-dbpertenant-restore-single-tenant.md
-      - name: Manage tenant schema
-        href: saas-tenancy-schema-management.md
-      - name: Cross-tenant reporting
-        href: saas-tenancy-cross-tenant-reporting.md
-      - name: Tenant analytics
+      - name: Wingtip Tickets sample
+        href: saas-tenancy-welcome-wingtip-tickets-app.md
+      - name: General guidance
+        href: saas-tenancy-wingtip-app-guidance-tips.md
+      - name: Standalone application
         items:
-        - name: With SQL DB
-          href: saas-tenancy-tenant-analytics.md
-        - name: With SQL DW
-          href: saas-tenancy-tenant-analytics-adf.md
+        - name: Deploy example app
+          href: saas-standaloneapp-get-started-deploy.md
+        - name: Provision tenants
+          href: saas-standaloneapp-provision-and-catalog.md
+      - name: Database per tenant
+        items:
+        - name: Tutorial intro
+          href: saas-dbpertenant-wingtip-app-overview.md
+        - name: Deploy example app
+          href: saas-dbpertenant-get-started-deploy.md
+        - name: Provision tenants
+          href: saas-dbpertenant-provision-and-catalog.md
+        - name: Monitor database performance
+          href: saas-dbpertenant-performance-monitoring.md
+        - name: Monitor with log analytics
+          href: saas-dbpertenant-log-analytics.md
+        - name: Restore one tenant
+          href: saas-dbpertenant-restore-single-tenant.md
+        - name: Manage tenant schema
+          href: saas-tenancy-schema-management.md
+        - name: Cross-tenant reporting
+          href: saas-tenancy-cross-tenant-reporting.md
+        - name: Tenant analytics
+          items:
+          - name: With SQL DB
+            href: saas-tenancy-tenant-analytics.md
+          - name: With SQL DW
+            href: saas-tenancy-tenant-analytics-adf.md
       - name: Disaster recovery using geo-restore
         href: saas-dbpertenant-dr-geo-restore.md
       - name: Disaster recovery using database geo-replication
