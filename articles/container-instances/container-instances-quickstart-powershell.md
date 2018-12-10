@@ -1,6 +1,6 @@
 ﻿---
-title: Quickstart - Run an application in Azure Container Instances
-description: In this quickstart, you use Azure PowerShell to deploy an application running in a Docker container to Azure Container Instances
+title: Quickstart - Run an application in Azure Container Instances - PowerShell
+description: In this quickstart, you use Azure PowerShell to deploy a Docker container application to Azure Container Instances with Azure PowerShell
 services: container-instances
 author: dlepow
 
@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Quickstart: Run an application in Azure Container Instances
+# Quickstart: Run a container application in Azure Container Instances with Azure PowerShell
 
 Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure portal to create a Windows container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
 
