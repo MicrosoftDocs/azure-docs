@@ -1,5 +1,5 @@
 ---
-title: Deep dive - advanced analytics - Azure HDInsight 
+title: Deep dive - advanced analytics - Azure HDInsight
 description: Learn how advanced analytics uses algorithms to process big data.
 services: hdinsight
 author: ashishthaps
@@ -58,7 +58,7 @@ HDInsight has several machine learning options for an advanced analytics workflo
 
 ### Machine Learning and Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) is an Azure-hosted offering of [Spark](http://spark.apache.org/), a unified, open source, parallel data processing framework that uses in-memory processing to boost Big Data analytics. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. 
+[HDInsight Spark](../spark/apache-spark-overview.md) is an Azure-hosted offering of [Spark](https://spark.apache.org/), a unified, open source, parallel data processing framework that uses in-memory processing to boost Big Data analytics. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. 
 
 There are three scalable machine learning libraries that bring algorithmic modeling capabilities to this distributed environment:
 

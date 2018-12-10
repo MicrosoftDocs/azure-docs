@@ -12,11 +12,11 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ---
 # Overview of business continuity with Azure SQL Database
 
-Azure SQL Database is an implementation of the latest stable SQL Server Database Engine configured and optimized for Azure cloud environment that provides [high availability](sql-database-high-availability.md) and resiliency to the errors that might affect your business process. **Business continuity** in Azure SQL Database refers to the mechanisms, policies, and procedures that enable a business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
+**Business continuity** in Azure SQL Database refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some disruptive events that cannot be handled by SQL Database such as:
 
 - User accidentally deleted or updated a row in a table.
 - Malicious attacker succeeded to delete data or drop a database.

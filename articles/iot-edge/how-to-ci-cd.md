@@ -1,13 +1,14 @@
 ---
-title: Azure IoT Edge continuous integration and continuous deployment | Microsoft Docs
-description: Overview of the continuous integration and continuous deployment for Azure IoT Edge
+title: Continuous integration and continuous deployment - Azure IoT Edge | Microsoft Docs
+description: Set up continuous integration and continuous deployment - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: shizn
-manager: 
+manager: philmea
 ms.author: xshi
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Continuous integration and continuous deployment to Azure IoT Edge
@@ -21,7 +22,7 @@ In this article, you will learn how to:
 
 It will take 20 minutes to complete the steps in this article.
 
-![CI and CD](./media/how-to-ci-cd/cd.png)
+![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
 
 ## Create a sample Azure IoT Edge solution using Visual Studio Code
@@ -30,7 +31,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
 1. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). Change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
 
-    ![Set up ACR](./media/how-to-ci-cd/acr.png)
+    ![Set up Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
 2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Azure IoT Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
@@ -47,19 +48,19 @@ In this section, you will create a build pipeline that is configured to run auto
 
 1. Sign into your Azure DevOps organization (**https://dev.azure.com/{your organization}/**) and open the project where you checked in the sample app.
 
-    ![Check-in code](./media/how-to-ci-cd/init-project.png)
+    ![Check-in code to Azure Pipelines](./media/how-to-ci-cd/init-project.png)
 
 1. In your Azure Pipelines, open the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. Then select **New build pipeline**.
 
-    ![New pipeline](./media/how-to-ci-cd/add-new-build.png)
+    ![Create a new build pipeline](./media/how-to-ci-cd/add-new-build.png)
 
 1. If prompted, select **Azure DevOps Git** the source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
 
-    ![Select git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Select Azure Repos Git](./media/how-to-ci-cd/select-vsts-git.png)
 
     In **Select a template** window, choose **start with an Empty process**.
 
-    ![Select a template](./media/how-to-ci-cd/start-with-empty.png)
+    ![Start with an empty process](./media/how-to-ci-cd/start-with-empty.png)
 
 1. In the pipeline editor, choose the agent pool. 
     
@@ -67,27 +68,27 @@ In this section, you will create a build pipeline that is configured to run auto
     * If you would like to build your modules in platform amd64 for Windows containers, choose **Hosted VS2017** 
     * If you would like to build your modules in platform arm32v7 for Linux containers, you need to Set up your own build agent by clicking the **Manage** button.
     
-    ![Configure build agent](./media/how-to-ci-cd/configure-env.png)
+    ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
 
 1. In Agent job, click "+" to add three tasks in the build pipeline. The first two are from **Azure IoT Edge**. And the third one is from **Publish Build Artifacts**
     
-    ![Add tasks](./media/how-to-ci-cd/add-tasks.png)
+    ![Add tasks to the build pipeline](./media/how-to-ci-cd/add-tasks.png)
 
 1. In the first **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Build module images**, and in the **Action** dropdown list, select **Build module images**. In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform as your IoT Edge device. This task will build all modules in the solution with the target platform you specified. And also generate the **deployment.json** file, you can find the file path in Output Variables. Set the alias to `edge` for this variable.
     
-    ![Build and push](./media/how-to-ci-cd/build-and-push.png)
+    ![Configure build module images task](./media/how-to-ci-cd/build-and-push.png)
 
 1. In the second **Azure IoT Edge** task, update the **Display name** to **Azure IoT Edge - Push module images**, and in the **Action** dropdown list, select **Push module images**. Choose Container Registry Type, make sure you configure and select the same registry in your code(module.json). In the **.template.json file** control, select the **deployment.template.json** file, which describes your IoT Edge solution. Then choose **Default platform**, make sure you select the same platform for your built module images. This task will push all module images to the container registry you selected. And also add container registry credentials in the **deployment.json** file, you can find the file path in Output Variables. Set the alias to `edge` for this variable. If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
 
-    ![Push](./media/how-to-ci-cd/push.png)
+    ![Configure push module images task](./media/how-to-ci-cd/push.png)
 
 1. In **Publish Build Artifacts** task, you would specify the deployment file generated by the build task. Set the **Path to publish** to `$(edge.DEPLOYMENT_FILE_PATH)`.
 
-    ![Publish artifact](./media/how-to-ci-cd/publish-build-artifacts.png)
+    ![Configure publish artifact task](./media/how-to-ci-cd/publish-build-artifacts.png)
 
 1. Open the **Triggers** tab and turn on the **Continuous integration** trigger. Make sure the branch containing your code is included.
 
-    ![Configure trigger](./media/how-to-ci-cd/configure-trigger.png)
+    ![Turn on continuous integration trigger](./media/how-to-ci-cd/configure-trigger.png)
 
     Save the new build pipeline. Click the **Save** button.
 
@@ -101,11 +102,11 @@ In this section, you will create a release pipeline that is configured to run au
 
     In **Select a template** window, choose **start with an Empty job.**
 
-    ![Start with empty job](./media/how-to-ci-cd/start-with-empty-job.png)
+    ![Start with an empty job](./media/how-to-ci-cd/start-with-empty-job.png)
 
 2. Then the release pipeline would initialize with one stage: **Stage 1**. Rename the **Stage 1** to **QA** and treat it as a test environment. In a typical continuous deployment pipeline, it usually exists multiple stages, you can create more based on your DevOps practice.
 
-    ![Create stage](./media/how-to-ci-cd/QA-env.png)
+    ![Create test environment stage](./media/how-to-ci-cd/QA-env.png)
 
 3. Link the release to the build artifacts. Click **Add** in artifacts area.
 
@@ -113,11 +114,11 @@ In this section, you will create a release pipeline that is configured to run au
     
     In **Add an artifact page**, choose Source type **Build**. Then select the project and the build pipeline you created. Then Click **Add**.
 
-    ![Add an artifact](./media/how-to-ci-cd/add-an-artifact.png)
+    ![Add a build artifact](./media/how-to-ci-cd/add-an-artifact.png)
 
     Open continuous deployment trigger so that new release will be created each time a new build is available.
 
-    ![Configure trigger](./media/how-to-ci-cd/add-a-trigger.png)
+    ![Configure continuous deployment trigger](./media/how-to-ci-cd/add-a-trigger.png)
 
 4. Navigate to **QA stage** and configure the tasks in this stage.
 

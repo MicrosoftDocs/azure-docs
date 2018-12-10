@@ -206,7 +206,7 @@ Before enabling synchronization of the UserType attribute, you must first decide
 
     If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
 
-- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. 
+- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part <em>@partners.fabrikam123.org</em>. 
 
     As mentioned previously, Azure AD Connect does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
 
@@ -284,7 +284,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
     | --- | --- | --- | --- | --- |
     | Direct | UserType | extensionAttribute1 | Unchecked | Update |
 
-    In another example, you want to derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. You can implement an expression like this:
+    In another example, you want to derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD userPrincipalName attribute ends with domain part <em>@partners.fabrikam123.org</em>. You can implement an expression like this:
 
     | Flow type | Target attribute | Source | Apply once | Merge type |
     | --- | --- | --- | --- | --- |

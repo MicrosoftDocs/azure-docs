@@ -12,7 +12,7 @@ ms.component: alerts
 # Alerts on activity log 
 
 ## Overview
-Activity log alerts are alerts that activate when a new activity log event occurs that matches the conditions specified in the alert. They are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events. For more information on usage, see [Create and manage activity log alerts](alert-activity-log.md).
+Activity log alerts are alerts that activate when a new activity log event occurs that matches the conditions specified in the alert. They are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. It then shows you how to use the Azure portal to set up an alert on activity log events. For more information on usage, see [Create and manage activity log alerts](../azure-monitor/platform/alerts-activity-log.md).
 
 > [!NOTE]
 > Alerts **can not** be created for events in Alert category of activity log
@@ -26,7 +26,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 
-You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Overview of the Azure activity log](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./monitoring-activity-log-alerts-on-service-notifications.md). 
+You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Overview of the Azure activity log](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Activity log alerts have a few common options:
 
@@ -56,7 +56,7 @@ To learn more about action groups, see [Create and manage action groups in the A
 
 ## Next steps
 - Get an [overview of alerts](monitoring-overview-alerts.md).
-- Learn about [create and modify activity log alerts](alert-activity-log.md).
+- Learn about [create and modify activity log alerts](../azure-monitor/platform/alerts-activity-log.md).
 - Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).
 - Learn about [service health notifications](monitoring-service-notifications.md).
 
