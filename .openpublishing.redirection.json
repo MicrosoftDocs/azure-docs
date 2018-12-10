@@ -32081,6 +32081,12 @@
             "source_path": "articles/redis-cache/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
             "redirect_document_id": false
+        },
+        {
+
+            "source_path": "articles/machine-learning/service/how-to-data-prep.md",
+            "redirect_url": "/azure/dataprep/intro?view=azure-dataprep-py",
+            "redirect_document_id": false
         }
     ]
 }
