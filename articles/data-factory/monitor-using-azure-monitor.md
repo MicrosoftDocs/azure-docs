@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
 
 ---
@@ -461,17 +461,7 @@ You can visualize the above metrics, look at the queries behind these metrics, e
 
 ## Alerts
 
-You can raise alerts on supported metrics in Data Factory. Click
-the **Alerts** button on the Data Factory **Monitor** page.
-
-![Alerts option](media/monitor-using-azure-monitor/alerts_image1.png)
-
-This takes you to the **Alerts** page.
-
-![Alerts page](media/monitor-using-azure-monitor/alerts_image2.png)
-
-You can also log in to the Azure portal and click **Monitor -&gt; Alerts** to
-reach the **Alerts** page directly.
+Log in to the Azure portal and click **Monitor -&gt; Alerts** to create alerts.
 
 ![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -507,4 +497,5 @@ reach the **Alerts** page directly.
     ![Action group, screen 4 of 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next steps
-See [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines by running .
+
+See [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines with code.
