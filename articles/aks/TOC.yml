@@ -58,6 +58,7 @@
   - name: Scale
     href: concepts-scale.md
   - name: Best practices
+    href: best-practices.md
     items:
     - name: For cluster operators
       items:

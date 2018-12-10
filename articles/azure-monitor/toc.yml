@@ -128,7 +128,7 @@
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Metric alerts
-      href: ../monitoring-and-diagnostics/alert-metric-overview.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-overview.md
     - name: Log alerts
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log alerts
@@ -733,7 +733,7 @@
       - name: Use metric alerts
         items:
         - name: Create, view and manage metric alerts in Azure Monitor
-          href: ../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
           href: platform/alerts-classic-portal.md
         - name: Alerts with dynamic thresholds
@@ -749,7 +749,7 @@
       - name: Use log alerts
         items:  
         - name: Configure alerts on analytics query
-          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-log.md
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: Troubleshooting log alerts
@@ -771,7 +771,7 @@
       - name: Use action groups with alerts
         items:
         - name: Create action groups
-          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups.md
         - name: Learn about the webhook schema
           href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: SMS alert behavior
