@@ -51,13 +51,13 @@ Create a new file in the folder, named `index.js` and open this file with a text
 "use strict";
 ```
 
-1. Add a reference to the Speech SDK
+2. Add a reference to the Speech SDK
 
 ```javascript
 var sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-1. Load the file content and prepare a PushAudioInputStream.
+3. Load the file content and prepare a PushAudioInputStream.
 
 > [!NOTE]
 > Please note that in Node.js the Speech SDK does not support the microphone or the File data type. Both are only supported on browsers. Instead, use the Stream interface to the Speech SDK, either through `AudioInputStream.createPushStream()` or `AudioInputStream.createPullStream()`.
@@ -76,7 +76,7 @@ audioStream.write(arrayBuffer);
 audioStream.close();
 ```
 
-1. Perform the recognition.
+4. Perform the recognition.
 
 ```javascript
 var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream);
