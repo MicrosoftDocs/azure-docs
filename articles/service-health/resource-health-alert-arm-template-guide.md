@@ -432,4 +432,4 @@ Learn more about Resource Health:
 -  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)
 
 Create Service Health Alerts:
--  [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

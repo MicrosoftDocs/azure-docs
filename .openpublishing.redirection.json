@@ -11321,11 +11321,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-scale.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started",
             "redirect_document_id": false
@@ -19565,16 +19560,6 @@
         },
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-alerts-portal.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
             "redirect_document_id": false
         },
@@ -31799,6 +31784,46 @@
         {
             "source_path":  "articles/log-analytics/log-analytics-usage.md",
             "redirect_url":  "/azure/azure-monitor/platform/data-usage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-activity-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log-service-notifications",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts-classic.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic.overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric-classic.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-portal",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-powershell",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-create-activity-log-resource-manager-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-dynamic-thresholds",
             "redirect_document_id":  true
         },
         {
