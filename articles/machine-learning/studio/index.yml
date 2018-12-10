@@ -29,16 +29,6 @@ sections:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
         href: create-experiment
         
-- items:
-  - type: list
-    style: cards
-    className: cardsB
-    columns: 1
-    items:
-    - html: <p>Start building and deploying models in Studio's drag-and-drop interface.</p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

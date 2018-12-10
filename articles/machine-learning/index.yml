@@ -32,10 +32,7 @@ sections:
   - 
     items: 
       - 
-        text: "Learn how to quickly set up and use Azure Machine Learning Service:"
-        type: paragraph
-      - 
-        text: "Learn how to set up an experiment and operationalize your models."
+        text: "Learn how to quickly set up and use Azure Machine Learning service:"
         type: paragraph
       - 
         text: "<b>Quickstarts:</b>"
@@ -49,18 +46,18 @@ sections:
         style: unordered
         type: list
       - 
-        text: "<b>Image classification tutorial with MNIST data.</b>"
+        text: "<b>Image classification tutorial with MNIST data:</b>"
         type: paragraph
       - 
         items: 
           - 
             html: "Part 1: <a href=\"service/tutorial-train-models-with-aml\">Train your own machine learning model</a>"
           - 
-            html: "Part 2: <a href=\"service/tutorial-deploy-models-with-aml\">Deploy that model</a></br>"
+            html: "Part 2: <a href=\"service/tutorial-deploy-models-with-aml\">Deploy that model</a>"
         style: unordered
         type: list
       - 
-        text: "<b>Regression modeling tutorial with NYC taxi data.</b>"
+        text: "<b>Regression modeling tutorial with NYC taxi data:</b>"
         type: paragraph
       - 
         items: 
@@ -71,14 +68,14 @@ sections:
         style: unordered
         type: list
       - 
-        text: "<b>Consume your models</b>"
+        text: "<b>Consume your models:</b>"
         type: paragraph
       - 
         items: 
           - 
             html: "<a href=\"service/how-to-consume-web-service\">Request-response model consumption</a>"
           - 
-            html: "<a href=\"service/how-to-run-batch-predictions\">Batch predictions</a>"
+            html: "<a href=\"service/how-to-run-batch-predictions\">Batch predictions with ML pipelines</a>"
         style: unordered
         type: list
     title: "Quickstarts and tutorials"
