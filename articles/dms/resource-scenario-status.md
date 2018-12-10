@@ -32,7 +32,7 @@ The following tables show which migration scenarios are supported when using the
 ### Offline (one-time) migration support
 The following table shows Azure Database Migration Service support for offline migrations.
 
-| Target  | Source | Status  |
+| Target  | Source | Support |
 | ------------- | ------------- | :-------------: |
 | **Azure SQL DB**  | SQL Server | ✔ |
 |   | RDS SQL  |  ✔ |
@@ -51,7 +51,7 @@ The following table shows Azure Database Migration Service support for offline m
 ### Online (continuous sync) migration support
 The following table shows Azure Database Migration Service support for online migrations.
 
-| Target  | Source | Status  |
+| Target  | Source | Support |
 | ------------- | ------------- | :-------------: |
 | **Azure SQL DB**  | SQL Server | ✔ |
 |   | RDS SQL  |   |
