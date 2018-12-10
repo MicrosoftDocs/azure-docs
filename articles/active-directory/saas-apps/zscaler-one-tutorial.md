@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ms.author: jeedes
 
 ---
@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| Name  | Source Attribute  |
 	| ---------| ------------ |
-	| Role 	   | user.assignedroles |
+	| memberOf 	   | user.assignedroles |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -271,13 +271,21 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![Assign User][202]
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click **Add** button and then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![Assign User][203]
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
 
-6. In the **Add Assignment** dialog, select the **Assign** button.
+	![image](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
+
+6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
+
+	![image](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
+
+7. In the **Add Assignment** dialog select the **Assign** button.
+
+	![image](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
 
 ### Testing single sign-on
 
