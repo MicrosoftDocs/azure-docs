@@ -29,26 +29,26 @@ You also can configure who the alert should be sent to:
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](monitoring-action-groups.md).
+To learn more about action groups, see [Create and manage action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).
 
-For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](alert-activity-log.md).
+For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](alerts-activity-log.md).
 
 ## Create an alert on a service health notification for a new action group by using the Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
-    ![The "Service Health" service](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
+    ![The "Service Health" service](media/alerts-activity-log-service-notifications/home-servicehealth.png)
 
 1. In the **Alerts** section, select **Health alerts**.
 
-    ![The "Health alerts" tab](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
+    ![The "Health alerts" tab](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
 
 1. Select **Create service health alert** and fill in the fields.
 
-    ![The "Create service health alert" command](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
+    ![The "Create service health alert" command](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
 1. Select the **Subscription**, **Services**, and **Regions** you want to be alerted for.
 
-    ![The "Add activity log alert" dialog box](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
+    ![The "Add activity log alert" dialog box](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
@@ -61,7 +61,7 @@ For information on how to configure service health notification alerts by using 
 
 1. Create a new action group by selecting **New action group**. Enter a name in the **Action group name** box and enter a name in the **Short name** box. The short name is referenced in the notifications that are sent when this alert fires.
 
-    ![Create a new action group](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
+    ![Create a new action group](media/alerts-activity-log-service-notifications/action-group-creation.png)
 
 1. Define a list of receivers by providing the receiver's:
 
@@ -75,7 +75,7 @@ For information on how to configure service health notification alerts by using 
 
 Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
-Learn how to [Configure webhook notifications for existing problem management systems](../service-health/service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](monitoring-activity-log-alerts-webhook.md).
+Learn how to [Configure webhook notifications for existing problem management systems](../../service-health/service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
 >The action group defined in these steps is reusable as an existing action group for all future alert definitions.
@@ -191,9 +191,9 @@ After you create an alert, it's visible in the **Alerts** section of **Monitor**
 * Disable or enable it, if you want to temporarily stop or resume receiving notifications for the alert.
 
 ## Next steps
-- Learn how to [configure webhook notifications for existing problem management systems](../service-health/service-health-alert-webhook-guide.md).
-- Learn about [service health notifications](monitoring-service-notifications.md).
-- Learn about [notification rate limiting](monitoring-alerts-rate-limiting.md).
-- Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).
-- Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts. 
-- Learn more about [action groups](monitoring-action-groups.md).
+- Learn how to [configure webhook notifications for existing problem management systems](../../service-health/service-health-alert-webhook-guide.md).
+- Learn about [service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Learn about [notification rate limiting](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md).
+- Review the [activity log alert webhook schema](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Get an [overview of activity log alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md), and learn how to receive alerts. 
+- Learn more about [action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).
