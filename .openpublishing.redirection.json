@@ -32058,7 +32058,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/articles/app-service/app-service-web-tutorial-java-mysql.md",
             "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
             "redirect_url": "/azure/app-service/containers/app-service-web-tutorial-java-cosmosdb",
             "redirect_document_id" : false
