@@ -96,5 +96,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](../../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
+- Create an [alert](../../azure-monitor/platform/alerts-metric.md) when a specific activity happens.
 - Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information from your activity logs.
