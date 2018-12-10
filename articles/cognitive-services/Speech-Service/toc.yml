@@ -36,7 +36,7 @@
     - name: 'Using JavaScript (Browser)'
       href: quickstart-js-browser.md
       displayName: recognize speech, speech recognition, speech to text, stt
-    - name: 'Using JavaScript (NodeJS)'
+    - name: 'Using JavaScript (Node.js)'
       href: quickstart-js-node.md
       displayName: recognize speech, speech recognition, speech to text, stt
     - name: 'Using Objective-C (iOS)'
