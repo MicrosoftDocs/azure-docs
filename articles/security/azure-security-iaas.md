@@ -49,7 +49,7 @@ If your organization has many subscriptions, you might need a way to efficiently
 
 - [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
 - [Classic Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
-- [Security Manager](../role-based-access-control/built-in-roles.md#security-manager): Can manage security components, security policies, and VMs.
+- [Security Admin](../role-based-access-control/built-in-roles.md#security-admin): In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
 - [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user): Can view everything and connect, start, restart, and shut down VMs.
 
 Your subscription admins and coadmins can change this setting, making them administrators of all the VMs in a subscription. Be sure that you trust all of your subscription admins and coadmins to log in to any of your machines.

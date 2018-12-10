@@ -3,7 +3,6 @@ title: Working with Azure Cosmos DB Cassandra API from Spark
 description: This article is the main page for Cosmos DB Cassandra API integration from Spark.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra

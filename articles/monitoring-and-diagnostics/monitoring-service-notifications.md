@@ -105,8 +105,8 @@ Properties.communicationId | The communication with which this event is associat
 3.	Select **Alerts**.
 
     ![Screenshot of Monitor Activity log, with Alerts selected](./media/monitoring-service-notifications/service-health-summary.png)
-4. Select **+Add activity log alert**, and set up an alert to ensure you are notified for future service notifications. For more information, see [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).
+4. Select **+Add activity log alert**, and set up an alert to ensure you are notified for future service notifications. For more information, see [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 ## Next steps
-Receive [alert notifications whenever a service health notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted.  
+Receive [alert notifications whenever a service health notification](../azure-monitor/platform/alerts-activity-log-service-notifications.md) is posted.  
 Learn more about [activity log alerts](monitoring-activity-log-alerts.md).

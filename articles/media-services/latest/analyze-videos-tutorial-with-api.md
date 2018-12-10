@@ -1,5 +1,5 @@
 ---
-title: Analyze videos with Azure Media Services| Microsoft Docs
+title: Analyze videos with Media Services - Azure | Microsoft Docs
 description: Follow the steps of this tutorial to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -10,9 +10,10 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # Tutorial: Analyze videos with Media Services v3 using APIs

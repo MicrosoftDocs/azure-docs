@@ -1,6 +1,6 @@
 ---
 title: Overview of the Azure monitoring agents| Microsoft Docs
-description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.   
+description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.
 services: azure-monitor
 documentationcenter: azure-monitor
 author: mgoedtel
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
@@ -72,5 +71,5 @@ You may need some combination of these agents to monitor your VM. The agents can
 
 ## Next steps
 
-- See [Overview of the Log Analytics agent](../../log-analytics/log-analytics-agent-overview.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
+- See [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
 

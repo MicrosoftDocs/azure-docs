@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Insights telemetry in Visual Studio CodeLens | Microsoft Docs
 description: Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio.
 services: application-insights
@@ -10,13 +10,11 @@ ms.service: application-insights
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-
 ---
 # Application Insights telemetry in Visual Studio CodeLens
 Methods in the code of your web app can be annotated with telemetry about run-time exceptions and request response times. If you install [Azure Application Insights](app-insights-overview.md) in your application, the telemetry appears in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - the notes at the top of each function where you're used to seeing useful information such as the number of places the function is referenced or the last person who edited it.
