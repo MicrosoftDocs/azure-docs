@@ -91,7 +91,7 @@ To reassign several patterns to a different intent, select the checkbox to the l
 
 2. The **Delete patterns** confirmation dialog appears. Select **Ok** to finish the deletion.
 
-    ![Screenshot of deleting several patterns](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Screenshot of deleting several patterns confirmation box](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## Filter pattern list by entity
 
@@ -112,7 +112,7 @@ After the filter is applied, the intent name appears below the tool bar.
 ## Remove entity or intent filter
 When the pattern list is filtered, the entity or intent name appears below the toolbar. To remove the filter, select the name.
 
-![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Screenshot of removing entity from filter](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 The filter is removed and all patterns display. 
 
