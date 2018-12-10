@@ -215,7 +215,7 @@ Videos:
 * [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projects:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on GitHub
 
 ## Next steps
 
