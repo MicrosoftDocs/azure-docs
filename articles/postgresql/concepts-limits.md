@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/10/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
@@ -52,6 +52,9 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 - When using the PITR feature, the new server is created with the same pricing tier configurations as the server it is based on.
 - The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
 - Restoring a deleted server is not supported.
+
+### UTF-8 characters on Windows
+- In some scenarios, UTF-8 characters are not supported fully in open source PostgreSQL on Windows, which affects Azure Database for PostgreSQL. Please see the thread on [Bug #15476 in the postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) for more information.
 
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)
