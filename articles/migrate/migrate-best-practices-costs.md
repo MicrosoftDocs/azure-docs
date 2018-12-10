@@ -5,14 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: raynew
 ---
 
 
 # Best practices for costing and sizing workloads migrated to Azure
 
-As you plan and design for migration, focusing on costs ensures the long-term success of your Azure migration. During a migration project, it's critical that all teams (finance, management, app teams etc) understand associated costs. Before migration, estimating your migration spend, with a baseline for monthly, quarterly, and yearly budget targets is critical to success. After migration, you should optimize costs, continually monitor workloads, and plan for future usage patterns. Migrated resources might start out as one type of workload, but evolve into another type over time, based on usage, costs, and shifting business requirements.
+As you plan and design for migration, focusing on costs ensures the long-term success of your Azure migration. During a migration project, it's critical that all teams (finance, management, app teams etc) understand associated costs.
+- Before migration, estimating your migration spend, with a baseline for monthly, quarterly, and yearly budget targets is critical to success.
+- After migration, you should optimize costs, continually monitor workloads, and plan for future usage patterns. Migrated resources might start out as one type of workload, but evolve into another type over time, based on usage, costs, and shifting business requirements.
 
 This article describes best practices for costing and sizing before and after migration.  
 

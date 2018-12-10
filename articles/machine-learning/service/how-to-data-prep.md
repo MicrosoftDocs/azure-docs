@@ -132,4 +132,4 @@ To see detailed examples and code for each preparation step, follow these how-to
 2. [Transform](how-to-transform-data.md) it into a more usable structure
 3. [Write](how-to-write-data.md)  that data to a location accessible to your models
 
-Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
+Azure Machine Learning Data Prep SDK [reference documentation](https://aka.ms/data-prep-sdk).

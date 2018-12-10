@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using Azure portal '
+title: 'Quickstart: Get started with Apache Hadoop and Apache Hive using the Azure portal - Azure HDInsight'
 description: Learn how to create HDInsight clusters using the Azure portal, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed

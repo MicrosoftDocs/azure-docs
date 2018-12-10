@@ -28,7 +28,7 @@ When you publish a knowledge base, the QnA contents of your knowledge base moves
 
 2. Select **Publish** again to see the endpoint details that can be used in your application or bot code.
 
-    ![Publish knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![Successfully published knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
 	
 ## Next steps
 

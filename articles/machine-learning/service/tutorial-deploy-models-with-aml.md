@@ -30,7 +30,7 @@ In this part of the tutorial, you use the Azure Machine Learning service to:
 > * Deploy the model to Container Instances
 > * Test the deployed model
 
-Container Instances is not ideal for production deployments, but it's great for testing and understanding the workflow. For scalable production deployments, consider using [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+Container Instances isn't ideal for production deployments, but it's great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [How to deploy and where](how-to-deploy-and-where.md).
 
 ## Get the notebook
 

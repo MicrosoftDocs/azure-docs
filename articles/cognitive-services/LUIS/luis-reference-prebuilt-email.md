@@ -13,7 +13,7 @@ ms.date: 11/27/2018
 ms.author: diberry
 ---
 
-# Email entity
+# Email prebuilt entity for a LUIS app
 Email extraction includes the entire email address from an utterance. Because this entity is already trained, you do not need to add example utterances containing email to the application intents. Email entity is supported in `en-us` culture only. 
 
 ## Resolution for prebuilt email

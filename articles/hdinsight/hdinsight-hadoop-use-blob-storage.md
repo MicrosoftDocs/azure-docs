@@ -13,9 +13,9 @@ ms.date: 11/06/2018
 
 # Use Azure storage with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in Azure Storage, [Azure Data Lake Storage Gen 1/ Azure Data Lake Store Gen2] or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in Azure Storage, [Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen2] or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.6, you can select either Azure Storage or Azure Data Lake Storage Gen 1/ Azure Data Lake Store Gen 2  as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen 1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.6, you can select either Azure Storage or Azure Data Lake Storage Gen 1/ Azure Data Lake Store Gen 2  as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen 1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
 In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Storage Gen 1 works with HDInsight clusters, see [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -133,27 +133,33 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
 
 If you have [installed and configured the Azure Classic CLI](../cli-install-nodejs.md), the following command can be used to a storage account and container.
 
-    azure storage account create <storageaccountname> --type LRS
+```cli
+azure storage account create <storageaccountname> --type LRS
+```
 
 > [!NOTE]
 > The `--type` parameter indicates how the storage account is replicated. For more information, see [Azure Storage Replication](../storage/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table, or queue.
-> 
-> 
 
 You are prompted to specify the geographic region that the storage account is created in. You should create the storage account in the same region that you plan on creating your HDInsight cluster.
 
 Once the storage account is created, use the following command to retrieve the storage account keys:
 
-    azure storage account keys list <storageaccountname>
+```cli
+azure storage account keys list <storageaccountname>
+```
 
 To create a container, use the following command:
 
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 ## Address files in Azure storage
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
-    wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+```config
+wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+```
 
 The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
 
@@ -162,122 +168,148 @@ The &lt;StorageAccountName&gt; identifies the Azure Storage account name. A full
 
 If neither &lt;BlobStorageContainerName&gt; nor &lt;StorageAccountName&gt; has been specified, the default file system is used. For the files on the default file system, you can use a relative path or an absolute path. For example, the *hadoop-mapreduce-examples.jar* file that comes with HDInsight clusters can be referred to by using one of the following:
 
-    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasb:///example/jars/hadoop-mapreduce-examples.jar
-    /example/jars/hadoop-mapreduce-examples.jar
+```config
+wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+wasb:///example/jars/hadoop-mapreduce-examples.jar
+/example/jars/hadoop-mapreduce-examples.jar
+```
 
 > [!NOTE]
 > The file name is <i>hadoop-examples.jar</i> in HDInsight versions 2.1 and 1.6 clusters.
-> 
-> 
 
 The &lt;path&gt; is the file or directory HDFS path name. Because containers in Azure storage are simply key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
 
-    example/jars/hadoop-mapreduce-examples.jar
+```bash
+example/jars/hadoop-mapreduce-examples.jar
+```
 
 > [!NOTE]
 > When working with blobs outside of HDInsight, most utilities do not recognize the WASB format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
-> 
-> 
 
-## Access blobs 
-
+## Access blobs
 
 ### <a name="access-blobs-using-azure-powershell"></a> Use Azure PowerShell
+
 > [!NOTE]
 > The commands in this section provide a basic example of using PowerShell to access data stored in blobs. For a more full-featured example that is customized for working with HDInsight, see the [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
-> 
-> 
 
 Use the following command to list the blob-related cmdlets:
 
-    Get-Command *blob*
+```powershell 
+Get-Command *blob*
+```
 
 ![List of blob-related PowerShell cmdlets.][img-hdi-powershell-blobcommands]
 
 #### Upload files
+
 See [Upload data to HDInsight][hdinsight-upload-data].
 
 #### Download files
+
 The following script downloads a block blob to the current folder. Before running the script, change the directory to a folder where you have write permissions.
 
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
-    $containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
-    $blob = "example/data/sample.log" # The name of the blob to be downloaded.
+```powershell
+$resourceGroupName = "<AzureResourceGroupName>"
+$storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
+$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
+$blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
-    # Use Add-AzureAccount if you haven't connected to your Azure subscription
-    Connect-AzureRmAccount 
-    Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
+# Use Add-AzureAccount if you haven't connected to your Azure subscription
+Connect-AzureRmAccount 
+Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
-    Write-Host "Create a context object ... " -ForegroundColor Green
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+Write-Host "Create a context object ... " -ForegroundColor Green
+$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
+$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-    Write-Host "Download the blob ..." -ForegroundColor Green
-    Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
+Write-Host "Download the blob ..." -ForegroundColor Green
+Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
 
-    Write-Host "List the downloaded file ..." -ForegroundColor Green
-    cat "./$blob"
+Write-Host "List the downloaded file ..." -ForegroundColor Green
+cat "./$blob"
+```
 
 Providing the resource group name and the cluster name, you can use the following code:
 
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $clusterName = "<HDInsightClusterName>"
-    $blob = "example/data/sample.log" # The name of the blob to be downloaded.
+```powershell
+$resourceGroupName = "<AzureResourceGroupName>"
+$clusterName = "<HDInsightClusterName>"
+$blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
-    $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
-    $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
-    $defaultStorageContainer = $cluster.DefaultStorageContainer
-    $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
+$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+$defaultStorageContainer = $cluster.DefaultStorageContainer
+$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
 
-    Write-Host "Download the blob ..." -ForegroundColor Green
-    Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
-
+Write-Host "Download the blob ..." -ForegroundColor Green
+Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
+```
 
 #### Delete files
-    Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
+
+```powershell
+Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
+```
 
 #### List files
-    Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
+
+```powershell
+Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
+```
 
 #### Run Hive queries using an undefined storage account
+
 This example shows how to list a folder from storage account that is not defined during the creating process.
-    $clusterName = "<HDInsightClusterName>"
 
-    $undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
-    $undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
+```powershell
+$clusterName = "<HDInsightClusterName>"
 
-    $undefinedStorageKey = Get-AzureStorageKey $undefinedStorageAccount | %{ $_.Primary }
+$undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
+$undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
 
-    Use-AzureRmHDInsightCluster $clusterName
+$undefinedStorageKey = Get-AzureStorageKey $undefinedStorageAccount | %{ $_.Primary }
 
-    $defines = @{}
-    $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
+Use-AzureRmHDInsightCluster $clusterName
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+$defines = @{}
+$defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
+
+Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+```
 
 ### Use Azure Classic CLI
+
 Use the following command to list the blob-related commands:
 
-    azure storage blob
+```cli
+azure storage blob
+```
 
 **Example of using Azure Classic CLI to upload a file**
 
-    azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 **Example of using Azure Classic CLI to download a file**
 
-    azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 **Example of using Azure Classic CLI to delete a file**
 
-    azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 **Example of using Azure Classic CLI to list files**
 
-    azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+```cli
+azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
+```
 
 ## Use additional storage accounts
 
@@ -287,6 +319,7 @@ While creating an HDInsight cluster, you specify the Azure Storage account you w
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ## Next steps
+
 In this article, you learned how to use HDFS-compatible Azure storage with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
