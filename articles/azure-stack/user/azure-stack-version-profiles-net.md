@@ -23,7 +23,7 @@ ms.reviewer: sijuman
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-The .NET SDK for the Azure Stack Resource Manager provides tools to help you build and manage your infrastructure. Resource providers in the SDK include compute, networking, storage, app services, and [KeyVault](../../key-vault/key-vault-whatis.md). The .NET SDK includes 14 NuGet packages that must be downloaded to your project solution each time that incorporate the profile information. However, you can specifically download which resource provider you will use for the 2018-03-01-hybrid or 2017-03-09-profile in order to optimize the memory for your application. Each package consists of a resource provider, the respective API version, and the API profile to which it belongs. API profiles in the .NET SDK enable hybrid cloud development by helping you switch between global Azure resources and resources on Azure Stack.
+The .NET SDK for the Azure Stack Resource Manager provides tools to help you build and manage your infrastructure. Resource providers in the SDK include compute, networking, storage, app services, and [KeyVault](../../key-vault/key-vault-whatis.md). The .NET SDK includes 14 NuGet packages. These packages must be downloaded to your project solution each time that incorporates the profile information. However, you can specifically download which resource provider you will use for the 2018-03-01-hybrid or 2017-03-09-profile in order to optimize the memory for your application. Each package consists of a resource provider, the respective API version, and the API profile to which it belongs. API profiles in the .NET SDK enable hybrid cloud development by helping you switch between global Azure resources and resources on Azure Stack.
 
 ## .NET and API version profiles
 
@@ -41,7 +41,7 @@ An API profile is a combination of resource providers and API versions. You can 
 
 -   To use specific API-versions for a resource type in a specific resource provider, use the specific API versions defined inside the package.
 
-Note that you can combine all of the options in the same application.
+You can combine all of the options in the same application.
 
 ## Install the Azure .NET SDK
 
@@ -49,7 +49,7 @@ Note that you can combine all of the options in the same application.
 
 2.  To install the correct NuGet packages, see [Finding and installing a package][].
 
-3.  The packages that need to be installed depends on the profile version you would like to use. The package name for the profile versions are:
+3.  The packages that need to be installed depends on the profile version you would like to use. The package names for the profile versions are:
 
     1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**
 
@@ -59,7 +59,7 @@ Note that you can combine all of the options in the same application.
 
 5.  If not available, create a subscription and save the subscription ID to be used later. For instructions to create a subscription, see [Create subscriptions to offers in Azure Stack][].
 
-6.  Create a service principal and save the Client ID and the Client Secret. For instructions on how to create a service principal for Azure Stack, see [Provide applications access to Azure Stack][]. Note that the Client ID is also known as the Application ID when creating a service principal.
+6.  Create a service principal and save the Client ID and the Client Secret. For instructions on how to create a service principal for Azure Stack, see [Provide applications access to Azure Stack][]. The Client ID is also known as the Application ID when creating a service principal.
 
 7.  Make sure your service principal has the contributor/owner role on your subscription. For instructions on how to assign a role to service principal, see [Provide applications access to Azure Stack][].
 
@@ -73,10 +73,10 @@ To use the .NET Azure SDK with Azure Stack, you must supply the following values
 | Client ID                 | AZURE_CLIENT_ID       | The service principal application ID saved when the service principal was created in the previous section of this article. |
 | Subscription ID           | AZURE_SUBSCRIPTION_ID | The [*subscription ID*][] is how you access offers in Azure Stack.                                                      |
 | Client Secret             | AZURE_CLIENT_SECRET   | The service principal application secret saved when the service principal was created.                                      |
-| Resource Manager Endpoint | ARM_ENDPOINT           | See [*the Azure Stack resource manager endpoint*][].                                                                    |
+| Resource Manager Endpoint | ARM_ENDPOINT           | See [*the Azure Stack Resource Manager endpoint*][].                                                                    |
 | Location                  | RESOURCE_LOCATION     | Local for Azure Stack.
 
-To find the Tenant ID for your Azure Stack, follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
+To find the Tenant ID for your Azure Stack, follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following steps:
 
 ### Microsoft Windows
 
@@ -94,7 +94,7 @@ In Unix based systems, you can use the following command:
 Export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
-### The Azure Stack resource manager endpoint
+### The Azure Stack Resource Manager endpoint
 
 The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage, and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.
 
@@ -134,7 +134,7 @@ For more information about Azure Stack and API profiles, see a [Summary of API p
 
 ## Azure .NET SDK API Profile usage
 
-The following code should be used to instantiate a resource management client. Similar code can be used to instantiate other resource provider (i.e., compute, network, storage, etc.) clients. 
+The following code should be used to instantiate a resource management client. Similar code can be used to instantiate other resource provider (Such as compute, network, and storage) clients. 
 
 ```csharp
 var client = new ResourceManagementClient(armEndpoint, credentials)
@@ -149,7 +149,7 @@ The `credentials` parameter in the above code is required to instantiate a clien
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
-The `getActiveDirectoryServiceSettings` call in the code retreives Azure Stack endpoints from the metadata endpoint. It states the envrionment variables from the call that is made: 
+The `getActiveDirectoryServiceSettings` call in the code retrieves Azure Stack endpoints from the metadata endpoint. It states the environment variables from the call that is made: 
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -187,7 +187,7 @@ This will enable you to use the API Profile NuGet packages to deploy your applic
 
 ## Samples using API Profiles
 
-You can use the following samples found in GitHub repositories as a reference for creating solutions with .NET and Azure Stack API profiles.
+The following samples can be used as a reference for creating solutions with .NET and Azure Stack API profiles.
 - [Manage Resource Groups](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [Manage Storage Accounts](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [Manage a Virtual Machine](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
@@ -206,7 +206,7 @@ For more information about API profiles, see:
   [Provide applications access to Azure Stack]: ../azure-stack-create-service-principals.md
   [*tenant ID*]: ../azure-stack-identity-overview.md
   [*subscription ID*]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
-  [*the Azure Stack resource manager endpoint*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
+  [*the Azure Stack Resource Manager endpoint*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [Summary of API profiles]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
