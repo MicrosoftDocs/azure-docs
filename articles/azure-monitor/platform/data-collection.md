@@ -5,15 +5,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.service: monitoring
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-
 ---
 
 # Monitoring data collected by Azure Monitor

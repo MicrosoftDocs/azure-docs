@@ -10,11 +10,9 @@ ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # VMware Monitoring (Preview) solution in Log Analytics
