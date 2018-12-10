@@ -15,7 +15,7 @@ ms.author: erhopf
 
 Each request to an Azure Cognitive Service must include an authentication header. The authentication header passes along a subscription key or access token, which is used to validate your subscription for a service or group of services. In this article, you'll learn about three ways to authenticate a request and the requirements for each.
 
-* [Authenticate with a subscription key for a single resource](#authenticate-with-a-subscription-key)
+* [Authenticate with a single service subscription key](#authenticate-with-a-single-service-subscription-key)
 * [Authenticate with a multi-service subscription key](#authenticate-with-a-multi-service-subscription-key)
 * [Authenticate with a Bearer token](#authenticate-with-a-bearer-token)
 
@@ -29,7 +29,7 @@ Before we get too deep into authentication, let's quickly review the authenticat
 | Ocp-Apim-Subscription-Region | This header is only required when using a multi-service subscription key with the [Translator Text API](./Translator/reference/v3-0-reference.md). Use this header to specify the subscription region. |
 | Authorization | Use this header if you are using an authentication token. The steps to perform a token exchange are detailed in the following sections. The value provided follows this format: `Bearer <TOKEN>`. |
 
-## Authenticate with a subscription key
+## Authenticate with a single-service subscription key
 
 The first option is to authenticate a request with a subscription key for a specific service, like Translator Text. The keys are available in the Azure portal for each resource that you've created. To use a subscription key to authenticate a request, it must be passed along as the `Ocp-Apim-Subscription-Key` header.
 
@@ -49,12 +49,12 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## Authenticate with a multi-service subscription key
+## Authenticate with a multi-service subscription key (Cognitive Services)
 
 >[!WARNING]
 > At this time, these services are **not** supported: QnA Maker, Speech Services, and Custom Vision.
 
-This option also uses a subscription key to authenticate requests for a specific resource. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
+This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
 The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header.
 
