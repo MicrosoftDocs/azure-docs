@@ -52,7 +52,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 1. Install the [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell module.
 
-2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Log in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
@@ -86,7 +86,7 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ``` 
 
-2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Log in with the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -127,7 +127,7 @@ Any user from the partner organization who manages a customer's Azure resources 
 
 Yes. A linked partner ID can be changed, added, or removed.
 
-**What if a user has an account in multiple customer tenants?**
+**What if a user has an account in more than one customer tenants?**
 
 The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
 
