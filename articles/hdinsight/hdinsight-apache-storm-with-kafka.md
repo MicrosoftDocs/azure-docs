@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka'
-titlesuffix: Azure HDInsight
+titleSuffix: Azure HDInsight
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 services: hdinsight
 author: hrasheed-msft

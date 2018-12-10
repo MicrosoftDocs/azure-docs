@@ -1,6 +1,6 @@
 ---
 title: Set up Apache HBase and Apache Phoenix backup and replication
-titlesuffix: Azure HDInsight
+titleSuffix: Azure HDInsight
 description: Set up backup and replication for HBase and Phoenix.
 services: hdinsight
 author: ashishthaps
