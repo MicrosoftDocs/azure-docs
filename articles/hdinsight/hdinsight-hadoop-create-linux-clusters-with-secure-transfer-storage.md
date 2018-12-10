@@ -39,7 +39,7 @@ In this section, you create a Hadoop cluster in HDInsight using an [Azure Resour
     - Use short name for the storage account.
     - Both the storage account and the blob container must be created beforehand. 
 
-    For the instructions, see [Create cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
+      For the instructions, see [Create cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
 If you use script action to provide your own configuration files, you must use wasbs in the following settings:
 

@@ -6,7 +6,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 

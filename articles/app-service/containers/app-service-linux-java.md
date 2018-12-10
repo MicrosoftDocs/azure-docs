@@ -1,6 +1,6 @@
 ---
-title: Java language support for Azure App Service on Linux | Microsoft Docs
-description: Developer's guide to deploying Java apps with Azure App Service on Linux.
+title: Java developer's guide for Azure App Service on Linux | Microsoft Docs
+description: Learn how to configure Java apps running in Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
 
 ---
