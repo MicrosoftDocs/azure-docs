@@ -88,6 +88,8 @@ Azure AD administrators can now reset their own password using the Microsoft Aut
 
 - Text message
 
+For more information about administrators using the Microsoft Authenticator app to reset their own passwords, see [Azure AD self-service password reset - Mobile app and SSPR (Preview)](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
+
 ---
 
 ### New Azure AD Cloud Device Administrator role (Public preview)
