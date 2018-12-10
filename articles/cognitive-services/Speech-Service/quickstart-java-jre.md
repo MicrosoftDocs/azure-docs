@@ -17,7 +17,7 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a Java console application by using the [Speech Service SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Speech Service SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04 / 18.04. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
@@ -29,7 +29,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 ## Create and configure project
 
-If you are using Ubuntu 16.04, before starting Eclipse, run the following commands to make sure that required packages are installed.
+If you are using Ubuntu 16.04 or 18.04, before starting Eclipse, run the following commands to make sure that required packages are installed.
 
   ```sh
   sudo apt-get update

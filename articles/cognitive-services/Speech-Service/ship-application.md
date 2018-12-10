@@ -50,7 +50,7 @@ Make sure you select the version (x86, x64) that matches your application. Depen
 * The cURL library (`libcurl.so.4`)
 * The shared library for ALSA applications (`libasound.so.2`)
 
-On Ubuntu 16.04, for example, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
+On Ubuntu 16.04 or 18.04, for example, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
 
 ```sh
 sudo apt-get update
