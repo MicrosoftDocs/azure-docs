@@ -194,7 +194,7 @@ The JSON object associated with a Hybrid Connection looks like:
       }
     }
 
-One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] github project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
+One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] GitHub project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
 Create a JSON file per the above schema like:
 
     {
