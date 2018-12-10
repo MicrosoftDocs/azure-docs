@@ -1,5 +1,5 @@
 ---
-title: Configure Load Balancer TCP idle timeout
+title: Configure Load Balancer TCP idle timeout in Azure
 titlesuffix: Azure Load Balancer
 description: Configure Load Balancer TCP idle timeout
 services: load-balancer
