@@ -1,6 +1,6 @@
 ---
-title: 'Reset Azure ExpressRoute peerings | Microsoft Docs'
-description: How to disable and enable peerings of an ExpressRoute circuit.
+title: 'Reset circuit peering - ExpressRoute:  Azure | Microsoft Docs'
+description: How to disable and enable ExpressRoute circuit peerings.
 services: expressroute
 author:  charwen
 
@@ -8,11 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
+ms.custom: seodec18
 
 ---
 
 
-# Reset ExpressRoute peerings
+# Reset ExpressRoute circuit peerings
 
 This article describes how to disable and enable peerings of an ExpressRoute circuit using PowerShell. When you disable a peering, the BGP session on both the primary connection and the secondary connection of your ExpressRoute circuit will be shut down. You will lose connectivity through this peering to Microsoft. When you enable a peering, the BGP session on both the primary connection and the secondary connection of your ExpressRoute circuit will be brought up. You will regain connectivity through this peering to Microsoft. You can enable and disable Microsoft Peering and Azure Private Peering on an ExpressRoute circuit independently. When you first configure the peerings on your ExpressRoute circuit, the peerings are enabled by default.
 

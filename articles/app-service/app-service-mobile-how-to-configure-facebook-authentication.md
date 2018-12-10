@@ -64,7 +64,7 @@ You are now ready to use Facebook for authentication in your app.
 [0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
 
 <!-- URLs. -->
-[Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
+[Facebook Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268286
+[facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure portal]: https://portal.azure.com/

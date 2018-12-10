@@ -1,6 +1,6 @@
 ---
-title: Azure Container Instances tutorial - Deploy app
-description: Azure Container Instances tutorial part 3 of 3 - Deploy application
+title: Tutorial - Deploy container app to Azure Container Instances
+description: Azure Container Instances tutorial part 3 of 3 - Deploy container application to Azure Container Instances
 services: container-instances
 author: dlepow
 
@@ -8,10 +8,10 @@ ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Deploy a container to Azure Container Instances
+# Tutorial: Deploy a container application to Azure Container Instances
 
 This is the final tutorial in a three-part series. Earlier in the series, [a container image was created](container-instances-tutorial-prepare-app.md) and [pushed to Azure Container Registry](container-instances-tutorial-prepare-acr.md). This article completes the series by deploying the container to Azure Container Instances.
 
@@ -48,10 +48,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### Deploy container
 
-Now, use the [az container create][az-container-create] command to deploy the container. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands. Replace `<acrName>` with the name of your container registry.
+Now, use the [az container create][az-container-create] command to deploy the container. Replace `<acrLoginServer>` and `<acrPassword>` with the values you obtained from the previous two commands. Replace `<acrName>` with the name of your container registry and `<aciDnsLabel>` with desired DNS name.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Within a few seconds, you should receive an initial response from Azure. The `--dns-name-label` value must be unique within the Azure region you create the container instance. Modify the value in the preceding command if you receive a **DNS name label** error message when you execute the command.

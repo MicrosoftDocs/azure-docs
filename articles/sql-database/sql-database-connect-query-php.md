@@ -26,9 +26,9 @@ To complete this sample, make sure you have the following prerequisites:
 
 - PHP-related software installed for your operating system:
 
-    - **MacOS**, install Homebrew and PHP, the ODBC driver and SQLCMD, then install the PHP Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS**, install PHP, the ODBC driver, then install the PHP Driver for SQL Server. See [Step 1, 2, and 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu**, install PHP and other required packages, then install the PHP Driver for SQL Server. See [Step 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux**, install PHP, the ODBC driver, then install the PHP Driver for SQL Server. See [Step 1, 2, and 3](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows**, install PHP for IIS Express and Chocolatey, then install the ODBC driver and SQLCMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 

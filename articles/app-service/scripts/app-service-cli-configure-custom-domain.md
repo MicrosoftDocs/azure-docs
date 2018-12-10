@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Map a custom domain to a web app
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: erikre
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,10 +15,11 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Map a custom domain to a web app
+# Map a custom domain to a web app using CLI
 
 This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it.
 

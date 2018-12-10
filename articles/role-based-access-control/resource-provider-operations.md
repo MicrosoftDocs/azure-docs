@@ -692,31 +692,31 @@ The resource provider operations are always evolving. To get the latest operatio
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Cache/checknameavailability/action | Checks if a name is available for use with a new Redis Cache |
+> | Action | Microsoft.Cache/checknameavailability/action | Checks if a name is available for use with a new Azure Cache for Redis |
 > | Action | Microsoft.Cache/locations/operationresults/read | Gets the result of a long running operation for which the 'Location' header was previously returned to the client |
 > | Action | Microsoft.Cache/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
-> | Action | Microsoft.Cache/redis/delete | Delete the entire Redis Cache |
+> | Action | Microsoft.Cache/redis/delete | Delete the entire Azure Cache for Redis |
 > | Action | Microsoft.Cache/redis/export/action | Export Redis data to prefixed storage blobs in specified format |
-> | Action | Microsoft.Cache/redis/firewallRules/delete | Delete IP firewall rules of a Redis Cache |
-> | Action | Microsoft.Cache/redis/firewallRules/read | Get the IP firewall rules of a Redis Cache |
-> | Action | Microsoft.Cache/redis/firewallRules/write | Edit the IP firewall rules of a Redis Cache |
+> | Action | Microsoft.Cache/redis/firewallRules/delete | Delete IP firewall rules of an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/firewallRules/read | Get the IP firewall rules of an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/firewallRules/write | Edit the IP firewall rules of an Azure Cache for Redis |
 > | Action | Microsoft.Cache/redis/forceReboot/action | Force reboot a cache instance, potentially with data loss. |
 > | Action | Microsoft.Cache/redis/import/action | Import data of a specified format from multiple blobs into Redis |
-> | Action | Microsoft.Cache/redis/linkedservers/delete | Delete Linked Server from a Redis Cache |
-> | Action | Microsoft.Cache/redis/linkedservers/read | Get Linked Servers associated with a redis cache. |
-> | Action | Microsoft.Cache/redis/linkedservers/write | Add Linked Server to a Redis Cache |
-> | Action | Microsoft.Cache/redis/listKeys/action | View the value of Redis Cache access keys in the management portal |
+> | Action | Microsoft.Cache/redis/linkedservers/delete | Delete Linked Server from an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/linkedservers/read | Get Linked Servers associated with an Azure Cache for Redis. |
+> | Action | Microsoft.Cache/redis/linkedservers/write | Add Linked Server to an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/listKeys/action | View the value of Azure Cache for Redis access keys in the management portal |
 > | Action | Microsoft.Cache/redis/listUpgradeNotifications/read | List the latest Upgrade Notifications for the cache tenant. |
-> | Action | Microsoft.Cache/redis/metricDefinitions/read | Gets the available metrics for a Redis Cache |
-> | Action | Microsoft.Cache/redis/patchSchedules/delete | Delete the patch schedule of a Redis Cache |
-> | Action | Microsoft.Cache/redis/patchSchedules/read | Gets the patching schedule of a Redis Cache |
-> | Action | Microsoft.Cache/redis/patchSchedules/write | Modify the patching schedule of a Redis Cache |
-> | Action | Microsoft.Cache/redis/read | View the Redis Cache's settings and configuration in the management portal |
-> | Action | Microsoft.Cache/redis/recommendations/read | Read Azure Redis Cache Recommendations |
-> | Action | Microsoft.Cache/redis/regenerateKey/action | Change the value of Redis Cache access keys in the management portal |
+> | Action | Microsoft.Cache/redis/metricDefinitions/read | Gets the available metrics for an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/patchSchedules/delete | Delete the patch schedule of an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/patchSchedules/read | Gets the patching schedule of an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/patchSchedules/write | Modify the patching schedule of an Azure Cache for Redis |
+> | Action | Microsoft.Cache/redis/read | View the Azure Cache for Redis's settings and configuration in the management portal |
+> | Action | Microsoft.Cache/redis/recommendations/read | Read Azure Cache for Redis Recommendations |
+> | Action | Microsoft.Cache/redis/regenerateKey/action | Change the value of Azure Cache for Redis access keys in the management portal |
 > | Action | Microsoft.Cache/redis/start/action | Start a cache instance. |
 > | Action | Microsoft.Cache/redis/stop/action | Stop a cache instance. |
-> | Action | Microsoft.Cache/redis/write | Modify the Redis Cache's settings and configuration in the management portal |
+> | Action | Microsoft.Cache/redis/write | Modify the Azure Cache for Redis's settings and configuration in the management portal |
 > | Action | Microsoft.Cache/register/action | Registers the 'Microsoft.Cache' resource provider with a subscription |
 > | Action | Microsoft.Cache/unregister/action | Unregisters the 'Microsoft.Cache' resource provider with a subscription |
 
@@ -1224,9 +1224,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Consumption/marketplaces/read | List the marketplace resource usage details for a scope for EA and WebDirect subscriptions. |
 > | Action | Microsoft.Consumption/operations/read | List all supported operations by Microsoft.Consumption resource provider. |
 > | Action | Microsoft.Consumption/pricesheets/read | List the Pricesheets data for a subscription or a management group. |
-> | Action | Microsoft.Consumption/reservationDetails/read | List the utilization details for reserved instances by reservation order or managment groups. The details data is per instance per day level. |
+> | Action | Microsoft.Consumption/reservationDetails/read | List the utilization details for reserved instances by reservation order or management groups. The details data is per instance per day level. |
 > | Action | Microsoft.Consumption/reservationRecommendations/read | List single or shared recommendations for Reserved instances for a subscription. |
-> | Action | Microsoft.Consumption/reservationSummaries/read | List the utilization summary for reserved instances by reservation order or managment groups. The summary data is either at monthly or daily level. |
+> | Action | Microsoft.Consumption/reservationSummaries/read | List the utilization summary for reserved instances by reservation order or management groups. The summary data is either at monthly or daily level. |
 > | Action | Microsoft.Consumption/reservationTransactions/read | List the transaction history for reserved instances by management groups. |
 > | Action | Microsoft.Consumption/tenants/register/action | Register action for scope of Microsoft.Consumption by a tenant. |
 > | Action | Microsoft.Consumption/terms/read | List the terms for a subscription or a management group. |

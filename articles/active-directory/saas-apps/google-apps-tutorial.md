@@ -151,8 +151,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|--|
 	| `google.com/a/<yourdomain.com>` |
 	| `google.com` |
-	| `http://google.com` |
-	| `http://google.com/a/<yourdomain.com>` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
@@ -187,7 +187,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![G Suite Configuration](common/configuresection.png)
 
-9. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
+9. Open a new tab in your browser, and sign into the [G Suite Admin Console](https://admin.google.com/) using your administrator account.
 
 10. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 
