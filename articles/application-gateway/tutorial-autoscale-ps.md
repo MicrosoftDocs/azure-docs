@@ -5,14 +5,14 @@ services: application-gateway
 author: amitsriva
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 9/26/2018
+ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-#Customer intent: As an IT administrator new to Application Gateway, I want to use the service in a way that better ensures my customers can access the web information they need.
+#Customer intent: As an IT administrator new to Application Gateway, I want to configure the service in a way that automatically scales based on customer demand and is highly available across availability zones to ensure my customers can access their web applications when they need them.
 ---
-# Tutorial: Create an application gateway that improves web access
+# Tutorial: Create an application gateway that improves web application access
 
-If you're an IT admin dealing with too many complaints from customers about accessing information on the web, you might need to optimize your application gateway. This tutorial helps you use features of Azure Application Gateway that will help: autoscaling, zone redundancy, and reserved VIPs (static IP). We'll be using Azure PowerShell cmdlets and the Azure Resource Manager deployment model to get your problem solved.
+If you're an IT admin concerned with improving web application access, you can to optimize your application gateway to scale based on customer demand and span multiple availability zones. This tutorial helps you configure Azure Application Gateway features that do that: autoscaling, zone redundancy, and reserved VIPs (static IP). You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
 
 > [!IMPORTANT] 
 > The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
@@ -20,10 +20,12 @@ If you're an IT admin dealing with too many complaints from customers about acce
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a VNet that autoscales
+> * Create an autoscale VNet
 > * Create a reserved public IP
 > * Set up your application gateway infrastructure
-> * Create and test the application gateway
+> * Specify autoscale
+> * Create the application gateway
+> * Test the application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,6 +39,7 @@ This tutorial requires that you run Azure PowerShell locally. You must have Azur
 Connect-AzureRmAccount
 Select-AzureRmSubscription -Subscription "<sub name>"
 ```
+
 ## Create a resource group
 Create a resource group in one of the available locations.
 
@@ -49,6 +52,7 @@ New-AzureRmResourceGroup -Name $rg -Location $location
 ```
 
 ## Create a VNet
+
 Create a VNet with one dedicated subnet for an autoscaling application gateway. Currently only one autoscaling application gateway can be deployed in each dedicated subnet.
 
 ```azurepowershell
@@ -79,7 +83,9 @@ $publicip = Get-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
 $vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
+
 ## Configure infrastructure
+
 Configure the IP config, frontend IP config, backend pool, http settings, certificate, port, listener, and rule in identical format to existing Standard Application Gateway. The new SKU follows the same object model as the Standard SKU.
 
 ```azurepowershell
@@ -110,12 +116,13 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 
 Now you can specify autoscale configuration for the application gateway. Two autoscaling configuration types are supported:
 
-- **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
+* **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
 
    ```azurepowershell
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
-- **Autoscaling mode**. In this mode, the application gateway autoscales based on the application traffic pattern.
+
+* **Autoscaling mode**. In this mode, the application gateway autoscales based on the application traffic pattern.
 
    ```azurepowershell
    $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
@@ -124,7 +131,7 @@ Now you can specify autoscale configuration for the application gateway. Two aut
 
 ## Create application gateway
 
-Create Application Gateway and include redundancy zones. 
+Create Application Gateway and include redundancy zones and the autoscale configuration.
 
 ```azurepowershell
 $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
@@ -142,6 +149,7 @@ Use Get-AzureRmPublicIPAddress to get the public IP address of the application g
 `Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## Clean up resources
+
 First explore the resources that were created with the application gateway, and then when no longer needed, you can use the `Remove-AzureRmResourceGroup` command to remove the resource group, application gateway, and all related resources.
 
 `Remove-AzureRmResourceGroup -Name $rg`
