@@ -9,9 +9,15 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Connect to Windows Virtual Desktop (Preview)
+# Tutorial: Connect to Windows Virtual Desktop
 
-You can connect to a Windows Virtual Desktop deployment using old Windows clients.
+You can connect to a Windows Virtual Desktop deployment with the Remote Desktop Windows client.
+
+In this tutorial, learn how to:
+
+> [!div class="checklist"]
+> * Deploy the Windows Virtual Desktop client to your local PC.
+> * Subscribe to a feed provided by your admin.
 
 ## Windows client
 
@@ -35,14 +41,10 @@ Follow these steps to deploy the client to your local PC.
 
 From the local PC, get the list of resources available to you by subscribing to the feed provided by your admin. Once you have the list, follow these steps:
 
-1. Start the Remote Desktop client by running **RDClient.exe** from the folder you created above.
+1. Start the Remote Desktop client by running **RDClient.exe** from the folder you created in the previous section.
 2. Select **Add subscription**.
 3. Enter the URL provided by your admin.
-
-    >[!NOTE]
-    >If your admin has set up email discovery, just enter your email address and the client will automatically look up your feed URL.
+        If your admin has set up email discovery, just enter your email address and the client will automatically look up your feed URL.
 4. Sign in with your user account.
 5. Confirm that the feed items show up properly on the main page.
-
->[!TIP]
->Ask your admin which resources you should be seeing.
+6. Confirm with your admin that you're seeing all the correct resources.
