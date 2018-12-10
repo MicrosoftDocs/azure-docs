@@ -23,11 +23,11 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/media/common/i_portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Generate a template by using the Azure portal
       href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal
     - image: 
-        src: https://docs.microsoft.com/azure/media/logos/logo_vs-code.svg
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
       text: Create a template by using Visual Studio Code
       href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code
     - image: 
