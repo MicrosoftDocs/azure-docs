@@ -60,7 +60,7 @@ After you create an action group, it's visible in the **Action groups** section 
 * Delete the action group.
 
 ## Action specific information
-**Azure app Push** - You may have up to 10 Azure app actions in an Action Group. At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+**Azure app Push** - You may have up to 10 Azure app actions in an Action Group. At this time the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **Email** - Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
    - azure-noreply@microsoft.com
@@ -106,4 +106,4 @@ To receive updates about changes to these IP addresses we recommend you configur
 * Learn more about [ITSM Connector](../azure-monitor/platform/itsmc-overview.md)
 * Learn more about [rate limiting](monitoring-alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
-* Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+* Learn how to [configure alerts whenever a service health notification is posted](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
