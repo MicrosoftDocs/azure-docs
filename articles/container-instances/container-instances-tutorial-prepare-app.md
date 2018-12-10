@@ -8,7 +8,7 @@ ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: seodec18,mvc
+ms.custom: "seodec18, mvc"
 ---
 
 # Tutorial: Create a container image for deployment to Azure Container Instances
