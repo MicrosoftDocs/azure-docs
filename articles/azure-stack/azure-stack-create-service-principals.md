@@ -70,6 +70,8 @@ If you have deployed Azure Stack with AD FS, you can use PowerShell to create a 
 
 The script is run from the privileged endpoint on an ERCS virtual machine.
 
+### Create a service principal using a certificate
+
 Requirements:
 - A certificate is required.
 
@@ -154,6 +156,52 @@ The following information is required as input for the automation parameters:
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
+
+### Create a service principal using a client secret
+
+#### Parameters
+
+The following information is required as input for the automation parameters:
+
+| Parameter | Description | Example |
+|----------------------|--------------------------|---------|
+| Name | Name for the SPN account | MyAPP |
+| GenerateClientSecret | Create secret |  |
+
+#### Example
+
+1. Open an elevated Windows PowerShell session, and run the following cmdlets:
+
+     > [!Note]  
+     > This example creates a self-signed certificate. When you run these commands in a production deployment, use **Get-Item** to retrieve the certificate object for the certificate you want to use.
+
+     ```PowerShell  
+      # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     $creds = Get-Credential
+
+     # Creating a PSSession to the ERCS PrivilegedEndpoint
+     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+     # Creating a SPN with a secre
+     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -GenerateClientSecret}
+     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+     $session|remove-pssession
+
+     # Output the SPN details
+     $ServicePrincipal
+     ```
+
+2. After the automation finishes, it displays the required details to use the SPN. Make sure you store the client secret.
+
+     ```PowerShell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : 6RUZLRoBw3EebMDgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : 192.168.200.224
+     RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
+     ```
 
 ### Assign a role
 Once the Service Principal is created, you must [assign it to a role](#assign-role-to-service-principal).
