@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
 
 ---
@@ -43,9 +43,9 @@ The error message should give you suggestions for the supported locations and AP
 
 You receive these errors for one of three reasons:
 
-1. The resource provider hasn't been registered for your subscription
-1. API version not supported for the resource type
-1. Location not supported for the resource type
+* The resource provider hasn't been registered for your subscription
+* API version not supported for the resource type
+* Location not supported for the resource type
 
 ## Solution 1 - PowerShell
 
