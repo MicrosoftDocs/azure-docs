@@ -106,10 +106,10 @@ After determining your target cluster VM size, scale, and type, check the curren
 1. Click on **Help and Support** on the bottom-left side of the page.
 1. Click on **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
-    - **Issue type**: **Service and subscription limits (quotas)**, 
+    - **Issue type**: **Service and subscription limits (quotas)**
     - **Subscription**: the subscription you want to modify
     - **Quota type**: **HDInsight**
-
+    
     ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Click **Next**.
