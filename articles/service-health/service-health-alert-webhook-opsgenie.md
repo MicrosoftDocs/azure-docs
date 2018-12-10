@@ -44,7 +44,7 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 
 ## Create an alert using OpsGenie in the Azure portal
 ### For a new action group:
-1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. Define in the list of **Actions**:
 

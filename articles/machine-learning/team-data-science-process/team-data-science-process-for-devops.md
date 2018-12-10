@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process for DevOps | Microsoft Docs
+title: Team Data Science Process for DevOps
 description: Developer Operations (DevOps) functions that are specific to an Advanced Analytics and Cognitive Services solution implementation.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # Team Data Science Process for Developer Operations

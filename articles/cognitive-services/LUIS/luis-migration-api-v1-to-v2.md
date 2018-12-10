@@ -13,7 +13,7 @@ ms.date: 12/07/2018
 ms.author: diberry
 ---
 
-# API v2 Migration guide
+# API v1 to v2 Migration guide for LUIS apps
 The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
 ## New Azure regions

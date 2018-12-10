@@ -31,6 +31,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 ```
 
 The `az mysql server replica create` command requires the following parameters:
+
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |
@@ -52,6 +53,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 ```
 
 The `az mysql server replica stop` command requires the following parameters:
+
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the replica server exists.  |
@@ -85,6 +87,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ```
 
 The `az mysql server replica list` command requires the following parameters:
+
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |

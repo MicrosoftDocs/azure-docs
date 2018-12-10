@@ -5,29 +5,29 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/08/2018
 ms.author: raynew
 ---
 
 
 # Best practices for securing and managing workloads migrated to Azure
 
-As you plan and design for migration, in addition to thinking about the migration itself, you need to plan for your security and management model in Azure after migration. This article describes planning and best practices for securing your Azure deployment after migrating, and for ongoing tasks to keep your deployment running at any optimal level. 
+As you plan and design for migration, in addition to thinking about the migration itself, you need to consider your security and management model in Azure after migration. This article describes planning and best practices for securing your Azure deployment after migrating, and for ongoing tasks to keep your deployment running at an optimal level. 
 
 > [!IMPORTANT]
-> The best practices and opinions described in this article are based on the Azure platform and service features vailable at the time of writing. Features and capabilities change over time.
+> The best practices and opinions described in this article are based on the Azure platform and service features available at the time of writing. Features and capabilities change over time.
 
 ## Secure migrated workloads
 
-After migration, the most critical task is to secure migrated workloads from internal and external threats. Best practices include:
+After migration, the most critical task is to secure migrated workloads from internal and external threats. These best practices help you to do that:
 
-- Work with Azure Security Center: Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
-- **Encrypt your data**: Get best practices for encrypting your data in Azure.
-- **Set up antimalware**: Protect your VMs from malware and malicious attacks.
-- **Secure web apps**: Keep sensitive information secure in migrated web apps.
-- **Review subscriptions**: Verify who can access your Azure subscriptions and resources after migration.
-- **Work with logs**: Review your Azure auditing and security logs on a regular basis.
-- **Advanced security features**: Understand and evaluate other security features that Azure offers.
+- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
+- [Encrypt your data](#best-practice-encrypt-data): Get best practices for encrypting your data in Azure.
+- [Set up antimalware](#best-practice-protect-vms-with-antimalware): Protect your VMs from malware and malicious attacks.
+- [Secure web apps](#best-practice-secure-web-apps): Keep sensitive information secure in migrated web apps.
+- [Review subscriptions](#best-practice-review-subscriptions-and-resource-permissions): Verify who can access your Azure subscriptions and resources after migration.
+- [Work with logs](#best-practice-review-audit-and-security-logs): Review your Azure auditing and security logs on a regular basis.
+- [Review other security features](#best-practice-evaluate-other-security-features): Understand and evaluate advanced security features that Azure offers.
 
 ## Best practice: Follow Azure Security Center recommendations
 
@@ -43,18 +43,14 @@ In addition to assessments and recommendations, the Security Center provides a n
 - **Just In Time (JIT) access**: Reduce your network attack surface with just in time, controlled access to management ports on Azure VMs.
     - Having VM RDP port 3389 open on the internet exposes VMs to continual bad actor activity. Azure IP addresses are well-known, and hackers continually probe them for attacks on open 3389 ports. 
     - Just in time uses network security groups (NSGs) and incoming rules that limit the amount of time that a specific port is open.
-    - With just in time enabled. Security Center checks that a user has role-based access control (RBAC) write access permissions for a VM. In addition, specify rules for how users can connect to VMs. If permissions are OK, an access request is approved and Security Center configures NSGs to allow inbound traffic to the selected ports for the amount of time you specify. NSGs are return to their previous state when the time expires.
-- **Adaptive application controls**: Keep software and malware off VMs by control which apps run on them.
-    - with dynamic app whitelisting.
+    - With just in time enabled, Security Center checks that a user has role-based access control (RBAC) write access permissions for a VM. In addition, specify rules for how users can connect to VMs. If permissions are OK, an access request is approved and Security Center configures NSGs to allow inbound traffic to the selected ports for the amount of time you specify. NSGs are return to their previous state when the time expires.
+- **Adaptive application controls**: Keep software and malware off VMs by controlling which apps run on them using dynamic app whitelisting.
     - Adaptive application controls allow you to white list apps, and prevent rogue users or administrators from installing unapproved or vetting software apps on your VMs.
     - You can block or alert attempts to run malicious apps, avoid unwanted or malicious apps, and ensure compliance with your organization's app security policy.
 - **File Integrity Monitoring**: Ensure the integrity of files running on VMs.
     - You don’t need to install software to cause VM issues.  Changing a system file can also cause VM failure or performance degradation.  File integrity Monitoring examines system files and registry settings for changes, and notifies you if something is updated.
     - Security Center recommends which files you should monitor.
-Read more about Best Practice:
-•	Manage virtual machine access using just in time
-•	Adaptive application controls in Azure Security Center
-•	File Integrity Monitoring in Azure Security Center
+
 
 **Learn more:**
 
@@ -172,7 +168,7 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 
 Azure Active Directory (AD) provides activity logs that appear in Azure Monitor. The logs capture the operations performed in Azure tenancy, when they occurred, and who performed them. 
 
-- Audit logs show the history of tasks in the tenant. Sign-ins activity logs show who carried out the tasks. 
+- Audit logs show the history of tasks in the tenant. Sign-in activity logs show who carried out the tasks. 
 - Access to security reports depends on your Azure AD license. In Free and Basic you get a list of risky users and sign-ins. In Premium 1 and Premium 2 editions you get underlying event information.
 - You can route activity logs to a number of endpoints for long-term retention and data insights.
 - Make it a common practice to review the logs or integrate your security information and event management (SIEM) tools to automatically review abnormalities.  If you're not using Premium 1 or 2, you'll need to do a lot of analysis yourself or using your SIEM system.  Analysis includes looking for risky sign-ins and events, and other user attack patterns.
@@ -201,15 +197,15 @@ Azure provides a number of other security features that provide advanced securit
 
 In this section we'll recommend some best practices for Azure management, including:
 
-- **Manage resources**: Best practices for Azure resource groups and resources, including smart naming, preventing accidental deletion, managing resource permissions, and effective resource tagging.
-- **Use blueprints**: Get a quick overview on using blueprints for building and managing your deployment environments.
-- **Review architectures**: Review sample Azure architectures to learn from as you build your post-migration deployments.
-- **Set up management groups**: If you have multiple subscriptions, you can gather them into management groups, and apply governance settings to those groups.
-- **Set up access policies**: Apply compliance policies to your Azure resources.
-- **Implement a BCDR strategy**: Put together a business continuity and disaster recovery (BCDR) strategy to keep data safe, your environment resilient, and resources up and running when outages occur.
-- **Manage VMs**: Group VMs into availability groups for resilience and high availability. Use managed disks for ease of VM disk and storage management.
-- **Monitor resource usage**: Enable diagnostic logging for Azure resources, build alerts and playbooks for proactive troubleshooting, and use the Azure dashboard for a unified view of your deployment health and status.
-- **Manage support and updates**: Understand your Azure support plan and how to implement it, get best practices for keeping VMs up-to-date, and put processes in place for change management.
+- [Manage resources](#best-practice-name-resource-groups): Best practices for Azure resource groups and resources, including smart naming, preventing accidental deletion, managing resource permissions, and effective resource tagging.
+- [Use blueprints](#best-practice-implement-blueprints): Get a quick overview on using blueprints for building and managing your deployment environments.
+- [Review architectures](#best-practice-review-azure-reference-architectures): Review sample Azure architectures to learn from as you build your post-migration deployments.
+- [Set up management groups](#best-practice-manage-resources-with-management-groups): If you have multiple subscriptions, you can gather them into management groups, and apply governance settings to those groups.
+- [Set up access policies](#best-practice-deploy-azure-policy): Apply compliance policies to your Azure resources.
+- [Implement a BCDR strategy](#best-practice-implement-a-bcdr-strategy): Put together a business continuity and disaster recovery (BCDR) strategy to keep data safe, your environment resilient, and resources up and running when outages occur.
+- [Manage VMs](#best-practice-use-managed-disks-and-availability-sets): Group VMs into availability groups for resilience and high availability. Use managed disks for ease of VM disk and storage management.
+- [Monitor resource usage](#best-practice-monitor-resource-usage-and-performance): Enable diagnostic logging for Azure resources, build alerts and playbooks for proactive troubleshooting, and use the Azure dashboard for a unified view of your deployment health and status.
+- [Manage support and updates](#best-practice-manage-updates): Understand your Azure support plan and how to implement it, get best practices for keeping VMs up-to-date, and put processes in place for change management.
 
 
 ## Best practice: Name resource groups
@@ -224,7 +220,7 @@ Ensuring that your resource groups have meaningful names that admins and support
 
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) naming conventions
+- [Learn about](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) naming conventions
 
 ## Best practice: Implement delete locks for resource groups
 
@@ -282,16 +278,16 @@ Just as blueprint allows engineers and architects to sketch a project's design p
 - [Read](https://docs.microsoft.com/azure/governance/blueprints/overview) about blueprints.
 - [Review](https://azure.microsoft.com/blog/customizing-azure-blueprints-to-accelerate-ai-in-healthcare/) a blueprint example used to accelerate AI in healthcare.
 
-## Best practice - Review Azure reference architectures
+## Best practice: Review Azure reference architectures
 
 Building secure, scalable, and manageable workloads in Azure can be daunting.  With continual changes, it can be difficult to keep up with different features for an optimal environment. Having a reference to learn from can be helpful when designing and migrating your workloads.  Azure and Azure partners have built several sample reference architectures for various types of environments. These samples are designed to provide ideas that you can learn from and build on. 
 
 Reference architectures are arranged by scenario. They contain recommend practices, and advice on management, availability, scalability, and security.
-
+The Azure App Service Environment provides a fully isolated and dedicated environment in which to run App Service apps, including Windows and Linux web apps, Docker containers, mobile apps, and functions. App Service adds the power of Azure to your application, with security, load balancing, autoscaling, and automated management. You can also take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps and GitHub, package management, staging environments, custom domain, and SSL certificates. App Service is useful for apps that need isolation and secure network access, and those that use high amounts of memory and other resources that need to scale.
 **Learn more:**
 
-[Learn about](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure reference architectures.
-[Review](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure example scenarios.
+- [Learn about](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure reference architectures.
+- [Review](https://docs.microsoft.com/azure/architecture/example-scenario/) Azure example scenarios.
 
 ## Best practice: Manage resources with Management Groups
 
@@ -331,62 +327,50 @@ Azure Policy is a service in Azure that you use to create, assign and, manage po
 
 ## Best practice: Implement a BCDR strategy
 
-Planning for business continuity and disaster recovery (BCDR), is a critical exercise that must be completed during planning for migration to Azure. In legal terms, your contract includes a force majeure clause that excuse obligations due to a greater force such as hurricanes or earthquakes. However, you also have obligations around an ability to ensure that services will continue to run, and recover where necessary, when disaster strike. Your ability to do this can make or break your company's future.
+Planning for business continuity and disaster recovery (BCDR), is a critical exercise that you should complete during planning for migration to Azure. In legal terms, your contract includes a force majeure clause that excuse obligations due to a greater force such as hurricanes or earthquakes. However, you also have obligations around an ability to ensure that services will continue to run, and recover where necessary, when disaster strike. Your ability to do this can make or break your company's future.
 
+Broadly, your BCDR strategy must consider:
+- **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
+- **Disaster recovery**: How to keep your apps resilient and available if outages occur. 
 
-The Azure platform provides a number of resilience features:
+### Azure resiliency features
+The Azure platform provides a number of resiliency features.
 
 - **Region pairing**: Azure pairs regions to provide regional protection within data residency boundaries. Azure ensures physical isolation between region pairs, prioritizes the recovery of one region in the pair in case of a broad outage, deploys system updates separately in each region, and allows features such as Azure geo-redundant storage to replicate across the regional pairs.
 - **Availability zones**: Availability zones protect against failure of an entire Azure datacenter by establishing physical separate zones with an Azure region. Each zone has a distinctive power source, network infrastructure, and cooling mechanism.
 - **Availability sets**: Availability sets protect against failures within a datacenter. You group VMs in availability sets to keep them highly available. Within each availability set, Azure implements multiple fault domains that group together underlying hardware with a common power source and network switch, and update domains that group together underlying hardware that can undergo maintenance, or be rebooted, at the same time. As an example, when a workload is spread across Azure VMs, you can put two or more VMs for each app tier into a set. For example, you can place frontend VMs in one set, and data tier VMs in another. Since only one update domain is every rebooted at a time in a set, and Azure ensures that VMs in a set are spread across fault domains, you ensure that not all VMs in a set will fail at the same time.
 
+### Set up BCDR
 
-When migrating to Azure, it's important to understand that although the Azure platform provides these inbuilt capabilities and other BCDR services, you need to design your Azure deployment to take advantage of Azure resilience, high availability, disaster recovery, and backup services and features.
-- Your BCDR solutions will depend your company objectives, and will be influenced by your Azure deployment. Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) deployments present different challenges for BCDR.
+When migrating to Azure, it's important to understand that although the Azure platform provides these inbuilt resiliency capabilities, you need to design your Azure deployment to take advantage of Azure features and services that provide high availability, disaster recovery, and backup.
+
+- Your BCDR solution will depend your company objectives, and influenced by your Azure deployment strategy. Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) deployments present different challenges for BCDR.
 - Once in place, your BCDR solutions should be tested regularly to check that your strategy remains viable.
 
 
-## Best practice: Back up your deployment
+## Best practice: Back up your data
 
-In most cases an on-premises workload is retired after migration, and your on-premises strategy for backing up data must be extended or replaced. If you migrate your entire datacenter to Azure, you'll need to design and implement a full backup solution using Azure technologies, or third-party integrated solutions. Your selected backup solution will be different, depending on your Azure deployment. 
+In most cases an on-premises workload is retired after migration, and your on-premises strategy for backing up data must be extended or replaced. If you migrate your entire datacenter to Azure, you'll need to design and implement a full backup solution using Azure technologies, or third-party integrated solutions. 
 
 
 ### Back up an IaaS deployment
 
-
-For workloads running on Azure IaaS VMs you should consider using the following backup solutions:
+For workloads running on Azure IaaS VMs, consider these backup solutions:
 
 - **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
 - **Storage snapshots**: Take snapshots of blob storage.
 
 #### Azure Backup
 
-
 Azure Backup backs up creates data recovery points that are stored in Azure storage. Azure Backup can back up Azure VM disks, and Azure Files (preview). Azure Files provide file shares in the cloud, accessible via SMB.
    
 You can use Azure Backup to back up VMs in a couple of ways.
 
-- **Direct backup from VM settings**:
-    - Azure Backup is integrated into VM options in the Azure portal.
-    - You can back up the VM once a day, and restore the VM disk. 
-    - Azure Backup takes app-aware data snapshots (VSS).
-    - No agent is installed on the VM.
-- **Direct backup in a Recovery Services vault**:
-    - You deploy an Azure Backup Recovery Services vault, and select VMs for backup.
-    - This method provides a single location to track and manage backups, and additional backup and restore options. 
-    - Azure Backup installs the Microsoft Azure Recovery Services (MARS) agent on the VM.
-    - Backup is up to three times a day.
-    - Backup is at the file or folder level, and isn't app-aware. Linux isn't supported.
-- **Azure Backup Server: Protect the VM to Azure Backup Server**:
-   - Azure Backup Server is provided free with Azure Backup.
-   - The VM is backed up to local Azure Backup Storage.
-   - You then back up the Azure Backup Server to Azure in a Recovery Services vault.
-   - Backup is app-aware, with full granularity over backup frequently and retention
-   - You can back up at the app level. For example by backing up SQL Server or SharePoint.
+- **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), no agent is installed on the VM.
+- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to isntall the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
+- **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequently and retention. You can back up at the app level. For example by backing up SQL Server or SharePoint.
 
-Azure Backup automatically allocates and manages storage using a pay-as-you-go model for the storage you consume.
-- Storage can be assigned as LRS or GRS.
-- Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
+For security, Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
 
 
 ![Azure Backup](./media/migrate-best-practices-security-management/iaas-backup.png)
@@ -408,9 +392,9 @@ Azure VMs are stored as page blobs in Azure Storage.
 
 **Learn more:**
 
-- [Learn about](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction Azure blob storage.
+- [Learn about](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) Azure blob storage.
 - [Learn how to](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) create a blob snapshot.
-- Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup/) for blob storage backup.
+- [Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) for blob storage backup.
 - [Read about](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) soft delete.
 - [Review](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) What to do if an Azure Storage outage occurs?
 
@@ -452,7 +436,7 @@ Since Azure Functions functions more or less as code, you should back them up us
 
 - [Data protection](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) for Azure DevOps.
 
-## Best practice: Set up a disaster recovery strategy
+## Best practice: Set up disaster recovery 
 
 In addition to protecting data, BCDR  planning must consider how to keep apps and workloads available in case of disaster. 
 
@@ -552,7 +536,7 @@ If the compute infrastructure in Azure fails, an Azure function app might become
 - [Learn about](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) disaster recovery and geo-distribution for durable Azure functions.
 
 
-### Best practice: Use managed disks and availability sets
+## Best practice: Use managed disks and availability sets
 
 Azure uses availability sets to logically group VMs together, and to isolate VMs in a set from other resources. VMs in an availability set are spread across multiple fault domains with separate subsystems, to protect against local failures, and are also spread across multiple update domains so that not all VMs in a set reboot at the same time.
 
@@ -661,7 +645,7 @@ At some point you will need to collaborate with your support staff or Microsoft 
 - [Get an overview](https://azure.microsoft.com/support/options/) of Azure support plans.
 - [Learn about](https://azure.microsoft.com/support/legal/sla/) service level agreements (SLAs).
 
-## Best practice - Manage updates
+## Best practice: Manage updates
 
 Keeping Azure VMs updated with the latest operating system and software updates is a massive chore. The ability to surface all VMs, to figure out which updates they need, and to automatically push those updates is extremely valuable.
 

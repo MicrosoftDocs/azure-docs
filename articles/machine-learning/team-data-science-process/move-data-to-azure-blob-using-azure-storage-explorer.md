@@ -1,5 +1,5 @@
 ---
-title: Move Data to and from Blob Storage with Azure Storage Explorer | Microsoft Docs
+title: Move Blob storage data with Azure Storage Explorer - Team Data Science Process
 description: Move Data to and from Azure Blob Storage using Azure Storage Explorer
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to and from Azure Blob Storage using Azure Storage Explorer
 Azure Storage Explorer is a free tool from Microsoft that allows you to work with Azure Storage data on Windows, macOS, and Linux. This topic describes how to use it to upload and download data from Azure blob storage. The tool can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
