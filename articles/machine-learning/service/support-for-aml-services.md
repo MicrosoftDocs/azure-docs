@@ -1,5 +1,5 @@
 ---
-title: Available support and training
+title: Available support & training
 titleSuffix: Azure Machine Learning service
 description: This article tells you how you can get support and training for Azure Machine Learning service
 services: machine-learning
