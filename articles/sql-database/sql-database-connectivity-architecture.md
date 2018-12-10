@@ -30,7 +30,7 @@ This article explains the Azure SQL Database connectivity architecture and expla
 > - Application connects to an existing server infrequently so our telemetry didn't capture the information about those applications 
 > - Automated deployment logic creates a logical server assuming that the default behavior for service endpoint connections is `Proxy` 
 >
-> If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, we recommended that you open ports 11000-12000 on VM firewall and NSG rules to enable uninterrupted traffic flow. If this is not an option for you, switch server explicitly to `Proxy`.
+> If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open ports 11000-12000 as well as IP ranges to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags) on both VM firewall and NSG rules to enable uninterrupted traffic flow. If this is not an option for you, switch server explicitly to `Proxy`.
 
 ## Connectivity architecture
 
