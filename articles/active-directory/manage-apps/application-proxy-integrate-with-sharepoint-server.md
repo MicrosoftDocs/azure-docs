@@ -139,9 +139,9 @@ Next step is to extend SharePoint web application to a new zone, configured with
 
   ```powershell
   # Replace "http://spsites/" with the URL of your web application
-  # Replace "https://sharepoint-iddemo.msappproxy.net" with the External URL in your Azure AD proxy application
+  # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
   $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
-  Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-iddemo.msappproxy.net" -AuthenticationProvider $winAp
+  Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
   ```
 
 3. Open the **SharePoint Central Administration** site.
