@@ -74,6 +74,7 @@ To use the .NET Azure SDK with Azure Stack, you must supply the following values
 | Subscription ID           | AZURE_SUBSCRIPTION_ID | The [*subscription ID*][] is how you access offers in Azure Stack.                                                      |
 | Client Secret             | AZURE_CLIENT_SECRET   | The service principal application secret saved when the service principal was created.                                      |
 | Resource Manager Endpoint | ARM_ENDPOINT           | See [*the Azure Stack resource manager endpoint*][].                                                                    |
+| Location                  | RESOURCE_LOCATION     | Local for Azure Stack.
 
 To find the Tenant ID for your Azure Stack, follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
 
@@ -133,148 +134,63 @@ For more information about Azure Stack and API profiles, see a [Summary of API p
 
 ## Azure .NET SDK API Profile usage
 
-The following code should be used to instantiate a profile client. This parameter is only required for Azure Stack or other private clouds. Global Azure already has these settings by default.
-
-The following code is needed to authenticate the service principal on Azure Stack. It creates a token by the tenant ID and the authentication base, which is specific to Azure Stack.
+The following code should be used to instantiate a resource management client. Similar code can be used to instantiate other resource provider (i.e., compute, network, storage, etc.) clients. 
 
 ```csharp
-public class CustomLoginCredentials : ServiceClientCredentials
+var client = new ResourceManagementClient(armEndpoint, credentials)
 {
-    private string clientId;
-    private string clientSecret;
-    private string resourceId;
-    private string tenantId;
-
-    private const string authenticationBase = "https://login.windows.net/{0}";
-
-    public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-    {
-        clientId = servicePrincipalId;
-        clientSecret = servicePrincipalSecret;
-        resourceId = azureEnvironmentResourceId;
-        tenantId = azureEnvironmentTenandId;
-    }
+    SubscriptionId = subscriptionId
+};
 ```
 
-This will enable you to use the API Profile NuGet packages to deploy your application successfully to Azure Stack.
-
-## Define Azure Stack environment setting functions
-
-To authenticate the service principal to the Azure Stack environment, please use the following code:
+The `credentials` parameter in the above code is required to instantiate a client. The following code generates an authentication token by the tenant ID and the service principal.
 
 ```csharp
-private string AuthenticationToken { get; set; }
-public override void InitializeServiceClient<T>(ServiceClient<T> client)
+var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
+var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
+```
+The `getActiveDirectoryServiceSettings` call in the code retreives Azure Stack endpoints from the metadata endpoint. It states the envrionment variables from the call that is made: 
+
+```csharp
+public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
 {
-    var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-    var credential = new ClientCredential(clientId, clientSecret);
-    var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-    clientCredential: credential).Result;
-    if (result == null)
+    var settings = new ActiveDirectoryServiceSettings();
+    try
     {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
+        var request = (HttpWebRequest)HttpWebRequest.Create(string.Format("{0}/metadata/endpoints?api-version=1.0", armEndpoint));
+        request.Method = "GET";
+        request.UserAgent = ComponentName;
+        request.Accept = "application/xml";
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        {
+            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            {
+                var rawResponse = sr.ReadToEnd();
+                var deserialized = JObject.Parse(rawResponse);
+                var authenticationObj = deserialized.GetValue("authentication").Value<JObject>();
+                var loginEndpoint = authenticationObj.GetValue("loginEndpoint").Value<string>();
+                var audiencesObj = authenticationObj.GetValue("audiences").Value<JArray>();
+                settings.AuthenticationEndpoint = new Uri(loginEndpoint);
+                settings.TokenAudience = new Uri(audiencesObj[0].Value<string>());
+                settings.ValidateAuthority = loginEndpoint.TrimEnd('/').EndsWith("/adfs", StringComparison.OrdinalIgnoreCase) ? false : true;
+            }
+        }
     }
-    AuthenticationToken = result.AccessToken;
+    catch (Exception ex)
+    {
+        Console.WriteLine(String.Format("Could not get AD service settings. Exception: {0}", ex.Message));
+    }
+    return settings;
 }
 ```
-
-This overrides the initialize service client to authenticate to Azure Stack.
+This will enable you to use the API Profile NuGet packages to deploy your application successfully to Azure Stack.
 
 ## Samples using API Profiles
 
 You can use the following samples found in GitHub repositories as a reference for creating solutions with .NET and Azure Stack API profiles.
-
--   [Test Project to Virtual Machine, vNet, resource groups, and storage account][]
--   Manage virtual machines using .NET
-
-### Sample Unit Test Project 
-
-1.  Clone the repository using the following command:
-
-    ```shell
-    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
-    ```
-
-2.  Create an Azure service principal and assign a role to access the subscription. For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate][].
-
-3.  Retrieve the following required values:
-
-    1.  Tenant ID
-    2.  Client ID
-    3.  Client Secret
-    4.  Subscription ID
-    5.  Resource Manager endpoint
-
-4.  Set the following environment variables using the information you retrieved from the service principal you created using the command prompt:
-
-    1.  export AZURE_TENANT_ID={your tenant id}
-    2.  export AZURE_CLIENT_ID={your client id}
-    3.  export AZURE_CLIENT_SECRET={your client secret}
-    4.  export AZURE_SUBSCRIPTION_ID={your subscription id}
-    5.  export ARM_ENDPOINT={your Azure Stack Resource manager URL}
-
-   In Windows, use **set** instead of **export**.
-
-5.  Ensure the location variable is set to your Azure Stack location. For example, LOCAL = "local".
-
-6.  Set the custom login credentials that will allow you to authenticate to Azure Stack. Note that this portion of code is included in this sample in the Authorization folder.
-
-   ```csharp
-   public class CustomLoginCredentials : ServiceClientCredentials
-   {
-       private string clientId;
-       private string clientSecret;
-       private string resourceId;
-       private string tenantId;
-       private const string authenticationBase = "https://login.windows.net/{0}";
-       public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-       {
-           clientId = servicePrincipalId;
-           clientSecret = servicePrincipalSecret;
-           resourceId = azureEnvironmentResourceId;
-           tenantId = azureEnvironmentTenandId;
-       }
-   private string AuthenticationToken { get; set; }
-   ```
-
-7.  Add the following code if you are using Azure Stack to override the initialize service client to authenticate to Azure Stack. Note that a portion of the code is already included in this sample in the Authorization folder.
-
-   ```csharp
-   public override void InitializeServiceClient<T>(ServiceClient<T> client)
-   {
-      var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-      var credential = new ClientCredential(clientId, clientSecret);
-      var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-                clientCredential: credential).Result;
-      if (result == null)
-      {
-          throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-      AuthenticationToken = result.AccessToken;
-   }
-   ```
- 
-8.  Using the NuGet Package Manager, search for "2018-03-01-hybrid" and install the packages associated with this profile for the Compute, Networking, Storage, KeyVault and App Services resource providers.
-
-2.  Inside of each task in the .cs file, set the parameters that are required to work with Azure Stack. An example is shown as follows for the Task `CreateResourceGroupTest`:
-
-   ```csharp
-   var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
-   var baseUriString = Environment.GetEnvironmentVariable("AZURE_BASE_URL");
-   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCEGROUP");
-   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET");
-   var azureResourceId = Environment.GetEnvironmentVariable("AZURE_RESOURCE_ID");
-   var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-   var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-   var credentials = new CustomLoginCredentials(servicePrincipalId, servicePrincipalSecret, azureResourceId, tenantId);
-   ```
-
-1.  Right click on each task and select **Run test**.
-
-    1.  The green checkmarks on the side pane window alert you that each task was created successfully based on the parameters given. Please check your Azure Stack subscription to ensure the resources were created successfully.
-
-    2.  For more information about how to run unit tests, see [Run unit tests with Test Explorer.][]
+- [Manage Resource Groups](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
+- [Manage Storage Accounts](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
+- [Manage a Virtual Machine](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
 
 ## Next steps
 
