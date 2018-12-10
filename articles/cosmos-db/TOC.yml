@@ -114,7 +114,7 @@
       - name: Working with databases, containers, and items
         href: databases-containers-items.md
       - name: SQL language reference 
-        href: sql-api-sql-query-reference.md
+        href: sql-api-query-reference.md
       - name: SQL query examples
         href: how-to-sql-query.md
       - name: Indexing
@@ -249,7 +249,7 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-sql-query-metrics.md
+          href: sql-api-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
         - name: Data types

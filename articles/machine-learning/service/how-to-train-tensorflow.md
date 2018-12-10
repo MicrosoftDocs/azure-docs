@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ---
 
-# How to train TensorFlow models with Azure Machine Learning service
+# Train TensorFlow models with Azure Machine Learning service
 
 For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's `TensorFlow` estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
 

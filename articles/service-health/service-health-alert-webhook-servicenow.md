@@ -150,7 +150,7 @@ This article shows you how to integrate Azure service health alerts with Service
 
 ## Create an alert using ServiceNow in the Azure portal
 ### For a new action group:
-1. Follow steps 1 through 8 in [this article](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) to create an alert with a new action group.
+1. Follow steps 1 through 8 in [this article](../azure-monitor/platform/alerts-activity-log-service-notifications.md) to create an alert with a new action group.
 
 1. Define in the list of **Actions**:
 

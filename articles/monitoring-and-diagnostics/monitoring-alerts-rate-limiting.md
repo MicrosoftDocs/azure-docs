@@ -29,4 +29,4 @@ The rate limit thresholds are:
 ## Next steps ##
 * Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).
 * Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
-* Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).
+* Learn how to [configure alerts whenever a service health notification is posted](../azure-monitor/platform/alerts-activity-log-service-notifications.md).

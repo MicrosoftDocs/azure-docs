@@ -1,10 +1,11 @@
 ---
 title: Configure containers
-titlesuffix: Face - Cognitive Services - Azure
+titlesuffix: Face - Azure Cognitive Services
 description: Configuration settings for containers.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
