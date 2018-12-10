@@ -27,33 +27,19 @@ The application is based on the Microsoft Cognitive Services Speech SDK ([Downlo
 
 ## Create a new project folder
 
-Create a new, empty folder and run the following command
+Create a new, empty folder and initialize it as a new Javascript and Node.js project.
 
 ```nodejs
-npm init
+npm init -f
 ```
 
-This will initialize `package.json` with the information you provide. For this quickstart, simply leave the default values:
-
-```json
-{
-  "name": "quickstart",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "author",
-  "license": "MIT"
-}
-```
+This will init the package.json files with default values. You will probably want to edit this file later.
 
 ## Install the Speech SDK for JavaScript into that folder
 
-Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk`.
+Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk` to your Node.js project.
 
-This will download and install the latest version of the Speech SDK and any required prerequisites from npmjs to your folder and install it in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory.
+This will download and install the latest version of the Speech SDK and any required prerequisites from npmjs. The SDK will be installed in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory inside your project folder.
 
 ## Using the Speech SDK
 
@@ -115,7 +101,7 @@ recognizer.recognizeOnceAsync(
 
 ## Running the sample
 
-To launch the app, adapt "YOUR_SUBSCRIPTION", "YOUR_REGION" and "YOUR_WAVE_FILENAME.wav". The you can execute it by calling
+To launch the app, adapt `YOUR_SUBSCRIPTION`, `YOUR_REGION` and `YOUR_WAVE_FILENAME.wav`. The you can execute it by calling
 
 ```nodejs
 node index.js
