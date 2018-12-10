@@ -40,10 +40,8 @@ As a cluster operator, work together with application owners and developers to u
 * [Best practices for pod security](developer-best-practices-pod-security.md)
     * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
 
-**Network and storage**
+**Storage**
 
-* [Best practices for network connectivity](operator-best-practices-network.md)
-    * Includes different network models, using ingress and web application firewalls (WAF), and securing node SSH access.
 * [Best practices for storage and backups](operator-best-practices-storage.md)
     * Includes choosing the appropriate storage type and node size, dynamically provisioning volumes, and data backups.
 
@@ -57,7 +55,7 @@ As a cluster operator, work together with application owners and developers to u
 As a developer or application owner, you can simplify your development experience and define require application performance needs.
 
 * [Best practices for application developers to manage resources](developer-best-practices-resource-management.md)
-    * Includes defining pod resource requests and limits, configuring development tools to work with AKS, and checking for application issues.
+    * Includes defining pod resource requests and limits, configuring development tools, and checking for application issues.
 * [Best practices for pod security](developer-best-practices-pod-security.md)
     * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
 
