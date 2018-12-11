@@ -1,5 +1,5 @@
 ---
-title: Buy a custom domain name for Azure Web Apps
+title: Buy custom domain name in Azure - App Service 
 description: Learn how to buy a custom domain name with a web app in Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Buy a custom domain name for Azure Web Apps
