@@ -109,16 +109,17 @@
 ### [Publish Azure application offer](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
-
+<!-- Legacy Azure App section replaced
 ## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-<!--### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) -->
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
 ### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
 
 <!-- new for SaaS 12/05/2018 -->
 ## [SaaS application offer](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
