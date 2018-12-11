@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
 ms.custom: seodec18
 
 ---
