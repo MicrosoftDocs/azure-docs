@@ -270,4 +270,6 @@ The result of running the command in Cloud Shell shows that three instances now 
 
 ## Next steps
 > [!div class="nextstepaction"] 
+> [Automatically scale virtual machine scale sets in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Deploy applications to virtual machine scale sets in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
 > [Ansible sample playbook for VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
