@@ -1,5 +1,5 @@
 ---
-title: Use an uploaded SSL certificate in your application code in Azure App Service | Microsoft Docs
+title: Use client SSL certificate in application code - Azure App Service | Microsoft Docs
 description: 
 services: app-service\web
 documentationcenter: 
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Use an SSL certificate in your application code in Azure App Service

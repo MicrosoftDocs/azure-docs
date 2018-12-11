@@ -1,5 +1,5 @@
 ---
-title: Run a custom Windows container in Azure (Preview) | Microsoft Docs
+title: Run custom Windows container (Preview) - Azure App Service | Microsoft Docs
 description: Learn how to deploy a custom Windows container into Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,8 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Run a custom Windows container in Azure (Preview)
 
