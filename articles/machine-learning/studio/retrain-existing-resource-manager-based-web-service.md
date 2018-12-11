@@ -1,5 +1,5 @@
 ---
-title: Retrain an existing predictive web service - Azure Machine Learning Studio | Microsoft Docs
+title: Retrain an existing predictive Studio web service - Azure Machine Learning Studio | Microsoft Docs
 description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
