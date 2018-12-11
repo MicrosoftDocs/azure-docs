@@ -45,6 +45,7 @@
     - name: Azure Stack Capacity Planner
       href: capacity-planning-spreadsheet.md
   - name: Datacenter integration
+    href: azure-stack-customer-journey.md
     items:
     - name: General Azure Stack integration considerations
       href: azure-stack-datacenter-integration.md

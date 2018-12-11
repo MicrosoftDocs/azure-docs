@@ -13,7 +13,6 @@ author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
 ---
-
 # Run batch predictions on large data sets with Azure Machine Learning service
 
 In this article, you'll learn how to quickly and efficiently make predictions on large quantities of data asynchronously using Azure Machine Learning service.
