@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - No network peering to ER network
+title: Sample - No network peering to Express Route network
 description: This sample policy prohibits a network peering from being associated to a network in a specified resource group.
 services: azure-policy
 author: DCtheGeek
@@ -8,9 +8,8 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
-# No network peering to ER network
+# No network peering to Express Route network
 
 This policy prohibits a network peering from being associated to a network in a specified resource group. Use to prevent connection with central managed network infrastructure. You specify the name of the resource group to prevent association.
 

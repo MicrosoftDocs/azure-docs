@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Not allowed resource types
+title: Sample - Not allowed resource types
 description: This sample policy prohibits the deployment of specified resource types.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Not allowed resource types
 
