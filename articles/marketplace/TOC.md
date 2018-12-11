@@ -133,12 +133,14 @@
 #### [Contacts tab](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
 ### [Publish offer](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-
+<!-- Legacy SaaS Offer replaced
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Containers offer](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Prerequisites](./cloud-partner-portal/containers/cpp-prerequisites.md)
