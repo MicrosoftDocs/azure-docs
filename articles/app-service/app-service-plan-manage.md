@@ -1,5 +1,5 @@
 ---
-title: Manage App Service plan - Azure App Service | Microsoft Docs
+title: Manage App Service plan - Azure | Microsoft Docs
 description: Learn how to perform different tasks to manage an App Service plan.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 services: app-service
