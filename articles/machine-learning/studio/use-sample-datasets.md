@@ -4,9 +4,9 @@ description: Descriptions of the datasets used in sample models included in Mach
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning

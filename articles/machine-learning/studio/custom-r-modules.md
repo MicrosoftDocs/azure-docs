@@ -6,7 +6,7 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning

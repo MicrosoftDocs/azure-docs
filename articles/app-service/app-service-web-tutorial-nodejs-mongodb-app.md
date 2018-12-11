@@ -1,5 +1,5 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure | Microsoft Docs 
+title: Build Node.js app with MongoDB - Azure App Service | Microsoft Docs 
 description: Learn how to get a Node.js app working in Azure, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,6 +16,8 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Tutorial: Build a Node.js and MongoDB web app in Azure
 
@@ -44,10 +46,10 @@ What you'll learn:
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
-1. [Install Node.js and NPM](https://nodejs.org/)
-1. [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-1. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+2. [Install Node.js and NPM](https://nodejs.org/)
+3. [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+5. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## Test local MongoDB
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Automate container image builds with Azure Container Registry Tasks
-description: In this tutorial, you learn how to configure a task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
+title: Tutorial - Automate container image builds - Azure Container Registry Tasks
+description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
 services: container-registry
 author: dlepow
 
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
 # container image builds automatically when I commit code to a Git repo.
 ---
 
-# Tutorial: Automate container image builds with Azure Container Registry Tasks
+# Tutorial: Automate container image builds in the cloud when you commit source code
 
 In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds with the *build task*. In this tutorial, you use the Azure CLI to create a task that automatically triggers image builds in the cloud when you commit source code to a Git repository.
 

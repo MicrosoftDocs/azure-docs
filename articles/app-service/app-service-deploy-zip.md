@@ -1,5 +1,5 @@
 ---
-title: Deploy your app to Azure App Service with a ZIP or WAR file | Microsoft Docs 
+title: Deploy code with a ZIP or WAR file - Azure App Service | Microsoft Docs 
 description: Learn how to deploy your app to Azure App Service with a ZIP file (or a WAR file for Java developers).
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
+ms.custom: seodec18
 
 ---
 
