@@ -1,5 +1,5 @@
 ---
-title: Migrate an ASP.NET app to Azure App Service using a Windows container (Preview) | Microsoft Docs
+title: Build ASP.NET app with Windows container (Preview) - Azure App Service | Microsoft Docs
 description: Learn how to deploy a custom Windows container into Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,8 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)
 

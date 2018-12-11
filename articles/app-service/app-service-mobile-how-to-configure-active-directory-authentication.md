@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Active Directory authentication for your App Services application
+title: Configure Azure Active Directory authentication - Azure App Service
 description: Learn how to configure Azure Active Directory authentication for your App Services application.
 author: mattchenderson
 services: app-service
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 # Configure your App Service app to use Azure Active Directory login
