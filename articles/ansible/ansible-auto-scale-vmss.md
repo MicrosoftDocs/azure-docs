@@ -1,5 +1,5 @@
 ---
-title: Automatically scale virtual machine scale sets in Azure using Ansible
+title: Automatically scale a virtual machine scale set in Azure using Ansible
 description: Learn how to use Ansible to scale a virtual machine scale set with autoscale in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ---
 
-# Automatically scale virtual machine scale sets in Azure using Ansible
+# Automatically scale a virtual machine scale set in Azure using Ansible
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure, the same as you would manage any other Azure resource. 
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this article, you will create an autoscale setting and associate it to an existing virtual machine scale set. In the autoscale setting, you can configure a rule to scale out or scale in as you want.
 
@@ -29,7 +29,7 @@ If your application demand increases, the load on the VM instances in your scale
 
 You can scale in and scale out in Virtual Machine Scale Sets by a recurring schedule, or by a particular date. 
 
-This section presents a sample Ansible playbook that creates an autoscale setting that increases the number of VM instances to three in a scale set on every Monday on 10:00 in Pacific Time zone. 
+This section presents a sample Ansible playbook that creates an autoscale setting that increases the number of VM instances to three in your scale sets on 10:00 of every Monday,Pacific Time zone. 
 
 ```yaml
 ---
@@ -79,7 +79,7 @@ ansible-playbook vmss-auto-scale.yml
 ## Auto scale based on performance data
 You can scale in and scale out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. 
 
-This section presents a sample Ansible playbook that checks the workload in the past 10 minutes on 18:00 of every Monday, Pacific timezone, and scales out the number of VM instances in your scale sets to four or scales in to one instance based on the CPU percentage metrics. 
+This section presents a sample Ansible playbook that checks the workload in the past 10 minutes on 18:00 of every Monday, Pacific timezone, and scales out the number of VM instances in your scale sets to four or scales in to one instance according to the CPU percentage metrics. 
 
 ```yaml
 ---
@@ -202,6 +202,4 @@ You can disable the autoscale setting by changing `enabled: true` to `enabled: f
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Deploy applications to virtual machine scale sets in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
-> [Ansible sample playbook for virtual machine scale set](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible sample playbook for virtual machine scale sets](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

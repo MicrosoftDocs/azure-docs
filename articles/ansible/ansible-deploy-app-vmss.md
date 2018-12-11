@@ -203,4 +203,4 @@ Congratulation! Your application is running in Azure now. You can now navigate t
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Ansible sample playbook for VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
