@@ -13,11 +13,11 @@ ms.author: rogarana
 
 # How to: Set file and directory level permissions using Azure Storage explorer
 
-Files stored in a storage account that has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels. This article shows how to set file and directory level permissions, using an access control list, through the desktop version of Azure Storage explorer. 
+Files stored in a storage account that has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels. This article shows how to set file and directory level permissions, using an access control list, with the desktop version of Azure Storage explorer.
 
 ## Pre-requisites
 
-In order to best achieve this, we require that you complete our [Azure Storage explorer quickstart](data-lake-storage-explorer.md). This ensures your storage account will be in the most appropriate state (filesystem created and data uploaded to filesystem).
+In order to best depict the process, we require that you complete our [Azure Storage explorer quickstart](data-lake-storage-explorer.md). This ensures your storage account will be in the most appropriate state (filesystem created and data uploaded to filesystem).
 
 ## Managing access
 
@@ -27,7 +27,7 @@ You can set permissions at the root of your filesystem. To do so, right-click yo
 
 The **Manage Access** prompt will allow you to manage permissions for owner and the owners group as well as adding new users to the access control list for whom you can then manage permissions.
 
-In order to add a new user or group to the access control list, select the **Add user or group** box and enter the corresponding AAD entry you wish to add to the list, then select **Add**.
+To add a new user or group to the access control list, select the **Add user or group** box and enter the corresponding AAD entry you wish to add to the list, then select **Add**.
 
 The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
