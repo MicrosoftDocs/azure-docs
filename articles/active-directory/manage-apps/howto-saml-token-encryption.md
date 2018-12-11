@@ -1,5 +1,5 @@
 ---
-title: SAML token encryption in Azure AD
+title: SAML token encryption in Azure Active Directory
 description: Learn how to configure Azure Active Directory SAML token encryption.
 services: active-directory
 documentationcenter: ''
@@ -8,15 +8,14 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.author: celested
 ms.reviewer: paulgarn
-ms.custom: aaddev
 ---
 
 # How to: Configure Azure AD SAML token encryption (Preview)
@@ -136,7 +135,7 @@ You'll need the application's object ID to configure token encryption using Micr
 
 1. Select **All apps** from the dropdown to show all apps, and then select the enterprise application that you want to configure.
 
-1. In the application's page, select **Manifest** to edit the [application manifest](reference-app-manifest.md).
+1. In the application's page, select **Manifest** to edit the [application manifest](../develop/reference-app-manifest.md).
 
 1. Set the value for the `tokenEncryptionKeyId` attribute.
 
@@ -211,5 +210,5 @@ You'll need the application's object ID to configure token encryption using Micr
 
 ## Next steps
 
-* Find out [How Azure AD uses the SAML protocol](active-directory-saml-protocol-reference.md)
-* Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](reference-saml-tokens.md)
+* Find out [How Azure AD uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md)
+* Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md)
