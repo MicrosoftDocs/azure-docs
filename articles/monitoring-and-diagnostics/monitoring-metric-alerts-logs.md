@@ -20,7 +20,7 @@ You can use metric alerts on popular Log Analytics logs extracted as metrics as 
 - [Update management](../automation/automation-update-management.md) records
 - [Event data](../azure-monitor/platform/data-sources-windows-events.md) logs
  
-There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](alert-log.md) in Azure; some of them are listed below:
+There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](../azure-monitor/platform/alerts-log.md) in Azure; some of them are listed below:
 - Metric Alerts offer near-realtime monitoring capability and Metric Alerts for Logs forks data from log source to ensure the same
 - Metric Alerts are stateful - only notifying once when alert is fired and once when alert is resolved; as opposed to Log alerts, which are stateless and keep firing at every interval if the alert condition is met
 - Metric Alerts for Log provide multiple dimensions, allowing filtering to specific values like Computers, OS Type, etc. simpler; without the need for penning query in analytics

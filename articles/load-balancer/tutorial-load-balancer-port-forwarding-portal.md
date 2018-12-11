@@ -1,15 +1,11 @@
 ---
-title: Tutorial:Configure port forwarding in Load Balancer - Azure portal | Microsoft Docs
+title: Tutorial:Configure port forwarding in Load Balancer - Azure portal
+titlesuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create connection to VMs in an Azure virtual network.
 services: load-balancer
 documentationcenter: na
 author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/18
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Configure port fowarding in Load Balancer using the Azure portal

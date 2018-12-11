@@ -14,7 +14,7 @@ As part of the definition of an action group, you can configure webhook endpoint
 
 For more information on activity log alerts, see how to [create Azure activity log alerts](monitoring-activity-log-alerts.md).
 
-For information on action groups, see how to [create action groups](monitoring-action-groups.md).
+For information on action groups, see how to [create action groups](../azure-monitor/platform/action-groups.md).
 
 ## Authenticate the webhook
 The webhook can optionally use token-based authorization for authentication. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.

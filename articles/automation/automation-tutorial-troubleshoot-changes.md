@@ -189,7 +189,7 @@ Under **Alert logic**, for **Threshold**, enter **0**. When you're finished, sel
 
 ![Configure signal logic](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Under **Action Groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Action Groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
 Under **Alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)**, **Warning(Sev 1)**, or **Critical(Sev 0)**.
 
