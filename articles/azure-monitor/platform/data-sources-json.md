@@ -82,7 +82,7 @@ Restart the Log Analytics agent for Linux service with the following command.
 ## Output
 The data will be collected in Azure Monitor logs with a record type of `<FLUENTD_TAG>_CL`.
 
-For example, the custom tag `tag oms.api.tomcat` in Azure Monitor with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log search.
+For example, the custom tag `tag oms.api.tomcat` in Azure Monitor with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log query.
 
 	Type=tomcat_CL
 

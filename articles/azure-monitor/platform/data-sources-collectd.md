@@ -1,5 +1,5 @@
 ---
-title: Collect data from CollectD in Log Analytics | Microsoft Docs
+title: Collect data from CollectD in Azure Monitor | Microsoft Docs
 description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -52,7 +52,7 @@ The CollectD configuration uses the default`write_http` plugin to send performan
 > [!NOTE]
 > This port can be configured to a custom-defined port if needed.
 
-The Log Analytics agent for Linux also listens on port 26000 for CollectD metrics and then converts them to Log Analytics schema metrics. The following is the Log Analytics agent for Linux configuration  `collectd.conf`.
+The Log Analytics agent for Linux also listens on port 26000 for CollectD metrics and then converts them to Azure Monitor schema metrics. The following is the Log Analytics agent for Linux configuration  `collectd.conf`.
 
     <source>
       type http

@@ -59,7 +59,7 @@ IIS log records have a type of **W3CIISLog** and have the properties in the foll
 | TimeGenerated |Date and time the entry was logged. |
 | TimeTaken |Length of time to process the request in milliseconds. |
 
-## Log searches with IIS logs
+## Log queries with IIS logs
 The following table provides different examples of log queries that retrieve IIS log records.
 
 | Query | Description |

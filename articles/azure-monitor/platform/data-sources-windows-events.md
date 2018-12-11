@@ -68,6 +68,6 @@ The following table provides different examples of log queries that retrieve Win
 
 
 ## Next steps
-* Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
+* Configure Azure Monitor to collect other [data sources](agent-data-sources.md) for analysis.
 * Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 * Configure [collection of performance counters](data-sources-performance-counters.md) from your Windows agents.
