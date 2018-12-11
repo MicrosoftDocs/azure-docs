@@ -1,5 +1,5 @@
 ---
-title: Build a Java Enterprise web app in Azure App Service on Linux | Microsoft Docs 
+title: Build Java Enterprise web app on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Java Enterprise app working in Wildfly on Azure App Service on Linux.
 author: JasonFreeberg
 manager: routlaw
@@ -11,6 +11,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
+ms.custom: seodec18
 ---
 
 # Tutorial: Build a Java EE and Postgres web app in Azure
@@ -28,8 +29,8 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 1. [Download and install Git](https://git-scm.com/)
-1. [Download and install Maven 3](https://maven.apache.org/install.html)
-1. [Download and install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Download and install Maven 3](https://maven.apache.org/install.html)
+3. [Download and install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Clone and edit the sample app
 
