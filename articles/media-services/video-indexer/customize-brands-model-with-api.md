@@ -16,7 +16,7 @@ ms.author: anzaman
 
 Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in a video or audio content or if it shows up in visual text in a video, Video Indexer detects it as a brand in the content. A custom Brands model allows you to exclude certain brands from being detected and include brands that should be part of your model that might not be in Bing's brands database.
 
-For a detailed overview, see [Overview](customizing-brands-model-overview.md).
+For a detailed overview, see [Overview](customize-brands-model-overview.md).
 
 You can use the Video Indexer APIs to create, use, and edit custom Brands models detected in a video, as described in this topic. You can also use the Video Indexer website, as described in [Customize Brands model using the Video Indexer website](customize-brands-model-with-api.md).
 
