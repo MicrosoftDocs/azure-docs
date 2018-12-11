@@ -1,15 +1,13 @@
 ---
 title: Monitor virtual machine health with Azure Monitor for VMs (Preview)| Microsoft Docs
-description: This article describes how you understand the health of the virtual machine and underlying operating system with Azure Monitor for VMs.  
+description: This article describes how you understand the health of the virtual machine and underlying operating system with Azure Monitor for VMs.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
-
 ms.assetid: 
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -267,7 +265,7 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |Monitor service |Select a service, or select *All* to include all services. Only alerts from *VM Insights* are supported for this feature.| 
 |Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. | 
 
-The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about managing alerts, see [Create, view, and manage alerts using Azure Monitor](../../monitoring-and-diagnostics/alert-metric.md).  
+The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about managing alerts, see [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  
 
 >[!NOTE]
 >At this time, it is not supported to create new alerts based on health criteria or modify existing health alert rules in Azure Monitor from the portal.  
