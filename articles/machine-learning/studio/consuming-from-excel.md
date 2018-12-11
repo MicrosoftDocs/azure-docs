@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2018
+ms.date: 02/01/2018
 ---
-# Consuming an Azure Machine Learning Web Service from Excel
+# Consuming an Azure Machine Learning Studio Web Service from Excel
+
  Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code.
 
 If you are using Excel 2013 (or later) or Excel Online, then we recommend that you use the Excel [Excel add-in](excel-add-in-for-web-services.md).

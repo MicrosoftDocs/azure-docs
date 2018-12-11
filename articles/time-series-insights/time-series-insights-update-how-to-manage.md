@@ -9,6 +9,7 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
+ms.custom: seodec18
 ---
 
 # How to provision and manage Azure Time Series Insights Preview

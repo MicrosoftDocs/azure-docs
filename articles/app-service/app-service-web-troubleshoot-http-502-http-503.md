@@ -1,5 +1,5 @@
 ---
-title: Fix 502 bad gateway, 503 service unavailable errors | Microsoft Docs
+title: Fix 502 bad gateway, 503 service unavailable errors - Azure App Service | Microsoft Docs
 description: Troubleshoot 502 bad gateway and 503 service unavailable errors in your web app hosted in Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -17,6 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps

@@ -1,5 +1,5 @@
 ---
-title: Web App Cloning using PowerShell
+title: Clone app with PowerShell - Azure App Service
 description: Learn how to clone your Web Apps to new Web Apps using PowerShell.
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
+ms.custom: seodec18
 
 ---
 # Azure App Service App Cloning Using PowerShell

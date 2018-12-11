@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/10/2018
 
 ms.author: mimart
 author: msmimart
@@ -25,7 +25,7 @@ To collaborate with users from partner organizations through Azure Active Direct
 
 ## Redemption through a direct link
 
-A guest inviter can invite a guest user by sending out a direct link to a shared app. For the guest user, the redemption experience is as easy as signing in to the app that was shared with them. They can click a link to the app, review and accept the privacy terms, and then seamlessly access the app. In most cases, guest users no longer need to click a redemption URL in an invitation email.
+A guest inviter can invite a guest user by sending out a [direct link to a shared app](../manage-apps/end-user-experiences.md#direct-sign-on-links). For the guest user, the redemption experience is as easy as signing in to the app that was shared with them. They can click a link to the app, review and accept the privacy terms, and then seamlessly access the app. In most cases, guest users no longer need to click a redemption URL in an invitation email.
 
 If you invited guest users through the user interface, or chose to send the invitation email as part of the PowerShell invitation experience, the invited user still receives an invitation email. This email is useful for the following special cases:
 
