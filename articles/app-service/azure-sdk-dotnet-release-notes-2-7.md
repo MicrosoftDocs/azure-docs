@@ -36,7 +36,7 @@ The sign-in improvements included with Azure SDK 2.7 are only available in Visua
 Updated **Mobile Apps** templates to reflect newest [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) and setup process.
 
 ### Service Bus
-General bug fixes and improvements. For detail on updates and features, please refer to the release notes of the latest [Service Bus NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+General bug fixes and improvements. For detail on updates and features, please refer to the release notes of the latest [Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### HDInsight Tools
 In this release the following updates were made. These updates are in preview. For more information, see [this blog](https://go.microsoft.com/fwlink/?LinkId=619108).

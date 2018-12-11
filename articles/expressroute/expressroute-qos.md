@@ -1,20 +1,14 @@
 ---
-title: QoS Requirements for ExpressRoute | Microsoft Docs
-description: This page provides detailed requirements for configuring and managing QoS for ExpressRoute circuits.
-documentationcenter: na
+title: 'QoS requirements - ExpressRoute: Azure | Microsoft Docs'
+description: This page provides detailed requirements for configuring and managing QoS. Skype for Business/voice services are discussed.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
 
-ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # ExpressRoute QoS requirements

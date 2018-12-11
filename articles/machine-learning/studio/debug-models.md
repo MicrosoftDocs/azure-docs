@@ -1,12 +1,12 @@
 ---
-title: Debug your Model in Azure Machine Learning | Microsoft Docs
-description: How to debug errors produced by Train Model and Score Model modules in Azure Machine Learning.
+title: Debug your model - Azure Machine Learning Studio | Microsoft Docs
+description: How to debug errors produced by Train Model and Score Model modules in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ---
-# Debug your Model in Azure Machine Learning
+# Debug your model in Azure Machine Learning Studio
 
 This article explains the potential reasons why either of the following two failures might be encountered when running a model:
 

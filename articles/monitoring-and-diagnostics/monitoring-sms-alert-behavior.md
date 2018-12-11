@@ -38,4 +38,4 @@ An SMS receiver configured as part of an action group receives an SMS when an al
 ## Next Steps
 Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
 Learn more about [SMS rate limiting](monitoring-alerts-rate-limiting.md)  
-Learn more about [action groups](monitoring-action-groups.md)
+Learn more about [action groups](../azure-monitor/platform/action-groups.md)

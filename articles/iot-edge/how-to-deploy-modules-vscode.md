@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure IoT Edge modules (VS Code) | Microsoft Docs 
+title: Deploy modules from Visual Studio Code - Azure IoT Edge | Microsoft Docs 
 description: Use Visual Studio Code to deploy modules to an IoT Edge device
 author: kgremban
 manager: philmea
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.reviewer: 
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Deploy Azure IoT Edge modules from Visual Studio Code
@@ -104,7 +105,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 2. At the bottom of the Explorer, expand the **Azure IoT Hub Devices** section. 
 
-   ![Expand Azure IoT Hub Devices](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices section](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
 

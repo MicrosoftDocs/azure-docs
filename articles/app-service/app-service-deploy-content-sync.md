@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 
 ---
@@ -57,7 +57,7 @@ When you want to synchronize content in your cloud folder with App Service, go b
 
 To disable content sync, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **Disconnect**.
+In the left menu, click **Deployment Center** > **Disconnect**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

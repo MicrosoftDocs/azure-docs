@@ -55,7 +55,7 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
     At this time Azure Storage version 2011-08-18 is scheduled to be removed August 1, 2016. Any migrations of In-Role Cache from Azure SDK 2.5 or below to 2.6 must be complete by this time. For more information on the retirement of Azure Storage version 2011-08-18, see [Microsoft Azure Storage Service Version Removal Update: Extension to 2016](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
-> We’re announcing the November 30, 2016, retirement for Azure Managed Cache Service and Azure In-Role Cache. We recommend that you migrate to Azure Redis Cache in preparation for this retirement. For more information on dates and migration guidance, see [Which Azure Cache offering is right for me?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> We’re announcing the November 30, 2016, retirement for Azure Managed Cache Service and Azure In-Role Cache. We recommend that you migrate to Azure Cache for Redis in preparation for this retirement. For more information on dates and migration guidance, see [Which Azure Cache offering is right for me?](../azure-cache-for-redis/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 

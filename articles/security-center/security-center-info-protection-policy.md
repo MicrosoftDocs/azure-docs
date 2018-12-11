@@ -82,7 +82,7 @@ In this article, you learned about defining a SQL Information Protection policy 
 For more information on security policies and data security in Azure Security Center, see the following articles:
  
 - [Security policies overview](security-center-policies-overview.md): Get an overview of security policies in Security Center
-- [Setting security policies in Azure Security Center](security-center-policies.md): Learn how to configure security policies for your Azure subscriptions and resource groups
+- [Setting security policies in Azure Security Center](security-center-azure-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups
 - [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data
 
 

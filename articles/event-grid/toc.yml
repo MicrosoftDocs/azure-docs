@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Event Grid
+  - name: What is Event Grid?
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md

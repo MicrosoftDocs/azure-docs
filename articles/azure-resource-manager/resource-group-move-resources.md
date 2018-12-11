@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
 
 ---
@@ -165,7 +165,7 @@ The following list provides a general summary of Azure services that can be move
 * Analysis Services
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
-* App Service Certificates
+* App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
 * Application Insights
 * Automation
 * Azure Active Directory B2C
@@ -182,7 +182,7 @@ The following list provides a general summary of Azure services that can be move
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Container Registry - A container registry can't be moved when geo-replication is enabled.
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -211,7 +211,8 @@ The following list provides a general summary of Azure services that can be move
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
-* Redis Cache - if the Redis Cache instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
+* Recovery Services vault - you must be enrolled in a private preview. See [Recovery Services limitations](#recovery-services-limitations).
+* Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus
@@ -255,7 +256,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Microsoft Genomics
 * NetApp
 * Public IP - see [Public IP limitations](#pip-limitations)
-* Recovery Services vault - also don't move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * SAP HANA on Azure
 * Security
 * Site Recovery
@@ -326,23 +326,21 @@ When moving a virtual network, you must also move its dependent resources. For V
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
-You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
+You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if an Azure Cache for Redis resource is deployed into a subnet, that subnet has a resource navigation link.
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription.
-
-The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
+The limitations for moving App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription. If your web app uses an App Service Certificate, see [App Service Certificate limitations](#app-service-certificate-limitations)
 
 ### Moving within the same subscription
 
-When moving a Web App _within the same subscription_, you can't move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works.
+When moving a Web App _within the same subscription_, you can't move third-party SSL certificates. However, you can move a Web App to the new resource group without moving its third-party certificate, and your app's SSL functionality still works.
 
 If you want to move the SSL certificate with the Web App, follow these steps:
 
-1. Delete the uploaded certificate from the Web App.
+1. Delete the third-party certificate from the Web App, but keep a copy of your certificate
 2. Move the Web App.
-3. Upload the certificate to the moved Web App.
+3. Upload the third-party certificate to the moved Web App.
 
 ### Moving across subscriptions
 
@@ -355,6 +353,10 @@ When moving a Web App _across subscriptions_, the following limitations apply:
     - App Service Environments
 - All App Service resources in the resource group must be moved together.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions.
+
+## App Service Certificate limitations
+
+You can move your App Service Certificate to a new resource group or subscription. If your App Service Certificate is bound to a web app, you must take some steps before moving the resources to a new subscription. Delete the SSL binding and private certificate from the web app before moving the resources. The App Service Certificate doesn't need to be deleted, just the private certificate in the web app.
 
 ## Classic deployment limitations
 
@@ -442,6 +444,8 @@ The operation may run for several minutes.
 
 ## Recovery Services limitations
 
+To move a Recovery Services vault, you must enroll in a private preview. To try it out, write to AskAzureBackupTeam@microsoft.com.
+
 Move isn't enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery.
 
 For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You can't move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
@@ -450,7 +454,9 @@ To move a VM enrolled in **Azure backup** between resource groups:
  1. Temporarily stop backup and retain backup data
  2. Move the VM to the target resource group
  3. Reprotect it under the same/new vault
+
 Users can restore from the available restore points created before the move operation.
+
 If the user moves the backed-up VM across subscriptions, step 1 and step 2 remain the same. In step 3, user needs to protect the VM under a new vault present/ created in the target subscription. Recovery Services vault doesn't support cross subscription backups.
 
 ## HDInsight limitations

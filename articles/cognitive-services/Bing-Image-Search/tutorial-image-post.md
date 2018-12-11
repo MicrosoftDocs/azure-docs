@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Extract image details using C# - Bing Image Search API"
+title: "Tutorial: Extract image details using the Bing Image Search API and C#"
 titleSuffix: Azure Cognitive Services
 description: Use this article to create a C# application that extracts image details using the Bing Image Search API.
 services: cognitive-services
