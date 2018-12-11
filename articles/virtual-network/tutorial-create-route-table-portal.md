@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/06/2018
+ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
 ---
@@ -140,7 +140,7 @@ Before you can associate a route table to a subnet, you have to create a virtual
 
 ## Create an NVA
 
-An NVA is a VM that performs a network function, such as routing and firewall or WAN optimization.
+NVAs are VMs that carry out network functions like routing and firewall or WAN optimization.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 
@@ -202,13 +202,13 @@ An NVA is a VM that performs a network function, such as routing and firewall or
 
 1. When you see that **Validation passed**, select **Create**.
 
-    The VM takes a few minutes to create. Do not continue to the next step until Azure finishes creating the VM. The **Your deployment is underway** page will show you deployment details.
+    The VM takes a few minutes to create. Don't keep going until Azure finishes creating the VM. The **Your deployment is underway** page will show you deployment details.
 
 1. When your VM is ready, select **Go to resource**.
 
 ## Turn on IP forwarding
 
-For a network interface to be able to forward network traffic sent to it, that is not destined for its own IP address IP forwarding must be enabled for the network interface.
+You have to turn on IP forwarding for *myVmNva*. When network traffic is sent to *myVmNva* that is destined for a different IP address, IP forwarding will send the traffic to the correct location.
 
 1. On **myVmNva**, under **Settings**, select **Networking**.
 
@@ -227,7 +227,7 @@ For a network interface to be able to forward network traffic sent to it, that i
 
 ## Create public and private virtual machines
 
-Create two VMs in the virtual network, so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step.
+Create a public VM and a private VM in the virtual network. Later, you'll use them to validate that the *Public* subnet traffic is routed to the *Private* subnet through the NVA.
 
 Complete steps 1-12  of [Create an NVA](#create-an-nva). Use most of the same settings. These are the ones that have to be different:
 
@@ -239,7 +239,7 @@ Complete steps 1-12  of [Create an NVA](#create-an-nva). Use most of the same se
 | NETWORKING | |
 | Subnet | Select **Public (10.0.0.0/24)** |
 | Public IP address | Accept the default. |
-| Network security ports | Select **Allow selected ports**. |
+| Public inbound ports | Select **Allow selected ports**. |
 | Select inbound ports | Select **HTTP** and **RDP**. |
 | MANAGEMENT | |
 | Diagnostics storage account | Leave the default **mynvastorageaccount**. |
@@ -249,7 +249,7 @@ Complete steps 1-12  of [Create an NVA](#create-an-nva). Use most of the same se
 | NETWORKING | |
 | Subnet | Select **Private (10.0.1.0/24)**|
 | Public IP address | Accept the default. |
-| Network security ports | Select **Allow selected ports**. |
+| Public inbound ports | Select **Allow selected ports**. |
 | Select inbound ports | Select **HTTP** and **RDP**. |
 | MANAGEMENT | |
 | Diagnostics storage account | Leave the default **mynvastorageaccount**. |
@@ -311,7 +311,7 @@ You turned on IP forwarding within Azure for the VM's network interface in [Turn
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Restart the *myVmNva* VM. From the taskbar, eelect **Start button** > **Power button**, **Other (Planned)** > **Continue**.
+1. Restart the *myVmNva* VM. From the taskbar, select **Start button** > **Power button**, **Other (Planned)** > **Continue**.
 
     That also disconnects the remote desktop session.
 
@@ -327,8 +327,11 @@ You turned on IP forwarding within Azure for the VM's network interface in [Turn
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
+## Test the routing of network traffic
 
-1. To test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM, enter the following command from PowerShell on the *myVmPublic* VM:
+First, let's test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM
+
+1. From PowerShell on the *myVmPublic* VM, enter this command:
 
     ```powershell
     tracert myVmPrivate
@@ -350,13 +353,13 @@ You turned on IP forwarding within Azure for the VM's network interface in [Turn
 
 1. Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
 
-1. To test routing of network traffic to the *myVmPublic* VM from the *myVmPrivate* VM, enter the following command from a command prompt on the *myVmPrivate* VM:
+1. From a command prompt on the *myVmPrivate* VM, enter this command:
 
     ```cmd
     tracert myVmPublic
     ```
 
-    The response is similar to the following example:
+    It tests the routing of network traffic from the *myVmPrivate* VM to the *myVmPublic* VM. The response is similar to this example:
 
     ```cmd
     Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.0.4]
@@ -383,9 +386,9 @@ When no longer needed, delete the resource group and all resources it contains:
 
 ## Next steps
 
-In this tutorial, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Deploy a variety of pre-configured NVAs that perform network functions such as firewall and WAN optimization from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
+In this tutorial, you created a route table and associated it to a subnet. You created a simple NVA that routed traffic from a public subnet to a private subnet. Now that you know how to do that, you can deploy different pre-configured NVAs from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). They carry out many network functions you'll find useful. To learn more about routing, see [Routing overview](virtual-networks-udr-overview.md) and [Manage a route table](manage-route-table.md).
 
-While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services cannot be deployed into a virtual network. You can still restrict access to the resources of some Azure PaaS services to traffic only from a virtual network subnet though. To learn how to restrict network access to Azure PaaS resources, advance to the next tutorial.
+While you can deploy many Azure resources within a virtual network, resources for some Azure PaaS services can't be deployed into a virtual network. It's possible to restrict access to the resources of some Azure PaaS services. The restriction must only be traffic from a virtual network subnet though. To learn how to restrict network access to Azure PaaS resources, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md)
