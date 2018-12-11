@@ -28,7 +28,7 @@ In the Machine Learning Web Services portal you can:
 * Create, delete, or update billing plans (New only).
 * Add and delete endpoints (Classic only)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Permissions to manage New Resources Manager based web services
 

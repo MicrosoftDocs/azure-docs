@@ -1,5 +1,5 @@
 ﻿---
-title: Create and use an internal load balancer with an Azure App Service Environment
+title: Create internal load balancer with App Service Environment - Azure
 description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create and use an internal load balancer with an App Service Environment #
 
@@ -53,17 +54,17 @@ To create an ILB ASE:
 
 1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
-1. Select your subscription.
+2. Select your subscription.
 
-1. Select or create a resource group.
+3. Select or create a resource group.
 
-1. Select or create a VNet.
+4. Select or create a VNet.
 
-1. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-1. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
+6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
-1. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
+7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
 	* net	
 

@@ -179,7 +179,15 @@
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
     - name: Failover groups and geo-replication
-      href: sql-database-geo-replication-overview.md
+      items: 
+      - name: Active geo-replication
+        href: sql-database-active-geo-replication.md
+      - name: Auto-failover groups
+        href: sql-database-auto-failover-group.md
+      - name: Configure active geo-replication - Portal
+        href: sql-database-active-geo-replication-portal.md
+      - name: Configure security for replicas
+        href: sql-database-geo-replication-security-config.md
     - name: Database recovery options
       items:
       - name: Recovery using backups
@@ -244,9 +252,11 @@
         href: transparent-data-encryption-azure-sql.md
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
-  - name: Elastic scalability
+  - name: Scalability
     items:
-    - name: Resource scalability
+    - name: Scalability
+      href: sql-database-scalability-index.yml
+    - name: Scale Up/Down
       href: sql-database-scale-resources.md
     - name: Read Scale-Out
       href: sql-database-read-scale-out.md
@@ -254,44 +264,26 @@
       items: 
       - name: Database sharding
         href: sql-database-elastic-scale-introduction.md
+      - name: Glossary
+        href: sql-database-elastic-scale-glossary.md
       - name: Elastic client library - consolidate
         href: sql-database-elastic-database-client-library.md
-      - name: Upgrade elastic database client library
-        href: sql-database-elastic-scale-upgrade-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
       - name: Query routing
         href: sql-database-elastic-scale-data-dependent-routing.md
       - name: Manage credentials
         href: sql-database-elastic-scale-manage-credentials.md
-      - name: Shard querying
-        href: sql-database-elastic-scale-multishard-querying.md
-      - name: Elastic tools
-        href: sql-database-elastic-scale-glossary.md
       - name: Move sharded data
         href: sql-database-elastic-scale-overview-split-and-merge.md
-      - name: Elastic client library - Dapper
-        href: sql-database-elastic-scale-working-with-dapper.md
       - name: Elastic tools FAQ
         href: sql-database-elastic-scale-faq.md
-      - name: Create sharded app
-        href: sql-database-elastic-scale-get-started.md
-      - name: Query horizontally-sharded data
-        href: sql-database-elastic-query-getting-started.md
-      - name: Move sharded data
-        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-      - name: Security configuration
-        href: sql-database-elastic-scale-split-merge-security-configuration.md
-      - name: Add a shard
-        href: sql-database-elastic-scale-add-a-shard.md
-      - name: Fix shard map problems
-        href: sql-database-elastic-database-recovery-manager.md
-      - name: Migrate sharded DB
-        href: sql-database-elastic-convert-to-use-elastic-tools.md
-      - name: Create counters
-        href: sql-database-elastic-database-perf-counters.md
-      - name: Use entity framework
-        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: Elastic queries
+      href: sql-database-elastic-query-overview.md
+    - name: Elastic transactions
+      href: sql-database-elastic-transactions-overview.md
+    - name: Elastic Database jobs
+      href: elastic-jobs-overview.md
   - name: SQL features comparison
     href: sql-database-features.md
   - name: Monitoring and performance tuning
@@ -300,86 +292,28 @@
       href: sql-database-monitor-tune-overview.md
     - name: Intelligent performance
       items:
-      - name: Tuning advisors
-        items:
-        - name: Tuning actions and recommendations
-          href: sql-database-performance.md
-        - name: Query Performance Insight
-          href: sql-database-query-performance.md
-        - name: Database advisor performance recommendations
-          href: sql-database-advisor.md
-        - name: Apply performance recommendations
-          href: sql-database-advisor-portal.md
-      - name: Advanced monitoring
-        items:
-        - name: Azure SQL Analytics monitoring
-          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
-        - name: Diagnostic telemetry logging
-          href: sql-database-metrics-diag-logging.md
-      - name: Automated troubleshooting
-        items:
-        - name: Intelligent insights into performance
-          href: sql-database-intelligent-insights.md
-        - name: Troubleshoot performance with Intelligent Insights
-          href: sql-database-intelligent-insights-troubleshoot-performance.md
-        - name: Use Intelligent Insights diagnostics log
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
-      - name: Automatic tuning
-        items:
-        - name: Automatic tuning overview
-          href: sql-database-automatic-tuning.md
-        - name: Enable automatic tuning
-          href: sql-database-automatic-tuning-enable.md
-        - name: Enable E-mail notifications
-          href: sql-database-automatic-tuning-email-notifications.md
+      - name: Tuning actions and recommendations
+        href: sql-database-performance.md
+      - name: Query Performance Insight
+        href: sql-database-query-performance.md
+      - name: Database advisor performance recommendations
+        href: sql-database-advisor.md
+    - name: Advanced monitoring
+      items:
+      - name: Azure SQL Analytics monitoring
+        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
+      - name: Diagnostic telemetry logging
+        href: sql-database-metrics-diag-logging.md
+    - name: Intelligent insights into performance
+      href: sql-database-intelligent-insights.md
+    - name: Automatic tuning
+      href: sql-database-automatic-tuning.md
+    - name: Intelligent query processing
+      items:
       - name: Intelligent query processing
-        items:
-        - name: Intelligent query processing
-          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-        - name: Adaptive query processing
-          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-    - name: Manual tuning
-      items:
-    - name: Azure Automation
-      href: sql-database-manage-automation.md
-  - name: Cross-database operations
-    items:
-    - name: Elastic Database jobs
-      items:
-      - name: Elastic Database jobs
-        href: elastic-jobs-overview.md
-      - name: Create and manage (PowerShell)
-        href: elastic-jobs-powershell.md
-      - name: Create and manage (T-SQL)
-        href: elastic-jobs-tsql.md
-      - name: Migrate (from old Elastic jobs)
-        href: elastic-jobs-migrate.md
-      - name: Elastic jobs (deprecated)
-        items:
-        - name: Elastic jobs (deprecated)
-          href: sql-database-elastic-jobs-overview.md
-        - name: Install elastic job (deprecated)
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Create job - Portal (deprecated)
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Create job - Azure PowerShell (deprecated)
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Create job - Sample app (deprecated)
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Uninstall elastic job (deprecated)
-          href: sql-database-elastic-jobs-uninstall.md
-    - name: Elastic queries
-      items:
-      - name: Elastic queries
-        href: sql-database-elastic-query-overview.md
-      - name: Query vertically partitioned data
-        href: sql-database-elastic-query-getting-started-vertical.md
-      - name: Report across scaled-out data tier
-        href: sql-database-elastic-query-horizontal-partitioning.md
-      - name: Query across tables with different schemas
-        href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Elastic transactions
-      href: sql-database-elastic-transactions-overview.md
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Adaptive query processing
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
   - name: Databases features
     items:
     - name: Databases features
@@ -409,7 +343,13 @@
     - name: Configure geo-replication - Portal
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
-      href: sql-database-geo-replication-security-config.md
+      href: sql-database-geo-replication-security-config.md  
+    - name: Enable automatic tuning
+      href: sql-database-automatic-tuning-enable.md
+    - name: Enable e-mail notifications for automatic tuning
+      href: sql-database-automatic-tuning-email-notifications.md
+    - name: Apply performance recommendations
+      href: sql-database-advisor-portal.md
     - name: Create alerts
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
@@ -420,6 +360,48 @@
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
       href: sql-database-resource-health.md
+    - name: Database sharding
+      items:
+      - name: Upgrade elastic database client library
+        href: sql-database-elastic-scale-upgrade-client-library.md
+      - name: Create sharded app
+        href: sql-database-elastic-scale-get-started.md
+      - name: Query horizontally-sharded data
+        href: sql-database-elastic-query-getting-started.md
+      - name: Multi-shard queries
+        href: sql-database-elastic-scale-multishard-querying.md
+      - name: Move sharded data
+        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+      - name: Security configuration
+        href: sql-database-elastic-scale-split-merge-security-configuration.md
+      - name: Add a shard
+        href: sql-database-elastic-scale-add-a-shard.md
+      - name: Fix shard map problems
+        href: sql-database-elastic-database-recovery-manager.md
+      - name: Migrate sharded DB
+        href: sql-database-elastic-convert-to-use-elastic-tools.md
+      - name: Create counters
+        href: sql-database-elastic-database-perf-counters.md
+      - name: Use entity framework
+        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+      - name: Use Dapper framework
+        href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Query distributed data
+      items:  
+      - name: Query vertically partitioned data
+        href: sql-database-elastic-query-getting-started-vertical.md
+      - name: Report across scaled-out data tier
+        href: sql-database-elastic-query-horizontal-partitioning.md
+      - name: Query across tables with different schemas
+        href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Elastic Database Jobs
+      items:
+      - name: Create and manage (PowerShell)
+        href: elastic-jobs-powershell.md
+      - name: Create and manage (T-SQL)
+        href: elastic-jobs-tsql.md
+      - name: Migrate (from old Elastic jobs)
+        href: elastic-jobs-migrate.md
   - name: Managed instance
     items:
     - name: Migrate to Managed instance
@@ -469,7 +451,11 @@
     - name: Use DMVs to monitor performance
       href: sql-database-monitoring-with-dmvs.md
     - name: Use Query store to monitor performance
-      href: sql-database-operate-query-store.md
+      href: sql-database-operate-query-store.md   
+    - name: Troubleshoot performance with Intelligent Insights
+      href: sql-database-intelligent-insights-troubleshoot-performance.md
+    - name: Use Intelligent Insights diagnostics log
+      href: sql-database-intelligent-insights-use-diagnostics-log.md
     - name: Monitor In-memory OLTP space
       href: sql-database-in-memory-oltp-monitoring.md
     - name: Extended events
@@ -500,6 +486,8 @@
       href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
     - name: Configure In-Memory OLTP
       href: sql-database-in-memory-oltp-migration.md
+    - name: Azure Automation
+      href: sql-database-manage-automation.md
   - name: Develop apps
     items:
     - name: Connectivity
@@ -665,3 +653,17 @@
     href: /azure/architecture/
   - name: Customer stories
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  - name: Elastic jobs (deprecated)
+    items:
+    - name: Elastic jobs (deprecated)
+      href: sql-database-elastic-jobs-overview.md
+    - name: Install elastic job (deprecated)
+      href: sql-database-elastic-jobs-service-installation.md
+    - name: Create job - Portal (deprecated)
+      href: sql-database-elastic-jobs-create-and-manage.md
+    - name: Create job - Azure PowerShell (deprecated)
+      href: sql-database-elastic-jobs-powershell.md
+    - name: Create job - Sample app (deprecated)
+      href: sql-database-elastic-jobs-getting-started.md
+    - name: Uninstall elastic job (deprecated)
+      href: sql-database-elastic-jobs-uninstall.md
