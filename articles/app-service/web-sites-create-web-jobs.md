@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.custom: seodec18
+
 ---
 
 # Run Background tasks with WebJobs in Azure App Service
