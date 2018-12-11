@@ -247,7 +247,7 @@
   - name: Scalability
     items:
     - name: Scalability
-      href: sql-database-scalabaility-index.yml
+      href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
     - name: Read Scale-Out
@@ -256,24 +256,18 @@
       items: 
       - name: Database sharding
         href: sql-database-elastic-scale-introduction.md
+      - name: Glossary
+        href: sql-database-elastic-scale-glossary.md
       - name: Elastic client library - consolidate
         href: sql-database-elastic-database-client-library.md
-      - name: Upgrade elastic database client library
-        href: sql-database-elastic-scale-upgrade-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
       - name: Query routing
         href: sql-database-elastic-scale-data-dependent-routing.md
       - name: Manage credentials
         href: sql-database-elastic-scale-manage-credentials.md
-      - name: Shard querying
-        href: sql-database-elastic-scale-multishard-querying.md
-      - name: Elastic tools
-        href: sql-database-elastic-scale-glossary.md
       - name: Move sharded data
         href: sql-database-elastic-scale-overview-split-and-merge.md
-      - name: Elastic client library - Dapper
-        href: sql-database-elastic-scale-working-with-dapper.md
       - name: Elastic tools FAQ
         href: sql-database-elastic-scale-faq.md
     - name: Elastic queries
@@ -372,10 +366,14 @@
       href: sql-database-resource-health.md
     - name: Database sharding
       items:
+      - name: Upgrade elastic database client library
+        href: sql-database-elastic-scale-upgrade-client-library.md
       - name: Create sharded app
         href: sql-database-elastic-scale-get-started.md
       - name: Query horizontally-sharded data
         href: sql-database-elastic-query-getting-started.md
+      - name: Multi-shard queries
+        href: sql-database-elastic-scale-multishard-querying.md
       - name: Move sharded data
         href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
       - name: Security configuration
@@ -390,6 +388,8 @@
         href: sql-database-elastic-database-perf-counters.md
       - name: Use entity framework
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+      - name: Use Dapper framework
+        href: sql-database-elastic-scale-working-with-dapper.md
     - name: Query distributed data
       items:  
       - name: Query vertically partitioned data

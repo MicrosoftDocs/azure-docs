@@ -33,10 +33,10 @@ sections:
       - title: Database sharding
         href: /azure/sql-database/sql-database-elastic-scale-introduction
         html: <p>You can use multiple databases shards to scale-out your database beyond maximal compute and storage limits for single database units.</p>
-      - title: Distributed queries
+      - title: Elastic queries
         href: /azure/sql-database/sql-database-elastic-query-overview
         html: <p>Elastic Queries enable you run standard Transact-SQL queries on a set of globally-distributed database shards.</p>
-      - title: Distributed transactions
+      - title: Elastic transactions
         href: /azure/sql-database/sql-database-elastic-transactions-overview
         html: <p>Use globally distributed transactions to ensure transactionally consistent access to your distributed data.</p>
       - title: Cross database jobs
