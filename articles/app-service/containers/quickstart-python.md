@@ -1,5 +1,5 @@
 ---
-title: Create a Python web app in Azure App Service on Linux | Microsoft Docs
+title: Create Python web app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create a Python web app in Azure App Service on Linux (Preview)
 

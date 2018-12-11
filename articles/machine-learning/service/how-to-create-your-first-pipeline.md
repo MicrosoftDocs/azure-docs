@@ -23,11 +23,10 @@ The pipelines you create are visible to the members of your Azure Machine Learni
 
 Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline.  Pipelines can read and write data to and from supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations.
 
-
-## Prerequisites
-
 >[!Note]
 >If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+
+## Prerequisites
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK.
 

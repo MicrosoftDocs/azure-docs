@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
@@ -37,6 +37,8 @@ Patterns use a mix of prediction technologies. Setting an intent for a template 
 
 ## Patterns do not improve entity detection
 While patterns require entities, a pattern does not help detect the entity. A pattern is only meant to help the prediction with intents and roles.  
+
+Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For Simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
 
 ## Patterns use entity roles
 If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities. This is equivalent to hierarchical entity children, but is **only** available in patterns. 
