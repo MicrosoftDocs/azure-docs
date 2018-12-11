@@ -60,11 +60,11 @@ docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
 
 Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
 
+Depending on the version of Docker you have installed, you might see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+
 > [!TIP]
 > You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) command.
 >
-
-Depending on the version of Docker you have installed, you might see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 ## Admin account
 
