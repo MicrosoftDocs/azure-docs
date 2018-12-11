@@ -13,13 +13,13 @@ manager: carmonm
 
 # Understand the Linux agent check results in Update Management
 
-There may be many reasons your Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
+There may be many reasons your Azure machine might not show a **Ready** in status in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
 
 The following list are the three readiness states a machine can be in:
 
 * **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
 * **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
-* **Not configured** -  The update agent is not found or has not finished onboarding.
+* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
 
 ## Start the troubleshooter
 
@@ -46,7 +46,7 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 |Operating system  |Notes  |
 |---------|---------|
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS does not have out of the box.         |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box.         |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
@@ -55,12 +55,12 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 ### OMS agent
 
-This checks ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+This check ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### OMS Agent status
 
-This check ensures that the OMS Agent for Linux is running. If the agent is not running you can run the following command to attempt to restart it. For additional information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
+This check ensures that the OMS Agent for Linux is running. If the agent is not running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -72,7 +72,7 @@ This check determines if the agent is reporting to multiple workspaces. Multi-ho
 
 ### Hybrid Runbook Worker
 
-This checks to ensure the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
+This check ensures the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
 
 ### Hybrid Runbook Worker status
 
