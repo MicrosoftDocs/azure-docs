@@ -1,5 +1,5 @@
 ---
-title: Index JSON blobs from Azure Blob indexer fpr full text search - Azure Search
+title: Index JSON blobs from Azure Blob indexer for full text search - Azure Search
 description: Crawl Azure JSON blobs for text content using the Azure Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
 ms.date: 10/17/2018
