@@ -12,16 +12,16 @@ ms.component: alerts
 # Have a classic metric alert notify a non-Azure system using a webhook
 You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. 
 
-This article describes how to set a webhook on an Azure metric alert. It also shows you what the payload for the HTTP POST to a webhook looks like. For information about the setup and schema for an Azure activity log alert (alert on events), see [Call a webhook on an Azure activity log alert](monitor-alerts-unified-log-webhook.md).
+This article describes how to set a webhook on an Azure metric alert. It also shows you what the payload for the HTTP POST to a webhook looks like. For information about the setup and schema for an Azure activity log alert (alert on events), see [Call a webhook on an Azure activity log alert](alerts-log-webhook.md).
 
 Azure alerts use HTTP POST to send the alert contents in JSON format to a webhook URI that you provide when you create the alert. The schema is defined later in this article. The URI must be a valid HTTP or HTTPS endpoint. Azure posts one entry per request when an alert is activated.
 
 ## Configure webhooks via the Azure portal
 To add or update the webhook URI, in the [Azure portal](https://portal.azure.com/), go to **Create/Update Alerts**.
 
-![Add an alert rule pane](./media/insights-webhooks-alerts/Alertwebhook.png)
+![Add an alert rule pane](./media/alerts-webhooks/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](insights-powershell-samples.md#create-metric-alerts), a [cross-platform CLI](insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+You can also configure an alert to post to a webhook URI by using [Azure PowerShell cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts), a [cross-platform CLI](../../monitoring-and-diagnostics/insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST APIs](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## Authenticate the webhook
 The webhook can authenticate by using token-based authorization. The webhook URI is saved with a token ID. For example: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

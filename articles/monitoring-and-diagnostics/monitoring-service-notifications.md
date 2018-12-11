@@ -109,4 +109,4 @@ Properties.communicationId | The communication with which this event is associat
 
 ## Next steps
 Receive [alert notifications whenever a service health notification](../azure-monitor/platform/alerts-activity-log-service-notifications.md) is posted.  
-Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
+Learn more about [activity log alerts](../azure-monitor/platform/activity-log-alerts.md).
