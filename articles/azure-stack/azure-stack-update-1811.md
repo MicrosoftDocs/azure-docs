@@ -64,6 +64,9 @@ This update includes the following improvements for Azure Stack:
 
 ### Fixed issues
 
+<!-- TBD - IS ASDK --> 
+- Fixed an issue in which the public IP address usage meter data showed the same **EventDateTime** value for each record instead of the **TimeDate** stamp that shows when the record was created. You can now use this data to perform accurate accounting of public IP address usage.
+
 <!-- 3099544 – IS, ASDK --> 
 - Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the USD/Month column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
 
@@ -270,12 +273,9 @@ The following are post-installation known issues for this build version.
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 
-### Usage  
+<!-- ### Usage -->
 
-<!-- TBD - IS ASDK --> 
-- The public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you cannot use this data to perform accurate accounting of public IP address usage.
-
-
+ 
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
