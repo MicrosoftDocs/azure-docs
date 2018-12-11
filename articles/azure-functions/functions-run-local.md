@@ -206,7 +206,7 @@ Even when using the storage emulator for development, you may want to test with 
 
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Use [Azure Storage Explorer](http://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
++ Use [Azure Storage Explorer](https://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string. 
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 

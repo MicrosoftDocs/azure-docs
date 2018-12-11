@@ -249,7 +249,7 @@ Sample of Deployment Manifest:
 } 
 ```
 
-After the configuration of the deployment manifest, refer to [Deploy Azure IoT Edge modules with Azure CLI](/iot-edge/how-to-deploy-modules-cli) for deployment.
+After the configuration of the deployment manifest, refer to [Deploy Azure IoT Edge modules with Azure CLI](/iot-edge/how-to-deploy-modules-cli.md) for deployment.
 
 
 ## Next steps 

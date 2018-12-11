@@ -1,6 +1,6 @@
 ﻿---
-title: Configure security to access and manage Azure Time Series Insights | Microsoft Docs
-description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights.
+title: Configure security to access and manage Azure Time Series Insights Preview | Microsoft Docs
+description: This article describes how to configure security and permissions as management access policies and data access policies to secure Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -14,103 +14,105 @@ ms.date: 11/26/2018
 
 # Grant data access to an environment
 
-This article discusses the two types of Azure Time Series Insights (preview) access policies.
+This article discusses the two types of Azure Time Series Insights Preview access policies.
 
 ## Grant data access
 
-Follow these steps to grant data access for a user principal:
+Follow these steps to grant data access for a user principal.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
-1. Locate your Time Series Insights (TSI) environment. Type `Time Series` in the **search** box. Select **Time Series Environment** in the search results.
-1. Select your TSI environment from the list.
-1. Select **Data Access Policies**, then select **+ Add**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
+1. Select your Time Series Insights environment from the list.
+1. Select **Data Access Policies**, and then select **+ Add**.
 
-    ![data-access-one][1]
+    ![Data-access-one][1]
 
-1. Select **Select user**. Search for the user name or email address to locate the user you want to add. Click **Select** to confirm the selection.
+1. Choose **Select user**. Search for the user name or email address to locate the user you want to add. Click **Select** to confirm the selection.
 
-    ![data-access-two][2]
+    ![Data-access-two][2]
 
-1. Select **Select role**. Choose the appropriate access role for the user:
+1. Choose **Select role**. Choose the appropriate access role for the user:
 
-    * Select **Contributor** if you want to allow user to change reference data and share saved queries and perspectives with other users of the environment.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    * Otherwise, select **Reader** to allow user query data in the environment and save personal (not shared) queries in the environment.
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-    Select **Ok** to confirm the role choice.
+   Select **OK** to confirm the role choice.
 
-    ![data-access-three][3]
+    ![Data-access-three][3]
 
-1. Select **Ok** in the **Select User Role** page.
+1. Select **OK** on the **Select User Role** page.
 
-    ![data-access-four][4]
+    ![Data-access-four][4]
 
-1. The **Data Access Policies** page lists the users and the role(s) for each user.
+1. Confirm that the **Data Access Policies** page lists the users and the roles for each user.
 
-    ![data-access-five[5]
+    ![Data-access-five][5]
 
 ## Provide guest access to a user from another Azure Active Directory tenant
 
-`Guest` isn’t a management role; it’s a term used for an account that’s been invited from one tenant to another. After the guest account has been invited into the tenant’s directory, it can have the same access control applied to it like any other account, either to grant management access to a TSI Environment using the Access Control (IAM) blade, or to grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (AAD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+`Guest` isn’t a management role. It’s a term used for an account that’s invited from one tenant to another. After the guest account is invited into the tenant’s directory, it can have the same access control applied to it like any other account. You can grant management access to a Time Series Insights Environment by using the Access Control (IAM) blade. Or you can grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (Azure AD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
-Follow these steps to grant guest access to a TSI environment to an AAD user from another tenant:
+Follow these steps to grant guest access to a Time Series Insights environment to an Azure AD user from another tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Locate your TSI environment. Type **Time Series** in the search box. Select **Time Series Environment** in the search results.
-1. Select your TSI environment from the list.
-1. Select **Data Access Policies**, then select **+ Invite**.
+1. Locate your Time Series Insights environment. Enter **Time Series** in the **Search** box. Select **Time Series Environment** in the search results.
+1. Select your Time Series Insights environment from the list.
+1. Select **Data Access Policies**, and then select **+ Invite**.
 
-    ![data-access-six][6]
+    ![Data-access-six][6]
 
-1. Provide the user's email that you wish to invite. Note this should be an email associated with AAD. You can optionally include a personal message with the invitation.
+1. Enter the email address for the user you want to invite. This email address must be associated with Azure AD. You can optionally include a personal message with the invitation.
 
-    ![data-access-seven][7]
+    ![Data-access-seven][7]
 
-1. You should see a confirmation bubble appear on the screen.
+1. Look for the confirmation bubble that appears on the screen.
 
-    ![data-access-eight][8]
+    ![Data-access-eight][8]
 
-1. Select **Select user**. Search for the email address of the guest user you just invited to locate the user you want to add. Click **Select** to confirm the selection.
+1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Click **Select** to confirm the selection.
 
-    ![data-access-nine][9]
+    ![Data-access-nine][9]
 
-1. Select **Select** role. Choose the appropriate access role for the guest user:
+1. Choose **Select role**. Choose the appropriate access role for the guest user:
 
-    1. Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
-    1. Otherwise, select **Reader** to allow user query data in the environment and save personal (not shared) queries in the environment.
-    1. Select **Ok** to confirm the role choice.
+    * Select **Contributor** if you want to allow the user to change reference data and share saved queries and perspectives with other users of the environment.
 
-    ![data-access-ten][10]
+    * Otherwise, select **Reader** to allow the user to query data in the environment and save personal, not shared, queries in the environment.
 
-1. Select **Ok** in the **Select User Role** page.
+   Select **OK** to confirm the role choice.
 
-1. The **Data Access Policies** page now lists the guest user and the role(s) for each guest user.
+    ![Data-access-ten][10]
 
-    ![data-access-eleven][11]
+1. Select **OK** on the **Select User Role** page.
 
-1. Now the guest user will need to take certain steps to access the environment located in the Azure tenant you just invited them to. First, they need to accept the invitation you just sent them. This invite is sent via email to the email address you invited in step 5. They should click **Get Started**, to accept.
+1. Confirm that the **Data Access Policies** page lists the guest user and the roles for each guest user.
 
-    ![data-access-twelve][12]
+    ![Data-access-eleven][11]
 
-1. Next, the guest user will need to accept the permissions associated with the admin's organization.
+1. Now the guest user must follow steps to access the environment located in the Azure tenant to which you invited them. First, they accept the invitation you sent them. This invitation is sent via email to the email address you used in step 5. They select **Get Started** to accept.
 
-    ![data-access-thirteen][13]
+    ![Data-access-twelve][12]
 
-1. When the guest user is logged into the email address you invited, and they accept the invite, they will head to insights.azure.com. Once there, they will need to click on the avatar next to their email in the upper right-hand corner of the screen.
+1. Next, the guest user accepts the permissions associated with the admin's organization.
 
-    ![data-access-fourteen][14]
+    ![Data-access-thirteen][13]
 
-1. Next, the guest user will select your Azure tenant from the directory drop-down menu. This is the tenant that you invited them to.
+1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they go to insights.azure.com. Once there, they select the avatar next to their email address in the upper-right corner of the screen.
 
-    ![data-access-fifteen][15]
+    ![Data-access-fourteen][14]
 
-1. Finally, when the guest user selects your tenant, they will see the TSI environment that you just provided them access to. They now should have all capabilities associated with the role you provided them in step 8.
+1. Next, the guest user selects your Azure tenant from the directory drop-down menu. This tenant is the one to which you invited them.
+
+    ![Data-access-fifteen][15]
+
+After the guest user selects your tenant, they see the Time Series Insights environment to which you provided them access. They now have all the capabilities associated with the role that you provided them with in step 8.
 
 ## Next steps
 
-* Learn [how to add an Event Hub event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure TSI environment.
+* Learn [how to add an Azure Event Hubs event source](./time-series-insights-how-to-add-an-event-source-eventhub.md) to your Time Series Insights environment.
 * Send [events to the event source](./time-series-insights-send-events.md).
-* View [your environment in Time Series Insights explorer](./time-series-insights-update-explorer.md).
+* View [your environment in the Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 <!-- Images -->
 [1]: media/data-access/data-access-one.png

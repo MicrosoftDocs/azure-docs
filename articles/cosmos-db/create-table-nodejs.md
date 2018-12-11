@@ -34,7 +34,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 In addition:
 
 * [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -54,7 +54,7 @@ In addition:
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -78,7 +78,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
 

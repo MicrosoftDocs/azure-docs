@@ -10,11 +10,9 @@ ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collect Azure service logs and metrics for use in Log Analytics
@@ -56,7 +54,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 
 > [!NOTE]
-> For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](../../log-analytics/log-analytics-quick-collect-azurevm.md). The agent provides you with insights collected from within your virtual machines. You can also use the extension for Virtual machine scale sets.
+> For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](../../azure-monitor/learn/quick-collect-azurevm.md). The agent provides you with insights collected from within your virtual machines. You can also use the extension for Virtual machine scale sets.
 >
 >
 

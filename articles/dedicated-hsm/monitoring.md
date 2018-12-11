@@ -1,16 +1,16 @@
 ﻿---
-title: Azure Dedicated HSM Monitoring | Microsoft Docs
-description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
+title: Monitoring options - Azure Dedicated HSM | Microsoft Docs
+description: Overview of Azure Dedicated HSM monitoring options and monitoring responsibilities
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
-
+ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 12/07/2018
 ms.author: barclayn
 
 ---

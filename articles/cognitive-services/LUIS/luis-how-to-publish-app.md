@@ -1,11 +1,12 @@
 ---
-title: Publish your LUIS app to the prediction endpoint
-titleSuffix: Azure Cognitive Services 
+title: Publish app
+titleSuffix: Language Understanding - Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
@@ -33,7 +34,7 @@ The app is published to all regions associated with the LUIS resources added in 
 
 When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
 
-![Publishing pop-up window](./media/luis-how-to-publish-app/publish-success.png)
+![Publishing pop-up window with link to endpoint](./media/luis-how-to-publish-app/publish-success.png)
 
 If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
 
