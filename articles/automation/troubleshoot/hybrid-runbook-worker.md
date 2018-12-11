@@ -73,7 +73,7 @@ This error occurs when you attempt to use a [Run As Account](../manage-runas-acc
 
 #### Resolution
 
-If your Hybrid Runbook Worker is an Azure VM, you can use [Managed Identities for Azure Resources](../automation-hrw-run-runbooks.md#managed-identities) instead. This scenario allows you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As Account, simplifying authentication. If the Hybrid Runbook Worker is a on-premises machine, you need to install the Run As Account certificate on the machine. To learn how to install the certificate, see the steps to run the [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
+If your Hybrid Runbook Worker is an Azure VM, you can use [Managed Identities for Azure Resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario allows you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As Account, simplifying authentication. If the Hybrid Runbook Worker is a on-premises machine, you need to install the Run As Account certificate on the machine. To learn how to install the certificate, see the steps to run the [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
 
 ## Linux
 

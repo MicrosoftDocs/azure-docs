@@ -70,7 +70,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 5. Change **Run As** from **Default** to **Custom**.
 6. Select the credential and click **Save**.
 
-### <a name="managed-identities"></a>Managed Identities for Azure Resources
+### <a name="managed-identities-for-azure-resources"></a>Managed Identities for Azure Resources
 
 Hybrid Runbook Workers running on Azure virtual machines can use managed identities for Azure resources to authenticate to Azure resources. There are many benefits to using managed identities for Azure resources over Run As accounts.
 
