@@ -59,6 +59,12 @@ To generate an answer with Postman, complete the following steps:
 
     [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
+## Use staging endpoint with cURL
+
+If you want to get an answer from the staging endpoint, use the querystring boolean parameter `isTest` with the value of `true`.
+
+`isTest=true`
+
 ## Next steps
 
 The publish page also provides information to [generate an answer](get-answer-from-kb-using-curl.md) with cURL. 
