@@ -15,7 +15,7 @@ ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
 
-# Tutorial (part 2):  Deploy an image classification model in Azure Container Instance (ACI)
+# Tutorial:  Deploy an image classification model in Azure Container Instance (ACI)
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 

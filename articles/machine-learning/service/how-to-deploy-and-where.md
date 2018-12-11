@@ -26,6 +26,8 @@ You can deploy models to the following compute targets:
 | [Azure IoT Edge](#iotedge) | IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | Web service | Ultra-low latency for real-time inferencing. |
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
 ## Prerequisites
 
 - An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
