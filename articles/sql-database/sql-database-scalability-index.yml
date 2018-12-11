@@ -28,7 +28,7 @@ sections:
         href: /azure/sql-database/sql-database-scale-resources
         html: <p>Easily add or remove resources in your SQL Database in order to find the best price/performance ratio or mitigate performance issues.</p>
       - title: Read Scale-out
-        href: /azure/sql-database/sql-database-read-scale-out.md
+        href: /azure/sql-database/sql-database-read-scale-out
         html: <p>Business Critical tier provides you a free-of-charge replica of database where you can run reports, analytics, and other read-only queries on a copy of data.</p>
       - title: Database sharding
         href: /azure/sql-database/sql-database-elastic-scale-introduction
@@ -49,5 +49,5 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?view=sql-server-2017">Linked server</a> are core SQL Server Database Engine feature that enables you to execute distributed queries.
+    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Linked server</a> are core SQL Server Database Engine feature that enables you to execute distributed queries from Transact-SQL code to another database engines.
     - html: <a href="sql-database-geo-replication-overview.md">Geo-replication</a> enables you to put any number of readable replicas in different regions.

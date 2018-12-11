@@ -276,34 +276,8 @@
         href: sql-database-elastic-scale-working-with-dapper.md
       - name: Elastic tools FAQ
         href: sql-database-elastic-scale-faq.md
-      - name: Create sharded app
-        href: sql-database-elastic-scale-get-started.md
-      - name: Query horizontally-sharded data
-        href: sql-database-elastic-query-getting-started.md
-      - name: Move sharded data
-        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-      - name: Security configuration
-        href: sql-database-elastic-scale-split-merge-security-configuration.md
-      - name: Add a shard
-        href: sql-database-elastic-scale-add-a-shard.md
-      - name: Fix shard map problems
-        href: sql-database-elastic-database-recovery-manager.md
-      - name: Migrate sharded DB
-        href: sql-database-elastic-convert-to-use-elastic-tools.md
-      - name: Create counters
-        href: sql-database-elastic-database-perf-counters.md
-      - name: Use entity framework
-        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Elastic queries
-      items:
-      - name: Elastic queries
-        href: sql-database-elastic-query-overview.md
-      - name: Query vertically partitioned data
-        href: sql-database-elastic-query-getting-started-vertical.md
-      - name: Report across scaled-out data tier
-        href: sql-database-elastic-query-horizontal-partitioning.md
-      - name: Query across tables with different schemas
-        href: sql-database-elastic-query-vertical-partitioning.md
+      href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
     - name: Elastic Database jobs
@@ -396,6 +370,34 @@
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
       href: sql-database-resource-health.md
+    - name: Database sharding
+      items:
+      - name: Create sharded app
+        href: sql-database-elastic-scale-get-started.md
+      - name: Query horizontally-sharded data
+        href: sql-database-elastic-query-getting-started.md
+      - name: Move sharded data
+        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+      - name: Security configuration
+        href: sql-database-elastic-scale-split-merge-security-configuration.md
+      - name: Add a shard
+        href: sql-database-elastic-scale-add-a-shard.md
+      - name: Fix shard map problems
+        href: sql-database-elastic-database-recovery-manager.md
+      - name: Migrate sharded DB
+        href: sql-database-elastic-convert-to-use-elastic-tools.md
+      - name: Create counters
+        href: sql-database-elastic-database-perf-counters.md
+      - name: Use entity framework
+        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: Query distributed data
+      items:  
+      - name: Query vertically partitioned data
+        href: sql-database-elastic-query-getting-started-vertical.md
+      - name: Report across scaled-out data tier
+        href: sql-database-elastic-query-horizontal-partitioning.md
+      - name: Query across tables with different schemas
+        href: sql-database-elastic-query-vertical-partitioning.md
     - name: Elastic Database Jobs
       items:
       - name: Create and manage (PowerShell)
