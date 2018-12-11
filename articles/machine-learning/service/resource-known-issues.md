@@ -1,5 +1,5 @@
 ---
-title: Known Issues and Troubleshooting
+title: Known issues & troubleshooting
 titleSuffix: Azure Machine Learning service
 description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
 services: machine-learning

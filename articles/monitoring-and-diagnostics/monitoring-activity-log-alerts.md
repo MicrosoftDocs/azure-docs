@@ -51,7 +51,7 @@ When an activity log alert is activated, it uses an action group to generate act
 * Use an existing action group in your activity log alert.
 * Create a new action group.
 
-To learn more about action groups, see [Create and manage action groups in the Azure portal](monitoring-action-groups.md).
+To learn more about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md).
 
 
 ## Next steps

@@ -1,15 +1,11 @@
 ---
-title: Tutorial:Load Balancer VMs across availability zones - Azure portal | Microsoft Docs
+title: 'Tutorial: Load Balancer VMs across availability zones - Azure portal'
+titlesuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-
-ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal

@@ -4,10 +4,9 @@ description: How to create a simple regression model to predict a price in Data 
 keywords: create a model,simple model,price prediction,simple regression model
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning

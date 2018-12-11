@@ -16,7 +16,7 @@ The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As 
 - Programmatically by using the AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](monitoring-action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Government and Sovereign cloud users of Log Analytics*. 
+> Microsoft will automatically extend alerts created in public cloud instances of Log Analytics to Azure Alerts, starting on May 14, 2018, in a recurring series until completed. If you have any problems creating [action groups](../azure-monitor/platform/action-groups.md), use [these remediation steps](monitoring-alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until July 5, 2018. *Not applicable for Azure Government and Sovereign cloud users of Log Analytics*. 
 
 ## Option 1: Initiate from the Operations Management Suite portal
 The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
@@ -31,7 +31,7 @@ The following steps describe how to extend alerts for the workspace from the Ope
 ![Screenshot of Operations Management Suite portal Alert Settings page, with Extend into Azure highlighted](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. A three-step wizard appears in the **Alerts** pane. Read the overview, and select **Next**.
 ![Screenshot of step 1 of the wizard](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
-7. In the second step, you see a summary of proposed changes, listing appropriate [action groups](monitoring-action-groups.md) for the alerts. If similar actions are seen across more than one alert, the wizard proposes to associate a single action group with all of them.  The naming convention is as follows: *WorkspaceName_AG_#Number*. To proceed, select **Next**.
+7. In the second step, you see a summary of proposed changes, listing appropriate [action groups](../azure-monitor/platform/action-groups.md) for the alerts. If similar actions are seen across more than one alert, the wizard proposes to associate a single action group with all of them.  The naming convention is as follows: *WorkspaceName_AG_#Number*. To proceed, select **Next**.
 ![Screenshot of step 2 of the wizard](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. In the last step of wizard, select **Finish**, and confirm when prompted to initiate the process. Optionally, you can provide an email address, so that you are notified when the process completes and all alerts have been successfully moved to Azure Alerts.
 ![Screenshot of step 3 of the wizard](media/monitoring-alerts-extend-tool/ExtendStep3.png)
@@ -46,7 +46,7 @@ Alerts continue to be listed in Operations Management Suite portal, even after t
 ## Option 2: Use the AlertsVersion API
 You can use the Log Analytics AlertsVersion API to extend alerts from Log Analytics into Azure Alerts from any client that can call a REST API. You can access the API from PowerShell by using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool. You can output the results in JSON.  
 
-To use the API, you first create a GET request. This evaluates and returns a summary of the proposed changes, before you attempt to actually extend into Azure by using a POST request. The results list your alerts and a proposed list of [action groups](monitoring-action-groups.md), in JSON format. If similar actions are seen across more than one alert, the service proposes to associate all of them with a single action group. The naming convention is as follows: *WorkspaceName_AG_#Number*.
+To use the API, you first create a GET request. This evaluates and returns a summary of the proposed changes, before you attempt to actually extend into Azure by using a POST request. The results list your alerts and a proposed list of [action groups](../azure-monitor/platform/action-groups.md), in JSON format. If similar actions are seen across more than one alert, the service proposes to associate all of them with a single action group. The naming convention is as follows: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -211,9 +211,9 @@ This response indicates the alerts have been successfully extended into Azure Al
 ## Option 3: Use a custom PowerShell script
  If Microsoft has not successfully extended your alerts from the Operations Management Suite portal to Azure, you can do so manually until July 5, 2018. The two options for manual extension are covered in the previous two sections.
 
-After July 5, 2018, all alerts from the Operations Management Suite portal are extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting) will have their alerts running without firing actions or notifications, due to the lack of associated [action groups](monitoring-action-groups.md). 
+After July 5, 2018, all alerts from the Operations Management Suite portal are extended into Azure. Users who didn't take the [necessary remediation steps suggested](#troubleshooting) will have their alerts running without firing actions or notifications, due to the lack of associated [action groups](../azure-monitor/platform/action-groups.md). 
 
-To create [action groups](monitoring-action-groups.md) for alerts manually in Log Analytics, use the following sample script:
+To create [action groups](../azure-monitor/platform/action-groups.md) for alerts manually in Log Analytics, use the following sample script:
 ```PowerShell
 ########## Input Parameters Begin ###########
 
@@ -448,10 +448,10 @@ The script is verbose, and outputs the steps as it runs:
 - The script exits by displaying the message "Extension complete!" In case of any intermediate failures, the script displays subsequent errors.
 
 ## Troubleshooting 
-During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](monitoring-action-groups.md). In such cases, you see an error message in a banner in the **Alert** section of the Operations Management Suite portal, or in the GET call done to the API.
+During the process of extending alerts, problems can prevent the system from creating the necessary [action groups](../azure-monitor/platform/action-groups.md). In such cases, you see an error message in a banner in the **Alert** section of the Operations Management Suite portal, or in the GET call done to the API.
 
 > [!IMPORTANT]
-> If Azure public cloud based Log Analytics users don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](monitoring-action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
+> If Azure public cloud based Log Analytics users don't take the following remediation steps before July 5, 2018, alerts will run in Azure but will not fire any action or notification. To get notifications for alerts, you must manually edit and add [action groups](../azure-monitor/platform/action-groups.md), or use the preceding [custom PowerShell script](#option-3---using-custom-powershell-script).
 
 Here are the remediation steps for each error:
 - **Error: Scope Lock is present at subscription/resource group level for write operations**:
