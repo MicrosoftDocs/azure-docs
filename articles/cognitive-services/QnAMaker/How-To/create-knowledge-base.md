@@ -13,7 +13,7 @@ ms.author: tulasim
 ms.custom: seodec18
 ---
 
-# Quickstart: Create a knowledge base in QnA Maker
+# Quickstart: Create a knowledge base using the QnA Maker portal
 
 QnA Maker makes it simple to add your existing data sources when creating a knowledge base. You can create a new QnA Maker knowledge base from the following document types:
 
@@ -23,6 +23,8 @@ QnA Maker makes it simple to add your existing data sources when creating a know
 * Structured documents
 
 Include a chit-chat personality to make your knowledge more engaging with your users.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Create a new knowledge base
 
