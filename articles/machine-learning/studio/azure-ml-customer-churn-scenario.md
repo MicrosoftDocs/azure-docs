@@ -29,7 +29,7 @@ This experiment was developed and tested by Serge Berger, Principal Data Scienti
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## The problem of customer churn
 Businesses in the consumer market and in all enterprise sectors have to deal with churn. Sometimes churn is excessive and influences policy decisions. The traditional solution is to predict high-propensity churners and address their needs via a concierge service, marketing campaigns, or by applying special dispensations. These approaches can vary from industry to industry. They can even vary from a particular consumer cluster to another within one industry (for example, telecommunications).

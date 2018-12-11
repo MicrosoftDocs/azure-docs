@@ -181,7 +181,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: 'Find samples on Github for Speech Service:'
+    text: 'Find samples on GitHub for Speech Service:'
   - type: list
     style: unordered
     items:

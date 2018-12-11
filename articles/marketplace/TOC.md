@@ -97,12 +97,14 @@
 ### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
 
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Containers offer](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Prerequisites](./cloud-partner-portal/containers/cpp-prerequisites.md)
