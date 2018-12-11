@@ -14,9 +14,9 @@ ms.author: cshoe
 
 # Manually run a non HTTP-triggered function
 
-This article demonstrates how to manually run a deployed non HTTP-triggered function.
+This article demonstrates how to manually run a non HTTP-triggered function via specially formatted HTTP request.
 
-In some contexts, you may need to run on-demand an Azure Function that is triggered by timed schedule or by another resource's action. This article demonstrates how you can manually run a non HTTP-triggered function by sending a specially formatted HTTP request to the Function app.
+In some contexts, you may need to on-demand run an Azure Function that is indirectly triggered.  Examples of indirect triggers include timers or functions that run as a result of another resource's action. 
 
 [Postman](https://www.getpostman.com/) is used in the following example, but you may use [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
@@ -30,9 +30,9 @@ To run a non HTTP-triggered function, you need to a way to send a request to Azu
 - **Folder path:** To access non HTTP-triggered functions via an HTTP request, you have to send the request through the folders *admin/functions*.
 - **Function name:** The name of the function you want to run.
 
-You use this request location in Postman along with the master key to send a request to Azure to run the function.
+You use this request location in Postman along with the function's master key in the request to Azure to run the function.
 
-## Get the Function master key
+## Get the function's master key
 
 Navigate to your function in the Azure Portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
 
@@ -60,7 +60,7 @@ Open Postman and follow these steps:
 
 ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 
-Postman should return with a **Status of 202 Accepted**.
+Postman then return with a **Status of 202 Accepted**.
 
 Next, return to your function in the Azure Portal. Locate the *Logs* window and you'll see messages from the function coming from the manual call to the function.
 
