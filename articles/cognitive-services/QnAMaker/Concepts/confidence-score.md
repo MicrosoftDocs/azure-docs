@@ -1,7 +1,7 @@
 ---
 title: Confidence Score - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Explaining confidence score
+description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,8 +10,9 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Confidence score
+# Confidence score of a QnA Maker knowledge base
 When a user query is matched against a knowledge base, QnA Maker returns relevant answers, along with a confidence score. This score indicates the confidence that the answer is the right match for the given user query. 
 
 The confidence score is a number between 0 and 100. A score of 100 is likely an exact match, while a score of 0 means, that no matching answer was found. The higher the score- the greater the confidence in the answer. For a given query, there could be multiple answers returned. In that case, the answers are returned in order of decreasing confidence score.
@@ -72,15 +73,15 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 
 2. Click to open the **App Service**.
 
-    ![Access App service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![In the Azure portal, access App service for QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Click **Save**.
 
-    ![Change default response](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Select Application Settings and then edit DefaultAnswer for QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. Restart your App service
 
-    ![QnA Maker appservice restart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![After you change the DefaultAnswer, restart the QnA Maker appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## Next steps

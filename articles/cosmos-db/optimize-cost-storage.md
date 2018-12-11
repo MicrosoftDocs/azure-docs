@@ -15,7 +15,7 @@ Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, whic
 
 ## Storage cost
 
-Storage is billed with the unit of GBs. Local SSD-backed storage is used by your data and indexing. The total storage used is equal to the storage required by the data and indexes used across all the regions where you are using Azure Cosmos DB. If you globally replicate an Azure Cosmos account across three regions, you will pay for the total storage cost in each of those three regions. To estimate your storage requirement, see [capacity planner](https://www.documentdb.com/capacityplanner) tool. The cost for storage in Azure Cosmos DB is $0.25 GB/month, see [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/) for latest updates. You can set up alerts to determine storage used by your Azure Cosmos container, to monitor your storage, see [Monitor Azure Cosmos DB](monitor-accounts.md)) article.
+Storage is billed with the unit of GBs. Local SSD-backed storage is used by your data and indexing. The total storage used is equal to the storage required by the data and indexes used across all the regions where you are using Azure Cosmos DB. If you globally replicate an Azure Cosmos account across three regions, you will pay for the total storage cost in each of those three regions. To estimate your storage requirement, see [capacity planner](https://www.documentdb.com/capacityplanner) tool. The cost for storage in Azure Cosmos DB is $0.25 GB/month, see [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest updates. You can set up alerts to determine storage used by your Azure Cosmos container, to monitor your storage, see [Monitor Azure Cosmos DB](monitor-accounts.md)) article.
 
 ## Optimize cost with item size
 
@@ -35,7 +35,7 @@ If you want to store rich media types, for example, videos, images, etc., you ha
 
 ## Check storage consumed
 
-To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .Net SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/en-us/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
+To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .Net SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
 
 ## Using SDK
 
@@ -54,6 +54,6 @@ Next you can proceed to learn more about cost optimization in Azure Cosmos DB wi
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries)
+* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
 

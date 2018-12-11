@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:  Use Azure portal to start"
+title: "Quickstart through Azure portal"
 titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service. Use Azure portal to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
@@ -35,7 +35,8 @@ The following Azure resources are added automatically to your workspace when the
 
 The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning, such as compute cluster size. Learn more about [the default limits and how to increase your quota](how-to-manage-quotas.md).
 
-If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+>[!Note]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 
 ## Create a workspace 

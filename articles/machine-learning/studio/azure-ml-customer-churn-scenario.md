@@ -1,12 +1,12 @@
 ---
-title: Analyzing customer churn with Azure Machine Learning Studio | Microsoft Docs
+title: Analyzing customer churn - Azure Machine Learning Studio | Microsoft Docs
 description: Case study of developing an integrated model for analyzing and scoring customer churn using Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning

@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom:
+ms.custom: seodec18
 ---
 
 # Tutorial: Create and manage Azure budgets
@@ -40,7 +40,7 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a budget in the Azure portal
 
@@ -52,23 +52,23 @@ After you create budgets, they show a simple view of your current spending again
 
 Click **Add**.
 
-![Cost Management budgets](./media/tutorial-acm-create-budgets/budgets01.png)
+![Cost Management budgets shown in the Azure portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
 In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours.
 
 Here's an example of creating a monthly budget for $4,500. An email alert gets generated when 90% of the budget is reached.
 
-![Monthly budget example](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Example information shown in the Create budget box](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 When you create a quarterly budget, it works in the same way as a monthly budget. The difference is that the budget amount for the quarter is evenly divided among the three months of the quarter. As you might expect, an annual budget amount is evenly divided among all 12 months of the calendar year.
 
 Current spending against budgets is updated whenever Cost Management receives updated billing data. Typically, daily.
 
-![Current spending against budgets](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Example information showing current spending against budgets](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 After you create a budget, it is shown in cost analysis. Viewing your budget in relation to your spending trend is one of the first steps when you start to [analyze your costs and spending](quick-acm-cost-analysis.md).
 
-![Budget shown in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Example budget and spending shown in cost analysis](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 In the preceding example, you created a budget for a subscription. However, you can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
 
@@ -76,7 +76,7 @@ In the preceding example, you created a budget for a subscription. However, you 
 
 Depending on the level of access that you have, you can edit a budget to change its properties. In the following example, some of the properties are read-only because the user has only Contributor permission to the subscription. Currently, the **Expiration date** is disabled and can't be modified once set.
 
-![Edit budget – contributor permission](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Example of editing a budget to change various properties](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## Next steps

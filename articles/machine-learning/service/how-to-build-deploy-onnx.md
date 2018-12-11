@@ -1,5 +1,5 @@
 ---
-title: Create and deploy interoperable ONNX models
+title: Create & deploy interoperable ONNX models
 titleSuffix: Azure Machine Learning service
 description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
@@ -182,10 +182,7 @@ Here is an example for deploying an ONNX model:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Deploy your ONNX model with Azure Machine Learning to:
-   + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
+4. To deploy your model, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 
 ## Examples
