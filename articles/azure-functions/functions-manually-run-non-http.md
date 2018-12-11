@@ -58,11 +58,11 @@ Open Postman and follow these steps:
 
 7. Click **Send**.
 
-![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 
-Postman then return with a **Status of 202 Accepted**.
+Postman then reports a status of **202 Accepted**.
 
-Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages from the function coming from the manual call to the function.
+Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages coming from the manual call to the function.
 
 ![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
