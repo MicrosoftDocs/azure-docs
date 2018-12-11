@@ -183,4 +183,4 @@ After you enter a tag, to enter another tag, press the Tab key.
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
