@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ---
-# Discover experiments in Azure AI Gallery
+# Discover Azure Machine Learning Studio experiments in Azure AI Gallery
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) has a variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
 

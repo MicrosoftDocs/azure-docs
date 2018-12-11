@@ -89,7 +89,7 @@ Add this snippet in your .NET client application. Replace the placeholder values
         var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
 
-The preceeding snippet uses a helper function `GetCreds_SPI_SecretKey`. The code for this helper function is available [here on Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+The preceeding snippet uses a helper function `GetCreds_SPI_SecretKey`. The code for this helper function is available [here on GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## Service-to-service authentication with certificate
 
@@ -109,7 +109,7 @@ Add this snippet in your .NET client application. Replace the placeholder values
         var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
-The preceeding snippet uses a helper function `GetCreds_SPI_Cert`. The code for this helper function is available [here on Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+The preceeding snippet uses a helper function `GetCreds_SPI_Cert`. The code for this helper function is available [here on GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## Next steps
 In this article, you learned how to use service-to-service authentication to authenticate with Data Lake Storage Gen1 using .NET SDK. You can now look at the following articles that talk about how to use the .NET SDK to work with Data Lake Storage Gen1.

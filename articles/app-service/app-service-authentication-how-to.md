@@ -1,5 +1,5 @@
 ---
-title: Advanced usage of authentication and authorization in Azure App Service | Microsoft Docs
+title: Advanced usage of authentication and authorization - Azure App Service | Microsoft Docs
 description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service
