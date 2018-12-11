@@ -103,7 +103,7 @@ Under **2. Define alert details**, enter a name and description for the alert. S
 
 ![Configure signal logic](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Under **Action groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Action groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
 In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
 

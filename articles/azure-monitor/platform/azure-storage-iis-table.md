@@ -10,11 +10,9 @@ ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Use Azure blob storage for IIS and Azure table storage for events with Log Analytics

@@ -8,7 +8,7 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
 # Quickstart: Run a container application in Azure Container Instances with Azure PowerShell
