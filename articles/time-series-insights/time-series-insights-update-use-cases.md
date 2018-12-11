@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Time Series Insights (preview) use cases | Microsoft Docs
-description: Understanding Azure Time Series Insights (preview) use cases
+title: Azure Time Series Insights Preview use cases | Microsoft Docs
+description: Understand Azure Time Series Insights Preview use cases
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,72 +11,84 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ---
 
-# Azure Time Series Insights (Preview) use cases
+# Azure Time Series Insights Preview use cases
 
-This article provides an overview of several common use cases for Azure Time Series Insights (TSI). The recommendations in this article serve as a starting point as you develop applications and solutions with TSI.
+This article provides an overview of several common use cases for Azure Time Series Insights Preview. The recommendations in this article serve as a starting point as you develop applications and solutions with Time Series Insights.
 
-After reading this article, you'll be able to answer the following questions:
+After you read this article, you can answer the following questions:
 
-* What are the common use cases for Azure TSI?
-* What are the benefits of using Azure TSI for data exploration and visual anomaly detection?
-* What are the benefits of using Azure TSI for operational analysis and process efficiency?
-* What are the benefits of using Azure TSI for advanced analytics?
+* What are the common use cases for Time Series Insights?
+* What are the benefits of using Time Series Insights for data exploration and visual anomaly detection?
+* What are the benefits of using Time Series Insights for operational analysis and process efficiency?
+* What are the benefits of using Time Series Insights for advanced analytics?
 
-This document provides an overview of the use cases that the Azure TSI Private Preview is designed for.
+This document provides an overview of the use cases that the Azure Time Series Insights Preview is designed for.
 
 ## Introduction
 
-Azure TSI is an end-to-end Platform-As-A-Service to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. As such, Azure TSI is ideal for ad-hoc data exploration as well as operational analysis. TSI is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Time Series Insights is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad-hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 
-Instantly explore and analyze billions of events to spot anomalies and discover hidden trends in your data. Azure TSI delivers near real-time performance for your IoT and DevOps analysis workloads.
+Instantly explore and analyze billions of events to spot anomalies and discover hidden trends in your data. Time Series Insights delivers near real-time performance for your IoT and DevOps analysis workloads.
 
-![data-explorer][1]
+![Data explorer][1]
 
-Of all of Azure TSI’s strengths, most customers agree that the time-to-insight is among the strongest. TSI requires no upfront data preparation and works fast, connecting you to billions of events in your Azure IoT Hub or Event Hub in minutes.  Once connected, you can visualize and analyze billions of events to spot anomalies and discover hidden trends in your data.  Because TSI is intuitive and simple to use, you’ll start interacting with your data without writing a single line of code. There’s also no new language to learn; Time Series Insights provides granular text-based querying for advanced users familiar with SQL, as well as select-and-click exploration for novices.
+Most customers agree that the time to insight is among the strongest assets of Time Series Insights. Time Series Insights requires no upfront data preparation. It works fast to connect you to billions of events in your Azure IoT Hub or Azure Event Hubs in minutes. Once connected, you can visualize and analyze billions of events to spot anomalies and discover hidden trends in your data. 
 
-We see customers taking advantage of this speed to diagnose asset-related issues quickly, in performing DevOps to get to the root cause of a bug in an IoT solution, and in identifying the areas to investigate for data science initiatives.  
+Time Series Insights is intuitive and simple to use. You can interact with your data without writing a single line of code. There’s also no new language to learn. Time Series Insights provides granular text-based querying for advanced users who are familiar with SQL. It also provides select-and-click exploration for novices.
 
-There are three primary ways to interact with data stored in TSI:
+Customers take advantage of the speed to diagnose asset-related issues quickly. They can perform DevOps to get to the root cause of a bug in an IoT solution. They also can identify areas to investigate for data science initiatives.  
 
-1. The first and easiest to get started with is our visualization, the explorer, which enables you to quickly visualize all of your IoT data in one place. It provides tools like heatmap, which make visually spotting anomalies in your data simple. It also provides the perspective view, which enables you compare up to four views from one or more TSI environments in a single dashboard, giving you a view of your time-series data across all your locations. Learn more about the [TSI explorer](./time-series-insights-update-explorer.md). To plan out your TSI update environment, read [TSI update planning](./time-series-insights-update-plan.md).
+There are three primary ways to interact with data stored in Time Series Insights:
 
-1. The second way is to use our JavaScript SDK to quickly embed powerful charts and graphs in your own web application. With just a few lines of code, you can author powerful queries to populate line charts, pie charts, bar charts, heatmaps, data grids and more. All of these elements exist out-of-the-box using the SDK. The SDK also abstracts TSI query APIs, enabling you to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, TSI offers parameterized URLs that provide seamless connection points with the explorer for deep-dives into data. To learn more about the JavaScript SDK, read the [TSI JS client library](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) and the [TSI client](https://github.com/Microsoft/tsiclient) documentation. For more on parameterized URLs, read our article on [parameterized URLs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).  
+- The first and easiest way to get started is with the Time Series Insights Preview explorer. You can use it to quickly visualize all of your IoT data in one place. It provides tools like the heatmap to help you spot anomalies in your data. It also provides a perspective view. Use it to compare up to four views from one or more Time Series Insights environments in a single dashboard. The dashboard gives you a view of your time-series data across all your locations. Learn more about the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). To plan out your Time Series Insights environment, read [Time Series Insights planning](./time-series-insights-update-plan.md).
 
-1. Finally, TSI provides powerful APIs for querying data stored in TSI. TSI has temporal operators like from, to, first, and last, aggregations and transformations like average, min, max, split by, order by, and DateHistogram, and filtering operators like has, in and, or, greater than, REGEX, etc. All these operators enable downstream applications to quickly find interesting trends and patterns in your data, and can be used to populate home-grown visualizations to spot anomalies.  
+- The second way to start is to use the JavaScript SDK to quickly embed powerful charts and graphs in your  web application. With just a few lines of code, you can author powerful queries. Use them to populate line charts, pie charts, bar charts, heatmaps, data grids, and more. All of these elements exist out-of-the-box by using the SDK. The SDK also abstracts Time Series Insights query APIs. You can use them to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, Time Series Insights offers parameterized URLs. They provide seamless connection points with the Time Series Insights Preview explorer for deep dives into data. To learn more about the JavaScript SDK, read the [Time Series Insights JS client library](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation. For more on parameterized URLs, read  [Parameterized URLs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).
+
+- The third way to start is to use the powerful APIs to query data stored in Time Series Insights. Time Series Insights has temporal operators such as from, to, first, and last. It has aggregations and transformations such as average, min, max, split by, order by, and DateHistogram. It also has filtering operators such as has, in and, or, greater than, and REGEX. All these operators enable downstream applications to quickly find interesting trends and patterns in your data. Use them to populate home-grown visualizations to spot anomalies.
 
 ## Operational analysis and driving process efficiency
 
-Enable monitoring the health, usage, and performance of equipment’s at scale, thereby providing an easy way to measure operational efficiency. Time Series Insights helps manage diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
+Use Time Series Insights to monitor the health, usage, and performance of equipment at scale. Time Series Insights provides an easy way to measure operational efficiency. Time Series Insights helps manage diverse and unpredictable IoT workloads without sacrificing ingestion or query performance.
 
-![overview][2]
+![Overview][2]
 
-Streaming and continuous processing of data coming from operational processes can successfully transform any business if coupled with right technology/solution. Often these solutions are a combination of multiple systems that enable exploration and analysis of data that changes constantly specially in IoT realm and share a common pattern.
+Streaming and continuous processing of data coming from operational processes can successfully transform any business if it's combined with the right technology or solution. Often these solutions are a combination of multiple systems. They enable exploration and analysis of data that changes constantly, especially in the IoT realm, and shares a common pattern.
 
-These patterns often start with IoT enabled platforms that ingest billions of events from devices and sensors spanning various locales. These systems process and analyze streaming data to derive real-time insights and actions, Data is typically archived to warm and cold storage for near real time and batch analytics. Data that is collected goes through series of processing to cleanse and contextualize for downstream querying and analytics scenarios. Microsoft Azure offers rich services that can be applied to these IoT scenarios (Asset Maintenance, Manufacturing, etc.). These include Azure TSI, Azure IoT Hub, Azure Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning, and Microsoft Power BI.
+These patterns often start with IoT-enabled platforms that ingest billions of events from devices and sensors that span various locales. These systems process and analyze streaming data to derive real-time insights and actions. Data is typically archived to warm and cold storage for near real-time and batch analytics. 
 
-This solution architecture can be achieved as follows – ingest data via Azure IoT Hub or Azure Event Hub for best-in-class security, throughput, and latency. Perform data processing and computations by funneling ingested data through services like Azure Stream Analytics, Azure Logic Apps, Azure Functions depending on the specific data processing needs. Computed signals from the processing pipeline are pushed to Azure TSI for storing and analytics. Azure Time Series Insights offers near real-time data exploration and asset-based insights over historical data. Depending on the business needs, MapReduce and Hive jobs can be run on data stored in Time Series Insights by connecting Time Series Insights to HDInsight. Data stored in Time Series Insights can be made available to Power BI, and other customer applications via Time Series Insights’ public surface query APIs for deep business and operational intelligence scenarios.
+Data that's collected goes through a series of processing to cleanse and contextualize it for downstream querying and analytics scenarios. Azure offers rich services that can be applied to IoT scenarios such as asset maintenance and manufacturing. These services include Time Series Insights, IoT Hub, Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning, and Power BI.
 
-## Advanced Analytics
+Solution architecture can be achieved in the following manner:
 
-Integrate with advanced analytics Services such as Azure Machine Learning and Azure Databricks. Time Series Insights ingresses raw data from millions of devices and adds contextual data that can be consumed seamlessly by a suite of Azure analytics services.
+- Ingest data via IoT Hub or Event Hubs for best-in-class security, throughput, and latency. 
+- Perform data processing and computations. Funnel ingested data through services such as Stream Analytics, Logic Apps, and Azure Functions. The service you use depends on the specific data-processing needs. 
+- Computed signals from the processing pipeline are pushed to Time Series Insights for storing and analytics. 
 
-![analytics][3]
+Time Series Insights offers near real-time data exploration and asset-based insights over historical data. Depending on your business needs, MapReduce and Hive jobs can run on data stored in Time Series Insights by connecting Time Series Insights to Azure HDInsight. Data stored in Time Series Insights is available to Power BI and other customer applications via the Time Series Insights public surface query APIs. This data can be used for deep business and operational intelligence scenarios.
 
-Advanced analytics and machine learning consume and process large volumes of data to make data-driven decisions and perform predictive analysis. In IoT use cases, advanced analytics algorithms learn from the data collected from millions of devices that can transmit data multiple times every second. However, the data collected from IoT devices is raw and lacks contextual information such as the location of device, unit of the sensor reading etc, thus making it difficult for the data to be consumed directly for advanced analytics.
+## Advanced analytics
 
-Azure Time Series Insights bridges the gap between IoT data and advanced analytics in two simple and cost-effective ways. First, Time Series Insights update collects raw telemetry data from millions of devices using IoT hub, enriches data with contextual information and transforms data into ‘parquet format’ that can easily integrate with a number of advanced analytics Services such as Azure Machine Learning, Azure Databricks, and other third-party applications.  Time Series Insights can serve as the source-of-truth for all data across an organization, thus creating a central repository for downstream analytics workloads to consume.  Since Time Series Insights is a near real-time storage service, advanced analytics models can learn continuously from incoming IoT telemetry data to make more accurate predictions.
+Integrate with advanced analytics services such as Machine Learning and Azure Databricks. Time Series Insights ingresses raw data from millions of devices. It adds contextual data that can be consumed seamlessly by a suite of Azure analytics services.
 
-Second, Time Series Insights can be fed the output of machine learning and prediction models to visualize and store their results, thus helping organizations to optimize and tweak their models.  What’s more, Time Series Insights makes it simple to visualize streaming telemetry data on the same plane as the trained model outputs to help data science teams spot anomalies and identify patterns.  
+![Analytics][3]
+
+Advanced analytics and machine learning consume and process large volumes of data. This data is used to make data-driven decisions and perform predictive analysis. In IoT use cases, advanced analytics algorithms learn from the data collected from millions of devices. These devices transmit data multiple times every second. The data collected from IoT devices is raw. It lacks contextual information such as the location of the device and the unit of the sensor reading. As a result, raw data is difficult to consume directly for advanced analytics.
+
+Time Series Insights bridges the gap between IoT data and advanced analytics in two simple and cost-effective ways: 
+
+- First, Time Series Insights collects raw telemetry data from millions of devices by using IoT Hub. It enriches data with contextual information and transforms data into a parquet format. This format can easily integrate with other advanced analytics services, such as Machine Learning, Azure Databricks, and third-party applications. 
+
+    Time Series Insights can serve as the source of truth for all data across an organization. It creates a central repository for downstream analytics workloads to consume. Because Time Series Insights is a near real-time storage service, advanced analytics models can learn continuously from incoming IoT telemetry data. As a result, the models can make more accurate predictions.
+
+- Second, Time Series Insights can be fed the output of machine learning and prediction models to visualize and store their results. This procedure helps organizations to optimize and tweak their models. Time Series Insights makes it simple to visualize streaming telemetry data on the same plane as the trained model outputs. In this way, it helps data science teams spot anomalies and identify patterns.  
 
 ## Next steps
 
-Learn more about the [TSI explorer](./time-series-insights-update-explorer.md).
-
-To plan out your environment, read [TSI (Preview) planning](./time-series-insights-update-plan.md).
-
-Read the [TSI client](https://github.com/Microsoft/tsiclient) documentation.
+- Learn more about the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+- To plan out your environment, read [Time Series Insights Preview planning](./time-series-insights-update-plan.md).
+- Read the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation.
 
 <!-- Images -->
 [1]: media/v2-update-use-cases/data-explorer.svg

@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor
