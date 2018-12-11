@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Audit diagnostic setting
+title: Sample - Audit diagnostic setting
 description: This sample policy audits if diagnostic settings not enabled for specified resource types.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Audit diagnostic setting
 

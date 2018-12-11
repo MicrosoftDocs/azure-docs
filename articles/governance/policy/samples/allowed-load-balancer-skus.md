@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Allowed load balancer SKUs
+title: Sample - Allowed load balancer SKUs
 description: This sample policy requires that load balancers use an approved SKU.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Allowed load balancer SKUs
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Not allowed VM extensions 
+title: Sample - Not allowed VM extensions 
 description: This sample policy prohibits the use of specified extensions.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Not allowed VM extensions
 

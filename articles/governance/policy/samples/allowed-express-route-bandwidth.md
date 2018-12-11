@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Allowed ExpressRoute bandwidth
+title: Sample - Allowed ExpressRoute bandwidth
 description: This sample policy requires that ExpressRoute use a specified set of bandwidths.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Allowed ExpressRoute bandwidth
 
