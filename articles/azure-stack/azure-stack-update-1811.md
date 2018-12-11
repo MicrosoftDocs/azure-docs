@@ -161,6 +161,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Known issues with the update process
 
+- During installation of this update, both Azure Stack portals (Admin & User) can become unavailble when Extension Host is configured. You can check the status of an update or resume a failed update installation using the privileged endpoint.
+
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 - <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.
