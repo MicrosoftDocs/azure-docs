@@ -27,11 +27,11 @@ This article describes how to use the continuous data export feature in Azure Io
 
 Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data is in [Apache AVRO](https://avro.apache.org/docs/current/index.html) format.
 
-Learn more about [exporting to Blob storage](howto-export-data-storage.md).
+Learn more about [exporting to Blob storage](howto-export-data-blob-storage.md).
 
 ## Export to Azure Event Hubs and Azure Service Bus
 
-Measurements, devices, and device templates data are exported to your event hub or Service Bus queue or topic. Exported measurements data arrives in near realtime and contains the entirety of the message your devices sent to IoT Central, not just the values of the measurements themselves. Exported devices data arrives in batches once every minute, and contains changes to properties and settings of all devices, and exported device templates contains changes to all device templates. The exported data is in JSON format.
+Measurements, devices, and device templates data are exported to your event hub or Service Bus queue or topic. Exported measurements data arrives in near realtime and contains the entirety of the message your devices sent to IoT Central, not just the values of the measurements themselves. Exported devices data arrives in batches once every minute, and contains changes to properties and settings of all devices, and exported device templates contains changes to all device templates.
 
 
 Learn more about [exporting to Event Hubs and Service Bus](howto-export-data-eventhubs-servicebus.md).
@@ -46,7 +46,8 @@ If you don't have an existing Storage/Event Hubs/Service Bus to export to, follo
 2. For the account type, choose **General purpose** or **Blob storage**.
 3. Choose a subscription. 
 
-    > [!Note] You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+    > [!Note] 
+    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 
 4. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 
@@ -123,10 +124,10 @@ Now that you have a Storage/Event Hubs/Service Bus destination to export data to
 Now that you know how to export your data, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [Export data to Azure Blob Storage](howto-export-blob-storage.md)
+> [Export data to Azure Blob Storage](howto-export-data-blob-storage.md)
 
 > [!div class="nextstepaction"]
-> [Export data to Azure Event Hubs and Azure Service Bus](howto-export-eventhubs-servicebus.md)
+> [Export data to Azure Event Hubs and Azure Service Bus](howto-export-data-eventhubs-servicebus.md)
 
 > [!div class="nextstepaction"]
 > [How to visualize your data in Power BI](howto-connect-powerbi.md)

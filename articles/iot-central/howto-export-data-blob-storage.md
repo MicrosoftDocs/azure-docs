@@ -14,7 +14,7 @@ manager: peterpr
 
 *This topic applies to administrators.*
 
-This article dives deeper into how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **measurements**, **devices**, and **device templates** to files in Apache AVRO format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
+This article dives deeper into how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **measurements**, **devices**, and **device templates** to files in Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
 > [!Note]
 > Once again, when you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
@@ -26,19 +26,19 @@ This article dives deeper into how to use the continuous data export feature in 
 
 ## Export to Azure Blob Storage
 
-Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data is in [Apache AVRO](https://avro.apache.org/docs/current/index.html) format, and will be exported in to three folders. The default paths in your storage account are:
+Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data is in [Apache Avro](https://avro.apache.org/docs/current/index.html) format, and will be exported in to three folders. The default paths in your storage account are:
     - Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
     - Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
     - Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### Measurements
 
-The exported measurements data has all the new messages received by IoT Central from all devices during that time. The exported AVRO files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
+The exported measurements data has all the new messages received by IoT Central from all devices during that time. The exported files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
 > The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the **deviceId** of the device record.
 
-The following example shows a record in a decoded AVRO file:
+The following example shows a record in a decoded Avro file:
 
 ```json
 {
@@ -74,7 +74,7 @@ A new snapshot is written once per minute. The snapshot includes:
 >
 > The device template that each device belongs to is represented by a device template ID. To get the name of the device template, export the device template snapshots.
 
-A record in the decoded AVRO file can look like:
+A record in the decoded Avro file can look like:
 
 ```json
 {
@@ -122,7 +122,7 @@ A new snapshot is written once per minute. The snapshot includes:
 > [!NOTE]
 > Device templates deleted since the last snapshot aren't exported. Currently, the snapshots don't have indicators for deleted device templates.
 
-A record in the decoded AVRO file can look like this:
+A record in the decoded Avro file can look like this:
 
 ```json
 {
@@ -198,11 +198,11 @@ A record in the decoded AVRO file can look like this:
 }
 ```
 
-## Read exported AVRO files
+## Read exported Avro files
 
-AVRO is a binary format, so the files can't be read in their raw state. The files can be decoded to JSON format. The following examples show how to parse the measurements, devices, and device templates AVRO files. The examples correspond to the examples described in the previous section.
+Avro is a binary format, so the files can't be read in their raw state. The files can be decoded to JSON format. The following examples show how to parse the measurements, devices, and device templates Avro files. The examples correspond to the examples described in the previous section.
 
-### Read AVRO files by using Python
+### Read Avro files by using Python
 
 #### Install pandas and the pandavro package
 
@@ -211,7 +211,7 @@ pip install pandas
 pip install pandavro
 ```
 
-#### Parse a measurements AVRO file
+#### Parse a measurements Avro file
 
 ```python
 import json
@@ -219,7 +219,7 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
+    # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
     measurements = pdx.from_avro(filePath)
 
@@ -241,7 +241,7 @@ def parse(filePath):
 
 ```
 
-#### Parse a devices AVRO file
+#### Parse a devices Avro file
 
 ```python
 import json
@@ -249,7 +249,7 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
+    # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
     devices = pdx.from_avro(filePath)
 
@@ -275,7 +275,7 @@ def parse(filePath):
 
 ```
 
-#### Parse a device templates AVRO file
+#### Parse a device templates Avro file
 
 ```python
 import json
@@ -283,7 +283,7 @@ import pandavro as pdx
 import pandas as pd
 
 def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
+    # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
     templates = pdx.from_avro(filePath)
 
@@ -304,7 +304,7 @@ def parse(filePath):
     print(transformed)
 ```
 
-### Read AVRO files by using C#
+### Read Avro files by using C#
 
 #### Install the Microsoft.Hadoop.Avro package
 
@@ -312,7 +312,7 @@ def parse(filePath):
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-#### Parse a measurements AVRO file
+#### Parse a measurements Avro file
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -325,11 +325,11 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one AVRO container, where a container can contain multiple blocks,
+            // For one Avro container, where a container can contain multiple blocks,
             // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through the AVRO records in the block and extract the fields.
+                // Loop through the Avro records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
@@ -352,7 +352,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-#### Parse a devices AVRO file
+#### Parse a devices Avro file
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -364,11 +364,11 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one AVRO container, where a container can contain multiple blocks,
+            // For one Avro container, where a container can contain multiple blocks,
             // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through the AVRO records in the block and extract the fields.
+                // Loop through the Avro records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
@@ -403,7 +403,7 @@ public static async Task Run(string filePath)
 
 ```
 
-#### Parse a device templates AVRO file
+#### Parse a device templates Avro file
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -415,11 +415,11 @@ public static async Task Run(string filePath)
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one AVRO container, where a container can contain multiple blocks,
+            // For one Avro container, where a container can contain multiple blocks,
             // loop through each block in the container.
             while (reader.MoveNext())
             {
-                // Loop through the AVRO records in the block and extract the fields.
+                // Loop through the Avro records in the block and extract the fields.
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return
@@ -447,7 +447,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-### Read AVRO files by using Javascript
+### Read Avro files by using Javascript
 
 #### Install the avsc package
 
@@ -455,12 +455,12 @@ public static async Task Run(string filePath)
 npm install avsc
 ```
 
-#### Parse a measurements AVRO file
+#### Parse a measurements Avro file
 
 ```javascript
 const avro = require('avsc');
 
-// Read the AVRO file. Parse the device ID and humidity from each record.
+// Read the Avro file. Parse the device ID and humidity from each record.
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
@@ -492,12 +492,12 @@ function load(filePath) {
 }
 ```
 
-#### Parse a devices AVRO file
+#### Parse a devices Avro file
 
 ```javascript
 const avro = require('avsc');
 
-// Read the AVRO file. Parse the device and template identification
+// Read the Avro file. Parse the device and template identification
 // information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);
@@ -530,12 +530,12 @@ function load(filePath) {
 }
 ```
 
-#### Parse a device templates AVRO file
+#### Parse a device templates Avro file
 
 ```javascript
 const avro = require('avsc');
 
-// Read the AVRO file. Parse the device and template identification
+// Read the Avro file. Parse the device and template identification
 // information and the fanSpeed setting for each device record.
 async function parse(filePath) {
     const records = await load(filePath);

@@ -26,19 +26,19 @@ This article dives deeper into how to use the continuous data export feature in 
 
 ## Export to Azure Event Hubs and Azure Service Bus
 
-Measurements, devices, and device templates data are exported to your event hub or Service Bus queue or topic in near-realtime. Exported measurements data contains the entirety of the message your devices sent to IoT Central, not just the values of the measurements themselves. Exported devices data contains changes to properties and settings of all devices, and exported device templates contains changes to all device templates. The exported data is in JSON format.
+Measurements, devices, and device templates data are exported to your event hub or Service Bus queue or topic in near-realtime. Exported measurements data contains the entirety of the message your devices sent to IoT Central, not just the values of the measurements themselves. Exported devices data contains changes to properties and settings of all devices, and exported device templates contains changes to all device templates. The exported data is in the "body" property and is in JSON format.
 
 > [!NOTE]
 > When choosing a Service Bus as an export destination, the queues and topics **must not have Sessions or Duplicate Detection enabled**. If either of those options are enabled, some messages won't arrive in your queue or topic.
 
 ### Measurements
 
-A new message is exported quickly after IoT Central receives the message from a device. Each exported message in Event Hubs and Service Bus contains the full message the device sent in JSON format. 
+A new message is exported quickly after IoT Central receives the message from a device. Each exported message in Event Hubs and Service Bus contains the full message the device sent in the "body" property in JSON format. 
 
 > [!NOTE]
 > The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export device data and correlate each messsage by using the **connectionDeviceId** that matches the **deviceId** of the device message.
 
-The following example shows a JSON message about measurements data received in event hub or Service Bus queue or topic.
+The following example shows a message about measurements data received in event hub or Service Bus queue or topic.
 
 ```json
 {
@@ -80,10 +80,10 @@ The following example shows a JSON message about measurements data received in e
 ### Devices
 
 Messages containing device data are sent to your event hub or Service Bus queue or topic once every few minutes. This means that every few minutes, a batch of messages will arrive with data about
-- New device that were added
+- New devices that were added
 - Devices with changed property and setting values
 
-Each change will be its own message. Information that will be sent in each message includes:
+Each message represents one or more changes to a device since the last exported message. Information that will be sent in each message includes:
 - `id` of the device in IoT Central
 - `name` of the device
 - `deviceId` from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
@@ -96,7 +96,7 @@ Each change will be its own message. Information that will be sent in each messa
 >
 > The device template that each device belongs to is represented by a device template ID. To get the name of the device template, be sure to export device template data too.
 
-The following example shows a JSON message about device data in event hub or Service Bus queue or topic:
+The following example shows a message about device data in event hub or Service Bus queue or topic:
 
 
 ```json
@@ -135,9 +135,6 @@ The following example shows a JSON message about device data in event hub or Ser
   "sequenceNumber": 39740,
   "enqueuedTimeUtc": "2018-10-11T16:22:39.654Z",
   "offset": "<offset>",
-  "properties": {
-    "message_id": "<messageId>"
-  }
 }
 ```
 
@@ -147,7 +144,7 @@ Messages containing device templates data are sent to your event hub or Service 
 - New device templates that were added
 - Device templates with changed measurements, property, and setting definitions
 
-Each change will be its own message. Information that will be sent in each message includes:
+Each message represents one or more changes to a device template since the last exported message. Information that will be sent in each message includes:
 - `id` of the device template
 - `name` of the device template
 - `version` of the device template
@@ -158,7 +155,7 @@ Each change will be its own message. Information that will be sent in each messa
 > [!NOTE]
 > Device templates deleted since the last batch aren't exported. Currently, there are no indicators in exported messages for deleted device templates.
 
-The following example shows a JSON message about device templates data in event hub or Service Bus queue or topic:
+The following example shows a message about device templates data in event hub or Service Bus queue or topic:
 
 ```json
 {
@@ -217,9 +214,6 @@ The following example shows a JSON message about device templates data in event 
   "sequenceNumber": 25315,
   "enqueuedTimeUtc": "2018-10-11T16:23:05.085Z",
   "offset": "<offset>",
-  "properties": {
-    "message_id": "<messageId>"
-  }
 }
 ```
 
