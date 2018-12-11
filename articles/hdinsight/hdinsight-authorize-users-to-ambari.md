@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ---
-# Authorize users for Ambari Views
+# Authorize users for Apache Ambari Views
 
-[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in Ambari is supported for both ESP HDInsight clusters and standard HDInsight clusters.
+[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
 
-Active Directory users can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like Hue, Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
+Active Directory users can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
 
 > [!WARNING]
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
@@ -24,13 +24,13 @@ If you have not already done so, follow [these instructions](./domain-joined/apa
 
 ## Access the Ambari management page
 
-To get to the **Ambari management page** on the [Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
+To get to the **Ambari management page** on the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
 
 ![Manage Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## Grant permissions to Hive views
+## Grant permissions to Apache Hive views
 
-Ambari comes with view instances for Hive and Tez, among others. To grant access to one or more Hive view instances, go to the **Ambari management page**.
+Ambari comes with view instances for [Apache Hive](https://hive.apache.org/) and [Apache TEZ](https://tez.apache.org/), among others. To grant access to one or more Hive view instances, go to the **Ambari management page**.
 
 1. From the management page, select the **Views** link under the **Views** menu heading on the left.
 
@@ -69,9 +69,9 @@ Ambari comes with view instances for Hive and Tez, among others. To grant access
 
 Adding users directly to a view is useful when you want to assign permissions to a user to use that view, but do not want them to be a member of a group that has additional permissions. To reduce the amount of administrative overhead, it may be simpler to assign permissions to groups.
 
-## Grant permissions to Tez views
+## Grant permissions to Apache TEZ views
 
-The Tez view instances allow the users to monitor and debug all Tez jobs, submitted by Hive queries and Pig scripts. There is one default Tez view instance that is created when the cluster is provisioned.
+The [Apache TEZ](https://tez.apache.org/) view instances allow the users to monitor and debug all Tez jobs, submitted by [Apache Hive](https://hive.apache.org/) queries and [Apache Pig](https://pig.apache.org/) scripts. There is one default Tez view instance that is created when the cluster is provisioned.
 
 To assign users and groups to a Tez view instance, expand the **TEZ** row on the Views page, as described previously.
 
@@ -133,7 +133,7 @@ We have assigned our Azure AD domain user "hiveuser2" to the *Cluster User* role
 
 ## Next steps
 
-* [Configure Hive policies in HDInsight with ESP](./domain-joined/apache-domain-joined-run-hive.md)
+* [Configure Apache Hive policies in HDInsight with ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Manage ESP HDInsight clusters](./domain-joined/apache-domain-joined-manage.md)
-* [Use the Hive View with Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [Use the Apache Hive View with Apache Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md)

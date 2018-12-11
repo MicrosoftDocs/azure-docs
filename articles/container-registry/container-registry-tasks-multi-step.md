@@ -3,21 +3,20 @@ title: Automate image build, test, and patch with Azure Container Registry multi
 description: An introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 services: container-registry
 author: dlepow
-
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
 ---
 
 # Run multi-step build, test, and patch tasks in ACR Tasks
 
-Multi-step tasks extend the single image build-and-push capability of ACR Tasks with multi-step, multi-container-based workflows. Use multi-step tasks to build and push several images, in series or in parallel, and run those images as commands within a single task run. Each step defines a container image build or push operation, and can also define the execution of a container. Each step in a multi-step task uses a container as its execution environment.
+Multi-step tasks extend the single image build-and-push capability of ACR Tasks with multi-step, multi-container-based workflows. Use multi-step tasks to build and push several images, in series or in parallel. Then run those images as commands within a single task run. Each step defines a container image build or push operation, and can also define the execution of a container. Each step in a multi-step task uses a container as its execution environment.
 
 > [!IMPORTANT]
 > If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
 
-For example, you can run a task with steps that automate the following:
+For example, you can run a task with steps that automate the following logic:
 
 1. Build a web application image
 1. Run the web application container
@@ -33,11 +32,11 @@ All steps are performed within Azure, offloading the work to Azure's compute res
 
 ## Common task scenarios
 
-Multi-step tasks enable scenarios like the following:
+Multi-step tasks enable scenarios like the following logic:
 
 * Build, tag, and push one or more container images, in series or in parallel.
 * Run and capture unit test and code coverage results.
-* Run and capture functional tests. ACR Tasks supports running multiple containers, executing a series of requests between them.
+* Run and capture functional tests. ACR Tasks supports running more than one container, executing a series of requests between them.
 * Perform task-based execution, including pre/post steps of a container image build.
 * Deploy one or more containers with your favorite deployment engine to your target environment.
 
@@ -172,5 +171,5 @@ You can find multi-step task reference and examples here:
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

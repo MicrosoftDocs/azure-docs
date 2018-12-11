@@ -39,8 +39,6 @@
       href: app-service-web-tutorial-php-mysql.md 
     - name: Node.js with MongoDB
       href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: Java with MySQL
-      href: app-service-web-tutorial-java-mysql.md
   - name: Customize Windows (container)
     href: app-service-web-tutorial-windows-containers-custom-fonts.md
   - name: Access SQL DB securely
@@ -150,6 +148,8 @@
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
       href: app-service-managed-service-identity.md
+    - name: Reference secrets from Key Vault
+      href: app-service-key-vault-references.md
     - name: Use SSL cert in application code
       href: app-service-web-ssl-cert-load.md
     - name: Configure TLS mutual authentication

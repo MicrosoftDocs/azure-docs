@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 
 
 ---
@@ -99,7 +99,7 @@ VSS installation is a part of Mobility agent installation. This service is used 
 
 This issue is mostly seen when an anti-virus software is blocking the operations of Azure Site Recovery services. To resolve this,
 
-1. Exclude all folders mentioned [here](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+1. Exclude all folders mentioned [here](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Follow the guidelines published by your anti-virus provider to unblock the registration of DLL in Windows.
 
 ### VSS error 7 [0x7] - exit code 511

@@ -107,7 +107,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 > [AKS quickstart][aks-cli]
 
 <!-- LINKS - external -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [draft]: https://github.com/Azure/draft
 [helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/

@@ -10,7 +10,6 @@ ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
@@ -168,7 +167,7 @@ The properties and measurements parameters are optional, but are useful for [fil
 ## Browser exceptions
 Most browser exceptions are reported.
 
-If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](http://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
+If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](https://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
 
 ## Web forms
 For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.

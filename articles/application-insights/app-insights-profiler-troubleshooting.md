@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
@@ -42,9 +39,6 @@ The profiler writes trace messages and custom events to your application insight
 
 1. If there are requests during the time period the profiler ran, make sure requests are handled by the part of your application that has the profiler enabled. Sometimes applications consist of multiple components but Profiler is only enabled for some, not all, of the components. The Configure Application Insights Profiler page will show the components that have uploaded traces.
 
-### .Net Core 2.1 bug
-There is a bug in the profiler agent that prevents it from uploading traces taken from applications running on ASP.NET Core 2.1. We are working on a fix and will have it ready soon. The fix for this bug will be deployed by the end of October.
-
 ### Other things to check:
 * Your app is running on .NET Framework 4.6.
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
@@ -65,10 +59,11 @@ Submit a support ticket in the portal. Be sure to include the correlation ID fro
 ## Troubleshooting Profiler on App Services
 ### For the profiler to work properly:
 * Your web app service plan must be Basic tier or higher.
-* Your web app must have the Application Insights extension for App Services (2.6.5) installed.
+* Your web app must have Application Insights enabled.
 * Your web app must have the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting configured with the same instrumentation key that's used by the Application Insights SDK.
 * Your web app must have the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting defined and set to 1.0.0.
-* The **ApplicationInsightsProfiler2** web job must be running. You can check the web job by going to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), and opening the **WebJobs Dashboard** under the Tools menu. As you can see in the screenshots below, by clicking the ApplicationInsightsProfiler2 link, you can see details of the webjob, including the log.
+* Your web app must have the **DiagnosticServices_EXTENSION_VERSION** app setting defined and set the value to ~3.
+* The **ApplicationInsightsProfiler3** web job must be running. You can check the web job by going to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), and opening the **WebJobs Dashboard** under the Tools menu. As you can see in the screenshots below, by clicking the ApplicationInsightsProfiler2 link, you can see details of the webjob, including the log.
 
     Here is the link you need to click to see the webjob details: 
 
@@ -87,11 +82,7 @@ When you configure Profiler, updates are made to the web app's settings. You can
 1. Set **Always On** to **On**.
 1. Add the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting, and set the value to the same instrumentation key that's used by the SDK.
 1. Add the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting, and set the value to 1.0.0.
-1. Open **Advanced Tools**.
-1. Select **Go** to open the Kudu website.
-1. On the Kudu website, select **Site extensions**.
-1. Install **Application Insights** from the Azure Web Apps Gallery.
-1. Restart the web app.
+1. Add the **DiagnosticServices_EXTENSION_VERSION** app setting, and set the value to ~3.
 
 ### Too many active profiling sessions
 

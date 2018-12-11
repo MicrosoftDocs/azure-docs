@@ -127,7 +127,7 @@ Perform the following steps to edit notification details.
 |Picked up     |Your return shipment was picked up. <br> Once the shipment is received at Azure datacenter, data will be automatically uploaded to Azure.         |
 |Received     | Your disks were received at the Azure datacenter. Data copy will start soon.        |
 |Data copied     |Data copy is in progress.<br> Wait until the data copy is complete.         |
-|Completed       |Successfully completed the order.<br> Verfiy your data is in Azure before you delete the on-premises data from servers.         |
+|Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
 |Completed with errors| Data copy was completed but errors were received. <br> Review the copy logs using the path provided in the **Overview**. For more information, go to [Download diagnostic logs](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order.     |
 

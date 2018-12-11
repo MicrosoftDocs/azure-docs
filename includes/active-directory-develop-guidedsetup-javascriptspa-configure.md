@@ -64,7 +64,8 @@ There are multiple ways to register an application. Select the option that best 
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

@@ -1,5 +1,5 @@
 ---
-title: Build a Java Enterprise web app in Azure App Service on Linux | Microsoft Docs 
+title: Build Java Enterprise web app on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Java Enterprise app working in Wildfly on Azure App Service on Linux.
 author: JasonFreeberg
 manager: routlaw
@@ -11,6 +11,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
+ms.custom: seodec18
 ---
 
 # Tutorial: Build a Java EE and Postgres web app in Azure
@@ -28,8 +29,8 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 1. [Download and install Git](https://git-scm.com/)
-1. [Download and install Maven 3](https://maven.apache.org/install.html)
-1. [Download and install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Download and install Maven 3](https://maven.apache.org/install.html)
+3. [Download and install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## Clone and edit the sample app
 
@@ -47,13 +48,38 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Update the Maven POM with the desired name and resource group of your App Service. These values will be injected into the Azure plugin, which is further down in _pom.xml_ file. You do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist.
 
+You can scroll down to the `<plugins>` section of _pom.xml_ to inspect the Azure plugin. The section of the `<plugin>` configuration in the _pom.xml_ for the azure-webapp-maven-plugin should include the following configuration:
+
+```xml
+      <!--*************************************************-->
+      <!-- Deploy to WildFly in App Service Linux           -->
+      <!--*************************************************-->
+ 
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+ 
+          <!-- Web App information -->
+          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+          <appName>${WEBAPP_NAME}</appName>
+          <region>${REGION}</region>
+ 
+          <!-- Java Runtime Stack for Web App on Linux-->
+          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+ 
+        </configuration>
+      </plugin>
+```
+
 Replace the placeholders with your desired resource names:
 ```xml
 <azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
 <azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
 ```
 
-You can scroll down to the `<plugins>` section of _pom.xml_ to inspect the Azure plugin.
 
 ## Build and deploy the application
 

@@ -207,4 +207,4 @@ and can help address incidents more quickly.
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md)
 - To learn more about how to construct different search queries and review the Automation State Configuration logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+- To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../azure-monitor/platform/collect-azure-metrics-logs.md)

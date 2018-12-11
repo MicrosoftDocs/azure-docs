@@ -97,11 +97,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 You add a **Get-AutomationConnection** activity to a graphical runbook by right-clicking on the connection in the Library pane of the graphical editor and selecting **Add to canvas**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![add to canvas](media/automation-connections/connection-add-canvas.png)
 
 The following image shows an example of using a connection in a graphical runbook.  This is the same example shown above for authenticating using the Run As account with a textual runbook.  This example uses the **Constant value** data set for the **Get RunAs Connection** activity that uses a connection object for authentication.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the ServicePrincipalCertificate parameter set is expecting a single object.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![get connections](media/automation-connections/automation-get-connection-object.png)
 
 ### Python2 runbook sample
 The following sample shows how to authenticate using the Run As connection in a Python2 runbook.

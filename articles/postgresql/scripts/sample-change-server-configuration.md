@@ -22,7 +22,7 @@ If you choose to run the CLI locally, this article requires Azure CLI version 2.
 
 ## Sample script
 In this sample script, edit the highlighted lines to update the admin username and password to your own.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/change-server-configurations/change-server-configurations.sh?highlight=18-19 "List and update configurations of Azure Database for PostgreSQL.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/change-server-configurations/change-server-configurations.sh?highlight=15-16 "List and update configurations of Azure Database for PostgreSQL.")]
 
 ## Clean up deployment
 Use the following command to remove the resource group and all resources associated with it after the script has been run. 

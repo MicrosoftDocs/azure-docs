@@ -31,19 +31,19 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. If you haven’t created any rules yet, you will see the following screen:
 
-    ![No rules yet](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![No rules yet](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
 
 1. Click **Telemetry** to create a rule to monitor device telemetry.
 
-    ![Rule Types](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![Rule Types](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. Enter a name that helps you to identify the rule in this device template.
 
 1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices for this template**.
 
-   ![Rule Detail](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![Rule Detail](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     The rule automatically applies to all the devices under the device template.
     
@@ -56,7 +56,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Select the telemetry you want to monitor from the **Measurement** dropdown.
 
-   ![Condition](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![Condition](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. Next, choose **Aggregation**, **Operator**, and provide a **Threshold** value.
     - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule will trigger almost instantly when the device reports temperature > 80.
@@ -73,14 +73,14 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.  
 
-    ![Add Action](media\howto-create-telemetry-rules\Add_Action.png)
+    ![Add Action](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![Configure Action](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 

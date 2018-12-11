@@ -4,7 +4,7 @@ description: Learn how to set up replication and failover to Azure for disaster 
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
 
@@ -90,7 +90,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
-   - [Choose your protection goals](vmware-azure-set-up-source.md#choose-protection-goals)
+   - [Choose your protection goals](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### Set the vault context

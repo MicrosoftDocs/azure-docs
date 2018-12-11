@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/2/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
 
 ---
@@ -44,7 +44,7 @@ When automatic provisioning is On, Security Center provisions the Microsoft Moni
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 1. Under the Security Center main menu, select **Security policy**.
-2. Select the subscription.
+2. Click **Edit settings** in the Settings column of the desired subscription in the list.
 
   ![Select subscription][7]
 
@@ -132,7 +132,7 @@ To select an existing Log Analytics workspace:
 
     a.  In the Security Center main menu, select **Security policy**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
+    b.	Select the desired Workspace in which you intend to connect the agent by clicking **Edit settings** in the Settings column of the desired subscription in the list.
         ![Select workspace][8]
     c. Set the pricing tier.
         ![Select pricing tier][9] 
@@ -259,7 +259,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
     a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
     
     b.	[Install the OMS virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md)
-5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md).
+5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.

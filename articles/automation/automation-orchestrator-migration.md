@@ -73,7 +73,9 @@ Following is the basic process to convert an Orchestrator runbook and import it 
 ### Using Runbook Converter
 The syntax for **ConvertFrom-SCORunbook** is as follows:
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```powershell
+ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```
 
 * RunbookPath - Path to the export file containing the runbooks to convert.
 * Module - Comma delimited list of integration modules containing activities in the runbooks.
@@ -81,8 +83,9 @@ The syntax for **ConvertFrom-SCORunbook** is as follows:
 
 The following example command converts the runbooks in an export file called **MyRunbooks.ois_export**.  These runbooks use the Active Directory and Data Protection Manager integration packs.
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
-
+```powershell
+ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
+```
 
 ### Log files
 The Runbook Converter will create the following log files in the same location as the converted runbook.  If the files already exist, then they will be overwritten with information from the last conversion.

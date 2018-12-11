@@ -7,7 +7,7 @@ manager: cshepard
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
 ---
 
@@ -72,9 +72,9 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot extension operation failed
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
-**Error code**: ExtentionOperationFailed <br>
+**Error code**: ExtentionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
@@ -151,11 +151,11 @@ Furthermore, if your subnet doesn't have a route for internet outbound traffic, 
 #### Solution
 The VM agent might have been corrupted, or the service might have been stopped. Reinstalling the VM agent helps get the latest version. It also helps restart communication with the service.
 
-1. Determine whether the Windows Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Guest Agent service and initiate the backup.    
-2. If the Windows Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Guest Agent service is installed.
-4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
+1. Determine whether the Windows Azure Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Azure Guest Agent service and initiate the backup.    
+2. If the Windows Azure Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
+4. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Azure Guest Agent.
 5. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
-6. Verify that the Windows Guest Agent services appear in services.
+6. Verify that the Windows Azure Guest Agent services appear in services.
 7. Run an on-demand backup:
 	* In the portal, select **Backup Now**.
 
@@ -200,7 +200,7 @@ The following conditions might cause the snapshot task to fail:
 | Cause | Solution |
 | --- | --- |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it’s not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
-| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Set a static internal private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure Portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. For more information, on how to setup a static IP through the PowerShell, see [Classic VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) and [Resource Manager VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
 
 ### The backup extension fails to update or load
 If extensions can't load, backup fails because a snapshot can't be taken.

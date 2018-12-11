@@ -67,7 +67,7 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Create a staged data analytics solution with Azure and Azure Stack </a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Create cross-cloud scaling solutions with Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Create a geo-distributed app solution with Azure and Azure Stack</a>
-    - html: <a href="/azure/azure-stack/userazure-stack-solution-hybrid-cloud">Deploy a hybrid cloud solution with Azure and Azure Stack</a>
+    - html: <a href="azure-stack-solution-hybrid-cloud.md">Deploy a hybrid cloud solution with Azure and Azure Stack</a>
 - title: Reference
   items:
   - type: list

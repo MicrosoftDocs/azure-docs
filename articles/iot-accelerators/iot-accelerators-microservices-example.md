@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Customize and redeploy a microservice
 
-This tutorial shows you how to edit one of the microservices in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
+This tutorial shows you how to edit one of the [microservices](http://azure.com/microservices) in the Remote Monitoring solution, build an image of your microservice, deploy the image to your docker hub, and then use it in Remote Monitoring solution. To introduce this concept, the tutorial uses a basic scenario where you call a microservice API and change the status message from "Alive and Well" to "New Edits Made Here!"
 
 Remote Monitoring solution uses microservices that are built using docker images  that are pulled from a docker hub. 
 

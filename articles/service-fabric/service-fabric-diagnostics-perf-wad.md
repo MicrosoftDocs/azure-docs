@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 11/21/2018
 ms.author: srrengar
 
 ---
@@ -103,6 +103,89 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
  The sample rate for the counter can be modified as per your needs. The format for it is `PT<time><unit>`, so if you want the counter collected every second, then you should set the `"sampleRate": "PT15S"`.
 
+ You can also use variables in your ARM template to collect an array of performance counters, which can come in handy when you collect performance counters per process. In the below example, we are collecting processor time and garbage collector time per process and then 2 performance counters on the nodes themselves all using variables. 
+
+ ```json
+"variables": {
+  "copy": [
+      {
+        "name": "processorTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\Process([parameters('monitoredProcesses')[copyIndex('processorTimeCounters')]])\\% Processor Time",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('processorTimeCounters')],' Processor Time')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      },
+      {
+        "name": "gcTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\.NET CLR Memory([parameters('monitoredProcesses')[copyIndex('gcTimeCounters')]])\\% Time in GC",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('gcTimeCounters')],' Time in GC')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      }
+    ],
+    "machineCounters": [
+      {
+        "counterSpecifier": "\\Memory\\Available Bytes",
+        "sampleRate": "PT1M",
+        "unit": "KB",
+        "sinks": "applicationInsights",
+        "annotation": [
+          {
+            "displayName": "Memory Available Kb",
+            "locale": "en-us"
+          }
+        ]
+      },
+      {
+        "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+        "sampleRate": "PT15S",
+        "unit": "percent",
+        "annotation": [
+          {
+            "displayName": "Memory usage",
+            "locale": "en-us"
+          }
+        ]
+      }
+    ]
+  }
+....
+"WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": "50000",
+      "Metrics": {
+        "metricAggregation": [
+          {
+            "scheduledTransferPeriod": "PT1M"
+          }
+        ],
+        "resourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeTypeApp2Name'))]"
+      },
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": "[concat(variables ('processorTimeCounters'), variables('gcTimeCounters'),  variables('machineCounters'))]"
+      },
+....
+```
+
  >[!NOTE]
  >Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights) requires that they are individually declared. 
 
@@ -112,8 +195,9 @@ Here is an example of a configuration with the counter for the *Total Processor 
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Once the upgrade finishes rolling out (takes between 15-45 minutes), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Once the upgrade finishes rolling out (takes between 15-45 minutes depending on whether it's the first deployment and the size of your resource group), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## Next steps
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
 * [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
+* Visit the [WadCfg builder](http://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.

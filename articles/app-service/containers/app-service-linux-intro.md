@@ -1,5 +1,5 @@
 ---
-title: Introduction to App Service on Linux | Microsoft Docs
+title: Introduction to App Service on Linux - Azure | Microsoft Docs
 description: Learn about Azure App Service on Linux.
 keywords: azure app service, linux, oss
 services: app-service
@@ -17,6 +17,7 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
+ms.custom: seodec18
 
 ---
 # Introduction to Azure App Service on Linux
@@ -89,7 +90,7 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 The following articles get you started with App Service on Linux with web apps written in a variety of languages:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](quickstart-dotnetcore.md)
+* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

@@ -18,7 +18,7 @@ ms.date: 09/22/2018
 Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL are described in the following sections. 
 
 ## Online migration configuration
-- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
 - Only same version migrations are supported. For example, migrating PostgreSQL 9.5.11 to Azure Database for PostgreSQL 9.6.7 is not supported.
 - To enable logical replication in the **source PostgreSQL postgresql.conf** file, set the following parameters:
     - **wal_level** = logical

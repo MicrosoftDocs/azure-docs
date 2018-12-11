@@ -11,7 +11,7 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ---
 # Monitoring and performance tuning
 
@@ -79,7 +79,91 @@ If you determine that you have a running-related performance issue, your goal is
 > [!IMPORTANT]
 > For a set a T-SQL queries using these DMVs to troubleshoot CPU utilization issues, see [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
+### Troubleshoot queries with parameter-sensitive query execution plan issues
+
+The parameter sensitive plan (PSP) problem refers to a scenario where the query optimizer generates a query execution plan that is optimal only for a specific parameter value (or set of values) and the cached plan is then non-optimal for parameter values used in consecutive executions. Non-optimal plans can then result in query performance issues and overall workload throughput degradation.
+
+There are several workarounds used to mitigate issues, each with associated tradeoffs and drawbacks:
+
+- Use the [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint at each query execution. This workaround trades trades compilation time and increased CPU for better plan quality. Using the `RECOMPILE` option is often not possible for workloads that require a high throughput.
+- Use the [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint to override the actual parameter value with a typical parameter value that produces a good enough plan for most parameter value possibilities.   This option requires a good understanding of optimal parameter values and associated plan characteristics.
+- Use [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint to override the actual parameter value in exchange for using the density vector average. Another way to do this is by capturing the incoming parameter values into local variables and then using the local variables within the predicates instead of using the parameters themselves. The average density must be *good enough* with this particular fix.
+- Disable parameter sniffing entirely using the [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint.
+- Use the [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint to prevent recompiles while in cache. This workaround assumes the *good-enough* common plan is the one in cache already. You may also disable automatic updates to statistics in order to reduce the chance of the good plan being evicted and a new bad plan being compiled.
+- Force the plan by explicitly using [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint (by explicitly specifying, by setting a specific plan using Query Store, or by enabling [Automatic Tuning](sql-database-automatic-tuning.md).
+- Replace the single procedure with a nested set of procedures that can each be used based on conditional logic and the associated parameter values.
+- Create dynamic string execution alternatives to a static procedure definition.
+
+For additional information about resolving these types of issues, see:
+
+- This [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blog post
+- This [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) blog post
+- This [elephant and mouse parameter sniffing](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blog post
+- This [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blog post
+
+### Troubleshooting compile activity due to improper parameterization
+
+When a query has literals, either the database engine chooses to automatically parameterize the statement or a user can explicitly parameterize it in order to reduce number of compiles. A high number of compiles of a query using the same pattern but different literal values can result in high CPU utilization. Similarly, if you only partially parameterize a query that continues to have literals, the database engine does not parameterize it further.  Below is an example of a partially parameterized query:
+
+```sql
+select * from t1 join t2 on t1.c1=t2.c1
+where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+```
+
+In the prior example, `t1.c1` takes `@p1` but `t2.c2` continues take GUID as literal. In this case, if you change value for `c2`, the query will be treated as a different query and a new compilation will occur. To reduce compilations in the prior example, the solution is to also parameterize the GUID.
+
+The following query shows the count of queries by query hash to determine if a query is properly parameterized or not:
+
+```sql
+   SELECT  TOP 10  
+      q.query_hash
+      , count (distinct p.query_id ) AS number_of_distinct_query_ids
+      , min(qt.query_sql_text) AS sampled_query_text
+   FROM sys.query_store_query_text AS qt
+      JOIN sys.query_store_query AS q
+         ON qt.query_text_id = q.query_text_id
+      JOIN sys.query_store_plan AS p 
+         ON q.query_id = p.query_id
+      JOIN sys.query_store_runtime_stats AS rs 
+         ON rs.plan_id = p.plan_id
+      JOIN sys.query_store_runtime_stats_interval AS rsi
+         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+   WHERE
+      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+      AND query_parameterization_type_desc IN ('User', 'None')
+   GROUP BY q.query_hash
+   ORDER BY count (distinct p.query_id) DESC
+```
+
+### Resolve problem queries or provide more resources
+
 Once you identify the issue, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. For information on scaling resources for single databases, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and for scaling resources for elastic pools, see [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information on scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+
+### Determine if running issues due to increase workload volume
+
+An increase in application traffic and workload can account for increased CPU utilization, but you must be careful to properly diagnose this issue. In a high-CPU scenario, answer these questions to determine if indeed a CPU increase is due to workload volume changes:
+
+1. Are the queries from the application the cause of the high-CPU issue?
+2. For the top CPU-consuming queries (that can be identified):
+
+   - Determine if there were multiple execution plans associated with the same query. If so, determine why.
+   - For queries with the same execution plan, determine if the execution times were consistent and if the execution count increased. If yes, there are likely performance issues due to workload increase.
+
+To summarize, if the query execution plan didn't execute differently but CPU utilization increased along with execution count, there is likely a workload increase-related performance issue.
+
+It is not always easy to conclude there is a workload volume change that is driving a CPU issue.   Factors to consider: 
+
+- **Resource usage changed**
+
+  For example, consider a scenario where CPU increased to 80% for an extended period of time.  CPU utilization alone doesn't mean workload volume changed.  Query execution plan regressions and data distribution changes can also contribute to more resource usage even though the application is executing the same exact workload.
+
+- **New query appeared**
+
+   An application may drive a new set of queries at different times.
+
+- **Number of requests increased or decreased**
+
+   This scenario is the most obvious measure of workload. The number of queries doesn't always correspond to more resource utilization. However, this metric is still a significant signal assuming other factors are unchanged.
 
 ## Waiting-related performance issues
 
@@ -88,6 +172,13 @@ Once you are certain that you are not facing a high-CPU, running-related perform
 - The [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) provides wait statistics per query over time. In Query Store, wait types are combined into wait categories. The mapping of wait categories to wait types is available in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) returns information about all the waits encountered by threads that executed during operation. You can use this aggregated view to diagnose performance issues with Azure SQL Database and also with specific queries and batches.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) returns information about the wait queue of tasks that are waiting on some resource.
+
+In high-CPU scenarios, the Query Store and wait statistics do not always reflect CPU utilization for these two reasons:
+
+- High-CPU consuming queries may still be executing and the queries haven't finished
+- The high-CPU consuming queries were running when a failover occurred
+
+Query Store and wait statistics-tracking dynamic management views only show results for successfully completed and timed-out queries and do not show data for currently executing statements (until they complete).  The dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) allows you to track currently-executing queries and the associated worker time.
 
 As shown in the previous chart, the most common waits are:
 

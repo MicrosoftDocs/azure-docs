@@ -106,5 +106,5 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 
 ## Next steps
 
-With these methods, you can now securely connect to a database, a Redis cache, or access secure Azure services.
+With these methods, you can now securely connect to a database, an Azure Cache for Redis, or access secure Azure services.
  

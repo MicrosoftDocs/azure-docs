@@ -341,7 +341,7 @@ After you create and test the pipeline, you create a schedule trigger and associ
     6. Right-click your SSIS package, and select **Reports** -> **Standard Reports** -> **All Executions**. 
     7. Verify that the SSIS package ran. 
 
-        ![Verify SSIS package run](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![Verify SSIS package run](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### Schedule the pipeline 
 Now that the pipeline works as you expected, you can create a trigger to run this pipeline at a specified cadence. For details about associating a schedule trigger with a pipeline, see [Trigger the pipeline on a schedule](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).

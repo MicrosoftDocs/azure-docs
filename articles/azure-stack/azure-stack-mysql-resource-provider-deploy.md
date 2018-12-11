@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 ---
@@ -27,8 +27,8 @@ Use the MySQL Server resource provider to expose MySQL databases as an Azure Sta
 
 There are several prerequisites that need to be in place before you can deploy the Azure Stack MySQL resource provider. To meet these requirements, complete the steps in this article on a computer that can access the privileged endpoint VM.
 
-* If you haven't already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so you can download Azure marketplace items.
-* You must install the Azure and Azure Stack PowerShell modules on the system where you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](.\azure-stack-powershell-install.md).
+* If you haven't already done so, [register Azure Stack](./azure-stack-registration.md) with Azure so you can download Azure marketplace items.
+* You must install the Azure and Azure Stack PowerShell modules on the system where you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](./azure-stack-powershell-install.md).
 * Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image.
 
 * Download the MySQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory.
@@ -38,10 +38,11 @@ There are several prerequisites that need to be in place before you can deploy t
 
 * The resource provider has a minimum corresponding Azure Stack build.
 
-    | Minimum Azure Stack version | MySQL RP version|
-    | --- | --- |
-    | Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300) |
-    |     |     |
+  |Minimum Azure Stack version|MySQL RP version|
+  |-----|-----|
+  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
+  |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
 
 * Ensure datacenter integration prerequisites are met:
 
@@ -54,7 +55,7 @@ There are several prerequisites that need to be in place before you can deploy t
 
 ### Certificates
 
-_For integrated systems installations only_. You must provide the SQL PaaS PKI certificate described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates). Place the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter. Do not provide a certificate for ASDK systems.
+_For integrated systems installations only_. You must provide the SQL PaaS PKI certificate described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](./azure-stack-pki-certs.md#optional-paas-certificates). Place the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter. Do not provide a certificate for ASDK systems.
 
 ## Deploy the resource provider
 

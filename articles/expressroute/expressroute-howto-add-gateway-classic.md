@@ -1,7 +1,6 @@
 ---
-title: 'Configure a VNet gateway for ExpressRoute using PowerShell: classic: Azure | Microsoft Docs'
+title: 'Configure a VNet gateway for ExpressRoute - classic: Azure PowerShell | Microsoft Docs'
 description: Configure a VNet gateway for a classic deployment model VNet using PowerShell for an ExpressRoute configuration.
-documentationcenter: na
 services: expressroute
 author: charwen
 
@@ -9,6 +8,7 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
+ms.custom: seodec18
 
 ---
 # Configure a virtual network gateway for ExpressRoute using PowerShell (classic)
@@ -25,7 +25,7 @@ This article will walk you through the steps to add, resize, and remove a virtua
 
 **About Azure deployment models**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before beginning
 Verify that you have installed the Azure PowerShell cmdlets needed for this configuration (1.0.2 or later). If you haven't installed the cmdlets, you'll need to do so before beginning the configuration steps. For more information about installing Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).

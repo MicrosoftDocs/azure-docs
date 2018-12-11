@@ -1,5 +1,5 @@
 ---
-title:  Java Enterprise support for Azure App Service on Linux | Microsoft Docs
+title:  Java Enterprise support on Linux - Azure App Service | Microsoft Docs
 description: Developer's guide to deploying Java Enterprise apps using Wildfly with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,6 +12,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
+ms.custom: seodec18
 
 ---
 
@@ -23,17 +24,18 @@ This guide provides key concepts and instructions for Java Enterprise developers
 
 ## Scale with App Service 
 
-The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. 
+The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. When you scale out the App Service Plan, each WildFly instance is configured as a standalone server.
 
- Scale your application vertically or horizontally with [scale rules](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) and by [increasing your instance count](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Scale your application vertically or horizontally with [scale rules](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) and by [increasing your instance count](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## Customize application server configuration
 
-Developers can write a startup Bash script to execute additional configuration needed for their application, such as:
+Web App instances are stateless, so each new instance started must be configured on startup to support the Wildfly configuration needed by application.
+You can write a startup Bash script to call the WildFly CLI to:
 
-- Setting up data sources
-- Configuring messaging providers
-- Adding other modules and dependnecies to the Wildfly server configuration.
+- Set up data sources
+- Configure messaging providers
+- Add other modules and dependencies to the Wildfly server configuration.
 
  The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
 
@@ -47,7 +49,7 @@ Upload the startup script to `/home/site/deployments/tools` in your App Service 
 
 Set the **Startup Script** field in the Azure portal to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh`.
 
-Use [application settings](/azure/app-service/web-sites-configure#application-settings) to set environment variables for use in the script. These settings are made available to the startup script environment and keep connection strings and other secrets out of version control.
+Supply [application settings](/azure/app-service/web-sites-configure#application-settings) in the application configuration to pass environment variables for use in the script. Application settings keep connection strings and other secrets needed to configure your application out of version control.
 
 ## Modules and dependencies
 
@@ -98,7 +100,7 @@ By default App Service on Linux will use session affinity cookies to ensure that
 - If an application instance is restarted or scaled down, the user session state in the application server will be lost.
 - If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
 
-You can configure Wildfly to use an external session store such as [Redis Cache](/azure/redis-cache/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
+You can configure Wildfly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
 
 ## Enable web sockets
 

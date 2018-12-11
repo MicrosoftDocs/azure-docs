@@ -4,7 +4,7 @@ description: Describes how Azure spending limit works and how to remove it
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 
@@ -25,7 +25,7 @@ Spending limit in Azure exists to prevent spending over your credit amount. All 
 
 When your usage results in charges that exhaust the monthly amounts included with your subscription, the services that you deployed are disabled for the rest of that billing period. 
 
-For example, when you spend all the credit included with your subscription, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. The data in your storage accounts and databases are available in a read-only manner.
+For example, when you spend all the credit included with your subscription, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. The data in your storage accounts are available in a read-only manner.
 
 At the beginning of the next billing period, if your subscription offer includes credits over multiple months, your subscription would be re-enabled automatically. Then you can redeploy your Cloud Services and have full access to your storage accounts and databases.
 
@@ -80,6 +80,6 @@ Custom spending limits aren't available.
 
 ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

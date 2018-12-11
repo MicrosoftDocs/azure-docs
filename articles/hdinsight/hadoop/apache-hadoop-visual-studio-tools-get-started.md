@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure HDInsight using Data Lake Tools for Visual Studio 
+title: Connect to Apache Hadoop using Data Lake Tools for Visual Studio - Azure HDInsight
 description: Learn how to install and use Data Lake Tools for Visual Studio to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 services: hdinsight
@@ -7,9 +7,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive, hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 12/06/2018
 ---
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries
 
@@ -101,7 +101,7 @@ After opening a container, you can use the following buttons to upload, delete, 
 ![Screenshot of Data Lake Tools for Visual Studio blob operations in Server Explorer](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "Upload, delete, and download blobs in Server Explorer")
 
 ## Run interactive Hive queries
-[Apache Hive](http://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
+[Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
 
 [Interactive Query](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster compared to traditional Hive batch jobs. For more information, see [Run Hive batch jobs](#run-hive-batch-jobs).
 

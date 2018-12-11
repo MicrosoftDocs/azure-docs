@@ -52,7 +52,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | Dedicated nodes | 2000 |
 | Low-priority nodes | 1000 |
 
-<sup>1</sup> For pools that are note inter-node communication enabled.
+<sup>1</sup> For pools that are not inter-node communication enabled.
 
 ## Other limits
 
