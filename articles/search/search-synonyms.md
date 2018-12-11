@@ -1,6 +1,6 @@
 ---
 Title: Synonyms for query expansion over a search index  - Azure Search
-description: Create a synonym list to expand the scope of a search query on an Azure Search index.
+description: Create a synonym map to expand the scope of a search query on an Azure Search index. Scope is broadened to include equivalent terms you provide in a list.
 author: brjohnstmsft
 services: search
 ms.service: search

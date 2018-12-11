@@ -1,6 +1,6 @@
 ---
 title: Built-in data extraction, natural language, image processing - Azure Search
-description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Seach pipeline.
+description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Search pipeline.
 manager: pablocas
 author: luiscabrer
 services: search

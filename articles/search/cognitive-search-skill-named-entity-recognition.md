@@ -25,7 +25,7 @@ The **Named Entity Recognition** skill extracts named entities from text. Availa
 >
 > The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
 . Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).</li>
-> <li> Named entity recognition skill is considered "deprecated" and will not be officially supported starting Feburary 15, 2019. Follow recommendations listed in <a href="cognitive-search-skill-deprecated.md">Deprecated Cognitive Seach Skills</a> page to migrate to a supported skill</li>
+> <li> Named entity recognition skill is considered "deprecated" and will not be officially supported starting Feburary 15, 2019. Follow recommendations listed in <a href="cognitive-search-skill-deprecated.md">Deprecated Cognitive Search Skills</a> page to migrate to a supported skill</li>
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

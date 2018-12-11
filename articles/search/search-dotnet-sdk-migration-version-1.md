@@ -1,6 +1,6 @@
 ---
 title: Upgrade to the Azure Search .NET SDK version 1.1 - Azure Search
-description: Migrate code to the Azure Search .NET SDK version 1.1 from older API versions. Learn what's new and what codes changes are required.
+description: Migrate code to the Azure Search .NET SDK version 1.1 from older API versions. Learn what's new and what code changes are required.
 author: brjohnstmsft
 manager: jlembicz
 services: search

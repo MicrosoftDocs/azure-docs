@@ -338,7 +338,7 @@ For numeric data, you can use a values list.  Consider the facet range for a `li
 
   ![Sample values list][5]
 
-To specify a facet range like the one in the preceding screen shot, use a values list:
+To specify a facet range like the one in the preceding screenshot, use a values list:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 

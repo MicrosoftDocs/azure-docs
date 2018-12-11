@@ -1,6 +1,6 @@
 ---
 title: 'Create an index in code using the .NET API - Azure Search'
-description: Create a full text searchable index in code using the Azure Search .NET SDK and C# managed code.
+description: Learn how to create a full text searchable index using the Azure Search .NET SDK and C# sample code.
 author: brjohnstmsft
 manager: jlembicz
 tags: azure-portal

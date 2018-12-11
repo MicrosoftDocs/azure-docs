@@ -1,6 +1,6 @@
 ---
 title: 'Upload data in code using .NET SDK - Azure Search'
-description: Learn how to upload data to a full text searchable index in Azure Search using managed code and the .NET SDK.
+description: Learn how to upload data to a full text searchable index in Azure Search using C# sample code and the .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
