@@ -54,8 +54,9 @@ The current version of the Cognitive Services Speech SDK is `1.2.0`.
 1. Insert your Speech Service subscription information.
 1. A Python interpreter may already be selected; if so, it will be displayed on the left side of the status bar at the bottom of the window.
    If not, you can bring up a list of available Python interpreters by opening the **Command Palette** (`Ctrl+Shift+P`) and typing **Python: Select Interpreter**, and choose an appropriate one.
-1. To install the Speech SDK package, open a terminal by bringing up the Command Palette again (`Ctrl+Shift+P`) and typing **Terminal: Create New Integrated Terminal**.
-   In the terminal that is opened, enter the command `python -m pip install azure-cognitiveservices-speech`, or the appropriate command for your system.
+1. If the Speech SDK Python package is not yet installed for the Python interpreter you selected, this can be easily done from within Visual Studio Code.
+   To install the Speech SDK package, open a terminal by bringing up the Command Palette again (`Ctrl+Shift+P`) and typing **Terminal: Create New Integrated Terminal**.
+   In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech`, or the appropriate command for your system.
 1. To run the sample code, right-click somewhere inside the editor and select **Run Python File in Terminal**.
    Say a few words once prompted, and the transcribed text should be displayed shortly afterwards.
    ![Run Sample](media/sdk/qs-python-vscode-python-run.png)
@@ -105,9 +106,13 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/python` folder.
 
-## Support
+## Support and Updates
 
-If you have a problem or are missing a feature, please have a look at our [support page](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/support).
+Updates to the Speech SDK Python package will be distributed via PyPI, and announced on the [Release Notes](./releasenotes.md) page.
+If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
+You can check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+
+If you have a problem or are missing a feature, please have a look at our [support page](./support.md).
 
 ## Next steps
 
