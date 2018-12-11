@@ -13,7 +13,14 @@ ms.author: rogarana
 
 # How to: Set file and directory level permissions using Azure Storage explorer
 
-Files stored in a storage account that has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels. This article shows how to set file and directory level permissions, using an access control list, with the desktop version of Azure Storage explorer.
+Files stored in a storage account that has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels.
+
+In article, you learn how to use Azure Storage Explorer to:
+
+> [!div class="checklist"]
+> * Set file level permissions
+> * Set directory level permissions
+> * Add users or groups to an access control list
 
 ## Pre-requisites
 
@@ -25,9 +32,11 @@ You can set permissions at the root of your filesystem. To do so, right-click yo
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
-The **Manage Access** prompt will allow you to manage permissions for owner and the owners group as well as adding new users to the access control list for whom you can then manage permissions.
+The **Manage Access** prompt allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
-To add a new user or group to the access control list, select the **Add user or group** box and enter the corresponding AAD entry you wish to add to the list, then select **Add**.
+To add a new user or group to the access control list, select the **Add user or group** box.
+
+Enter the corresponding AAD entry you wish to add to the list, then select **Add**.
 
 The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
