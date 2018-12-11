@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ---
-# Retrain an existing predictive Studio web service
+# Retrain an existing predictive Azure Machine Learning Studio web service
 
 This document describes the retraining process for the following scenario:
 
