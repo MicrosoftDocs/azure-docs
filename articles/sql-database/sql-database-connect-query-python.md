@@ -25,7 +25,7 @@ To complete this quickstart, make sure you have the following:
   
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
   
-- Python, the Microsoft ODBC Driver for your operating system, and [pyodbc](/sql/connect/python/pyodbc/python-sql-driver-pyodbc), the Python driver for SQL Server:
+- Python and related software for your operating system:
   
   - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. See Steps 1.2, 1.3, and 2.1 in [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/). For more information, see [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
     
