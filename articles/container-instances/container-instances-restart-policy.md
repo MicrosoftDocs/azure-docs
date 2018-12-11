@@ -87,12 +87,17 @@ Output:
  ('HAMLET', 386)]
 ```
 
+This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
+
 ## Manually stop and start a container group
 
-Regardless of the restart policy configured for a container group, you can manually stop the group at any time - for example, using the [az container stop][az-container-stop] command.
+Regardless of the restart policy configured for a container group, you can manually stop a running container group at any time - for example, using the [az container stop][az-container-stop] command. For example, you might want to stop a container group after a defined period to save on costs.
 
+When a container group is stopped - either because the containers terminated or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) to manually start all containers in the container group. If the container image for any container is updated, a new image is pulled.
 
-This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
+You can also restart a running container group - for example using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled.
+
+After you manually start or restart a container group, the container group runs according to the configured restart policy.
 
 ## Configure containers at runtime
 
@@ -132,6 +137,8 @@ Output:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## Command line override
 
@@ -175,5 +182,7 @@ For details on how to persist the output of your containers that run to completi
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli
