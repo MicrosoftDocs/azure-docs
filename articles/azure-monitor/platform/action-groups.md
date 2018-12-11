@@ -102,7 +102,7 @@ To receive updates about changes to these IP addresses we recommend you configur
 
 ## Next steps ##
 * Learn more about [SMS alert behavior](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md).  
-* Gain an [understanding of the activity log alert webhook schema](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).  
+* Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
 * Learn more about [rate limiting](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md), and learn how to receive alerts.  

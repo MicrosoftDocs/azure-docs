@@ -1,5 +1,5 @@
 ---
-title: Securely Connecting to BackEnd Resources from an App Service Environment
+title: Securely Connecting to BackEnd Resources from an App Service Environment - Azure
 description: Learn about how to securely connect to backend resources from an App Service Environment.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Securely Connecting to Backend Resources from an App Service Environment

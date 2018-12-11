@@ -45,5 +45,5 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 * For an overview of Machine Learning Studio, see [What is Azure Machine Learning Studio?](what-is-ml-studio.md).
 * For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

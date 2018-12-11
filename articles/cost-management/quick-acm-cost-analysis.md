@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 12/11/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -75,6 +75,8 @@ Cost analysis shows data for the current month by default. Use the date selector
 Cost analysis shows **accumulated** costs by default. Accumulated costs include all costs for each day plus the previous days, for a constantly growing view of your daily accrued costs. This view is optimized to show how you're trending against a budget for the selected time range.
 
 There's also the **daily** view showing costs for each day. The daily view doesn't show a growth trend. The view is designed to show irregularities as cost spikes or dips from day to day. If you've selected a budget, the daily view also shows an estimate of what your daily budget might look like. When your daily costs are consistently above the estimated daily budget, then you can expect you'll surpass your monthly budget. The estimated daily budget is simply a means to help you visualize your budget at a lower level. When you have fluctuations in daily costs, then the estimated daily budget comparison to your monthly budget is less precise.
+
+Generally, you can expect to see data or notifications for consumed resources within eight hours.
 
 ![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
