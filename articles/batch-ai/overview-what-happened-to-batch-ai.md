@@ -8,6 +8,9 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 12/14/2018
 ms.author: garye
+
+ROBOTS: NOINDEX
+
 ---
 
 # What's happening to Azure Batch AI?

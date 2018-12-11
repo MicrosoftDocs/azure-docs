@@ -15,6 +15,9 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 #Customer intent: As a data scientist or AI researcher, I want to learn about Batch AI so that I can decide whether to try using it to train my machine learning or AI models in Azure.
 
 ---

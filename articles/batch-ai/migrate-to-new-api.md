@@ -16,6 +16,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # Migrate to the updated Batch AI API
