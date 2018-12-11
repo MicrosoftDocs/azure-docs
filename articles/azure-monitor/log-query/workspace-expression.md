@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.component: na
 ---
 
 # workspace() expression in Log Analytics query

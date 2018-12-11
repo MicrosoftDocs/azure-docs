@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Connect a web app to a storage account | Micros
 description: Azure CLI Script Sample - Connect a web app to a storage account
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Connect a web app to a storage account
+# Connect a web app to a storage account using CLI
 
 This sample script creates an Azure storage account and an Azure web app. It then links the storage account to the web app using app settings.
 

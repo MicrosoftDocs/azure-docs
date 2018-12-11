@@ -11321,11 +11321,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/monitoring-and-diagnostics/insights-how-to-scale.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started",
             "redirect_document_id": false
@@ -12031,8 +12026,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-geo-replication-overview.md",
+            "redirect_url": "/azure/sql-database/sql-database-auto-failover-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-geo-replication-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-active-geo-replication-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-geo-replication-portal",
+            "redirect_url": "/azure/sql-database/sql-database-active-geo-replication-portal",
             "redirect_document_id": false
         },
         {
@@ -19565,16 +19570,6 @@
         },
         {
             "source_path": "articles/monitoring-and-diagnostics/insights-alerts-portal.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric-classic",
             "redirect_document_id": false
         },
@@ -31802,8 +31797,68 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-activity-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log-service-notifications",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts-classic.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic.overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-cli",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric-classic.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-portal",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-classic-powershell",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-create-activity-log-resource-manager-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-dynamic-thresholds",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/log-analytics/powershell-samples.md",
             "redirect_url":  "/azure/azure-monitor/platform/powershell-samples",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-action-groups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/action-groups",
             "redirect_document_id":  true
         },
         {
@@ -32056,6 +32111,16 @@
             "source_path": "articles/redis-cache/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-data-prep.md",
+            "redirect_url": "https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py",
+            "redirect_document_id" : false
         }
     ]
 }

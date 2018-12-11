@@ -5,9 +5,9 @@ keywords: python machine learning,pandas,python pandas,python scripts, execute p
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning

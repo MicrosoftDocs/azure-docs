@@ -12,7 +12,7 @@ ms.component: alerts
 
 # Supported resources for metric alerts in Azure Monitor
 
-Azure Monitor now supports a [new metric alert type](monitoring-overview-alerts.md) which has significant benefits over the older [classic metric alerts](monitoring-overview-alerts-classic.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
+Azure Monitor now supports a [new metric alert type](monitoring-overview-alerts.md) which has significant benefits over the older [classic metric alerts](../azure-monitor/platform/alerts-classic.overview.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
 
 
 You can also use newer metric alerts on popular Log Analytics logs extracted as metrics. For more information, view [Metric Alerts for Logs](monitoring-metric-alerts-logs.md).
@@ -64,7 +64,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 
 ## Payload schema
 
-The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](monitoring-action-groups.md) is used:
+The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](../azure-monitor/platform/action-groups.md) is used:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
 
 ---
@@ -165,7 +165,7 @@ The following list provides a general summary of Azure services that can be move
 * Analysis Services
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
-* App Service Certificates
+* App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
 * Application Insights
 * Automation
 * Azure Active Directory B2C
@@ -330,19 +330,17 @@ You can't move a virtual network to a different subscription if the virtual netw
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription.
-
-The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
+The limitations for moving App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription. If your web app uses an App Service Certificate, see [App Service Certificate limitations](#app-service-certificate-limitations)
 
 ### Moving within the same subscription
 
-When moving a Web App _within the same subscription_, you can't move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works.
+When moving a Web App _within the same subscription_, you can't move third-party SSL certificates. However, you can move a Web App to the new resource group without moving its third-party certificate, and your app's SSL functionality still works.
 
 If you want to move the SSL certificate with the Web App, follow these steps:
 
-1. Delete the uploaded certificate from the Web App.
+1. Delete the third-party certificate from the Web App, but keep a copy of your certificate
 2. Move the Web App.
-3. Upload the certificate to the moved Web App.
+3. Upload the third-party certificate to the moved Web App.
 
 ### Moving across subscriptions
 
@@ -355,6 +353,10 @@ When moving a Web App _across subscriptions_, the following limitations apply:
     - App Service Environments
 - All App Service resources in the resource group must be moved together.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions.
+
+## App Service Certificate limitations
+
+You can move your App Service Certificate to a new resource group or subscription. If your App Service Certificate is bound to a web app, you must take some steps before moving the resources to a new subscription. Delete the SSL binding and private certificate from the web app before moving the resources. The App Service Certificate doesn't need to be deleted, just the private certificate in the web app.
 
 ## Classic deployment limitations
 
