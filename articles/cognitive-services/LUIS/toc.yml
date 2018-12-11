@@ -317,7 +317,7 @@
     - name: C#
       items:
       - name: SDK
-        href: https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/LUIS
+        href: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
       - name: NuGet - authoring
