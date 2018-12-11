@@ -54,7 +54,7 @@ With Azure AD conditional access, you can address this requirement with a single
 
 ## Implementation
 
-The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which represent logical groupings of IP address ranges, countries and regions.  
+The challenge of this scenario is to translate *access from an untrusted network location* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which represent logical groupings of IP address ranges, countries and regions.  
 
 Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.24.
 You can configure a named location by:
@@ -66,7 +66,7 @@ You can configure a named location by:
 
 Instead of trying to define what all locations are that are not trusted, you can:
 
-- Include 
+- Include any location 
 
     ![Conditional access](./media/untrusted-networks/02.png)
 
