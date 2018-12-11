@@ -15,7 +15,7 @@ ms.date: 12/11/2018
 ---
 # Quickstart: Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 
-This quickstart demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) to create a C# app with Visual Studio, connect to an Azure SQL database, and use Transact-SQL statements to query data.
+This quickstart demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) to connect to an Azure SQL database, create a C# app with Visual Studio, and use it to query data with Transact-SQL statements.
 
 ## Prerequisites
 
@@ -25,40 +25,54 @@ To complete this quickstart, make sure you have the following:
 
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
 
-- An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/), Community, Professional, or Enterprise edition.
+- An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
 ## Get SQL server connection information
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-If you need to use ADO.NET to connect to your database:
+**To get connection strings for your Azure SQL database:**
 
 1. On the database **Overview** page, select **Show database connection strings**. Or, in the left menu, select **Connection strings**.  
    
-1. On the **Connection strings** page, copy the appropriate connection string from the **ADO.NET** tab. 
+1. On the **Connection strings** page, copy the appropriate ADO.NET, JDBC, ODBC, or PHP connection string. 
 
    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
-> [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
+>[!IMPORTANT]
+>Your database must have a firewall rule for the public IP address of the computer you use for this quickstart. 
 >
-  
+>To set firewall rules, select **Set server firewall** on the database **Overview** toolbar. 
+>
+>On the **Firewall settings** page, select **Add client IP** to allow your current computer to access the database. Enter the public IP addresses or ranges of any other machines you want to add, and then select **Save**. 
+>
+>For more information, see [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
+>
+
 ## Create a new Visual Studio project
 
 1. In Visual Studio, select **File** > **New** > **Project**. 
+   
 1. In the **New Project** dialog, select **Visual C#**, and then select **Console App (.NET Framework)**.
+   
 1. Enter *sqltest* for the project name, and then select **OK**. The new project opens in **Solution Explorer**.
+   
 1. In **Solution Explorer**, right-click **sqltest** and select **Manage NuGet Packages**. 
+   
 1. On the NuGet page, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
-1. On the **System.Data.SqlClient** page, select **Install**. If prompted, select **OK** to continue with the installation. 
-1. When the install completes, you can close the NuGet window. If a **License Acceptance** window appears, select **I Accept**.
+   
+1. On the **System.Data.SqlClient** page, select **Install**. 
+   - If prompted, select **OK** to continue with the installation. 
+   - If a **License Acceptance** window appears, select **I Accept**.
+   
+1. When the install completes, you can close the NuGet page. 
 
 > [!TIP]
-> You can also connect an Azure SQL database to Visual Studio by selecting **Connect with** > **Visual Studio** on the portal database page, and then selecting **Open in Visual Studio**. In this case, you do not need to install any NuGet packages. 
+> You can also connect an Azure SQL database to Visual Studio by selecting **Connect with** > **Visual Studio** on the portal database page, and then selecting **Open in Visual Studio**. In this case, you do not need to install the NuGet package. 
   
-## Create code to query the Azure SQL database
+## Add code to query the Azure SQL database
 
-Replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
+In your Visual Studio project, replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
 
 >[!IMPORTANT]
 >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
@@ -119,12 +133,12 @@ namespace sqltest
 
 ## Run the code
 
-1. Select **Debug** > **Start Debugging**, or select **Start** on the toolbar, or press **F5** to run the app.
+1. Select **Debug** > **Start Debugging**, select **Start** on the toolbar, or press **F5** to run the app.
 2. Verify that the top 20 Category/Product rows from your database are returned, and then close the app window.
 
 ## Next steps
 
-- Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
+- Learn how to [connect and query an Azure SQL database using .NET Core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
 - Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
