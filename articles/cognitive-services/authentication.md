@@ -17,7 +17,7 @@ Each request to an Azure Cognitive Service must include an authentication header
 
 * [Authenticate with a single-service subscription key](#authenticate-with-a-single-service-subscription-key)
 * [Authenticate with a multi-service subscription key](#authenticate-with-a-multi-service-subscription-key)
-* [Authenticate with a token](#authenticate-with-a-bearer-token)
+* [Authenticate with a token](#authenticate-with-an-authentication-token)
 
 ## Authentication headers
 
@@ -52,20 +52,35 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## Authenticate with a multi-service subscription key
 
 >[!WARNING]
-> At this time, these services are **not** supported: QnA Maker, Speech Services, and Custom Vision.
+> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, and Custom Vision.
 
 This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
 The subscription key is provided in each request as the `Ocp-Apim-Subscription-Key` header.
 
+### Supported regions
+
 When using the multi-service subscription key to make a request to `api.cognitive.microsoft.com`, you must include the region in the URL. For example: `westus.api.cognitive.microsoft.com`.
 
-When using multi-service authentication with the Translator Text API, you must specify the region for your subscription using the `Ocp-Apim-Subscription-Region` header. Supported regions for multi-service authentication: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
+When using multi-service subscription key with the Translator Text API, you must specify the subscription region with the `Ocp-Apim-Subscription-Region` header.
+
+Multi-service authentication is supported in these regions:
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
+
+
+### Sample requests
 
 This is a sample call to the Bing Web Search API:
 
 ```cURL
-curl -X GET 'https://westus.api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
+curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pembroke%20Corgis' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
@@ -79,16 +94,19 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-## Authenticate with a Bearer token
+## Authenticate with an authentication token
 
-Some Azure Cognitive Services accept, and in some cases require, an authentication token. The following services support authentication tokens:
+Some Azure Cognitive Services accept, and in some cases require, an authentication token. Currently, these services support authentication tokens:
 
 * Text Translation API
 * Speech Services: Speech-to-text REST API
 * Speech Services: Text-to-speech REST API
 
+>[!NOTE]
+> QnA Maker also uses the Authorization header, but requires an endpoint key. For more information, see [](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md)
+
 >[!WARNING]
-> The services that support authentication tokens may change over time, please check the API reference for a service before using this auth method.
+> The services that support authentication tokens may change over time, please check the API reference for a service before using this authentication method.
 
 Both single service and multi-service subscription keys can be exchanged for authentication tokens. Authentication tokens are valid for 10 minutes.
 
@@ -96,9 +114,21 @@ Authentication tokens are included in a request as the `Authorization` header. T
 
 When using a multi-service subscription key, you must use a region specific endpoint for the token exchange. This is illustrated in the sample below using the "West US" region.
 
-### Using a subscription key
+### Supported regions
 
-Use this URL to exchange a subscription key for an authentication token: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+These multi-service regions support token exchange:
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
+
+### Sample requests
+
+Use this URL to exchange a single-service subscription key for an authentication token: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
@@ -107,18 +137,22 @@ curl -v -X POST \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### Using a multi-service subscription key
-
 Use this URL to exchange a multi-service subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`. Make sure to include the region for your subscription in the URL.
-
-
-Supported regions for multi-service authentication: `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
 
 ```cURL
 curl -v -X POST \
 "https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+After you get an authentication token, you'll need to pass it in each request as the `Authorization` header. This is a sample call to the Translator Text API:
+
+```cURL
+curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
+-H 'Authorization: Bearer YOUR_AUTH_TOKEN' \
+-H 'Content-Type: application/json' \
+--data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
 ## See also
