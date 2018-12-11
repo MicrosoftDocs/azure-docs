@@ -16,6 +16,9 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 #Customer intent: As a data scientist or AI researcher, I want to train a sample AI model to evaluate using a GPU cluster in Azure for training my AI or machine learning models.
 ---
 

@@ -13,6 +13,8 @@ ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Batch AI service quotas and limits
 

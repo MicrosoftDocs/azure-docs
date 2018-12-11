@@ -16,6 +16,9 @@ ms.devlang: Python
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # Run a CNTK training job using the Azure Python SDK
