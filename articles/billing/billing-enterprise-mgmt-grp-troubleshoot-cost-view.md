@@ -31,7 +31,7 @@ It might be for one of the following reasons:
 2. If you’re an EA Direct customer, there are a couple of possibilities:
     * You're an Account Owner and your Enrollment Administrator disabled the **AO view charges** setting.  
     * You're a Department Administrator and your Enrollment Administrator disabled the **DA view charges** setting.
-    * Contact your Enrollment Administrator to get access. The Enrollment Admin can visit the [Enterprise portal](https://ea.azure.com/manage/enrollment) and update the setting as seen here:
+    * Contact your Enrollment Administrator to get access. The Enrollment Admin can update the settings in the [Enterprise portal](https://ea.azure.com/manage/enrollment).
 
       ![Screenshot that shows the Enterprise Portal Settings for view charges.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
@@ -41,4 +41,4 @@ If you get an error message "This asset is unavailable" when trying to access a 
 
 ![Screenshot that shows "asset is unavailable" message.](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Ask your Azure subscription or management group administrator for access. For more information, see [Manage access using RBAC and the Azure portal)](../role-based-access-control/role-assignments-portal.md).
+Ask your Azure subscription or management group administrator for access. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
