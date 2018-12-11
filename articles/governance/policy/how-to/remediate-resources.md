@@ -1,5 +1,5 @@
 ---
-title: Remediate non-compliant resources with Azure Policy
+title: Remediate non-compliant resources
 description: This how-to walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
 services: azure-policy
 author: DCtheGeek
@@ -8,6 +8,7 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
+ms.custom: seodec18
 ---
 # Remediate non-compliant resources with Azure Policy
 
