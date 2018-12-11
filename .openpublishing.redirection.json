@@ -31832,6 +31832,26 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-metric-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-action-groups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/action-groups",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -32083,10 +32103,14 @@
             "redirect_document_id": false
         },
         {
-
+            "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
+            "redirect_document_id" : false
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-data-prep.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py",
-            "redirect_document_id": false
+            "redirect_url": "https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py",
+            "redirect_document_id" : false
         }
     ]
 }
