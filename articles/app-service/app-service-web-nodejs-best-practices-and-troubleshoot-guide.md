@@ -1,5 +1,5 @@
 ---
-title: Best practices and troubleshooting guide for node applications on Azure Web Apps
+title: Best practices and troubleshooting guide for Node.js applications - Azure App Service
 description: Learn the best practices and troubleshooting steps for node applications on Azure Web Apps.
 services: app-service\web
 documentationcenter: nodejs

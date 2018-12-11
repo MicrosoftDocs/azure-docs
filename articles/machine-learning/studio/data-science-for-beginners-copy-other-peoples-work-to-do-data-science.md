@@ -4,10 +4,9 @@ description: 'Trade secret of data science: Get others to do your work for you. 
 keywords: data science examples,machine learning example,clustering algorithm,clustering algorithm example
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
