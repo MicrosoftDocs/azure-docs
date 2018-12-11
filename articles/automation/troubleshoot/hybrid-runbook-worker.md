@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -51,6 +51,29 @@ Computers running the Hybrid Runbook Worker should meet the minimum hardware req
 Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
 Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
+
+### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
+
+#### Issue
+
+A runbook running on a Hybrid Runbook Worker fails with the following error message:
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### Cause
+
+This error occurs when you attempt to use a [Run As Account](../manage-runas-account.md) in a runbook running on a Hybrid Runbook Worker, and you have not downloaded the Run As Account certificate. Hybrid Runbook Workers do not have the certificate asset locally by default, which is required by the Run As Account to function properly.
+
+#### Resolution
+
+If your Hybrid Runbook Worker is an Azure VM, you can use [Managed Identities for Azure Resources](../automation-hrw-run-runbooks.md#managed-identities) instead. This scenario allows you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As Account, simplifying authentication. If the Hybrid Runbook Worker is a on-premises machine, you need to install the Run As Account certificate on the machine. To learn how to install the certificate, see the steps to run the [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
 
 ## Linux
 

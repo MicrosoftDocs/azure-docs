@@ -70,7 +70,7 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 5. Change **Run As** from **Default** to **Custom**.
 6. Select the credential and click **Save**.
 
-### Managed Identities for Azure Resources
+### <a name="managed-identities"></a>Managed Identities for Azure Resources
 
 Hybrid Runbook Workers running on Azure virtual machines can use managed identities for Azure resources to authenticate to Azure resources. There are many benefits to using managed identities for Azure resources over Run As accounts.
 
@@ -96,7 +96,7 @@ Connect-AzureRmAccount -Identity
 Get-AzureRmVm | Select Name
 ```
 
-### Automation Run As account
+### <a name="runas-script"></a>Automation Run As account
 
 As part of your automated build process for deploying resources in Azure, you may require access to on-premises systems to support a task or set of steps in your deployment sequence. To support authentication against Azure using the Run As account, you need to install the Run As account certificate.
 

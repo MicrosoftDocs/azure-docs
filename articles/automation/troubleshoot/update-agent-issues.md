@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
@@ -14,6 +14,12 @@ manager: carmonm
 # Understand the Windows agent check results in Update Management
 
 There are many reasons why an Azure machine might not show a **Ready** status in Azure Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine underlying problem. This article describes how to run the Update Management troubleshooter from the Azure portal and in offline scenarios.
+
+The following list are the three readiness states a machine can be in:
+
+* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
+* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
+* **Not configured** -  The update agent is not found or has not finished onboarding.
 
 ## Start the troubleshooter
 
