@@ -15,7 +15,7 @@ You can scale-in and scale-out in Virtual Machine Scale Sets based on performanc
 
 > [!NOTE]
 > While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
-> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) and [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
+> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) and [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
 >
 >
 
@@ -25,11 +25,11 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 1. Deploy a new scale set with a basic autoscale setting. This article uses the one from the Azure QuickStart Gallery, which has a Windows scale set with a basic autoscale template. Linux scale sets work the same way.
 2. After the scale set is created, navigate to the scale set resource from Azure Resource Explorer. You see the following under Microsoft.Insights node.
 
-    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
+    ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     The template execution has created a default autoscale setting with the name **'autoscalewad'**. On the right-hand side, you can view the full definition of this autoscale setting. In this case, the default autoscale setting comes with a CPU% based scale-out and scale-in rule.  
 
-3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](insights-autoscale-best-practices.md).  
+3. You can now add more profiles and rules based on the schedule or specific requirements. We create an autoscale setting with three profiles. To understand profiles and rules in autoscale, review [Autoscale Best Practices](autoscale-best-practices.md).  
 
     | Profiles & Rules | Description |
     |--- | --- |
@@ -49,16 +49,16 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
     * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*
     * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
 
-    Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](insights-autoscale-best-practices.md) article.
-    For a list of common metrics for autoscale, refer [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
+    Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](autoscale-best-practices.md) article.
+    For a list of common metrics for autoscale, refer [Common metrics for Autoscale](autoscale-common-metrics.md)
 
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
 
-    ![Autoscalewad, default autoscale setting](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
+    ![Autoscalewad, default autoscale setting](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Click Edit. **Replace** the 'profiles' element in autoscale setting with the following configuration:
 
-    ![profiles](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
+    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {
@@ -195,7 +195,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 7. Finally, look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
    - Notify the admin and co-admins of your subscription
    - Email a set of users
-   - Trigger a webhook call. When fired, this webhook sends metadata about the autoscaling condition and the scale set resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](insights-autoscale-to-webhook-email.md).
+   - Trigger a webhook call. When fired, this webhook sends metadata about the autoscaling condition and the scale set resource. To learn more about the payload of autoscale webhook, see [Configure Webhook & Email Notifications for Autoscale](autoscale-webhook-email.md).
 
    Add the following to the Autoscale setting replacing your **notification** element whose value is null
 
@@ -232,14 +232,14 @@ You have updated an autoscale setting on a VM Scale set to include multiple scal
 ## Next Steps
 Use these links to learn more about autoscaling.
 
-[TroubleShoot Autoscale with Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+[TroubleShoot Autoscale with Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-[Common Metrics for Autoscale](insights-autoscale-common-metrics.md)
+[Common Metrics for Autoscale](autoscale-common-metrics.md)
 
-[Best Practices for Azure Autoscale](insights-autoscale-best-practices.md)
+[Best Practices for Azure Autoscale](autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
+[Manage Autoscale using PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](insights-cli-samples.md#autoscale)
+[Manage Autoscale using CLI](cli-samples.md#autoscale)
 
-[Configure Webhook & Email Notifications for Autoscale](insights-autoscale-to-webhook-email.md)
+[Configure Webhook & Email Notifications for Autoscale](autoscale-webhook-email.md)

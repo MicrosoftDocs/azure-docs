@@ -35,7 +35,7 @@ Download the public configuration file schema definition by executing the follow
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
-For more information about using Azure Diagnostics, see [Azure Diagnostics Extension](azure-diagnostics.md).  
+For more information about using Azure Diagnostics, see [Azure Diagnostics Extension](diagnostics-extension-overview.md).  
 
 ## Example of the diagnostics configuration file  
  The following example shows a typical diagnostics configuration file:  

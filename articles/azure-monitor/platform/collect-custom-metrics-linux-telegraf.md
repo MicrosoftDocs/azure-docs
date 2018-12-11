@@ -17,7 +17,7 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
 [Telegraf](https://docs.influxdata.com/telegraf/v1.7/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
 
- ![Telegraph agent overview](./media/metrics-store-custom-linux-telegraf/telegraf-agent-overview.png)
+ ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 ## Send custom metrics 
 
@@ -35,11 +35,11 @@ Create a new Linux VM:
 1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
 1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
 
-    ![Create an Ubuntu VM](./media/metrics-store-custom-linux-telegraf/create-vm.png)
+    ![Create an Ubuntu VM](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
 1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
 
-    ![Virtual machine size Telegraph agent overview](./media/metrics-store-custom-linux-telegraf/vm-size.png)
+    ![Virtual machine size Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
 1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
 
@@ -49,13 +49,13 @@ Create a new Linux VM:
 
 1. In the VM pane, navigate to the **Identity** tab. Ensure that your VM has a system-assigned identity set to **On**. 
  
-    ![Telegraf VM identity preview](./media/metrics-store-custom-linux-telegraf/connect-to-VM.png)
+    ![Telegraf VM identity preview](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
 ## Connect to the VM 
 
 Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
 
-![Telegraf VM overview page](./media/metrics-store-custom-linux-telegraf/connect-VM-button2.png)
+![Telegraf VM overview page](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
 In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
 
@@ -104,15 +104,15 @@ Now the agent will collect metrics from each of the input plug-ins specified and
 
 1. Navigate to the new **Monitor** tab. Then select **Metrics**.  
 
-     ![Monitor - Metrics (preview)](./media/metrics-store-custom-linux-telegraf/metrics.png)
+     ![Monitor - Metrics (preview)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
 1. Select your VM in the resource selector.
 
-     ![Metric chart](./media/metrics-store-custom-linux-telegraf/metric-chart.png)
+     ![Metric chart](./media/collect-custom-metrics-linux-telegraf/metric-chart.png)
 
 1. Select the **Telegraf/CPU** namespace, and select the **usage_system** metric. You can choose to filter by the dimensions on this metric or split on them.  
 
-     ![Select namespace and metric](./media/metrics-store-custom-linux-telegraf/VM-resource-selector.png)
+     ![Select namespace and metric](./media/collect-custom-metrics-linux-telegraf/VM-resource-selector.png)
 
 ## Additional configuration 
 
