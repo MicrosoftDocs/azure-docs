@@ -1,5 +1,5 @@
 ---
-title: Build a PHP and MySQL web app in Azure | Microsoft Docs 
+title: Build PHP app with MySQL - Azure App Service | Microsoft Docs 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure.
 services: app-service\web
 documentationcenter: php
@@ -16,6 +16,8 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Tutorial: Build a PHP and MySQL web app in Azure
 
