@@ -19,7 +19,7 @@ For this tutorial, you create three virtual networks:
 
 - **VNet-Hub** - the firewall is in this virtual network.
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
+- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
 ![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -307,7 +307,7 @@ Next, create a couple routes:
 - A default route from the spoke subnet through the firewall IP address
 
 >[!NOTE]
->To use force tunneling on-premises, you must use UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to the **AzureFirewallSubnet**.
+>Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.
 
 ```azurepowershell
 #Create a route table
