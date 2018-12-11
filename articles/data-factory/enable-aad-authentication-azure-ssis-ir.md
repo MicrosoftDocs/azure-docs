@@ -25,7 +25,7 @@ For more info about the managed identity for your data factory, see [Azure Data 
 
 ## Enable Azure AD on Azure SQL Database
 
-Azure SQL Database supports creating a database with an Azure AD user. As a result, you can set an Azure AD user as the Active Directory admin, and then log in to SSMS using the Azure AD user. Then you can create a contained user for the Azure AD group to enable your IR to create the SQL Server Integration Services (SSIS) catalog on the server.
+Azure SQL Database supports creating a database with an Azure AD user. As a result, you can set an Azure AD user as the Active Directory admin, and then log in to SQL Server Management Studio (SSMS) using the Azure AD user. Then you can create a contained user for the Azure AD group to enable your IR to create the SQL Server Integration Services (SSIS) catalog on the server.
 
 ### Create a group in Azure AD and make the managed identity for your data factory a member of the group
 
@@ -138,7 +138,7 @@ Azure SQL Database Managed Instance supports creating a database with MSI direct
 
 1.	Start SQL Server Management Studio.
 
-2.	Login with a SQL admin account or Active Directory admin account.
+2.	Log in with a SQL admin account or Active Directory admin account.
 
 3.	In the Object Explorer, expand the Databases -> System Databases folder.
 
