@@ -1,19 +1,20 @@
 ---
 title: "How-to: Set ACLs on files and directories using Azure Storage Explorer"
-description: In this how to, you learn how to set ACLs on files and directories
+description: In this how to, you learn how to set ACLs on files and directories inside your Azure Data Lake Storage Gen2 capable storage account
 services: storage
 author: roygara
 
 ms.custom: mvc
+ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
 ---
 
-# How to: Set file and directory level permissions using Azure Storage explorer
+# How to: Set file and directory level permissions using Azure Storage Explorer
 
-Files stored in a storage account that has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels.
+Files stored in a storage account that has the hierarchical namespace enabled support fine grained permissions and access control list management. These new additions allow you to control access to your data and information at lower levels.
 
 In article, you learn how to use Azure Storage Explorer to:
 
@@ -22,32 +23,32 @@ In article, you learn how to use Azure Storage Explorer to:
 > * Set directory level permissions
 > * Add users or groups to an access control list
 
-## Pre-requisites
+## Prerequisites
 
-In order to best depict the process, we require that you complete our [Azure Storage explorer quickstart](data-lake-storage-explorer.md). This ensures your storage account will be in the most appropriate state (filesystem created and data uploaded to filesystem).
+In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (filesystem created and data uploaded to it).
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** prompt.
+You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** dialogue box.
 
-![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
 The **Manage Access** prompt allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
 To add a new user or group to the access control list, select the **Add user or group** box.
 
-Enter the corresponding AAD entry you wish to add to the list, then select **Add**.
+Enter the corresponding Azure Active Directory entry you wish to add to the list, then select **Add**.
 
 The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
 > [!NOTE]
-> It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [best practices for data lake storage gen2](data-lake-storage-best-practices.md).
+> It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [best practices for Data Lake Storage Gen2](data-lake-storage-best-practices.md).
 
 There are two categories of permissions you can assign: access permissions and default permissions.
 
-* **Access permissions**: Access permissions control access to an object. Files and directories both have access permissions.
+* **Access**: Access permissions control access to an object. Files and directories both have access permissions.
 
-* **Default permissions**: A template of permissions associated with a directory that determine the access permissions for any child items that are created under that directory. Files do not have default permissions.
+* **Default**: A template of permissions associated with a directory that determine the access permissions for any child items that are created under that directory. Files do not have default permissions.
 
 Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
 
