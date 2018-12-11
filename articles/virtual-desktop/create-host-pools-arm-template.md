@@ -33,7 +33,7 @@ This section is the same as [Create a host pool with Azure Marketplace](create-h
     3. Right after “https://portal.azure.com/” and before the hashtag (#) insert an at sign (@) followed by the tenant domain name. For example: https://portal.azure.com/@Contoso.onmicrosoft.com#create/...
     4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the CSP subscription.
     5. Paste the link you copied to the text editor into the address bar.
-    6. Fill in the fields as described in 5–10 of Run the Azure Marketplace offering to provision a new host pool. The GitHub URL provided in Step 1 will contain the most up-to-date information about the deployment scenarios.
+    6. Fill in the fields as described in 5–10 of Run the Azure Marketplace offering to provision a new host pool. The GitHub URL provided in step 1 will contain the most up-to-date information about the deployment scenarios.
 
 ## Create a virtual machine for a host pool using a default image in Azure Gallery
 
