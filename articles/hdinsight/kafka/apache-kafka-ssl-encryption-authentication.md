@@ -68,21 +68,26 @@ $keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert
 $keytool -keystore kafka.server.keystore.jks -alias CARoot -import -file ca-cert -storepass $SRVPASS -keypass $SRVPASS -noprompt//output is "Certificate reply was added to keystore"
 ```
  
-## PART2: UPDATE CONFIG TO USE SSL AND RESTART BROKERS:
+## Part 2: Update configuration to use SSL and restart brokers
+
+1. Add the following property to the `server.properties` file
 
 listeners=PLAINTEXT://localhost:9092,SSL://localhost:9093
 security.inter.broker.protocol=SSL
 ssl.client.auth=required (Add as custom property)
 
-Add below to kafka-env template:
+2. Add below to kafka-env template ???
 
-```config
+```bash
 #Configure Kafka to advertise IP addresses instead of FQDN
 IP_ADDRESS=$(hostname -i)
 echo advertised.listeners=$IP_ADDRESS
 sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
+```
 
+
+```bash
+echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
 echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
 echo "ssl.keystore.password=serverpassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
 echo "ssl.key.password=serverpassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
@@ -101,7 +106,7 @@ ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
 ssl.truststore.password=serverpassword123
 ```
 
-## PART3: CLIENT SETUP
+## Part 3: Client Setup
 
 ```bash
 $export CLIPASS=clientpassword123
