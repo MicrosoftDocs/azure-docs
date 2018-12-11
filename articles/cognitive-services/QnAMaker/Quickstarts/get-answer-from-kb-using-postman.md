@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 12/5/2018
+ms.date: 12/11/2018
 ms.author: diberry
 #Customer intent: As an knowledge base manager new to the QnA Maker service, I want to get an answer from a published knowledge base using Postman. 
 ---
@@ -43,9 +43,8 @@ To generate an answer with Postman, complete the following steps:
 
     [![In Postman, set the method to Post and the complete URL](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
-1. Select the **Headers** tab under the URL. 
-1. Add the first header key of **Content-Type** with a value of `application/json`.
-1. Add the second header key of **Authorization** with the value of the word `Endpointkey`, then a space, then the key from the Publish page. 
+1. Select the **Headers** tab under the URL, then select **Bulk Edit**. 
+1. Copy the headers into the text area.
 
     [![In Postman, set the headers](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
