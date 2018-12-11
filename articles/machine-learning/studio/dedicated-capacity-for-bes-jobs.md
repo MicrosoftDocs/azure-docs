@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ---
-# Azure Batch service for Machine Learning Studio jobs
+# Azure Batch service for Azure Machine Learning Studio jobs
 
 Machine Learning Batch Pool processing provides customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing for machine learning takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
 

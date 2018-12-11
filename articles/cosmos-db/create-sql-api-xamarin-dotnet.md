@@ -60,7 +60,7 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 ## Clone the sample application
 
-Now let's clone the Xamarin SQL API app from github, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
+Now let's clone the Xamarin SQL API app from GitHub, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

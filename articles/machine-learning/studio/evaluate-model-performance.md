@@ -4,7 +4,7 @@ description: This article demonstrates how to evaluate the performance of a mode
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
 
 editor: cgronlun
@@ -17,7 +17,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# How to evaluate model performance in Azure Machine Learning
+# How to evaluate model performance in Azure Machine Learning Studio
+
 This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
 
 * regression
