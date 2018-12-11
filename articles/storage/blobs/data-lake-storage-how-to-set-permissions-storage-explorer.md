@@ -1,6 +1,6 @@
 ---
-title: "How-to: Set ACLs on files and directories using Azure Storage Explorer"
-description: In this how to, you learn how to set ACLs on files and directories inside your Azure Data Lake Storage Gen2 capable storage account
+title: "Setting ACLs on files and directories using Azure Storage Explorer with Azure Data Lake Storage Gen2 (Preview)"
+description: How to set ACLs on files and directories inside your Azure Data Lake Storage Gen2 (Preview) capable storage account
 services: storage
 author: roygara
 
@@ -29,11 +29,11 @@ In order to best depict the process, we require that you complete our [Azure Sto
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** dialogue box.
+You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-The **Manage Access** prompt allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
+The **Manage Access** dialog box pt allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
 To add a new user or group to the access control list, select the **Add user or group** box.
 
@@ -55,7 +55,7 @@ Within both of these categories, there are three permissions you can then assign
 >[!NOTE]
 > Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if it already exists.
 
-You can manage permissions on individual directories as well as individual files, allowing you fine grain access control. The process for managing permissions on directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on, and follow the same process.
+You can manage permissions on individual directories as well as individual files, which is what allows you fine grained access control. The process for managing permissions on directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on, and follow the same process.
 
 ## Next steps
 
