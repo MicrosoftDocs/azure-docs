@@ -31,6 +31,8 @@ To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
+For some scenarios, you may need to use ADO.NET, JDBC, ODBC, or PHP connection strings to connect to your database. 
+
 **To get connection strings for your Azure SQL database:**
 
 1. On the database **Overview** page, select **Show database connection strings**. Or, in the left menu, select **Connection strings**.  
@@ -40,13 +42,15 @@ To complete this quickstart, make sure you have the following:
    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 >[!IMPORTANT]
->Your database must have a firewall rule for the public IP address of the computer you use for this quickstart. 
+>Your database must have a firewall rule for the public IP address of the computer you use for this quickstart. To set a firewall rule:
 >
->To set firewall rules, select **Set server firewall** on the database **Overview** toolbar. 
+>1. Select **Set server firewall** on the database **Overview** toolbar. 
+>   
+>1. On the **Firewall settings** page, select **Add client IP** to allow your current computer to access the database. 
+>   
+>1. Enter the public IP addresses or ranges of any other machines you want to add, and then select **Save**. 
 >
->On the **Firewall settings** page, select **Add client IP** to allow your current computer to access the database. Enter the public IP addresses or ranges of any other machines you want to add, and then select **Save**. 
->
->For more information, see [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
+>For more information, see [Create a server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
 >
 
 ## Create a new Visual Studio project
@@ -142,7 +146,7 @@ namespace sqltest
 - Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
 - Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- Retry logic example: [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- Retry logic example: [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
