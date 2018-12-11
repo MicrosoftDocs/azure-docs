@@ -60,6 +60,8 @@ This update includes the following improvements for Azure Stack:
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
+- The release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
+
 ### Fixed issues
 
 <!-- TBD - IS ASDK --> 
