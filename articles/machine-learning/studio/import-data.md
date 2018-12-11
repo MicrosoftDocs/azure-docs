@@ -34,10 +34,6 @@ To use your own data in Machine Learning Studio to develop and train a predictiv
 
 This introductory article also discusses how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported.
 
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
-
 ## Get data ready for use in Azure Machine Learning Studio
 Machine Learning Studio is designed to work with rectangular or tabular data, such as text data that's delimited or structured data from a database, though in some circumstances non-rectangular data may be used.
 

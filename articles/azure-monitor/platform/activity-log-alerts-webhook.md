@@ -12,9 +12,9 @@ ms.component: alerts
 # Webhooks for Azure activity log alerts
 As part of the definition of an action group, you can configure webhook endpoints to receive activity log alert notifications. With webhooks, you can route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
-For more information on activity log alerts, see how to [create Azure activity log alerts](monitoring-activity-log-alerts.md).
+For more information on activity log alerts, see how to [create Azure activity log alerts](activity-log-alerts.md).
 
-For information on action groups, see how to [create action groups](../azure-monitor/platform/action-groups.md).
+For information on action groups, see how to [create action groups](../../azure-monitor/platform/action-groups.md).
 
 ## Authenticate the webhook
 The webhook can optionally use token-based authorization for authentication. The webhook URI is saved with a token ID, for example, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -155,9 +155,9 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
-For specific schema details on service health notification activity log alerts, see [Service health notifications](monitoring-service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../service-health/service-health-alert-webhook-guide.md).
+For specific schema details on service health notification activity log alerts, see [Service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
 
-For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](monitoring-overview-activity-logs.md).
+For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 | Element name | Description |
 | --- | --- |
@@ -190,7 +190,7 @@ For specific schema details on all other activity log alerts, see [Overview of t
 | subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504). |
 
 ## Next steps
-* [Learn more about the activity log](monitoring-overview-activity-logs.md).
+* [Learn more about the activity log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 * [Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
