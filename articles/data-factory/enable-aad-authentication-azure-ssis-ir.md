@@ -27,6 +27,43 @@ For more info about the managed identity for your data factory, see [Azure Data 
 
 Azure SQL Database supports creating a database with an Azure AD user. As a result, you can set an Azure AD user as the Active Directory admin, and then log in to SSMS using the Azure AD user. Then you can create a contained user for the Azure AD group to enable your IR to create the SQL Server Integration Services (SSIS) catalog on the server.
 
+### Create a group in Azure AD and make the managed identity for your data factory a member of the group
+
+You can use an existing Azure AD group, or create a new one using Azure AD PowerShell.
+
+1.  Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module.
+
+2.  Sign in using `Connect-AzureAD`, and run the following command to create the group, and save it in a variable:
+
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "SSISIrGroup" `
+                              -MailEnabled $false `
+                              -SecurityEnabled $true `
+                              -MailNickName "NotSet"
+    ```
+
+    The output looks like the following example, which also examines the value of the variable:
+
+    ```powershell
+    $Group
+
+    ObjectId DisplayName Description
+    -------- ----------- -----------
+    6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
+    ```
+
+3.  Add the managed identity for your data factory to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
+
+    ```powershell
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+    ```
+
+    You also can examine the group membership afterward.
+
+    ```powershell
+    Get-AzureAdGroupMember -ObjectId $Group.ObjectId
+    ```
+
 ### Enable Azure AD authentication for the Azure SQL Database
 
 You can [configure Azure AD authentication for the SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
@@ -79,43 +116,6 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
     The command should complete successfully, granting the contained user the ability to create database.
 
-## Create a group in Azure AD and make the managed identity for your data factory a member of the group
-
-You can use an existing Azure AD group, or create a new one using Azure AD PowerShell.
-
-1.  Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module.
-
-2.  Sign in using `Connect-AzureAD`, and run the following command to create the group, and save it in a variable:
-
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "SSISIrGroup" `
-                              -MailEnabled $false `
-                              -SecurityEnabled $true `
-                              -MailNickName "NotSet"
-    ```
-
-    The output looks like the following example, which also examines the value of the variable:
-
-    ```powershell
-    $Group
-
-    ObjectId DisplayName Description
-    -------- ----------- -----------
-    6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
-    ```
-
-3.  Add the managed identity for your data factory to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
-
-    ```powershell
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
-    ```
-
-    You also can examine the group membership afterward.
-
-    ```powershell
-    Get-AzureAdGroupMember -ObjectId $Group.ObjectId
-    ```
-
 ## Enable Azure AD on Azure SQL Database Managed Instance
 
 Azure SQL Database Managed Instance supports creating a database with MSI directly. You don’t need to join data factory MSI to an AD group or create the contained user in MI.
@@ -144,24 +144,24 @@ Azure SQL Database Managed Instance supports creating a database with MSI direct
 
 4.	Right-click on master database and select **New query**.
 
-5.	You can follow Azure Data Factory service identity to get the principal SERVICE IDENTITY APPLICATION ID. (Do not use SERVICE IDENTITY ID for this purpose.)
+5.	You can follow the article [Azure Data Factory service identity](data-factory-service-identity.md) to get the principal SERVICE IDENTITY APPLICATION ID. (Do not use SERVICE IDENTITY ID for this purpose.)
 
 6.	In the query window, run the following script to covert the SERVICE IDENTITY APPLICATION ID to binary type:
 
-```sql
-DECLARE @applicationId uniqueidentifier = {your service identity application id}
-select CAST(@applicationId AS varbinary)
-```
+    ```sql
+    DECLARE @applicationId uniqueidentifier = {your service identity application id}
+    select CAST(@applicationId AS varbinary)
+    ```
 
 7.	You can get the value from the result window.
 
 8.	Clear the query window, and run the following script:
 
-```sql
-CREATE LOGIN [{MSI name}] FROM EXTERNAL PROVIDER with SID ={your service identity application id in binary type}, TYPE = E
-ALTER SERVER ROLE [dbcreator] ADD MEMBER [{MSI name}]
-ALTER SERVER ROLE [securityadmin] ADD MEMBER [{MSI name}]
-```
+    ```sql
+    CREATE LOGIN [{MSI name}] FROM EXTERNAL PROVIDER with SID ={your service identity application id in binary type}, TYPE = E
+    ALTER SERVER ROLE [dbcreator] ADD MEMBER [{MSI name}]
+    ALTER SERVER ROLE [securityadmin] ADD MEMBER [{MSI name}]
+    ```
 
 9.	The command completes successfully.
 
