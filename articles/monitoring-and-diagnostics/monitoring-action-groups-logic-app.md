@@ -14,7 +14,7 @@ ms.component: alerts
 This article shows you how to set up and trigger a logic app to create a conversation in Microsoft Teams when an alert fires.
 
 ## Overview
-When an Azure Monitor alert triggers, it calls an [action group](monitoring-action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
+When an Azure Monitor alert triggers, it calls an [action group](../azure-monitor/platform/action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
 
 The general process is:
 
@@ -291,4 +291,4 @@ Logic Apps has a number of different connectors that allow you to trigger action
 ## Next steps
 * Get an [overview of Azure activity log alerts](monitoring-overview-alerts.md) and learn how to receive alerts.  
 * Learn how to [configure alerts when an Azure Service Health notification is posted](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-* Learn more about [action groups](monitoring-action-groups.md).
+* Learn more about [action groups](../azure-monitor/platform/action-groups.md).

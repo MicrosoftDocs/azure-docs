@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Azure Machine Learning Studio.
   services: machine-learning
   author: j-martens
-  manager: cgronlun
+  
   ms.service: machine-learning
   ms.component: studio
   ms.tgt_pltfrm: na

@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service IP Restrictions | Microsoft Docs" 
+title: "Restrict client IPs - Azure App Service | Microsoft Docs" 
 description: "How to use IP restrictions with Azure App Service" 
 author: ccompy
 manager: stefsch
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 7/30/2018
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Azure App Service Static IP Restrictions #

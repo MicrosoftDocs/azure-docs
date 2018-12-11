@@ -4,10 +4,9 @@ description: A printable diagram of the capabilities of Azure Machine Learning S
 keywords: machine learning studio,overview diagram,download
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=haining, author=hning86)"
-ms.author: amlstudiodocs
-manager: mwinkle
+author: garyericson
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.author: garye
 editor: cgronlun
 ms.assetid: 5b302c6c-41fd-4551-a4ae-0f5b450e1e6b
 ms.service: machine-learning

@@ -4,9 +4,9 @@ description: A detailed walkthrough showing how to create a predictive analytics
 keywords: credit risk, predictive analytics solution,risk assessment
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
