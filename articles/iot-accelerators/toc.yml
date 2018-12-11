@@ -23,6 +23,7 @@
     href: quickstart-device-simulation-deploy.md
 
 - name: Solution accelerators
+  expanded: true
   items:
   - name: Remote Monitoring
     items:
@@ -223,8 +224,6 @@
         href: https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis
       - name: Digital Signage Solution
         href: https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution
-    - name: Reference
-    - name: Resources
 
 - name: Related
   items:
