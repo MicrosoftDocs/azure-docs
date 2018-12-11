@@ -1,5 +1,5 @@
 ---
-title: How to configure Facebook authentication - Azure App Service
+title: Configure Facebook authentication - Azure App Service
 description: Learn how to configure Facebook authentication for your App Services application.
 services: app-service
 documentationcenter: ''
