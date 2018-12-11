@@ -238,7 +238,7 @@ Your total bill (without reserved capacity) would be (assuming 30 days or 720 ho
 |Japan East|$0.009 |50 K| $4.50 |$3,240 |
 |Total|||$8.50|$6,120 |
 
-Let’s consider that you’ve bought reserved capacity instead. You can buy reserved capacity for 100-K RU/sec at the price of $56,064 for one year (at 20% discount), or $6.40 per hour. See reserved capacity pricing on the [Pricing page](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/)).  
+Let’s consider that you’ve bought reserved capacity instead. You can buy reserved capacity for 100-K RU/sec at the price of $56,064 for one year (at 20% discount), or $6.40 per hour. See reserved capacity pricing on the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/)).  
 
 * Cost of throughput (pay-as-you-go): 100,000 RU/sec/100 * $0.008/hour * 8760 hours in a year = $70,080 
 
