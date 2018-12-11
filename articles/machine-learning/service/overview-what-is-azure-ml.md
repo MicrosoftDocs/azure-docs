@@ -76,7 +76,10 @@ Use Machine Learning service if you work in a Python environment, you want more 
 > Models created in Azure Machine Learning Studio cannot be deployed or managed by Azure Machine Learning service.
 
 ## Free trial
-If you aren't a subscriber, you can [open an Azure account for free](https://aka.ms/amlfree). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which gives you credits every month that you can use for paid Azure services.
+
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+
+You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which gives you credits every month that you can use for paid Azure services.
 
 ## Next steps
 
