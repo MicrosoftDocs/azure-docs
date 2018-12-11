@@ -1,5 +1,5 @@
 ---
-title: Continuous deployment to Azure App Service | Microsoft Docs
+title: Continuous deployment - Azure App Service | Microsoft Docs
 description: Learn how to enable continuous deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
+ms.custom: seodec18
 
 ---
 # Continuous deployment to Azure App Service

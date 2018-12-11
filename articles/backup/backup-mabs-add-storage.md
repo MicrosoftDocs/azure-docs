@@ -70,7 +70,7 @@ With workload-aware storage, you can select the volumes that preferentially stor
 
 ### Update-DPMDiskStorage
 
-You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Data Protection Manager server.
+You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on a Azure Backup Server. 
 
 Syntax:
 
