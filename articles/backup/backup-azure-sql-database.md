@@ -796,10 +796,9 @@ The following section provides additional information about SQL database backup.
 Yes. You can throttle the rate at which the backup policy executes to minimize the impact on a SQL Server instance.
 To change the setting:
 1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin folder*, create the **ExtensionSettingsOverrides.json** file.
-2. In the **ExtensionSettingsOverrides.json** file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5).
-  {
-    "DefaultBackupTasksThreshold": 5
-  }
+2. In the **ExtensionSettingsOverrides.json** file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
+
 3. Save your changes. Close the file.
 4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.
 
