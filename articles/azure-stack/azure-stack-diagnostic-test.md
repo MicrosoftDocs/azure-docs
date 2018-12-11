@@ -42,7 +42,7 @@ As stated previously, the validation tool is run via the PEP. Each test returns 
    Test-AzureStack
    ```
 
-   Refer to the [Parameter considerations](azure-stack-diagnostic-test.md#parameter-considerations) and [Use case examples](azure-stack-diagnostic-test.md#use-cases) sections for more information.
+   Refer to the [Parameter considerations](azure-stack-diagnostic-test.md#parameter-considerations) and [Use case examples](azure-stack-diagnostic-test.md#use-cases-examples) sections for more information.
 
 3. If any tests report **FAIL**, run:
 
