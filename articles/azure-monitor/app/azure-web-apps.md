@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure App Service performance | Microsoft Docs
-description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
+title: Monitor Azure app services performance | Microsoft Docs
+description: Application performance monitoring for Azure app services. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -21,20 +21,20 @@ In the [Azure Portal](https://portal.azure.com) you can set up application perfo
 ## Run time or build time
 You can configure monitoring by instrumenting the app in either of two ways:
 
-* **Run-time** - You can select a performance monitoring extension when your web app is already live. It isn't necessary to rebuild or re-install your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on. 
+* **Run-time** - You can select a performance monitoring extension when your app service is already live. It isn't necessary to rebuild or re-install your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on. 
 * **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. 
 
 ## Run time instrumentation with Application Insights
-If you're already running a web app in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Log Analytics query language. 
+If you're already running an app service in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Log Analytics query language. 
 
-1. **Select Application Insights** in the Azure control panel for your web app.
+1. **Select Application Insights** in the Azure control panel for your app service.
 
     ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights.png)
 
    * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
 
     > [!NOTE]
-    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your web app, doing so will also **trigger a restart of your web app**. 
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
 
@@ -42,7 +42,7 @@ If you're already running a web app in Azure, you already get some monitoring: r
 
     ![Choose options per platform](./media/azure-web-apps/choose-options.png)
 
-3. **Instrument your web app** after Application Insights has been installed.
+3. **Instrument your app service** after Application Insights has been installed.
 
    **Enable client side monitoring** for page view and user telemetry.
 
@@ -91,6 +91,17 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## Troubleshooting
+
+### APPINSIGHTS_JAVASCRIPT_ENABLED causes incomplete HTML response in NET CORE web applications.
+
+Enabling Javascript via App Services can cause html responses to be cut off.
+
+- Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED env var to false or remove it completely and restart
+- Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't work this way)
+
+We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
 
 ## Next steps
 * [Run the profiler on your live app](../../application-insights/app-insights-profiler.md).
