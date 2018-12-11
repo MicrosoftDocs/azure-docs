@@ -61,7 +61,7 @@ There are other issues with large virtual machine scale sets currently, like the
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
-The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support a cluster as long as it has a single node.
+The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support a cluster as long as it at least one node.
 
 We require a production cluster to have a minimum size because of the following two reasons:
 1. We always place one replica of a service per node, so cluster size is the upper limit for the number of replicas a service (actually a partition) can have.
