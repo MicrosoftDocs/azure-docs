@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service Hybrid Connections | Microsoft Docs" 
+title: "Hybrid connections - Azure App Service | Microsoft Docs" 
 description: "How to create and use Hybrid Connections to access resources in disparate networks" 
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 
@@ -133,7 +134,7 @@ When you start the HCM UI, the first thing you see is a table that lists all the
 To add one or more Hybrid Connections to your HCM:
 
 1. Start the HCM UI.
-1. Select **Configure another Hybrid Connection**.
+2. Select **Configure another Hybrid Connection**.
 ![Screenshot of Configure New Hybrid Connections][8]
 
 1. Sign in with your Azure account.
