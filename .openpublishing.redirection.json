@@ -458,6 +458,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/search/search-case-studies.md",
+            "redirect_url": "https://azure.microsoft.com/case-studies",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-saas-scc-lifecycle-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-scclifecycle-tutorial",
             "redirect_document_id": true
