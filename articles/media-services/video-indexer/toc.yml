@@ -21,11 +21,11 @@
   - name: Customizing content models
     items:
     - name: Brands
-      href: customizing-brands-model-overview.md
+      href: customize-brands-model-overview.md
     - name: Language
-      href: customizing-language-model-overview.md
+      href: customize-language-model-overview.md
     - name: Person
-      href: customizing-person-model-overview.md
+      href: customize-person-model-overview.md
 - name: How to guides
   items:
   - name: Migrate from v1 to v2
@@ -80,3 +80,4 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
     href: regions.md
+    

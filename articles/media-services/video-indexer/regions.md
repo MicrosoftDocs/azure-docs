@@ -14,9 +14,11 @@ ms.author: anzaman
 
 # Azure regions in which Video Indexer exists
 
-Video Indexer APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Video Indexer is available](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services&regions=all).
+Video Indexer APIs contain a **location** parameter that you should set to the Azure region to which the call should be routed. This must be an [Azure region in which Video Indexer is available](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services&regions=all).
 
-The **location** parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put *"trial"* as the value. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest):
+## Locations
+
+The **location** parameter must be given the Azure region code name as its value. If you are using Video Indexer in preview mode, you should put *"trial"* as the value. Otherwise, to get the code name of the Azure region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 ```bash
 az account list-locations
@@ -36,3 +38,9 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
       "subscriptionId": null
     }
 ```
+
+## Next steps
+
+- [Customize Language model using APIs](customize-language-model-with-api.md)
+- [Customize Brands model using APIs](customize-brands-model-with-api.md)
+- [Customize Person model using APIs](customize-person-model-with-api.md)
