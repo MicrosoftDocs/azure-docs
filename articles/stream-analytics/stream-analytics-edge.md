@@ -15,7 +15,7 @@ ms.custom: seodec18
  
 Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Azure Stream Analytics is designed for low latency, resiliency, efficient use of bandwidth, and compliance. Enterprises can now deploy control logic close to the industrial operations and complement Big Data analytics done in the cloud.  
 
-Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, you can deploy and manage ASA jobs using IoT Hub. This feature is in preview. If you have any questions or feedback, you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team. 
+Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, you can deploy and manage it using IoT Hub.
 
 ## Scenarios
 ![High-level diagram of IoT Edge](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
@@ -28,9 +28,9 @@ Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azur
 ## Edge jobs in Azure Stream Analytics
 ### What is an "edge" job?
 
-ASA Edge jobs run as modules within [Azure IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). They are composed of two parts:
+ASA Edge jobs run in containers deployed to [Azure IoT Edge devices](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). They are composed of two parts:
 1.	A cloud part that is responsible for job definition: users define inputs, output, query, and other settings (out of order events, etc.) in the cloud.
-2.	The ASA on IoT Edge module that runs locally. It contains the ASA Complex Event Processing engine and receives the job definition from the cloud. 
+2.	A module running on your IoT devices. It contains the ASA engine and receives the job definition from the cloud. 
 
 ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
@@ -39,12 +39,12 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 
 ### Installation instructions
 The high-level steps are described in the following table. More details are given in the following sections.
-|      |Step   | Place     | Notes   |
-| ---   | ---   | ---       |  ---      |
-| 1   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
-| 2   | **Create an ASA edge job**   | Azure portal      |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
-| 3   | **Setup your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
+|      |Step   | Notes   |
+| ---   | ---   |  ---      |
+| 1   | **Create a storage container**   | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
+| 2   | **Create an ASA edge job**   |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
+| 3   | **Setup your IoT Edge environment on your device(s)**   | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 4   | **Deploy ASA on your IoT Edge device(s)**   |  ASA job definition is exported to the storage container created earlier.       |
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
 
 
@@ -137,15 +137,15 @@ This example defines the following routes:
 
 
 ## Technical information
-### Current limitations for edge jobs compared to cloud jobs
-The goal is to have parity between edge jobs and cloud jobs. Most SQL query language features are already supported.
+### Current limitations for IoT Edge jobs compared to cloud jobs
+The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query language features are already supported.
 However the following features are not yet supported for edge jobs:
-* User-defined functions (UDF) and user-defined aggregates (UDA).
-* Azure ML functions.
+* User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
+* User-defined aggregates (UDA).
+* Azure ML functions
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time, only CSV and JSON are supported.
 * The following  SQL operators:
-    * AnomalyDetection
     * Geospatial operators:
         * CreatePoint
         * CreatePolygon
@@ -202,8 +202,8 @@ There are two ways to update the reference data:
 * Update the IoT Edge deployment.
 
 ## License and third-party notices
-* [Azure Stream Analytics on IoT Edge preview license](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [Third-party notice for Azure Stream Analytics on IoT Edge preview](https://go.microsoft.com/fwlink/?linkid=862828).
+* [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 
+* [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Get help
 For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
@@ -213,7 +213,6 @@ For further assistance, try the [Azure Stream Analytics forum](https://social.ms
 
 * [More information on Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 * [Develop Stream Analytics Edge jobs using Visual Studio tools](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [Implement CI/CD for Stream Analytics using APIs](stream-analytics-cicd-api.md)
 
