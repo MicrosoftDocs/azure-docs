@@ -181,7 +181,7 @@ In this how-to article, you learned about basic Queue storage management with Po
 > * Delete a queue
 
 ### Microsoft Azure PowerShell Storage cmdlets
-* [Storage PowerShell cmdlets](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdlets](/powershell/module/az.storage)
 
 ### Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

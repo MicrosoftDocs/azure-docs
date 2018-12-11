@@ -134,13 +134,11 @@ The feature is included in the following command groups:
 
 ### PowerShell
 
-[PowerShell version 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180) supports immutable storage.
-To enable the feature, follow these steps:
+Azure PowerShell `Az` version 1.0 supports immutable storage.  To enable the feature, follow these steps:
 
 1. Ensure that you have the latest version of PowerShellGet installed: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Remove any previous installation of Azure PowerShell.
-3. Install AzureRM: `Install-Module AzureRM –Repository PSGallery –AllowClobber`. Azure can be installed similarly from this repository.
-4. Install the preview version of Storage management plane cmdlets: `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
+3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
 The [Sample PowerShell code](#sample-powershell-code) section later in this article illustrates the feature usage.
 

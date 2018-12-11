@@ -52,11 +52,6 @@ The environment variable associated with the `--auth-mode` parameter is `AZURE_S
 
 ## Call PowerShell commands with an Azure AD identity
 
-Azure PowerShell supports signing in with an Azure AD identity with one of the following preview modules only: 
-
-- 4.4.0-preview 
-- 4.4.1-preview 
-
 To use Azure PowerShell to sign in with an Azure AD identity:
 
 1. Uninstall any previous installations of Azure PowerShell:
@@ -74,14 +69,9 @@ To use Azure PowerShell to sign in with an Azure AD identity:
 1. Install the latest version of Azure PowerShell:
 
     ```powershell
-    Install-Module AzureRM –Repository PSGallery –AllowClobber
+    Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Install one of the Azure Storage preview modules that supports Azure AD:
-
-    ```powershell
-    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
-    ```
 1. Close and reopen the PowerShell window.
 1. Call the [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
 1. To call a cmdlet with an Azure AD identity, pass the newly created context to the cmdlet.
