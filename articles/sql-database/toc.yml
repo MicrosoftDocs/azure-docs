@@ -179,7 +179,15 @@
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
     - name: Failover groups and geo-replication
-      href: sql-database-geo-replication-overview.md
+      items: 
+      - name: Active geo-replication
+        href: sql-database-active-geo-replication.md
+      - name: Auto-failover groups
+        href: sql-database-auto-failover-group.md
+      - name: Configure active geo-replication - Portal
+        href: sql-database-active-geo-replication-portal.md
+      - name: Configure security for replicas
+        href: sql-database-geo-replication-security-config.md
     - name: Database recovery options
       items:
       - name: Recovery using backups
@@ -338,8 +346,6 @@
           href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
         - name: Adaptive query processing
           href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-    - name: Manual tuning
-      items:
     - name: Azure Automation
       href: sql-database-manage-automation.md
   - name: Cross-database operations
