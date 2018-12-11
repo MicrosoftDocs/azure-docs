@@ -15,7 +15,7 @@ ms.date: 12/11/2018
 ---
 # Quickstart: Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 
-This quickstart demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) to connect to an Azure SQL database, create a C# app with Visual Studio, and use it to query data with Transact-SQL statements.
+This quickstart demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) in Visual Studio to connect to and query an Azure SQL database with Transact-SQL statements.
 
 ## Prerequisites
 
@@ -24,6 +24,11 @@ To complete this quickstart, make sure you have the following:
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
+  
+  1. Select **Set server firewall** on the database **Overview** toolbar. 
+  1. On the **Firewall settings** page, select **Add client IP** to allow your current computer to access the database. 
+  1. Make sure your client IP appears in the rules list, and enter any other public IP addresses or ranges you want to access the database. 
+  1. Select **Save**. 
 
 - An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
@@ -37,21 +42,9 @@ For some scenarios, you may need to use ADO.NET, JDBC, ODBC, or PHP connection s
 
 1. On the database **Overview** page, select **Show database connection strings**. Or, in the left menu, select **Connection strings**.  
    
-1. On the **Connection strings** page, copy the appropriate ADO.NET, JDBC, ODBC, or PHP connection string. 
+1. On the **Connection strings** page, select the **Copy** icon to copy the appropriate ADO.NET, JDBC, ODBC, or PHP connection string. 
 
    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-
->[!IMPORTANT]
->Your database must have a firewall rule for the public IP address of the computer you use for this quickstart. To set a firewall rule:
->
->1. Select **Set server firewall** on the database **Overview** toolbar. 
->   
->1. On the **Firewall settings** page, select **Add client IP** to allow your current computer to access the database. 
->   
->1. Enter the public IP addresses or ranges of any other machines you want to add, and then select **Save**. 
->
->For more information, see [Create a server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
->
 
 ## Create a new Visual Studio project
 
@@ -72,7 +65,7 @@ For some scenarios, you may need to use ADO.NET, JDBC, ODBC, or PHP connection s
 1. When the install completes, you can close the NuGet page. 
 
 > [!TIP]
-> You can also connect an Azure SQL database to Visual Studio by selecting **Connect with** > **Visual Studio** on the portal database page, and then selecting **Open in Visual Studio**. In this case, you do not need to install the NuGet package. 
+> You can also connect an Azure SQL database to Visual Studio from the Azure portal. Select **Connect with** > **Visual Studio** on the portal database page, and then select **Open in Visual Studio**. In this case, you do not need to manually install the NuGet package. 
   
 ## Add code to query the Azure SQL database
 
