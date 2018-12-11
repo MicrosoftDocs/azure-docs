@@ -159,7 +159,7 @@ If you use self-signed certificates, they must be created by using specific para
 
 After the gateway has been created, upload the .cer file (which contains the public key information) for a trusted root certificate to the Azure server. Don't upload the private key for the root certificate. After you upload the certificate, Azure uses it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
 
-1. On the **VPN connections** section of the page for your VNet, select the **clients** graphic to open the **Point-to-site VPN connection** page.
+1. On the **VPN connections** section of the page for your VNet, select the clients graphic to open the **Point-to-site VPN connection** page.
 
   ![Clients](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
@@ -199,9 +199,8 @@ You can use the same VPN client configuration package on each client computer, a
 
 To create a P2S connection from a different client computer than the one used to generate the client certificates, install a client certificate. When you install a client certificate, you need the password that was created when the client certificate was exported. Typically, you'll only need to double-click the certificate to install it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
 
-## Connect to Azure
 
-### Connect to your VNet
+## Connect to your VNet
 
 >[!NOTE]
 >You must have Administrator rights on the client computer from which you are connecting.
@@ -216,11 +215,11 @@ To create a P2S connection from a different client computer than the one used to
 
   ![Established connection](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
-#### Troubleshooting P2S connections
+### Troubleshooting P2S connections
 
 [!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
-### Verify the VPN connection
+## Verify the VPN connection
 
 1. Verify that your VPN connection is active. Open an elevated command prompt on your client computer, and run **ipconfig/all**.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site connectivity address range that you specified when you created your VNet. The results should be similar to this example:
@@ -252,7 +251,7 @@ You can add up to 20 trusted root certificate .cer files to Azure. For instructi
 
 ### To remove a trusted root certificate
 
-1. On the **VPN connections** section of the page for your VNet, select the **clients** graphic to open the **Point-to-site VPN connection** page.
+1. On the **VPN connections** section of the page for your VNet, select the clients graphic to open the **Point-to-site VPN connection** page.
 
    ![Clients](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
