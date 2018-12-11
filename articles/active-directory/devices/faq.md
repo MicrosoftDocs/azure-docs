@@ -94,7 +94,7 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 ---
 
-# Azure AD Join FAQ
+## Azure AD Join FAQ
 
 **Q: How do I unjoin an Azure AD Joined device locally on the device?**
 
@@ -170,7 +170,7 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
-# Hybrid Azure AD Join FAQ
+## Hybrid Azure AD Join FAQ
 
 **Q: Where can I find troubleshooting information for diagnosing hybrid Azure AD join failures?**
 
@@ -183,7 +183,7 @@ Please create a different local account before using Azure Active Directory Join
 
 ---
 
-# Azure AD Register FAQ
+## Azure AD Register FAQ
 
 **Q: Can I register Android or iOS BYOD devices?**
 
