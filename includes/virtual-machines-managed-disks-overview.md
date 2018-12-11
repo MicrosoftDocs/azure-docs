@@ -79,9 +79,9 @@ A snapshot is a copy of a disk at the point in time it is taken. It only applies
 
 What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
 
-## Managed Disks and Encryption
+### What is managed about Managed Disks?
 
-There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
+Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a special kind of random IO storage object in Azure. We call a Managed Disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a Managed Disk, and don’t have to worry about the rest.
 
 ## Next steps
 
