@@ -25,11 +25,11 @@ The preview sample script requires the Event Grid module. To install, run
 
 ## Sample script - stable
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-resource-group.ps1 "Subscribe to Azure resource group")]
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
 ## Sample script - preview module
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-resource-group-preview.ps1 "Subscribe to Azure resource group")]
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
 
 
 ## Script explanation

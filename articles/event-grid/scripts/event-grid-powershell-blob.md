@@ -21,16 +21,9 @@ This script creates an Event Grid subscription to the events for a Blob storage 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The preview sample script requires the Event Grid module. To install, run
-`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
-
 ## Sample script - stable
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.ps1 "Subscribe to Blob storage")]
-
-## Sample script - preview module
-
-[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-blob-storage-preview/subscribe-to-blob-storage-preview.ps1 "Subscribe to Blob storage")]
 
 ## Script explanation
 
