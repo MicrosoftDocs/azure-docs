@@ -10,7 +10,7 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
 
 ---
@@ -18,16 +18,20 @@ ms.author: mahender
 # How to use managed identities for App Service and Azure Functions
 
 > [!NOTE] 
-> App Service on Linux and Web App for Containers do not currently support managed identities.
+> Managed identity support for App Service on Linux and Web App for Containers is currently in preview.
 
 > [!Important] 
 > Managed identities for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
 
 This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. A managed identity from Azure Active Directory allows your app to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-## Creating an app with an identity
+Your application can be granted two types of identities: 
+- A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity. System-assigned identity support is generally available for Windows apps. 
+- A **user-assigned identity** is a standalone Azure resource which can be assigned to your app. An app can have multiple user-assigned identities. User-assigned identity support is in preview for all app types.
 
-Creating an app with an identity requires an additional property to be set on the application.
+## Adding a system-assigned identity
+
+Creating an app with a system-assigned identity requires an additional property to be set on the application.
 
 ### Using the Azure portal
 
@@ -39,9 +43,9 @@ To set up a managed identity in the portal, you will first create an application
 
 3. Select **Managed identity**.
 
-4. Switch **Register with Azure Active Directory** to **On**. Click **Save**.
+4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### Using the Azure CLI
 
@@ -91,7 +95,7 @@ The following steps will walk you through creating a web app and assigning it an
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Run the `identity assign` command to create the identity for this application:
+3. Run the `Set-AzureRmWebApp -AssignIdentity` command to create the identity for this application:
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -108,7 +112,10 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 }    
 ```
 
-This tells Azure to create and manage the identity for your application.
+> [!NOTE] 
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
+
+Adding the system-assigned type tells Azure to create and manage the identity for your application.
 
 For example, a web app might look like the following:
 ```json
@@ -136,12 +143,100 @@ For example, a web app might look like the following:
 When the site is created, it has the following additional properties:
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId property identifies what AAD tenant the identity belongs to. The principalId is a unique identifier for the application's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
+
+
+## Adding a user-assigned identity (preview)
+
+> [!NOTE] 
+> User-assigned identities are currently in preview. Sovreign clouds are not yet supported.
+
+Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app config.
+
+### Using the Azure portal
+
+> [!NOTE] 
+> This portal experience is being delployed and may not yet be available in all regions.
+
+First, you'll need to create a user-assigned identity resource.
+
+1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+2. Create an app in the portal as you normally would. Navigate to it in the portal.
+
+3. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
+
+4. Select **Managed identity**.
+
+5. Within the **User assigned (preview)** tab, click **Add**.
+
+6. Search for the identity you created earlier and select it. Click **Add**.
+
+![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### Using an Azure Resource Manager template
+
+An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+
+Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following block in the resource definition, replacing `<RESOURCEID>` with the resource ID of the desired identity:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
+
+Adding the user-assigned type and a cotells Azure to create and manage the identity for your application.
+
+For example, a web app might look like the following:
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+When the site is created, it has the following additional properties:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+Where `<PRINCIPALID>` and `<CLIENTID>` are replaced with GUIDs. The principalId is a unique identifier for the identity which is used for AAD administration. The clientId is a unique identifier for the application's new identity that is used for specifying which identity to use during runtime calls.
+
 
 ## Obtaining tokens for Azure resources
 
@@ -186,6 +281,7 @@ The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To g
 > |resource|Query|The AAD resource URI of the resource for which a token should be obtained.|
 > |api-version|Query|The version of the token API to be used. "2017-09-01" is currently the only version supported.|
 > |secret|Header|The value of the MSI_SECRET environment variable.|
+> |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
 
 
 A successful 200 OK response includes a JSON body with the following properties:
@@ -262,7 +358,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Removing an identity
 
-An identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. In the REST/ARM template protocol, this is done by setting the type to "None":
+A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, in the REST/ARM template protocol, this is done by setting the type to "None":
 
 ```json
 "identity": {
@@ -270,7 +366,7 @@ An identity can be removed by disabling the feature using the portal, PowerShell
 }    
 ```
 
-Removing the identity in this way will also delete the principal from AAD. System-assigned Identities are automatically removed from AAD when the app resource is deleted.
+Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
 
 > [!NOTE] 
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommmended.

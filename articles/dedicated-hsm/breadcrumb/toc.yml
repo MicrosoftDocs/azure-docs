@@ -1,0 +1,19 @@
+- name: Dedicated HSM
+  tocHref: /dedicated-hsm/
+  topicHref: /dedicated-hsm/index
+  items:
+    - name: Overview
+      tocHref: /dedicated-hsm/Overview/
+      topicHref: /dedicated-hsm/index
+    - name: Tutorials
+      tocHref: /dedicated-hsm/Tutorials/
+      topicHref: /dedicated-hsm/index
+    - name: Concepts
+      tocHref: /dedicated-hsm/Concepts/
+      topicHref: /dedicated-hsm/index
+    - name: How-to guides
+      tocHref: /dedicated-hsm/How-to guides/
+      topicHref: /dedicated-hsm/index
+    - name: Resources
+      tocHref: /dedicated-hsm/Resources/
+      topicHref: /dedicated-hsm/index

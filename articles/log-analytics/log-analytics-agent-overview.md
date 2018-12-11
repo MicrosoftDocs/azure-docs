@@ -118,7 +118,7 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 
 ## Next steps
 
-* Review [data sources](log-analytics-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
+* Review [data sources](../azure-monitor/platform/agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 
 * Learn about [log queries](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 

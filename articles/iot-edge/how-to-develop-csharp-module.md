@@ -57,7 +57,7 @@ Take these steps to create an IoT Edge module based on .NET Core 2.1 using Visua
 5. Enter a name for your solution. 
 6. Select **C# Module** as the template for the first module in the solution.
 7. Enter a name for your module. Choose a name that's unique within your container registry. 
-8. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. The final string looks like <registry name>.azurecr.io/<modulename>.
+8. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. The final string looks like \<registry name\>.azurecr.io/\<modulename\>.
 
    ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
 

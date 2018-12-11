@@ -1,4 +1,3 @@
-
 ---
 title: Create a Service Fabric cluster in the Azure portal | Microsoft Docs
 description: Learn how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.

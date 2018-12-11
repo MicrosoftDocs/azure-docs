@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with MobileIron | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and MobileIron.
 services: active-directory
@@ -107,9 +107,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![MobileIron Domain and URLs single sign-on information](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.mobileiron.com/<key>`
+	1. In the **Identifier** textbox, type a URL using the following pattern: `https://www.mobileiron.com/<key>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+	1. In the **Reply URL** textbox, type a URL using the following pattern: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
 1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -171,13 +171,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. In the **Name** box, type **BrittaSimon**.
+    1. In the **Name** box, type **BrittaSimon**.
 
-    b. In the **User name** box, type the email address of user Britta Simon.
+    1. In the **User name** box, type the email address of user Britta Simon.
 
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    1. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
-    d. Click **Create**.
+    1. Click **Create**.
   
 ### Create a MobileIron test user
 
@@ -196,13 +196,13 @@ In the case of MobileIron, provisioning is a manual task.
 
 	![Configure Single Sign-On user add button](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-	a. In **E-mail Address** text box, enter the email of user like brittasimon@contoso.com.
+	1. In **E-mail Address** text box, enter the email of user like brittasimon@contoso.com.
 
-	b. In **First Name** text box, enter the first name of user like Britta.
+	1. In **First Name** text box, enter the first name of user like Britta.
 
-	c. In **Last Name** text box, enter the last name of user like Simon.
+	1. In **Last Name** text box, enter the last name of user like Simon.
 	
-	d. Click **Done**.	
+	1. Click **Done**.	
 
 ### Assign the Azure AD test user
 

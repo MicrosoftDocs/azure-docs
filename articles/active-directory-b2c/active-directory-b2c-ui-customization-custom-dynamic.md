@@ -174,7 +174,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 
 3. In the **CORS** window, in the **Allowed Origins** box, do either of the following:
 
-    * Enter the URL or URLs that you want to allow JavaScript calls to come from.
+    * Enter the URL or URLs that you want to allow JavaScript calls to come from. You need to use all lowercase letters in the URLs that you enter.
     * Enter an asterisk (*) to specify that all origin domains are accepted.
 
 4. Select **Save**.

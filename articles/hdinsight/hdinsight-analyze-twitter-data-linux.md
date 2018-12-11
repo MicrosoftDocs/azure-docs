@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight
 
-Learn how to use Apache Hive to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
+Learn how to use [Apache Hive](https://hive.apache.org/) to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
 
 > [!IMPORTANT]
 > The steps in this document were tested on HDInsight 3.6.
@@ -178,7 +178,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Run the HiveQL job
 
-1. Use the following command to create a file containing HiveQL statements:
+1. Use the following command to create a file containing [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements:
 
    ```bash
    nano twitter.hql
@@ -318,7 +318,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Next steps
 
-You have learned how to transform an unstructured JSON dataset into a structured Hive table. To learn more about Hive on HDInsight, see the following documents:
+You have learned how to transform an unstructured JSON dataset into a structured [Apache Hive](https://hive.apache.org/) table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)

@@ -25,6 +25,10 @@ This guide provides key concepts and instructions for Java developers using in A
 
 Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics) for more information on how to access and use these diagnostic tools.
 
+## Application performance monitoring
+
+See [Application performance monitoring tools with Java apps on Azure App Service on Linux](how-to-java-apm-monitoring.md) for how-to instructions to configure New Relic and AppDynamics with Java apps running on App Service on Linux.
+
 ### SSH console access 
 
 SSH connectivity to the Linux environment running your app is avaialble. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect to the Linux system through your web browser or local terminal.
@@ -120,7 +124,7 @@ Alternatively, you can configure the app setting using the App Service Maven plu
 </appSettings> 
 ```
 
-## Secure application
+## Secure applications
 
 Java applications running in App Service for Linux have the same set of [security best practices](/azure/security/security-paas-applications-using-app-services) as other applications. 
 
@@ -165,7 +169,7 @@ For application-level data sources:
 
 1. Add a `context.xml` file if it does not exist to your web application and add it the `META-INF` directory of your WAR file when the project is built.
 
-2. In this file, add a `Context` path entry to link the data source to a JNDI address. The
+2. In this file, add a `Context` path entry to link the data source to a JNDI address.
 
     ```xml
     <Context>
@@ -189,7 +193,7 @@ For application-level data sources:
 
 For shared server-level resources:
 
-1. Copy the contents of `/usr/local/tomcat/conf` into `/home/tomcat` on your App Service Linux instance using SSH if you don't have a configuration there already.
+1. Copy the contents of `/usr/local/tomcat/conf` into `/home/tomcat/conf` on your App Service Linux instance using SSH if you don't have a configuration there already.
 
 2. Add the context to your `server.xml`
 
@@ -228,7 +232,7 @@ For shared server-level resources:
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
+5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration and classes.
 
 ## Docker containers
 

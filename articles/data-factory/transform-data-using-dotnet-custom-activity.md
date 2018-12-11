@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/26/2018
 ms.author: douglasl
 
 ---
@@ -274,8 +274,8 @@ namespace SampleApp
   Activity Output section:
   "exitcode": 0
   "outputs": [
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
   ]
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
   Activity Error section:
@@ -287,9 +287,12 @@ namespace SampleApp
 If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]". 
 
   > [!IMPORTANT]
-  > - You can send custom values from your code in Custom Activity back to Azure Data Factory, and you can do so by writing them into outputs.json from your application. Azure Data Factory copies the content of outputs.json and appends it into the Activity Output under customOutput property (size limit is 2MB). If you would like to consume the content of outputs.json in downstream activities, you can get the value using expression "@activity('<MyCustomActivity>').output.customOutput".
   > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. If needed, you need to clean them up separately. 
-  > - For Linked Services uses Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
+  > - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed. 
+
+## Pass outputs to another activity
+
+You can send custom values from your code in a Custom Activity back to Azure Data Factory. You can do so by writing them into `outputs.json` from your application. Data Factory copies the content of `outputs.json` and appends it into the Activity Output as the value of the `customOutput` property. (The size limit is 2MB.) If you want to consume the content of `outputs.json` in downstream activities, you can get the value by using the expression `@activity('<MyCustomActivity>').output.customOutput`.
 
 ## Retrieve SecureString outputs
 

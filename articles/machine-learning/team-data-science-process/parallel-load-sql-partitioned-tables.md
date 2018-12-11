@@ -2,21 +2,15 @@
 title: Build and optimize tables for fast parallel import of data into a SQL Server on an Azure VM| Microsoft Docs
 description: Parallel Bulk Data Import Using SQL Partition Tables
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Parallel Bulk Data Import Using SQL Partition Tables
 

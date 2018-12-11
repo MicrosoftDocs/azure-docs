@@ -16,7 +16,7 @@ ms.author: hrasheed
 # Tutorial: Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this article, you learn how to create a Apache Hadoop cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to operationalize a big data job run where cluster creation, job run, and cluster deletion are performed on a schedule.
+In this article, you learn how to create a [Apache Hadoop](https://hadoop.apache.org/) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to operationalize a big data job run where cluster creation, job run, and cluster deletion are performed on a schedule.
 
 This tutorial covers the following tasks: 
 
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create an Azure storage account
 
-In this section, you create a storage account that will be used as the default storage for the HDInsight cluster you create on-demand. This storage account also contains the sample HiveQL script (**hivescript.hql**) that you use to simulate a sample Hive job that runs on the cluster.
+In this section, you create a storage account that will be used as the default storage for the HDInsight cluster you create on-demand. This storage account also contains the sample [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (**hivescript.hql**) that you use to simulate a sample [Apache Hive](https://hive.apache.org/) job that runs on the cluster.
 
 This section uses an Azure PowerShell script to create the storage account and copy over the required files within the storage account. The Azure PowerShell sample script in this section performs the following tasks:
 
@@ -335,7 +335,7 @@ Alternatively, you can delete the entire resource group that you created for thi
 
 
 ## Next steps
-In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run Hive jobs. Advance to the next artciel to learn how to create HDInsight clusters with custom configuration.
+In this article, you learned how to use Azure Data Factory to create on-demand HDInsight cluster and run [Apache Hive](https://hive.apache.org/) jobs. Advance to the next artciel to learn how to create HDInsight clusters with custom configuration.
 
 > [!div class="nextstepaction"]
 >[Create Azure HDInsight clusters with custom configuration](hdinsight-hadoop-provision-linux-clusters.md)

@@ -396,9 +396,11 @@ The unary operators +,-, ~, and NOT are also supported, and can be used inside q
 In addition to binary and unary operators, property references are also allowed. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` where the property's value is equal to the JSON `true` value. Any other values (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) leads to the source item being excluded from the result. 
 
 ### Equality and comparison operators
+
 The following table shows the result of equality comparisons in the SQL API between any two JSON types.
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+|---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
 | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |

@@ -313,4 +313,4 @@ To request assistance, click the question mark symbol in the top right corner of
 ![New support request](./media/log-analytics-oms-gateway/support.png)
 
 ## Next steps
-[Add data sources](log-analytics-data-sources.md) to collect data from your Connected Sources and store it in your Log Analytics workspace.
+[Add data sources](../azure-monitor/platform/agent-data-sources.md) to collect data from your Connected Sources and store it in your Log Analytics workspace.

@@ -20,7 +20,7 @@ ms.author: victorh
 | Authentication certificates |40 | |
 | Request time out min |1 second | |
 | Request time out max |24 hrs | |
-| Number of sites |20 |1 per HTTP Listeners |
+| Number of sites |40 |1 per HTTP Listeners |
 | URL Maps per listener |1 | |
 | Maximum path-based rules per URL map|100|
 | Redirect configurations |40| |

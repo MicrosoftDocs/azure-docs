@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
 ---
 
@@ -27,7 +27,7 @@ Once you have a storage account and are authenticated, you can run PowerShell cm
 ## Open Cloud Shell
 When you use the Azure portal cloud shell, you are always on the most current PowerShell version. 
 
-Use the **Launch Cloud Shell**  button to open the Cloud Shell or open a browser with [https://shell.azure.com](https://shell.azure.com). 
+Use the **Launch Cloud Shell**  button to open the Cloud Shell or open a browser with [https://shell.azure.com](https://shell.azure.com). Select Power Shell as the environment. If you don't have an Azure Storage account, you will need to create one. 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

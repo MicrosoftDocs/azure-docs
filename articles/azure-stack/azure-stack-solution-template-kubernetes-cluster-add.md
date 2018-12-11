@@ -133,7 +133,7 @@ To remove the Kubernetes item:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Use the following PowerShell cmdlet to remove the item:
 

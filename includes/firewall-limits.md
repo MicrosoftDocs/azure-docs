@@ -16,6 +16,7 @@
 |Rules|10k - all rule types combined|
 |Global peering|Not supported. You should have at least one firewall deployment per region.|
 |Maximum ports in a single network rule|15<br>A range of ports (for example: 2 - 10) is counted as two.
+|Minimum AzureFirewallSubnet size |/26
 
 
 <sup>1</sup> Contact Azure Support in case you need to increase these limits.

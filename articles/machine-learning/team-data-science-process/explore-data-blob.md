@@ -1,22 +1,16 @@
 ---
 title: Explore data in Azure blob storage with pandas | Microsoft Docs
 description: How to explore data that is stored in Azure blob container using pandas.
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Explore data in Azure blob storage with pandas
 

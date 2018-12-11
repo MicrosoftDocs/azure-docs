@@ -37,7 +37,7 @@ You need to have an Azure subscription to create an Azure Cosmos DB account for 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Use version 3.2.5 or above.
+You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Use version 3.2.5 or above. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## Create a database account
 

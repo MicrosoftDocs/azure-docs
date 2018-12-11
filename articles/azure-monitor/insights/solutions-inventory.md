@@ -37,8 +37,8 @@ Explanations of the columns are as follows:
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Activity Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | on notification |
-| [AD Assessment](../../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
-| [AD Replication Status](../../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 days |
+| [AD Assessment](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
+| [AD Replication Status](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 days |
 | [Agent Health](solution-agenthealth.md) | Windows and Linux | &#8226; | &#8226; | | | &#8226; | 1 minute |
 | [Alert Management](../../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |on arrival |
 | [Alert Management](../../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minute |
@@ -46,29 +46,29 @@ Explanations of the columns are as follows:
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
 | [Application Insights Connector (Preview)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | on notification |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
-| [Azure Application Gateway Analytics](../../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
+| [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
-| [Azure Network Security Group Analytics (Deprecated)](../../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
+| [Azure Network Security Group Analytics (Deprecated)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | on notification |
 | [Azure SQL Analytics (Preview)](../../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minute |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | on notification |
-| [Capacity and Performance (Preview)](../../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |on arrival |
+| [Capacity and Performance (Preview)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |on arrival |
 | [Change Tracking](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
 | [Change Tracking](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |hourly |
 | [Containers](../../log-analytics/log-analytics-containers.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
-| [Key Vault Analytics](../../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |on notification |
+| [Key Vault Analytics](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |on notification |
 | [Malware Assessment](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
-| [Network Performance Monitor](../../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP handshakes every 5 seconds, data sent every 3 minutes |
+| [Network Performance Monitor](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP handshakes every 5 seconds, data sent every 3 minutes |
 | [Office 365 Analytics (Preview)](solution-office-365.md) |Windows | | | | | |on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Service Fabric Analytics](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../../azure-monitor/insights/service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
-| [SQL Assessment](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
-| [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |on arrival |
-| [System Center Operations Manager Assessment (Preview)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | seven days |
+| [SQL Assessment](../../azure-monitor/insights/sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
+| [SurfaceHub](../../azure-monitor/insights/surface-hubs.md) |Windows |&#8226; | | | | |on arrival |
+| [System Center Operations Manager Assessment (Preview)](../../azure-monitor/insights/scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | seven days |
 | [Update Management](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |at least 2 times per day and 15 minutes after installing an update |
 | [Upgrade Readiness](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 days |
-| [VMware Monitoring (Deprecated)](../../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutes |
-| [Wire Data 2.0 (Preview)](../../log-analytics/log-analytics-wire-data.md) |Windows (2012 R2 / 8.1 or later) |&#8226; |&#8226; | | | | 1 minute |
+| [VMware Monitoring (Deprecated)](../../azure-monitor/insights/vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutes |
+| [Wire Data 2.0 (Preview)](../../azure-monitor/insights/wire-data.md) |Windows (2012 R2 / 8.1 or later) |&#8226; |&#8226; | | | | 1 minute |
 
 
 

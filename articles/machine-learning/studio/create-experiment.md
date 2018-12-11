@@ -38,9 +38,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 - [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) and [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) - This downloadable poster and accompanying article discuss the Studio algorithms in depth.
 - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) - This is the complete reference for all Studio modules, including machine learning algorithms,
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## How does Machine Learning Studio help?
 
