@@ -23,7 +23,7 @@ You are not charged for services included for free with Azure free account, unle
 
 ## Check usage on the Azure portal
 
-1.	Log in to the [Azure portal]( http://portal.azure.com).
+1.	Log in to the [Azure portal](https://portal.azure.com).
 
 2.	From left navigation area, select **All services**.
 
@@ -47,7 +47,7 @@ You are not charged for services included for free with Azure free account, unle
 
     The table contains the following columns:
 
-* **Meter Name:** Identifies the unit of measure for the meter being consumed. To learn about service to meter                        mapping, see [Understand free service to meter mapping](billing-understand-free-service-meter-mapping.md). 
+* **Meter Name:** Identifies the unit of measure for the meter being consumed. To learn about service to meter mapping, see [Understand free service to meter mapping](billing-understand-free-service-meter-mapping.md).
 * **Usage/Limit:** Current month's usage and limit for the meter. You can also find this information in the status bar.
 * **Status:** Usage status of the meter. Based on your usage pattern, you can have one of these             statutes.
   * **Not in use:** You have not used the meter or the usage for the meter has not reached the billing system.

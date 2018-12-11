@@ -24,7 +24,7 @@ We strongly recommend that you export and review your settings before you delete
 
 **Export or delete your portal settings**
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top right of the portal, select **Settings**.
 
     ![Screenshot that shows the portal settings gear](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
