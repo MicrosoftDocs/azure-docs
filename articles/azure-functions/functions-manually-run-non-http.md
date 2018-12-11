@@ -16,7 +16,7 @@ ms.author: cshoe
 
 This article demonstrates how to manually run a non HTTP-triggered function via specially formatted HTTP request.
 
-In some contexts, you may need to on-demand run an Azure Function that is indirectly triggered.  Examples of indirect triggers include timers or functions that run because of another resource's action. 
+In some contexts, you may need to run "on-demand" an Azure Function that is indirectly triggered.  Examples of indirect triggers include timer triggers or functions that run as the result of another resource's action. 
 
 [Postman](https://www.getpostman.com/) is used in the following example, but you may use [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
@@ -49,12 +49,12 @@ Open Postman and follow these steps:
 3. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
 4. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
 
-![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    ![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
 5. **Click** on the **Body** tab.
 6. Enter **{ "input": "test" }** as the body for the request.
 
-![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    ![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
 7. Click **Send**.
 
