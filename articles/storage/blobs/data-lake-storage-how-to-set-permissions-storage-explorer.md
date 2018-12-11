@@ -1,6 +1,6 @@
 ---
-title: "Setting ACLs on files and directories using Azure Storage Explorer with Azure Data Lake Storage Gen2 (Preview)"
-description: How to set ACLs on files and directories inside your Azure Data Lake Storage Gen2 (Preview) capable storage account
+title: "Setting permissions on files and directories using Azure Storage Explorer with Azure Data Lake Storage Gen2 (Preview)"
+description: How to set permissions on files and directories inside your Azure Data Lake Storage Gen2 (Preview) capable storage account
 services: storage
 author: roygara
 
@@ -14,7 +14,7 @@ ms.author: rogarana
 
 # How to: Set file and directory level permissions using Azure Storage Explorer
 
-Files stored in a storage account that has the hierarchical namespace enabled support fine grained permissions and access control list management. These new additions allow you to control access to your data and information at lower levels.
+Files stored in a storage account, that has the hierarchical namespace enabled, support fine grained permissions and access control list management. These new additions from Azure Data Lake Storage Gen2 allow you to control access to your data and information at lower levels.
 
 In article, you learn how to use Azure Storage Explorer to:
 
