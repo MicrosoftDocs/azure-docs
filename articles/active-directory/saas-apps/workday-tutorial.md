@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. In the **Identifier** textbox, type a URL: `http://www.workday.com`
+    b. In the **Identifier** textbox, type a URL: `https://www.workday.com`
 
 4. Check **Show advanced URL settings** and perform the following step:
 
@@ -222,7 +222,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
 
-    a.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
+    a.  In the **Service Provider ID** textbox, type **https://www.workday.com**.
 
     b. Select **Do Not Deflate SP-initiated Authentication Request**.
 

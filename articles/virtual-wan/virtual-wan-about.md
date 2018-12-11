@@ -25,7 +25,7 @@ This article provides a quick view into the network connectivity of your Azure a
 
 ## <a name="s2s"></a>Site-to-site connections
 
-To create a Site-to-Site connection using Virtual WAN, you can either go through a [Virtual WAN partner](https://go.microsoft.com/fwlink/p/?linkid=2019615), or create the connection manually.
+To create a Site-to-Site connection using Virtual WAN, you can either go through a [Virtual WAN partner](virtual-wan-locations-partners.md), or create the connection manually.
 
 ### <a name="s2spartner"></a>Working with a Virtual WAN partner
 
@@ -42,11 +42,11 @@ If you don't want to use a preferred partner, you can configure the connection m
 
 A Point-to-Site (P2S) connection lets you create a secure connection to your virtual hub from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect.
 
-To create the connection manually, see [Create a point-to-site connection using Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
+To create the connection manually, see [Create a point-to-site connection using Virtual WAN](virtual-wan-point-to-site-portal.md).
 
 ## <a name="er"></a>ExpressRoute connections (Preview)
 
-To create the connection manually, see [Create an ExpressRoute connection using Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid).
+To create the connection manually, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md).
 
 
 ## <a name="resources"></a>Virtual WAN resources
@@ -72,4 +72,4 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 ## Next steps
 
-* View the [Virtual WAN partners and locations](https://aka.ms/virtualwan)
+View the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) page.

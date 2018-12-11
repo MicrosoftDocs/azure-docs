@@ -1,7 +1,7 @@
 ---
 title: Language support - Speech Service API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Speech Service.
+description: The Azure Speech Services support numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Language and region support for Speech Service API
@@ -32,7 +33,7 @@ The Microsoft speech recognition API supports the following languages. Different
  en-IN | English (India) | Yes | Yes | Yes
  en-NZ | English (New Zealand) | No | Yes | Yes  
  en-US | English (United States) | Yes | Yes | Yes
- es-ES | Spanish (Spain) | No | Yes | No
+ es-ES | Spanish (Spain) | Yes | Yes | No
  es-MX | Spanish (Mexico) | No | Yes | No
  fi-FI | Finnish (Finland) | No | No | No
  fr-CA | French (Canada) | No | Yes | No
@@ -44,7 +45,7 @@ The Microsoft speech recognition API supports the following languages. Different
  nb-NO | Norwegian (Bokmål) (Norway) | No | No | No
  nl-NL | Dutch (Netherlands) | No | Yes | No
  pl-PL | Polish (Poland) | No | No | No
- pt-BR | Portuguese (Brazil) | No | Yes | No
+ pt-BR | Portuguese (Brazil) | Yes | Yes | No
  pt-PT | Portuguese (Portugal) | No | Yes | No
  ru-RU | Russian (Russia) | Yes | Yes | No
  sv-SE | Swedish (Sweden) | No | No | No

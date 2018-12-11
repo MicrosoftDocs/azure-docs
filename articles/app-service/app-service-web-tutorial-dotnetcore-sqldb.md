@@ -1,5 +1,5 @@
 ---
-title: Build a .NET Core and SQL Database web app in Azure App Service | Microsoft Docs 
+title: Build .NET Core app with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -15,6 +15,8 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Tutorial: Build a .NET Core and SQL Database web app in Azure App Service
 
@@ -210,6 +212,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 If this code detects that it is running in production (which indicates the Azure environment), then it uses the connection string you configured to connect to the SQL Database.
 
 The `Database.Migrate()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration. 
+
+> [!IMPORTANT]
+> For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
 Save your changes, then commit it into your Git repository. 
 

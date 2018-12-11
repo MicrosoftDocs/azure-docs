@@ -15,7 +15,7 @@ Azure Monitor provides a single pipeline for getting access to all of the monito
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
-## What data can I send into an event hub? 
+## What data can I send into an event hub?
 
 Within your Azure environment, there are several 'tiers' of monitoring data, and the method of accessing data from each tier varies slightly. Typically, these tiers can be described as:
 
@@ -108,7 +108,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
     2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 * **ArcSight** - The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection here](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
-* **Syslog server** - If you want to stream Azure Monitor data directly to a syslog server, you can check out [this github repo](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+* **Syslog server** - If you want to stream Azure Monitor data directly to a syslog server, you can check out [this GitHub repo](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## Next Steps
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)

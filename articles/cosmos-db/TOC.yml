@@ -11,6 +11,8 @@
       items:
       - name: .NET
         href: create-sql-api-dotnet.md
+      - name: .NET Preview
+        href: create-sql-api-dotnet-preview.md
       - name: Java
         href: create-sql-api-java.md
       - name: Node.js
@@ -77,7 +79,7 @@
         href: consistency-levels.md
       - name: Choosing the right consistency level
         href: consistency-levels-choosing.md
-      - name: Consistency levels and Cosmos DB APIs
+      - name: Consistency levels and Azure Cosmos DB APIs
         href: consistency-levels-across-apis.md
       - name: Consistency, availability and performance tradeoffs
         href: consistency-levels-tradeoffs.md
@@ -111,6 +113,10 @@
       items:
       - name: Working with databases, containers, and items
         href: databases-containers-items.md
+      - name: SQL language reference 
+        href: sql-api-query-reference.md
+      - name: SQL query examples
+        href: how-to-sql-query.md
       - name: Indexing
         items:
         - name: Overview
@@ -137,6 +143,28 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
+    - name: Optimize your Azure Cosmos DB cost
+      items:
+        - name: Pricing model
+          href: how-pricing-works.md
+        - name: Total Cost of Ownership (TCO) 
+          href: total-cost-ownership.md
+        - name: Understand your bill 
+          href: understand-your-bill.md          
+        - name: Optimize provisioned throughput cost
+          href: optimize-cost-throughput.md
+        - name: Optimize query cost
+          href: optimize-cost-queries.md
+        - name: Optimize storage cost
+          href: optimize-cost-storage.md
+        - name: Optimize reads and writes cost
+          href: optimize-cost-reads-writes.md
+        - name: Optimize multi-regions cost
+          href: optimize-cost-regions.md          
+        - name: Optimize your dev/test workloads 
+          href: optimize-dev-test.md
+        - name: Prepay for reserved capacity
+          href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
         - name: Overview
@@ -157,15 +185,11 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Prepay for reserved capacity
-      href: cosmos-db-reserved-capacity.md
   - name: Multi-model APIs
     expanded: true
     items:
     - name: SQL API Docs
       items:
-      - name: Introduction
-        href: sql-api-introduction.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
@@ -176,8 +200,12 @@
             items:
             - name: .NET
               href: sql-api-get-started.md
+            - name: .NET Preview
+              href: sql-api-dotnet-get-started-preview.md
             - name: .NET Core
               href: sql-api-dotnetcore-get-started.md
+            - name: .NET Core Preview
+              href: sql-api-dotnet-core-get-started-preview.md
             - name: Java
               href: sql-api-java-get-started.md
             - name: Async Java
@@ -188,6 +216,8 @@
             items:
             - name: .NET
               href: sql-api-dotnet-application.md
+            - name: .NET preview
+              href: sql-api-dotnet-application-preview.md
             - name: Java
               href: sql-api-java-application.md
             - name: Node.js
@@ -219,11 +249,9 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-sql-query-metrics.md
+          href: sql-api-query-metrics.md
         - name : Stored procedures, triggers, and UDFs
           href: programming.md
-        - name: SQL data partitioning
-          href: sql-api-partition-data.md
         - name: Data types
           items:
           - name: DateTime
@@ -258,8 +286,6 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
-        - name: SQL language syntax
-          href: sql-api-sql-query-reference.md
     - name: MongoDB API Docs
       items: 
       - name: Introduction
@@ -282,7 +308,7 @@
               href: tutorial-develop-mongodb-nodejs-part3.md
             - name: Part 4 - Create an account
               href: tutorial-develop-mongodb-nodejs-part4.md
-            - name: Part 5 - Connect to Cosmos DB
+            - name: Part 5 - Connect to Azure Cosmos DB
               href: tutorial-develop-mongodb-nodejs-part5.md
             - name: Part 6 - Perform CRUD operations
               href: tutorial-develop-mongodb-nodejs-part6.md
@@ -440,8 +466,6 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-      - name: Query data with SQL queries
-        href: how-to-sql-query.md
     - name: Indexing
       items:
       - name: Configure indexing
@@ -452,6 +476,8 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
+      - name: Configure Cross Origin Resource Sharing(CORS)
+        href: how-to-configure-cross-origin-resource-sharing.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
@@ -502,7 +528,7 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-    - name: Visualize Cosmos DB data
+    - name: Visualize Azure Cosmos DB data
       items:
       - name: Use Power BI 
         href: powerbi-visualize.md

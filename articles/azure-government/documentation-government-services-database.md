@@ -64,27 +64,27 @@ The following information identifies the Azure Government boundary for Azure Cos
 | All data stored and processed in Azure Cosmos DB can contain Azure Government-regulated data. |Azure Cosmos DB metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **DB name, Subscription name, Resource groups, Resource tags**. |
 
 
-## Azure Redis Cache
-For details on this service and how to use it, see [Azure Redis Cache documentation](../redis-cache/index.md).
+## Azure Cache for Redis
+For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.md).
 
 ### Variations
-The URLs for accessing and managing Azure Redis Cache in Azure Government are different:
+The URLs for accessing and managing Azure Cache for Redis in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | Cache endpoint |*.redis.cache.windows.net |*.redis.cache.usgovcloudapi.net |
 
 > [!NOTE]
-> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../redis-cache/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 >
 >
 
 ### Considerations
-The following information identifies the Azure Government boundary for Azure Redis Cache:
+The following information identifies the Azure Government boundary for Azure Cache for Redis:
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| All data stored and processed in Azure Redis Cache can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **Cache name, Subscription name, Resource groups, Resource tags, Redis properties**. |
+| All data stored and processed in Azure Cache for Redis can contain Azure Government-regulated data. |Azure Cache for Redis metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **Cache name, Subscription name, Resource groups, Resource tags, Redis properties**. |
 
 ## Next steps
 For supplemental information and updates subscribe to the

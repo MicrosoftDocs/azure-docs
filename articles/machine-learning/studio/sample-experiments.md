@@ -5,9 +5,9 @@ keywords: machine learning examples, sample experiment, machine learning sample,
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ---
-# Create machine learning experiments from working examples in Azure AI Gallery
+# Create Azure Machine Learning Studio experiments from working examples in Azure AI Gallery
 
 Learn how to start with example experiments from [Azure AI Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 

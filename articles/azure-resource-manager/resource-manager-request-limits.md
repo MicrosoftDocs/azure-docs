@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager request limits | Microsoft Docs
+title: Request limits and throttling - Azure Resource Manager
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 services: azure-resource-manager
 documentationcenter: na
@@ -11,9 +11,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-
+ms.custom: seodec18
 ---
 # Throttling Resource Manager requests
 For each Azure subscription and tenant, Resource Manager allows up to 12,000 read requests per hour and 1,200 write requests per hour. These limits are scoped to the principal ID making the requests and the subscription ID or tenant ID. If your requests come from more than one principal ID, your limit across the subscription or tenant is greater than 12,000 and 1,200 per hour.

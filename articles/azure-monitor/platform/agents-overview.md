@@ -1,6 +1,6 @@
 ---
 title: Overview of the Azure monitoring agents| Microsoft Docs
-description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.   
+description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.
 services: azure-monitor
 documentationcenter: azure-monitor
 author: mgoedtel
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
@@ -41,7 +40,7 @@ The Azure Diagnostics agent should be used when you want to:
 
 * Archive logs and metrics to Azure storage
 * Integrate monitoring data with third-party tools. These tools use a variety of methods including querying the storage account, forwarded to [Event Hubs](../../event-hubs/event-hubs-about.md), or querying with the [Azure Monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
-* Upload data to Azure Monitor to create metric charts in the Azure portal or create near real-time [metric alerts](../../monitoring-and-diagnostics/alert-metric-overview.md). 
+* Upload data to Azure Monitor to create metric charts in the Azure portal or create near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Autoscale virtual machine scale sets and Classic Cloud Services based on guest OS metrics.
 * Investigate VM boot issues with [Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Understand how your applications are performing and proactively identifies issues affecting them with [Application Insights](../../azure-monitor/overview.md).

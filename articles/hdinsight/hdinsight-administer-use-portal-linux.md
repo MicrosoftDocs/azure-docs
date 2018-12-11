@@ -61,7 +61,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. The
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Click **Resource groups** from the left menu to list the resource groups.
     3. Click the resource group you want to use for creating your HDInsight cluster.
-    4. Click **Access control (IAM)**, and verify that you (or a group you belong to) have at least the Contributor access to the resource group.
+    4. Click **Access control (IAM)** and **Role assignments**, and verify that you (or a group you belong to) have at least the Contributor access to the resource group.
 
 If you receive the NoRegisteredProviderFound error or the MissingSubscriptionRegistration error, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -105,7 +105,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
 **Support + troubleshooting**
     * **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
     * **New support request**: Allows you to create a support ticket with Microsoft support.
-
+    
 6. Click **Properties**:
 
     The properties are:

@@ -10,6 +10,7 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Speech Synthesis Markup Language

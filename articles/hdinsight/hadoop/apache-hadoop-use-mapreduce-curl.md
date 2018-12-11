@@ -23,14 +23,14 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Apache Hadoop o
 ## <a id="prereq"></a>Prerequisites
 
 * A Hadoop on HDInsight cluster
-* Windows PowerShell or [Curl](http://curl.haxx.se/) and [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell or [Curl](https://curl.haxx.se/) and [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Run a MapReduce job
 
 > [!NOTE]
 > When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the HDInsight cluster administrator user name and password. You must use the cluster name as part of the URI that is used to send the requests to the server.
 >
-> The REST API is secured by using [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
+> The REST API is secured by using [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
 1. To set the cluster login that is used by the scripts in this document, use one of the followig commands:
 

@@ -455,7 +455,7 @@ public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     [TimerTrigger("0 0 12 * * *")]TimerInfo myTimer)
 {
-    return client.InnerClient.PurgeInstanceHistoryAsync( 
+    return client.PurgeInstanceHistoryAsync( 
                     DateTime.MinValue,
                     DateTime.UtcNow.AddDays(-30),  
                     new List<OrchestrationStatus> 
