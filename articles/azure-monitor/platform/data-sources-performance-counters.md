@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Windows and Linux performance data sources in Log Analytics
@@ -224,4 +221,4 @@ The following table provides different examples of log searches that retrieve Pe
 ## Next steps
 * [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](../../log-analytics/log-analytics-powerbi.md) for additional visualizations and analysis.
+* Export collected data to [Power BI](../../azure-monitor/platform/powerbi.md) for additional visualizations and analysis.
