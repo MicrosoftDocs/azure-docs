@@ -1,7 +1,8 @@
 ---
-title: Build, deploy, and scale a Java web app in App Service on Linux
+title: Build, deploy, and scale a Java web app on Azure with App Service on Linux
 description: Build, deploy, and scale Spring Boot Java Web apps with Azure App Service on Linux and Azure Cosmos DB.
-author: routlaw
+author: rloutlaw
+ms.author: routlaw
 manager: angerobe
 ms.service: app-service-web
 ms.devlang: java
@@ -53,27 +54,33 @@ yes | cp -rf .prep/* .
 Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Login your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
-```bash
-az login
-az account set -s <your-subscription-id>
-```
+
+    ```bash
+    az login
+    az account set -s <your-subscription-id>
+    ```   
+
 2. Create an Azure Resource Group, noting the resource group name.
 
-```bash
-az group create -n <your-azure-group-name> \
-    -l <your-resource-group-region>
-```
+    ```bash
+    az group create -n <your-azure-group-name> \
+        -l <your-resource-group-region>
+    ```
+
 3. Create Azure Cosmos DB with the `GlobalDocumentDB` kind. 
 The name of Cosmos DB must use only lower case letters. Note down the `documentEndpoint` field in the response from the command.
-```bash
-az cosmosdb create --kind GlobalDocumentDB \
-    -g <your-azure-group-name> \
-    -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
-```
+
+    ```bash
+    az cosmosdb create --kind GlobalDocumentDB \
+        -g <your-azure-group-name> \
+        -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
+    ```
+
 4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
-```bash
-az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
-```
+
+    ```bash
+    az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
+    ```
 
 ## Configure the TODO app properties
 
@@ -246,7 +253,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] ------------------------------------------------------------------------
 ```
 
-## View the app on Azure
+The output contains the URL to your deployed application (in this example, `https://spring-todo-app.azurewebsites.net` ). You can copy this URL into your web browser or run the following command in your Terminal window to load your app.
 
 ```bash
 open https://spring-todo-app.azurewebsites.net
