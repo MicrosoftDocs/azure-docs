@@ -55,8 +55,6 @@ This update includes the following improvements for Azure Stack:
 - Added a new region properties blade that displays registration details of the environment. You can access this information by clicking the **Region Management** tile on the default dashboard in the administrator portal and then selecting **Properties**.
 
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
-- This release adds support for Device Authentication with ADFS in particular when using Azure CLI. 
-<!-- @Matt add Link to CLI for ADFS -->
 
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
@@ -159,6 +157,8 @@ For more information about these vulnerabilities, click on the preceding links, 
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
 ### Known issues with the update process
+
+- During installation of this update, both Azure Stack portals (Admin & User) can become unavailble when Extension Host is configured. You can check the status of an update or resume a failed update installation using the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
