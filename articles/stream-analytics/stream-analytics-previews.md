@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 12/04/2018
 ---
 
 # Azure Stream Analytics preview features
@@ -17,10 +17,6 @@ This article summarizes all the features currently in preview for Azure Stream A
 ## Public previews
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
-
-### Azure Stream Analytics on IoT Edge
-
-Azure Stream Analytics on IoT Edge allows developers to deploy near-real-time analytics on IoT Edge devices. For more information, see the [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md) documentation.
 
 ### Integration with Azure Machine Learning
 

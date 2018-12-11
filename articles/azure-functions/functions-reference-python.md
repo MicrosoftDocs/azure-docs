@@ -326,7 +326,37 @@ Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/
 > If you continue to experience issues, please let us know by [opening an issue](https://github.com/Azure/azure-functions-core-tools/issues/new) and including a description of the problem. 
 
 
-To deploy a Python Function App to Azure, you can use a [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/) with your GitHub repo. Below is an example `.travis.yaml` script for the build and publishing process.
+To build your dependencies and publish using a continuous integration (CI) and continuous delivery (CD) system, you can use an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) or [Travis CI custom script](https://docs.travis-ci.com/user/deployment/script/). 
+
+Following is an example `azure-pipelines.yml` script for the build and publishing process.
+```yml
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+
+- script: |
+    set -e
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    sudo apt-get install -y apt-transport-https
+    echo "install Azure CLI..."
+    sudo apt-get update && sudo apt-get install -y azure-cli
+    npm i -g azure-functions-core-tools --unsafe-perm true
+    echo "installing dotnet core"
+    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 2.0
+- script: |
+    set -e
+    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)" 
+    func settings add FUNCTIONS_WORKER_RUNTIME python
+    func extensions install
+    func azure functionapp publish $(APP_NAME) --build-native-deps
+```
+
+Following is an example `.travis.yaml` script for the build and publishing process.
 
 ```yml
 sudo: required

@@ -13,14 +13,14 @@ ms.author: helohr
 
 Windows Virtual Desktop is a multi-tenant service hosted by Microsoft that manages connections between Remote Desktop clients and isolated Windows Virtual Desktop tenant environments. This service lets users securely access a virtual machine set up by their admin anytime, anywhere, from any computer.
 
-## Key capabilties
+## Key capabilities
 
 As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to access company resources while keeping company hardware secure.
 
 * Easy to access
     * Once a user has access credentials, all they have to do to access Windows Virtual Desktop is sign in at the Windows Virtual Desktop service or the Remote Desktop web client
 * App groups allow for flexible remoting solutions based on your needs
-    * Use a desktop app group to publish the full desktop and give users access to all apps in the sesion host, or use a RemoteApp app group to let users access specific apps
+    * Use a desktop app group to publish the full desktop and give users access to all apps in the session host, or use a RemoteApp app group to let users access specific apps
 * Reduce resource requirements and save costs by building a Windows Virtual Desktop environment that requires fewer virtual machines to run
     * Only pay for the resources you actually use; everything else is provided by the Azure service
 * Customizable settings and scaling tools let you adjust load balancing across host pools
@@ -32,15 +32,15 @@ As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to 
 * Remote Desktop roles are now offered as a complete service on Azure
 * Outbound connection from your environment to the Azure service keeps your virtual network secure
 * Windows Virtual Desktop environments can be built with a variety of tools that make it easy to integrate into preexisting IT systems
-    * These tools include REST APIs, PowerShell cmdlets, the Azure Marketplace tool, and an Azure portal experience for management and deployment
+    * These tools include REST APIs, PowerShell cmdlets, the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) tool, and an Azure portal experience for management and deployment
 
 ## Prerequisites
 
 You'll need one of the following things to deploy Windows Virtual Desktop:
 
-* An Office 365 and Windows E3 or E6 license
-* An Office 365 Business F1 license
-* The Azure portal for Windows Virtual Desktop
+* A Windows E3 or E6 license
+* A Microsoft 365 E3, E5, F1, or Business license
+* An Azure subscription
 
 ## How does Windows Virtual Desktop work?
 
@@ -55,9 +55,9 @@ Windows Virtual Desktop is a multi-tenant environment where infrastructure roles
 
 The Remote Desktop Services modern infrastructure enables a multi-tenant infrastructure to be deployed as Azure App Services that manage connections from Remote Desktop clients to multiple isolated Remote Desktop tenant environments. Each Remote Desktop tenant environment consists of one or more host pools, which in turn contain one or more identical session hosts. The session hosts are virtual machines running one of the following operating systems: Windows Server 2012 R2, Windows Server 2016, or Windows 10 RS4.
 
-Each session host must have an Windows Virtual Desktop host agent installed and registered with Windows Virtual Desktop. A protocol stack must also be installed on the session host to support connections from the session host to the Windows Virtual Desktop deployment. This is referred to as “reverse-connect” and eliminates the need for inbound ports to be opened to the Remote Desktop tenant environment. (The opposite of this is referred to as “forward-connect” and requires an inbound 3389 port to be opened to the Remote Desktop tenant environment.)
+Each session host must have a Windows Virtual Desktop host agent installed and registered with Windows Virtual Desktop. You must also install a protocol stack on the session host to support connections from the session host to the Windows Virtual Desktop deployment. This installation is referred to as “reverse-connect” and eliminates the need for inbound ports to be opened to the Remote Desktop tenant environment. (The opposite kind of installation is referred to as “forward-connect” and requires an inbound 3389 port to be open to the Remote Desktop tenant environment.)
 
-Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group is used to publish the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group is used to publish one or more RemoteApps which display on the Remote Desktop client as the application window on the local Remote Desktop client desktop.
+Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group is used to publish the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group is used to publish one or more RemoteApps that display on the Remote Desktop client as the application window on the local Remote Desktop client desktop.
 
 ### End-users
 
@@ -70,4 +70,4 @@ Once their Windows Virtual Desktop accounts are set up, users can connect to a W
 
 ## Next steps
 
-To learn how to set up a tenant, see either [Set up Windows Virutal Desktop tenants in Active Directory](tenant-setup-azure-active-directory.md) or [Connect Windows Virtual Desktop to a Remote Desktop environment](connect.md).
+To learn how to set up a tenant, see either [Set up Windows Virtual Desktop tenants in Active Directory](tenant-setup-azure-active-directory.md) or [Connect Windows Virtual Desktop to a Remote Desktop environment](connect.md).

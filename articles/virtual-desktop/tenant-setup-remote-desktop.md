@@ -25,7 +25,7 @@ You may have an existing Remote Desktop tenant environment already connected to 
 
 ## Validating your connection
 
-The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Introducing the new diagnostics role service](diagnostics-role-service.md).
+The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Identify issues with the diagnostics role service](diagnostics-role-service.md).
 
 ## Validation scenarios for default desktop application group
 
@@ -71,4 +71,4 @@ Scenarios RA1 and RA2:
 
 * Can a user assigned to a RemoteApp group with multiple RemoteApps see all of the RD client's apps?
 * Can a user assigned to a RemoteApp group connect to one of the RemoteApps?
-* If User Profile Disks are enabled and user logs on to one session host, saves data, then logs onto a second session host in the host pool, does the saved data follow the user? (In this case, you might have to shut down the first session host to force the broker to send the user to a second session host.)
+* If User Profile Disks are enabled and user signs in to one session host, saves data, then signs in to a second session host in the host pool, does the saved data follow the user? (In this case, you might have to shut down the first session host to force the broker to send the user to a second session host.)

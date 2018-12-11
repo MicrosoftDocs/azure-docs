@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom:
+ms.custom: seodec18
 ---
 # Quickstart: Explore and analyze costs with Cost analysis
 
@@ -37,7 +37,7 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at https://portal.azure.com.
 
 ## Review costs in cost analysis
 
@@ -57,7 +57,7 @@ The initial cost analysis view includes the following areas:
 
 **Pivot (donut) charts** – Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the most to least cost accrued for the current month. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by: service (meter category), location (region), and child scope by default. For example, enrollment accounts under billing accounts, resource groups under subscriptions, and resources under resource groups.
 
-![Initial view of cost analysis](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Initial view of cost analysis in the Azure portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## Customize cost views
 
@@ -70,21 +70,21 @@ However, there are many cases where you need deeper analysis. Customization star
 
 Cost analysis shows data for the current month by default. Use the date selector to quickly switch to: the last month, this month, this calendar quarter, this calendar year, or a custom date range of your choice. Selecting the last month is the quickest way to analyze your latest Azure invoice and easily reconcile charges. The current quarter and year options help track costs against longer-term budgets. You can also select a different date range. For example, you can select a single day, the last seven days, or anything as far back as a year before the current month.
 
-![Date selector](./media/quick-acm-cost-analysis/date-selector.png)
+![Date selector showing an example selection for this month](./media/quick-acm-cost-analysis/date-selector.png)
 
 Cost analysis shows **accumulated** costs by default. Accumulated costs include all costs for each day plus the previous days, for a constantly growing view of your daily accrued costs. This view is optimized to show how you're trending against a budget for the selected time range.
 
 There's also the **daily** view showing costs for each day. The daily view doesn't show a growth trend. The view is designed to show irregularities as cost spikes or dips from day to day. If you've selected a budget, the daily view also shows an estimate of what your daily budget might look like. When your daily costs are consistently above the estimated daily budget, then you can expect you'll surpass your monthly budget. The estimated daily budget is simply a means to help you visualize your budget at a lower level. When you have fluctuations in daily costs, then the estimated daily budget comparison to your monthly budget is less precise.
 
-![Daily view](./media/quick-acm-cost-analysis/daily-view.png)
+![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
 You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by and you'll see costs broken down by each value for that tag, with an extra segment for resources which don't have that tag applied. Note Cost Management only supports resource tags from the date the tags are applied directly to the resource. Resource group tags are not supported today. Here's a view of Azure service costs for a view of the last month.
 
-![Grouped daily accumulated view](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 Pivot charts under the main chart show different groupings to give you a broader picture of your overall costs for the selected time period and filters. Select a property or tag to view aggregated costs by any dimension. The full set of data for total view is at the bottom of the screen by expanding the **Data** drawer or by selecting **Export > Download CSV** at the top of the screen. Here's an example of the data drawer for resource groups.
 
-![Full data for current view](./media/quick-acm-cost-analysis/full-data-set.png)
+![Full data for current view showing resource group names](./media/quick-acm-cost-analysis/full-data-set.png)
 
 The preceding image shows resource group names. While you can group by tag to view total costs per tag, viewing all tags per resource or resource group isn't available in any of the cost analysis views.
 

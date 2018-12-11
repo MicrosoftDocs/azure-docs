@@ -1,5 +1,5 @@
 ---
-title: The Windows Virtual Desktop diagnostics role service - Azure
+title: Identify issues with the Windows Virtual Desktop diagnostics role service - Azure
 description: Describes the Windows Virtual Desktop diagnostics role service and how to use it.
 services: virtual-desktop
 author: Heidilohr
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# The Windows Virtual Desktop diagnostics role service (Preview)
+# Identify issues with the diagnostics role service (Preview)
 
 The Windows Virtual Desktop diagnostics role service is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity any time a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end user and administrative actions, and can be categorized into three main buckets:
 
@@ -27,7 +27,7 @@ Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains
 
 You can retrieve diagnostic activites by entering the **Get-RdsDiagnosticsActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticsActivities -TenantName <tenantName>
 ```
 
@@ -37,7 +37,7 @@ Like other Windows Virtual Desktop PowerShell cmdlets, you must use the *-Tenant
 
 The *-Detailed* parameter provides additional details for each diagnostic activity returned. The format for each activity varies depending on its activity type. The *-Detailed parameter* can be added to any **Get-RdsDiagnosticsActivities** query, as shown in the following example.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
 ```
 
@@ -45,7 +45,7 @@ Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
 
 The *-ActivityId* parameter returns a specific diagnostic activity if it exists, as shown int he following example cmdlet.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
 ```
 
@@ -53,7 +53,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid
 
 The *-UserName* parameter returns a list of diagnostic activities initiated by the specified user, as shown in the following example cmdlet.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
 ```
 
@@ -63,13 +63,13 @@ The *-UserName* parameter can also be combined with other optional filtering par
 
 You can filter the returned diagnostic activity list with the *-StartTime* and *-EndTime* parameters. The *-StartTime* parameter will return a diagnostic activity list starting from a specific date, as shown in the following example.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime “08/01/2018”
 ```
 
 The *-EndTime* parameter can be added to a cmdlet with the *-StartTime* parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1st and August 10th.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime “08/01/2018” -EndTime “08/10/2018”
 ```
 
@@ -79,13 +79,13 @@ The *-StartTime* and *-EndTime* parameters can also be combined with other optio
 
 You can also filter diagnostic activities by activity type with the *-ActivityType* parameter. The following cmdlet will return a list of end user connections:
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
 ```
 
 The following cmdlet will return a list of administrator management tasks:
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
 ```
 
@@ -95,13 +95,13 @@ The **Get-RdsDiagnosticActivities** cmdlet doesn’t currently support specifyin
 
 You can filter the returned diagnostic activity list by outcome with the *-Outcome* parameter. The following example cmdlet will return a list of successful diagnostic activities.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Success
 ```
 
 The following example cmdlet will return a list of failed diagnostic activities.
 
-```PowerShell
+```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 ```
 

@@ -26,9 +26,9 @@
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
-      href: ../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-azurevm.md
     - name: Collect - Linux computer
-      href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-linux-computer.md
     - name: Collect - Windows computer
       href: learn/quick-collect-windows-computer.md
 - name: Tutorials
@@ -56,7 +56,7 @@
 - name: Samples
   items:
   - name: Azure PowerShell
-    href: ../log-analytics/powershell-samples.md?toc=/azure/azure-monitor/toc.json
+    href: platform/powershell-samples.md
 - name: Concepts
   items:
   - name: Azure management
@@ -122,13 +122,13 @@
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
     - name: Classic alerts 
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json  
+      href: platform/alerts-classic.overview.md  
     - name: Smart groups
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json  
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Metric alerts
-      href: ../monitoring-and-diagnostics/alert-metric-overview.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-overview.md
     - name: Log alerts
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log alerts
@@ -165,8 +165,6 @@
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: Separate development, test, and production
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
-      - name: Monitor apps with multiple components
-        href: ../application-insights/app-insights-monitor-multi-role-apps.md?toc=/azure/azure-monitor/toc.json
       - name: How do I ... in Application Insights?
         href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
     - name: Manage workspaces
@@ -436,7 +434,7 @@
     - name: System Center
       items:
       - name: Configuration Manager
-        href: ../log-analytics/log-analytics-sccm.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-sccm.md
       - name: Application Performance Monitoring using SCOM
         href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
     - name: Route data
@@ -528,8 +526,10 @@
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: Upgrade agent
-          href: insights/container-insights-agent-upgrade.md
+        - name: View container live logs
+          href: insights/container-insights-live-logs.md
+        - name: Agent management
+          href: insights/container-insights-manage-agent.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
@@ -733,11 +733,11 @@
       - name: Use metric alerts
         items:
         - name: Create, view and manage metric alerts in Azure Monitor
-          href: ../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
-          href: ../monitoring-and-diagnostics/alert-metric-classic.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-classic-portal.md
         - name: Alerts with dynamic thresholds
-          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Create a newer metric alert with a Resource Manager template
@@ -749,7 +749,7 @@
       - name: Use log alerts
         items:  
         - name: Configure alerts on analytics query
-          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-log.md
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: Troubleshooting log alerts
@@ -757,11 +757,11 @@
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
-          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log.md
         - name: Migrate to activity log alerts
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
         - name: Configure alerts on service notifications
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log-service-notifications.md
       - name: Use application alerts
         items:
         - name: Availability
@@ -771,7 +771,7 @@
       - name: Use action groups with alerts
         items:
         - name: Create action groups
-          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups.md
         - name: Learn about the webhook schema
           href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
         - name: SMS alert behavior
@@ -819,7 +819,7 @@
       - name: View service notifications
         href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
       - name: Configure alerts on service notifications
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
@@ -839,7 +839,7 @@
     - name: Log data volume and retention
       href: platform/manage-cost-storage.md
     - name: Log data monitor usage
-      href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-usage.md
   - name: Automate 
     items:
     - name: PowerShell
@@ -847,7 +847,7 @@
       - name: Azure PowerShell samples
         href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
       - name: PowerShell cmdlets
-        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+        href: platform/powershell-workspace-configuration.md
       - name: Applications
         items:
         - name: Create Application Insights resources 
@@ -867,7 +867,7 @@
       - name: Walkthrough using REST API
         href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
       - name: Alert API
-        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure/monitoring-and-diagnostics/toc.json
+        href: platform/api-alerts.md
     - name: Applications
       items:
       - name: Automate with Microsoft Flow
