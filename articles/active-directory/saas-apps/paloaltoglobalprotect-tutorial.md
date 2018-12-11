@@ -40,8 +40,8 @@ To configure Azure AD integration with Palo Alto Networks - GlobalProtect, you n
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Concur supports **SP** initiated SSO
-* Concur supports **Just In Time** user provisioning
+* Palo Alto Networks - GlobalProtect supports **SP** initiated SSO
+* Palo Alto Networks - GlobalProtect supports **Just In Time** user provisioning
 
 ## Adding Palo Alto Networks - GlobalProtect from the gallery
 
