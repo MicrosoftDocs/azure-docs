@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: alerts
 ---
 
 # What are classic alerts in Microsoft Azure?
@@ -39,7 +38,7 @@ The newer metric alerts have the following benefits over the classic metric aler
 -	**Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
 -	**More control over metric conditions**: You can define richer alert rules. The newer alerts support monitoring the maximum, minimum, average, and total values of metrics.
 -	**Combined monitoring of multiple metrics**: You can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time-period.
--	**Better notification system**: All newer alerts use [action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
+-	**Better notification system**: All newer alerts use [action groups](../../azure-monitor/platform/action-groups.md), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
 -	**Metrics from Logs** (public preview): Log data going into Log Analytics can now be extracted and converted into Azure Monitor metrics and then alerted on just like other metrics. 
 See [Alerts (classic)](alerts-classic.overview.md) for the terminology specific to classic alerts. 
 
@@ -68,7 +67,7 @@ Azure uses the following terms to describe classic alerts and their functions:
 ## How do I receive a notification from an Azure Monitor classic alert?
 Historically, Azure alerts from different services used their own built-in notification methods. 
 
-Azure Monitor created a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification and any time an alert is activated that references the Action Group, all receivers receive that notification. Action groups allows you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification by posting to a webhook URL in addition to email addresses, SMS numbers, and a number of other actions.  For more information, see [action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md). 
+Azure Monitor created a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification and any time an alert is activated that references the Action Group, all receivers receive that notification. Action groups allows you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification by posting to a webhook URL in addition to email addresses, SMS numbers, and a number of other actions.  For more information, see [action groups](../../azure-monitor/platform/action-groups.md). 
 
 Older classic Activity Log alerts use action groups.
 
@@ -94,5 +93,5 @@ Get information about alert rules and configuring them by using:
 * Configure [Activity Log Alerts via Azure portal](../../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](alerts-activity-log.md)
 * Review the [activity log alert webhook schema](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)
-* Learn more about [Action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md)
-* Configure [newer Alerts](../../monitoring-and-diagnostics/alert-metric.md)
+* Learn more about [Action groups](../../azure-monitor/platform/action-groups.md)
+* Configure [newer Alerts](../../azure-monitor/platform/alerts-metric.md)

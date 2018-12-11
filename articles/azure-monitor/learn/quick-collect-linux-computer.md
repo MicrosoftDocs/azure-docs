@@ -14,7 +14,6 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: 
 ---
 
 # Configure Log Analytics agent for Linux computers in a hybrid environment

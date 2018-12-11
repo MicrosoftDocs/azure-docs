@@ -1,5 +1,5 @@
 ---
-title: Train ML models using an Estimator class
+title: Train ML models with estimators
 titleSuffix: Azure Machine Learning service
 description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning services Estimator class
 ms.author: minxia
@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
 
-To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an `Estimator` object to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom `PyTorch` and `TensorFlow` estimators to simplify using these frameworks.
+To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an [`Estimator` object](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom `PyTorch` and `TensorFlow` estimators to simplify using these frameworks.
 
 ## Train with an estimator
 
