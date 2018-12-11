@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -30,14 +30,9 @@ This article provides you with the information you need to configure a condition
 
 This article assumes that you are familiar with: 
 
-- The basic concepts of Azure AD conditional access 
-- Configuring conditional access policies in the Azure portal
+- The [basic concepts](overview.md) of Azure AD conditional access 
+- The [best practices](best-practices.md) for configuring conditional access policies in the Azure portal
 
-See:
-
-- [What is conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) - for an overview of conditional access 
-
-- [Quickstart: Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md) - to get some experience with configuring conditional access policies. 
 
 
 ## Scenario description
@@ -57,7 +52,7 @@ With Azure AD conditional access, you can address this requirement with a single
     - A location that is not trusted
 
 
-## Considerations
+## Implementation
 
 The challenge of this scenario is to translate *when an access attempt is made from a location that is not trusted* into a conditional access condition. In a conditional access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which represent logical groupings of IP address ranges, countries and regions.  
 
@@ -81,7 +76,7 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 
 
-## Implementation
+## Policy deployment
 
 With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. You should always test your policy before rolling it out into production to make sure that it works as expected. Ideally, you should do your initial tests in a test tenant if possible. For more information, see [How should you deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
 
