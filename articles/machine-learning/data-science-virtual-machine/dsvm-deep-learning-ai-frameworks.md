@@ -21,7 +21,7 @@ ms.author: gokuma
 ---
 
 # Deep Learning and AI frameworks
-The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](https://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding. 
+The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](https://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding.
 
 Here are the details on all the deep learning frameworks available on the DSVM.
 
@@ -67,7 +67,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | How is it configured / installed on the DSVM?  | TensorFlow is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
 | Links to Samples      | https://github.com/fchollet/keras/tree/master/examples      |
 | Related Tools on the DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Download the samples from the Github location, connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the sample directory. |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Download the samples from the GitHub location, connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the sample directory. |
 
 ## Caffe
 
@@ -80,7 +80,7 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | Links to Samples      | Samples are included in `/opt/caffe/examples`.      |
 | Related Tools on the DSVM      | Caffe2      |
 
-### How to use / run it?  
+### How to use / run it?
 
 Use X2Go to log in to your VM, then start a new terminal and enter
 
@@ -94,7 +94,7 @@ A new browser window opens with sample notebooks.
 
 Binaries are installed in /opt/caffe/build/install/bin.
 
-Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 activated by default. Run `source activate root` to switch Anaconda environment. 
+Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 activated by default. Run `source activate root` to switch Anaconda environment.
 
 ## Caffe2
 
@@ -130,7 +130,7 @@ Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 ac
 | Links to Samples      | Sample notebooks are included in JupyterHub.      |
 | Related Tools on the DSVM      | H2O, Sparkling Water      |
 
-### How to use / run it?  
+### How to use / run it?
 
 Deep Water requires CUDA 8 with cuDNN 5.1. This is not in the library path by default, as other deep learning frameworks use CUDA 9 and cuDNN 7. To use CUDA 8 + cuDNN 5.1 for Deep Water:
 
@@ -163,7 +163,7 @@ To use Deep Water:
 | Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | DIGITS is installed in `/dsvm/tools/DIGITS` and is available a service called _digits_.   |
 
-### How to use / run it?  
+### How to use / run it?
 
 Log in to the VM with X2Go. At a terminal, start the service:
 
@@ -215,7 +215,7 @@ The service takes about one minute to start. Start a web browser and navigate to
 | How is it configured / installed on the DSVM?  | PyTorch is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Links to Samples      | Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.      |
 | Related Tools on the DSVM      | Torch      |
-| How to use / run it | 
+| How to use / run it |
 * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
 
 ## MXNet Model Server
