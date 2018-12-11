@@ -81,7 +81,7 @@
         href: howto-export-data.md
         items:
         - name: Export to Event Hubs and Service Bus
-          href: howto-export-data-eventhubs-servicebus.md
+          href: howto-export-data-event-hubs-service-bus.md
         - name: Export to Blob Storage
           href: howto-export-data-blob-storage.md
       - name: Visualize your data in Power BI
