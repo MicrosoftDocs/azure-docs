@@ -28,7 +28,7 @@ Runbook execution fails and you receive the following error:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Your runbook is suspended shortly after it attempts to execute it three times. There are conditions, which may interrupt the runbook from completing. When this happens the related error message may not include any additional information that tells you why.
+Your runbook is suspended shortly after it attempts to execute it three times. There are conditions, which may interrupt the runbook from completing. When this happens, the related error message may not include any additional information that tells you why.
 
 #### Cause
 
@@ -69,7 +69,7 @@ At line:3 char:1
 
 #### Cause
 
-This error occurs when you attempt to use a [Run As Account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As Account certificate is not downloaded. Hybrid Runbook Workers don't have the certificate asset locally by default, which is required by the Run As Account to function properly.
+This error occurs when you attempt to use a [Run As Account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As Account certificate's not present. Hybrid Runbook Workers don't have the certificate asset locally by default, which is required by the Run As Account to function properly.
 
 #### Resolution
 
@@ -137,7 +137,7 @@ This error can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at `C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes`. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while being used for normal operations.
+Logs are stored locally on each hybrid worker at `C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes`. You can check if there are any warning or error events, which are written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue that affects onboarding of the role to Azure Automation or issue while being used for normal operations.
 
 [Runbook output and messages](../automation-runbook-output-and-messages.md) get sent to Azure Automation from hybrid workers just like runbook jobs that run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
 
