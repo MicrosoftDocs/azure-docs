@@ -82,7 +82,7 @@ Run the sample Ansible playbook with the following command:
 
 The output from the ansible-playbook command displays out similar to the following where you see that it built the sample app cloned from GitHub:
 
-  ```Output
+  ```bash
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -162,7 +162,7 @@ Run the playbook with the following command:
 
 The output from running the ansible-playbook command indicates that the sample Java application has been installed to the host group of the virtual machine scale set:
 
-  ```Output
+  ```bash
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
