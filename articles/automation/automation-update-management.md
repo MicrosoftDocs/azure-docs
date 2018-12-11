@@ -14,7 +14,7 @@ manager: carmonm
 
 You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
-You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a single virtual machine from the virtual machine pane in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
+You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a virtual machine from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
 ## Solution overview
 
@@ -35,7 +35,7 @@ Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux mac
 
 After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is run every 12 hours by default.
 
-In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes if the MMA is restarted, before update installation, and after update installation.
+In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes of the MMA being restarted, before update installation, and after update installation.
 
 For a Linux computer, the compliance scan is performed every 3 hours by default. If the MMA agent is restarted, a compliance scan is initiated within 15 minutes.
 
@@ -284,6 +284,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Third party patches on Windows
+
+Update Management relies on WSUS or Windows Update to patch supported Windows systems. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use WSUS as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Network Planning
 
@@ -563,7 +568,7 @@ Because Update Management performs update enrichment in the cloud, some updates 
 
 However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
 
-Deploying updates by update classification doesn't work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to rerun the update deployment, to verify check the update log.
+Deploying updates by update classification doesn't work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
 
 ## Troubleshoot
 
