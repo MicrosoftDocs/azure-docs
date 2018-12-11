@@ -62,7 +62,6 @@ The following fields are changing in the Sign-in schema:
 |Field name|What changed|Old values|New Values|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|This was the **conditionalaccessPolicies** field. It's now the **appliedConditionalAccessPolicies** field.|No change|No change|
-|resultType|Provides the result of the sign-in logs. Previously, this was enumerated, but we now show the actual value.|<ul><li>0</li><li>Error code (5 or 6-digit integers)</li></ul>|<ul><li>Success</li><li>Failure</li></ul>|
 |conditionalAccessStatus|Provides the result of the Conditional Access Policy Status at sign-in. Previously, this was enumerated, but we now show the actual value.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Failure</li><li>Not Applied</li><li>Disabled</li></ul>|
 |appliedConditionalAccessPolicies: result|Provides the result of the individual Conditional Access Policy Status at sign-in. Previously, this was enumerated, but we now show the actual value.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Success</li><li>Failure</li><li>Not Applied</li><li>Disabled</li></ul>|
 
