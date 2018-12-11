@@ -143,6 +143,12 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
+    - name: Server-side programming
+      items:
+        - name: Stored procedures, triggers and user-defined functions
+          href: sprocs-triggers-udfs.md
+        - name: Javascript language-integrated query API
+          href: js-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Pricing model
@@ -249,9 +255,17 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-query-metrics.md
-        - name : Stored procedures, triggers, and UDFs
-          href: programming.md
+          href: sql-api-sql-query-metrics.md
+        - name: SQL data partitioning
+          href: sql-api-partition-data.md
+        - name : Server-side programming
+          items:
+          - name: Write stored procedures, triggers and user-defined functions
+            href: how-to-write-sprocs-triggers-udfs.md
+          - name: Write with Javascript language-integrated query API
+            href: how-to-write-js-query-api.md
+          - name: Use stored procedures, triggers and user-defined functions
+            href: how-to-use-sprocs-triggers-udfs.md  
         - name: Data types
           items:
           - name: DateTime
