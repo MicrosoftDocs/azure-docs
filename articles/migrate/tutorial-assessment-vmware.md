@@ -50,6 +50,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
 5. Specify the geography in which you want to create the project, then click **Create**. You can only create an Azure Migrate project in the following geographies. However, you can still plan your migration for any target Azure location. The geography specified for the project is only used to store the metadata gathered from on-premises VMs.
+
+
     **Geography** | **Storage location**
     --- | ---
     Unites States | West Central US or East US
@@ -169,8 +171,8 @@ will be hosted.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) about the internet connectivity requirements and the [list of URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) that the collector accesses.
 
-    > [!NOTE]
-    > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initially fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
+      > [!NOTE]
+      > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initally fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
 
     - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install VMware PowerCLI.

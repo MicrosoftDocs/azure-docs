@@ -1,12 +1,12 @@
 ---
-title: 'Machine learning web services: Deployment and consumption - Azure Machine Learning Studio | Microsoft Docs'
+title: Deployment and consumption - Azure Machine Learning Studio | Microsoft Docs'
 description: You can use Azure Machine Learning to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning

@@ -75,7 +75,7 @@ For the most current list of services, see the [Products available by region](ht
 * [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse)
 * [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
 * [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db)
-* [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache)
+* [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis)
 
 ## Data + Analytics
 
@@ -116,7 +116,7 @@ For the most current list of services, see the [Products available by region](ht
 * [Policy](documentation-government-services-monitoringandmanagement.md#policy)
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) 
+* [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler)
 * [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)
 * [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal)
 * [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager)

@@ -4,18 +4,18 @@ description: Learn about Stream Analytics, a managed service that helps you anal
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.workload: data-services
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 #Customer intent: "What is Azure Stream Analytics and why should I care? As a IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?".
 
 ---
 
-# What is Stream Analytics?
+# What is Azure Stream Analytics?
 
 Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. Incoming data can be from devices, sensors, web sites, social media feeds, applications, and more. It also supports extracting information from data streams, identifying patterns, and relationships. You can then use these patterns to trigger other actions downstream, like alerts, feed information to a reporting tool, or store it for later use.
 
@@ -39,13 +39,13 @@ After analyzing the incoming data, you specify an output for the transformed dat
 
 The following image illustrates the Stream Analytics pipeline, Your Stream Analytics job can use all or a selected set of inputs and outputs. This image shows how data is sent to Stream Analytics, analyzed, and sent for other actions like storage, or presentation:
 
-![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![Stream Analytics intro pipeline](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## Key capabilities and benefits
 
 Azure Stream Analytics is designed to be easy to use, flexible, reliable, and scalable to any job size. It is available across multiple datacenters as well as sovereign clouds. Following image illustrates the key capabilities of Azure Stream Analytics:
 
-![Stream Analytics key capabilities](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
+![Stream Analytics key capabilities](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
 ## Ease of getting started
 
