@@ -1,13 +1,15 @@
 ---
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
-description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
+description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.  
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
+
 ms.assetid: 
 ms.service: azure-monitor
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -67,7 +69,7 @@ To disable collection of environmental variables on a new or existing container,
 
 Run the following command to apply the change to your AKS container: `kubectl apply -f  <path to yaml file>`.
 
-To verify the configuration change took affect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV = FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.   
+To verify the configuration change took affect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.   
 
 To re-enable discovery of the environmental variables, apply the same process earlier and change the value from **False** to **True**, and then re-run the `kubectl` command to update the container.  
 
