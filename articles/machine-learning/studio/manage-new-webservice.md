@@ -1,5 +1,5 @@
 ---
-title: Use the Machine Learning Web Services portal - Azure Machine Learning Studio | Microsoft Docs
+title: Use the Azure Machine Learning Studio Web Services portal | Microsoft Docs
 description: You can manage your Machine Learning New and Classic Web services using the Microsoft Azure Machine Learning Web Services portal. Since Classic Web services and New Web services are based on different underlying technologies, you have slightly different management capabilities for each of them.
 services: machine-learning
 documentationcenter: ''
