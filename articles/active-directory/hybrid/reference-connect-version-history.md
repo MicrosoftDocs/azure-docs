@@ -38,7 +38,10 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 12/11/2018: Released for download
 
 ### Fixed issues
-This hotfix build allows the user to select a target domain, within the specified forest, for the RegisteredDevices container when enabling device writeback.  In the previous versions, the RegisteredDevices container location was limited to the forest root and did not allow child domains.  This limitation only manifested itself on new deployments – in-place upgrades were unaffected. 
+This hotfix build allows the user to select a target domain, within the specified forest, for the RegisteredDevices container when enabling device writeback.  In the previous versions that contain the new Device Options functionality (1.1.819.0 – 1.2.68.0), the RegisteredDevices container location was limited to the forest root and did not allow child domains.  This limitation only manifested itself on new deployments – in-place upgrades were unaffected.  
+
+If any build containing the updated Device Options functionality was deployed to a new server and device writeback was enabled, you will need to manually specify the location of the container if you do not want it in the forest root.  To do this, you need to disable device writeback and re-enable it which will allow you to specify the container location on the “Writeback forest” page.
+
 
 
 ## 1.2.68.0
