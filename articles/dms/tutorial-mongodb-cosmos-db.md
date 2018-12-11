@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 
-In this tutorial, you migrate the **Wingtips** dataset in MongoDB hosted in an Azure Virtual Machine to Cosmos DB's MongoDB API by using the Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/install-mongodb).
+In this tutorial, you migrate the **Wingtips** dataset in MongoDB hosted in an Azure Virtual Machine to Cosmos DB's MongoDB API by using the Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
 ## Prerequisites
 To complete this tutorial, you need to:
@@ -165,3 +165,6 @@ After the service is created, locate it within the Azure portal, open it, and th
 ## Additional resources
 
  * [Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
+
+## Next steps
+- Review  migration guidance for additional scenarios in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
