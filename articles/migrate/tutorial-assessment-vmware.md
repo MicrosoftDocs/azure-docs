@@ -51,13 +51,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 4. Create a new resource group.
 5. Specify the geography in which you want to create the project, then click **Create**. You can only create an Azure Migrate project in the following geographies. However, you can still plan your migration for any target Azure location. The geography specified for the project is only used to store the metadata gathered from on-premises VMs.
 
+**Geography** | **Storage location**
+--- | ---
+Unites States | West Central US or East US
+Azure Government | US Gov Virginia
 
-    **Geography** | **Storage location**
-    --- | ---
-    Unites States | West Central US or East US
-    Azure Government | US Gov Virginia
-
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## Download the collector appliance

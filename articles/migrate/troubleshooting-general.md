@@ -37,30 +37,30 @@ If you are unable to export the assessment report from the portal, try using the
 1. Install *armclient* on your computer (if you don’t have it already installed):
 
   a. In an administrator Command Prompt window, run the following command:
-       *@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+    ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
   b. In an administrator Windows PowerShell window, run the following command:
-       *choco install armclient*
+    ```choco install armclient```
 
 2.	Get the download URL for the assessment report using Azure Migrate REST API
 
   a.	In an administrator Windows PowerShell window, run the following command:
-       *armclient login*
+      ```armclient login```
 
   This opens the Azure login pop-up where you need to logon to Azure.
 
   b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
        Sample request and output:
 
-       PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
 esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
 018_12_16_21/downloadUrl?api-version=2018-02-02
 {
   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copy the URL from the response and open it in a browser to download the assessment report.
 
