@@ -10,6 +10,16 @@
  ms.custom: include file
 ---
 
+## Before you begin
+
+To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
+
+## Launch Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+
 
 ## Preview: Register the feature
 
@@ -76,7 +86,11 @@ All three of these have unique sets of values. In an upcoming release, you will 
 
 ```powershell
 # The following should set the source image as myImage1 from the table above
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName myPublisher -Offer myOffer -Skus mySku -Version latest
+$vmConfig = Set-AzureRmVMSourceImage `
+   -VM $vmConfig `
+   -PublisherName myPublisher `
+   -Offer myOffer `
+   -Skus mySku 
 ```
 
 This is similar to how you can currently specify these for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) to create a VM. With this in mind, each image definition needs to have a unique set of these values. You can have image versions that share one or two, but not all three values. 
@@ -87,7 +101,6 @@ Create an image version from a managed image using [New-AzureRmGalleryImageVersi
 
 
 ```azurepowershell-interactive
-
 $region1 = @{Name='West US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
@@ -99,12 +112,13 @@ $job = $imageVersion = New-AzureRmGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $managedImage.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-01-01'
+   -PublishingProfileEndOfLifeDate '2020-01-01' `
    -asJob 
 ```
 
-It can take a while to replicate the image to all of the target regions, so we have create a job for this part. To see the progress of the job, use [Get-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-job)
+It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
 
 ```azurepowershell-interactive
-Get-Job $job
+$job.State
 ```
+

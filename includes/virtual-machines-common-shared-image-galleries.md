@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 12/07/2018
+ ms.date: 12/11/2018
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
