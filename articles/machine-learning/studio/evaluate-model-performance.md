@@ -25,7 +25,7 @@ This article demonstrates how to evaluate the performance of a model in Azure Ma
 * binary classification 
 * multiclass classification
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. 
 
