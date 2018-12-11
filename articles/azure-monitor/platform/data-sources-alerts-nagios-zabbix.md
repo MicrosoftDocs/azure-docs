@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collect alerts from Nagios and Zabbix in Log Analytics from Log Analytics agent for Linux 
@@ -76,7 +73,7 @@ To collect alerts on the Nagios server, perform the following steps.
 
 
 ## Alert records
-You can retrieve alert records from Nagios and Zabbix using [log searches](../../log-analytics/log-analytics-queries.md) in Log Analytics.
+You can retrieve alert records from Nagios and Zabbix using [log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
 
 ### Nagios Alert records
 
@@ -115,4 +112,4 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 
 ## Next steps
 * Learn about [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics.
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 

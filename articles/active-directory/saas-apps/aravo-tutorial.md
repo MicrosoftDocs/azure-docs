@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.aravo.com/aems/login.do`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Aravo support team](http://www.aravo.com/about-us/contact/) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Aravo support team](https://www.aravo.com/about-us/contact/) to get these values.
  
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -128,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/aravo-tutorial/tutorial_aravo_configure.png) 
 
-7. To configure single sign-on on **Aravo** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Aravo support team](http://www.aravo.com/about-us/contact/). 
+7. To configure single sign-on on **Aravo** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Aravo support team](https://www.aravo.com/about-us/contact/). 
 
 
 > [!TIP]
@@ -167,7 +167,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an Aravo test user
 
-The objective of this section is to create a user called Britta Simon in Aravo. Work with [Aravo support team](http://www.aravo.com/about-us/contact/) to add the users in the Aravo account.
+The objective of this section is to create a user called Britta Simon in Aravo. Work with [Aravo support team](https://www.aravo.com/about-us/contact/) to add the users in the Aravo account.
 
 ### Assigning the Azure AD test user
 

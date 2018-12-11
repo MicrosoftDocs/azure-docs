@@ -34,7 +34,7 @@ For more information about scaling HDInsight, see [Scale HDInsight clusters](hdi
 
 ## Use Tez instead of Map Reduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -46,7 +46,7 @@ Tez is faster because:
 * **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
 * **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
 
-For more information on these concepts, see [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+For more information on these concepts, see [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 You can make any Hive query Tez enabled by prefixing the query with the following set command:
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot domain and SSL certificate problems in Azure web apps | Microsoft Docs
+title: Troubleshoot domain and SSL certificates - Azure App Service | Microsoft Docs
 description: Troubleshoot domain and SSL certificate problems in Azure web apps
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
+ms.custom: seodec18
+
 ---
 # Troubleshoot domain and SSL certificate problems in Azure web apps
 
@@ -140,7 +142,7 @@ As an alternative, you can use the HTML webpage method to manually verify your d
 3.	Upload this file at the root of the web server that's hosting your domain.
 4.	Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
 
-For example, if you're buying a standard certificate for azure.com with the domain verification token 1234abcd, a web request made to http://azure.com/1234abcd.html should return 1234abcd. 
+For example, if you're buying a standard certificate for azure.com with the domain verification token 1234abcd, a web request made to https://azure.com/1234abcd.html should return 1234abcd. 
 
 > [!IMPORTANT]
 > A certificate order has only 15 days to complete the domain verification operation. After 15 days, the certificate authority denies the certificate, and you are not charged for the certificate. In this situation, delete this certificate and try again.

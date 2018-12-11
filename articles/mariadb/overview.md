@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 12/03/2018
 ---
 
 # What is Azure Database for MariaDB?
 
-Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) database engine, version 10.2. This service is in public preview. 
+Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) database engine, version 10.2.
 
 Azure Database for MariaDB delivers:
 
@@ -38,7 +38,7 @@ For a set of Azure CLI samples, see:
 
 ## Adjust performance and scale within seconds
 
-In preview, the Azure Database for MariaDB service offers several service tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability helps your database transparently respond to rapidly changing resource requirements. You pay only for the resources you need, and only when you need them. See [Pricing tiers](concepts-pricing-tiers.md) for details.
+The Azure Database for MariaDB service offers several service tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different performance and capabilities to support lightweight to heavyweight database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability helps your database transparently respond to rapidly changing resource requirements. You pay only for the resources you need, and only when you need them. See [Pricing tiers](concepts-pricing-tiers.md) for details.
 
 ## Monitoring and alerting
 
@@ -46,7 +46,7 @@ How do you decide when to scale up or down? You can use the built-in performance
 
 ## Keep your app and business running
 
-Azure's industry-leading 99.99% availability SLA (not offered during public preview) is powered by a global network of Microsoft-managed datacenters. The network helps keep your app running 24/7. You benefit from the built-in security, fault tolerance, and data protection in Azure Database for MariaDB. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
+Azure's industry-leading 99.99% availability SLA is powered by a global network of Microsoft-managed datacenters. The network helps keep your app running 24/7. You benefit from the built-in security, fault tolerance, and data protection in Azure Database for MariaDB. With Azure Database for MariaDB, you can use point-in-time restore to recover a server to an earlier state, as far back as 35 days.
 
 ## Secure your data
 
