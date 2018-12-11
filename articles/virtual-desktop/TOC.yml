@@ -7,27 +7,27 @@
 
 - name: Tutorials
   items:
-  - name: 1. Create a tenant in Windows Virtual Desktop
+  - name: 1. Create a tenant in Windows Virtual Desktop (Preview)
     href: tenant-setup-azure-active-directory.md
-  - name: 2. Create a host pool in Windows Virtual Desktop
+  - name: 2. Create a host pool in Windows Virtual Desktop (Preview)
     href: manage-host-pools.md
-  - name: 3. Manage app groups
+  - name: 3. Manage app groups (Preview)
     href: manage-app-groups.md
-  - name: 4. Manage user storage
+  - name: 4. Manage user storage (Preview)
     href: manage-user-storage.md
-  - name: 5. Connect to Windows Virtual Desktop
+  - name: 5. Connect to Windows Virtual Desktop (Preview)
     href: connect.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment (Preview)
     href: environment-setup.md
-  - name: Identify issues with the diagnostics role service
+  - name: Identify issues with the diagnostics role service (Preview)
     href: diagnostics-role-service.md
   - name: Delegated access in Windows Virtual Desktop (Preview)
     href: delegated-access-virtual-desktop.md
 - name: How-to
   items:
-  - name: Connect to a Remote Desktop environment
+  - name: Connect to a Remote Desktop environment (Preview)
     href: tenant-setup-remote-desktop.md
 - name: Reference
   items:
