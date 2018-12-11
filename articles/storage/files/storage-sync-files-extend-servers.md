@@ -159,14 +159,14 @@ In the **Windows Server 2016 Datacenter** VM, **Server Manager** will open autom
 
 1. Close **Explorer** and **Server Manager**.
 
-### Download the AzureRM PowerShell module
-Next, in the **Windows Server 2016 Datacenter** VM, install the **AzureRM PowerShell module** on the server.
+### Download the Azure PowerShell module
+Next, in the **Windows Server 2016 Datacenter** VM, install the **Azure PowerShell module** on the server.
 
 1. In the VM, open an elevated PowerShell window
 1. Run the following command:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -186,7 +186,7 @@ Next, in the **Windows Server 2016 Datacenter** VM, install the **AzureRM PowerS
 
 1. Answer `Yes` or `Yes to All` to continue with the installation.
 
-The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 At this point, you've finished setting up your environment for the tutorial and you're ready to begin deploying the **Storage Sync Service**.
 

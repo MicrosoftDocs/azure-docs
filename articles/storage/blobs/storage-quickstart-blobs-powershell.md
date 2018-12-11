@@ -19,7 +19,7 @@ Use the Azure PowerShell module to create and manage Azure resources. Creating o
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-This quickstart requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ## Create a container
 
@@ -115,7 +115,7 @@ In this quickstart, you transferred files between a local disk and Azure Blob st
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 
-* [Storage PowerShell cmdlets](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdlets](/powershell/module/az.storage)
 
 ### Microsoft Azure Storage Explorer
 

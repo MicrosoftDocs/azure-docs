@@ -26,11 +26,11 @@ To use Azure Storage in one of the independent clouds, you connect to that cloud
 * You determine and use the available regions.
 * You use the correct endpoint suffix, which is different from Azure Public.
 
-The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
+The examples require Azure PowerShell module Az version 0.7 or later. In a PowerShell window, run `Get-Module -ListAvailable Az` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
 
 ## Log in to Azure
 
-Run the [Get-AzEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-Azenvironment) cmdlet to see the available Azure environments:
+Run the [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) cmdlet to see the available Azure environments:
    
 ```powershell
 Get-AzEnvironment

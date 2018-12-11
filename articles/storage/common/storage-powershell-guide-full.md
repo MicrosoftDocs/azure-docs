@@ -29,7 +29,7 @@ This article provides links to several other PowerShell articles for Storage, su
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This exercise requires the Azure PowerShell module version 4.4 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
+This exercise requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
 
 For this exercise, you can type the commands into a regular PowerShell window, or you can use the [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) and type the commands into an editor, then test one or more commands at a time as you go through the examples. You can highlight the rows you want to execute and click Run Selected to just run those commands.
 
@@ -176,7 +176,7 @@ By default, all storage accounts are accessible by any network that has access t
 The article shows how to manage these settings using the following PowerShell cmdlets:
 * [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
-* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule?view=azurermps-6.8.1)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## Use storage analytics  
 
@@ -243,6 +243,6 @@ This how-to article covers common operations using the management plane cmdlets 
 
 This article also provided references to several other articles, such as how to manage the data objects, how to enable the Storage Analytics, and how to access the Azure independent clouds such as China Cloud, German Cloud, and Government Cloud. Here are some more related articles and resources for reference:
 
-* [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
+* [Azure Storage control plane PowerShell cmdlets](/powershell/module/az.storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
 * [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)

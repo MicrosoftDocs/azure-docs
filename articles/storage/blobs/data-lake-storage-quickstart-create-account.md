@@ -115,34 +115,14 @@ To interact with Data Lake Storage Gen2 by using PowerShell, you'll need to inst
 
 Start by opening a PowerShell session with elevated permissions.
 
-Then, determine if you have the AzureRM.Storage module installed.
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-If a module appears, then uninstall it.
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
-
 Install the Az.Storage module
 
 ```powershell
 Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
-Enable compatibility mode for AzureRM.
-
-```powershell
-Enable-AzureRMAlias
-```
-
-Compatibility mode means that any scripts that use the AzureRM.Storage module will continue to work even though you've uninstalled the AzureRM.Storage module.
-
 > [!NOTE]
-> Azure Powershell Az modules are the preferred modules for working with Azure services in Powershell. To learn more, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0).
+> Azure Powershell Az modules are the preferred modules for working with Azure services in Powershell. To learn more, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### Log in to your Azure Subscription
 
