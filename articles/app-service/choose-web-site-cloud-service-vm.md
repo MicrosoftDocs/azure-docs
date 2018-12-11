@@ -1,5 +1,5 @@
 ---
-title: Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Microsoft Docs
+title: App Service, Virtual Machines, Service Fabric, and Cloud Services comparison - Azure | Microsoft Docs
 description: Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
