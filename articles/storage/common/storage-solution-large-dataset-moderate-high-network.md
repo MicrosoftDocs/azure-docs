@@ -103,5 +103,5 @@ If using online data transfer, use the table in the following section for high n
 - [Learn how to transfer data with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
 - Use the REST APIs to transfer data
 
-    - [In .NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client)
+    - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)

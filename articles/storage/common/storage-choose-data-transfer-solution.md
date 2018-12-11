@@ -37,7 +37,7 @@ The following visual illustrates the guidelines to choose the various Azure data
 
 ![Azure data transfer tools](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
 
-*The upper limits of the offline transfer devices - Data Box Disk, Data Box, and Data Box Heavy can be extended by placing multiple orders of a device type.
+**The upper limits of the offline transfer devices - Data Box Disk, Data Box, and Data Box Heavy can be extended by placing multiple orders of a device type.*
 
 ## Selecting a data transfer solution
 
@@ -72,5 +72,5 @@ Answer the following questions to help select a data transfer solution:
 - [Learn what is Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
 - Use the REST APIs to transfer data
 
-    - [In .NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client)
+    - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
