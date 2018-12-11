@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -48,8 +48,7 @@ Azure Stack releases hotfixes on a regular basis.
 
 ## Prerequisites
 
-> [!Important]  
-> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 - Install the [latest Azure Stack Hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
