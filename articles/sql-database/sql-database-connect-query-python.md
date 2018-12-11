@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/05/2018
+ms.date: 12/10/2018
 ---
 # Quickstart: Use Python to query an Azure SQL database
 
@@ -25,13 +25,13 @@ To complete this quickstart, make sure you have the following:
   
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
   
-- Python, the Python driver for SQL Server, and other required apps for your operating system:
+- Python, the Microsoft ODBC Driver for your operating system, and [pyodbc](/sql/connect/python/pyodbc/python-sql-driver-pyodbc), the Python driver for SQL Server:
   
-  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/), follow steps 1.2, 1.3, and 2.1.
+  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. For more information, see Steps 1.2, 1.3, and 2.1 in [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/) and [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
     
-  - **Ubuntu**:  Install Python and other required packages, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/), follow steps 1.2, 1.3, and 2.1.
+  - **Ubuntu**: Install Python and other required packages with `sudo apt-get install python python-pip gcc g++ build-essential`. Download and install the ODBC driver, SQLCMD, and the Python driver for SQL Server. For instructions, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
     
-  - **Windows**: Install the newest version of Python. The environment is now configured for you. Install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. In [Create Python apps using SQL Server on Windows](https://www.microsoft.com/sql-server/developer-get-started/python/windows/), follow steps 1.2, 1.3, and 2.1.
+  - **Windows**: Install Python, the ODBC driver and SQLCMD, and the Python driver for SQL Server. For instructions, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 
 ## Get SQL server connection information
 
@@ -41,7 +41,7 @@ To complete this quickstart, make sure you have the following:
 
 1. In a text editor, create a new file named *sqltest.py*.  
    
-1. Add the following code, using the values for your own \<server>, \<database>, \<username>, and \<password>.
+1. Add the following code, substituting \<server>, \<database>, \<username>, and \<password> with your own values.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
@@ -52,7 +52,7 @@ To complete this quickstart, make sure you have the following:
    database = '<database>'
    username = '<username>'
    password = '<password>'
-   driver= '{ODBC Driver 13 for SQL Server}'
+   driver= '{ODBC Driver 17 for SQL Server}'
    cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
    cursor = cnxn.cursor()
    cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
