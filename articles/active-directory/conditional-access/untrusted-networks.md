@@ -22,7 +22,9 @@ ms.reviewer: calebb
 ---
 # How to: Require MFA for access attempts from untrusted networks with conditional access   
 
-In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. As a result of this, your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. With [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. One common requirement in this context is to control access attempts initiated from untrusted networks. This article provides you with the information you need to configure a conditional access policy that handles this requirement. 
+Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. Your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. A common best practice for access from untrusted networks is to require multi-factor authentication (MFA).
+
+This article provides you with the information you need to configure a conditional access policy that requires MFA for access attempts from untrusted networks. 
 
 ## Prerequisites
 
