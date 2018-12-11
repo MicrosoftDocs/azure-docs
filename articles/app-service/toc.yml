@@ -39,8 +39,6 @@
       href: app-service-web-tutorial-php-mysql.md 
     - name: Node.js with MongoDB
       href: app-service-web-tutorial-nodejs-mongodb-app.md
-    - name: Java with MySQL
-      href: app-service-web-tutorial-java-mysql.md
   - name: Customize Windows (container)
     href: app-service-web-tutorial-windows-containers-custom-fonts.md
   - name: Access SQL DB securely

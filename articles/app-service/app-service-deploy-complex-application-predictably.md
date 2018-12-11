@@ -1,5 +1,5 @@
 ---
-title: Provision and deploy microservices predictably in Azure
+title: Provision and deploy microservices predictably - Azure App Service
 description: Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Provision and deploy microservices predictably in Azure

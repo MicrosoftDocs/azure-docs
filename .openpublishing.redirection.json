@@ -12026,8 +12026,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-geo-replication-overview.md",
+            "redirect_url": "/azure/sql-database/sql-database-auto-failover-group",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-geo-replication-portal.md",
+            "redirect_url": "/azure/sql-database/sql-database-active-geo-replication-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-geo-replication-failover-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-geo-replication-portal",
+            "redirect_url": "/azure/sql-database/sql-database-active-geo-replication-portal",
             "redirect_document_id": false
         },
         {
@@ -31852,6 +31862,51 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-webhooks-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-webhooks",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-alerts-unified-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-unified-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-log-webhook",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-action-groups-logic-app.md",
+            "redirect_url":  "/azure/azure-monitor/platform/action-groups-logic-app",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/activity-log-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md",
+            "redirect_url":  "/azure/azure-monitor/platform/activity-log-alerts-webhook",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-extend.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-extend",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-extend-tool.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-extend-tool",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-alert-instances",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -32101,6 +32156,16 @@
             "source_path": "articles/redis-cache/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/show-cache",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-data-prep.md",
+            "redirect_url": "https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py",
+            "redirect_document_id" : false
         }
     ]
 }

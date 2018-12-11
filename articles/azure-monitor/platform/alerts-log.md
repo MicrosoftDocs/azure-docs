@@ -17,7 +17,7 @@ This article shows you how to set up log alerts using the alerts interface insid
 - Criteria: Specific condition or logic that when seen in Signal, should trigger action
 - Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
 
-The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Popular log data from [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
@@ -68,7 +68,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 1.  *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**.
 For **Log Alerts** alerts can be based on:
    - *Number of Records*: An alert is created if the count of records returned by the query is either greater than or less than the value provided.
-   - *Metric Measurement*: An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples. Learn more about [Log Alerts and their types](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+   - *Metric Measurement*: An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples. Learn more about [Log Alerts and their types](../../azure-monitor/platform/alerts-unified-log.md).
 
 
 1. As the second step, define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details are reused in all alert emails, notifications, or push done by Azure Monitor. Additionally, user can choose to immediately activate the alert rule on creation by appropriately toggling **Enable rule upon creation** option.
@@ -90,7 +90,7 @@ For **Log Alerts** alerts can be based on:
     For **Log Alerts** some additional functionality is available to override the default Actions:
 
     - **Email Notification**: Overrides *e-mail subject* in the email, sent via Action Group; if one or more email actions exist in the said Action Group. You cannot modify the body of the mail and this field is **not** for email address.
-    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook actions exist in the said Action Group. User can specify format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
+    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook actions exist in the said Action Group. User can specify format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](../../azure-monitor/platform/alerts-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
 
         ![Action Overrides for Log Alerts](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -237,8 +237,8 @@ On successful operation, 201 will be returned to state new alert rule creation o
   
 ## Next steps
 
-* Learn about [Log Alerts in Azure Alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
-* Understand [Webhook actions for log alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../application-insights/app-insights-analytics.md)
 * Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 
