@@ -1,5 +1,5 @@
 ---
-title: How to require multi-factor authentication (MFA) for access attempts from untrusted networks with Azure Active Directory (Azure AD) conditional access | Microsoft Docs
+title: How to require multi-factor authentication (MFA) for access from untrusted networks with Azure Active Directory (Azure AD) conditional access | Microsoft Docs
 description: Learn how to configure a conditional access policy in Azure Active Directory (Azure AD) to for access attempts from untrusted networks.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
@@ -20,11 +20,11 @@ ms.author: markvi
 ms.reviewer: calebb
 
 ---
-# How to: Require MFA for access attempts from untrusted networks with conditional access   
+# How to: Require MFA for access from untrusted networks with conditional access   
 
 Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. Your users can access your cloud apps not only from your organization's network, but also from any untrusted Internet location. A common best practice for access from untrusted networks is to require multi-factor authentication (MFA).
 
-This article provides you with the information you need to configure a conditional access policy that requires MFA for access attempts from untrusted networks. 
+This article gives you the information you need to configure a conditional access policy that requires MFA for access attempts from untrusted networks. 
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ This article assumes that you are familiar with:
 
 ## Scenario description
 
-To master the balance between security and productivity, it might be sufficient for you to only require your user to be authenticated using a password. However, when an access attempt is made from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access attempts from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. 
+To master the balance between security and productivity, it might be sufficient for you to only require a password for sign-ins from your organization's network. However, for access from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. 
 
 With Azure AD conditional access, you can address this requirement with a single policy that grants access: 
 
@@ -47,7 +47,7 @@ With Azure AD conditional access, you can address this requirement with a single
 
 - Requiring multi-factor authentication 
 
-- When an access attempt is made from: 
+- When an access is originated from: 
 
     - A location that is not trusted
 
