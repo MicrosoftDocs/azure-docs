@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
 ---
-# Back up a VMware server to Azure
+# Back up VMware VMs with Azure Backup Server
 
 This article explains how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server. 
 
@@ -83,19 +83,15 @@ Set up a secure channel as follows:
 
 10. In **Select Certificate Store**, select **Trusted Root Certification Authorities** as the destination folder for the certificates, and then click **OK**.
 
-
-
     ![Certificate destination folder](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
-
 
 11. In **Completing the Certificate Import Wizard**, verify the folder, and then click **Finish**.
 
     ![Verify certificate is in the proper folder](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
     
-11. After the certificate import is confirmed, sign in to the vCenter Server to confirm that your connection is secure.
+12. After the certificate import is confirmed, sign in to the vCenter Server to confirm that your connection is secure.
 
-  If the certificate import is not successful, and you cannot establish a secure connection, consult the VMware vSphere documentation on [obtaining server certificates](http://pubs.vmware.com/vsphere-60/index.jsp#com.vmware.wssdk.dsg.doc/sdk_sg_server_certificate_Appendixes.6.4.html).
 
   
 
@@ -124,19 +120,19 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 
     ![Administration ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-2. In **Administration** > **Roles**, click the add role icon (the + symbol).
+3. In **Administration** > **Roles**, click the add role icon (the + symbol).
 
     ![Add role](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
     
-3. In **Create Role** > **Role name**, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
+4. In **Create Role** > **Role name**, enter *BackupAdminRole*. The role name can be whatever you like, but it should be recognizable for the role's purpose.
 
-4. Select the privileges as summarized in the table below, and then click **OK**.  The new role appears on the list in the **Roles** panel.
+5. Select the privileges as summarized in the table below, and then click **OK**.  The new role appears on the list in the **Roles** panel.
     - Click the icon next to the parent label to expand the parent and view the child privileges.
     - To select the VirtualMachine privileges, you need to go several levels into the parent child hierarchy.
     - You don't need to select all child privileges within a parent privilege.
 
-      ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+    ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### Role permissions
 **6.5/6.0** | **5.5**
@@ -303,17 +299,17 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
         - If you don't want to set a back up interval you can check **Just before a recovery point** so that a backup runs just before each recovery point is scheduled.
         - Short-term backups are full backups and not incremental.
         - Click **Modify** to change the times/dates when short-term backups occur.
-   
+
     ![Specify short-term goals](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
 6. In **Review Disk Allocation**, review the disk space provided for the VM backups. for the VMs.
 
     - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then click **Next**.
     -  **Data size:** Size of the data in the protection group.
-      - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
-      - - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
-      - - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, System Center Data Protection Manager tries to increase the disk size by 25 percent.
-      - - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
+    - **Disk space:** The recommended amount of disk space for the protection group. If you want to modify this setting, you should allocate total space that is slightly larger than the amount that you estimate each data source grows.
+    - **Colocate data:** If you turn on colocation, multiple data sources in the protection can map to a single replica and recovery point volume. Colocation isn't supported for all workloads.
+    - **Automatically grow:** If you turn on this setting, if data in the protected group outgrows the initial allocation, Azure Backup Server tries to increase the disk size by 25 percent.
+    - **Storage pool details:** Shows the status of the storage pool, including total and remaining disk size.
 
     ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
