@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/8/2018
+ms.date: 11/27/2018
 ms.author: jdial
 ms.custom: mvc
 
 ---
 # What is Azure Virtual Network?
 
-Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. Azure Virtual Network provides the following key capabilities:
+Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is scoped to a single region; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
+
+Azure Virtual Network provides the following key capabilities:
 
 ## Isolation and segmentation
 

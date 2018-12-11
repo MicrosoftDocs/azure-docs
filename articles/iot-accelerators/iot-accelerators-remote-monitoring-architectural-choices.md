@@ -6,7 +6,7 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,7 @@ The Azure IoT Remote Monitoring solution accelerator is an open-source, MIT lice
 
 The Remote Monitoring solution follows the recommended [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture).
 
-This article describes the architectural and technical choices made, and the alternatives considered, in each of the Remote Monitoring subsystems. However, the technical choices Microsoft made in the Remote Monitoring solution aren't the only way to implement a remote monitoring IoT solution. You should regard the technical implementation as a baseline for building a successful application and you should modify it to:
+This article describes the key architectural and technical choices made in each of the Remote Monitoring subsystems. However, the technical choices Microsoft made in the Remote Monitoring solution aren't the only way to implement a remote monitoring IoT solution. You should regard the technical implementation as a baseline for building a successful application and you should modify it to:
 
 - Fit the available skills and experience in your organization.
 - Meet your vertical application needs.
@@ -47,7 +47,8 @@ Azure IoT Hub is used as the Remote Monitoring solution cloud gateway. [IoT Hub]
 For IoT device connectivity, you can use:
 
 - The [IoT Hub device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) to implement a native client application for your device. The SDKs offer wrappers around the IoT Hub REST API and handle scenarios such as retries.
-- The integration with Azure IoT Edge in the solution accelerator to deploy and manage custom modules running in containers on your devices.
+- The integration with Azure IoT Edge to deploy and manage custom modules running in containers on your devices.
+- The integration with automatic device management in IoT Hub to manage connected devices in bulk.
 
 ### Stream processing
 
@@ -57,7 +58,7 @@ For stream processing, the Remote Monitoring solution uses Azure Stream Analytic
 
 For storage, the Remote Monitoring solution accelerator uses both Azure Time Series Insights and Azure Cosmos DB. Azure Time Series Insights stores the messages coming through IoT Hub from your connected devices. The solution accelerator uses Azure Cosmos DB for all other storage such as cold storage, rules definitions, alarms, and configuration settings.
 
-Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases. With Azure Time Series Insights, you can gain deeper insights into your time-series sensor data by spotting trends and anomalies. This feature lets you conduct root-cause analyses and avoid costly downtime.
+Azure Cosmos DB is the recommended general-purpose warm storage solution for IoT applications. However, solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases. With Azure Time Series Insights, you can gain deeper insights into your time-series sensor data by spotting trends and anomalies. This feature lets you conduct root-cause analyses and avoid costly downtime.
 
 > [!NOTE]
 > Time Series Insights is not currently available in the Azure China cloud. New Remote Monitoring solution accelerator deployments in the Azure China cloud use Cosmos DB for all storage.

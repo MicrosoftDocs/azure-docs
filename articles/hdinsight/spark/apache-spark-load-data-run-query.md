@@ -16,7 +16,7 @@ ms.date: 11/06/2018
 
 # Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight
 
-In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an Apache Spark cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
+In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an [Apache Spark](https://spark.apache.org/) cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
  
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -97,10 +97,10 @@ You can also select the resource group name to open the resource group page, and
 
 In this tutorial, you learned how to:
 
-* Create a Spark dataframe.
+* Create an Apache Spark dataframe.
 * Run Spark SQL against the dataframe.
 
-Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI. 
+Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
 > [Analyze data using BI tools](apache-spark-use-bi-tools.md)
 

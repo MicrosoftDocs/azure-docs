@@ -36,7 +36,7 @@ Yes.
 
 The core Service Fabric clustering technology can be used to combine machines running anywhere in the world, so long as they have network connectivity to each other. However, building and running such a cluster can be complicated.
 
-If you are interested in this scenario, we encourage you to get in contact either through the [Service Fabric Github Issues List](https://github.com/azure/service-fabric-issues) or through your support representative in order to obtain additional guidance. The Service Fabric team is working to provide additional clarity, guidance, and recommendations for this scenario. 
+If you are interested in this scenario, we encourage you to get in contact either through the [Service Fabric GitHub Issues List](https://github.com/azure/service-fabric-issues) or through your support representative in order to obtain additional guidance. The Service Fabric team is working to provide additional clarity, guidance, and recommendations for this scenario. 
 
 Some things to consider: 
 

@@ -1,13 +1,13 @@
 ---
-title: Create experiments from machine learning examples - Azure | Microsoft Docs
-description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning.
+title: Create Machine Learning Studio experiments from examples - Azure | Microsoft Docs
+description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio.
 keywords: machine learning examples, sample experiment, machine learning sample, AI examples
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning

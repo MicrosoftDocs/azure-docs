@@ -72,7 +72,7 @@ Get-AzureADUser -All $true | Where-Object {$_.AccountEnabled -eq $true} | select
 > [!NOTE]
 > Depending on your environment, there might be other information you need to collect, for example Extensions, DirectReport, LicenceDetail etc.
 
-Format your CSV as needed and follow the steps given in [Importing data from CSV](/powershell/azure/active-directory/importing-data.md?view=azureadps-2.0) to re-create the users in the new environment.
+Format your CSV as needed and follow the steps given in [Importing data from CSV](/powershell/azure/active-directory/importing-data) to re-create the users in the new environment.
 
 ### Inventory of Groups
 
@@ -128,7 +128,7 @@ $_.ObjectId | Format-Table}
 
 - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
 - [Custom Domain Names](../active-directory/fundamentals/add-custom-domain.md)
-- [Import data from CSV to Azure AD](/powershell/azure/active-directory/importing-data.md?view=azureadps-2.0)
+- [Import data from CSV to Azure AD](/powershell/azure/active-directory/importing-data)
 
 ## ADConnect
 

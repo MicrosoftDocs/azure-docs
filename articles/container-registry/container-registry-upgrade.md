@@ -119,10 +119,10 @@ When the migration is complete, the **Provisioning state** indicates *Succeeded*
 Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no longer uses the storage account that originally backed the Classic registry. To reduce cost, consider deleting the storage account or the Blob container within the account that contains your old container images.
 
 <!-- IMAGES -->
-[update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
-[update-classic-02-confirm]: ./media/container-registry-upgrade\update-classic-02-confirm.png
-[update-classic-03-updating]: ./media/container-registry-upgrade\update-classic-03-updating.png
-[update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
+[update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png
+[update-classic-02-confirm]: ./media/container-registry-upgrade/update-classic-02-confirm.png
+[update-classic-03-updating]: ./media/container-registry-upgrade/update-classic-03-updating.png
+[update-classic-04-updated]: ./media/container-registry-upgrade/update-classic-04-updated.png
 
 <!-- LINKS - internal -->
 [az-acr-update]: /cli/azure/acr#az-acr-update

@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	c. After successfull completion of uploading **Service Provider metadata file** the **Identifier** value get auto populated in **ForeSee CX Suite Domain and URLs** section textbox as shown below:
+	c. After successful completion of uploading **Service Provider metadata file** the **Identifier** value get auto populated in **ForeSee CX Suite Domain and URLs** section textbox as shown below:
 
 	![ForeSee CX Suite Domain and URLs single sign-on information](./media/foreseecxsuite-tutorial/urlupload.png)
 

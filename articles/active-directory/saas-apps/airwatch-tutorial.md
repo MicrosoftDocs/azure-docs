@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     b. In the **Identifier** textbox, type the value as `AirWatch`
 
 	> [!NOTE] 
-	> This value is not the real. Update this value with the actual Sign-on URL. Contact [AirWatch Client support team](http://www.air-watch.com/company/contact-us/) to get this value. 
+	> This value is not the real. Update this value with the actual Sign-on URL. Contact [AirWatch Client support team](https://www.air-watch.com/company/contact-us/) to get this value. 
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 

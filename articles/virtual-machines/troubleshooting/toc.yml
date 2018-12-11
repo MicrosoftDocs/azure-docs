@@ -40,6 +40,14 @@
     href: troubleshoot-rdp-nic-disabled.md
   - name: Troubleshoot RDP error caused by Safe Mode
     href: troubleshoot-rdp-safe-mode.md
+  - name: Disable the guest OS Firewall in Azure VM
+    href: disable-guest-os-firewall-windows.md
+  - name: Enable or disable a firewall rule on a guest OS
+    href: enable-disable-firewall-rule-guest-os.md
+  - name: Guest OS firewall is blocking inbound traffic
+    href: guest-os-firewall-blocking-inbound-traffic.md
+  - name: Guest OS firewall is misconfigured
+    href: guest-os-firewall-misconfigured.md 
   - name: Troubleshoot RDP error caused by netvsc.sys
     href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH

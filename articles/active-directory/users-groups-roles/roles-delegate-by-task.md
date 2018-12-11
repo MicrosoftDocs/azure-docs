@@ -105,7 +105,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Peform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices
@@ -145,7 +145,7 @@ Assign license | User account administrator |
 Create group | User account administrator | 
 Create, update, or delete access review of a group or of an app | User account administrator | 
 Manage group expiration | User account administrator | 
-Manage group settings | User account administrator | 
+Manage group settings | Global Administrator | 
 Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User account administrator
 Read membership of groups with hidden membership | Helpdesk Administrator | User account administrator, Teams administrator
