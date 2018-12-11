@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/07/2018
+ ms.date: 12/10/2018
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -24,10 +24,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 ## Find the managed image
 
-See a list of images that are available in a resource group using [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). This example gets an image named *myImage* and assigns to the variable *$managedImage*.
+See a list of images that are available in a resource group using [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. Replace the values with your own to create a variable for the managed image.
 
 ```azurepowershell-interactive
-$managedImage = Get-AzureRmImage -ImageName myImage -ResourceGroupName myResourceGroup
+$managedImage = Get-AzureRmImage `
+   -ImageName myImage `
+   -ResourceGroupName myResourceGroup
 ```
 
 ## Create an image gallery 
@@ -56,13 +58,29 @@ $galleryImage = New-AzureRmGalleryImageDefinition `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $gallery.Location `
    -Name 'myImageDefinition' `
-   -Offer 'myOffer' `
    -OsState generalized `
    -OsType Windows `
    -Publisher 'myPublisher' `
+   -Offer 'myOffer' `
    -Sku 'mySKU'
-
 ```
+
+In an upcoming release, you'll be able to use your personally defined **-Publisher**, **-Offer** and **-Sku** values to find and specify an image definition, then create a VM using latest image version from the matching image definition. For example, here are three image definitions and their values:
+
+|Image Definition|Publisher|Offer|Sku|
+|---|---|---|---|
+|myImage1|myPublisher|myOffer|mySku|
+|myImage2|myPublisher|standardOffer|mySku|
+|myImage3|Testing|standardOffer|testSku|
+
+All three of these have unique sets of values. In an upcoming release, you will be able to combine these values in order to request the latest version of a specific image. 
+
+```powershell
+# The following should set the source image as myImage1 from the table above
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName myPublisher -Offer myOffer -Skus mySku -Version latest
+```
+
+This is similar to how you can currently specify these for [Azure Marketplace images](cli-ps-findimage.md) to create a VM. With this in mind, each image definition needs to have a unique set of these values. You can have image versions that share one or two, but not all three values. 
 
 ##Create an image version
 
@@ -70,24 +88,10 @@ Create an image version from a managed image using [New-AzureRmGalleryImageVersi
 
 
 ```azurepowershell-interactive
-$imageVersion = New-AzureRmGalleryImageVersion `
-   -GalleryImageDefinitionName $galleryImage.Name `
-   -GalleryImageVersionName '1.0.0' `
-   -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -Location $resourceGroup.Location `
-   -TargetRegion (Name='West Central US';ReplicaCount=2), (Name='East US';ReplicaCount=2), (Name='West US';ReplicaCount=1)  `
-   -Source $managedImage.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-01-01'
-```
-
-
-```azurepowershell-interactive
 
 $region1 = @{Name='West US';ReplicaCount=1}
-$region2 = @{Name='East US';ReplicaCount=2}
-$region3 = @{Name='West Central US';ReplicaCount=2}
-$targetRegions = @($region1,$region2,$region3)
+$region2 = @{Name='West Central US';ReplicaCount=2}
+$targetRegions = @($region1,$region2)
 $imageVersion = New-AzureRmGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
