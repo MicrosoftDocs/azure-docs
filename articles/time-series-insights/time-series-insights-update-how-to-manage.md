@@ -17,14 +17,14 @@ This document describes how to create and manage an Azure Time Series Insights P
 
 ## Overview
 
-A brief overview about how to provision a Azure Time Series Insights Preview environment is described below:
+A brief overview about how to provision an Azure Time Series Insights Preview environment is described below:
 
 * Azure Time Series Insights Preview environments are **PAYG** environments.
-  * As part of the creation process you will need to provide a Time Series ID. Time Series IDs can be up to 3 keys. Learn more about selecting a Time Series ID by reading [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md).
-  * When you provision an Azure Time Series Insights Preview environment you create two Azure resources:
+  * As part of the creation process you will need to provide a Time Series ID. Time Series IDs can be up to three keys. Learn more about selecting a Time Series ID by reading [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md).
+  * When you provision an Azure Time Series Insights Preview environment, you create two Azure resources:
 
     * An Azure Time Series Insights Preview environment  
-    * An Azure Storage general purpose V1 account
+    * An Azure Storage general-purpose V1 account
   
     Learn [How to plan your environment](./time-series-insights-update-plan.md).
 
@@ -40,7 +40,7 @@ A brief overview about how to provision a Azure Time Series Insights Preview env
 
 The following steps describe how to create an Azure Time Series Insights Preview environment:
 
-1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, designate which subscription group, and whch resource group to use. Then, select a supported location for the environment to be hosted in.
+1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, designate which subscription group, and which resource group to use. Then, select a supported location for the environment to be hosted in.
 
 1. Input Time Series ID property
 
@@ -49,7 +49,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
     > * Time Series IDs can be up to 3 keys.
     > * Read more about selecting a Time Series ID by reading [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md).
 
-1. Create a Azure Storage account by selecting an Azure Storage account name and designating a replication choice. Doing so automatically creates a Azure Storage general purpose V1 account. It wil be created in the same region as the Azure Time Series Insights Preview environment you previously selected.
+1. Create an Azure Storage account by selecting an Azure Storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose V1 account. It will be created in the same region as the Azure Time Series Insights Preview environment you previously selected.
 
     ![Create an Azure Time Series Insights instance.][1]
 
@@ -72,7 +72,7 @@ Confirm that your environment has been provisioned with the desired settings.
 
 ## Management
 
-You have the ability to manage your Azure Time Series Insights Preview environment using the Azure portal. Here are the major differences in managing an **PAYG** Azure Time Series Insights Preview environment as opposed to an S1 or S2 environment using Azure Portal:
+You have the ability to manage your Azure Time Series Insights Preview environment using the Azure portal. Here are the major differences in managing a **PAYG** Azure Time Series Insights Preview environment as opposed to an S1 or S2 environment using Azure Portal:
 
 * The Azure portal *Overview* blade remains unchanged in Azure Time Series Insights except in the following ways:
   * Capacity is removed as this concept is not relevant to **PAYG** environments.
@@ -81,7 +81,7 @@ You have the ability to manage your Azure Time Series Insights Preview environme
   * The displayed URL directs you to the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
   * Your Azure Storage account name is listed.
 
-* The Azure Portal *Configure* blade has been removed in Azure Time Series Insights Preview since there is **PAYG** environments are not configurabe.
+* The Azure Portal *Configure* blade has been removed in Azure Time Series Insights Preview since there is **PAYG** environments are not configurable.
 
 * The Azure Portal *Reference* data blade has been removed in Azure Time Series Insights Preview since reference data is not a component of **PAYG** environments.
 
