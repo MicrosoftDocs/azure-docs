@@ -33,11 +33,9 @@ There are three levels of support:
 
 ### Experimental languages
 
-The experimental languages in version 1.x don't scale well and don't support all bindings. For example, 1.x Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
+The experimental languages in version 1.x don't scale well and don't support all bindings. For example, experimental support for PowerShell in 1.x is limited to version 5.1, because that is what's installed by default on the VMs on which function apps run. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-Experimental support for PowerShell in 1.x is limited to version 5.1, because that is what's installed by default on the VMs on which function apps run. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-Don't use experimental languages for anything that you rely on, as there is no official support for them. Support cases should not be opened for problems with experimental languages. 
+Don't use experimental features for anything that you rely on, as there is no official support for them. Support cases should not be opened for problems with experimental languages. 
 
 The version 2.x runtime doesn't support experimental languages. Support for new languages is added only when the language can be supported in production. 
 
@@ -60,3 +58,6 @@ To learn more about how to use one of the GA or preview languages in Azure Funct
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

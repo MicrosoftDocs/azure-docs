@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -17,11 +17,11 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Custom policies are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. Built-in policies are predefined in the Azure AD B2C portal for the most common identity tasks. Custom policies can be fully edited by an identity developer to complete many different tasks.
+Custom policies are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. User flows are predefined in the Azure AD B2C portal for the most common identity tasks. Custom policies can be fully edited by an identity developer to complete many different tasks.
 
-## Comparing built-in policies and custom policies
+## Comparing user flows and custom policies
 
-| | Built-in policies | Custom policies |
+| | User flows | Custom policies |
 |-|-------------------|-----------------|
 | Target users | All application developers with or without identity expertise. | Identity pros, systems integrators, consultants, and in-house identity teams. They are comfortable with OpenIDConnect flows and understand identity providers and claims-based authentication. |
 | Configuration method | Azure portal with a user-friendly user-interface (UI). | Directly editing XML files and then uploading to the Azure portal. |
@@ -29,7 +29,7 @@ Custom policies are configuration files that define the behavior of your Azure A
 | Attribute customization | Standard and custom attributes. | Same |
 | Token and session management | Custom token and multiple session options. | Same |
 | Identity Providers | Predefined local or social provider. | Standards-based OIDC, OAUTH, and SAML. |
-| Identity Tasks | Sign-up or sign-in with local or many social accounts.<br><br>Self-service password reset.<br><br>Profile edit.<br><br>Multi-Factor Authentication.<br><br>Customize tokens and sessions.<br><br>Access token flows. | Complete the same tasks as built-in policies using custom identity providers or use custom scopes.<br><br>Provision a user account in another system at the time of registration.<br><br>Send a welcome email using your own email service provider.<br><br>Use a user store outside Azure AD B2C.<br><br>Validate user provided information with a trusted system by using an API. |
+| Identity Tasks | Sign-up or sign-in with local or many social accounts.<br><br>Self-service password reset.<br><br>Profile edit.<br><br>Multi-Factor Authentication.<br><br>Customize tokens and sessions.<br><br>Access token flows. | Complete the same tasks as user flows using custom identity providers or use custom scopes.<br><br>Provision a user account in another system at the time of registration.<br><br>Send a welcome email using your own email service provider.<br><br>Use a user store outside Azure AD B2C.<br><br>Validate user provided information with a trusted system by using an API. |
 
 ## Policy files
 
@@ -39,7 +39,7 @@ These three types of policy files are used:
 - **Extensions file** - holds the unique configuration changes for your tenant.
 - **Relying Party (RP) file** - The single task-focused file that is invoked directly by the application or service (also, known as a Relying Party). Each unique task requires its own RP and depending on branding requirements, the number might be "total of applications x total number of use cases."
 
-Built-in policies in Azure AD B2C follow the three-file pattern depicted above, but the developer only sees the RP file, while the Azure portal makes changes in the background to the extensions file.
+User flows in Azure AD B2C follow the three-file pattern depicted above, but the developer only sees the RP file, while the Azure portal makes changes in the background to the extensions file.
 
 ## Custom policy core concepts
 

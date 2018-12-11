@@ -1,6 +1,7 @@
 ---
-title: Deploy a model as a web service on an FPGA with Azure Machine Learning 
-description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning. 
+title: Deploy models on FPGAs
+titleSuffix: Azure Machine Learning service
+description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inferencing. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,10 +10,11 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/29/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
-# Deploy a model as a web service on an FPGA with Azure Machine Learning
+# Deploy a model as a web service on an FPGA with Azure Machine Learning service
 
 You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md).  Using FPGAs provides ultra-low latency inferencing, even with a single batch size.   
 
@@ -161,14 +163,6 @@ registered_model.delete()
 
 Azure Machine Learning models running on FPGAs provide SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients. [Learn how to secure the web service](how-to-secure-web-service.md).
 
-
-## Sample notebook
-
-Concepts in this article are demonstrated in the [project-brainwave/project-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) notebook.
-
-Get this notebook:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 

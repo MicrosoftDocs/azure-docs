@@ -6,7 +6,7 @@ author: davidmu1
 manager: mtillman
 
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Register a sample ASP.NET web app in your Azure AD B2C tenant.
-> * Create policies for user sign-up, sign-in, editing a profile, and password reset.
+> * Create user flows for user sign-up, sign-in, editing a profile, and password reset.
 > * Configure the sample web app to use your Azure AD B2C tenant. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -75,65 +75,87 @@ Azure AD B2C uses OAuth2 authorization for [client applications](../active-direc
 
 The key is displayed once in the portal. It's important to copy and save the key value. You need this value for configuring your app. Keep the key secure. Don't share the key publicly.
 
-## Create policies
+## Create user flows
 
-An Azure AD B2C policy defines user workflows. For example, signing in, signing up, changing passwords, and editing profiles are common workflows.
+An Azure AD B2C user flow defines the user experience for an identity task. For example, signing in, signing up, changing passwords, and editing profiles are common user flows.
 
-### Create a sign-up or sign-in policy
+### Create a sign-up or sign-in user flow
 
-To sign up users to access then sign in to the web app, create a **sign-up or sign-in policy**.
+To sign up users to access then sign in to the web app, create a **sign-up or sign-in user flow**.
 
-1. From the Azure AD B2C portal page, select **Sign-up or sign-in policies** and click **Add**.
+1. From the Azure AD B2C portal page, select **User flows** and click **New user flow**.
+2. On the **Recommended** tab, click **Sign up and sign in**.
 
-    To configure your policy, use the following settings:
+    To configure your user flow, use the following settings:
 
-    ![Add a sign-up or sign-in policy](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
-
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiUpIn** in the sample code. | 
-    | **Identity provider** | Email signup | The identity provider used to uniquely identify the user. |
-    | **Sign up attributes** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
-    | **Application claims** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token). |
-
-2. Click **Create** to create your policy. 
-
-### Create a profile editing policy
-
-To allow users to reset their user profile information on their own, create a **profile editing policy**.
-
-1. From the Azure AD B2C portal page, select **Profile editing policies** and click **Add**.
-
-    To configure your policy, use the following settings:
+    ![Add a sign-up or sign-in user flow](media/active-directory-b2c-tutorials-web-app/add-susi-user-flow.png)
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SiPe** in the sample code. | 
-    | **Identity provider** | Local Account SignIn | The identity provider used to uniquely identify the user. |
-    | **Profile attributes** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
-    | **Application claims** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful profile edit. |
+    | **Name** | SiUpIn | Enter a **Name** for the user flow. The user flow name is prefixed with **b2c_1_**. You use the full user flow name **b2c_1_SiUpIn** in the sample code. | 
+    | **Identity providers** | Email signup | The identity provider used to uniquely identify the user. |
 
-2. Click **Create** to create your policy. 
+3. Under **User attributes and claims**, click **Show more** and select the following settings:
 
-### Create a password reset policy
+    ![Add a sign-up or sign-in user flow](media/active-directory-b2c-tutorials-web-app/add-attributes-and-claims.png)
 
-To enable password reset on your application, you need to create a **password reset policy**. This policy describes the consumer experience during password reset and the contents of tokens that the application receives on successful completion.
+    | Column      | Suggested values  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Collect attribute** | Display Name and Postal Code | Select attributes to be collected from the user during signup. |
+    | **Return claim** | Display Name, Postal Code, User is new, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token). |
+
+4. Click **OK**.
+5. Click **Create** to create your user flow. 
+
+### Create a profile editing user flow
+
+To allow users to reset their user profile information on their own, create a **profile editing user flow**.
+
+1. From the Azure AD B2C portal page, select **User flows** and click **New user flow**.
+2. On the **Recommended** tab, click **Profile editing**.
+
+    To configure your user flow, use the following settings:
+
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Name** | SiPe | Enter a **Name** for the user flow. The user flow name is prefixed with **b2c_1_**. You use the full user flow name **b2c_1_SiPe** in the sample code. | 
+    | **Identity providers** | Local Account SignIn | The identity provider used to uniquely identify the user. |
+
+3. Under **User attributes**, click **Show more** and select the following settings:
+
+    | Column      | Suggested values  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Collect attribute** | Display Name and Postal Code | Select attributes users can modify during profile edit. |
+    | **Return claim** | Display Name, Postal Code, User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful profile edit. |
+
+4. Click **OK**.
+5. Click **Create** to create your user flow. 
+
+### Create a password reset user flow
+
+To enable password reset on your application, you need to create a **password reset user flow**. This user flow describes the consumer experience during password reset and the contents of tokens that the application receives on successful completion.
 
 1. From the Azure AD B2C portal page, select **Password reset policies** and click **Add**.
+2. On the **Recommended** tab, click **Password reset**.
 
-    To configure your policy, use the following settings.
+    To configure your user flow, use the following settings.
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | Enter a **Name** for the policy. The policy name is prefixed with **b2c_1_**. You use the full policy name **b2c_1_SSPR** in the sample code. | 
-    | **Identity provider** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
-    | **Application claims** | User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful password reset. |
+    | **Name** | SSPR | Enter a **Name** for the user flow. The user flow name is prefixed with **b2c_1_**. You use the full user flow name **b2c_1_SSPR** in the sample code. | 
+    | **Identity providers** | Reset password using email address | This is the identity provider used to uniquely identify the user. |
 
-2. Click **Create** to create your policy. 
+3. Under **Application claims**, click **Show more** and select the following setting:
+    | Column      | Suggested value  | Description                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Return claim** | User's Object ID | Select [claims](../active-directory/develop/developer-glossary.md#claim) you want to be included in the [access token](../active-directory/develop/developer-glossary.md#access-token) after a successful password reset. |
+
+4. Click **OK**.
+5. Click **Create** to create your user flow. 
 
 ## Update web app code
 
-Now that you have a web app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app you can download from GitHub. 
+Now that you have a web app registered and user flows created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app you can download from GitHub. 
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web app from GitHub. Make sure that you extract the sample file in a folder where the total character length of the path is less than 260.
 
@@ -141,15 +163,15 @@ Now that you have a web app registered and policies created, you need to configu
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-The sample ASP.NET web app is a simple task list app for creating and updating a to-do list. The app uses [Microsoft OWIN middleware components](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) to let users sign up to use the app in your Azure AD B2C tenant. By creating an Azure AD B2C policy, users can use a social account or create an account to use as their identity to access the app. 
+The sample ASP.NET web app is a simple task list app for creating and updating a to-do list. The app uses [Microsoft OWIN middleware components](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) to let users sign up to use the app in your Azure AD B2C tenant. By creating an Azure AD B2C user flow, users can use a social account or create an account to use as their identity to access the app. 
 
 There are two projects in the sample solution:
 
-**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** policy to sign up or sign in users.
+**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** user flow to sign up or sign in users.
 
 **Web API sample app (TaskService):** Web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web app.
 
-You need to change the app to use the app registration in your tenant, which includes the application ID and the key that you previously recorded. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
+You need to change the app to use the app registration in your tenant, which includes the application ID and the key that you previously recorded. You also need to configure the user flows you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
@@ -167,11 +189,11 @@ The sample app supports sign up, sign in, editing a profile, and password reset.
 
 ### Sign up using an email address
 
-1. Click the **Sign up / Sign in** link in the top banner to sign up as a user of the web app. This uses the **b2c_1_SiUpIn** policy you defined in a previous step.
+1. Click the **Sign up / Sign in** link in the top banner to sign up as a user of the web app. This uses the **b2c_1_SiUpIn** user flow you defined in a previous step.
 
 2. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link. 
 
-3. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the policy.
+3. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes. 
 
@@ -187,7 +209,7 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C tutor
 
 ## Next steps
 
-In this tutorial, you learned how to create an Azure AD B2C tenant, create policies, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
+In this tutorial, you learned how to create an Azure AD B2C tenant, create user flows, and update the sample web app to use your Azure AD B2C tenant. Continue to the next tutorial to learn how to register, configure, and call a ASP.NET web API protected by your Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use Azure Active Directory B2C to protect an ASP.NET web API](active-directory-b2c-tutorials-web-api.md)

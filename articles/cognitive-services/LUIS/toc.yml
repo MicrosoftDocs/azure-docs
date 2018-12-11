@@ -248,6 +248,13 @@
       href: luis-find-region-csharp.md
     - name: Using REST API & Node.js
       href: luis-find-region-nodejs.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      href: luis-container-howto.md
+    - name: Configure containers
+      href: luis-container-configuration.md
 - name: Reference
   items:
   - name: User privacy

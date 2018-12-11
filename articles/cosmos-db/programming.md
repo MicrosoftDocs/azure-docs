@@ -1,13 +1,11 @@
 ---
-title: Server-side JavaScript programming for Azure Cosmos DB | Microsoft Docs
+title: Server-side JavaScript programming for Azure Cosmos DB
 description: Learn how to use Azure Cosmos DB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more.
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, azure, Microsoft azure
 services: cosmos-db
 author: aliuy
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
@@ -15,7 +13,7 @@ ms.author: andrl
 ---
 # Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs
 
-Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Javascript integration enables you to write program logic that can be shipped and executed directly within the database storage partitions. 
+Learn how Azure Cosmos DB's language-integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** natively in an [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/) JavaScript. Javascript integration enables you to write program logic that can be shipped and executed directly within the database storage partitions. 
 
 In this article you'll learn the answers to the following questions:  
 
@@ -42,7 +40,7 @@ This approach of *"JavaScript as a modern day T-SQL"* frees application develope
 
 The creation and execution of database triggers, stored procedures, and custom query operators is supported through the [Azure portal](https://portal.azure.com), the [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](sql-api-sdk-dotnet.md) in many platforms including .NET, Node.js, and JavaScript.
 
-This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/) to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
+This tutorial uses the [Node.js SDK with Q Promises](https://azure.github.io/azure-documentdb-node-q/) to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
 ## Stored procedures
 ### Example: Write a stored procedure
@@ -664,7 +662,7 @@ The following descriptions explain each query in the table above.
 
 
 ## Runtime support
-The Azure Cosmos DB [JavaScript server side API](https://azure.github.io/azure-cosmosdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+The Azure Cosmos DB [JavaScript server side API](https://azure.github.io/azure-cosmosdb-js-server/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Security
 JavaScript stored procedures and triggers are sandboxed so that the effects of one script do not leak to the other without going through the snapshot transaction isolation at the database level. The runtime environments are pooled but cleaned of the context after each run. Hence they are guaranteed to be safe of any unintended side effects from each other.
@@ -829,7 +827,7 @@ You may also find the following references and resources useful in your path to 
 
 * [Azure Cosmos DB JavaScript server-side API reference](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-* [Secure and Portable Database Extensibility](http://dl.acm.org/citation.cfm?id=276339) 
-* [Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-* [Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
+* [JavaScript ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [Secure and Portable Database Extensibility](https://dl.acm.org/citation.cfm?id=276339) 
+* [Service Oriented Database Architecture](https://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [Hosting the .NET Runtime in Microsoft SQL server](https://dl.acm.org/citation.cfm?id=1007669)

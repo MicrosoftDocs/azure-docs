@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
+=======
+title: Restrict access using IP filters - Azure Event Hubs | Microsoft Docs
+description: Use IP filtering to block connections from specific IP addresses to Azure Event Hubs. 
+>>>>>>> master
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -8,8 +13,9 @@ manager: timlt
 
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
 
 ---

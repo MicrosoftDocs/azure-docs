@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 8: key phrase extraction in LUIS"
+title: Key phrase extraction
 titleSuffix: Azure Cognitive Services
 description: Use keyPhrase prebuilt entity to extract key subject matter from utterances. You do not need to label any utterances with prebuilt entities. The entity is detected automatically.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -29,7 +29,6 @@ Your client application can use these values, along with other extracted entitie
 
 **In this tutorial, you learn how to:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Use existing tutorial app
 > * Add keyPhrase entity 
@@ -82,7 +81,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {
