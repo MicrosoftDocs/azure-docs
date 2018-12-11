@@ -6,17 +6,15 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 12/11/2018
 ---
 # Access Grafana in Azure HDInsight
 
 
 [Grafana](https://grafana.com/) is a popular, open-source graph and dashboard builder. Grafana is feature rich; not only does it let users create customizable and shareable dashboards, it also offers templated/scripted dashboards, LDAP integration, multiple data sources, and more.
 
-Currently, Grafana is only support by the Interactive Query cluster type in Azure HDInsight.
-
+Currently in Azure HDInsight, Grafana is supported with the Hbase and Interactive Query cluster types.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -70,13 +68,17 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 ## Access the Grafana dashboard
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 2. Select **HDInsight clusters**, and then select the cluster name you created in the last section.
+
 3. Under **Quick links**, click **Cluster dashboard**.
 
     ![HDInsight cluster dashboard portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "HDInsight cluster dashboard on the portal")
 
 4. From the dashboard, click the **Grafana** tile.
+
 5. Enter the Hadoop cluster user credentials.
+
 6. The Grafana dashboard looks like:
 
     ![HDInsight Grafana dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
