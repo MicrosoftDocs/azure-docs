@@ -93,7 +93,7 @@ This example shows the output that the script sent to STDOUT. Your containerized
 
 Regardless of the restart policy configured for a container group, you can manually stop a running container group at any time - for example, using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs.
 
-When a container group is stopped - either because the containers terminated or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) to manually start all containers in the container group. If the container image for any container is updated, a new image is pulled.
+When a container group is stopped - either because the containers terminated or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start all containers in the container group. If the container image for any container is updated, a new image is pulled.
 
 You can also restart a running container group - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled.
 
