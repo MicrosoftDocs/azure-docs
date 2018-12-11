@@ -1,6 +1,7 @@
 ---
-title: What's happening to Azure Machine Learning Workbench? | Microsoft Docs
-description: Learn about what's happening to the Workbench application, what changed in Azure Machine Learning, and what the support timeline is.
+title: What happened to Azure Machine Learning Workbench?
+titleSuffix: Azure Machine Learning service
+description: Learn about what happened to the Machine Learning Workbench application, what changed in Azure Machine Learning service, and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,8 +11,9 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
-# What's happening to Azure Machine Learning Workbench?
+# What's happening to Workbench in Azure Machine Learning service?
 
 The Machine Learning Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
 
@@ -78,13 +80,13 @@ Learn how to [get started in Python with the main SDK](quickstart-get-started.md
  
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, [download the models and re-register them](how-to-migrate.md) in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. To re-create your images, follow the [create Docker image](how-to-deploy-to-aci.md#configure-an-image) section. 
+The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can do this by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
 
 ## What about deployed web services?
 
 The models you deployed as web services by using your Machine Learning Model Management account will continue to work for as long as Azure Container Service is supported. Those web services will work even after support has ended for Machine Learning Model Management accounts. However, when support for the old CLI ends, so does your ability to manage those web services.
 
-In the newer version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. You can also [deploy to FPGAs and to Azure IoT Edge](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models by using the new SDK or CLI. 
+In the newer version, models are deployed as web services to Azure Container Instances or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
 
 ## What about the old SDK and CLI?
 

@@ -1,14 +1,17 @@
 ---
-title: "Quickstart: Create a machine learning service workspace in the Azure portal - Azure Machine Learning"
-description: Use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Azure Machine Learning.  
+title: "Quickstart:  Use Azure portal to start"
+titleSuffix: Azure Machine Learning service
+description: Get started with Azure Machine Learning service. Use Azure portal to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
+author: hning86
+ms.author: haining
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
@@ -73,9 +76,9 @@ Along with two notebooks, you see a `config.json` file. This config file contain
 
 Select `01.run-experiment.ipynb` to open the notebook.
 
-To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. After the code for that cell finishes, a number appears. 
+Run the cells one at a time (Shift+Enter). Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk, __*__, next to a cell, it's running. After the code for that cell finishes, a number appears. 
 
-After you've completed running all of the cells in the notebook, you can view the logged values in your workspace.
+After you've finished running all of the cells in the notebook, you can view the logged values in your workspace.
 
 ## View logged values
 
@@ -97,7 +100,7 @@ You see plots that were automatically created of the logged values. Whenever you
 
    ![View history](./media/quickstart-get-started/plots.png)
 
-Since the code to approximate pi uses random values, your plots will show different values.  
+Because the code to approximate pi uses random values, your plots will show different values.  
 
 ## Clean up resources 
 
@@ -109,7 +112,7 @@ You also can keep the resource group but delete a single workspace. Display the 
 
 You created the necessary resources to experiment with and deploy models. You also ran some code in a notebook. And you explored the run history from that code in your workspace in the cloud.
 
-For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model.  
+For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)

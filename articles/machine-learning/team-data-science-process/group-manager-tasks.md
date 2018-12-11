@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process Group Manager tasks - Azure  | Microsoft Docs
+title: Team Data Science Process group manager tasks
 description: An outline of the tasks for a group manager on a data science team project.
 author: marktab
 manager: cgronlun
@@ -9,11 +9,11 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 
-# Group Manager tasks
+# Tasks for a group manager on a data science team project
 
 This topic outlines the tasks that a Group Manager is expected to complete for hist/her data science organization. The objective is to establish collaborative group environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 

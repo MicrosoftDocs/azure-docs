@@ -1,6 +1,6 @@
 ---
-title: What is the Azure Machine Learning service?
-description: Machine learning in the cloud and what you can use it for. Overview of the Azure Machine Learning service, an integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
+title: What is Azure Machine Learning service?
+description: Overview of Azure Machine Learning service - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,6 +10,7 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # What is the Azure Machine Learning service?
@@ -29,16 +30,27 @@ The Azure Machine Learning service provides a cloud-based environment you can us
 [ ![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)]
 (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
+<<<<<<< HEAD
 Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components such as TensorFlow and scikit-learn.
 Support for rich tools makes it easy to interactively explore data, transform it, and then develop and test models. Examples are [Jupyter Notebook](http://jupyter.org) or the [Visual Studio Tools for AI](http://aka.ms/VSToolsforAI) extension.
+=======
+Azure Machine Learning service fully supports open-source technologies, so you can use tens of thousands of open-source Python packages with machine learning components such as TensorFlow and scikit-learn.
+Support for rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension, makes it easy to interactively explore data, transform it, and then develop, and test models.
+>>>>>>> ff16cdcf491245cc21ba74f49700b39e85b059cf
 Azure Machine Learning service also includes features that [automate model generation and tuning](tutorial-auto-train-models.md) to help you create models with ease, efficiency, and accuracy.
 
 By using Azure Machine Learning service, you can start training on your local machine and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), such as Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
+<<<<<<< HEAD
 When you have the right model, you can easily deploy it in a container such as Docker. So it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md). Or you can use the container in your own deployments, either on-premises or in the cloud.
 
 You can manage the deployed models and track multiple runs as you experiment to find the best solution.
 After it's deployed, your model can return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+=======
+When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to Azure Container Instances or Azure Kubernetes Service, or you can use the container in your own deployments, either on-premises or in the cloud. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
+You can manage the deployed models, and track multiple runs as you experiment to find the best solution.
+Once deployed, your model can return predictions in [real-time](how-to-consume-web-service.md), or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+>>>>>>> ff16cdcf491245cc21ba74f49700b39e85b059cf
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on all the steps of data preparation, model training and evaluation, and deployment.
 
@@ -56,9 +68,15 @@ You can choose from many machine learning components available in open-source Py
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
+<<<<<<< HEAD
 After you have a model, you use it to create a container, such as Docker, that can be deployed locally for testing. After testing is done, the model can be deployed as a production web service in either [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
 Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or the [Azure portal](https://portal.azure.com/).
+=======
+Once you have a model, you use it to create a container (such as Docker) that can be deployed locally for testing. Once testing is done, the model can be deployed as a production web service in either Azure Container Instances or Azure Kubernetes Service. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
+
+You then can manage your deployed models using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or the [Azure portal](https://portal.azure.com/).
+>>>>>>> ff16cdcf491245cc21ba74f49700b39e85b059cf
 You can evaluate model metrics, retrain, and redeploy new versions of the model, all while tracking the model's experiments.
 
 To get started using Azure Machine Learning service, see [Next steps](#next-steps).
@@ -83,7 +101,7 @@ If you aren't a subscriber, you can [open an Azure account for free](https://aka
 
 - Follow the full-length tutorial, [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
-- [Use Azure Machine Learning to auto-generate and auto-tune a model](tutorial-auto-train-models.md).
+- [Use Azure Machine Learning to autogenerate and auto-tune a model](tutorial-auto-train-models.md).
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 

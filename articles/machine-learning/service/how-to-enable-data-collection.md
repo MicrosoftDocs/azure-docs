@@ -1,5 +1,6 @@
 ---
-title: Enable data collection for models in production - Azure Machine Learning
+title: Enable data collection for models in production
+titleSuffix: Azure Machine Learning service
 description: Learn how to collect Azure Machine Learning input model data in an Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
@@ -9,6 +10,8 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
+ms.custom: seodec18
+
 ---
 # Collect data for models in production
 
@@ -49,7 +52,7 @@ The path to the output data in the blob follows this syntax:
 
 - A trained machine learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have one, see the [train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
-- An [AKS cluster](how-to-deploy-to-aks.md).
+- An Azure Kubernetes Service cluster. For information on how to create and deploy to one, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 - [Set up your environment](how-to-configure-environment.md) and install the [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
@@ -97,7 +100,7 @@ To enable it, you need to:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Create new image and deploy your service.](how-to-deploy-to-aks.md) 
+5. To create a new image and deploy the service, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 
 If you already have a service with the dependencies installed in your **environment file** and **scoring file**, enable data collection by:
@@ -129,7 +132,7 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-    [![Edit Service](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![Edit option](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
