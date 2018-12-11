@@ -1,5 +1,5 @@
 ---
-title: A quickstart for creating a Java web app in Azure App Service on Linux 
+title: Create Java web app on Linux - Azure App Service 
 description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -107,6 +107,7 @@ Once deployment has completed, browse to the deployed application using the foll
 In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then deployed a web archive packaged Java app to App Service on Linux. Refer to the following tutorials and how-to articles for more information hosting Java applications on App Serivce on Linux.
 
 - [Tutorial: Deploy a Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Configure a Tomcat Data Source](app-service-linux-java.md#connecting-to-data-sources)
-- [Configure application performance monitoring tools](how-to-java-apm-monitoring.md)
+- [Configure a Tomcat data source](app-service-linux-java.md#connecting-to-data-sources)
+- [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Set up application performance monitoring tools](how-to-java-apm-monitoring.md)
 

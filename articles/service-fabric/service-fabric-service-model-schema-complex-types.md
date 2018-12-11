@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/06/2018
+ms.date: 12/10/2018
 ms.author: ryanwi
 ---
 
@@ -514,7 +514,7 @@ Describes the policies (log collection, default run-as, health, and security acc
                         </xs:element>
                         <xs:element name="DefaultRunAsPolicy" minOccurs="0">
                                 <xs:annotation>
-                                        <xs:documentation>Specify a default user account for all service code packages that dont have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
+                                        <xs:documentation>Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                         <xs:attribute name="UserRef" type="xs:string" use="required">
@@ -550,7 +550,7 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 |minOccurs|0|
 
 #### DefaultRunAsPolicy
-Specify a default user account for all service code packages that dont have a specific RunAsPolicy defined in the ServiceManifestImport section.
+Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.
 |Attribute|Value|
 |---|---|
 |name|DefaultRunAsPolicy|
@@ -773,12 +773,12 @@ Describes a diagnostic store in an Azure storage account.
       </xs:element>
       <xs:element name="ClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default admin role client certificate used to secure client-server communication.</xs:documentation>
+          <xs:documentation>The default admin role client certificate used to secure client server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="UserRoleClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default user role client certificate used to secure client-server communication.</xs:documentation>
+          <xs:documentation>The default user role client certificate used to secure client server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:all>
@@ -805,7 +805,7 @@ The certificate used to secure the intra cluster communication.
 |minOccurs|0|
 
 #### ClientCertificate
-The default admin role client certificate used to secure client-server communication.
+The default admin role client certificate used to secure client server communication.
 |Attribute|Value|
 |---|---|
 |name|ClientCertificate|
@@ -813,7 +813,7 @@ The default admin role client certificate used to secure client-server communica
 |minOccurs|0|
 
 #### UserRoleClientCertificate
-The default user role client certificate used to secure client-server communication.
+The default user role client certificate used to secure client server communication.
 |Attribute|Value|
 |---|---|
 |name|UserRoleClientCertificate|
@@ -1003,7 +1003,7 @@ Describes a Microsoft Azure Service Fabric Cluster.
                 </xs:attribute>
                 <xs:attribute name="Version" use="required">
                         <xs:annotation>
-                                <xs:documentation>user-defined version string for the cluster manifest document.</xs:documentation>
+                                <xs:documentation>User-defined version string for the cluster manifest document.</xs:documentation>
                         </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="Description">
@@ -1025,7 +1025,7 @@ Name of the Cluster.
 |use|required|
 
 #### Version
-user-defined version string for the cluster manifest document.
+User-defined version string for the cluster manifest document.
 |Attribute|Value|
 |---|---|
 |name|Version|
@@ -1067,7 +1067,7 @@ Describes a code package that supports a defined service type. When a service is
 
 |Attribute|Value|
 |---|---|
-|content|3 element(s), 1 attribute(s)|
+|content|3 element(s), 2 attribute(s)|
 |defined|globally|
 |name|CodePackageType|
 
@@ -1080,7 +1080,7 @@ Describes a code package that supports a defined service type. When a service is
     <xs:sequence>
       <xs:element name="SetupEntryPoint" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NetworkService account) before any other entry point. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. In the application manifest, you can change the security permissions to run the startup script under a local system account or an administrator account.</xs:documentation>
+          <xs:documentation>A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NETWORKSERVICE account) before any other entry point. The executable specified by EntryPoint is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -1090,12 +1090,16 @@ Describes a code package that supports a defined service type. When a service is
       </xs:element>
       <xs:element name="EntryPoint" type="EntryPointDescriptionType" minOccurs="1"/>
       <xs:element name="EnvironmentVariables" type="EnvironmentVariablesType" minOccurs="0" maxOccurs="1"/>
-
     </xs:sequence>
     <xs:attributeGroup ref="VersionedName"/>
     <xs:attribute name="IsShared" type="xs:boolean" default="false">
       <xs:annotation>
         <xs:documentation>Indicates if the contents of this code package are shared by other code packages. If true, on an upgrade of this code package, all code packages will be restarted. This attribute is currently not supported and it's value will be ignored.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="IsActivator" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>This attribute is for internal use only.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -1112,10 +1116,18 @@ Indicates if the contents of this code package are shared by other code packages
 |type|xs:boolean|
 |default|false|
 
+#### IsActivator
+This attribute is for internal use only.
+|Attribute|Value|
+|---|---|
+|name|IsActivator|
+|type|xs:boolean|
+|default|false|
+
 ### Content element details
 
 #### SetupEntryPoint
-A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NetworkService account) before any other entry point. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. In the application manifest, you can change the security permissions to run the startup script under a local system account or an administrator account.
+A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NETWORKSERVICE account) before any other entry point. The executable specified by EntryPoint is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time.
 |Attribute|Value|
 |---|---|
 |name|SetupEntryPoint|
@@ -1184,8 +1196,122 @@ The name of the configuration package in the service manifest which contains the
 |name|Settings|
 |type|[SettingsOverridesType](#settingsoverridestype-complextype)|
 |minOccurs|0|
-## ConfigPackageType complexType
+## ConfigPackageDescriptionType complexType
 Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
+
+|Attribute|Value|
+|---|---|
+|content|0 element(s), 4 attribute(s)|
+|defined|globally|
+|name|ConfigPackageDescriptionType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackageDescriptionType">
+    <xs:annotation>
+      <xs:documentation>Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" use="required">
+      <xs:annotation>
+        <xs:documentation>Name of the versioned item.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SectionName" use="required">
+      <xs:annotation>
+        <xs:documentation>Section Name of the ConfigPackage Settings.xml.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="MountPoint" type="xs:string" use="optional" default=""/>
+    <xs:attribute name="EnvironmentVariableName" type="xs:string" use="optional" default=""/>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### Name
+Name of the versioned item.
+|Attribute|Value|
+|---|---|
+|name|Name|
+|use|required|
+
+#### SectionName
+Section Name of the ConfigPackage Settings.xml.
+|Attribute|Value|
+|---|---|
+|name|SectionName|
+|use|required|
+
+#### MountPoint
+|Attribute|Value|
+|---|---|
+|name|MountPoint|
+|type|xs:string|
+|use|optional|
+|default||
+
+#### EnvironmentVariableName
+|Attribute|Value|
+|---|---|
+|name|EnvironmentVariableName|
+|type|xs:string|
+|use|optional|
+|default||
+
+## ConfigPackagePoliciesType complexType
+|Attribute|Value|
+|---|---|
+|content|1 element(s), 1 attribute(s)|
+|defined|globally|
+|name|ConfigPackagePoliciesType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackagePoliciesType">
+    <xs:sequence>
+      <xs:element name="ConfigPackage" type="ConfigPackageDescriptionType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="CodePackageRef" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### CodePackageRef
+|Attribute|Value|
+|---|---|
+|name|CodePackageRef|
+|use|required|
+
+### Content element details
+
+#### ConfigPackage
+|Attribute|Value|
+|---|---|
+|name|ConfigPackage|
+|type|[ConfigPackageDescriptionType](#configpackagedescriptiontype-complextype)|
+|minOccurs|0|
+|maxOccurs|unbounded|
+## ConfigPackageType complexType
+Declares a folder, named by the Name attribute, und PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
 |Attribute|Value|
 |---|---|
@@ -1197,7 +1323,7 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackageType">
     <xs:annotation>
-          <xs:documentation>Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
+          <xs:documentation>Declares a folder, named by the Name attribute, und PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.</xs:documentation>
         </xs:annotation>
     <xs:attributeGroup ref="VersionedName"/>
   </xs:complexType>
@@ -1460,7 +1586,7 @@ Pass a comma delimited list of commands to the container.
 ## ContainerHostPoliciesType complexType
 |Attribute|Value|
 |---|---|
-|content|9 element(s), 5 attribute(s)|
+|content|10 element(s), 8 attribute(s)|
 |defined|globally|
 |name|ContainerHostPoliciesType|
 
@@ -1483,7 +1609,11 @@ Pass a comma delimited list of commands to the container.
           <xs:documentation>Specifies which endpoint resource to bind to the exposed container port.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CertificateRef" type="ContainerCertificateType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CertificateRef" type="ContainerCertificateType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Specifies information for a certificate which will be exposed to the container.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="LogConfig" type="ContainerLoggingDriverType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Specifies the logging driver for a container.</xs:documentation>
@@ -1494,13 +1624,26 @@ Pass a comma delimited list of commands to the container.
                 <xs:documentation>Specifies the network configuration for a container.</xs:documentation>
             </xs:annotation>
         </xs:element>
-        <xs:element name="Volume" type="ContainerVolumeType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="Volume" type="ContainerVolumeType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+                <xs:documentation>Specifies the volume to be bound to container.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
       <xs:element name="SecurityOption" type="SecurityOptionsType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Specifies securityoptions for the container.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ImageOverrides" type="ImageOverridesType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ImageOverrides" type="ImageOverridesType" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>Image names corresponding to OS build number to be launched.</xs:documentation>
+      </xs:annotation>
+      </xs:element>
+      <xs:element name="Label" type="ContainerLabelType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+            <xs:documentation>Specifies the labels for the container.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:choice>    
     <xs:attribute name="CodePackageRef" use="required">
       <xs:simpleType>
@@ -1509,19 +1652,37 @@ Pass a comma delimited list of commands to the container.
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-      <xs:attribute name="Isolation" use="optional" type="xs:string">
-          <xs:annotation>
-              <xs:documentation>Isolation mode for container. Valid values are default, process, or hyperv (only supported for Windows containers) On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of its isolation mode setting.</xs:documentation>
-          </xs:annotation>
-      </xs:attribute>
-      <xs:attribute name="Hostname" use="optional" type="xs:string">
-          <xs:annotation>
-              <xs:documentation>Specify Hostname for container.</xs:documentation>
-          </xs:annotation>
-      </xs:attribute>
+    <xs:attribute name="UseDefaultRepositoryCredentials" type="xs:string" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>Use the default repository credentials specified in clusterManifest.xml
+        instead of the credentials specified in the "RepositoryCredentials" tag inside ApplicationManifest.xml.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="UseTokenAuthenticationCredentials" type="xs:string" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>Use MSI token authentication (or a custom specified endpoint) to obtain a token used for authentication.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Isolation" use="optional" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Isolation mode for container. Valid values are default, process or hyperv (only supported for windows containers).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Hostname" use="optional" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Specify Hostname for container.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="ContainersRetentionCount" use="optional" type="xs:string" default="0">
       <xs:annotation>
         <xs:documentation>Number of containers to leave behind when container repeatedly dies. By default this is set to 0 so no containers will be left behind.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AutoRemove" use="optional" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Flag indicating whether removal of containers will occur automatically (true) or not (false) if the container is killed.  If false SF manually remove the containers.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="RunInteractive" use="optional" type="xs:string">
@@ -1541,8 +1702,29 @@ Pass a comma delimited list of commands to the container.
 |name|CodePackageRef|
 |use|required|
 
+#### UseDefaultRepositoryCredentials
+Use the default repository credentials specified in clusterManifest.xml
+        instead of the credentials specified in the "RepositoryCredentials" tag inside ApplicationManifest.xml.
+        
+|Attribute|Value|
+|---|---|
+|name|UseDefaultRepositoryCredentials|
+|type|xs:string|
+|use|optional|
+|default|false|
+
+#### UseTokenAuthenticationCredentials
+Use MSI token authentication (or a custom specified endpoint) to obtain a token used for authentication.
+        
+|Attribute|Value|
+|---|---|
+|name|UseTokenAuthenticationCredentials|
+|type|xs:string|
+|use|optional|
+|default|false|
+
 #### Isolation
-Isolation mode for container. Valid values are default, process, or hyperv (only supported for Windows containers) On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of its isolation mode setting.
+Isolation mode for container. Valid values are default, process or hyperv (only supported for windows containers).
 |Attribute|Value|
 |---|---|
 |name|Isolation|
@@ -1565,6 +1747,14 @@ Number of containers to leave behind when container repeatedly dies. By default 
 |use|optional|
 |type|xs:string|
 |default|0|
+
+#### AutoRemove
+Flag indicating whether removal of containers will occur automatically (true) or not (false) if the container is killed.  If false SF manually remove the containers.
+|Attribute|Value|
+|---|---|
+|name|AutoRemove|
+|use|optional|
+|type|xs:string|
 
 #### RunInteractive
 Run container with interactive flag enabled. Valid values are true/false. false by default.
@@ -1604,6 +1794,7 @@ Specifies which endpoint resource to bind to the exposed container port.
 |maxOccurs|unbounded|
 
 #### CertificateRef
+Specifies information for a certificate which will be exposed to the container.
 |Attribute|Value|
 |---|---|
 |name|CertificateRef|
@@ -1630,6 +1821,7 @@ Specifies the network configuration for a container.
 |maxOccurs|1|
 
 #### Volume
+Specifies the volume to be bound to container.
 |Attribute|Value|
 |---|---|
 |name|Volume|
@@ -1647,12 +1839,54 @@ Specifies securityoptions for the container.
 |maxOccurs|unbounded|
 
 #### ImageOverrides
+Image names corresponding to OS build number to be launched.
 |Attribute|Value|
 |---|---|
 |name|ImageOverrides|
 |type|[ImageOverridesType](#imageoverridestype-complextype)|
 |minOccurs|0|
 |maxOccurs|1|
+
+#### Label
+Specifies the labels for the container.
+|Attribute|Value|
+|---|---|
+|name|Label|
+|type|[ContainerLabelType](#containerlabeltype-complextype)|
+|minOccurs|0|
+|maxOccurs|unbounded|
+## ContainerLabelType complexType
+|Attribute|Value|
+|---|---|
+|content|0 element(s), 2 attribute(s)|
+|defined|globally|
+|name|ContainerLabelType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerLabelType">
+      <xs:attribute name="Name" type="xs:string" use="required"/>
+      <xs:attribute name="Value" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### Name
+|Attribute|Value|
+|---|---|
+|name|Name|
+|type|xs:string|
+|use|required|
+
+#### Value
+|Attribute|Value|
+|---|---|
+|name|Value|
+|type|xs:string|
+|use|required|
+
 ## ContainerLoggingDriverType complexType
 |Attribute|Value|
 |---|---|
@@ -1711,7 +1945,7 @@ Driver options to be passed to driver.
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerNetworkConfigType">
         <xs:attribute name="NetworkType" use="required" type="xs:string">
             <xs:annotation>
-                <xs:documentation>NetworkType. Currently only supported type is "Open".</xs:documentation>
+                <xs:documentation>NetworkType. Currently supported types are "Open" and "Isolated".</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
@@ -1721,16 +1955,101 @@ Driver options to be passed to driver.
 ### Attribute details
 
 #### NetworkType
-NetworkType. Currently only supported type is "Open".
+NetworkType. Currently supported types are "Open" and "Isolated".
 |Attribute|Value|
 |---|---|
 |name|NetworkType|
 |use|required|
 |type|xs:string|
 
-## ContainerVolumeType complexType
-Specifies the volume to be bound to the container.
+## ContainerNetworkPolicyEndpointBindingType complexType
+|Attribute|Value|
+|---|---|
+|content|0 element(s), 1 attribute(s)|
+|defined|globally|
+|name|ContainerNetworkPolicyEndpointBindingType|
 
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerNetworkPolicyEndpointBindingType">
+    <xs:attribute name="EndpointRef">
+      <xs:annotation>
+        <xs:documentation>The name of the endpoint, which must be declared in the Resources section of the service manifest.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### EndpointRef
+The name of the endpoint, which must be declared in the Resources section of the service manifest.
+|Attribute|Value|
+|---|---|
+|name|EndpointRef|
+
+## ContainerNetworkPolicyType complexType
+Describes association between a service package and a container network and optionally association between endpoints of the service package and the container network.
+
+|Attribute|Value|
+|---|---|
+|content|1 element(s), 1 attribute(s)|
+|defined|globally|
+|name|ContainerNetworkPolicyType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerNetworkPolicyType">
+    <xs:annotation>
+      <xs:documentation>Describes association between a service package and a container network and optionally association between endpoints of the service package and the container network.</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="EndpointBinding" type="ContainerNetworkPolicyEndpointBindingType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Specifies an endpoint that should be exposed on the container network.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="NetworkRef" use="required">
+      <xs:annotation>
+        <xs:documentation>The name of the container network (case-insensitive). It has to be name of a container network already created or reserved names including "Open" or "NAT".</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### NetworkRef
+The name of the container network (case-insensitive). It has to be name of a container network already created or reserved names including "Open" or "NAT".
+|Attribute|Value|
+|---|---|
+|name|NetworkRef|
+|use|required|
+
+### Content element details
+
+#### EndpointBinding
+Specifies an endpoint that should be exposed on the container network.
+|Attribute|Value|
+|---|---|
+|name|EndpointBinding|
+|type|[ContainerNetworkPolicyEndpointBindingType](#containernetworkpolicyendpointbindingtype-complextype)|
+|minOccurs|0|
+|maxOccurs|unbounded|
+## ContainerVolumeType complexType
 |Attribute|Value|
 |---|---|
 |content|1 element(s), 4 attribute(s)|
@@ -1740,11 +2059,12 @@ Specifies the volume to be bound to the container.
 ### XML source
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerVolumeType">
-        <xs:annotation>
-          <xs:documentation>Specifies the volume to be bound to the container.</xs:documentation>
-        </xs:annotation>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="DriverOption" type="DriverOptionType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="DriverOption" type="DriverOptionType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Driver options to be passed to driver.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
         </xs:choice>
         <xs:attribute name="Source" use="required">
           <xs:annotation>
@@ -1757,9 +2077,9 @@ Specifies the volume to be bound to the container.
             </xs:simpleType>
         </xs:attribute>
         <xs:attribute name="Destination" use="required">
-            <xs:annotation>
-              <xs:documentation>The location that the Source is mapped to within the running container. Thus, your destination can't be a location that already exists within your container.</xs:documentation>
-            </xs:annotation>
+          <xs:annotation>
+            <xs:documentation>The location that the Source is mapped to within the running container. Thus, your destination can't be a location that already exists within your container.</xs:documentation>
+          </xs:annotation>
             <xs:simpleType>
                 <xs:restriction base="xs:string">
                     <xs:minLength value="1"/>
@@ -1767,9 +2087,9 @@ Specifies the volume to be bound to the container.
             </xs:simpleType>
         </xs:attribute>
         <xs:attribute name="Driver" use="optional">
-            <xs:annotation>
-              <xs:documentation>The driver name for the Azure Files volume plugin is "sfazurefile".</xs:documentation>
-            </xs:annotation>
+          <xs:annotation>
+            <xs:documentation>The driver name for the Azure Files volume plugin is "sfazurefile".</xs:documentation>
+          </xs:annotation>
             <xs:simpleType>
                 <xs:restriction base="xs:string">
                 </xs:restriction>
@@ -1813,6 +2133,7 @@ The driver name for the Azure Files volume plugin is "sfazurefile".
 ### Content element details
 
 #### DriverOption
+Driver options to be passed to driver.
 |Attribute|Value|
 |---|---|
 |name|DriverOption|
@@ -1820,7 +2141,7 @@ The driver name for the Azure Files volume plugin is "sfazurefile".
 |minOccurs|0|
 |maxOccurs|unbounded|
 ## DataPackageType complexType
-Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
+Declares a folder, named by the Name attribute, under PackageRoot which contains static data files to be consumed by the process at runtime. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
 |Attribute|Value|
 |---|---|
@@ -1832,7 +2153,7 @@ Declares a folder, named by the Name attribute, which contains static data files
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataPackageType">
     <xs:annotation>
-      <xs:documentation>Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.</xs:documentation>
+      <xs:documentation>Declares a folder, named by the Name attribute, under PackageRoot which contains static data files to be consumed by the process at runtime. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.</xs:documentation>
     </xs:annotation>
     <xs:attributeGroup ref="VersionedName"/>
   </xs:complexType>
@@ -1844,7 +2165,7 @@ Specifies information on debugger to attach when activating codepackage.
 
 |Attribute|Value|
 |---|---|
-|content|3 element(s), 10 attribute(s)|
+|content|4 element(s), 10 attribute(s)|
 |defined|globally|
 |name|DebugParametersType|
 
@@ -1868,6 +2189,11 @@ Specifies information on debugger to attach when activating codepackage.
       <xs:element name="ContainerEnvironmentBlock" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>EnvironmentBlock for containers.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ContainerLabel" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Labels for containers in form key=value.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
@@ -2029,6 +2355,15 @@ EnvironmentBlock for containers.
 |type|xs:string|
 |minOccurs|0|
 |maxOccurs|unbounded|
+
+#### ContainerLabel
+Labels for containers in form key=value.
+|Attribute|Value|
+|---|---|
+|name|ContainerLabel|
+|type|xs:string|
+|minOccurs|0|
+|maxOccurs|unbounded|
 ## DefaultServicesType complexType
 Declares service instances that are automatically created whenever an application is instantiated against this application type.
 
@@ -2072,7 +2407,7 @@ Declares service instances that are automatically created whenever an applicatio
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -2093,7 +2428,7 @@ Declares service instances that are automatically created whenever an applicatio
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -2306,37 +2641,46 @@ Unsupported, do not use. Defines the isolation policy for the Unmanaged DLLs and
 |type|[ManagedAssemblyType](#managedassemblytype-complextype)|
 ## DriverOptionType complexType
 Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
-            shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
-            that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
-            These three driver options are required.
+          shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
+          that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
+          These three driver options are required.
 
 |Attribute|Value|
 |---|---|
-|content|0 element(s), 3 attribute(s)|
+|content|0 element(s), 4 attribute(s)|
 |defined|globally|
 |name|DriverOptionType|
 
 ### XML source
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DriverOptionType">
-        <xs:annotation>
-          <xs:documentation>Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
-            shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
-            that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
-            These three driver options are required.</xs:documentation>
-          
-        </xs:annotation>
+      <xs:annotation>
+        <xs:documentation>Driver options to be passed to driver. The Azure Files volume plugin supports the following driver options:
+          shareName (the Azure Files file share that provides the volume for the container), storageAccountName (the Azure storage account
+          that contains the Azure Files file share), storageAccountKey (Access key for the Azure storage account that contains the Azure Files file share).
+          These three driver options are required.</xs:documentation>
+      </xs:annotation>
         <xs:attribute name="Name" type="xs:string" use="required">
           <xs:annotation>
             <xs:documentation>The name of the driver option. </xs:documentation>
           </xs:annotation>
         </xs:attribute>
-      <xs:attribute name="Value" type="xs:string" use="required">
-        <xs:annotation>
-          <xs:documentation>The value of the driver option. </xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
+        <xs:attribute name="Value" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>The value of the driver option. </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <!-- TODO [dragosav] this needs to be deprecated; unclear if we can outright remove it, or give advance notice and remove it in an upcoming release. -->
         <xs:attribute name="IsEncrypted" type="xs:string" use="optional" default="false"/>
+        <xs:attribute name="Type" type="xs:string" use="optional" default="PlainText">
+          <xs:annotation>
+            <xs:documentation>
+              This value defines the protection of the value of the attribute. It may be SecretsStoreRef/Encrypted/PlainText.
+              If set to SecretsStoreRef, the value references a secret stored encrypted in the cluster's SecureStore, which is de-referenced and decrypted upon activation.
+              If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
     
 
@@ -2367,6 +2711,19 @@ The value of the driver option.
 |use|optional|
 |default|false|
 
+#### Type
+
+              This value defines the protection of the value of the attribute. It may be SecretsStoreRef/Encrypted/PlainText.
+              If set to SecretsStoreRef, the value references a secret stored encrypted in the cluster's SecureStore, which is de-referenced and decrypted upon activation.
+              If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+            
+|Attribute|Value|
+|---|---|
+|name|Type|
+|type|xs:string|
+|use|optional|
+|default|PlainText|
+
 ## EndpointBindingPolicyType complexType
 |Attribute|Value|
 |---|---|
@@ -2379,9 +2736,9 @@ The value of the driver option.
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointBindingPolicyType">
     <xs:attribute name="EndpointRef">
       <xs:annotation>
-        <xs:documentation>The name of the endpoint, which must be declared in the Resources section of the service manifest.  When using HTTPS, do not use 
-        the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services 
-        using the same port in different application instances will result in an upgrade failure.</xs:documentation>
+        <xs:documentation>The name of the endpoint, which must be declared in the Resources section of the service manifest.  When using HTTPS, do not use
+          the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services
+          using the same port in different application instances will result in an upgrade failure.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -2406,9 +2763,9 @@ The value of the driver option.
 ### Attribute details
 
 #### EndpointRef
-The name of the endpoint, which must be declared in the Resources section of the service manifest.  When using HTTPS, do not use 
-        the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services 
-        using the same port in different application instances will result in an upgrade failure.
+The name of the endpoint, which must be declared in the Resources section of the service manifest.  When using HTTPS, do not use
+          the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services
+          using the same port in different application instances will result in an upgrade failure.
 |Attribute|Value|
 |---|---|
 |name|EndpointRef|
@@ -2486,7 +2843,7 @@ The thumbprint of the X509 certificate.
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointOverrideType">
     <xs:attribute name="Name" use="required">
       <xs:annotation>
-      <xs:documentation>The name of the endpoint.</xs:documentation>
+      <xs:documentation>The name of the endpoint to override. A string.</xs:documentation>
     </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -2496,27 +2853,27 @@ The thumbprint of the X509 certificate.
     </xs:attribute>
     <xs:attribute name="Port" type="xs:string">
       <xs:annotation>
-        <xs:documentation>The port will be overridden in the Service Manifest</xs:documentation>
+        <xs:documentation>The port number for the endpoint. Overrides the value in the service manifest.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
      <xs:attribute name="Protocol" type="xs:string" use="optional">
       <xs:annotation>
-        <xs:documentation>The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. </xs:documentation>
+        <xs:documentation>The protocol for the endpoint. Overrides the value in the service manifest. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. </xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Type" type="xs:string" use="optional">
       <xs:annotation>
-        <xs:documentation>The type of the endpoint.  Input endpoints are used to expose the port to the outside, internal endpoints are used for intra-application communication.</xs:documentation>
+        <xs:documentation>The type of the endpoint. Overrides the value in the service manifest. Input endpoints are used to expose the port to the outside, internal endpoints are used for intra-application communication.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="UriScheme" use="optional">
       <xs:annotation>
-        <xs:documentation>The URI scheme.  For example, "http", "https", or "ftp".</xs:documentation>
+        <xs:documentation>The URI scheme. Overrides the value in the service manifest. For example, "http", "https", or "ftp".</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="PathSuffix" use="optional">
       <xs:annotation>
-        <xs:documentation>The path suffix.  For example, "/myapp1".</xs:documentation>
+        <xs:documentation>The path suffix. For example, "/myapp1". Overrides the value in the service manifest.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -2526,21 +2883,21 @@ The thumbprint of the X509 certificate.
 ### Attribute details
 
 #### Name
-The name of the endpoint.
+The name of the endpoint to override. A string.
 |Attribute|Value|
 |---|---|
 |name|Name|
 |use|required|
 
 #### Port
-The port will be overridden in the Service Manifest
+The port number for the endpoint. Overrides the value in the service manifest.
 |Attribute|Value|
 |---|---|
 |name|Port|
 |type|xs:string|
 
 #### Protocol
-The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. 
+The protocol for the endpoint. Overrides the value in the service manifest. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. 
 |Attribute|Value|
 |---|---|
 |name|Protocol|
@@ -2548,7 +2905,7 @@ The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertifi
 |use|optional|
 
 #### Type
-The type of the endpoint.  Input endpoints are used to expose the port to the outside, internal endpoints are used for intra-application communication.
+The type of the endpoint. Overrides the value in the service manifest. Input endpoints are used to expose the port to the outside, internal endpoints are used for intra-application communication.
 |Attribute|Value|
 |---|---|
 |name|Type|
@@ -2556,14 +2913,14 @@ The type of the endpoint.  Input endpoints are used to expose the port to the ou
 |use|optional|
 
 #### UriScheme
-The URI scheme.  For example, "http", "https", or "ftp".
+The URI scheme. Overrides the value in the service manifest. For example, "http", "https", or "ftp".
 |Attribute|Value|
 |---|---|
 |name|UriScheme|
 |use|optional|
 
 #### PathSuffix
-The path suffix.  For example, "/myapp1".
+The path suffix. For example, "/myapp1". Overrides the value in the service manifest.
 |Attribute|Value|
 |---|---|
 |name|PathSuffix|
@@ -2596,7 +2953,7 @@ Defines an endpoint for the service. Specific ports can be requested.  If a port
     </xs:attribute>
     <xs:attribute name="Protocol" use="optional" default="tcp">
       <xs:annotation>
-        <xs:documentation>The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. </xs:documentation>
+        <xs:documentation>The protocol for the endpoint: http, https, tcp, or udp. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. </xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -2668,7 +3025,7 @@ The name of the endpoint.
 |use|required|
 
 #### Protocol
-The protocol for the endpoint. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. 
+The protocol for the endpoint: http, https, tcp, or udp. HTTPS endpoints must also have an EndpointCertificate and an EndpointBindingPolicy declared in the application manifest. The protocol cannot be changed later in an application upgrade. 
 |Attribute|Value|
 |---|---|
 |name|Protocol|
@@ -2790,7 +3147,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentOverridesType">
     <xs:sequence>
-      <xs:element name="EnvironmentVariable" type="EnvironmentVariableType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="EnvironmentVariable" type="EnvironmentVariableOverrideType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Environment variable.</xs:documentation>
         </xs:annotation>
@@ -2804,6 +3161,7 @@ The executable specified by EntryPoint is typically the long-running service hos
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
+
   
 
 ```
@@ -2822,7 +3180,7 @@ Environment variable.
 |Attribute|Value|
 |---|---|
 |name|EnvironmentVariable|
-|type|[EnvironmentVariableType](#environmentvariabletype-complextype)|
+|type|[EnvironmentVariableOverrideType](#environmentvariableoverridetype-complextype)|
 |minOccurs|0|
 |maxOccurs|unbounded|
 ## EnvironmentType complexType
@@ -2864,10 +3222,59 @@ Environment variable.
 |---|---|
 |name|Diagnostics|
 |type|[DiagnosticsType](#diagnosticstype-complextype)|
+## EnvironmentVariableOverrideType complexType
+|Attribute|Value|
+|---|---|
+|content|0 element(s), 3 attribute(s)|
+|defined|globally|
+|name|EnvironmentVariableOverrideType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentVariableOverrideType">
+    <xs:attribute name="Name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Name of environment variable.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Value">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Type" type="xs:string" use="optional"/>
+  </xs:complexType>  
+  
+
+```
+### Attribute details
+
+#### Name
+Name of environment variable.
+|Attribute|Value|
+|---|---|
+|name|Name|
+|type|xs:string|
+|use|required|
+
+#### Value
+|Attribute|Value|
+|---|---|
+|name|Value|
+
+#### Type
+|Attribute|Value|
+|---|---|
+|name|Type|
+|type|xs:string|
+|use|optional|
+
 ## EnvironmentVariableType complexType
 |Attribute|Value|
 |---|---|
-|content|0 element(s), 2 attribute(s)|
+|content|0 element(s), 3 attribute(s)|
 |defined|globally|
 |name|EnvironmentVariableType|
 
@@ -2883,6 +3290,22 @@ Environment variable.
       <xs:simpleType>
         <xs:restriction base="xs:string">
           <xs:minLength value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Type" use="optional" default="PlainText">
+      <xs:annotation>
+        <xs:documentation>
+          The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
+          If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+          If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PlainText"/>
+          <xs:enumeration value="Encrypted"/>
+          <xs:enumeration value="SecretsStoreRef"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -2905,6 +3328,18 @@ Name of environment variable.
 |---|---|
 |name|Value|
 
+#### Type
+
+          The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
+          If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+          If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+        
+|Attribute|Value|
+|---|---|
+|name|Type|
+|use|optional|
+|default|PlainText|
+
 ## EnvironmentVariablesType complexType
 Pass environment variables to your container or exe. 
 
@@ -2922,16 +3357,19 @@ Pass environment variables to your container or exe.
     </xs:annotation>
     <xs:sequence>
       <xs:element name="EnvironmentVariable" type="EnvironmentVariableType" minOccurs="0" maxOccurs="unbounded">
-        
+        <xs:annotation>
+          <xs:documentation>Environment variable.</xs:documentation>
+        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-    
+  
 
 ```
 ### Content element details
 
 #### EnvironmentVariable
+Environment variable.
 |Attribute|Value|
 |---|---|
 |name|EnvironmentVariable|
@@ -2952,7 +3390,7 @@ Pass environment variables to your container or exe.
     <xs:sequence>
       <xs:element name="Program" type="xs:string">
         <xs:annotation>
-          <xs:documentation>The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".</xs:documentation>
+          <xs:documentation>The executable name. For example, "MySetup.bat" or "MyServiceHost.exe".</xs:documentation>
         </xs:annotation></xs:element>
       <xs:element name="Arguments" type="xs:string" minOccurs="0"/>
       <xs:element name="WorkingFolder" default="Work" minOccurs="0">
@@ -2965,8 +3403,14 @@ Pass environment variables to your container or exe.
         </xs:simpleType>
       </xs:element>
       <xs:element name="ConsoleRedirection" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup script to an output file in the application folder called "log" on the cluster node where the application is deployed and run.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:attribute name="FileRetentionCount" default="2">
+            <xs:annotation>
+              <xs:documentation>Sets the number of console redirection output files to retain.  Must be a positive integer, the default value is "2".</xs:documentation>
+            </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:int">
                 <xs:minInclusive value="1"/>
@@ -2974,6 +3418,9 @@ Pass environment variables to your container or exe.
             </xs:simpleType>
           </xs:attribute>
           <xs:attribute name="FileMaxSizeInKb" default="20480">
+            <xs:annotation>
+              <xs:documentation>Set the maximum size of a console redirection output file.  Must be a positive integer greater than 128KB, the default value is "20480".</xs:documentation>
+            </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:int">
                 <xs:minInclusive value="128"/>
@@ -3005,7 +3452,7 @@ True if the executable is external to the application package. Program existence
 ### Content element details
 
 #### Program
-The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
+The executable name. For example, "MySetup.bat" or "MyServiceHost.exe".
 |Attribute|Value|
 |---|---|
 |name|Program|
@@ -3026,6 +3473,7 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 |minOccurs|0|
 
 #### ConsoleRedirection
+Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup script to an output file in the application folder called "log" on the cluster node where the application is deployed and run.
 |Attribute|Value|
 |---|---|
 |name|ConsoleRedirection|
@@ -3163,7 +3611,7 @@ This is used only when credential is X509. This is the actual name or thumbprint
 ## FabricEndpointsType complexType
 |Attribute|Value|
 |---|---|
-|content|18 element(s), 0 attribute(s)|
+|content|21 element(s), 0 attribute(s)|
 |defined|globally|
 |name|FabricEndpointsType|
 
@@ -3186,6 +3634,9 @@ This is used only when credential is X509. This is the actual name or thumbprint
       <xs:element name="FaultAnalysisServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       <xs:element name="BackupRestoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       <xs:element name="UpgradeOrchestrationServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+      <xs:element name="CentralSecretServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+      <xs:element name="EventStoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+      <xs:element name="GatewayResourceManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       <xs:element name="DefaultReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       <xs:element name="ApplicationEndpoints" minOccurs="0">
         <xs:complexType>
@@ -3306,6 +3757,27 @@ This is used only when credential is X509. This is the actual name or thumbprint
 |Attribute|Value|
 |---|---|
 |name|UpgradeOrchestrationServiceReplicatorEndpoint|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
+|minOccurs|0|
+
+#### CentralSecretServiceReplicatorEndpoint
+|Attribute|Value|
+|---|---|
+|name|CentralSecretServiceReplicatorEndpoint|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
+|minOccurs|0|
+
+#### EventStoreServiceReplicatorEndpoint
+|Attribute|Value|
+|---|---|
+|name|EventStoreServiceReplicatorEndpoint|
+|type|[InternalEndpointType](#internalendpointtype-complextype)|
+|minOccurs|0|
+
+#### GatewayResourceManagerReplicatorEndpoint
+|Attribute|Value|
+|---|---|
+|name|GatewayResourceManagerReplicatorEndpoint|
 |type|[InternalEndpointType](#internalendpointtype-complextype)|
 |minOccurs|0|
 
@@ -3505,7 +3977,7 @@ The upgrade domain of this node.
 |use|optional|
 
 ## FileStoreETWType complexType
-Describes a file store destination for ETW events. Works only in on-premises environment.
+Describes a file store destination for ETW events. Works only in on-premise environment.
 
 |Attribute|Value|
 |---|---|
@@ -3517,7 +3989,7 @@ Describes a file store destination for ETW events. Works only in on-premises env
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStoreETWType">
     <xs:annotation>
-      <xs:documentation>Describes a file store destination for ETW events. Works only in on-premises environment.</xs:documentation>
+      <xs:documentation>Describes a file store destination for ETW events. Works only in on-premise environment.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="FileStoreType">
@@ -4213,6 +4685,42 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
   
 
 ```
+## NetworkPoliciesType complexType
+Describes network policies including container network policie for the service package.
+
+|Attribute|Value|
+|---|---|
+|content|1 element(s), 0 attribute(s)|
+|defined|globally|
+|name|NetworkPoliciesType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NetworkPoliciesType">
+    <xs:annotation>
+      <xs:documentation>Describes network policies including container network policie for the service package.</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ContainerNetworkPolicy" type="ContainerNetworkPolicyType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Describes container network policies for the service package.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  
+
+```
+### Content element details
+
+#### ContainerNetworkPolicy
+Describes container network policies for the service package.
+|Attribute|Value|
+|---|---|
+|name|ContainerNetworkPolicy|
+|type|[ContainerNetworkPolicyType](#containernetworkpolicytype-complextype)|
+|minOccurs|0|
+|maxOccurs|unbounded|
 ## PaaSRoleType complexType
 |Attribute|Value|
 |---|---|
@@ -4292,7 +4800,7 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 |use|required|
 
 ## PackageSharingPolicyType complexType
-Indicates if a code, config or data package should be shared.
+Indicates if a code, config or data package should be shared across service instances of the same service type.
 
 |Attribute|Value|
 |---|---|
@@ -4304,7 +4812,7 @@ Indicates if a code, config or data package should be shared.
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PackageSharingPolicyType">
     <xs:annotation>
-      <xs:documentation>Indicates if a code, config or data package should be shared.</xs:documentation>
+      <xs:documentation>Indicates if a code, config or data package should be shared across service instances of the same service type.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="PackageRef">
       <xs:annotation>
@@ -4444,7 +4952,7 @@ Container port number.
 ## RepositoryCredentialsType complexType
 |Attribute|Value|
 |---|---|
-|content|0 element(s), 2 attribute(s)|
+|content|0 element(s), 3 attribute(s)|
 |defined|globally|
 |name|RepositoryCredentialsType|
 
@@ -4454,7 +4962,7 @@ Container port number.
     <xs:attributeGroup ref="AccountCredentialsGroup"/>
     <xs:attribute name="PasswordEncrypted" type="xs:boolean" use="optional">
       <xs:annotation>
-        <xs:documentation>Specifies if password is encrypted or plain text.</xs:documentation>
+        <xs:documentation>Specifies if password is encrypted or plain text. This attribute is deprecated. Please use the 'Type' attribute to indicate encrypted password.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Email">
@@ -4464,6 +4972,15 @@ Container port number.
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
+    <xs:attribute name="Type" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+          If set to SecretsStoreRef, we retrive the reference value from the SecretStore.
+          If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
   
 
@@ -4471,7 +4988,7 @@ Container port number.
 ### Attribute details
 
 #### PasswordEncrypted
-Specifies if password is encrypted or plain text.
+Specifies if password is encrypted or plain text. This attribute is deprecated. Please use the 'Type' attribute to indicate encrypted password.
 |Attribute|Value|
 |---|---|
 |name|PasswordEncrypted|
@@ -4483,12 +5000,24 @@ Specifies if password is encrypted or plain text.
 |---|---|
 |name|Email|
 
+#### Type
+
+          This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+          If set to SecretsStoreRef, we retrive the reference value from the SecretStore.
+          If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+        
+|Attribute|Value|
+|---|---|
+|name|Type|
+|type|xs:string|
+|use|optional|
+
 ## ResourceGovernancePolicyType complexType
 Restricts the resources that can be used on the host and declares resource limits for a service code package.
 
 |Attribute|Value|
 |---|---|
-|content|0 element(s), 9 attribute(s)|
+|content|0 element(s), 12 attribute(s)|
 |defined|globally|
 |name|ResourceGovernancePolicyType|
 
@@ -4511,7 +5040,7 @@ Restricts the resources that can be used on the host and declares resource limit
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="MemorySwapInMB" type="xs:string" use="optional" default="0">
-       <xs:annotation>
+      <xs:annotation>
         <xs:documentation>The total amount of swap memory that can be used, in MB. Must be a positive integer.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -4543,6 +5072,21 @@ Restricts the resources that can be used on the host and declares resource limit
     <xs:attribute name="BlockIOWeight" type="xs:string" use="optional" default="0">
       <xs:annotation>
         <xs:documentation>Block IO weight, relative to other code packages. Must be a positive integer between 10 and 1000.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DiskQuotaInMB" type="xs:string" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation>Disk quota for containers.  Must be a positive integer.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="KernelMemoryInMB" type="xs:string" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation>Kernel memory limits in bytes.  Must be a positive integer.  Note this is Linux specific and docker on windows will error out if this is set.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ShmSizeInMB" type="xs:string" use="optional" default="0">
+      <xs:annotation>
+        <xs:documentation>Size of /dev/shm in bytes. If omitted, the system uses 64MB.  Must be a positive integer.  Note this is Linux specific, however, docker will NOT error out if specified.  It is simply ignored.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
@@ -4629,8 +5173,35 @@ Block IO weight, relative to other code packages. Must be a positive integer bet
 |use|optional|
 |default|0|
 
+#### DiskQuotaInMB
+Disk quota for containers.  Must be a positive integer.
+|Attribute|Value|
+|---|---|
+|name|DiskQuotaInMB|
+|type|xs:string|
+|use|optional|
+|default|0|
+
+#### KernelMemoryInMB
+Kernel memory limits in bytes.  Must be a positive integer.  Note this is Linux specific and docker on windows will error out if this is set.
+|Attribute|Value|
+|---|---|
+|name|KernelMemoryInMB|
+|type|xs:string|
+|use|optional|
+|default|0|
+
+#### ShmSizeInMB
+Size of /dev/shm in bytes. If omitted, the system uses 64MB.  Must be a positive integer.  Note this is Linux specific, however, docker will NOT error out if specified.  It is simply ignored.
+|Attribute|Value|
+|---|---|
+|name|ShmSizeInMB|
+|type|xs:string|
+|use|optional|
+|default|0|
+
 ## ResourceOverridesType complexType
-Describes the resource overrides for endpoints in service manifest resources.
+Specifies resource overrides for endpoints declared in service manifest resources.
 
 |Attribute|Value|
 |---|---|
@@ -4642,16 +5213,20 @@ Describes the resource overrides for endpoints in service manifest resources.
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ResourceOverridesType">
     <xs:annotation>
-      <xs:documentation>Describes the resource overrides for endpoints in service manifest resources.</xs:documentation>
+      <xs:documentation>Specifies resource overrides for endpoints declared in service manifest resources.</xs:documentation>
     </xs:annotation>
      <xs:sequence>
       <xs:element name="Endpoints" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Defines endpoints for the service.</xs:documentation>
+          <xs:documentation>The service endpoint(s) to override.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Endpoint" type="EndpointOverrideType" maxOccurs="unbounded"/>
+            <xs:element name="Endpoint" type="EndpointOverrideType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>The endpoint, declared in the service manifest, to override.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -4663,7 +5238,7 @@ Describes the resource overrides for endpoints in service manifest resources.
 ### Content element details
 
 #### Endpoints
-Defines endpoints for the service.
+The service endpoint(s) to override.
 |Attribute|Value|
 |---|---|
 |name|Endpoints|
@@ -4708,7 +5283,7 @@ Defines endpoints for the service.
 |name|Endpoints|
 |minOccurs|0|
 ## RunAsPolicyType complexType
-Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
+Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also have to define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
 
 |Attribute|Value|
 |---|---|
@@ -4720,7 +5295,7 @@ Specifies the local user or local system account that a service code package wil
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RunAsPolicyType">
     <xs:annotation>
-      <xs:documentation>Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.</xs:documentation>
+      <xs:documentation>Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also have to define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.</xs:documentation>
     </xs:annotation>
     <xs:attribute name="CodePackageRef" use="required">
       <xs:annotation>
@@ -4842,7 +5417,7 @@ Grants access permissions to a principal on a resource (such as an endpoint) def
     </xs:attribute>
     <xs:attribute name="GrantRights" default="Read">
       <xs:annotation>
-        <xs:documentation>The rights to grant, default is Read.</xs:documentation>
+        <xs:documentation>The rights to grant: Read, Change, or Full. The default is Read.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -4854,7 +5429,7 @@ Grants access permissions to a principal on a resource (such as an endpoint) def
     </xs:attribute>
     <xs:attribute name="ResourceType" use="optional" default="Endpoint">
       <xs:annotation>
-        <xs:documentation>The type of resource, defined in the service manifest, either Endpoint or Certificate.</xs:documentation>
+        <xs:documentation>The type of resource, defined in the Resources section of the service manifest. Either Endpoint or Certificate.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -4884,14 +5459,14 @@ The user or group being assigned access rights to a resource, must be declared i
 |use|required|
 
 #### GrantRights
-The rights to grant, default is Read.
+The rights to grant: Read, Change, or Full. The default is Read.
 |Attribute|Value|
 |---|---|
 |name|GrantRights|
 |default|Read|
 
 #### ResourceType
-The type of resource, defined in the service manifest, either Endpoint or Certificate.
+The type of resource, defined in the Resources section of the service manifest. Either Endpoint or Certificate.
 |Attribute|Value|
 |---|---|
 |name|ResourceType|
@@ -4945,7 +5520,7 @@ Describes the security principals (users, groups) required for this application 
         <xs:sequence>
             <xs:element name="Groups" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Declares a set of groups as security principals, which can be referenced in policies.</xs:documentation>
+                    <xs:documentation>Declares a set of groups as security principals, which can be referenced in policies. Groups are useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
@@ -5066,7 +5641,7 @@ Describes the security principals (users, groups) required for this application 
                                                                 </xs:attribute>
                                                                 <xs:attribute name="AccountType" use="optional" default="LocalUser">
                                                                         <xs:annotation>
-                                                                                <xs:documentation>Specifies the type of account. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.</xs:documentation>
+                                                                                <xs:documentation>Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalService, ManagedServiceAccount, or LocalSystem.  The default is LocalUser. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.</xs:documentation>
                                                                         </xs:annotation>
                                                                         <xs:simpleType>
                                                                                 <xs:restriction base="xs:string">
@@ -5100,7 +5675,7 @@ Describes the security principals (users, groups) required for this application 
 ### Content element details
 
 #### Groups
-Declares a set of groups as security principals, which can be referenced in policies.
+Declares a set of groups as security principals, which can be referenced in policies. Groups are useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 |Attribute|Value|
 |---|---|
 |name|Groups|
@@ -5225,6 +5800,48 @@ Describes the ETW settings for the components of this service manifest.
 |---|---|
 |name|ETW|
 |minOccurs|0|
+## ServiceFabricRuntimeAccessPolicyType complexType
+|Attribute|Value|
+|---|---|
+|content|0 element(s), 2 attribute(s)|
+|defined|globally|
+|name|ServiceFabricRuntimeAccessPolicyType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceFabricRuntimeAccessPolicyType">
+    <xs:attribute name="RemoveServiceFabricRuntimeAccess" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>Indicates if Fabric Runtime specific information should be exposed to the Code packages in the Service package.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="UseServiceFabricReplicatedStore" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>Indicates if Service Fabric replicated blockstore should be used to provide volume for containers in service package.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### RemoveServiceFabricRuntimeAccess
+Indicates if Fabric Runtime specific information should be exposed to the Code packages in the Service package.
+|Attribute|Value|
+|---|---|
+|name|RemoveServiceFabricRuntimeAccess|
+|type|xs:boolean|
+|default|false|
+
+#### UseServiceFabricReplicatedStore
+Indicates if Service Fabric replicated blockstore should be used to provide volume for containers in service package.
+|Attribute|Value|
+|---|---|
+|name|UseServiceFabricReplicatedStore|
+|type|xs:boolean|
+|default|false|
+
 ## ServiceGroupMemberType complexType
 |Attribute|Value|
 |---|---|
@@ -5340,7 +5957,7 @@ Base type that describes a stateful or a stateless ServiceGroupType.
     </xs:sequence>
     <xs:attribute name="ServiceGroupTypeName" use="required">
       <xs:annotation>
-        <xs:documentation>user-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.</xs:documentation>
+        <xs:documentation>User-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -5360,7 +5977,7 @@ Base type that describes a stateful or a stateless ServiceGroupType.
 ### Attribute details
 
 #### ServiceGroupTypeName
-user-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.
+User-defined type identifier for a service group, For example, "ActorQueueSGType". This value is used in the ApplicationManifest.xml file to identify the service group.
 |Attribute|Value|
 |---|---|
 |name|ServiceGroupTypeName|
@@ -5409,7 +6026,7 @@ Describes policies (end-point binding, package sharing, run-as, and security acc
 
 |Attribute|Value|
 |---|---|
-|content|7 element(s), 0 attribute(s)|
+|content|11 element(s), 0 attribute(s)|
 |defined|globally|
 |name|ServiceManifestImportPoliciesType|
 
@@ -5428,6 +6045,11 @@ Describes policies (end-point binding, package sharing, run-as, and security acc
           <xs:documentation>Specifies a certificate that should be returned to a client for an HTTPS endpoint.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="ServiceFabricRuntimeAccessPolicy" type="ServiceFabricRuntimeAccessPolicyType" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>Specifies policies that determine how the service fabric runtime is exposed to the replicas.</xs:documentation>
+      </xs:annotation>
+      </xs:element>
       <xs:element name="ServicePackageResourceGovernancePolicy" type="ServicePackageResourceGovernancePolicyType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Defines the resource governance policy that is applied at the level of the entire service package.</xs:documentation>
@@ -5435,12 +6057,23 @@ Describes policies (end-point binding, package sharing, run-as, and security acc
       </xs:element>
       <xs:element name="ResourceGovernancePolicy" type="ResourceGovernancePolicyType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Specifies resource limits for a code package.</xs:documentation>
+          <xs:documentation>Specifies resource limits for a codepackage.</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="ServicePackageContainerPolicy" type="ServicePackageContainerPolicyType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ContainerHostPolicies" type="ContainerHostPoliciesType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specifies policies for activating container hosts.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ConfigPackagePolicies" type="ConfigPackagePoliciesType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Config Packages to be mounted inside the container.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="NetworkPolicies" type="NetworkPoliciesType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Specifies network policies including container network policies.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:choice>
@@ -5479,6 +6112,15 @@ Specifies a certificate that should be returned to a client for an HTTPS endpoin
 |type|[EndpointBindingPolicyType](#endpointbindingpolicytype-complextype)|
 |minOccurs|0|
 
+#### ServiceFabricRuntimeAccessPolicy
+Specifies policies that determine how the service fabric runtime is exposed to the replicas.
+|Attribute|Value|
+|---|---|
+|name|ServiceFabricRuntimeAccessPolicy|
+|type|[ServiceFabricRuntimeAccessPolicyType](#servicefabricruntimeaccesspolicytype-complextype)|
+|minOccurs|0|
+|maxOccurs|1|
+
 #### ServicePackageResourceGovernancePolicy
 Defines the resource governance policy that is applied at the level of the entire service package.
 |Attribute|Value|
@@ -5489,12 +6131,20 @@ Defines the resource governance policy that is applied at the level of the entir
 |maxOccurs|1|
 
 #### ResourceGovernancePolicy
-Specifies resource limits for a code package.
+Specifies resource limits for a codepackage.
 |Attribute|Value|
 |---|---|
 |name|ResourceGovernancePolicy|
 |type|[ResourceGovernancePolicyType](#resourcegovernancepolicytype-complextype)|
 |minOccurs|0|
+
+#### ServicePackageContainerPolicy
+|Attribute|Value|
+|---|---|
+|name|ServicePackageContainerPolicy|
+|type|[ServicePackageContainerPolicyType](#servicepackagecontainerpolicytype-complextype)|
+|minOccurs|0|
+|maxOccurs|1|
 
 #### ContainerHostPolicies
 Specifies policies for activating container hosts.
@@ -5503,6 +6153,23 @@ Specifies policies for activating container hosts.
 |name|ContainerHostPolicies|
 |type|[ContainerHostPoliciesType](#containerhostpoliciestype-complextype)|
 |minOccurs|0|
+
+#### ConfigPackagePolicies
+Config Packages to be mounted inside the container.
+|Attribute|Value|
+|---|---|
+|name|ConfigPackagePolicies|
+|type|[ConfigPackagePoliciesType](#configpackagepoliciestype-complextype)|
+|minOccurs|0|
+
+#### NetworkPolicies
+Specifies network policies including container network policies.
+|Attribute|Value|
+|---|---|
+|name|NetworkPolicies|
+|type|[NetworkPoliciesType](#networkpoliciestype-complextype)|
+|minOccurs|0|
+|maxOccurs|1|
 ## ServiceManifestRefType complexType
 Imports the service manifest by reference. Currently the service manifest file (ServiceManifest.xml) must be present in the build package.
 
@@ -5630,6 +6297,65 @@ Defines what service types are supported by a CodePackage in this manifest. When
 |name|Diagnostics|
 |type|[ServiceDiagnosticsType](#servicediagnosticstype-complextype)|
 |minOccurs|0|
+## ServicePackageContainerPolicyType complexType
+|Attribute|Value|
+|---|---|
+|content|1 element(s), 2 attribute(s)|
+|defined|globally|
+|name|ServicePackageContainerPolicyType|
+
+### XML source
+```xml
+<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageContainerPolicyType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="PortBinding" type="PortBindingType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Specifies which endpoint resource to bind container exposed port.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="Hostname" use="optional" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Specify Hostname for container.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Isolation" use="optional" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Isolation mode for container. Valid values are "default", "process" or "hyperv".</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+
+```
+### Attribute details
+
+#### Hostname
+Specify Hostname for container.
+|Attribute|Value|
+|---|---|
+|name|Hostname|
+|use|optional|
+|type|xs:string|
+
+#### Isolation
+Isolation mode for container. Valid values are "default", "process" or "hyperv".
+|Attribute|Value|
+|---|---|
+|name|Isolation|
+|use|optional|
+|type|xs:string|
+
+### Content element details
+
+#### PortBinding
+Specifies which endpoint resource to bind container exposed port.
+|Attribute|Value|
+|---|---|
+|name|PortBinding|
+|type|[PortBindingType](#portbindingtype-complextype)|
+|minOccurs|0|
+|maxOccurs|unbounded|
 ## ServicePackageResourceGovernancePolicyType complexType
 |Attribute|Value|
 |---|---|
@@ -5679,7 +6405,7 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 
 |Attribute|Value|
 |---|---|
-|content|8 element(s), 4 attribute(s)|
+|content|11 element(s), 4 attribute(s)|
 |defined|globally|
 |name|ServicePackageType|
 
@@ -5692,6 +6418,8 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
     <xs:sequence>
       <xs:element name="Description" type="xs:string" minOccurs="0"/>
       <xs:element name="ServicePackageResourceGovernancePolicy" type="ServicePackageResourceGovernancePolicyType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ServicePackageContainerPolicy" type="ServicePackageContainerPolicyType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ServiceFabricRuntimeAccessPolicy" type="ServiceFabricRuntimeAccessPolicyType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="DigestedServiceTypes">
         <xs:complexType>
           <xs:sequence>
@@ -5714,6 +6442,11 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
             <xs:element name="ResourceGovernancePolicy" type="ResourceGovernancePolicyType" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Specifies resource limits for codepackage.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ConfigPackagePolicies" type="ConfigPackagePoliciesType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Specifies config policies for mounts.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -5775,6 +6508,7 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
           <xs:attributeGroup ref="VersionedItemAttrGroup"/>
         </xs:complexType>
       </xs:element>
+      <xs:element name="NetworkPolicies" type="NetworkPoliciesType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Diagnostics" type="ServiceDiagnosticsType"/>
     </xs:sequence>
     <xs:attribute name="Name" type="xs:string" use="required"/>
@@ -5841,6 +6575,22 @@ Checksum value of this ServicePackage content.
 |minOccurs|0|
 |maxOccurs|1|
 
+#### ServicePackageContainerPolicy
+|Attribute|Value|
+|---|---|
+|name|ServicePackageContainerPolicy|
+|type|[ServicePackageContainerPolicyType](#servicepackagecontainerpolicytype-complextype)|
+|minOccurs|0|
+|maxOccurs|1|
+
+#### ServiceFabricRuntimeAccessPolicy
+|Attribute|Value|
+|---|---|
+|name|ServiceFabricRuntimeAccessPolicy|
+|type|[ServiceFabricRuntimeAccessPolicyType](#servicefabricruntimeaccesspolicytype-complextype)|
+|minOccurs|0|
+|maxOccurs|1|
+
 #### DigestedServiceTypes
 |Attribute|Value|
 |---|---|
@@ -5871,6 +6621,14 @@ Checksum value of this ServicePackage content.
 |---|---|
 |name|DigestedResources|
 |minOccurs|1|
+
+#### NetworkPolicies
+|Attribute|Value|
+|---|---|
+|name|NetworkPolicies|
+|type|[NetworkPoliciesType](#networkpoliciestype-complextype)|
+|minOccurs|0|
+|maxOccurs|1|
 
 #### Diagnostics
 |Attribute|Value|
@@ -6095,7 +6853,7 @@ Load metrics reported by this service, used for resource balancing services.
 |minOccurs|0|
 
 #### PlacementConstraints
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the services requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 |Attribute|Value|
 |---|---|
 |name|PlacementConstraints|
@@ -6290,7 +7048,7 @@ Base type that describes a stateful or a stateless ServiceType.
     </xs:sequence>
     <xs:attribute name="ServiceTypeName" use="required">
       <xs:annotation>
-        <xs:documentation>user-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.</xs:documentation>
+        <xs:documentation>User-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -6305,7 +7063,7 @@ Base type that describes a stateful or a stateless ServiceType.
 ### Attribute details
 
 #### ServiceTypeName
-user-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.
+User-defined type identifier for a service. For example, "QueueType" or "CalculatorType". This value is used in the ApplicationManifest.xml file to identify the service.
 |Attribute|Value|
 |---|---|
 |name|ServiceTypeName|
@@ -6412,27 +7170,38 @@ Declares configuration settings in a service manifest to be overridden. It consi
                 <xs:attribute name="IsEncrypted" type="xs:boolean" default="false">
                   <xs:annotation>
                     <xs:documentation>
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
+                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
+                    </xs:documentation>
+                                    </xs:annotation>
+                                </xs:attribute>
+                <xs:attribute name="Type" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+                      If set to SecretsStoreRef, we retrive  the reference value from the SecretStore.
+                      If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     </xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
-              </xs:complexType>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="Name" use="required">
+                        <xs:annotation>
+                            <xs:documentation>The name of the section in the Settings.xml file to override.</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:minLength value="1"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
             </xs:element>
-          </xs:sequence>
-          <xs:attribute name="Name" use="required">
-            <xs:annotation>
-              <xs:documentation>The name of the section in the Settings.xml file to override.</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1"/>
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:attribute>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-</xs:complexType>
+        </xs:sequence>
+    </xs:complexType>
+    
+
 ```
 ### Content element details
 
@@ -6478,6 +7247,7 @@ Describes user-defined settings for a ServiceComponent or an Application. It con
                     <xs:documentation>If true, the value of this parameter is encrypted.</xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="Type" type="xs:string" use="optional"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -6629,6 +7399,11 @@ Describes a stateful service type.
         <xs:attribute name="HasPersistedState" type="xs:boolean" default="false">
           <xs:annotation>
             <xs:documentation>True if the service has state that needs to be persisted on the local disk.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="UseImplicitHost" type="xs:boolean" default="false">
+          <xs:annotation>
+            <xs:documentation>Specifies if the service type should be implemented implicitly as a guest executable. Guest executables are used for hosting any type of applications (such as Node.js or Java) or legacy applications that do not implement the Service Fabric service interfaces.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>

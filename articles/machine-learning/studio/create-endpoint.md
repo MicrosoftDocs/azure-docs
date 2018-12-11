@@ -6,7 +6,7 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ---
-# Creating endpoints for deployed web services
+# Creating endpoints for deployed Azure Machine Learning Studio web services
 > [!NOTE]
 >  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
 > 

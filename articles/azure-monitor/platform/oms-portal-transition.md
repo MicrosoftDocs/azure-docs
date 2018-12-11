@@ -12,7 +12,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # OMS portal moving to Azure
@@ -83,7 +82,7 @@ Instead of the [alert management solution](../../azure-monitor/platform/alert-ma
 The data collected by the Alert Management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. Starting August 2018, streaming of alerts from unified alerting into workspaces will be enabled, replacing this capability. Some schema changes are expected and will be announced at a later date.
 
 ## OMS Mobile App
-The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../monitoring-and-diagnostics/monitoring-action-groups.md) to receive notifications in the form of SMS or a voice call
+The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../azure-monitor/platform/action-groups.md) to receive notifications in the form of SMS or a voice call
 
 ## Application Insights Connector and solution
 [Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) provides a way to bring Application Insights data into a Log Analytics workspace. This data duplication was required to enable visibility across infrastructure and application data.
