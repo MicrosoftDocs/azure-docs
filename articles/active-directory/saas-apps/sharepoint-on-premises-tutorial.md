@@ -40,8 +40,8 @@ To configure Azure AD integration with SharePoint on-premises, you need the foll
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Concur supports **SP** initiated SSO
-* Concur supports **Just In Time** user provisioning
+* SharePoint on-premises supports **SP** initiated SSO
+* SharePoint on-premises supports **Just In Time** user provisioning
 
 ## Adding SharePoint on-premises from the gallery
 
