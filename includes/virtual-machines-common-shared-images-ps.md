@@ -22,9 +22,9 @@ Register-AzureRmProviderFeature `
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-## Find the managed image
+## Get the managed image
 
-See a list of images that are available in a resource group using [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. Replace the values with your own to create a variable for the managed image.
+You can see a list of images that are available in a resource group using [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). Once you know the image name and what resource group it is in, you can use `Get-AzureRmImage` again to get the image object and store it in a variable to use later. This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. 
 
 ```azurepowershell-interactive
 $managedImage = Get-AzureRmImage `
@@ -40,7 +40,6 @@ An image gallery is the primary resource used for enabling image sharing. Galler
 $resourceGroup = New-AzureRMResourceGroup `
    -Name 'myGalleryRG' `
    -Location 'West Central US'	
-   
 $gallery = New-AzureRmGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
@@ -92,7 +91,7 @@ Create an image version from a managed image using [New-AzureRmGalleryImageVersi
 $region1 = @{Name='West US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$imageVersion = New-AzureRmGalleryImageVersion `
+$job = $imageVersion = New-AzureRmGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
@@ -101,5 +100,11 @@ $imageVersion = New-AzureRmGalleryImageVersion `
    -TargetRegion $targetRegions  `
    -Source $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-01-01'
+   -asJob 
 ```
 
+It can take a while to replicate the image to all of the target regions, so we have create a job for this part. To see the progress of the job, use [Get-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-job)
+
+```azurepowershell-interactive
+Get-Job $job
+```

@@ -32,6 +32,7 @@ In this article, you create your own gallery and custom images of an Azure virtu
 > * Create a shared image definition
 > * Create a shared image version
 > * Create a VM from a shared image
+> * Query for gallery resources
 > * Delete a resources
 
 
