@@ -1,6 +1,6 @@
 ---
-title: Java language support for Azure App Service on Linux | Microsoft Docs
-description: Developer's guide to deploying Java apps with Azure App Service on Linux.
+title: Java developer's guide for App Service on Linux - Azure | Microsoft Docs
+description: Learn how to configure Java apps running in Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,8 +10,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
+ms.custom: seodec18
 
 ---
 
@@ -267,7 +268,7 @@ To use the Azure-supported Zulu JDK in your containers, make sure to pull and us
 
 App Service for Linux supports two runtimes for managed hosting of Java web applications:
 
-- The [Tomcat servlet container](http://tomcat.apache.org/) for running applications packaged as web archive (WAR) files. Supported versions are 8.5 and 9.0.
+- The [Tomcat servlet container](https://tomcat.apache.org/) for running applications packaged as web archive (WAR) files. Supported versions are 8.5 and 9.0.
 - Java SE runtime environment for running applications packaged as Java archive (JAR) files. The only supported major version is Java 8.
 
 ## Java runtime statement of support 

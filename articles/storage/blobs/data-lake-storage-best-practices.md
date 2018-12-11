@@ -3,7 +3,6 @@ title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store) 
 services: storage
 author: sachinsbigdata
-
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
@@ -31,35 +30,13 @@ When you or your users need access to data in a storage account with hierarchica
 
 ### Security for service principals
 
-Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 Filesystem. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. As with the security groups, you might consider making a service principal for each anticipated scenario (read, write, full) once a Data Lake Storage Gen2 account is created.
+Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 Filesystem. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
 
 ### Enable the Data Lake Storage Gen2 firewall with Azure service access
 
 Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended to limit the vector of external attacks. Firewall can be enabled on a storage account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.
 
-Once firewall is enabled, only Azure services such as HDInsight, Data Factory, SQL Data Warehouse, etc. have access to Data Lake Storage Gen2.
-
 Adding Azure Databricks clusters to a virtual network that may be allowed to access via the Storage Firewall requires the use of a preview feature of Databricks. To enable this feature, please place a support request.
-
-## Performance and scale considerations
-
-One of the most powerful features of Data Lake Storage Gen2 is that it significantly raises the hard limits on data throughput. Raising the limits enables customers to grow their data size and accompanied performance requirements without needing to shard the data. One of the most important considerations for optimizing Data Lake Storage Gen2 performance is that it performs the best when given parallelism.
-
-### Improve throughput with parallelism
-
-Consider giving 8-12 threads per core for the optimal read/write throughput. This is due to blocking reads/writes on a single thread, and more threads can allow higher concurrency on the VM. To ensure that levels are healthy and parallelism can be increased, be sure to monitor the VM’s CPU utilization.
-
-### Large file sizes and potential performance impact
-
-Although Data Lake Storage Gen2 supports large files, for optimal performance and depending on the process reading the data, it might not be ideal to go above 2 GB on average. For example, when using Distcp to copy data between locations or different storage accounts, files are the finest level of granularity used to determine map tasks. So, if you are copying 10 files that are 1 TB each, at most 10 mappers are allocated. Also, if you have lots of files with mappers assigned, initially the mappers work in parallel to move large files.
-
-### Capacity plan for your workload
-
-Azure Data Lake Storage Gen2 removes the hard IO throttling limits that are placed on Blob storage accounts. However, there are still soft limits that need to be considered. The default ingress/egress throttling limits meet the needs of most scenarios. If your workload needs to have the limits increased, work with Microsoft support. Also, look at the limits during the proof-of-concept stage so that IO throttling limits are not hit during production. If that happens, it might require waiting for a manual increase from the Microsoft engineering team. If IO throttling occurs, the ABFS driver uses auto-throttling features, which regulate throughput to maintain maximal throughput without being restricted by service-side throttling.
-
-### Optimize “writes” with the Data Lake Storage Gen2 driver buffer
-
-To optimize performance and reduce IOPS when writing to Data Lake Storage Gen2 from Hadoop, perform write operations as close to the Data Lake Storage Gen2 driver buffer size as possible. Try not to exceed the buffer size before flushing, such as when streaming using Apache Storm or Spark streaming workloads. When writing to Data Lake Storage Gen2 from HDInsight/Hadoop, it is important to know that Data Lake Storage Gen2 has a driver with a 8 MB (default value, configurable) buffer. Like many file system drivers, this buffer can be manually flushed before reaching the maximum size. If not, it is immediately flushed to storage if the next write exceeds the buffer’s maximum size. Where possible, you must avoid an overrun or a significant underrun of the buffer when syncing/flushing policy by count or time window.
 
 ## Resiliency considerations
 

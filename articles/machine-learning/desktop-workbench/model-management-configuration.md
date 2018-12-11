@@ -2,8 +2,8 @@
 title: Azure Machine Learning Model Management Setup and Configuration | Microsoft Docs
 description: This document describes the steps and concepts involved in setting up and configuring Model Management in Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
