@@ -1,5 +1,5 @@
 ﻿---
-title: Create and use an internal load balancer with an Azure App Service Environment
+title: Create an internal load balancer with an Azure App Service Environment
 description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create and use an internal load balancer with an App Service Environment #
 
