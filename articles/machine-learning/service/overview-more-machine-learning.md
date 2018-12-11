@@ -39,7 +39,7 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 Use Azure Machine Learning service to train, deploy, and manage ML models using Python and CLI at cloud scale.
 
 >[!Note]
-> You can try Azure Machine Learning for free. No credit card or Azure subscription is required. Get started now. https://azure.microsoft.com/free/
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Azure Machine Learning Studio
 
