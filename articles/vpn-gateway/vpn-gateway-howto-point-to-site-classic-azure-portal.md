@@ -31,7 +31,7 @@ You can also create this configuration with a different deployment tool or model
 > * [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. For example, when you're telecommuting from home or during a conference. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
+You use a Point-to-Site (P2S) VPN gateway to create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location. When you have only a few clients that need to connect to a VNet, a P2S VPN is a useful solution to use instead of a Site-to-Site VPN. A P2S VPN connection is established by starting it from the client computer.
 
 > [!IMPORTANT]
 > The classic deployment model supports Windows VPN clients only and uses the Secure Socket Tunneling Protocol (SSTP), an SSL-based VPN protocol. To support non-Windows VPN clients, you must create your VNet with the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN in addition to SSTP. For more information, see [About P2S connections](point-to-site-about.md).
@@ -98,9 +98,9 @@ If you don't already have a virtual network (VNet), create one. Screenshots are 
 
 5. Select the **Subscription** you want to use from the drop-down list.
 
-6. Select a **Resource Group**. Select an existing resource group. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Select an existing **Resource Group**. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-7. Select a **Location** for your VNet. The location determines the location of the resources that you deploy to this VNet.
+7. Select a **Location** for your VNet. This setting determines the geographical location of the resources that you deploy to this VNet.
 
 8. Select **Create** to create the VNet. From the **Notifications** page, you'll see a **Deployment in progress** message.
 
@@ -157,7 +157,7 @@ If you use self-signed certificates, they must be created by using specific para
 
 ## Upload the root certificate .cer file
 
-After the gateway has been created, upload the .cer file (which contains the public key information) for a trusted root certificate to the Azure server. (Don't upload the private key for the root certificate.) After you upload the certificate, Azure uses it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
+After the gateway has been created, upload the .cer file (which contains the public key information) for a trusted root certificate to the Azure server. Don't upload the private key for the root certificate. After you upload the certificate, Azure uses it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can later upload additional trusted root certificate files (up to 20), if needed.  
 
 1. On the **VPN connections** section of the page for your VNet, select the **clients** graphic to open the **Point-to-site VPN connection** page.
 
@@ -208,7 +208,7 @@ To create a P2S connection from a different client computer than the one used to
 >
 >
 
-1. To connect to your VNet, on the client computer, navigate to **VPN connections** in the Azure portal and locate the VPN connection that you created. The VPM connection has the same name as your virtual network. Select **Connect**. If a pop-up message about the certificate appears, select **Continue** to use elevated privileges.
+1. To connect to your VNet, on the client computer, navigate to **VPN connections** in the Azure portal and locate the VPN connection that you created. The VPN connection has the same name as your virtual network. Select **Connect**. If a pop-up message about the certificate appears, select **Continue** to use elevated privileges.
 2. On the **Connection** status page, select **Connect** to start the connection. If you see the **Select Certificate** screen, verify that the displayed client certificate is the correct one. If not, select the correct certificate from the drop-down list, and then select **OK**.
 
   ![VPN client connection](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientconnect.png)
@@ -244,7 +244,7 @@ To create a P2S connection from a different client computer than the one used to
 
 ## Add or remove trusted root certificates
 
-You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root won't be able to authenticate and unable to connect. If you want a client to authenticate and connect, install a new client certificate generated from a root certificate that's trusted (uploaded) to Azure.
+You can add and remove trusted root certificates from Azure. When you remove a root certificate, clients that have a certificate generated from that root will be unable to authenticate and connect. If you want a client to be able to authenticate and connect, install a new client certificate generated from a root certificate that's trusted by Azure (uploaded).
 
 ### To add a trusted root certificate
 
@@ -279,7 +279,8 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 3. Navigate to the classic virtual network. Then, select **Point-to-site VPN connection > Certificates** page and then select **Revocation list** to open the **Revocation list** page. 
 4. On the **Revocation list** page, select **Add certificate** to open the **Add certificate to revocation list** page.
 5. On the **Add certificate to revocation list** page, paste the certificate thumbprint as one continuous line of text, with no spaces. Select **OK** to finish.
-6. After updating has completed, the certificate can no longer be used to connect. Clients that try to connect by using this certificate receive a message saying that the certificate is no longer valid.
+
+After updating has completed, the certificate can no longer be used to connect. Clients that try to connect by using this certificate receive a message saying that the certificate is no longer valid.
 
 ## Point-to-Site FAQ
 
