@@ -42,7 +42,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, designate which subscription group, and which resource group to use. Then, select a supported location for the environment to be hosted in.
 
-1. Input Time Series ID property
+1. Input a Time Series ID
 
     >[!NOTE]
     > * The Time Series ID is case-sensitive and immutable (it can't be changed after it is set).
@@ -55,12 +55,12 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Optionally, you can add an event source.
 
-* Time Series Insights supports [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) and [Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) as options. While you can only add a single event source at environment creation time, you can add an additional event source later. It’s best to create a unique consumer group to ensure all events are visible to your Azure Time Series Insights Preview instance. You can select an existing consumer group or create a new consumer group when adding the event source.
+   * Time Series Insights supports [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) and [Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) as options. While you can only add a single event source at environment creation time, you can add an additional event source later. It’s best to create a unique consumer group to ensure all events are visible to your Azure Time Series Insights Preview instance. You can select an existing consumer group or create a new consumer group when adding the event source.
 
-* You should also designate the appropriate Timestamp property. By default, Azure Time Series Insights uses the message enqueued time for each event source.
+   * You should also designate the appropriate Timestamp property. By default, Azure Time Series Insights uses the message enqueued time for each event source.
 
-> [!TIP]
-> The message enqueued time may not be the best configured setting to use in batch event or historical data uploading scenarios. Make sure to verify your decision to use or not use a Timestamp property in such cases.
+     > [!TIP]
+     > The message enqueued time may not be the best configured setting to use in batch event or historical data uploading scenarios. Make sure to verify your decision to use or not use a Timestamp property in such cases.
 
     ![Add an event source to your instance.][2]
 
