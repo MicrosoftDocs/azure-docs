@@ -13,7 +13,7 @@ ms.author: rogarana
 
 # How to: Set file and directory level permissions using Azure Storage explorer
 
-Files stored in a storage account which has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels. This article shows how to set file and directory level permissions, using an access control list, through the desktop version of Azure Storage explorer. 
+Files stored in a storage account that has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels. This article shows how to set file and directory level permissions, using an access control list, through the desktop version of Azure Storage explorer. 
 
 ## Pre-requisites
 
@@ -21,9 +21,7 @@ In order to best achieve this, we require that you complete our [Azure Storage e
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**.
-
-This wil bring up the **Manage Permission** prompt.
+You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** prompt.
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
