@@ -48,13 +48,12 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
 1. Ensure that your **Authorization URL** is correct. It should take the format:
 
     ```plaintext
-    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
     | Name  | Replace with | Example |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
-    | YOUR_RESOURCE_ID | The resource ID | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
 
 1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
 
@@ -64,8 +63,8 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
     | Callback URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
     | Auth URL | Use the **Authorization URL** from step 2 above |
     | Client ID | Use the **Application ID** for the Azure AD app that was created or repurposed from the previous section |
-    | Scope | leave blank |
-    | State | leave blank |
+    | Scope | Leave blank |
+    | State | Leave blank |
     | Client Authentication | `Send as Basic Auth header` |
 
 1. The client should now look like:

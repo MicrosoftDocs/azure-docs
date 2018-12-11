@@ -201,7 +201,7 @@ To run the PerfInsights tool, follow these steps:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Screenshot of PerfInsights commandline ouput](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Screenshot of PerfInsights commandline output](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
     The basic syntax for running PerfInsights scenarios is:
     

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -20,7 +20,7 @@ ms.reviewer: johnhas
 
 # Tutorial: Set up resources for Validation as a Service
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 You will need to create a solution. A Validation as a service (VaaS) solution represents an Azure Stack solution with a particular hardware bill of materials. You will use the solution  to check if your hardware can support run Azure Stack. Follow this tutorial to get ready to use the service with your solution.
 

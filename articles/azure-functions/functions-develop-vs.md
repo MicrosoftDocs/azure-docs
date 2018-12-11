@@ -78,7 +78,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Ouput Directory** setting for this file should always be **Copy if newer**. 
+    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 

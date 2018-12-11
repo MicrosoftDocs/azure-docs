@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
 
-In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../app-service/app-service-web-overview.md). In the following you learn how to:
+In this tutorial, you follow the necessary steps for getting an Console application to read information from Azure Key Vault by using managed identities for Azure resources. This tutorial is based on [Azure Web Apps](../app-service/app-service-web-overview.md). In the following you learn how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
@@ -47,7 +47,7 @@ Here’s how it works! When you enable MSI for an Azure service such as Virtual 
 
 ![MSI](media/MSI.png)
 
-Next, Your code calls a local metadata service available on the Azure resource to get an access token.
+Next, your code calls a local metadata service available on the Azure resource to get an access token.
 Your code uses the access token it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service. 
 
 ## Log in to Azure
@@ -199,8 +199,7 @@ Then change the class file to contain the below code. It's a 2 step process.
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];             
                 token = ojObject.Value.ToString();
             }
             return token;

@@ -45,7 +45,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## Create an Azure file share
-Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
+Now you can create your first Azure file share. You can create a file share using the [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare) cmdlet. This example creates a share named `myshare`.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -75,7 +75,7 @@ In most cases, you will use your Azure file share over the SMB protocol, as this
 The following examples show how to use the AzureRM PowerShell module to manipulate your Azure file share with the File REST protocol. 
 
 #### Create directory
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet.
+To create a new directory named *myDirectory* at the root of your Azure file share, use the [New-AzureStorageDirectory](/powershell/module/azure.storage/new-azurestoragedirectory) cmdlet.
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -223,16 +223,18 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 You can alternatively remove resources one by one:
 
 - To remove the Azure file shares we created for this quickstart.
-```azurepowershell-interactive
-Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
-    Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
-}
-```
+
+    ```azurepowershell-interactive
+    Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.IsSnapshot -eq $false } | ForEach-Object { 
+        Remove-AzureStorageShare -Context $storageAcct.Context -Name $_.Name
+    }
+    ```
 
 - To remove the storage account itself (this will implicitly remove the Azure file shares we created as well as any other storage resources you may have created such as an Azure Blob storage container).
-```azurepowershell-interactive
-Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
-```
+
+    ```azurepowershell-interactive
+    Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -Name $storageAcct.StorageAccountName
+    ```
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Use Azure Security Center recommendations to enhance security | Microsoft
 description: " Learn how to use security policies and recommendations in Azure Security Center to help mitigate a security attack. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Use Azure Security Center recommendations to enhance security
@@ -26,7 +26,7 @@ You can reduce the chances of a significant security event by configuring a secu
 >
 
 ## Managing security recommendations
-A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements. To learn more, see [Set security policies in Security Center](security-center-policies.md).
+A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements. To learn more, see [Set security policies in Security Center](security-center-azure-policy.md).
 
 Security policies for resource groups are inherited from the subscription level.
 

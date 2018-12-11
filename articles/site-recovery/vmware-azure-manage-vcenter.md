@@ -4,7 +4,7 @@ description: This article describes how add and manage VMware vCenter for disast
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 
 ---

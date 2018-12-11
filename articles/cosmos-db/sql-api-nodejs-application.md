@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data | Microsoft Docs'
+title: 'Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
 author: SnehaGunda
 
@@ -46,7 +46,7 @@ that you have the following resources:
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] version 6.10 or higher.
-* [Express generator](http://www.expressjs.com/starter/generator.html) (you can install Express via `npm install express-generator -g`)
+* [Express generator](https://www.expressjs.com/starter/generator.html) (you can install Express via `npm install express-generator -g`)
 * Install [Git][Git] on your local workstation.
 
 ## <a name="_Toc395637761"></a>Create an Azure Cosmos DB account
@@ -490,7 +490,7 @@ You can now proceed to the next article:
 > [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md)
 
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
+[Node.js]: https://nodejs.org/
+[Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 

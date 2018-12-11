@@ -44,14 +44,16 @@ Create a new file called *sample.py* in your preferred project directory.
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions.
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+
+ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Create a new project
 print ("Creating project...")
@@ -112,12 +114,11 @@ print ("Done!")
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
 ```python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 # Now there is a trained endpoint that can be used to make a prediction
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 test_img_url = base_image_url + "Images/Test/test_image.jpg"
 results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)

@@ -1,13 +1,13 @@
 ---
-title: Manage a Machine Learning workspace | Microsoft Docs
+title: Manage a Machine Learning Studio workspace | Microsoft Docs
 description: Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
 ms.component: studio
@@ -16,9 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-
 ---
-# Manage an Azure Machine Learning workspace
+# Manage an Azure Machine Learning Studio workspace
 
 > [!NOTE]
 > For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).

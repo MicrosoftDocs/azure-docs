@@ -82,7 +82,7 @@ Perform the following steps to create an export job in the Azure portal.
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you recieve notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
    
 5. In **Summary**:
 

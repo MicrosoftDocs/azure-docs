@@ -59,6 +59,11 @@ When you enable **application diagnostics**, you also choose the **Level**. This
 
 For **Application logging**, you can turn on the file system option temporarily for debugging purposes. This option turns off automatically in 12 hours. You can also turn on the blob storage option to select a blob container to write logs to.
 
+> [!NOTE]
+> Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the file system (without code modifications to write logs to external storage).
+>
+>
+
 For **Web server logging**, you can select **storage** or **file system**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. 
 
 If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using Azure CLI.

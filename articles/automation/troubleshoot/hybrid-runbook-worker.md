@@ -24,7 +24,7 @@ The Hybrid Runbook Worker depends on an agent to communicate with your Automatio
 
 Runbook execution fails and you receive the following error:
 
-```
+```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 

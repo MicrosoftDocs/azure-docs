@@ -35,6 +35,9 @@
   - name: Availability and reliability
     href: ../hdinsight-high-availability-linux.md
     maintainContext: true
+  - name: Data Lake Storage Gen2
+    href: ../hdinsight-hadoop-data-lake-storage-gen2.md
+    maintainContext: true
 - name: How to
   items:
   - name: Use Hadoop sandbox

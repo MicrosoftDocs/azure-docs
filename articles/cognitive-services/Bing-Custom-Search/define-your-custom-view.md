@@ -1,16 +1,16 @@
----
+﻿---
 title: Define a custom view - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Describes how to create site and vertical search services
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
+ms.author: aahi
 ---
 
 # Configure your custom search experience
@@ -156,7 +156,7 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 5.	Click **Add site** next to the result you want to include.
 6.	Click the **Ok** button.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## View statistics
 

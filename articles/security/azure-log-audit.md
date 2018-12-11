@@ -144,7 +144,7 @@ If you're interested in retaining your audit events longer, use the Reporting AP
 
 ![Virtual machine logs that use Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
 
-### [Azure virtual machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/) that are running Microsoft Windows and [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
+### [Azure virtual machines](/learn/paths/deploy-a-website-with-azure-virtual-machines/) that are running Microsoft Windows and [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 You can enable Azure Diagnostics on a virtual machine by doing any of the following:
 

@@ -54,7 +54,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
     - **Address (IP or DNS)**: Type the gateway subnet that you created in the Step 1.
     - **Shared secret**: type any secret key, and remember it for later use.
 
-    ![The image about RADUIS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![The image about RADUIS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  On the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **Additional Options** check box is not selected.
@@ -73,7 +73,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
     - **Authentication type**: Select **RADIUS authentication**.
     - **Server IP address**: Type the IP address of the NPS server.
 
-    ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## Next steps
 

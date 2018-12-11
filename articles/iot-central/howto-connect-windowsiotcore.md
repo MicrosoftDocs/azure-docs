@@ -52,7 +52,7 @@ In your Azure IoT Central application, add a real device from the **Windows IoT 
 
 ### What you'll need
 
-To set up a physical Windows 10 IoT Core device, you will need to first have a device running Windows 10 IoT Core. Learn how to set up a Windows 10 IoT Core device [here](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice).
+To set up a physical Windows 10 IoT Core device, you will need to first have a device running Windows 10 IoT Core. Learn how to set up a Windows 10 IoT Core device [here](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 You will also need a client application that can communicate with Azure IoT Central. You can either build your own custom application using the Azure SDK and deploy it to your device using Visual Studio, or you can download a [pre-built sample](https://developer.microsoft.com/en-us/windows/iot/samples) and simply deploy and run it on the device. 
 

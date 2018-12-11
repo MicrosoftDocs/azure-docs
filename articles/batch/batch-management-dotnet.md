@@ -149,7 +149,7 @@ The Batch Management .NET library is an Azure resource provider client, and is u
 
 ## Sample project on GitHub
 
-To see Batch Management .NET in action, check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub. The AccountManagment sample application demonstrates the following operations:
+To see Batch Management .NET in action, check out the [AccountManagement][acct_mgmt_sample] sample project on GitHub. The AccountManagement sample application demonstrates the following operations:
 
 1. Acquire a security token from Azure AD by using [ADAL][aad_adal]. If the user is not already signed in, they are prompted for their Azure credentials.
 2. With the security token obtained from Azure AD, create a [SubscriptionClient][resman_subclient] to query Azure for a list of subscriptions associated with the account. The user can select a subscription from the list if it contains more than one subscription.

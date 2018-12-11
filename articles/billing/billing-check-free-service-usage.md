@@ -65,7 +65,6 @@ The usage file contains usage information for both free and paid services. Free 
 
 ![Screenshot that shows usage of free services](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
+## Need help? Contact us.
 
-## Need help? Contact support
-
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

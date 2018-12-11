@@ -33,10 +33,10 @@ method to detect faces in an image and return face attributes including:
 To run the sample, do the following steps:
 
 1. Copy the following and save it to a file such as `detectFaces.html`.
-2. Replace `<Subscription Key>` with your valid subscription key.
-3. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
-4. Drag-and-drop the file into your browser.
-5. Click the `Analyze faces` button.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. If necessary, change the `uriBase` value to use the location where you obtained your subscription keys (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+1. Drag-and-drop the file into your browser.
+1. Click the `Analyze faces` button.
 
 ### Face - Detect request
 
@@ -59,7 +59,7 @@ To run the sample, do the following steps:
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change 
         // this region.
         var uriBase =

@@ -55,8 +55,10 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-    - name: Migrate Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md
+  - name: Move Azure VMs
+    items:
+    - name: Move Azure VMs to another region
+      href: azure-to-azure-tutorial-migrate.md 
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
@@ -181,8 +183,10 @@
         href: vmware-azure-set-up-process-server-scale.md
     - name: Set up disaster recovery
       items:
-      - name: Set up the source environment/configuration server
+      - name: Set up the source environment
         href: vmware-azure-set-up-source.md
+      - name: Deploy the configuration server
+        href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment 
         href: vmware-azure-set-up-target.md
       - name: Configure replication settings

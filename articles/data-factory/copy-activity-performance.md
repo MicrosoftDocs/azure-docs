@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -191,6 +191,9 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 | **linkedServiceName** |Specify the name of an [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You cannot use Storage with a shared access signature to load data into SQL Data Warehouse via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
 | **path** |Specify the Blob storage path that you want to contain the staged data. If you do not provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
 | **enableCompression** |Specifies whether data should be compressed before it is copied to the destination. This setting reduces the volume of data being transferred. |False |No |
+
+>[!NOTE]
+> If you use staged copy with compression enabled, service principal or MSI authentication for staging blob linked service is not supported.
 
 Here's a sample definition of Copy Activity with the properties that are described in the preceding table:
 

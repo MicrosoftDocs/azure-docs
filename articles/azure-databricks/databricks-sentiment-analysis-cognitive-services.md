@@ -3,18 +3,17 @@ title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks'
 description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on streaming data in near real-time.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: "Active"
-ms.date: 10/23/2018
-ms.author: alehall
+ms.date: 12/07/2018
 ---
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
 
-In this tutorial, you learn how to run sentiment analysis on a stream of data using Azure Databricks in near real-time. You set up data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run sentiment analysis on the streamed data.
+In this tutorial, you learn how to run sentiment analysis on a stream of data using Azure Databricks in near real time. You set up data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run sentiment analysis on the streamed data.
 
 By the end of this tutorial, you would have streamed tweets from Twitter that have the term "Azure" in them and ran sentiment analysis on the tweets.
 
@@ -146,7 +145,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 ## Get a Cognitive Services access key
 
-In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a stream of tweets in near real-time. Before you use the APIs, you must create an Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
+In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a stream of tweets in near real time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -164,11 +163,11 @@ In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs]
     - Select the Azure subscription under which the account is created.
     - Select an Azure location.
     - Select a pricing tier for the service. For more information about Cognitive Services pricing, see [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Specifiy whether you want to create a new resource group or select an existing one.
+    - Specify whether you want to create a new resource group or select an existing one.
 
     Select **Create**.
 
-5. After the accout is created, from the **Overview** tab, select **Show access keys**.
+5. After the account is created, from the **Overview** tab, select **Show access keys**.
 
     ![Show access keys](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Show access keys")
 
@@ -201,7 +200,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 ## Send tweets to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholder with values for your Event Hubs namespace and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
 ```scala
 import java.util._
@@ -308,7 +307,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -391,7 +390,7 @@ The output now resembles the following snippet:
     ...
     ...
 
-You have now streamed data from Azure Event Hubs into Azure Databricks at near real-time using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+You have now streamed data from Azure Event Hubs into Azure Databricks at near real time using the Event Hubs connector for Apache Spark. For more information on how to use the Event Hubs connector for Spark, see the [connector documentation](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## Run sentiment analysis on tweets
 
@@ -504,7 +503,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Add another cell to define a Spark UDF (User Defined Function) that determines sentiment.
+Add another cell to define a Spark UDF (User-defined function) that determines sentiment.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -566,7 +565,7 @@ You should see an output like the following snippet:
 
 A value closer to **1** in the **Sentiment** column suggests a great experience with Azure. A value closer to **0** suggests issues that users faced while working with Microsoft Azure.
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran sentiment analysis on streaming data in near real-time.
+That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then ran sentiment analysis on streaming data in near real time.
 
 ## Clean up resources
 

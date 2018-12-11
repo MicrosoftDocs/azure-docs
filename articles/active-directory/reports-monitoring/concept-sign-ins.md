@@ -54,6 +54,9 @@ You can access the sign-ins report by selecting **Sign-ins** in the **Activity**
 
 ![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
 
+> [!IMPORTANT]
+> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
+
 A sign-ins log has a default list view that shows:
 
 - The sign-in date

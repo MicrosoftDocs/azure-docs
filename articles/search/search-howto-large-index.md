@@ -17,7 +17,7 @@ As data volumes grow or processing needs change, you might find that simple [reb
 
 As a first step towards meeting increased demands, we recommend that you increase the [scale and capacity](search-capacity-planning.md) within the limits of your existing service. 
 
-A second step, if you can use [indexers](search-indexer-overview.md), adds mechanisms for scaleable indexing. Indexers come with a built-in scheduler that allows you to parcel out indexing at regular intervals or extend processing beyond the 24-hour window. Additionally, when paired with data source definitions, indexers help you achieve a form of parallelism by partitioning data and using schedules to execute in parallel.
+A second step, if you can use [indexers](search-indexer-overview.md), adds mechanisms for scalable indexing. Indexers come with a built-in scheduler that allows you to parcel out indexing at regular intervals or extend processing beyond the 24-hour window. Additionally, when paired with data source definitions, indexers help you achieve a form of parallelism by partitioning data and using schedules to execute in parallel.
 
 ### Scheduled indexing for large data sets
 

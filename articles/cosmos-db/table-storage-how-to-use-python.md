@@ -1,9 +1,8 @@
 ---
-title: Get started with Azure Table storage and the Azure Cosmos DB Table API using Python | Microsoft Docs
+title: Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
@@ -28,7 +27,7 @@ This sample shows you how to use the [Azure Cosmos DB Table SDK for Python](http
 * Insert and query entities
 * Modify entities
 
-While working through the scenarios in this sample, you may want to refer to the [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/).
+While working through the scenarios in this sample, you may want to refer to the [Azure Cosmos DB SDK for Python API reference](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python).
 
 ## Prerequisites
 
@@ -218,7 +217,7 @@ table_service.delete_table('tasktable')
 ## Next steps
 
 * [FAQ - Develop with the Table API](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Azure Cosmos DB SDK for Python API reference](https://azure.github.io/azure-cosmosdb-python/)
+* [Azure Cosmos DB SDK for Python API reference](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
 * [Working with Python in Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
