@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/05/2018
+ms.date: 02/05/2018
 ---
 # Deploy Azure Machine Learning Studio Workspace Using Azure Resource Manager
 

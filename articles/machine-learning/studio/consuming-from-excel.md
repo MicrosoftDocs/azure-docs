@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2018
+ms.date: 02/01/2018
 ---
 # Consuming an Azure Machine Learning Studio Web Service from Excel
 

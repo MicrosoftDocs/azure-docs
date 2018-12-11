@@ -1,5 +1,5 @@
 ﻿---
-title: Set up an Azure Time Series Insights Preview environment tutorial | Microsoft Docs
+title: Azure Time Series Insights Preview set up - Set up an Azure Time Series Insights Preview environment tutorial | Microsoft Docs
 description: Learn how to set up your environment in Azure Time Series Insights Preview.
 author: ashannon7
 ms.author: anshan
@@ -9,6 +9,7 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
+ms.custom: seodec18
 ---
 
 # Tutorial: Set up an Azure Time Series Insights Preview environment
