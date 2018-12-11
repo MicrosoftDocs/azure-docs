@@ -128,17 +128,26 @@ This update installs the following security updates:
 
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4467684](https://support.microsoft.com/en-us/help/4467684)
 
+### Hotfixes
+
+Azure Stack releases hotfixes on a regular basis.
+
+> [!TIP]  
+> Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack hotfixes:
+> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
+> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+
+#### Azure Stack hotfixes
+
+- **1809**: [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
+- **1811**: No current hotfix available.
+
 ### Prerequisites
 
 > [!Important]  
 > Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-- Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/).
-
-  > [!TIP]  
-  > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
-  > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-  > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+- Install the [latest Azure Stack Hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
@@ -153,7 +162,7 @@ For more information about these vulnerabilities, click on the preceding links, 
     The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
     ``` 
  
-- In addition to various quality improvements, the [1.1809.12.114 Hotfix](https://support.microsoft.com/help/4481548/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
+- In addition to various quality improvements, the [1809 Hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
  
     ```shell
     Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
@@ -173,9 +182,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-
-- No hotfix for 1811 available yet.
+After the installation of this update, install any applicable hotfixes. For more information, see [Hotfixes](#hotfixes), as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
 
 ## Known issues (post-installation)
 
