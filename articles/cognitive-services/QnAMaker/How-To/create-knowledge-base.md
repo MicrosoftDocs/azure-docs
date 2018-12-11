@@ -45,11 +45,11 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add **Chit-chat** to your KB. Choose to add chit-chat support for your bot, by choosing from one of the 3  personalities. 
 
-    ![Add chit-chat to KB ](../media/qnamaker-how-to-chitchat/create-kb-chit-chat.png)
+    ![Add chit-chat to KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Select **Create your KB**.
 
-    ![Create KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Create KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
 1. It takes a few minutes for data to be extracted.
 
