@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: diberry
 ---
-# Entities in LUIS
+# Entity types and their purposes in LUIS
 
 Entities are words or phrases in utterances that are key data in your application’s domain.
 

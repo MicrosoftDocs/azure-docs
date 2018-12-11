@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
-# Keys in LUIS
+# Authoring and query prediction endpoint keys in LUIS
 LUIS uses two keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key). The authoring key is created for you automatically when you create your LUIS account. When you are ready to publish your LUIS app, you need to [create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [assign it](luis-how-to-manage-keys.md#assign-endpoint-key) to your LUIS app, and [use it with the endpoint query](#use-endpoint-key-in-query). 
 
 |Key|Purpose|
