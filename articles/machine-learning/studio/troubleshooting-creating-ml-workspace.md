@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# Troubleshooting guide: Create and connect to an Machine Learning Studio workspace
+# Troubleshooting guide: Create and connect to an Azure Machine Learning Studio workspace
 This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio workspaces.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
