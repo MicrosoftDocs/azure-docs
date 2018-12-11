@@ -65,7 +65,7 @@ ms.topic: hub-page
                             </div>
                             <div class="cardText">
                                 <h3>Authenticate a request</h3>
-                                <p>Learn how to authenticate a request using a single-service subscription key, multi-service subscription key, or authentication token.</p>
+                                <p>Learn how to authenticate requests to Azure Cognitive Services.</p>
                             </div>
                         </div>
                     </div>
