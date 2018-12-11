@@ -27,7 +27,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 When you are ready to generate an answer to a question from your knowledge base, [publish](../How-to/publish-knowledge-base.md) your knowledge base.
 
-## Use endpoint with Postman
+## Use production endpoint with Postman
 
 When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The default view shows the settings required to generate an answer from [Postman](https://www.getpostman.com).
 
@@ -57,6 +57,12 @@ To generate an answer with Postman, complete the following steps:
 1. The response contains the answer along with other information that may be important to the client application. 
 
     [![In Postman, set the body JSON value](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
+
+## Use staging endpoint with cURL
+
+If you want to get an answer from the staging endpoint, use the querystring boolean parameter `isTest` with the value of `true`.
+
+`isTest=true`
 
 ## Next steps
 
