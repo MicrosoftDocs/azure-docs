@@ -20,7 +20,7 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Create an ASP.NET Core web app in a Docker container using Azure CLI
+# Create an ASP.NET Core web app in a Docker container from Azure Container Registry
 
 This sample script creates a resource group, a Linux App Service plan, and a web app. It then deploys an ASP.NET Core application using a Docker Container from the Azure Container Registry.
 

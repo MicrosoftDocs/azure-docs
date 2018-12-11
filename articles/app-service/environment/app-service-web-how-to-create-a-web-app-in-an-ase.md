@@ -1,5 +1,5 @@
 ---
-title: Create a web app in an App Service Environment v1
+title: Create a web app in an App Service Environment v1 - Azure
 description: Learn how to create web apps and app service plans in an App Service Environment v1
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Create a web app in an App Service Environment v1

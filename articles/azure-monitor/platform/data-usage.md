@@ -169,7 +169,7 @@ This section describes how to create an alert if:
 - Data volume exceeds a specified amount.
 - Data volume is predicted to exceed a specified amount.
 
-Azure Alerts support [log alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) that use search queries. 
+Azure Alerts support [log alerts](../../azure-monitor/platform/alerts-unified-log.md) that use search queries. 
 
 The following query has a result when there is more than 100 GB of data collected in the last 24 hours:
 
