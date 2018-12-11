@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ---
-# Use PowerShell to create models and web service endpoints from one experiment
+# Use PowerShell to create Studio models and web service endpoints from one experiment
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio using just a single experiment.
 

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ---
-# Manage an Azure Machine Learning workspace
+# Manage an Azure Machine Learning Studio workspace
 
 > [!NOTE]
 > For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).

@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# Consume an Azure Machine Learning web service by using a web app template
+# Consume an Azure Machine Learning Studio web service by using a web app template
 
 You can develop a predictive model and deploy it as an Azure web service by using:
 - Azure Machine Learning Studio.
