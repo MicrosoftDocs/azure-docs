@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Apply tag and its default value
+title: Sample - Apply tag and its default value
 description: This sample policy appends a specified tag name and value, if that tag is not provided.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 10/29/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Apply tag and its default value
 
@@ -167,6 +166,8 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 There are several tools that can be used to interact with the Resource Manager REST API such as
 [ARMClient](https://github.com/projectkudu/ARMClient) or PowerShell. An example of calling REST API
 from PowerShell can be found in the **Aliases** section of [Policy definition structure](../concepts/definition-structure.md#aliases).
+
+## REST API
 
 ### Deploy with REST API
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Audit if Network Watcher is not enabled for region
+title: Sample - Audit if Network Watcher is not enabled for region
 description: This sample policy audits if network watcher is not enabled for a specified region
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Audit if Network Watcher is not enabled for region
 

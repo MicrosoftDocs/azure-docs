@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Enforce tag and its value
+title: Sample - Enforce tag and its value
 description: This sample policy requires a specified tag name and value.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Enforce tag and its value
 

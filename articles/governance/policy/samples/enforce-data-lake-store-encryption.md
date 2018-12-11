@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Require encryption for Data Lake Store
+title: Sample - Require encryption for Data Lake Store
 description: This sample policy requires encryption for Data Lake Store.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Require Data Lake Store encryption
 

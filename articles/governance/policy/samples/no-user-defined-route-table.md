@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - No user defined route table
+title: Sample - No user defined route table
 description: This sample policy prohibits virtual networks from being deployed with a user-defined route table.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # No user defined route table
 

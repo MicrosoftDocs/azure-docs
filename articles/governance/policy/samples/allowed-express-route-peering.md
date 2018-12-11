@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Allowed peering location for ExpressRoute
+title: Sample - Allowed ExpressRoute peering locations
 description: This policy requires that ExpressRoute use specified peering locations.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Allowed peering location for ExpressRoute
 

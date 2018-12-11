@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Allowed locations
+title: Sample - Allowed locations
 description: This sample policy requires that all resources are deployed to the approved locations.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Allowed locations
 
