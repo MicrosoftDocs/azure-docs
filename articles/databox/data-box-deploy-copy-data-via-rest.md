@@ -1,6 +1,6 @@
 ---
-title: Copy data to Azure Data Box Blob storage REST APIs| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box Blob storage REST APIs
+title: Copy data to Azure Data Box Blob storage via REST APIs| Microsoft Docs
+description: Learn how to copy data to your Azure Data Box Blob storage via REST APIs
 services: databox
 author: alkohli
 
@@ -11,9 +11,9 @@ ms.date: 12/07/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data via Azure Data Box Blob storage REST APIs  
+# Tutorial: Copy data to Azure Data Box Blob storage via REST APIs  
 
-This tutorial describes procedures to connect to Azure Data Box Blob storage REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
+This tutorial describes procedures to connect to Azure Data Box Blob storage via REST APIs over *http* or *https*. Once connected, the steps required to copy the data to Data Box Blob storage and prepare the Data Box to ship, are also described.
 
 In this tutorial, you learn how to:
 
@@ -126,9 +126,8 @@ The steps to follow are identical to what you used while connecting over *http*.
 
 ## Copy data to Data Box
 
-Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, review the following considerations:
+Once you are connected to the Data Box Blob storage, the next step is to copy data. Prior to data copy, review the following considerations:
 
-- Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure fails.
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
@@ -160,7 +159,7 @@ The first step is to create a container, because blobs are always uploaded into 
 
 Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. To upload all blobs in a folder, enter the following AzCopy command:
 
-# [Linux](#tab/linux)
+#### Linux
 
     azcopy \
         --source /mnt/myfolder \
@@ -168,10 +167,10 @@ Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. 
         --dest-key <key> \
         --recursive
 
-# [Windows](#tab/windows)
+#### Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
----
+
 
 Replace `<key>` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
 
@@ -185,8 +184,7 @@ Use AzCopy to upload files based on their last-modified time. To try this, modif
 
 If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` (Linux) or `/XO` and `/XN` (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
 
-# [Linux](#tab/linux)
-
+#### Linux
     azcopy \
     --source /mnt/myfolder \
     --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
@@ -194,10 +192,10 @@ If you only want to copy source resources that do not exist in the destination, 
     --recursive \
     --exclude-older
 
-# [Windows](#tab/windows)
+#### Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
----
+
 
 ## Prepare to ship
 
