@@ -1,6 +1,6 @@
 ---
-title: Diagnose and solve problems in Azure Time Series Insights | Microsoft Docs
-description: This article describes how to diagnose, troubleshoot, and solve common problems you might encounter in your Azure Time Series Insights environment. 
+title: Azure Time Series Insights troubleshoot - Diagnose and solve problems in Azure Time Series Insights | Microsoft Docs
+description: This article describes how to diagnose, troubleshoot, and solve common problems you might encounter in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,6 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
+ms.custom: seodec18
 ---
 
 # Diagnose and solve problems in your Time Series Insights environment

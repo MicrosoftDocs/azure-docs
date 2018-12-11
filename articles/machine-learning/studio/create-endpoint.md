@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ---
-# Creating endpoints for deployed web services
+# Creating endpoints for deployed Azure Machine Learning Studio web services
 > [!NOTE]
 >  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
 > 
