@@ -298,7 +298,7 @@
     items:
     - name: Monitoring and tuning overview
       href: sql-database-monitor-tune-overview.md
-    - name: Tuning advisors
+    - name: Intelligent performance
       items:
       - name: Tuning actions and recommendations
         href: sql-database-performance.md
