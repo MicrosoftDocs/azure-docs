@@ -55,14 +55,15 @@ This update includes the following improvements for Azure Stack:
 - Added a new region properties blade that displays registration details of the environment. You can access this information by clicking the **Region Management** tile on the default dashboard in the administrator portal and then selecting **Properties**.
 
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
-- This release adds support for Device Authentication with ADFS in particular when using Azure CLI. 
-<!-- @Matt add Link to CLI for ADFS -->
 
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
 ### Fixed issues
+
+<!-- TBD - IS ASDK --> 
+- Fixed an issue in which the public IP address usage meter data showed the same **EventDateTime** value for each record instead of the **TimeDate** stamp that shows when the record was created. You can now use this data to perform accurate accounting of public IP address usage.
 
 <!-- 3099544 – IS, ASDK --> 
 - Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the USD/Month column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
@@ -270,12 +271,9 @@ The following are post-installation known issues for this build version.
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 
-### Usage  
+<!-- ### Usage -->
 
-<!-- TBD - IS ASDK --> 
-- The public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you cannot use this data to perform accurate accounting of public IP address usage.
-
-
+ 
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
