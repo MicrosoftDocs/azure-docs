@@ -306,7 +306,7 @@ related resources to match and the template deployment to execute.
 ### DeployIfNotExists example
 
 Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If
-not, then a deployment to enable it's executed.
+not, then a deployment to enable is executed.
 
 ```json
 "if": {

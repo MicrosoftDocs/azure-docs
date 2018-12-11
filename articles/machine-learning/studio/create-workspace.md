@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 12/07/2017
 ---
 
-# Create and share an Azure Machine Learning workspace
+# Create and share an Azure Machine Learning Studio workspace
 
 To use Azure Machine Learning Studio, you need to have a Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 

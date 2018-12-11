@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 12/04/2018
 ---
 
 # Discover Azure SQL Database Managed Instance management endpoint

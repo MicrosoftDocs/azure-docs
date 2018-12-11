@@ -1,5 +1,5 @@
 ---
-title:  Java Enterprise support for Azure App Service on Linux | Microsoft Docs
+title:  Java Enterprise support on Linux - Azure App Service | Microsoft Docs
 description: Developer's guide to deploying Java Enterprise apps using Wildfly with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,6 +12,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
+ms.custom: seodec18
 
 ---
 

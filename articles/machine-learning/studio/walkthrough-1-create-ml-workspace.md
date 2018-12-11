@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ---
-# Walkthrough Step 1: Create a Machine Learning Studio workspace
+# Walkthrough Step 1: Create an Azure Machine Learning Studio workspace
 This is the first step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 1. **Create a Machine Learning workspace**
