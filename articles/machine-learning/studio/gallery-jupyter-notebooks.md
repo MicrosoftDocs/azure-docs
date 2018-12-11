@@ -80,5 +80,5 @@ The notebook will be listed, along with your other notebooks, on the **Notebooks
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

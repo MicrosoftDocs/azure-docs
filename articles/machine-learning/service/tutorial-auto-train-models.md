@@ -593,7 +593,7 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=123)
+x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -1098,18 +1098,42 @@ y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Compare the predicted cost values with the actual cost values. Use the `y_test` dataframe, and convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values, and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable (cost), and indicates roughly how far your predictions are from the actual value.
+Create a scatter plot to visualize the predicted cost values compared to the actual cost values. The following code uses the `distance` feature as the x-axis, and trip `cost` as the y-axis. The first 100 predicted and actual cost values are created as separate series, in order to compare the variance of predicted cost at each trip distance value. Examining the plot shows that the distance/cost relationship is nearly linear, and the predicted cost values are in most cases very close to the actual cost values for the same trip distance.
+
+```python
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(14, 10))
+ax1 = fig.add_subplot(111)
+
+distance_vals = [x[4] for x in x_test.values]
+y_actual = y_test.values.flatten().tolist()
+
+ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+
+ax1.set_xlabel('distance (mi)')
+ax1.set_title('Predicted and Actual Cost/Distance')
+ax1.set_ylabel('Cost ($)')
+
+plt.legend(loc='upper left', prop={'size': 12})
+plt.rcParams.update({'font.size': 14})
+plt.show()
+```
+
+![Prediction scatter plot](./media/tutorial-auto-train-models/automl-scatter-plot.png)
+
+Calculate the `root mean squared error` of the results. Use the `y_test` dataframe, and convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values, and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable (cost), and indicates roughly how far your predictions are from the actual value.
 
 ```python
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-y_actual = y_test.values.flatten().tolist()
 rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-    4.0317375193408544
+    3.2204936862688798
 
 Run the following code to calculate MAPE (mean absolute percent error) using the full `y_actual` and `y_predict` data sets. This metric calculates an absolute difference between each predicted and actual value, sums all the differences, and then expresses that sum as a percent of the total of the actual values.
 
@@ -1133,10 +1157,10 @@ print(1 - mean_abs_percent_error)
 ```
 
     Model MAPE:
-    0.11334441225861108
-    
+    0.10545153869569586
+
     Model Accuracy:
-    0.8866555877413889
+    0.8945484613043041
 
 ## Clean up resources
 

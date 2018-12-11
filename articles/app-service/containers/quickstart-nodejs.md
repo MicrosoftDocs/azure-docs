@@ -1,5 +1,5 @@
 ---
-title: Create a Node.js in Azure App Service on Linux | Microsoft Docs
+title: Create Node.js web app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create a Node.js web app in Azure App Service on Linux
 

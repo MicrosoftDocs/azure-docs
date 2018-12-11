@@ -28,7 +28,7 @@ The rest of these sample datasets are available in your workspace under **Saved 
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
