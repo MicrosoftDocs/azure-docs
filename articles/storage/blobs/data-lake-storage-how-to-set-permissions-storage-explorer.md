@@ -13,9 +13,7 @@ ms.author: rogarana
 
 # How to: Set file and directory level permissions using Azure Storage explorer
 
-This article shows how to set file and directory level ACLs through the desktop version of Azure Storage explorer.
-
-This article requires that you install Azure Storage Explorer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+Files stored in a storage account which has the hierarchical namespace enabled support fine grain permissions and access control list management. Allowing you to control access to your data and information at lower levels. This article shows how to set file and directory level permissions, using an access control list, through the desktop version of Azure Storage explorer. In order to achieve this, we require that you [install Azure Storage Explorer locally](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Sign in to Storage Explorer
 
