@@ -10996,6 +10996,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry.md",
+            "redirect_url": "https://gallery.azure.ai/browse?s=vehicle%20telemetry%20analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-deep-dive.md",
+            "redirect_url": "https://gallery.azure.ai/browse?s=vehicle%20telemetry%20analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-powerbi.md",
+            "redirect_url": "https://gallery.azure.ai/browse?s=vehicle%20telemetry%20analytics",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/cortana-analytics-technical-guide-predictive-maintenance.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-technical-guide-predictive-maintenance",
             "redirect_document_id": false
