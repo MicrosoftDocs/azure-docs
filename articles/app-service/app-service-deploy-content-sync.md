@@ -1,5 +1,5 @@
 ---
-title: Sync content from a cloud folder to Azure App Service
+title: Sync content from a cloud folder - Azure App Service
 description: Learn how to deploy your app to Azure App Service via content sync from a cloud folder.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
+ms.custom: seodec18
 
 ---
 # Sync content from a cloud folder to Azure App Service

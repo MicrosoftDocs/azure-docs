@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter Notebook. This tutorial is part two of a two-part series.
+description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part two of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -30,15 +30,11 @@ In this part of the tutorial, you use Azure Machine Learning service for the fol
 > * Deploy the model to Azure Container Instances.
 > * Test the deployed model.
 
-<<<<<<< HEAD
-Azure Container Instances isn't ideal for production deployments. But it's great for testing and understanding the workflow. For scalable production deployments, consider using [Azure Kubernetes Service](how-to-deploy-to-aks.md).
-=======
-ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
->>>>>>> ff16cdcf491245cc21ba74f49700b39e85b059cf
+Azure Container Instances isn't ideal for production deployments. But it's great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter Notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter Notebooks server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

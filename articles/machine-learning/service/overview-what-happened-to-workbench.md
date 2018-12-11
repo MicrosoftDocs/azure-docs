@@ -1,5 +1,5 @@
 ---
-title: What happened to Azure Machine Learning Workbench?
+title: What happened to Workbench?
 titleSuffix: Azure Machine Learning service
 description: Learn about what happened to the Machine Learning Workbench application, what changed in Azure Machine Learning service, and what the support timeline is.
 services: machine-learning
@@ -21,7 +21,7 @@ In this article, you learn about what changed and how it affects your preexistin
 
 ## What changed?
 
-The latest release of the Azure Machine Learning service includes the following features:
+The latest release of Azure Machine Learning service includes the following features:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md).
 + A [new portal UI](how-to-track-experiments.md) to manage your experiments and compute targets.
 + A new, more comprehensive Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
@@ -33,7 +33,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 ## How do I migrate?
 
-Most of the artifacts created in the earlier version of the Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you need to register the artifacts again with the updated Azure Machine Learning service. Learn what you can migrate and how in this [migration article](how-to-migrate.md).
+Most of the artifacts created in the earlier version of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you need to register the artifacts again with the updated Azure Machine Learning service. Learn what you can migrate and how in this [migration article](how-to-migrate.md).
 
 <a name="timeline"></a>
 
@@ -92,7 +92,7 @@ In the newer version, models are deployed as web services to Azure Container Ins
 
 Yes, they'll continue to work till January. See the preceding [timeline](#timeline). We recommend that you start creating your new experiments and models with the latest SDK or CLI.
 
-By using the new Python SDK in the latest release, you can interact with the Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>. You can also use the updated [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact with the service in any command-line environment, including Azure Cloud Shell.
+By using the new Python SDK in the latest release, you can interact with Azure Machine Learning service in any Python environment. Learn how to install the latest <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>. You can also use the updated [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md) with the rich set of `az ml` commands to interact with the service in any command-line environment, including Azure Cloud Shell.
 
 ## What about Azure Machine Learning for Visual Studio Code?
 

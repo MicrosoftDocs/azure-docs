@@ -1,5 +1,5 @@
 ---
-title: "Regression model tutorial: Automatically train models"
+title: 'Regression model tutorial: Automatically train models'
 titleSuffix: Azure Machine Learning service
 description: Learn how to generate an ML model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning service.
 services: machine-learning
@@ -21,7 +21,7 @@ Now you're ready to start building your model with Azure Machine Learning servic
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-In this tutorial, you learn the following actions:
+In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]
 > * Set up a Python environment and import the SDK packages.
@@ -31,20 +31,21 @@ In this tutorial, you learn the following actions:
 > * Explore the results.
 > * Register the best model.
 
-If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+>[!NOTE]
+>If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.0
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.0.
 
 
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
-> * You need an automated machine learning configured environment. Examples are Azure notebooks, a local Python environment, or a Data Science Virtual Machine. [Setup automated machine learning](samples-notebooks.md).
+> * You need an automated machine learning configured environment. Examples are Azure Notebooks, a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in Azure Notebooks or in your own Jupyter Notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in Azure Notebooks or in your own Jupyter Notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -64,7 +65,9 @@ import os
 
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. 
+
+`Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 
 After you have a workspace object, specify a name for the experiment. Create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment and in the [Azure portal](https://portal.azure.com).
 
@@ -110,22 +113,22 @@ dflow_prepared.get_profile()
       <th>Min</th>
       <th>Max</th>
       <th>Count</th>
-      <th>Missing Count</th>
-      <th>Not Missing Count</th>
+      <th>Missing count</th>
+      <th>Not missing count</th>
       <th>Percent missing</th>
-      <th>Error Count</th>
+      <th>Error count</th>
       <th>Empty count</th>
-      <th>0.1% Quantile</th>
-      <th>1% Quantile</th>
-      <th>5% Quantile</th>
-      <th>25% Quantile</th>
-      <th>50% Quantile</th>
-      <th>75% Quantile</th>
-      <th>95% Quantile</th>
-      <th>99% Quantile</th>
-      <th>99.9% Quantile</th>
+      <th>0.1% quantile</th>
+      <th>1% quantile</th>
+      <th>5% quantile</th>
+      <th>25% quantile</th>
+      <th>50% quantile</th>
+      <th>75% quantile</th>
+      <th>95% quantile</th>
+      <th>99% quantile</th>
+      <th>99.9% quantile</th>
       <th>Mean</th>
-      <th>Standard Deviation</th>
+      <th>Standard deviation</th>
       <th>Variance</th>
       <th>Skewness</th>
       <th>Kurtosis</th>
@@ -586,7 +589,7 @@ dflow_y = dflow_prepared.keep_columns('cost')
 
 ### Split the data into train and test sets
 
-Now you split the data into training and test sets by using the `train_test_split` function in the `sklearn` library. This function segregates the data into the x, features, dataset for model training and the y, values to predict, dataset for testing. The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic:
+Now you split the data into training and test sets by using the `train_test_split` function in the `sklearn` library. This function segregates the data into the x, **features**, dataset for model training and the y, **values to predict**, dataset for testing. The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -609,7 +612,7 @@ To automatically train a model:
 
 ### Define settings for autogeneration and tuning
 
-Define the experiment parameters and models settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md).
+Define the experiment parameter and model settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md).
 
 
 |Property| Value in this tutorial |Description|
@@ -619,7 +622,7 @@ Define the experiment parameters and models settings for autogeneration and tuni
 |**primary_metric**| spearman_correlation | Metric that you want to optimize.|
 |**preprocess**| True | By using **True**, the experiment can perform preprocessing on the input.|
 |**verbosity**| logging.INFO | Controls the level of logging.|
-|**n_cross_validationss**|5|Number of cross validation splits.|
+|**n_cross_validationss**|5|Number of cross-validation splits.|
 
 
 
@@ -705,7 +708,7 @@ Explore the results of automatic training with a Jupyter widget or by examining 
 
 ### Option 1: Add a Jupyter widget to see results
 
-If you use a Juypter Notebook, use this Jupyter Notebook widget to see a graph and a table of all results:
+If you use a Jupyter notebook, use this Jupyter notebook widget to see a graph and a table of all results:
 
 
 ```python
@@ -1092,7 +1095,7 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## Test the best model accuracy
 
-Use the best model to run predictions on the test dataset. The function `predict` uses the best model and predicts the values of y, trip cost, from the `x_test` dataset. Print the first ten predicted cost values from `y_predict`:
+Use the best model to run predictions on the test dataset. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` dataset. Print the first ten predicted cost values from `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
