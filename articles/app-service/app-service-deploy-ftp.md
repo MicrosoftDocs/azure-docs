@@ -1,5 +1,5 @@
 ---
-title: Deploy your app to Azure App Service using FTP/S | Microsoft Docs 
+title: Deploy content using FTP/S - Azure App Service | Microsoft Docs 
 description: Learn how to deploy your app to Azure App Service using FTP or FTPS.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
+ms.custom: seodec18
 
 ---
 
@@ -44,8 +45,8 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 ## Deploy files to Azure
 
 1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use the connection information you gathered to connect to your app.
-3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
-4. Browse to your app's URL to verify the app is running properly. 
+2. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
+3. Browse to your app's URL to verify the app is running properly. 
 
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 

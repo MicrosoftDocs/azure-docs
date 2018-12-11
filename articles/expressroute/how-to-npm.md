@@ -1,25 +1,19 @@
 ---
-title: 'Configure Network Performance Monitor for Azure ExpressRoute circuits | Microsoft Docs'
+title: 'Configure Network Performance Monitor for ExpressRoute circuits - Azure | Microsoft Docs'
 description: Configure cloud-based network monitoring (NPM) for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid:
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Configure Network Performance Monitor for ExpressRoute
 
-Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
+This article helps you configure a Network Performance Monitor extension to monitor ExpressRoute. Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
 
 You can:
 

@@ -72,11 +72,10 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 To migrate web services, redeploy your models using the new SDK or CLI to the new deployment targets. There is no need to change your original scoring file, model file dependencies files, environment file, and schema files. 
 
-In the latest version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. 
+In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. 
 
 Learn more in these articles:
-+ [Deploy to ACI](how-to-deploy-to-aci.md)
-+ [Deploy to AKS](how-to-deploy-to-aks.md)
++ [How to deploy and where](how-to-deploy-and-where.md)
 + [Tutorial: Deploy models with Azure Machine Learning service](tutorial-deploy-models-with-aml.md)
 
 When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
@@ -105,7 +104,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## Data preparation files
-Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](how-to-data-prep.md). 
+Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets. [Learn how to get the data prep SDK](https://aka.ms/data-prep-sdk).
 
 ## Next steps
 

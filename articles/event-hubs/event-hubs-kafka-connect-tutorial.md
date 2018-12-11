@@ -1,14 +1,14 @@
 ---
-title: Integrate Apache Kafka Connect with Azure Event Hubs | Microsoft Docs
-description: Use Apache Spark with Azure Event Hubs for Kafka.
+title: Integrate with Apache Kafka Connect- Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom:
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---

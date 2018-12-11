@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot domain and SSL certificate problems in Azure web apps | Microsoft Docs
+title: Troubleshoot domain and SSL certificates - Azure App Service | Microsoft Docs
 description: Troubleshoot domain and SSL certificate problems in Azure web apps
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
+ms.custom: seodec18
+
 ---
 # Troubleshoot domain and SSL certificate problems in Azure web apps
 
