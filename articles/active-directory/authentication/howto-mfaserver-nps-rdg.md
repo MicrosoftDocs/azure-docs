@@ -28,6 +28,9 @@ Install the Azure Multi-Factor Authentication Server on a separate server, which
 - An existing configured NPS Server.
 - A Remote Desktop Gateway that authenticates with Network Policy Services.
 
+> [!NOTE]
+> This article should be used with MFA Server deployments only, not Azure MFA (Cloud-based).
+
 ## Configure the Remote Desktop Gateway
 Configure the RD Gateway to send RADIUS authentication to an Azure Multi-Factor Authentication Server. 
 

@@ -43,7 +43,7 @@ To complete this tutorial, you must have the following prerequisites:
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
 * [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
+* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 ## Create an OAuth app
 
@@ -55,9 +55,9 @@ To complete this tutorial, you must have the following prerequisites:
 
     | Setting Name | Suggested Value | Description |
     | ------------ | --------------- | ----------- |
-    | Application name | *Azure SignalR Chat* | The github user should be able to recognize and trust the app they are authenticating with.   |
+    | Application name | *Azure SignalR Chat* | The GitHub user should be able to recognize and trust the app they are authenticating with.   |
     | Homepage URL | *http://localhost:5000/home* | |
-    | Application description | *A chat room sample using the Azure SignalR Service with Github authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
+    | Application description | *A chat room sample using the Azure SignalR Service with GitHub authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
     | Authorization callback URL | *http://localhost:5000/signin-github* | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. In this tutorial, you must use the default callback URL for the *AspNet.Security.OAuth.GitHub* package, */signin-github*.  |
 
 4. Once the new OAuth app registration is complete, add the *Client ID* and *Client Secret* to Secret Manager using the following commands. Replace *Your_GitHub_Client_Id* and *Your_GitHub_Client_Secret* with the values for your OAuth app.
@@ -528,6 +528,7 @@ To deploy your code, execute the following commands in a Git shell.
     git add -A
     git commit -m "init commit"
     ```
+
 4. Deploy your code to the web app in Azure.
 
     ```bash

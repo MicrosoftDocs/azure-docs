@@ -36,13 +36,12 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> Code in this article requires Azure Machine Learning SDK version 1.0.2 or later. 
-
->[!Note]
->If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Install the SDK
+
+>[!NOTE]
+> Code in this article requires Azure Machine Learning SDK version 1.0.2 or later. 
 
 *Skip this section if you use a data science virtual machine created after September 27, 2018.* Those data science virtual machines come with the Python SDK preinstalled.
 
