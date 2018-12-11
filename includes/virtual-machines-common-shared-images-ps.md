@@ -80,7 +80,7 @@ All three of these have unique sets of values. In an upcoming release, you will 
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName myPublisher -Offer myOffer -Skus mySku -Version latest
 ```
 
-This is similar to how you can currently specify these for [Azure Marketplace images](cli-ps-findimage.md) to create a VM. With this in mind, each image definition needs to have a unique set of these values. You can have image versions that share one or two, but not all three values. 
+This is similar to how you can currently specify these for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) to create a VM. With this in mind, each image definition needs to have a unique set of these values. You can have image versions that share one or two, but not all three values. 
 
 ##Create an image version
 
