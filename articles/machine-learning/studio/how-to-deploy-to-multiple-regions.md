@@ -4,7 +4,7 @@ description: Steps to deploy (Copy) a New Web Service to other regions. Easily d
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
 ms.service: machine-learning

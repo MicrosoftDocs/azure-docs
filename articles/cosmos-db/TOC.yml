@@ -143,6 +143,28 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
+    - name: Optimize your Azure Cosmos DB cost
+      items:
+        - name: Pricing model
+          href: how-pricing-works.md
+        - name: Total Cost of Ownership (TCO) 
+          href: total-cost-ownership.md
+        - name: Understand your bill 
+          href: understand-your-bill.md          
+        - name: Optimize provisioned throughput cost
+          href: optimize-cost-throughput.md
+        - name: Optimize query cost
+          href: optimize-cost-queries.md
+        - name: Optimize storage cost
+          href: optimize-cost-storage.md
+        - name: Optimize reads and writes cost
+          href: optimize-cost-reads-writes.md
+        - name: Optimize multi-regions cost
+          href: optimize-cost-regions.md          
+        - name: Optimize your dev/test workloads 
+          href: optimize-dev-test.md
+        - name: Prepay for reserved capacity
+          href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
         - name: Overview
@@ -163,8 +185,6 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Prepay for reserved capacity
-      href: cosmos-db-reserved-capacity.md
   - name: Multi-model APIs
     expanded: true
     items:

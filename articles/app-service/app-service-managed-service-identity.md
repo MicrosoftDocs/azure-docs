@@ -1,5 +1,5 @@
 ---
-title: Managed identities in App Service and Azure Functions | Microsoft Docs
+title: Managed identities overview - Azure App Service | Microsoft Docs
 description: Conceptual reference and setup guide for managed identities in Azure App Service and Azure Functions
 services: app-service
 author: mattchenderson

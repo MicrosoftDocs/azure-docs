@@ -1,5 +1,5 @@
 ---
-title: Web Apps overview | Microsoft Docs
+title: App Service overview - Azure | Microsoft Docs
 description: Learn how Azure App Service helps you develop and host web applications
 services: app-service\web
 documentationcenter: ''
@@ -16,10 +16,12 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
----
-# Web Apps overview
+ms.custom: seodec18
 
-*Azure App Service Web Apps* (or just Web Apps) is a service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on Windows-based environments. For Linux-based environments, see [App Service on Linux](containers/app-service-linux-intro.md). 
+---
+# App Service overview
+
+*Azure App Service* is a service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on Windows-based environments. For Linux-based environments, see [App Service on Linux](containers/app-service-linux-intro.md). 
 
 Web Apps not only adds the power of Microsoft Azure to your application, such as security, load balancing, autoscaling, and automated management. You can also take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domain, and SSL certificates. 
 
