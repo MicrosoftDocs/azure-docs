@@ -27,7 +27,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 When you are ready to generate an answer to a question from your knowledge base, [publish](../How-to/publish-knowledge-base.md) your knowledge base.
 
-## Use endpoint with Postman
+## Use production endpoint with Postman
 
 When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The default view shows the settings required to generate an answer from [Postman](https://www.getpostman.com).
 
