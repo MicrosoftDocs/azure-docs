@@ -237,7 +237,7 @@ Create a load balancer inbound network address translation (NAT) rule to forward
 
 ## Test the load balancer
 
-Install Internet Information Services (IIS) on the back-end servers, and customize the default web page to show the machine name. Then, use the load balancer's public IP address to test the load balancer. 
+In this section, you'll install Internet Information Services (IIS) on the back-end servers, and customize the default web page to show the machine name. Then, you'll use the load balancer's public IP address to test the load balancer. 
 
 Each back-end VM serves a different version of the default IIS web page, so you can see the load balancer distribute requests between the two VMs.
 
@@ -283,13 +283,16 @@ Use PowerShell to install IIS and replace the default IIS web page with a page t
 
 ### Test load balancing
 
-In the portal, on the **Overview** page for **MyLoadBalancer**, copy the public IP address under **Public IP address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.218.235**. 
-
-Paste or type the load balancer's public IP address (*40.67.218.235*) into the address bar of your internet browser. 
-
-The customized IIS web server default page appears in the browser. The message reads either **Hello World from MyVM1**, or **Hello World from MyVM2**.
-
-Refresh the browser to see the load balancer distribute traffic across VMs. Sometimes the **MyVM1** page appears, and other times the **MyVM2** page appears, as the load balancer distributes the requests to each back-end VM. You may need to clear your browser cache or open a new browser window between attempts.
+1. In the portal, on the **Overview** page for **MyLoadBalancer**, copy the public IP address under **Public IP address**. Hover over the address and select the **Copy** icon to copy it. In this example, it is **40.67.218.235**. 
+   
+1. Paste or type the load balancer's public IP address (*40.67.218.235*) into the address bar of your internet browser. 
+   
+   The customized IIS web server default page appears in the browser. The message reads either **Hello World from MyVM1**, or **Hello World from MyVM2**.
+   
+1. Refresh the browser to see the load balancer distribute traffic across VMs. Sometimes the **MyVM1** page appears, and other times the **MyVM2** page appears, as the load balancer distributes the requests to each back-end VM.
+   
+   >[!NOTE]
+   >You may need to clear your browser cache or open a new browser window between attempts.
 
 ![New IIS default page](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
 
