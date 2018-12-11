@@ -30,7 +30,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 * [Python](https://www.python.org/downloads/) version v2.7.14
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## Create a database account
@@ -132,7 +132,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     Use the ![Copy button](./media/create-cassandra-python/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 

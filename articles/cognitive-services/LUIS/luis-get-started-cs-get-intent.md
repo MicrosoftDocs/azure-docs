@@ -1,10 +1,11 @@
 ---
-title: C# Quickstart - predict intent - LUIS
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using C#, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.  
+title: Get intent, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this C# quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
@@ -42,11 +43,11 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
 
 1. Create a new console application in Visual Studio. 
 
-    ![LUIS user settings menu access](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Create a new console application in Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. In the Visual Studio project, in the Solutions Explorer, select **Add reference**, then select **System.Web** from the Assemblies tab.
 
-    ![LUIS user settings menu access](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![select Add reference, then select System.Web from the Assemblies tab](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Overwrite Program.cs with the following code:
     

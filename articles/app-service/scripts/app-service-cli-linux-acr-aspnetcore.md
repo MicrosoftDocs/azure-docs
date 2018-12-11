@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker cont
 description: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container from Azure Container Registry
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Create an ASP.NET Core web app in a Docker container from Azure Container Registry
+# Create an ASP.NET Core web app in a Docker container using Azure CLI
 
 This sample script creates a resource group, a Linux App Service plan, and a web app. It then deploys an ASP.NET Core application using a Docker Container from the Azure Container Registry.
 

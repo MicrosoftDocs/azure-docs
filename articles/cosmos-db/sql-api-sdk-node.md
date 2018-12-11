@@ -102,8 +102,8 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.12.1"/>1.12.1</a>
 * Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
 * Fixed a bug in handling documents with Unicode characters in the partition key.
-* Fixed support for creating collections with the name media. Github issue #114.
-* Fixed support for permission authorization token. Github issue #178.
+* Fixed support for creating collections with the name media. GitHub issue #114.
+* Fixed support for permission authorization token. GitHub issue #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
@@ -115,8 +115,8 @@ ms.custom: H1Hack27Feb2017
 * Added the option for controlling degree of parallelism for cross partition queries.
 * Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
-* Fixed the continuation token bug for single partition collection. Github issue #107.
-* Fixed the executeStoredProcedure bug in handling 0 as single param. Github issue #155.
+* Fixed the continuation token bug for single partition collection. GitHub issue #107.
+* Fixed the executeStoredProcedure bug in handling 0 as single param. GitHub issue #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Fixed user-agent header to include the SDK version.

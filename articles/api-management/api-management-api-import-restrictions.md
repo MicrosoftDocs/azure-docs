@@ -30,6 +30,7 @@ If you are receiving errors importing your OpenAPI document, ensure you have val
 * **$ref** pointers can't reference external files.
 * **x-ms-paths** and **x-servers** are the only supported extensions.
 * Custom extensions are ignored on import and are not saved or preserved for export.
+* **Recursion** - Definitions that are defined recursively (for example, refer to themselves) are not supported by APIM.
 
 > [!IMPORTANT]
 > See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.

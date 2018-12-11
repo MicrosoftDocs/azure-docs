@@ -16,7 +16,7 @@ ms.author: mbullwin
 # collectd: Linux performance metrics in Application Insights
 
 
-To explore Linux system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+To explore Linux system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
 Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
@@ -32,7 +32,7 @@ Take a copy of the instrumentation key, which identifies the resource.
 ## Install collectd and the plug-in
 On your Linux server machines:
 
-1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
+1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
 2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 4. Edit `/etc/collectd/collectd.conf`:

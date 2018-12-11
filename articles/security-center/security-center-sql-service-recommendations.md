@@ -50,7 +50,7 @@ To enable auditing, select **ON** under the **Auditing** option.
 |Resource type|Secure score|Recommendation|Description|
 |----|----|----|----|
 |Storage account|20|Require secure transfer to storage account|Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
-|Redis|20|Enable only secure connections to your Redis Cache|Enable only connections via SSL to Redis Cache. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
+|Redis|20|Enable only secure connections to your Azure Cache for Redis|Enable only connections via SSL to Azure Cache for Redis. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |SQL|15|Enable Transparent Data Encryption on SQL databases|Enable transparent data encryption to protect data-at-rest and meet compliance requirements.|
 |SQL|15|Enable auditing on SQL servers|Enable auditing  for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
 |SQL|15|Enable auditing on SQL databases|Enable auditing for Azure SQL databases. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|

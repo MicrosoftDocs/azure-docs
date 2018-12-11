@@ -181,7 +181,7 @@ Run the following command using a unique function app name in place of the `<app
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
---consumption-plan-location westus  --runtime python \
+--consumption-plan-location westeurope  --runtime python \
 --name <app_name> --storage-account  <storage_name>
 ```
 

@@ -19,7 +19,7 @@
 # Related
 ## [Security Center](https://azure.microsoft.com/services/security-center/)
 ## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
-## [Redis Cache](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
+## [Azure Cache for Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Resources
