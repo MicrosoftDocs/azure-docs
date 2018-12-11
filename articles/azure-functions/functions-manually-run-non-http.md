@@ -16,7 +16,7 @@ ms.author: cshoe
 
 This article demonstrates how to manually run a non HTTP-triggered function via specially formatted HTTP request.
 
-In some contexts, you may need to on-demand run an Azure Function that is indirectly triggered.  Examples of indirect triggers include timers or functions that run as a result of another resource's action. 
+In some contexts, you may need to on-demand run an Azure Function that is indirectly triggered.  Examples of indirect triggers include timers or functions that run because of another resource's action. 
 
 [Postman](https://www.getpostman.com/) is used in the following example, but you may use [Fiddler](https://www.telerik.com/fiddler) or any other like tool to send HTTP requests.
 
@@ -34,11 +34,11 @@ You use this request location in Postman along with the function's master key in
 
 ## Get the function's master key
 
-Navigate to your function in the Azure Portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
+Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
 
 ![Copy master key from Function Management screen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-After copying the master key, click on the function name to return to the code file window and click on **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
+After copying the master key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
 
 ## Call the function
 
@@ -62,7 +62,7 @@ Open Postman and follow these steps:
 
 Postman then return with a **Status of 202 Accepted**.
 
-Next, return to your function in the Azure Portal. Locate the *Logs* window and you'll see messages from the function coming from the manual call to the function.
+Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages from the function coming from the manual call to the function.
 
 ![Function log results from manual call](./media/functions-manually-run-non-http/azure-portal-function-log.png)
 
