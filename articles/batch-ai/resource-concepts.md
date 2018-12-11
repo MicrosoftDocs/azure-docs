@@ -16,6 +16,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # Overview of resources in Batch AI
