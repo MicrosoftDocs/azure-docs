@@ -6,15 +6,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-
 ---
 # Office 365 management solution in Azure (Preview)
 

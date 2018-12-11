@@ -35,7 +35,7 @@ This article summarizes supported configurations and components when you deploy 
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs within the same region** | Not supported.
 
-# Region support
+## Region support
 
 You can replicate and recover VMs between any two regions within the same geographic cluster.
 
@@ -57,8 +57,8 @@ China | China East, China North
 
 This table summarizes support for the cache storage account used by Site Recovery during replication.
 
-**Setting** | **Details**
---- | ---
+**Setting** | **Support** | **Details**
+--- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Not supported. | The limitation exists for cache storage because transaction costs for V2 are substantially higher than V1 storage accounts.
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 

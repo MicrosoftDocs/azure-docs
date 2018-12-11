@@ -4,13 +4,16 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
 # Dependency visualization
 
 The [Azure Migrate](migrate-overview.md) services assesses groups of on-premises machines for migration to Azure. You can use the dependency visualization functionality in Azure Migrate to create groups. This article provides information about this feature.
+
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ## Overview
 
@@ -63,7 +66,7 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 
 ## How do I manage the workspace?
 
-You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../log-analytics/log-analytics-manage-access.md) manually.
+You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../azure-monitor/platform/manage-access.md) manually.
 
 Don't delete the workspace created by Azure Migrate, unless you delete the migration project. If you do, the dependency visualization functionality will not work as expected.
 

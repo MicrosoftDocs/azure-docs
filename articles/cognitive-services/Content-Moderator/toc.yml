@@ -5,14 +5,20 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Get started with Content Moderator
+  - name: Getting started
     href: quick-start.md
-  - name: Using the .NET SDK
+  - name: Using the client SDK
     items:
-    - name: Analyze image content for objectionable material
-      href: image-moderation-quickstart-dotnet.md
-    - name: Analyze text content for objectionable material
-      href: text-moderation-quickstart-dotnet.md   
+    - name: C#
+      items:
+      - name: Analyze image content
+        href: image-moderation-quickstart-dotnet.md
+      - name: Analyze text content
+        href: text-moderation-quickstart-dotnet.md
+    - name: Python
+      items:
+      - name: Analyze text content
+        href: text-moderation-quickstart-python.md
 - name: Concepts
   items:
   - name: Image moderation

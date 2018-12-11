@@ -12,7 +12,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Viewing and analyzing data in Log Analytics
