@@ -1,6 +1,6 @@
 ---
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
-description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises or in VMs.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -15,8 +15,14 @@ ms.author: mbullwin
 ---
 # Instrument web apps at runtime with Application Insights
 
-You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](../../azure-monitor/app/java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
-You need a [Microsoft Azure](https://azure.com) subscription.
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. You need a [Microsoft Azure](https://azure.com) subscription.
+
+Status Monitor is used to instrument a DOTNET application hosted in IIS either on-premises or in a VM.
+
+- If your app is deployed into Azure app services, follow [these instructions](app-insights-azure-web-apps.md).
+- If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
+- (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
 
@@ -39,33 +45,6 @@ Here's a summary of what you get by each route:
 | [Page view & user data](../../azure-monitor/app/javascript.md) |Yes |No |
 | Need to rebuild code |Yes | No |
 
-
-## Monitor a live Azure web app
-
-If your application is running as an Azure web service, here's how to switch on monitoring:
-
-* Select Application Insights on the app's control panel in Azure.
-
-    ![Set up Application Insights for an Azure web app](./media/monitor-performance-live-website-now/azure-web-setup.png)
-* When the Application Insights summary page opens, click the link at the bottom to open the full Application Insights resource.
-
-    ![Click through to Application Insights](./media/monitor-performance-live-website-now/azure-web-view-more.png)
-
-[Monitoring Cloud and VM apps](../../application-insights/app-insights-overview.md).
-
-### Enable client-side monitoring in Azure
-
-If you have enabled Application Insights in Azure, you can add page view and user telemetry.
-
-1. Select Settings > Application Settings
-2.  Under App Settings, add a new key value pair: 
-   
-    Key: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
-    Value: `true`
-3. **Save** the settings and **Restart** your app.
-
-The Application Insights JavaScript SDK is now injected into each web page.
 
 ## Monitor a live IIS web app
 
@@ -101,21 +80,58 @@ If you want to re-publish without adding Application Insights to the code, be aw
 4. Reinstate any edits you performed on the .config file.
 
 
-## Troubleshooting runtime configuration of Application Insights
+## Troubleshooting
 
 ### Can't connect? No telemetry?
 
 * Open [the necessary outgoing ports](../../azure-monitor/app/ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
+### Unable to login
+
+* If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command: 
+```
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
+```
+
+### Application diagnostic messages
+
 * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
 
-  ![Open the Performance blade to see request, response time, dependency and other data](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![Open the Performance blade to see request, response time, dependency and other data](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  
+### Detailed logs
+
+* By default Status Monitor will output diagnostic logs at: `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+
+* To output verbose logs, modify the config file: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` and add `<add key="TraceLevel" value="All" />` to the `appsettings`.
+Then restart status monitor.
+
+### Insufficient permissions
+  
 * On the server, if you see a message about "insufficient permissions", try the following:
   * In IIS Manager, select your application pool, open **Advanced Settings**, and under **Process Model** note the identity.
   * In Computer management control panel, add this identity to the Performance Monitor Users group.
+
+### Conflict with Systems Center Operations Manager
+
 * If you have MMA/SCOM (Systems Center Operations Manager) installed on your server, some versions can conflict. Uninstall both SCOM and Status Monitor, and re-install the latest versions.
-* Status Monitor logs can be found at this location by default: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
-* See [Troubleshooting][qna].
+
+### Failed or incomplete installation
+
+If Status Monitor fails during an installation, you could be left with an incomplete install that Status Monitor is unable to recover from. This will require a manual reset.
+
+Delete any of these files found in your application directory:
+- Any DLLs in your bin directory starting with either "Microsoft.AI." or "Microsoft.ApplicationInsights.".
+- This DLL in your bin directory "Microsoft.Web.Infrastructure.dll"
+- This DLL in your bin directory "System.Diagnostics.DiagnosticSource.dll"
+- In your application directory remove "App_Data\packages"
+- In your application directory remove "applicationinsights.config"
+
+
+### Additional Troubleshooting
+
+* See Additional [Troubleshooting][qna].
 
 ## System Requirements
 OS support for Application Insights Status Monitor on Server:
