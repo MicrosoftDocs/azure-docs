@@ -52,6 +52,8 @@ This update includes the following improvements for Azure Stack:
 
 - Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
 
+- Added a new Region properties blade, where registration details of the environment are available.You can access it by clicking the Region Management tile on the default dashboard in the administrator portal and then click on Properties.
+
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
 - This release adds support for Device Authentication with ADFS in particular when using Azure CLI. 
 <!-- @Matt add Link to CLI for ADFS -->
