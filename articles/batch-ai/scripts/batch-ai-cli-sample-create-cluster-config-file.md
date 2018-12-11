@@ -15,6 +15,9 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # CLI example: Create a Batch AI cluster using a cluster configuration file

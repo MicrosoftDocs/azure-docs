@@ -13,6 +13,8 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Store Batch AI job input and output with Azure Storage
 

@@ -15,6 +15,9 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # CLI example: Create and manage a Batch AI cluster of dedicated nodes

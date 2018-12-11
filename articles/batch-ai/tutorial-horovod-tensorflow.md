@@ -10,6 +10,9 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
+
+ROBOTS: NOINDEX
+
 #Customer intent: As a data scientist or AI researcher with a compute-intensive deep learning model and large amounts of training data, I want to distribute training across multiple GPUs in the cloud so that I train my model faster.
 ---
 
