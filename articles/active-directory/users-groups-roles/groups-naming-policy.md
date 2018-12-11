@@ -165,6 +165,27 @@ $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
 
+## Remove the naming policy
+
+1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Empty the custom blocked words. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Save the settings.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
+
 ## Naming policy experiences across Office 365 apps
 
 After you set a group naming policy in Azure AD, when a user creates a group in an Office 365 app, they see: 
