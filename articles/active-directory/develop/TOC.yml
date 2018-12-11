@@ -286,6 +286,8 @@
         href: quickstart-v2-uwp.md
       - name: Windows Desktop .NET
         href: quickstart-v2-windows-desktop.md
+      - name: .NET Core console (deamon)
+        href: quickstart-v2-netcore-daemon.md    
     - name: Service-to-service
       items:
       - name: ASP .NET

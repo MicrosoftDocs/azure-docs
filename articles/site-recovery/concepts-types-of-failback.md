@@ -6,8 +6,8 @@ author: rajani-janaki-ram
 manager: guaravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: rajanaki
+ms.date: 11/27/2018
+ms.author: rajanki
 ---
 
 # Overview of failback

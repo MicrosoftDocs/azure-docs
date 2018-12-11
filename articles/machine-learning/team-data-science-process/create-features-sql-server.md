@@ -1,6 +1,6 @@
 ---
-title: Create features for data in SQL Server using SQL and Python | Microsoft Docs
-description: Process Data from SQL Azure
+title: Create features in SQL Server using SQL and Python - Team Data Science Process
+description: Generate features for data stored in a SQL Server VM on Azure using SQL and Python - part of the Team Data Science Process.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Create features for data in SQL Server using SQL and Python
 This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. You can use SQL or a programming language like Python to accomplish this task. Both approaches are demonstrated here.

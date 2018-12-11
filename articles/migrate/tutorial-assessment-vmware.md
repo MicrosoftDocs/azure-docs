@@ -4,7 +4,11 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
+<<<<<<< HEAD
 ms.date: 11/08/2018
+=======
+ms.date: 11/28/2018
+>>>>>>> 33dc4c9ffa248f21e6c67daf7259d8d3df277603
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -23,16 +27,13 @@ In this tutorial, you:
 > * Set up an on-premises collector virtual machine (VM), to discover on-premises VMware VMs for assessment.
 > * Group VMs and create an assessment.
 
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-
 
 ## Prerequisites
 
 - **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM.
 - **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format.
-- **Statistics settings**: This prerequisite is only applicable to the one-time discovery model. For the one-time discovery to work, the statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters.
 
 ## Create an account for VM discovery
 
@@ -84,7 +85,20 @@ Check that the .OVA file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match the settings in the tables below, in accordance with the OVA version.
 
-#### One-time discovery
+#### Continuous discovery
+
+  For OVA version 1.0.10.4
+
+  **Algorithm** | **Hash value**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+
+#### One-time discovery (deprecated now)
+
+This model is now deprecated, support for existing appliances will be provided.
 
   For OVA version 1.0.9.15
 
@@ -109,33 +123,6 @@ Check that the .OVA file is secure, before you deploy it.
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
   SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
-
-  For OVA version 1.0.9.8
-
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | b5d9f0caf15ca357ac0563468c2e6251
-  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
-
-
-  For OVA version 1.0.9.7
-
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | d5b6a03701203ff556fa78694d6d7c35
-  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
-#### Continuous discovery
-
-  For OVA version 1.0.10.4
-
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## Create the collector VM
 
@@ -179,7 +166,6 @@ will be hosted.
 
 > [!NOTE]
 > For the collector, only English (United States) is supported for the operating system and interface language.
-
 
 
 

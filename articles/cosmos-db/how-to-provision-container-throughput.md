@@ -24,6 +24,7 @@ This article explains how to provision throughput for a container (collection, g
 
    * Create a new database or use an existing one.
    * Enter a Collection Id (or table, graph).
+   * Enter a partition key value, for example `/userid`.
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
