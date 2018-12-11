@@ -10,11 +10,11 @@ ms.topic: conceptual
 
 # Checking for pool and node errors
 
-When creating and managing Batch pools, there are operations that happen immediately and there are asynchronous operations that are not immediate, run in the background, and may take several minutes to complete.
+When creating and managing Batch pools, some operations happen immediately. However some operations are asynchronous and don't occur immediately. They might run in the background and take several minutes to complete.
 
-Detecting failures for operations that take place immediately is straightforward, as any failures will be returned immediately by the API, CLI, or UI.
+Detecting failures for operations that take place immediately is straightforward because any failures will be returned immediately by the API, CLI, or UI.
 
-This article covers the background operations that can take place for pools and pool nodes - it specifies how failures can be detected, and how the failures can be avoided.
+This article covers the background operations that can occur for pools and pool nodes, specifying how you can detect and avoid  failures.
 
 ## Pool errors
 
