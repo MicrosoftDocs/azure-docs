@@ -59,8 +59,10 @@
     items:
     - name: Define a skillset
       href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation
+    - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
+    - name: Associate Cognitive Services with skillset
+      href: cognitive-search-attach-cognitive-services.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
     - name: Process and extract information from images
@@ -173,6 +175,8 @@
         href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
       - name: Field mappings
         href: search-indexer-field-mappings.md
+      - name: Troubleshooting common issues
+        href: search-indexer-troubleshooting.md
   - name: Query data
     items:
     - name: Query types & composition

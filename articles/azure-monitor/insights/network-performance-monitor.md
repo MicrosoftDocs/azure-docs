@@ -10,11 +10,9 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: 
 ---
 
 # Network Performance Monitor solution in Azure
@@ -56,7 +54,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../log-analytics/log-analytics-om-agents.md) and [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../azure-monitor/platform/om-agents.md) and [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### Where to install the agents 
 
@@ -246,7 +244,7 @@ The topology shown in the map is layer 3 topology and doesn't contain layer 2 de
 
 ## Log Analytics search 
 
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](../../log-analytics/log-analytics-queries.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [Log Analytics search](../../azure-monitor/log-query/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
 ## Alerts
 

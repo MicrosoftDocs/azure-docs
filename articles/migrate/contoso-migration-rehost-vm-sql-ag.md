@@ -181,7 +181,7 @@ Contoso admins set up the cluster as follows:
     - They place the machines in the production network of the EAST US 2 primary region (**VNET-PROD-EUS2**), in the database subnet (**PROD-DB-EUS2**).
     - They create a new availability set: **SQLAOGAVSET**, with two fault domains and five update domains.
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. In **SQL Server settings**, they limit SQL connectivity to the virtual network (private), on default port 1433. For authentication they use the same credentials as they use onsite (**contosoadmin**).
 
@@ -230,11 +230,11 @@ Before setting up the cluster, Contoso admins take a snapshot of the OS disk on 
 
 ![snapshot](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Then, they run a script they've put together to create the Windows Failover Cluster.
+1. Then, they run a script they've put together to create the Windows Failover Cluster.
 
     ![Create cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. After they've created the cluster, they verify that the VMs appear as cluster nodes.
+2. After they've created the cluster, they verify that the VMs appear as cluster nodes.
 
      ![Create cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -346,7 +346,7 @@ Contoso admins set these up as follows:
     - They use a general-purpose account, with standard storage, and LRS replication.
     - The account must be in the same region as the vault.
 
-    ![Site Recovery storage](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Site Recovery storage](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. With the network and storage account in place, they now create a Recovery Services vault (**ContosoMigrationVault**), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
@@ -398,15 +398,15 @@ After failover, Contoso wants to be able to connect to Azure VMs. To do this, Co
 
 1. For access over the internet they:
 
- - Enable RDP on the on-premises VM before failover
- - Ensure that TCP and UDP rules are added for the **Public** profile.
- - Check that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
+   - Enable RDP on the on-premises VM before failover
+   - Ensure that TCP and UDP rules are added for the **Public** profile.
+   - Check that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.
  
 2. For access over site-to-site VPN, they:
 
- - Enable RDP on the on-premises machine.
- - Allow RDP in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.
- - Set the operating system's SAN policy on the on-premises VM to **OnlineAll**.
+   - Enable RDP on the on-premises machine.
+   - Allow RDP in the **Windows Firewall** -> **Allowed apps and features**, for **Domain and Private** networks.
+   - Set the operating system's SAN policy on the on-premises VM to **OnlineAll**.
 
 In addition, when they run a failover they need to check the following:
 

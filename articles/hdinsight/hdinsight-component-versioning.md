@@ -267,7 +267,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/support/forums/
+[wa-forums]: https://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 

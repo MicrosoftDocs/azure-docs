@@ -53,7 +53,7 @@ This quickstart uses the following packages:
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | Middleware that enables an application to use OpenIdConnect for authentication |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |Middleware that enables an application to maintain user session using cookies |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Enables OWIN-based applications to run on IIS using the ASP.NET request pipeline |
-|  |  | 
+|  |  |
 
 ## Step 1: Set up your project
 
@@ -101,11 +101,11 @@ To create an OWIN middleware *Startup Class*:
 
 1. Add *OWIN* and *Microsoft.IdentityModel* namespaces to `Startup.cs`:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Replace Startup class with the following code:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -126,11 +126,11 @@ Create a new controller to expose sign-in and sign-out methods.
 4.	Name it `HomeController` and select **Add**.
 5.	Add **OWIN** namespaces to the class:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Add the following methods to handle sign-in and sign-out to your controller by initiating an authentication challenge via code:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
 ## Step 6: Create the app's home page to sign in users via a sign-in button
 
@@ -156,11 +156,11 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 1. Name it **ClaimsController**.
 1. Replace the code of your controller class with the following code - this adds the `[Authorize]` attribute to the class:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
+> Because of the use of the `[Authorize]` attribute, all methods of this controller can only be executed if the user is authenticated. If the user is not authenticated and tries to access the controller, OWIN initiates an authentication challenge and force the user to authenticate. The code above looks at the claims collection of the user for specific attributes included in the user’s token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization.
 <!--end-collapse-->
 
 ## Step 8: Create a view to display the user's claims
@@ -185,7 +185,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. In Solution Explorer, select the project and look at the <i>Properties</i> window (if you don’t see a Properties window, press F4)
 3. Change SSL Enabled to <code>True</code>
@@ -225,10 +225,12 @@ For more information about this setting and the concept of multi-tenant applicat
 This option is a common scenario for line-of-business applications.
 
 If you want your application to accept sign-ins only from accounts that belong to a specific Azure AD instance (including *guest accounts* of that instance), follow these steps:
+
 1. Replace the `Tenant` parameter in *web.config* from `Common` with the tenant name of the organization – example, *contoso.onmicrosoft.com*.
 1. Change the `ValidateIssuer` argument in your [*OWIN Startup class*](#configure-the-authentication-pipeline) to `true`.
 
 To allow users from only a list of specific organizations, follow these steps:
+
 1. Set `ValidateIssuer` to true.
 1. Use the `ValidIssuers` parameter to specify a list of organizations.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade from Mobile Services to Azure App Service
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
@@ -82,18 +82,23 @@ There will be quite a few compiler errors resulting from differences between the
 ### Base configuration
 Then, in WebApiConfig.cs, you can replace:
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 with
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > If you wish to learn more about the new .NET server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.
@@ -108,8 +113,10 @@ If your app makes use of the authentication features, you will also need to regi
 
 Make sure the `Configuration()` method ends with:
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 There are additional changes related to authentication which are covered in the full authentication section below.
 
@@ -118,7 +125,9 @@ In Mobile Services, the mobile app name served as the default schema name in the
 
 To ensure that you have the same schema being referenced as before, use the following to set the schema in the DbContext for your application:
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 Please make sure you have MS_MobileServiceName set if you do the above. You can also provide another schema name if your application customized this previously.
 
@@ -165,33 +174,35 @@ The easiest way to resolve the issue is to modify your DTOs so that they inherit
 
 For example, the following defines `TodoItem` with no system properties:
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 Note: if you get errors on `NotMapped`, add a reference to the assembly `System.ComponentModel.DataAnnotations`.
 
 ### CORS
-Mobile Services included some support for CORS by wrapping the ASP.NET CORS solution. This wrapping layer has been removed to give the developer more control, so you can directly leverage [ASP.NET CORS support](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Mobile Services included some support for CORS by wrapping the ASP.NET CORS solution. This wrapping layer has been removed to give the developer more control, so you can directly leverage [ASP.NET CORS support](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 The main areas of concern if using CORS are that the `eTag` and `Location` headers must be allowed in order for the client SDKs to work properly.
 
@@ -206,12 +217,16 @@ All ApiControllers which will be consumed by a mobile client must now have the `
 
 The `ApiServices` object is no longer part of the SDK. To access Mobile App settings, you can use the following:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 Similarly, logging is now accomplished using the standard ASP.NET trace writing:
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>Authentication considerations
 The authentication components of Mobile Services have now been moved into the App Service Authentication/Authorization feature. You can learn about enabling this for your site by reading the [Add authentication to your mobile app](app-service-mobile-ios-get-started-users.md) topic.
@@ -225,11 +240,15 @@ If you were using one of the other AuthorizeLevel options, such as Admin or Appl
 ### Getting additional user information
 You can get additional user information, including access tokens through the `GetAppServiceIdentityAsync()` method:
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 Additionally, if your application takes dependencies on user IDs, such as storing them in a database, it is important to note that the user IDs between Mobile Services and App Service Mobile Apps are different. You can still get the Mobile Services User ID, though. All of the ProviderCredentials subclasses have a UserId property. So continuing from the example before:
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 If your app does take any dependencies on user IDs, it is important that you leverage the same registration with an identity provider if possible. User IDs are typically scoped to the application registration that was used, so introducing a new registration could create problems with matching users to their data.
 
@@ -241,9 +260,11 @@ Once you have an operational Mobile App backend, you can work on a new version o
 
 One of the main changes between the versions is that the constructors no longer require an application key. You now simply pass in the URL of your Mobile App. For example, on the .NET clients, the `MobileServiceClient` constructor is now:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 You can read about installing the new SDKs and using the new structure via the links below:
 
@@ -259,15 +280,10 @@ When you have the new client version ready, try it out against your upgraded ser
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
 [What are Mobile Apps?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

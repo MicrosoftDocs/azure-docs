@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Create, publish, answer from knowledge base in QnA Maker portal"
+title: Create, publish, answer in QnA Maker
 titleSuffix: Azure Cognitive Services 
 description: This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 * Use Curl to query the knowledge base
 
 > [!NOTE] 
-> The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ Select the **Publish** button from the top menu. Once you are on the publish pag
 
 After the KB is published, the endpoint is displayed
 
-![Publish](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Publish page's endpoint settings](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## Use curl to query for an FAQ answer
 

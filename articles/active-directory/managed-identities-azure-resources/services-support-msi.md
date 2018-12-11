@@ -40,7 +40,7 @@ The following services support Azure AD authentication, and have been tested wit
 
 | Service | Resource ID | Status | Date | Assign access |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure Resource Manager | `https://management.azure.com/` | Available | September 2017 | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Available | September 2017 | |
 | Azure Data Lake | `https://datalake.azure.net/` | Available | September 2017 | |
 | Azure SQL | `https://database.windows.net/` | Available | October 2017 | |

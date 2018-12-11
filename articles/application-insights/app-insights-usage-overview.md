@@ -1,4 +1,4 @@
-﻿---
+---
 title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
 services: application-insights
@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
@@ -56,26 +55,6 @@ Insights on the right point out interesting patterns in the set of data.
 * The **Sessions** report counts the number of user sessions that access your site. A session is a period of activity by a user, terminated by a period of inactivity of more than half an hour.
 
 [More about the Users, Sessions, and Events tools](app-insights-usage-segmentation.md)  
-
-## Page views
-
-From the Usage blade, click through the Page Views tile to get a breakdown of your most popular pages:
-
-![From the Overview blade, click the Page views chart](./media/app-insights-usage-overview/05-games.png)
-
-The example above is from a games web site. From the charts, we can instantly see:
-
-* Usage hasn't improved in the past week. Maybe we should think about search engine optimization?
-* Tennis is the most popular game page. Let's focus on further improvements to this page.
-* On average, users visit the Tennis page about three times per week. (There are about three times more sessions than users.)
-* Most users visit the site during the U.S. working week, and in working hours. Perhaps we should provide a "quick hide" button on the web page.
-* The [annotations](app-insights-annotations.md) on the chart show when new versions of the website were deployed. None of the recent deployments had a noticeable effect on usage.
-
-What if you want to investigate the traffic to your site in more detail, like splitting by a custom property your site sends in its page view telemetry?
-
-1. Open the **Events** tool in the Application Insights resource menu. This tool lets you analyze how many page views and custom events were sent from your app, based on a variety of filtering, cohorting, and segmentation options.
-2. In the "Who used" dropdown, select "Any Page View".
-3. In the "Split by" dropdown, select a property by which to split your page view telemetry.
 
 ## Retention - how many users come back?
 

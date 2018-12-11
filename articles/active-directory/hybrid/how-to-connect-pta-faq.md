@@ -149,6 +149,22 @@ Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-t
 
 If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
 
+## I have an older tenant that was originally setup using AD FS.  We recently migrated to PTA but now are not seeing our UPN changes synchronizing to Azure AD.  Why are our UPN changes not being synchronized?
+
+A: Under the following circumstances your on-premises UPN changes may not synchronize if:
+
+- Your Azure AD tenant was created prior to June 15th 2015
+- You initially were federated with your Azure AD tenant using AD FS for authentication
+- You switched to having managed users using PTA as authentication
+
+This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
+
+
+
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.

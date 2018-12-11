@@ -1,5 +1,5 @@
 ---
-title:  Java Enterprise support for Azure App Service on Linux | Microsoft Docs
+title:  Java Enterprise support on Linux - Azure App Service | Microsoft Docs
 description: Developer's guide to deploying Java Enterprise apps using Wildfly with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,6 +12,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
+ms.custom: seodec18
 
 ---
 
@@ -99,7 +100,7 @@ By default App Service on Linux will use session affinity cookies to ensure that
 - If an application instance is restarted or scaled down, the user session state in the application server will be lost.
 - If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
 
-You can configure Wildfly to use an external session store such as [Redis Cache](/azure/redis-cache/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
+You can configure Wildfly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
 
 ## Enable web sockets
 

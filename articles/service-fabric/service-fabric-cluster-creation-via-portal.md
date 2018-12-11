@@ -71,7 +71,7 @@ Application certificates cannot be configured when [creating a cluster through t
 
 ## Create cluster in the Azure portal
 
-Creating a production cluster to meet your application needs involves some planning, to help you with that, it is strongly recommended that you read and understand [Service Fabric Cluster planning considerations][service-fabric-cluster-capacity] document. 
+Creating a production cluster to meet your application needs involves some planning, to help you with that, it is strongly recommended that you read and understand the [Service Fabric Cluster planning considerations][service-fabric-cluster-capacity] document. 
 
 ### Search for the Service Fabric cluster resource
 
@@ -113,13 +113,13 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 1. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
 2. The minimum **size** of VMs for the primary node type is driven by the **Durability tier** you choose for the cluster. The default for the durability tier is bronze. For more information on durability, see [how to choose the Service Fabric cluster durability][service-fabric-cluster-durability].
 3. Select the **Virtual machine size**. D-series VMs have SSD drives and are highly recommended for stateful applications. Do not use any VM SKU that has partial cores or have less than 10 GB of available disk capacity. Refer to [service fabric cluster planning consideration document][service-fabric-cluster-capacity] for help in selecting the VM size.
-4. Choose the **Initial VM scale set capacity** for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minimum is five for production workloads. Other node types can have a minimum of one VM. The minimum **number** of VMs for the primary node type drives the **reliability** of your cluster.  
-5. **Single node cluster and three node clusters** are meant for test use only. They are not supported for any running production workloads.
+4.  **Single node cluster and three node clusters** are meant for test use only. They are not supported for any running production workloads.
+5. Choose the **Initial VM scale set capacity** for the node type. You can scale up or down the number of VMs in a node type later on, but on the primary node type, the minimum is five for production workloads. Other node types can have a minimum of one VM. The minimum **number** of VMs for the primary node type drives the **reliability** of your cluster.  
 6. Configure **Custom endpoints**. This field allows you to enter a comma-separated list of ports that you want to expose through the Azure Load Balancer to the public Internet for your applications. For example, if you plan to deploy a web application to your cluster, enter "80" here to allow traffic on port 80 into your cluster. For more information on endpoints, see [communicating with applications][service-fabric-connect-and-communicate-with-services]
 7. **Enable reverse proxy**.  The [Service Fabric reverse proxy](service-fabric-reverseproxy.md) helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
-8. Under **+Show optional settings**, configure cluster **diagnostics**. By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics change the **Status** toggle to **Off**. Turning off diagnostics is **not** recommended. If you already have Application Insights project created, then give its key, so that the application traces are routed to it.
+8. Back in the **Cluster configuration** blade, under **+Show optional settings**, configure cluster **diagnostics**. By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics change the **Status** toggle to **Off**. Turning off diagnostics is **not** recommended. If you already have Application Insights project created, then give its key, so that the application traces are routed to it.
 9. **Include DNS service**.  The [DNS service](service-fabric-dnsservice.md) an optional service that enables you to find other services using the DNS protocol.
-10. Select the **Fabric upgrade mode** you want set your cluster to. Select **Automatic**, if you want the system to automatically pick up the latest available version and try to upgrade your cluster to it. Set the mode to **Manual**, if you want to choose a supported version. For more details on the Fabric upgrade mode see the [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade]
+10. Select the **Fabric upgrade mode** you want set your cluster to. Select **Automatic**, if you want the system to automatically pick up the latest available version and try to upgrade your cluster to it. Set the mode to **Manual**, if you want to choose a supported version. For more details on the Fabric upgrade mode see the [Service Fabric Cluster Upgrade document.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > We support only clusters that are running supported versions of Service Fabric. By selecting the **Manual** mode, you are taking on the responsibility to upgrade your cluster to a supported version.
@@ -154,10 +154,10 @@ Skip this section, if you have already performed the steps in the **Basic** Opti
 
 ![SecurityCustomOption]
 
-You need the CertificateThumbprint, SourceVault, and the CertificateURL information to complete the security page. If you do not have it handy, open up another browser window and do the following
+You need the Source key vault, Certificate URL, and Certificate thumbprint information to complete the security page. If you do not have it handy, open up another browser window and in the Azure portal do the following
 
-1. Navigate to your key vault, select the certificate. 
-2. Select the "properties"tab and Copy the 'RESOURCE ID'  to "Source Key vault" on the other browser window 
+1. Navigate to your key vault service.
+2. Select the "Properties" tab and copy the 'RESOURCE ID'  to "Source key vault" on the other browser window 
 
     ![CertInfo0]
 
@@ -167,8 +167,8 @@ You need the CertificateThumbprint, SourceVault, and the CertificateURL informat
 
     ![CertInfo1]
 
-6. You should now be on the screen like below. Copy the 'Thumbprint'  to "Certificate thumbprint" on the other browser window
-7. Copy the 'Secret Identifier' information to the "Certificate URL" on other browser window.
+6. You should now be on the screen like below. Copy the hexadecimal SHA-1 Thumbprint to "Certificate thumbprint" on the other browser window
+7. Copy the 'Secret Identifier' to the "Certificate URL" on other browser window.
 
     ![CertInfo2]
 
@@ -182,7 +182,7 @@ To complete the cluster creation, click **Create**. You can optionally download 
 
 ![Summary]
 
-You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board.
+You can see the creation progress in the notifications. (Click the "Bell" icon near the status bar at the upper right of your screen.) If you clicked **Pin to Startboard** while creating the cluster, you see **Deploying Service Fabric Cluster** pinned to the **Start** board. This process will take some time. 
 
 In order to perform management operations on your cluster using Powershell or CLI, you need to connect to your cluster, read more on how to at [connecting to your cluster](service-fabric-connect-to-secure-cluster.md).
 

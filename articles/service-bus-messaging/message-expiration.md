@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 11/29/2018
 ms.author: spelluru
 
 ---
 
 # Message expiration (Time to Live)
 
-The payload inside of a message, or a command or inquiry that a message conveys to a receiver, is almost always subject to some form of application-level expiration deadline. After such a deadline, the content is no longer delivered, or the requested operation is no longer executed.
+The payload in a message, or a command or inquiry that a message conveys to a receiver, is almost always subject to some form of application-level expiration deadline. After such a deadline, the content is no longer delivered, or the requested operation is no longer executed.
 
 For development and test environments in which queues and topics are often used in the context of partial runs of applications or application parts, it's also desirable for stranded test messages to be automatically garbage collected so that the next test run can start clean.
 
-The expiration for any individual message can be controlled by setting the [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) system property, which specifies a relative duration. The expiration becomes an absolute instant when the message is enqueued into the entity. At that time, the [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) property takes on the value [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+The expiration for any individual message can be controlled by setting the [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) system property, which specifies a relative duration. The expiration becomes an absolute instant when the message is enqueued into the entity. At that time, the [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) property takes on the value [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). The time-to-live (TTL) setting on a brokered message is not enforced when no client is not actively listening.
 
 Past the **ExpiresAtUtc** instant, messages become ineligible for retrieval. The expiration does not affect messages that are currently locked for delivery; those messages are still handled normally. If the lock expires or the message is abandoned, the expiration takes immediate effect.
 
@@ -41,15 +41,37 @@ The combination of [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.t
 
 For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there is a traffic spike and the backend handler cannot process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation will take a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
 
+
 ## Temporary entities
 
 Service Bus queues, topics, and subscriptions can be created as temporary entities, which are automatically removed when they have not been used for a specified period of time.
  
 Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and are not cleaned up after use, due to some interruption of the test or debugging run. It is also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it is difficult to reliably clean up those entities when the object instance disappears.
 
-The feature is enabled using the [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) property, which is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum duration is 5 minutes.
+The feature is enabled using the [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) property. This property is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum value for this property is 5.
  
-The **autoDeleteOnIdle** property must be set through an Azure Resource Manager operation or via the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. It cannot be set through the portal.
+The **autoDeleteOnIdle** property must be set through an Azure Resource Manager operation or via the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs. You can't set it in the portal.
+
+## Idleness
+
+Here's what considered idleness of entities (queues, topics, and subscriptions):
+
+- Queues
+    - No sends  
+    - No receives  
+    - No updates to the queue  
+    - No scheduled messages  
+    - No browse/peek 
+- Topics  
+    - No sends  
+    - No updates to the topic  
+    - No scheduled messages 
+- Subscriptions
+    - No receives  
+    - No updates to the subscription  
+    - No new rules added to the subscription  
+    - No browse/peek  
+ 
 
 
 ## Next steps

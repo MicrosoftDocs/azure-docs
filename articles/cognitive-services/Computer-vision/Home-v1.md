@@ -40,7 +40,7 @@ The cloud-based Computer Vision API provides developers with access to advanced 
 * Image dimension: Greater than 50 x 50 pixels.
 
 ## Tagging Images
-Computer Vision API returns tags based on more than 2000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
+Computer Vision API returns tags based on thousands of recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
 
 After uploading an image or specifying an image URL, Computer Vision API's algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
@@ -264,12 +264,12 @@ Note: this technology is currently in preview and is only available for English 
 ## Generating Thumbnails
 A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision API feature helps solve the problem.
 
-After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
+After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'area of interest'. The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
 
 The thumbnail algorithm works as follows:
 
-1. Removes distracting elements from the image and recognizes the main object, the 'region of interest' (ROI).
-2. Crops the image based on the identified region of interest.
+1. Removes distracting elements from the image and recognizes the main object, the 'area of interest'.
+2. Crops the image based on the identified area of interest.
 3. Changes the aspect ratio to fit the target thumbnail dimensions.
 
 ![Thumbnails](./Images/thumbnail-demo.png)

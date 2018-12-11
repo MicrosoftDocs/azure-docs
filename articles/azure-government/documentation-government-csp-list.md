@@ -144,7 +144,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[MIS Sciences Corp](http://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|[MSCloud Express, LLC]()|
+|[MS Cloud Express, LLC](http://mscloudexpress.com/Azure)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[NCI](https://www.nciinc.com/)|
 |[NeoTech Solutions Inc.](https://www.neotechsolutions.com)| 
@@ -185,7 +185,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
 |[REAN Cloud LLC.](https://www.reancloud.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
-|[Reperi LLC](https://www.reperi.com)|
+|[Reperi LLC](https://web.archive.org/web/20180123175957/http://www.reperi.com:80/|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|

@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 1: Reviewing endpoint utterances with active learning"
+title: Reviewing endpoint utterances
 titleSuffix: Azure Cognitive Services
 description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -130,7 +130,7 @@ Try an utterance close to the corrected utterance.
 
 2. Go to the end of the URL in the address and enter `Are there any natural language processing jobs in my department right now?`. The last querystring parameter is `q`, the utterance **query**. 
 
-  ```JSON
+  ```json
   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {
