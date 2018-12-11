@@ -27,7 +27,7 @@ To complete this quickstart, make sure you have the following:
   
 - Python, the Microsoft ODBC Driver for your operating system, and [pyodbc](/sql/connect/python/pyodbc/python-sql-driver-pyodbc), the Python driver for SQL Server:
   
-  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. For more information, see Steps 1.2, 1.3, and 2.1 in [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/) and [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+  - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python driver for SQL Server. See Steps 1.2, 1.3, and 2.1 in [Create Python apps using SQL Server on macOS](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/mac/). For more information, see [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
     
   - **Ubuntu**: Install Python and other required packages with `sudo apt-get install python python-pip gcc g++ build-essential`. Download and install the ODBC driver, SQLCMD, and the Python driver for SQL Server. For instructions, see [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
     
@@ -41,7 +41,7 @@ To complete this quickstart, make sure you have the following:
 
 1. In a text editor, create a new file named *sqltest.py*.  
    
-1. Add the following code, substituting \<server>, \<database>, \<username>, and \<password> with your own values.
+1. Add the following code. Substitute your own values for \<server>, \<database>, \<username>, and \<password>.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
