@@ -30,7 +30,7 @@ You can scale in and scale out in Virtual Machine Scale Sets by a recurring sche
 
 This section presents a sample Ansible playbook that creates an autoscale setting that increases the number of VM instances to three in your scale sets on 10:00 of every Monday, Pacific Time zone. 
 
-```yaml
+```yml
 ---
 - hosts: localhost
   vars:
@@ -82,7 +82,7 @@ You can scale in and scale out in Virtual Machine Scale Sets based on performanc
 
 This section presents a sample Ansible playbook that checks the workload in the past 10 minutes on 18:00 of every Monday, Pacific timezone, and scales out the number of VM instances in your scale sets to four or scales in to one instance according to the CPU percentage metrics. 
 
-```yaml
+```yml
 ---
 - hosts: localhost
   vars:
@@ -169,7 +169,7 @@ ansible-playbook vmss-auto-scale-metric.yml
 ## Get information for existing autoscale settings
 You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* module with the playbook as follows:
 
-```yaml
+```yml
 - hosts: localhost
   vars:
     resource_group: "your resource group name"
@@ -188,7 +188,7 @@ You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* mo
 ## Disable the autoscale settings
 You can disable the autoscale setting by changing `enabled: true` to `enabled: false`, or deleting the autoscale settings with the playbook as follows:
 
-```yaml
+```yml
 - hosts: localhost
   vars:
     resource_group: "your resource group name"

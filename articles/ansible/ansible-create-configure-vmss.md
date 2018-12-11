@@ -32,7 +32,7 @@ This section presents a sample Ansible playbook that defines the following resou
 
 Enter your own password for the *admin_password* value.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -136,7 +136,7 @@ To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 After running the playbook, output similar to the following example shows that the virtual machine scale set has been successfully created:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -185,7 +185,7 @@ You see results similar to the following output:
 
 Now, let's scale from two instances to three instances. The following Ansible playbook code retrieves information about the virtual machine scale, and changes its capacity from two to three. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -220,7 +220,7 @@ The following command will run the playbook:
 
 The output from running the Ansible playbook shows that the virtual machine scale set has been successfully scaled out:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
