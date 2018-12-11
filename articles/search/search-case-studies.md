@@ -1,5 +1,5 @@
 ---
-title: 'Who''s using Azure Search: case studies and customer stories | Microsoft Docs'
+title: 'Who is using Azure Search: case studies and customer stories - Azure Search'
 description: Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
+ms.custom: seodec2018
 
 ---
 # Who's using Azure Search: case studies and customer stories

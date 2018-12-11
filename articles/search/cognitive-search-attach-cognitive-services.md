@@ -1,5 +1,5 @@
 ---
-title: Attach Cognitive Services to your skillset (Azure Search) | Microsoft Docs
+title: Attach Cognitive Services to your skillset - Azure Search
 description: Instructions for attaching a Cognitive Services All-in-One subscription to a Cognitive Skillset
 manager: cgronlun
 author: HeidiSteen
@@ -9,6 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 # Associate Cognitive Services resource with a skillset 
 

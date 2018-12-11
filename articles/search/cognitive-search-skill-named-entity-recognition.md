@@ -1,5 +1,5 @@
 ﻿---
-title: Named Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
+title: Named Entity Recognition cognitive search skill - Azure Search
 description: Extract named entities for person, location and organization from text in an Azure Search cognitive search pipeline.
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 #	 Named Entity Recognition cognitive skill

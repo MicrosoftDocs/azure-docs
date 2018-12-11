@@ -1,14 +1,15 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: Use synonyms to expand scope of a search query
-author: mhko
+Title: Synonyms for query expansion over a search index  - Azure Search
+description: Create a synonym list to expand the scope of a search query on an Azure Search index.
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
 # Synonyms in Azure Search
 

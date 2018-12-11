@@ -1,5 +1,5 @@
 ---
-title: Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
+title: Entity Recognition cognitive search skill - Azure Search
 description: Extract different types of entities from text in an Azure Search cognitive search pipeline.
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 #	 Entity Recognition cognitive skill

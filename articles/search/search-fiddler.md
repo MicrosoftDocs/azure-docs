@@ -1,5 +1,5 @@
 ---
-title: Explore REST APIs in Fiddler or Postman (Azure Search REST) | Microsoft Docs
+title: Explore REST APIs in Fiddler or Postman web HTTP test tools - Azure Search
 description: How to use Fiddler or Postman to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,6 +9,7 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Explore Azure Search REST APIs using Fiddler or Postman
