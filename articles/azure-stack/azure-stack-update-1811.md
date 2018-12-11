@@ -60,6 +60,8 @@ This update includes the following improvements for Azure Stack:
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
+- This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
+
 ### Fixed issues
 
 <!-- TBD - IS ASDK --> 
@@ -161,7 +163,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Known issues with the update process
 
-- During installation of this update, both Azure Stack portals (Admin & User) can become unavailble when Extension Host is configured. You can check the status of an update or resume a failed update installation using the privileged endpoint.
+- During installation of this update, both Azure Stack portals (Administrator and User) can become unavailable when the Extension Host is configured. You can check the status of an update or resume a failed update installation using the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
