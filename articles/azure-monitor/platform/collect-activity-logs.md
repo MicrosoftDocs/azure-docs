@@ -10,12 +10,9 @@ ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: 
-
 ---
 
 # Collect and analyze Azure activity logs in Log Analytics
@@ -96,5 +93,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](../../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
+- Create an [alert](../../azure-monitor/platform/alerts-metric.md) when a specific activity happens.
 - Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information from your activity logs.

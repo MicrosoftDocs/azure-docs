@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Create a Log Analytics workspace in the Azure portal

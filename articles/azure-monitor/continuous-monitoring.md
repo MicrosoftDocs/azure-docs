@@ -1,20 +1,17 @@
 ---
 title: Continuous monitoring with Azure Monitor | Microsoft Docs
-description:  Describes specific steps for using Azure Monitor to enable Continuous monitoring throughout your workflows.
+description: Describes specific steps for using Azure Monitor to enable Continuous monitoring throughout your workflows.
 author: bwren
 manager: carmonm
 editor: ''
 services: azure-monitor
 documentationcenter: azure-monitor
-
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-
 ---
 
 # Continuous monitoring with Azure Monitor

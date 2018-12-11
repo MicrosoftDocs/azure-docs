@@ -1,21 +1,18 @@
 ---
 title: Azure Monitor for VMs (preview) known issues | Microsoft Docs
 description: This article covers known issues with Azure Monitor for VMs, a solution in Azure that combines health and performance monitoring of the Azure VM operating system. Azure Monitor for VMs also automatically discovers application components and dependencies with other resources and maps the communication between them.
-services:  azure-monitor
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 
-ms.service:  azure-monitor
-ms.devlang: na
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2018
 ms.author: magoedte
-
 ---
 
 # Known issues with Azure Monitor for VMs (preview)
@@ -57,7 +54,7 @@ The following are known issues with the Health feature:
 - Configuration changes, such as updating a threshold, take up to 30 minutes even if the portal or Workload Monitor API might update them immediately. 
 - Individual processor and logical processor level health criteria aren't available in Windows. Only Total CPU utilization is available for Windows VMs. 
 - Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager). 
-- You can't assign an [Azure Monitor action group](../../monitoring-and-diagnostics/monitoring-action-groups.md) for health alerts in the Azure portal. You can use only the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
+- You can't assign an [Azure Monitor action group](../../azure-monitor/platform/action-groups.md) for health alerts in the Azure portal. You can use only the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
 
 ## Next steps
 To understand the requirements and methods for enabling monitoring of your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-onboard.md).
