@@ -153,8 +153,9 @@
       - name: NPM
         href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
     - name: Ruby
-      items: Gem
-      - name: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
+      items: 
+      - name: Gem
+        href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Resources
   items:
   - name: Regional Availability
