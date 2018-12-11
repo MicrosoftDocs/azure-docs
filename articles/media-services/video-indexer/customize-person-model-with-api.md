@@ -22,7 +22,7 @@ You can use the Video Indexer API to edit faces that were detected in a video, a
 
 Video Indexer supports multiple Person models per account. This feature is currently available only through the Video Indexer APIs.
 
-If your account caters to different use-case scenarios, you might want to create multiple Person models per account. For example, if your content is related to sports, you can then create a separate Person model for each sport (football, basketball, soccer, etc). 
+If your account caters to different use-case scenarios, you might want to create multiple Person models per account. For example, if your content is related to sports, you can then create a separate Person model for each sport (football, basketball, soccer, etc.). 
 
 Once a model is created, you can use it by providing the model ID of a specific Person model when uploading/indexing or reindexing a video. Training a new face for a video updates the specific custom model that the video was associated with.
 
@@ -78,7 +78,7 @@ You should then use the **id** value for the **personModelId** parameter when [u
 
 Delete a custom Person model from the specified account. 
 
-Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you re-index them. Upon re-indexing, the faces that were named in the deleted model will not be recognized by Video Indexer in your current videos that were indexed using that model; however, those faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
+Once the Person model is deleted successfully, the index of your current videos that were using the deleted model will remain unchanged until you reindex them. Upon reindexing, the faces that were named in the deleted model will not be recognized by Video Indexer in your current videos that were indexed using that model; however, those faces will still be detected. Your current videos that were indexed using the deleted model will now use your account's default Person model. If faces from the deleted model are also named in your account's default model, those faces will continue to be recognized in the videos.
 
 ### Request URL
 
