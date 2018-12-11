@@ -136,7 +136,7 @@ To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 After running the playbook, output similar to the following example shows that the virtual machine scale set has been successfully created:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -220,7 +220,7 @@ The following command will run the playbook:
 
 The output from running the Ansible playbook shows that the virtual machine scale set has been successfully scaled out:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
