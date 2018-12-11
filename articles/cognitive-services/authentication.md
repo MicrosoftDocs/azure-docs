@@ -112,20 +112,6 @@ Both single service and multi-service subscription keys can be exchanged for aut
 
 Authentication tokens are included in a request as the `Authorization` header. The token value provided must be preceded by `Bearer`, for example: `Bearer YOUR_AUTH_TOKEN`.
 
-When using a multi-service subscription key, you must use a region specific endpoint for the token exchange. This is illustrated in the sample below using the "West US" region.
-
-### Supported regions
-
-These multi-service regions support token exchange:
-
-| | | |
-|-|-|-|
-| `australiaeast` | `brazilsouth` | `canadacentral` |
-| `centralindia` | `eastasia` | `eastus` |
-| `japaneast` | `northeurope` | `southcentralus` |
-| `southeastasia` | `uksouth` | `westcentralus` |
-| `westeurope` | `westus` | `westus2` |
-
 ### Sample requests
 
 Use this URL to exchange a single-service subscription key for an authentication token: `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
@@ -137,7 +123,17 @@ curl -v -X POST \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-Use this URL to exchange a multi-service subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`. Make sure to include the region for your subscription in the URL.
+When using a multi-service subscription key, you must use a region specific endpoint for the token exchange. Use this URL to exchange a multi-service subscription key for an authentication token: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+These multi-service regions support token exchange:
+
+| | | |
+|-|-|-|
+| `australiaeast` | `brazilsouth` | `canadacentral` |
+| `centralindia` | `eastasia` | `eastus` |
+| `japaneast` | `northeurope` | `southcentralus` |
+| `southeastasia` | `uksouth` | `westcentralus` |
+| `westeurope` | `westus` | `westus2` |
 
 ```cURL
 curl -v -X POST \
