@@ -289,12 +289,12 @@ Use PowerShell to install IIS and replace the default IIS web page with a page t
    
    The customized IIS web server default page appears in the browser. The message reads either **Hello World from MyVM1**, or **Hello World from MyVM2**.
    
+   ![New IIS default page](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
+   
 1. Refresh the browser to see the load balancer distribute traffic across VMs. Sometimes the **MyVM1** page appears, and other times the **MyVM2** page appears, as the load balancer distributes the requests to each back-end VM.
    
    >[!NOTE]
    >You may need to clear your browser cache or open a new browser window between attempts.
-
-![New IIS default page](./media/tutorial-load-balancer-port-forwarding-portal/9-load-balancer-test.png) 
 
 ## Test port forwarding
 
