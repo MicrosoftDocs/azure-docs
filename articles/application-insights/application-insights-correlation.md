@@ -98,7 +98,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Open tracing and Application Insights
 
-The [Open Tracing data model specification](http://opentracing.io/) and Application Insights data models map in the following way:
+The [Open Tracing data model specification](https://opentracing.io/) and Application Insights data models map in the following way:
 
 | Application Insights               	| Open Tracing                                    	|
 |------------------------------------	|-------------------------------------------------	|

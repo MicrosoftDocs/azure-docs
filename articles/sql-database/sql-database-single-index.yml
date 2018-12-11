@@ -39,7 +39,7 @@ sections:
         image:
           src: media/index/i_elasticpool.svg
       - title: Logical Server
-        href: /azure/sql-database/sql-database-managed-instance-index
+        href: /azure/sql-database/sql-database-logical-servers
         html: <p>Logical server is central administration point for configuring security, tunning, backup policy, and other configuration properties on a set of databases within the server.</p>
         image:
           src: media/index/i_mi.svg 

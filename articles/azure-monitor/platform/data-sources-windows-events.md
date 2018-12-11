@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.component: 
 ---
 
 # Windows event log data sources in Log Analytics
@@ -73,5 +70,5 @@ The following table provides different examples of log searches that retrieve Wi
 ## Next steps
 * Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse the event records into individual fields.
+* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](data-sources-performance-counters.md) from your Windows agents.

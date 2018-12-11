@@ -1,21 +1,18 @@
 ---
 title: Using Service Map solution in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-services:  monitoring
+services: monitoring
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-
 ---
 
 # Using Service Map solution in Azure
@@ -35,7 +32,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 2. In the search bar, type **Service Map** and press **Enter**.
 3. In the marketplace search results page, select **Service Map** from the list.<br><br> ![Select Service Map solution from Azure Marketplace search results](./media/service-map/marketplace-search-results.png)<br>
 4. On the **Service Map** overview pane, review the solution details and then click **Create** to begin the onboarding process to your Log Analytics workspace.<br><br> ![Onboard the Service Map solution](./media/service-map/service-map-onboard.png).
-5. In the **Configure a solution** pane, select an existing or create a new Log Analytics workspace.  For further information on how to create a new workspace, see [Create a Log Analytics workspace in the Azure portal](../../log-analytics/log-analytics-quick-create-workspace.md). After providing the required information, click **Create**.  
+5. In the **Configure a solution** pane, select an existing or create a new Log Analytics workspace.  For further information on how to create a new workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/learn/quick-create-workspace.md). After providing the required information, click **Create**.  
 
 While the information is verified and the solution is deployed, you can track its progress under **Notifications** from the menu. 
 

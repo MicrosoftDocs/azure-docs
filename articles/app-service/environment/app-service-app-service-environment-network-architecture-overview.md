@@ -82,7 +82,7 @@ Details on inbound ports used by App Service Environments and using network secu
 Details on using user defined routes to grant outbound Internet access to App Service Environments is available in this [article][ExpressRoute]. 
 
 <!-- LINKS -->
-[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [controllinginboundtraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [ExpressRoute]:  app-service-app-service-environment-network-configuration-expressroute.md
 

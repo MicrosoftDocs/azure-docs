@@ -1,5 +1,5 @@
 ---
-title: Prepare data with the Machine Learning Data Prep SDK for Python - Azure
+title: Prepare data with the Azure Machine Learning Data Prep SDK for Python
 description: Learn how to use the Azure Machine Learning Data Prep SDK for Python to load data of various formats, transform it to be more usable, and write that data to a location for your models to access.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
-# Prepare data for modeling with Azure Machine Learning
+# Prepare data for modeling with Azure Machine Learning service
 
 In this article, you learn about the application and advantages of the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) for your data preparation workflows. 
 
 Data preparation is the most important part of a machine learning workflow -- representing roughly 80% of the effort. Real-world data is often broken, inconsistent, or unusable as training data without significant cleansing and transformation. Correcting errors and anomalies in raw data, and building new features that are relevant to the problem you're trying to solve can increase model accuracy. 
+
+![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
 This Python SDK is designed to be familiar to users of other common data prep libraries, while offering advantages for key scenarios and maintaining interoperability with those libraries.
 
@@ -43,7 +46,7 @@ The SDK offers practicality and convenience when working with small data sets, w
 
 To install the SDK in your Python environment, use:
 ```shell
-pip install azureml-dataprep
+pip install --upgrade azureml-dataprep
 ```
 
 To import the package in your Python code, use:
@@ -121,7 +124,7 @@ package = dprep.Package.open("<your-local-path>")
 dataflow_list = package.dataflows
 ```
 
-## Data preparation pipeline
+## Next steps
 
 To see detailed examples and code for each preparation step, follow these how-to guides:
 
@@ -129,8 +132,4 @@ To see detailed examples and code for each preparation step, follow these how-to
 2. [Transform](how-to-transform-data.md) it into a more usable structure
 3. [Write](how-to-write-data.md)  that data to a location accessible to your models
 
-![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
-
-## Next steps
-
-Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
+Azure Machine Learning Data Prep SDK [reference documentation](https://aka.ms/data-prep-sdk).

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get supported languages, Java - Translator Text API"
+title: "Quickstart: Get list of supported languages, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 12/03/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Get supported languages with the Translator Text REST API (Java)
+# Quickstart: Use the Translator Text API to get a list of supported languages using Java
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 
@@ -86,7 +86,7 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 ```
 
-## Add the subscription key and host URL
+## Define variables
 
 First, you'll need to create a public class for your project:
 
@@ -103,7 +103,7 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
-## Instantiate the HTTP client and build a request
+## Create a client and build a request
 
 Add this line to the `GetLanguages` class to instantiate the `OkHttpClient`:
 

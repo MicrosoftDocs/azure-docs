@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collect data from CollectD on Linux agents in Log Analytics
@@ -122,5 +119,5 @@ To maintain a familiar model between infrastructure metrics already collected by
 
 ## Next steps
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
+* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
 

@@ -5,15 +5,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-
 ---
 
 # Sources of data in Azure Monitor
@@ -104,7 +101,7 @@ In addition to the standard tiers of an application, you may need to monitor oth
 ![Custom data collection](media/data-sources/custom-collection.png)
 
 ### Data Collector API
-Azure Monitor can collect log data from any REST client using the [Data Collector API](../../log-analytics/log-analytics-data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 ## Next steps
 

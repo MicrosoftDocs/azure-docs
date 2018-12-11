@@ -17,6 +17,7 @@ ms.author: azfuncdf
 ## Overview
 In Azure Durable Functions, all state is persisted in Azure Storage. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The described scenarios propose deployment options to increase availability and minimize downtime during disaster recovery activities.
+
 It's important to notice that these scenarios are based on Active-Passive configurations, since they are guided by the usage of Azure Storage. This pattern consists of deploying a backup (passive) function app to a different region. Traffic Manager will monitor the primary (active) function app for availability. It will fail over to the backup function app if the primary fails. For more information,  see [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [Priority Traffic-Routing Method.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
 
 

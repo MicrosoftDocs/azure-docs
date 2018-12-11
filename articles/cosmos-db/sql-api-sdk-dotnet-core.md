@@ -54,6 +54,16 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 * Support for streams. 
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
 
+### <a name="2.2.0"/>2.2.0
+
+* For direct/TCP transport diagnostics, added TransportException, an internal exception type of the SDK. When present in exception messages, this type prints additional information for troubleshooting client connectivity problems.
+
+* Added new constuctor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
+
+* Fix bug where header with null values were not being handled properly.
+
+* Improved collection cache validation.
+
 ### <a name="2.1.3"/>2.1.3
 
 * Updated System.Net.Security to 4.3.2.
@@ -207,12 +217,13 @@ The Azure Cosmos DB .NET Core Preview SDK has feature parity with the latest ver
 * [Partitioned collections](partition-data.md). 
 * [Multi-region database accounts and geo-replication](distribute-data-globally.md).
 
-If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+If you have questions related to this SDK, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## Release & Retirement Dates
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |December 07, 2018 |--- |
 | [2.1.3](#2.1.3) |October 15, 2018 |--- |
 | [2.1.2](#2.1.2) |October 04, 2018 |--- |
 | [2.1.1](#2.1.1) |September 27, 2018 |--- |

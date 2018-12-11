@@ -10,11 +10,9 @@ ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collect Azure service logs and metrics for use in Log Analytics
@@ -47,7 +45,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Preview)](../../log-analytics/log-analytics-azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Preview)](../../azure-monitor/insights/azure-sql.md) |
 | Storage                 |                                         |             | Script      | [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
@@ -56,7 +54,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 
 > [!NOTE]
-> For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](../../log-analytics/log-analytics-quick-collect-azurevm.md). The agent provides you with insights collected from within your virtual machines. You can also use the extension for Virtual machine scale sets.
+> For monitoring Azure virtual machines (both Linux and Windows), we recommend installing the [Log Analytics VM extension](../../azure-monitor/learn/quick-collect-azurevm.md). The agent provides you with insights collected from within your virtual machines. You can also use the extension for Virtual machine scale sets.
 >
 >
 
@@ -146,7 +144,7 @@ Learn more about the [Application Insights connector](https://blogs.technet.micr
 
 ## Scripts to collect and post data to Log Analytics
 
-For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](../../log-analytics/log-analytics-data-collector-api.md)
+For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](../../azure-monitor/platform/data-collector-api.md)
 
 The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
 

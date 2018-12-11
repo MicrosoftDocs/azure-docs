@@ -43,7 +43,7 @@ The following table shows the different methods that can be used to create an HD
 |[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
-For more information, see the article [Cluster types in HDInsight](../hadoop/apache-hadoop-introduction.md)
+For more information, see the article [Cluster types in HDInsight](../hadoop/apache-hadoop-introduction.md).
 
 ## Use transient on-demand clusters
 
@@ -51,7 +51,7 @@ HDInsight clusters may go unused for long periods of time. To help save on resou
 
 When you delete a cluster, the associated storage account and external metadata are not removed. The cluster can later be re-created using the same storage accounts and meta-stores.
 
-Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters. For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters. For more information, see the article [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
 ## Decouple storage from compute
 
@@ -59,33 +59,33 @@ Typical on-premises Hadoop deployments use the same set of machines for data sto
 
 On HDInsight clusters, storage does not need to be colocated with compute and can either be in Azure storage, Azure Data Lake Storage or both. Decoupling storage from compute has the following benefits:
 
-- Data sharing across clusters
-- Use of transient clusters since the data isn't dependent on cluster
-- Reduced storage cost
-- Scaling storage and compute separately
-- Data replication across regions
+- Data sharing across clusters.
+- Use of transient clusters since the data isn't dependent on cluster.
+- Reduced storage cost.
+- Scaling storage and compute separately.
+- Data replication across regions.
 
 Compute clusters are created close to storage account resources in an Azure region to mitigate performance cost of separating compute and storage. High-speed networks make it efficient for the compute nodes to access the data inside Azure storage.
 
 ## Use external metadata stores
 
-There are two main metastores that work with HDInsight clusters: Hive and Oozie. The Hive metastore is the central schema repository that can be used by data processing engines including Hadoop, Spark, LLAP, Presto, and Pig. The Oozie metastore stores details about scheduling and the status of in progress and completed Hadoop jobs.
+There are two main metastores that work with HDInsight clusters: [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/). The Hive metastore is the central schema repository that can be used by data processing engines including Hadoop, Spark, LLAP, Presto, and Apache Pig. The Oozie metastore stores details about scheduling and the status of in progress and completed Hadoop jobs.
 
 HDInsight uses Azure SQL Database for Hive and Oozie metastores. There are two ways to set up a metastore in HDInsight clusters:
 
 1. Default metastore
 
-    - No additional cost
-    - Metastore is deleted when the cluster is deleted
-    - Metastore can't be shared among different clusters
+    - No additional cost.
+    - Metastore is deleted when the cluster is deleted.
+    - Metastore can't be shared among different clusters.
     - Uses basic Azure SQL DB, which has a five DTU limit.
 
 1. Custom external metastore
 
-    - specify an external Azure SQL Database as the metastore.
+    - Specify an external Azure SQL Database as the metastore.
     - Clusters can be created and deleted without losing metadata including Hive schema Oozie job details.
-    - Single metastore db can be shared with different types of clusters
-    - Metastore can be scaled up as needed
+    - Single metastore db can be shared with different types of clusters.
+    - Metastore can be scaled up as needed.
     - For more information, see [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
 ## Best practices for Hive Metastore
@@ -100,7 +100,7 @@ Some HDInsight Hive metastore best practices are as follows:
 - Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Log Analytics.
 - Execute the **ANALYZE TABLE** command as required to generate statistics for tables and columns. For example, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
-## Best practices for different types of workloads
+## Best practices for different workloads
 
 - Consider using LLAP cluster for interactive Hive queries with improved response time [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Consider using Spark jobs in place of Hive jobs.
