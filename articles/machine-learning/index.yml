@@ -23,7 +23,7 @@ sections:
         items: 
           - 
             href: /azure/machine-learning/service/overview-what-is-azure-ml
-            html: "<p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>"
+            html: "<p>Learn how this service empowers data scientists to develop and manage AI solutions<br/> using the Azure CLI and Python tools and libraries with a variety of Azure data and compute services. Learn more...</p>"
             image: 
               src: /azure/machine-learning/media/index/i_machine-learning.svg
             title: "Azure Machine Learning Service"
@@ -42,7 +42,7 @@ sections:
           - 
             html: "<a href=\"service/quickstart-create-workspace-with-python\">Use Python to get started</a>"
           - 
-            html: "<a href=\"service/quickstart-get-started\">Use Azure portal to get started</a>"
+            html: "<a href=\"service/quickstart-get-started\">Use the Azure portal to get started</a>"
         style: unordered
         type: list
       - 
@@ -62,7 +62,7 @@ sections:
       - 
         items: 
           - 
-            html: "Part 1: <a href=\"service/tutorial-data-prep\">Prepare NYC Taxi data for modeling</a>"
+            html: "Part 1: <a href=\"service/tutorial-data-prep\">Prepare NYC taxi data for modeling</a>"
           - 
             html: "Part 2: <a href=\"service/tutorial-auto-train-models\">Use automated machine learning to build models</a>"
         style: unordered

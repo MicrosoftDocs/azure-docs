@@ -55,7 +55,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Part 1&#58; <a href="tutorial-data-prep">Prepare NYC Taxi data for modeling</a>
+    - html: Part 1&#58; <a href="tutorial-data-prep">Prepare NYC taxi data for modeling</a>
     - html: Part 2&#58; <a href="tutorial-auto-train-models">Use automated machine learning to build models</a>
   - type: paragraph
     text: '<b>Sample notebooks</b>: Explore the service with these <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
@@ -69,7 +69,7 @@ sections:
     - html: <a href="https://aka.ms/aml-sdk">Azure Machine Learning SDK for Python (main SDK)</a>
     - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning Monitoring SDK</a>
 
-- title: Other Azure Machine Learning Technologies
+- title: Other Azure Machine Learning technologies
   items:
   - type: list
     style: cards
