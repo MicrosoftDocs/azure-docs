@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
 ---
 # Create, view, and manage activity log alerts using Azure Monitor  
 
@@ -82,7 +81,7 @@ Use the following procedure:
     - **Description** – Description for the new alert rule
     - **Save alert to resource group** – Select the Resource group, where you want to save this new rule.
 
-5. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Alternatively, [create a new action group](../../monitoring-and-diagnostics/monitoring-action-groups.md) and assign to the new rule. To create a new group, click **+ New group**.
+5. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Alternatively, [create a new action group](../../azure-monitor/platform/action-groups.md) and assign to the new rule. To create a new group, click **+ New group**.
 
 6. To enable the rules after you create it, click **Yes** for **Enable rule upon creation** option.
 7. Click **Create alert rule**.
@@ -218,5 +217,5 @@ The *sampleActivityLogAlert.parameters.json* file has the values provided for th
 
 - [Webhook schema for Activity logs](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)
 - [Overview of Activity logs](../../monitoring-and-diagnostics/monitoring-activity-log-alerts.md) 
-- Learn more about [action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).  
+- Learn more about [action groups](../../azure-monitor/platform/action-groups.md).  
 - Learn about [service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md).

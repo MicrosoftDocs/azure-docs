@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Data sources in Log Analytics

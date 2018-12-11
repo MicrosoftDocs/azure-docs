@@ -40,7 +40,7 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 
 > [!NOTE]
 > * The maximum supported query length is below. If the query exceeds the max length, the query and its results will not be altered.
->    * 65 characters for the following language codes: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
+>    * 130 characters for the following language codes: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
 >    * 65 characters for all others.
 > * The Spell mode does not support square bracket characters (`[` and `]`) in queries, and may cause inconsistent results. We recommend removing them from your queries when using the Spell mode.
 

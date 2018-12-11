@@ -5,15 +5,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.service: monitoring
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-
 ---
 
 # Monitoring data collected by Azure Monitor
@@ -95,7 +92,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 Tasks that you can perform with metrics include the following:
 
 - Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to analyze collected metrics and plot them on a chart. Track the performance of a resource (such as a VM, website, or logic app) by pinning charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
-- Configure a [metric alert rule](../../monitoring-and-diagnostics/alert-metric.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the metric crosses a threshold.
+- Configure a [metric alert rule](../../azure-monitor/platform/alerts-metric.md) that sends a notification or takes [automated action](../../azure-monitor/platform/action-groups.md) when the metric crosses a threshold.
 - Use [Autoscale](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) to increase or decrease resources based on a metric crossing a threshold.
 - Route metrics to Log Analytics to analyze metric data together with log data and to store metric values for longer than 93 days. 
 - Stream metrics to an [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
@@ -152,7 +149,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 Tasks that you can perform with logs include the following:
 
 - Use the [Log Analytics page](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write queries analyzing log data.  Pin results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
-- Configure a [log alert rule](../../monitoring-and-diagnostics/alert-log.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the results of the query match a particular result.
+- Configure a [log alert rule](../../azure-monitor/platform/alerts-log.md) that sends a notification or takes [automated action](../../azure-monitor/platform/action-groups.md) when the results of the query match a particular result.
 - Build a workflow based on data in Log Analytics using [Logic Apps](~/articles/logic-apps/index.yml).
 - Export the results of a query to [Power BI](../../azure-monitor/platform/powerbi.md) to use different visualizations and share with users outside of Azure.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).

@@ -1,5 +1,5 @@
 ---
-title: Open-source technologies FAQs for Azure web apps | Microsoft Docs
+title: Open-source technologies FAQs - Azure App Service | Microsoft Docs
 description: Get answers to frequently asked questions about open-source technologies in the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
+ms.custom: seodec18
 
 ---
 
