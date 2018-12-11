@@ -32106,6 +32106,11 @@
             "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
             "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-data-prep.md",
+            "redirect_url": "https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py",
+            "redirect_document_id" : false
         }
     ]
 }
