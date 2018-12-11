@@ -1,9 +1,9 @@
 ---
 author: manish-shukla01
-ms.author: manshuk
+ms.author: cwatson
 ms.service: virtual-machines-windows 
 ms.topic: include 
-ms.date: 08-03-2018 
+ms.date: 11-20-2018 
 ---
 # Virtual machine size flexibility with Reserved VM Instances
 
@@ -111,9 +111,16 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 | Size | Ratio|
 |---|---|
 |Standard_DS11_v2|1|
+|Standard_DS11-1_v2|1|
 |Standard_DS12_v2|2|
+|Standard_DS12-1_v2|2|
+|Standard_DS12-2_v2|2|
 |Standard_DS13_v2|4|
+|Standard_DS13-2_v2|4|
+|Standard_DS13-4_v2|4|
 |Standard_DS14_v2|8|
+|Standard_DS14-4_v2|8|
+|Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
@@ -172,12 +179,21 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 
 | Size | Ratio|
 |---|---|
-| Standard_E2s_v3|1|
+|Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
+|Standard_E4-2s_v3|2|
 |Standard_E8s_v3|4|
+|Standard_E8-2s_v3|4|
+|Standard_E8-4s_v3|4|
 |Standard_E16s_v3|8|
+|Standard_E16-4s_v3|8|
+|Standard_E16-8s_v3|8|
 |Standard_E32s_v3|16|
+|Standard_E32-8s_v3|16|
+|Standard_E32-16s_v3|16|
 |Standard_E64s_v3|32|
+|Standard_E64-16s_v3|32|
+|Standard_E64-32s_v3|32|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
@@ -283,9 +299,15 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 
 | Size | Ratio|
 |---|---|
-| Standard_M8ms|1|
+|Standard_M8ms|1|
+|Standard_M8-2ms|1|
+|Standard_M8-4ms|1|
 |Standard_M16ms|2|
+|Standard_M16-4ms|2|
+|Standard_M16-8ms|2|
 |Standard_M32ms|4|
+|Standard_M32-8ms|4|
+|Standard_M32-16ms|4|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
@@ -303,7 +325,11 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 | Size | Ratio|
 |---|---|
 | Standard_M64ms|1|
+|Standard_M64-16ms|1|
+|Standard_M64-32ms|1|
 |Standard_M128ms|2|
+|Standard_M128-32ms|2|
+|Standard_M128-64ms|2|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 

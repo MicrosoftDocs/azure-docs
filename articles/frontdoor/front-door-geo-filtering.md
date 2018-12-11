@@ -26,7 +26,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 
 |Country Code | Country Name |
 | ----- | ----- |
-| AD | Russian Federation |
+| AD | Andorra |
 | AE | United Arab Emirates|
 | AF | Afghanistan|
 | AG | Antigua and Barbuda|

@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Migrate your OMS Update Deployments to Azure
 
-The Operations Management Suite (OMS) portal is being [deprecated](../log-analytics/log-analytics-oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal. This article provides the information you need in order to migrate to the Azure portal.
+The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/platform/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal. This article provides the information you need in order to migrate to the Azure portal.
 
 ## Key information
 
@@ -37,7 +37,7 @@ In the future you can go directly to the Azure portal, under **All services**, s
 
 ## Recreate existing deployments
 
-All update deployments created in the OMS portal have a [saved search](../log-analytics/log-analytics-computer-groups.md) also known as a computer group, with the same name as the update deployment that exists. The saved search contains the list of machines that were scheduled in the update deployment.
+All update deployments created in the OMS portal have a [saved search](../azure-monitor/platform/computer-groups.md) also known as a computer group, with the same name as the update deployment that exists. The saved search contains the list of machines that were scheduled in the update deployment.
 
 ![Update Management](media/migrate-oms-update-deployments/oms-deployment.png)
 
@@ -55,7 +55,7 @@ For Machines to update, select the saved search used by the existing OMS deploym
 | --- | --- |
 |Name |Unique name to identify the update deployment. |
 |Operating System| Select **Linux** or **Windows**.|
-|Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Update classifications|Select all the update classifications that you need. CentOS does not support this out of the box.|
 |Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard character.  |
 |Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence.|| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes or more than 6 hours. |

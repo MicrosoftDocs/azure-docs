@@ -37,7 +37,7 @@ On the page it lists out all of the email recipients for email notifications for
 
 The following picture is an example of an email notification:
 
-![Example email notification](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Example email notification](./media/active-directory-domain-services-alerts/email-alert.png)
 
 The email specifies the managed domain that the alert is present on, as well as giving the time of detection and a link to the Azure AD Domain Services health page in the Azure portal.
 

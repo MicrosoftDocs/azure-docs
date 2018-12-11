@@ -178,7 +178,7 @@ Service principals are an Azure Active Directory application resource you create
 
 ### Azure governance
 
-Azure Analysis Services is governed by the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
+Azure Analysis Services is governed by the [Microsoft Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 To learn more about Azure Security, see the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Use the tools you already know

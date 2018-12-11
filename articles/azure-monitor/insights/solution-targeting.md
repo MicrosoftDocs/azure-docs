@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-
 ---
 # Targeting Management Solutions in Azure (Preview)
 When you add a management solution to your subscription, it's automatically deployed by default to all Windows and Linux agents connected to your Log Analytics workspace.  You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents.  This article describes how to use **Solution Targeting** which is a feature that allows you to apply a scope to your solutions.
@@ -25,7 +22,7 @@ There are three steps to targeting a solution as described in the following sect
 
 
 ### 1. Create a computer group
-You specify the computers that you want to include in a scope by creating a [computer group](../../log-analytics/log-analytics-computer-groups.md) in Log Analytics.  The computer group can be based on a log search or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Log Analytics will be included in the scope.
+You specify the computers that you want to include in a scope by creating a [computer group](../../azure-monitor/platform/computer-groups.md) in Log Analytics.  The computer group can be based on a log search or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Log Analytics will be included in the scope.
 
 Once you have the computer group created in your workspace, then you'll include it in a scope configuration that can be applied to one or more solutions.
  
@@ -71,4 +68,4 @@ Solution targeting cannot be used with the following solutions even though they 
 
 ## Next steps
 - Learn more about management solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics management solutions to your workspace](solutions.md).
-- Learn more about creating computer groups at [Computer groups in Log Analytics log searches](../../log-analytics/log-analytics-computer-groups.md).
+- Learn more about creating computer groups at [Computer groups in Log Analytics log searches](../../azure-monitor/platform/computer-groups.md).

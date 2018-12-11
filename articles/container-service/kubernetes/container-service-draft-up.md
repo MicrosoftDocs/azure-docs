@@ -1,5 +1,5 @@
 ---
-title: Use Draft with Azure Container Service and Azure Container Registry
+title: (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry
 description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
 services: container-service
 author: squillace
@@ -11,10 +11,12 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ---
+# (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
 
-# Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Use Draft with Azure Kubernetes Service (AKS)](../../aks/kubernetes-draft.md).
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Draft](https://aka.ms/draft) is a new open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes -- or even installing them. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
 
