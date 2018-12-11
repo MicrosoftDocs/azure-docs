@@ -78,7 +78,7 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 ## Policy deployment
 
-With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. You should always test your policy before rolling it out into production to make sure that it works as expected. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
+With the approach outlined in this article, you can now configure a conditional access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
 
 
 
