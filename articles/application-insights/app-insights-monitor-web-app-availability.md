@@ -270,12 +270,13 @@ If your test must sign in using OAuth, the general approach is:
 ## Performance tests
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 
-From the Overview blade, open **Settings**, **Performance Tests**. When you create a test, you are invited to connect to or create an Azure DevOps account.
+Under **Configure**, go to **Performance Testing** and click new to create a test.
+
+![Creating a new Performance test](./media/app-insights-monitor-web-app-availability/11newperftest.png)
 
 When the test is complete, you are shown response times and success rates.
 
-
-![Performance test](./media/app-insights-monitor-web-app-availability/perf-test.png)
+![Performance test results](./media/app-insights-monitor-web-app-availability/12perftest.png)
 
 > [!TIP]
 > To observe the effects of a performance test, use [Live Stream](app-insights-live-stream.md) and [Profiler](app-insights-profiler.md).
