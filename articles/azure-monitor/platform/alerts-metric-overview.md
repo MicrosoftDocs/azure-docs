@@ -13,7 +13,7 @@ ms.component: alerts
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, [custom metrics](metrics-custom-overview.md), [popular logs from Log Analytics converted to metrics](monitoring-metric-alerts-logs.md), Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, [custom metrics](../../monitoring-and-diagnostics/metrics-custom-overview.md), [popular logs from Log Analytics converted to metrics](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 ## How do metric alerts work
 
@@ -82,7 +82,7 @@ You can specify the scope of monitoring by a single metric alert in one of three
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
-Creating metric alert rules that monitor multiple resources is not currently supported through Azure portal. You can create these rules through [Azure Resource Manager templates](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine. 
+Creating metric alert rules that monitor multiple resources is not currently supported through Azure portal. You can create these rules through [Azure Resource Manager templates](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine. 
 
 ## Typical latency
 
@@ -90,7 +90,7 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 ## Supported resource types for metric alerts
 
-You can find the full list of supported resource types in this [article](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+You can find the full list of supported resource types in this [article](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
 
 If you are using classic metric alerts today and are looking to see if metric alerts support the all the resource types you are using, the following table shows the resource types supported by classic metric alerts and if they are supported by metric alerts today or not.
 
@@ -130,6 +130,6 @@ If you are using classic metric alerts today and are looking to see if metric al
 
 ## Next steps
 
-- [Learn how to create, view and manage metric alerts in Azure](alert-metric.md)
-- [Learn how to deploy metric alerts using Azure Resource Manager templates](monitoring-create-metric-alerts-with-templates.md)
-- [Learn more about action groups](monitoring-action-groups.md)
+- [Learn how to create, view and manage metric alerts in Azure](alerts-metric.md)
+- [Learn how to deploy metric alerts using Azure Resource Manager templates](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md)
+- [Learn more about action groups](action-groups.md)

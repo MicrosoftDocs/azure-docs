@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:  Get started in Python"
+title: 'Quickstart:  Get started in Python'
 titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning

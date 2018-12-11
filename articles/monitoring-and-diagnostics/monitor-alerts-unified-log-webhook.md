@@ -11,7 +11,7 @@ ms.component: alerts
 ---
 
 # Webhook actions for log alert rules
-When a [log alert is created in Azure](alert-log.md), you have the option of [configuring using action groups](monitoring-action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
+When a [log alert is created in Azure](../azure-monitor/platform/alerts-log.md), you have the option of [configuring using action groups](../azure-monitor/platform/action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
 
 ## Webhook actions
@@ -23,7 +23,7 @@ Webhook actions require the properties in the following table:
 | Property | Description |
 |:--- |:--- |
 | Webhook URL |The URL of the webhook. |
-| Custom JSON payload |Custom payload to send with the webhook, when this option is chosen during alert creation. Details available at [Manage log alerts](alert-log.md) |
+| Custom JSON payload |Custom payload to send with the webhook, when this option is chosen during alert creation. Details available at [Manage log alerts](../azure-monitor/platform/alerts-log.md) |
 
 > [!NOTE]
 > View Webhook button alongside *Include custom JSON payload for webhook* option for Log Alert, will display sample webhook payload for the customization provided. It does not contain actual data and representative of JSON schema used for Log Alerts. 
@@ -74,7 +74,7 @@ To include search results in a custom payload, ensure that **IncudeSearchResults
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.
 
 > [!NOTE]
-> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [Log Analytics alert management](../monitoring-and-diagnostics/alert-metric.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema.
+> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [Log Analytics alert management](../monitoring-and-diagnostics/../azure-monitor/platform/alerts-metric.md). But for log alerts using [Application Insights](../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema.
 
 ### Standard Webhook for Log Alerts 
 Both of these examples have stated a dummy payload with only two columns and two rows.
@@ -193,7 +193,7 @@ Following is a sample payload for a custom webhook action for any log alert.
 
 ## Next steps
 - Learn about [Log Alerts in Azure Alerts ](monitor-alerts-unified-log.md)
-- Understand [managaing log alerts in Azure](alert-log.md)
-- Create and manage [action groups in Azure](monitoring-action-groups.md)
+- Understand [managaing log alerts in Azure](../azure-monitor/platform/alerts-log.md)
+- Create and manage [action groups in Azure](../azure-monitor/platform/action-groups.md)
 - Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 - Learn more about [Log Analytics](../azure-monitor/log-query/log-query-overview.md). 

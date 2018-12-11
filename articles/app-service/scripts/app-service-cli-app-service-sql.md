@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Connect a web app to a SQL database | Microsoft
 description: Azure CLI Script Sample - Connect a web app to a SQL database
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Connect a web app to a SQL database
+# Connect a web app to a SQL database using CLI
 
 This sample script creates an Azure SQL database and an Azure web app. It then links the SQL database to the web app using app settings.
 
