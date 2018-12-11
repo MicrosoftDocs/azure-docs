@@ -62,7 +62,7 @@ The following table presents various SQL queries and the corresponding JavaScrip
 Learn more concepts and how-to write and use stored procedures, triggers and user-defined functions in Azure Cosmos DB:
 
 - [How to write stored procedures and triggers using Javascript Query API](how-to-write-js-query-api.md#)
-- [Working with Azure Cosmos DB stored procedures, triggers and user-defined functions](sprocs-triggers-udfs.md)
+- [Working with Azure Cosmos DB stored procedures, triggers and user-defined functions](storedprocedures-triggers-udfs.md)
 - [How to use stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript server-side API reference](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)

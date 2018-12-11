@@ -146,7 +146,7 @@
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers and user-defined functions
-          href: sprocs-triggers-udfs.md
+          href: storedprocedures-triggers-udfs.md
         - name: Javascript language-integrated query API
           href: js-query-api.md
     - name: Optimize your Azure Cosmos DB cost
