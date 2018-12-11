@@ -20,7 +20,7 @@ The examples presented in this article use the Azure CLI. You must have Azure CL
 
 ## Container restart policy
 
-When you create a container in Azure Container Instances, you can specify one of three restart policy settings.
+When you create a [container group](container-instances-container-groups.md) in Azure Container Instances, you can specify one of three restart policy settings.
 
 | Restart policy   | Description |
 | ---------------- | :---------- |
@@ -91,11 +91,11 @@ This example shows the output that the script sent to STDOUT. Your containerized
 
 ## Manually stop and start a container group
 
-Regardless of the restart policy configured for a container group, you can manually stop a running container group at any time - for example, using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs.
+Regardless of the restart policy configured for a [container group](container-instances-container-groups.md), you can manually stop a running container group at any time - for example, by using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs. Stopping a container group terminates and recycles the containers in the group; it does not preserve container state. 
 
-When a container group is stopped - either because the containers terminated or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start all containers in the container group. If the container image for any container is updated, a new image is pulled.
+When a container group is stopped - either because the containers terminated on their own or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start the containers in the group. If the container image for any container is updated, a new image is pulled. Starting a container group begins a new deployment with the same container configuration. This action can help you quickly reuse a known container group configuration that works as you expect. You don't have to create a new container group to run the same workload.
 
-You can also restart a running container group - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled.
+You can also restart a running container group - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled. Restarting a container group is helpful when you want to troubleshoot a deployment problem. For example, if a temporary resource limitation prevents your containers from running successfully, restarting the group might solve the problem.
 
 After you manually start or restart a container group, the container group runs according to the configured restart policy.
 
