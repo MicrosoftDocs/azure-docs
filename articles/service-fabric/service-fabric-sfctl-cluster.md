@@ -171,9 +171,9 @@ Gets the list of user-induced fault operations filtered by provided input.
 
 |Argument|Description|
 | --- | --- |
-| --state-filter | Used to filter on OperationState's for user-induced operations. - 65535 - select All - 1 - select Running - 2 - select RollingBack - 8 - select Completed - 16 - select Faulted - 32 - select Cancelled - 64 - select ForceCancelled.  Default\: 65535. |
+| --state-filter | Used to filter on OperationState's for user-induced operations. <br> 65535 - select All <br> 1 - select Running <br> 2     - select RollingBack <br>8     - select Completed <br>16    - select Faulted <br>32    - select Cancelled <br>64    - select ForceCancelled.  <br>Default\: 65535. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
-| --type-filter | Used to filter on OperationType for user-induced operations. - 65535 - select all - 1 - select PartitionDataLoss. - 2 - select PartitionQuorumLoss. - 4 - select PartitionRestart. - 8 - select NodeTransition.  Default\: 65535. |
+| --type-filter | Used to filter on OperationType for user-induced operations. <br> 65535 - select all <br> 1     - select PartitionDataLoss. <br> 2     - select PartitionQuorumLoss. <br> 4     - select PartitionRestart. <br> 8     - select NodeTransition.  <br> Default\: 65535. |
 
 ### Global Arguments
 
