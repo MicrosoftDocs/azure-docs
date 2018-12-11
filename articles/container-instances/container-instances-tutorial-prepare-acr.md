@@ -1,5 +1,5 @@
 ---
-title: Azure Container Instances tutorial - Prepare Azure Container Registry
+title: Tutorial - Prepare a container registry for Azure Container Instances
 description: Azure Container Instances tutorial part 2 of 3 - Prepare an Azure container registry and push an image
 services: container-instances
 author: dlepow
@@ -8,10 +8,10 @@ ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: seodec18,mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Deploy and push an image to an Azure container registry
+# Tutorial: Deploy an Azure container registry and push a container image
 
 This is part two of a three-part tutorial. [Part one](container-instances-tutorial-prepare-app.md) of the tutorial created a Docker container image for a Node.js web application. In this tutorial, you push the image to Azure Container Registry. If you haven't yet created the container image, return to [Tutorial 1 – Create container image](container-instances-tutorial-prepare-app.md).
 

@@ -252,4 +252,4 @@ Developers using Cognitive Services, including this client library & sample, are
 
 ## Next steps
 
-Build and extend the tutorial by using the [project source files](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) on Github.
+Build and extend the tutorial by using the [project source files](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) on GitHub.

@@ -1,5 +1,5 @@
 ---
-title: Plan the scale of your Azure Time Series Insights environment | Microsoft Docs
+title: Azure Time Series Insights plan - Plan the scale of your Azure Time Series Insights environment | Microsoft Docs
 description: This article describes how to follow best practices when planning an Azure Time Series Insights environment, including storage capacity, data retention, ingress capacity, monitoring, and business disaster recovery (BCDR). 
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
+ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights environment

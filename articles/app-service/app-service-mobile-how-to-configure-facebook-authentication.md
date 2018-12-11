@@ -1,5 +1,5 @@
 ---
-title: How to configure Facebook authentication for your App Services application
+title: Configure Facebook authentication - Azure App Service
 description: Learn how to configure Facebook authentication for your App Services application.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 # How to configure your App Service application to use Facebook login
@@ -30,20 +31,20 @@ To complete the procedure in this topic, you must have a Facebook account that h
 3. (Optional) If you have not already registered, click **Apps** > **Register as a Developer**, then accept the policy and follow the registration steps.
 4. Click **My Apps** > **Add a New App**.
 5. In **Display Name**, type a unique name for your app. Also provide your **Contact Email**, and then click **Create App ID** and complete the security check. This takes you to the developer dashboard for your new Facebook app.
-7. Under **Facebook Login**, click **Set up**, and then choose **Settings** in the left-hand navigation under **Facebook Login**.
-8. Add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**.
+6. Under **Facebook Login**, click **Set up**, and then choose **Settings** in the left-hand navigation under **Facebook Login**.
+7. Add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**.
    
    > [!NOTE]
    > Your redirect URI is the URL of your application appended with the path, */.auth/login/facebook/callback*. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
    > 
    > 
-7. In the left-hand navigation, click **Settings** > **Basic**. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You use these later to configure your application in Azure.
+8. In the left-hand navigation, click **Settings** > **Basic**. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You use these later to configure your application in Azure.
    
    > [!IMPORTANT]
    > The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
    > 
    > 
-8. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **App Review** and enable **Make <your-app-name> public** to enable general public access using Facebook authentication.
+9. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **App Review** and enable **Make <your-app-name> public** to enable general public access using Facebook authentication.
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 1. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.

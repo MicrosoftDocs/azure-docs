@@ -142,6 +142,20 @@
   - name: HTTP response codes
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: SDKs
+    items:
+    - name: C#
+      items:
+      - name: NuGet
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+    - name: Node.js
+      items:
+      - name: NPM
+        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+    - name: Ruby
+      items: 
+      - name: Gem
+        href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Resources
   items:
   - name: Regional Availability
