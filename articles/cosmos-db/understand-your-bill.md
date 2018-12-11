@@ -175,20 +175,20 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 
 |**Hours**  |**RU/s** |**Item** |**Usage (hourly)** |**Cost** |
 |---------|---------|---------|-------|-------|
-|[0-100] |D1:10K <br/>D2:30 K <br/>C1:20 K |Throughput bill for container in West US (all regions are writable)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880  |$2,880  |
-|[101-200] |D1:50 K <br/>D2:70 K <br/>C1: -- |Throughput bill for container in West US (all regions are writable)  |D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800 <br/>D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120 |$1920  |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760  |$5,760  |
-|[201-300]  |D1:50 K <br/>D2:70 K <br/>C1:20 K |Throughput bill for container in West US (all regions are writable)  |D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800 <br/>D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120 <br/>C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320 |$2,240  |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720 |$6,720 |
-|[301-400] |D1:10K <br/>D2:80 K <br/>C1: -- |Throughput bill for container in West US (all regions are writable)  |D1: 10K RU/sec/100 * $0.016 * 100 hours = $160 <br/>D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280  |$1,440   |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880  |$2,880  |
-|[401-500] |D1:10K <br>D2:10K <br>C1:20 K |Throughput bill for container in West US (all regions are writable)  |D1: 10K RU/sec/100 * $0.016 * 100 hours = $160 <br>D2: 10K RU/sec/100 * $0.016 * 100 hours = $160 <br>C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320 |$640  |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280  |$1,280  |
-|[501-700] |D1: 20 K <br>D2: 100 K <br>C1: -- |Throughput bill for container in West US (all regions are writable)  |D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640 <br>D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200 |$3,840  |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280  |$7,680  |
-|[701-720] |D1: 20 K <br/>D2: 50 K <br/>C1: -- |Throughput bill for container in West US (all regions are writable)  |D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64 <br/>D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160 |$224  |
-| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448  |$224  |
+|[0-100] |D1:10K <br/>D2:30K <br/>C1:20K |Throughput bill for container in West US (all regions are writable)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
+|[101-200] |D1:50K <br/>D2:70K <br/>C1: -- |Throughput bill for container in West US (all regions are writable)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5,760  |
+|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Throughput bill for container in West US (all regions are writable)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320 |$2,240`  |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6,720 |
+|[301-400] |D1:10K <br/>D2:80K <br/>C1: -- |Throughput bill for container in West US (all regions are writable)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1,440   |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
+|[401-500] |D1:10K <br>D2:10K <br>C1:20K |Throughput bill for container in West US (all regions are writable)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`D2: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$640  |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (40 K RU/sec /100 * $0.016) * 100 hours = $1,280`  |$1,280  |
+|[501-700] |D1:20K <br>D2:100K <br>C1: -- |Throughput bill for container in West US (all regions are writable)  |`D1: 20 K RU/sec/100 * $0.016 * 200 hours = $640` <br>`D2: 100 K RU/sec/100 * $0.016 * 200 hours = $3,200` |$3,840  |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7,680  |
+|[701-720] |D1:20K <br/>D2:50K <br/>C1: -- |Throughput bill for container in West US (all regions are writable)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
+| | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Total Monthly Cost**  | |**$38,688**   |
 
 ## Proactively estimating your monthly bill  
