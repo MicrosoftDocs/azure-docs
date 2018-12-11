@@ -58,22 +58,20 @@ The Microsoft speech recognition API supports the following languages. Different
 
 The text-to-speech REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
 
-### Neural text-to-speech voices
+### Neural voices (Preview)
 
-Neural text-to-speech can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural TTS has significantly reduced listening fatigue when you interact with AI systems.
+Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
 
-Neural text-to-speech voices are currently available in these Azure regions:
-
-* East US
-* Southeast Asia
-* West Europe
+For a full list of neural voices and regional availability, see [regions](regions.md).
 
 | Locale | Language | Gender | Service name mapping|
 |--------|----------|---------|--------------------|
-| en-US | English | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
-| en-US | English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
 
-### Traditional text-to-speech voices
+### Standard voices
+
+More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md).
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------

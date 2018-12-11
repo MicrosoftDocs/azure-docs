@@ -420,38 +420,8 @@ This is a typical response for `detailed` recognition.
 
 The text-to-speech REST API supports neural and traditional text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
 
-### Neural text-to-speech voices
-
-Neural text-to-speech can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural TTS has significantly reduced listening fatigue when you interact with AI systems.
-
-Neural text-to-speech voices are currently available in these Azure regions:
-
-* East US
-* Southeast Asia
-* West Europe
-
-| Locale | Language | Gender | Service name mapping |
-|--------|----------|---------|---------------------|
-| en-US | English | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
-| en-US | English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
-
-### Traditional text-to-speech voices
-
-These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-The Speech Service supports 24-KHz audio output, along with the 16-Khz outputs that were supported by Bing Speech. Four 24-KHz output formats and two 24-KHz voices are supported.
-
-This is a sample of traditional text-to-speech voices. See [supported languages](language-support.md#text-to-speech) for a complete list of available languages, locales, and voices.
-
-| Locale | Language | Gender | Service name mapping |
-|--------|----------|---------|---------------------|
-| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" |
-| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" |
-| en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" |
-| en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
-| en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
+* For a complete list of voices, see [language support](language-support.md).
+* For information about regional availability, see [regions](regions.md).
 
 ### Request headers
 
@@ -466,7 +436,7 @@ This table lists required and optional headers for speech-to-text requests.
 
 ### Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Service supports 24-KHz and 16-KHz audio outputs.
 
 |||
 |-|-|
