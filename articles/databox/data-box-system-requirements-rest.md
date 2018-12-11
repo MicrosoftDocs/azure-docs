@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
@@ -168,6 +168,6 @@ AccountKey=mykey;
 EndpointSuffix=<serial no. of the device>.microsoftdatabox.com
 ```
 
-## Next step
+## Next steps
 
 * [Deploy your Azure Data Box](data-box-deploy-ordered.md)
