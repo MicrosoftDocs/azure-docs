@@ -169,73 +169,37 @@ This section describes how to create a Time Series Insights Preview environment 
 
 In this section, you perform basic analytics on your time series data by using the Time Series Insights update explorer.
 
-  1. Go to your Time Series Insights update explorer by clicking on the URL from the resource page in the Azure portal.
+1. Go to your Azure Time Series Insights Preview explorer by clicking on the URL from the resource page in the Azure portal.
 
-      ![The Time Series Insights explorer URL][]
+   ![The Time Series Insights explorer URL][19]
 
-  1. In the explorer, under **Physical Hierarchy**, select the **Unparented Instances** nodes to see all the time series instances in the environment.
+1. In the explorer, select the **Unparented Instances** nodes to see all the Azure Time Series Insights Preview in the environment.
 
-     ![List of unparented instances in the Physical Hierarchy pane][]
+   ![List of unparented instances][20]
 
-  1. In this tutorial, we analyze data that was sent over the past day. Select **Quick Times**, and then select **Last 24 Hours**.
+1. In the time series shown, click on the first instance. Then, click on **Show Avg Pressure**.
 
-     ![In the Quick Times drop-down box, select Last 24 Hours][]
+   ![Show average pressure][21]
 
-  1. Select **Sensor_0**, and then select **Show Avg Value** to visualize data being sent from this Time Series Insights instance.
+1. A time series chart should appear on the right:
 
-     ![Select Show Avg Value for Sensor_0][]
+   ![Time series chart][22]
 
-  1. Similarly, you can plot data that comes from other Time Series Insights instances to perform basic analytics.
+1. Repeat **step 3** with the other two time series. All time series can then be viewed as shown below:
 
-     ![A Time Series Insights data plot][]
+   ![All time series chart][23]
 
-## Define a type and hierarchy 
+1. Modify the **time range** to see time series trends over the last hour. Select the **From** option box as shown below:
 
-In this section, you author a type and hierarchy, and then associate the type and hierarchy with your Time Series Insights instances. You can read more about [Time Series Models](./time-series-insights-update-tsm.md).
+   ![Select the From option][24]
 
-  1. In the explorer, select the **Model** tab.
+1. Change the time within the **From** option box to display events from the last hour:
 
-     ![The Model tab in the explorer menu][]
+   ![Select the From option][25]
 
-  1. In the **Types** section, select **Add** to create a new Time Series Model type.
+1. You can then compare pressure across all three devices over the last hour:
 
-     ![The Add button on the Types page][]
-
-  1. In the type editor, enter values for **Name** and **Description**. Create variables for **Average**, **Min**, and **Max** values as shown in the following figures. Select **Create** to save the type.
-
-     ![The Add a Type pane and the Create button][]
-
-     ![The Windmill sample types][]
-
-  1. In the **Hierarchies** section, select **Add** to create a new Time Series Model hierarchy.
-
-     ![The Add button on the Hierarchies page][]
-
-  1. In the hierarchy editor, enter a value for **Name** and add hierarchy levels. Select **Create** to save the hierarchy.
-
-     ![The Add a Hierarchy pane and the Create button][]
-
-     ![The Physical Hierarchy box][]
-
-  1. In the **Instances** section, select an instance, and then select **Edit** to associate a type and hierarchy with this instance.
-
-     ![List of instances][]
-
-  1. In the instance editor, select the type and hierarchy that you defined in steps 3 and 5.
-
-     ![The Edit an Instance pane][]
-
-  1. Alternatively, to select the type and hierarchy for all instances at once, you can edit the *instances.json* file that was downloaded earlier. In this file, replace all **typeId** and **hierarchyId** fields with the ID obtained in steps 3 and 5.
-
-  1. In the **Instances** section, select **Upload JSON** and upload the edited *instances.json* file.
-
-     ![The Upload JSON button][]
-
-  1. Select the **Analytics** tab and refresh your browser. All the instances associated with the type and hierarchy that you defined should appear.
-
-     ![A Time Series Insights data plot][]
-
-
+   ![Select the From option][26]
 
 
 ## Next steps
@@ -281,3 +245,12 @@ Learn more about Time Series Models:
 [16]: media/v2-update-provision/payg-eight-environment.png
 [17]: media/v2-update-provision/payg-nine-data-access.png
 [18]: media/v2-update-provision/payg-ten-verify.png
+
+[19]: media/v2-update-provision/analyze-one-portal.png
+[20]: media/v2-update-provision/analyze-two-unparented.png
+[21]: media/v2-update-provision/analyze-three-show-pressure.png
+[22]: media/v2-update-provision/analyze-four-chart.png
+[23]: media/v2-update-provision/analyze-five-chart.png
+[24]: media/v2-update-provision/analyze-six-from.png
+[25]: media/v2-update-provision/analyze-seven-change-from.png
+[26]: media/v2-update-provision/analyze-eight-all.png
