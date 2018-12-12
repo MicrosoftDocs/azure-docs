@@ -40,12 +40,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Install the SDK
 
-> [!NOTE]
->
-> Code in this article requires the Azure Machine Learning SDK version 1.0.2 or later.
->
-> *Skip this section if you use a data science virtual machine created after September 27, 2018.*
-> The data science virtual machines come with the Python SDK preinstalled.
+> [!IMPORTANT]
+> Skip this section if you use a data science virtual machine created after September 27, 2018.
+> Data science virtual machines created after this date come with the Python SDK preinstalled.
+
+The code in this article requires the Azure Machine Learning SDK version 1.0.2 or later.
 
 Before you install the SDK, we recommend that you create an isolated Python environment. While this quickstart uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you also can use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -70,7 +69,7 @@ conda activate myenv
 
 ### Install the SDK
 
-In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
+In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the conda environment. The installation takes a few minutes to finish based on the configuration of your machine.
 
 ```sh
 # Install Jupyter
@@ -130,7 +129,7 @@ ws = Workspace.create(name='myworkspace',
                      )
 ```
 
-When you execute the preceding code, you might be prompted to sign into your Azure account. After you sign in, the authentication token is cached locally.
+When you execute the code, you might be prompted to sign into your Azure account. After you sign in, the authentication token is cached locally.
 
 To see the workspace details, such as associated storage, container registry, and key vault, enter the following code:
 
@@ -164,7 +163,6 @@ Write some code that uses the basic APIs of the SDK to track experiment runs.
 
 
 ## View logged results
-
 When the run finishes, you can view the experiment run in the Azure portal. Use the following code to print a URL that navigates to the results for the last run:
 
 ```python
@@ -173,7 +171,7 @@ print(run.get_portal_url())
 
 Use the link to view the logged values in the Azure portal in your browser.
 
-![Logged values in portal](./media/quickstart-create-workspace-with-python/logged-values.png)
+![Logged values in the Azure portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
 ## Clean up resources 
 
@@ -187,7 +185,7 @@ If you don't plan to use the resources that you created in this quickstart, dele
 
 ## Next steps
 
-In this quickstart, you created the necessary resources to experiment with and deploy models. You ran code in a notebook, and explored the code run history in your workspace in the cloud.
+In this quickstart, you created the resources to experiment with and deploy models. You ran code in a notebook, and explored the run history for the code in your workspace in the cloud.
 
 To use the code with the Machine Learning tutorials, you need a few more packages in your environment.
 
