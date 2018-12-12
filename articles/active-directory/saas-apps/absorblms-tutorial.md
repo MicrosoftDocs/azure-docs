@@ -230,7 +230,7 @@ To set up a user account, do the following:
 
     ![The Users link](./media/absorblms-tutorial/absorblms_userssub.png)
 
-3. In the **Add New** drop-down list, select **User**.
+3. Select **User** tab.
 
     ![The Add New drop-down list](./media/absorblms-tutorial/absorblms_createuser.png)
 
