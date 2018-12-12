@@ -34,7 +34,7 @@ Learn more about [exporting to Blob storage](howto-export-data-blob-storage.md).
 Measurements, devices, and device templates data are exported to your event hub or Service Bus queue or topic. Exported measurements data arrives in near realtime and contains the entirety of the message your devices sent to IoT Central, not just the values of the measurements themselves. Exported devices data arrives in batches once every minute, and contains changes to properties and settings of all devices, and exported device templates contains changes to all device templates.
 
 
-Learn more about [exporting to Event Hubs and Service Bus](howto-export-data-eventhubs-servicebus.md).
+Learn more about [exporting to Event Hubs and Service Bus](howto-export-data-event-hubs-service-bus.md).
 
 ## Set up export destination
 
@@ -127,7 +127,7 @@ Now that you know how to export your data, continue to the next step:
 > [Export data to Azure Blob Storage](howto-export-data-blob-storage.md)
 
 > [!div class="nextstepaction"]
-> [Export data to Azure Event Hubs and Azure Service Bus](howto-export-data-eventhubs-servicebus.md)
+> [Export data to Azure Event Hubs and Azure Service Bus](howto-export-data-event-hubs-service-bus.md)
 
 > [!div class="nextstepaction"]
 > [How to visualize your data in Power BI](howto-connect-powerbi.md)
