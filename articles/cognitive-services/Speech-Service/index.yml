@@ -78,7 +78,7 @@ sections:
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
         - href: quickstart-java-jre
-        - href: quickstart-asr-python
+        - href: quickstart-python
         - href:
         - href:
         - href:
@@ -102,7 +102,7 @@ sections:
         - href: quickstart-cpp-linux
         - href: quickstart-csharp-dotnetcore-windows
         - href: quickstart-java-jre
-        - href: quickstart-asr-python
+        - href: quickstart-python
         - href:
         - href:
         - href:
@@ -174,7 +174,7 @@ sections:
         - href:
         - href:
         - href:
-        - href: quickstart-asr-python
+        - href: quickstart-python
         - href:
         - href:
         - href:
