@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
-description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
+description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Web Apps feature of Microsoft Azure App Service.
 author: SnehaGunda
 
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
-Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB so that customers can utilize the global distribution, elastic scaling, multi-master and other capabilities offered by Azure Cosmos DB.
+Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
 
 # Tutorial: Build a Node.js web app using JavaScript SDK to manage SQL API account in Azure Cosmos DB 
@@ -22,11 +22,9 @@ Customer intent: As a developer, I want to build a Node.js web application to ac
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-As developer you may have applications that use NoSQL document data. You can use SQL API account in Azure cosmos DB, to store and access this document data. This Node.js tutorial shows you how to store and access data from SQL API account in Azure Cosmos DB by using a Node.js Express application that is hosted on Azure Websites. In this tutorial, you will build a web-based application (Todo app), that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
+As a developer, you might have applications that use NoSQL document data. You can use a SQL API account in Azure Cosmos DB to store and access this document data. This Node.js tutorial shows you how to store and access data from a SQL API account in Azure Cosmos DB by using a Node.js Express application that is hosted on the Web Apps feature of Microsoft Azure App Service. In this tutorial, you will build a web-based application (Todo app) that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
 
-This tutorial demonstrates how to create a SQL API account in Azure Cosmos DB by using the Azure portal. You then build and run a web app that is built on the Node.js SDK to create database, container, and add items to the container. This tutorial uses JavaScript SDK version 2.0.
-
-You can also get the completed sample from [GitHub][GitHub] and see the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for instructions on how to run the app.
+This tutorial demonstrates how to create a SQL API account in Azure Cosmos DB by using the Azure portal. You then build and run a web app that is built on the Node.js SDK to create a database and container, and add items to the container. This tutorial uses JavaScript SDK version 2.0.
 
 This tutorial covers the following tasks:
 
@@ -456,13 +454,13 @@ Now that you have built the application, you can run it locally by using the fol
 
 5. To stop the application, press CTRL+C in the terminal window and then select **Y** to terminate the batch job.
 
-## <a name="_Toc395783182"></a>Deploy your application to Azure Websites
+## <a name="_Toc395783182"></a>Deploy your application to Web Apps
 
 After your application succeeds locally, you can deploy it to Azure by using the following steps:
 
-1. If you haven't already done so, enable a git repository for your Azure Website.
+1. If you haven't already done so, enable a git repository for your Web Apps.
 
-2. Add your Azure Website as a git remote.
+2. Add your Web Apps as a git remote.
    
    ```bash
    git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
@@ -480,11 +478,9 @@ If you want to download or refer to the complete reference application for this 
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group that you used for the Azure Cosmos account, select **Delete**, then confirm the name of the resource group to delete.
+When these resources are no longer needed, you can delete the resource group, Azure Cosmos DB account, and all the related resources. To do so, select the resource group that you used for the Azure Cosmos DB account, select **Delete**, and then confirm the name of the resource group to delete.
 
 ## <a name="_Toc395637775"></a>Next steps
-
-You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Build mobile applications with Xamarin and Azure Cosmos DB](mobile-apps-with-xamarin.md)
