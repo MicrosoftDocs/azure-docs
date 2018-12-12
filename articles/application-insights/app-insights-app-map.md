@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 
@@ -86,6 +86,102 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ![Screenshot of analytics experience](media/app-insights-app-map/alerts-view.png)
 
+## Set cloud_RoleName
+
+Application Map uses the `cloud_RoleName` property to identify the components on the map.The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name, or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
+
+### .NET
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here
+                telemetry.Context.Cloud.RoleName = "RoleName";
+            }
+        }
+    }
+}
+```
+
+**Load your initializer**
+
+In ApplicationInsights.config:
+
+```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="CustomInitializer.Telemetry.MyTelemetryInitializer, CustomInitializer"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+```
+
+*Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
+
+```csharp
+    protected void Application_Start()
+    {
+    using Microsoft.ApplicationInsights.Extensibility;
+    using CustomInitializer.Telemetry;
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+### Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
+appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
+```
+
+### Alternate method for Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+
+appInsights.defaultClient.addTelemetryProcessor(envelope => {
+    envelope.tags["ai.cloud.role"] = "your role name";
+    envelope.tags["ai.cloud.roleInstance"] = "your role instance"
+});
+```
+
+### Java
+
+If you use Spring Boot with the Application Insights Spring Boot starter the only required change is to set the desired name of the application in application.properties file.
+
+`spring.application.name=<name-of-app>`
+
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for spring.application.name property.
+
+For further information on Java correlation and how to configure cloudRoleName for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
+
+### Client/browser-side JavaScript
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
+For more information about how do override the `cloud_RoleName` property see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
 ## Troubleshooting
 
 If you are having trouble getting Application Map to work as expected, try the following:
@@ -98,7 +194,7 @@ If you are having trouble getting Application Map to work as expected, try the f
 
 3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/en-us/azure/azure-functions/functions-versions).
 
-4. Ensure cloud_RoleName is correctly configured. This [article](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-multi-role-apps) explains how role-name is used in Application Map. 
+4. Ensure [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) is correctly configured.
 
 ## Portal feedback
 To provide feedback, use the portal feedback option.
@@ -107,5 +203,4 @@ To provide feedback, use the portal feedback option.
 
 ## Next steps
 
-* [Monitor multi-component applications](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-multi-role-apps)
 * [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
