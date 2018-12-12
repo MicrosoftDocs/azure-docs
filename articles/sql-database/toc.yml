@@ -346,7 +346,7 @@
       href: sql-database-geo-replication-security-config.md  
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
-    - name: Enable E-mail notifications for automatic tuning
+    - name: Enable e-mail notifications for automatic tuning
       href: sql-database-automatic-tuning-email-notifications.md
     - name: Apply performance recommendations
       href: sql-database-advisor-portal.md
