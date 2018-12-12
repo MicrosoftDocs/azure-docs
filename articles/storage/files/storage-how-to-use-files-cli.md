@@ -91,7 +91,7 @@ We expect most uses of Azure Files will want to work with their Azure file share
 - You need to execute a script or application from a client which cannot mount an SMB shares, such as on-premises clients which do not have port 445 unblocked.
 - You are taking advantage of serverless resources, such as [Azure Functions](../../azure-functions/functions-overview.md). 
 
-The following examples show how to use the Azure PowerShell module to manipulate your Azure file share with the File REST protocol. 
+The following examples show how to use the Azure CLI to manipulate your Azure file share with the File REST protocol. 
 
 ### Create a directory
 To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command:

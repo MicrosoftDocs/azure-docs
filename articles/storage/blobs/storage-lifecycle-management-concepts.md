@@ -39,6 +39,8 @@ To submit a request, run the following PowerShell or CLI commands.
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To submit a request:
 
 ```powershell

@@ -197,6 +197,8 @@ Immutable storage is currently available only in Azure public regions. If you're
 
 ## Sample PowerShell code
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 The following sample PowerShell script is for reference. This script creates a new storage account and container. It then shows you how to set and clear legal holds, create and lock a time-based retention policy (also known as an immutability policy), and extend the retention interval.
 
 Set up and test the Azure Storage account:

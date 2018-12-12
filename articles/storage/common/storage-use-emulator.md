@@ -82,6 +82,9 @@ Once you've installed and started the storage emulator, you can test your code a
 For more information on connection strings, see [Configure Azure Storage connection strings](../storage-configure-connection-string.md).
 
 ### Authorize with a shared access signature
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](http://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:

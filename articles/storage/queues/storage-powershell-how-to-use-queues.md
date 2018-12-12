@@ -27,6 +27,8 @@ This how-to requires the Azure PowerShell module Az version 0.7 or later. Run `G
 
 There are no PowerShell cmdlets for the data plane for queues. To perform data plane operations such as add a message, read a message, and delete a message, you have to use the .NET storage client library as it is exposed in PowerShell. You create a message object and then you can use commands such as AddMessage to perform operations on that message. This article shows you how to do that.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Sign in to Azure
 
 Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.

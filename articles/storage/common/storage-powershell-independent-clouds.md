@@ -18,6 +18,8 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 * [Azure China Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
 * [Azure German Cloud](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Using an independent cloud 
 
 To use Azure Storage in one of the independent clouds, you connect to that cloud instead of Azure Public. To use one of the independent clouds rather than Azure Public:

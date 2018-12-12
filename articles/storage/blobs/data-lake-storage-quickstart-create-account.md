@@ -111,6 +111,8 @@ Then, upgrade your powershell module, log in to your Azure subscription, create 
 
 ### Upgrade your powershell module
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To interact with Data Lake Storage Gen2 by using PowerShell, you'll need to install module Az.Storage version **0.7** or later.
 
 Start by opening a PowerShell session with elevated permissions.

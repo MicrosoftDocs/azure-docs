@@ -20,6 +20,8 @@ An application that accesses a storage account when network rules are in effect 
 >
 > You can grant access to Azure services that operate from within a VNet by allowing the subnet of the service instance. Enable a limited number of scenarios through the [Exceptions](#exceptions) mechanism described in the following section. To access the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Scenarios
 
 Configure storage accounts to deny access to traffic from all networks (including internet traffic) by default. Then grant access to traffic from specific VNets. This configuration enables you to build a secure network boundary for your applications. You can also grant access to public internet IP address ranges, enabling connections from specific internet or on-premises clients.

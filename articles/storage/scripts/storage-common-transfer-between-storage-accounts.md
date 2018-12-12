@@ -22,7 +22,7 @@ This sample copies all blob objects from a user-provided source storage account 
 
 This is accomplished by making use of the `Get-AzStorageContainer` command, which lists all the containers in a storage account. The sample then issues AzCopy commands, copying each container from the source storage account to the destination storage account. If any failures occur, the sample retries $retryTimes (default is 3, and can be modified with the `-RetryTimes` parameter). If failure is experienced on each retry, the user can rerun the script by providing the sample with the last successfully copied container using the `-LastSuccessContainerName` parameter. The sample then continues copying containers from that point.
 
-This sample requires the Azure PowerShell Storage module version **4.0.2** or later. You can check your installed version using `Get-Module -ListAvailable Azure.storage`. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
+This sample requires the Azure PowerShell Storage module version **0.7** or later. You can check your installed version using `Get-Module -ListAvailable Az.storage`. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

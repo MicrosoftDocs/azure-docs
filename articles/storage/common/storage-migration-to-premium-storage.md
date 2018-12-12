@@ -182,6 +182,9 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 ##### Option 2: Copy a VHD with PowerShell (Synchronized copy)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can also copy the VHD file using the PowerShell cmdlet Start-AzStorageBlobCopy. Use the following command on Azure PowerShell to copy VHD. Replace the values in <> with corresponding values from your source and destination storage account. To use this command, you must have a container called vhds in your destination storage account. If the container doesn't exist, create one before running the command.
 
 ```powershell

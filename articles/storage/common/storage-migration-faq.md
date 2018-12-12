@@ -129,6 +129,8 @@ For more information, see [Transfer data with AzCopy on Windows](storage-use-azc
 
 **How do I move managed disks to another storage account?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Follow these steps:
 
 1.  Stop the virtual machine that the managed disk is attached to.

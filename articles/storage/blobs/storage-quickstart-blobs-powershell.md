@@ -19,6 +19,8 @@ Use the Azure PowerShell module to create and manage Azure resources. Creating o
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This quickstart requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ## Create a container

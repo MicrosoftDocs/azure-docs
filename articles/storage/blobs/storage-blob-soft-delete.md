@@ -169,6 +169,9 @@ Once you undelete a blob's snapshots, you can click **Promote** to copy a snapsh
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To enable soft delete, update a blob client's service properties. The following example enables soft delete for a subset of accounts in a subscription:
 
 ```powershell

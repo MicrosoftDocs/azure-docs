@@ -31,6 +31,9 @@ Follow these steps to enable metrics in the [Azure portal](https://portal.azure.
 The [Azure portal](https://portal.azure.com) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
 ## How to enable metrics using PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet Get-AzStorageServiceMetricsProperty to retrieve the current settings, and the cmdlet Set-AzStorageServiceMetricsProperty to change the current settings.
 
 The cmdlets that control Storage Metrics use the following parameters:

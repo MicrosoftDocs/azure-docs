@@ -15,6 +15,8 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 This article describes important considerations for an Azure File Sync deployment. We recommend that you also read [Planning for an Azure Files deployment](storage-files-planning.md). 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Azure File Sync terminology
 Before getting into the details of planning for an Azure File Sync deployment, it's important to understand the terminology.
 

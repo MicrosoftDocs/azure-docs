@@ -41,6 +41,9 @@ To create an Azure file share, you can use a Storage Account that already exists
 
 
 ## Create file share through PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) for the install point and installation instructions.
 
 > [!Note]  

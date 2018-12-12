@@ -52,6 +52,8 @@ The environment variable associated with the `--auth-mode` parameter is `AZURE_S
 
 ## Call PowerShell commands with an Azure AD identity
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To use Azure PowerShell to sign in with an Azure AD identity:
 
 1. Uninstall any previous installations of Azure PowerShell:

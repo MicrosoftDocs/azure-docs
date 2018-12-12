@@ -27,6 +27,8 @@ Why create your own keys? Custom keys give you more flexibility, so that you can
 
 To use customer-managed keys with SSE, you can either create a new key vault and key or you can use an existing key vault and key. The storage account and the key vault must be in the same region, but they can be in different subscriptions.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### Step 1: Create a storage account
 
 First, create a storage account if you don't have one already. For more information, see [Create a storage account](storage-quickstart-create-account.md).
