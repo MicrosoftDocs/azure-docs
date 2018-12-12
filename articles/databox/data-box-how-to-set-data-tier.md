@@ -46,13 +46,11 @@ Once the data from Data Box is uploaded to the default tier, you may want to mov
 
 ## Use Azure PowerShell to set the blob tier
 
-Following steps describe how you can set the blob tier to Archive.
+Following steps describe how you can set the blob tier to Archive using an Azure PowerShell script.
 
-1. Sign into Azure PowerShell.
+1. Sign into the Azure PowerShell.
 
     `Login-AzureRmAccount`
-
-<!--(KH: this is usually implied to scan get rid of it)-->
 
 2. Define the variables for storage account, access key, container, and the storage context.
 
@@ -65,7 +63,7 @@ Following steps describe how you can set the blob tier to Archive.
 
 3. Get all the blobs in the container.
 
-    `$blob = Get-AzureStorageBlob -Container "test" -Context $ctx`
+    `$blob = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
  
 4. Set the tier of all the blobs to Archive.
 
