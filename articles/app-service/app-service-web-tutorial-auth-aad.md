@@ -1,5 +1,5 @@
 ---
-title: Authenticate and authorize users end-to-end in Azure App Service | Microsoft Docs 
+title: Authenticate and authorize users end-to-end - Azure App Service | Microsoft Docs 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
@@ -15,6 +15,8 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
@@ -78,6 +80,10 @@ To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
 ## Deploy apps to Azure
 
 In this step, you deploy the project to two App Service apps. One is the front-end app and the other is the back-end app.
+
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### Create Azure resources
 

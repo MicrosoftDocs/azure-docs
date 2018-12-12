@@ -27,7 +27,7 @@ When you use Azure Active Directory (Azure AD) B2C together with Azure Applicati
 
 ## How it works
 
-The Identity Experience Framework in Azure AD B2C includes the provider `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. It sends event data directly to Application Insights by using the instrumentation key provided to Azure AD B2C.
+The Identity Experience Framework in Azure AD B2C includes the provider `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. It sends event data directly to Application Insights by using the instrumentation key provided to Azure AD B2C.
 
 A technical profile uses this provider to define an event from Azure AD B2C. The profile specifies the name of the event, the claims that are recorded, and the instrumentation key. To post an event, the technical profile is then added as an `orchestration step`, or as a `validation technical profile` in a custom user journey.
 

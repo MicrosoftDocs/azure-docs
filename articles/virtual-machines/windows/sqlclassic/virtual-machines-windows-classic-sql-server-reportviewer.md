@@ -58,7 +58,7 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 3. Repeat steps 1 and 2 for Microsoft.ReportViewer.WebForms.
 
 ### To get ReportViewer Language Pack
-1. Install the appropriate Microsoft Report Viewer 2012 Runtime redistributable package from [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=317386).
+1. Install the appropriate Microsoft Report Viewer 2012 Runtime redistributable package from [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=317386).
 2. Select the language from the dropdown list and the page gets redirected to the corresponding download center page.
 3. Click **Download** to start the download of ReportViewerLP.exe.
 4. After you download ReportViewerLP.exe, click **Run** to install immediately, or click **Save** to save it to your computer. If you click **Save**, remember the name of the folder where you save the file.
@@ -68,7 +68,7 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 ### To configure for localized ReportViewer control
 1. Download and install the Microsoft Report Viewer 2012 Runtime redistributable package by following the above specified instructions.
 2. Create <language> folder in the project and copy the associated resource assembly files there. The resource assembly files to be copied are: **Microsoft.ReportViewer.Webforms.Resources.dll** and **Microsoft.ReportViewer.Common.Resources.dll**.Select the resource assembly files, and in the Properties pane, set **Copy to Output Directory** to “**Copy always**”.
-3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](http://go.microsoft.com/fwlink/?LinkId=237461).
+3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## Configuring Authentication and Authorization
 The ReportViewer needs to use proper credentials to authenticate with the report server, and the credentials must be authorized by the report server to access the reports you want. For information on authentication, see the white paper [Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](https://msdn.microsoft.com/library/azure/dn753698.aspx).
@@ -84,7 +84,7 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 > 
 
 ## Resources
-[Microsoft Reports](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Microsoft Reports](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md)
 

@@ -4,8 +4,8 @@ description: Index of Hadoop stack trace error messages in Azure HDInsight. Find
 keywords: stack trace, error messages
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual

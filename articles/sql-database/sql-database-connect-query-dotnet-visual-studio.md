@@ -11,9 +11,9 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 11/01/2018
 ---
-# Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
+# Quickstart: Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
 
 This quickstart demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) to create a C# program with Visual Studio to connect to an Azure SQL database and use Transact-SQL statements to query data.
 

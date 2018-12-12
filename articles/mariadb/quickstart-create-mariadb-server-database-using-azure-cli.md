@@ -231,9 +231,7 @@ If you want to delete only the server that you created in this quickstart, run t
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-cli.md)

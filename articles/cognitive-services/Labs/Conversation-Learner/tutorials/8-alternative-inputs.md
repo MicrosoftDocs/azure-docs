@@ -18,7 +18,7 @@ This tutorial shows how to use the "alternative inputs" field for user input in 
 
 ## Video
 
-[![Tutorial 8 Preview](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Tutorial 8 Preview](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -132,9 +132,11 @@ Let's add alternate inputs to the first dialog:
 	3. Click Submit Changes.
 4. Click to select 'denver' in the left pane:
 	1. In Add alternative input, enter 'for denver'.
-	2. Enter 'forecast for austin'.
-		- The full phrase is highlighted. Click on the phrase, then red x. Then select austin, and click on city.
-		- Click Submit Changes
+	1. Enter 'forecast for austin'.
+		- An error message appears: 'Text Variations must contain the same detected Entities as the original input text.'
+		- Click the word 'austin'.
+		- A pop-up appears that lets you select the entity for 'austin'. Click **city**.
+		- Click Submit Changes.
 	1. Click Done which will cause the model to retrain.
 
 ![](../media/tutorial8_altcities.png)

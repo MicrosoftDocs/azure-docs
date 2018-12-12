@@ -14,6 +14,10 @@
     href: troubleshoot-rdp-connection.md
   - name: Detailed RDP troubleshooting
     href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot RDP error because the DHCP is disabled
+    href: troubleshoot-rdp-dhcp-disabled.md
+  - name: Troubleshoot RDP error because of the NSG setting
+    href: troubleshoot-rdp-nsg-problem.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
   - name: Troubleshoot no license server errors
@@ -26,6 +30,26 @@
     href: troubleshoot-rdp-intermittent-connectivity.md
   - name: Troubleshoot a general error
     href: troubleshoot-rdp-general-error.md
+  - name: Troubleshoot authentication errors
+    href: troubleshoot-authentication-error-rdp-vm.md
+  - name: Troubleshoot Azure VM RDP connection issues by Event ID
+    href: event-id-troubleshoot-vm-rdp-connecton.md
+  - name: Troubleshoot RDP error in VM because of static IP
+    href: troubleshoot-rdp-static-ip.md
+  - name: Troubleshoot RDP error in VM because the NIC is disabled
+    href: troubleshoot-rdp-nic-disabled.md
+  - name: Troubleshoot RDP error caused by Safe Mode
+    href: troubleshoot-rdp-safe-mode.md
+  - name: Disable the guest OS Firewall in Azure VM
+    href: disable-guest-os-firewall-windows.md
+  - name: Enable or disable a firewall rule on a guest OS
+    href: enable-disable-firewall-rule-guest-os.md
+  - name: Guest OS firewall is blocking inbound traffic
+    href: guest-os-firewall-blocking-inbound-traffic.md
+  - name: Guest OS firewall is misconfigured
+    href: guest-os-firewall-misconfigured.md 
+  - name: Troubleshoot RDP error caused by netvsc.sys
+    href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
   - name: SSH troubleshooting
@@ -134,3 +158,5 @@
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Understand a system reboot
   href: understand-vm-reboot.md
+- name: Remote troubleshooting tools
+  href: remote-tools-troubleshoot-azure-vm-issues.md

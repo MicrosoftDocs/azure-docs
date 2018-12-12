@@ -48,7 +48,7 @@ To create an image of a virtual machine, you need to prepare the VM by generaliz
 
 ### Generalize the Windows VM using Sysprep
 
-Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Connect to the virtual machine.
@@ -99,7 +99,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU, and version. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
+Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU, and version. Using the simplified parameter set for the [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
 
 This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
 
@@ -128,11 +128,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+Delete an image. This example deletes the image named *myImage* from the *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
 	-ResourceGroupName myResourceGroup
 ```
 

@@ -74,7 +74,7 @@ To create the AKS cluster with Ansible, save the preceding sample playbook as `a
 
 The output from the **ansible-playbook* command looks similar to the following showing that the AKS cluster has been successfully created:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -135,7 +135,7 @@ To scale the Azure Kubernetes Service cluster with Ansible, save the preceding p
 
 The following output shows that the AKS cluster has been successfully created:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -173,7 +173,7 @@ To delete the Azure Kubernetes Service cluster with Ansible, save the preceding 
   ```
 
 The following output shows that the AKS cluster has been successfully deleted:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************

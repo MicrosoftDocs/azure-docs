@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 The walkthrough in this article uses Visual Studio 2017. You can also use Visual Studio 2013 or 2015.
 
 ### Azure .NET SDK
-Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/) on your machine.
+Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
 
 ## Create an application in Azure Active Directory
 Following instructions from the sections in [this article](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 

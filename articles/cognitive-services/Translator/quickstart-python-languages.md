@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Get list of supported languages, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Java.
+description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Python.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 10/29/2018
 ms.author: erhopf
 ---
 
@@ -211,7 +211,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to text transliteration, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Transliterate text](quickstart-python-transliterate.md)

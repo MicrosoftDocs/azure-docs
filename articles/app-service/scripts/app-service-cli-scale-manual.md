@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Scale a Web App manually using Azure CLI | Micr
 description: Azure CLI Script Sample - Scale a Web App manually using Azure CLI 
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Scale a web app manually
+# Scale a web app manually using Azure CLI
 
 This sample script creates a resource group, an App Service plan, and a web app. It then scales the App Service plan from a single instance to multiple instances.
 

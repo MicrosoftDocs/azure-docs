@@ -86,5 +86,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## Next steps
-- Walk through the [Classifying iris tutoria, part 2](tutorial-classifying-iris-part-2.md) to see logging API in action.
+- Walk through the [Classifying iris tutorial, part 2](tutorial-classifying-iris-part-2.md) to see logging API in action.
 - Review [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) to understand deeper how logging APIs can be used in Run History.

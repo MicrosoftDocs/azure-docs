@@ -42,7 +42,7 @@ Follow these steps to sign up for the Translator Speech API.
 ## 4: Learn, test, and get support
 
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
-- [Microsoft Translator Support Forum](http://www.aka.ms/TranslatorForum)
+- [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
 
 ## Pricing options
 

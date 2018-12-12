@@ -247,7 +247,7 @@ Yes. Coming from different data sources other than SQL Server requires logical m
 
 ### What SLA’s are provided for a Hyperscale database
 
-In general, an SLA is not provided during public preview. However, Hyperscale provides the same level of high availability with current SQL DB offerings. See [SLA](http://azure.microsoft.com/support/legal/sla/).
+In general, an SLA is not provided during public preview. However, Hyperscale provides the same level of high availability with current SQL DB offerings. See [SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### Are the database backups managed for me by the Azure SQL Database service
 

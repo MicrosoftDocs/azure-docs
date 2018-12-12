@@ -18,7 +18,7 @@ Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent lo
 
 **Managed Disks**: Ultra SSDs are only available as Managed Disks. Ultra SSDs cannot be deployed as an Unmanaged Disk or Page Blob. While creating a Managed Disk, you specify the disk sku type as UltraSSD_LRS and indicate the size of disk, the IOPS, and throughput you need, and Azure creates and manages the disk for you.  
 
-**Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs, however at preview time the VM sizes will be limited to ES/DS v3 VM instances.
+**Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs; however, as it is currently in preview, the VMs are sized as ES/DS v3.
 
 **Dynamic Performance Configuration**: Ultra SSDs allow you to dynamically change the performance (IOPS and throughput) of the disk along with your workload needs without having to restart your virtual machines.
 
@@ -50,7 +50,7 @@ The following table summarizes the different configurations supported for differ
 
 ## Pricing and billing
 
-When using Ultra SSDs, the following billing considerations apply:
+When using Ultra SSDs, the following billing considerations will be applied:
 
 - Managed Disk Size
 - Managed Disk Provisioned IOPS
@@ -59,11 +59,11 @@ When using Ultra SSDs, the following billing considerations apply:
 
 ### Managed Disk Size
 
-Managed Disks are billed on the provisioned sizes. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and billed accordingly on an hourly basis. For example, if you provisioned a 200 GiB Ultra SSD Disk and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB for 20 hours. This is regardless of the amount of actual data written to the disk.
+Managed Disks are billed on the VM sizes that you choosed while provisionning a new Azure VM. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and will billed accordingly on an hourly basis. For example, if you provisioned a 200 GiB Ultra SSD Disk and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB for 20 hours. This billing was based on compute-hour consumption regardless of the volume of data actually written to the disk.
 
 ### Managed Disk Provisioned IOPS
 
-IOPS are the number of requests that your application is sending to the disks in one second. An input/output operation could be sequential or random, reads, or writes. Like disk size, the provisioned IOPS are billed on an hourly basis. 
+IOPS are the number of requests that your application is sending to the disks per second. An input/output operation could be sequential read or write or random read or write. Based on disk size or the number of disks attached to the VM, the average number of IOPS are billed on an hourly basis. 
 For details of the disk IOPS offered, see the table in Scalability and Performance Targets section above.
 
 ### Managed Disk Provisioned Throughput

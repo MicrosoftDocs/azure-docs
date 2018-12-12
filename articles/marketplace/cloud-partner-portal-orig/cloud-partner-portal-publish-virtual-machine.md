@@ -57,7 +57,7 @@ The following technical and non-technical prerequisites apply to publishing a vi
 -   You agree to the terms of the Azure Marketplace       Participation Policies and Publisher Agreement​.
 
 -   You agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/)
-        , [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program        Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+        , [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program        Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## Before you begin
 
@@ -238,7 +238,7 @@ daily.
 
 >[!IMPORTANT]
 >-   Prices can't be changed after an offer goes live. However, you may still be able to add or remove supported regions.
->-   This price is charged to the user in addition to [Azure\'s virtual machine pricing](http://aka.ms/vmpricingdetails).
+>-   This price is charged to the user in addition to [Azure\'s virtual machine pricing](https://aka.ms/vmpricingdetails).
 >-   Prices are set for all regions in local currency, using the available currency rates at the time of setting prices.
 >-   To set or view each region's price individually, export the pricing spreadsheet and import with custom pricing.
 

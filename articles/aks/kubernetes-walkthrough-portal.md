@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an AKS cluster
 
@@ -184,7 +184,7 @@ spec:
 Use the [kubectl apply][kubectl-apply] command to run the application.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 The following example output shows the Kubernetes resources created on your AKS cluster:

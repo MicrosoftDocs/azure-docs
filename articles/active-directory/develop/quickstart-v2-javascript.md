@@ -64,7 +64,7 @@ Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
-> Edit `index.html` and replace `Enter_the_Application_Id_here` under `applicationConfig` with the application ID of the app you just registered.
+> Edit `index.html` and set the `clientID` and `authority` values under `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Edit `index.html` and replace `applicationConfig` with:
@@ -72,13 +72,25 @@ Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Where:
+> - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
+> - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
+>   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
+>   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
+>
+> > [!TIP]
+> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+
 > [!NOTE]
->If you use [Node.js](https://nodejs.org/en/download/), the *server.js* file is configured for the server to start listening on port 30662.
-> If you use [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), the code sample's *.csproj* file is configured for the server to start listening on port 30662.
+> The server is configured to listen on port 30662 in the *server.js* file in [Node.js](https://nodejs.org/en/download/) project and the *.csproj* file in  [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) project.
 >
 
 #### Step 4: Run the project
@@ -119,7 +131,7 @@ npm install msal
 The quickstart code also shows how to initialize the library:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

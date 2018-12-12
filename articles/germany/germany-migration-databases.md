@@ -57,7 +57,7 @@ There are no special migration options for SQL Data Warehouse. Follow the instru
 
 With the Azure Cosmos DB Data Migration tool, you can easily migrate data to Azure Cosmos DB. The Azure Cosmos DB Data Migration tool is an open source solution that imports data to Azure Cosmos DB from different sources.
 
-The tool is available as a graphical interface tool or as command-line tool. The source code is available in the GitHub repository for [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool), and a compiled version is available on the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=46436).
+The tool is available as a graphical interface tool or as command-line tool. The source code is available in the GitHub repository for [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool), and a compiled version is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46436).
 
 The recommended steps are:
 
@@ -86,7 +86,7 @@ The recommended steps are:
 
 
 
-## Redis Cache
+## Azure Cache for Redis
 
 There are a few options to migrate to global Azure, depending on the requirements you have.
 
@@ -120,13 +120,13 @@ A member of the Azure Redis team wrote an open-source tool that copies data from
 This approach takes advantage of features only available in the Premium tier.
 
 - Create a new Premium tier Redis instance in the target region. Use the same size as the source Redis instance.
-- [Export data from source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzureRmRedisCache PowerShell cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
+- [Export data from source cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Export-AzureRmRedisCache PowerShell cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.4.0).
 
 > [!NOTE]
 > The export storage account must be in the same region as the cache instance.
 
 - Copy exported blobs to a storage account in destination region (for example by using AzCopy)
-- [Import data into destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzureRmRedisCAche PowerShell cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.4.0).
+- [Import data into destination cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Import-AzureRmRedisCAche PowerShell cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.4.0).
 - Reconfigure your application to use the target Redis instance.
 
 ### Option 4: Write data to two Redis instances, read from one instance
@@ -138,4 +138,4 @@ For this approach, you need to modify your application. It needs to write data t
 
 ### References
 
-- [Overview Azure Redis Cache](../redis-cache/cache-overview.md)
+- [Overview Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md)

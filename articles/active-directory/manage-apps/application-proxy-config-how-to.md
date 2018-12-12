@@ -25,15 +25,15 @@ This article help you to understand how to configure an Application Proxy applic
 
 ## Recommended documents 
 
-To learn about the initial configurations and creation of an Application Proxy application through the Admin Portal, follow the [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+To learn about the initial configurations and creation of an Application Proxy application through the Admin Portal, follow the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-For details on configuring Connectors, see [Enable Application Proxy in the Azure portal](application-proxy-enable.md).
+For details on configuring Connectors, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
 
 For information on uploading certificates and using custom domains, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 ## Create the Application/Setting the URLs
 
-If you are following the steps in the [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) documentation and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. To avoid common errors, verify:
+If you are following the steps in the [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md) documentation and are getting an error creating the application, see the error details for information and suggestions for how to fix the application. Most error messages include a suggested fix. To avoid common errors, verify:
 
 -   You are an administrator with permission to create an Application Proxy application
 
@@ -72,4 +72,4 @@ The error message display in the top right corner as you try to upload the certi
    ![Notification prompt](./media/application-proxy-config-how-to/error-message2.png)
 
 ## Next steps
-[Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+[Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

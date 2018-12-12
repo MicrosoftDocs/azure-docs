@@ -1,5 +1,5 @@
 ---
-title: Create a Node.js web app in Azure | Microsoft Docs
+title: Create Node.js web app - Azure App Service | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -13,9 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
+ms.custom: seodec18
+
 ---
 # Create a Node.js web app in Azure
 
@@ -107,17 +109,17 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ### Set Node.js runtime
 
-Set the Node runtime to 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
+Browse to your newly created web app. Replace `<app_name>` with a unique app name.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 Here is what your new web app should look like:
@@ -156,7 +158,7 @@ zip -r myUpdatedAppFiles.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
-``` 
+```
 
 Deploy this new ZIP file to App Service, using the same steps in [Deploy ZIP file](#deploy-zip-file).
 

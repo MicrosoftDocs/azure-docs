@@ -5,6 +5,7 @@ description: QnA Maker stores all chat logs and other telemetry, if you have ena
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article

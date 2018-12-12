@@ -3,8 +3,8 @@ title: Get started with ML Services on HDInsight - Azure
 description: Learn how to create an Apache Spark on HDInsight cluster that includes ML Services and submit an R script on the cluster.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.date: 06/27/2018
 ---
 # Get started with ML Services on Azure HDInsight
 
-Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsight and how to run an R script that demonstrates using Spark for distributed R computations.
+Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use [Apache Spark](https://spark.apache.org/) and [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsight and how to run an R script that demonstrates using Spark for distributed R computations.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Azure HDInsight enables you to create an ML Services cluster. This option allows
 
     * **Cluster Name**: The name of the HDInsight cluster.
     * **Subscription**: Select the subscription to use.
-    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Ambari Web UI or REST API.
+    * **Cluster login username** and **Cluster login password**: The login when accessing the cluster over HTTPS. You use these credentials to access services such as the Apache Ambari Web UI or REST API.
     * **Secure Shell (SSH) username**: The login used when accessing the cluster over SSH. By default the password is the same as the cluster login password.
     * **Resource Group**: The resource group to create the cluster in.
     * **Location**: The Azure region to create the cluster in.

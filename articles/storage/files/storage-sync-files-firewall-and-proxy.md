@@ -5,7 +5,7 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
 ---
@@ -41,7 +41,7 @@ Azure File Sync will work through any means available that allow reach into Azur
 ## Proxy
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 3.0.12.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
 ```PowerShell

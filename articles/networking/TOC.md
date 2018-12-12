@@ -35,7 +35,7 @@
 # How to
 ## Internet connectivity
 ### [Network load balance public servers](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Application load balance public servers](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Application load balance public servers](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Protect web applications](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribute traffic across locations](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Internal connectivity
@@ -72,7 +72,7 @@
 ## [Author templates](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Community templates](https://azure.microsoft.com/resources/templates/)
-## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
+## [Networking blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Pricing](https://azure.microsoft.com/pricing)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)

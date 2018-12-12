@@ -1,6 +1,6 @@
 ---
-title: Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Docs
-description: Learn how to pull data from Azure SQL Database to an Azure Search index using indexers.
+title: Connect and index Azure SQL Database content using indexers - Azure Search
+description: Learn how to crawl data in Azure SQL Database using indexers for full text search in Azure Search. This article covers connections, indexer configuration, and data ingestion.
 
 ms.date: 10/17/2018
 author: mgottein 
@@ -10,9 +10,10 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
+ms.custom: seodec2018
 ---
 
-# Connecting Azure SQL Database to Azure Search using indexers
+# Connect to and index Azure SQL Database content using Azure Search indexers
 
 Before you can query an [Azure Search index](search-what-is-an-index.md), you must populate it with your data. If the data lives in an Azure SQL database, an **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process, which means less code to write and less infrastructure to care about.
 
@@ -136,7 +137,7 @@ The response should look similar to the following:
     }
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
-Additional information about the response can be found in [Get Indexer Status](http://go.microsoft.com/fwlink/p/?LinkId=528198)
+Additional information about the response can be found in [Get Indexer Status](https://go.microsoft.com/fwlink/p/?LinkId=528198)
 
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:

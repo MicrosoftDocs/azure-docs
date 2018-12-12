@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 

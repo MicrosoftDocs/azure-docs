@@ -16,8 +16,10 @@ manager: peterpr
 
 Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is triggered in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device. Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplates) that connect IoT Central to other services such as mobile notifications and Microsoft Teams.
 
-> [!NOTE] 
-> You'll need to sign into Microsoft Flow with a Microsoft personal or work or school account. Learn more about Microsoft Flow plans [here](https://aka.ms/microsoftflowplans).
+## Prerequisites
+
+- A Pay-As-You-Go application
+- A Microsoft personal or work or school account to sign into Flow ([learn more about Microsoft Flow plans](https://aka.ms/microsoftflowplans))
 
 ## Trigger a workflow when a rule is triggered
 

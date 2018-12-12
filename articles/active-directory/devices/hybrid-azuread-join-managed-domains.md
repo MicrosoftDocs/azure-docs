@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -138,6 +138,11 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
+- Configure Seamless Single Sign-On (SSO)
+
+- Control Windows down-level devices 
+
+
 ### Update device settings 
 
 To register Windows down-level devices, you need to make sure that the device settings to allow users to register devices in Azure AD are set. In the Azure portal, you can find this setting  under:
@@ -161,6 +166,17 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 - `https://autologon.microsoftazuread-sso.com`.
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
+
+
+### Configure Seamless SSO
+
+To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## Verify the registration
 

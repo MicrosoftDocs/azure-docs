@@ -27,7 +27,7 @@ As Google Play and FCM (Firebase Cloud Messaging) are not available in China, it
 ## Prerequisites
 This tutorial requires:
 
-* Android SDK (we assume that you use Android Studio), which you can download from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>
+* Android SDK (we assume that you use Android Studio), which you can download from the <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>
 * [Baidu Push Android SDK]
 
 > [!NOTE]
@@ -471,7 +471,7 @@ Push notifications are normally sent in a back-end service like Mobile Services 
 For simplicity, this tutorial uses a console app as a demonstration on how to send a notification with the .NET SDK. However, we recommend the [Use Notification Hubs to push notifications to users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) tutorial as the next step for sending notifications from an ASP.NET backend. 
 
 Here are different approaches for sending notifications:
-* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * **Mobile Apps**: For an example of how to send notifications from an Azure App Service Mobile Apps backend that's integrated with Notification Hubs, see [Add push notifications to your mobile app](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).

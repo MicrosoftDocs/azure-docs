@@ -101,6 +101,6 @@ To generate a benign Windows Defender ATP test alert:
 
 ## Next steps
 
-- [Setting security policies in Azure Security Center](security-center-policies.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Setting security policies in Azure Security Center](security-center-azure-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md): Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.

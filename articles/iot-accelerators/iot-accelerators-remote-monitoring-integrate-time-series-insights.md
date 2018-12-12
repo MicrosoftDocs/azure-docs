@@ -207,7 +207,7 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Navigate to **Settings** > **Keys** and then create a new key for your application. Make sure to copy the Key Value to safe location.
 
-1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from Github repo using the latest tag. 
+1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from GitHub repo using the latest tag. 
 
 1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
@@ -287,6 +287,6 @@ Configure the environment of `standard` deployment for the updated micro service
 
 ## Next steps
 
-* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](/tutorials).
+* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * To learn how to explore and query data in the Time Series Insights explorer, see documentation on the [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

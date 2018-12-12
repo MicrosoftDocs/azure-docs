@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 10/16/2018
+ms.date: 12/05/2018
 ms.author: juliako
 ---
 
@@ -108,13 +108,14 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | previousState | string | The state of the job before the event. |
-| state | string | The new state of the job being notified in this event. For example, "Queued: The Job is awaiting resources" or "Scheduled: The job is ready to start".|
+| state | string | The new state of the job being notified in this event. For example, "Scheduled: The job is ready to start" or "Finished: The job is finished" .|
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
-### JobScheduled
-### JobProcessing
-### JobCanceling
+> [!NOTE]
+> *Queued* is only going to be present in the **previousState** property but not in the **state** property.
+
+### JobScheduled, JobProcessing, JobCanceling
 
 For each non-final Job state change (such as JobScheduled, JobProcessing, JobCanceling), the example schema looks similar to the following:
 
@@ -138,9 +139,7 @@ For each non-final Job state change (such as JobScheduled, JobProcessing, JobCan
 }]
 ```
 
-### JobFinished
-### JobCanceled
-### JobErrored
+### JobFinished, JobCanceled, JobErrored
 
 For each final Job state change (such as JobFinished, JobCanceled, JobErrored), the example schema looks similar to the following:
 
@@ -211,12 +210,7 @@ The following example shows the schema of the **JobOutputStateChange** event:
 }]
 ```
 
-### JobOutputScheduled
-### JobOutputProcessing
-### JobOutputFinished
-### JobOutputCanceling
-### JobOutputCanceled
-### JobOutputErrored
+### JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
 For each JobOutput state change, the example schema looks similar to the following:
 
@@ -638,3 +632,8 @@ An event has the following top-level data:
 ## Next steps
 
 [Register for job state change events](job-state-events-cli-how-to.md)
+
+## See also
+
+- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

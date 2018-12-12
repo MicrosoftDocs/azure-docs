@@ -1,16 +1,16 @@
 ---
-title: Try the Speech Service for free
+title: Try Speech Services for free
 titleSuffix: Azure Cognitive Services
-description: Discover how you can try the Speech Service at no cost.
+description: Getting started with the Speech service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Try the Speech service for free
@@ -32,7 +32,7 @@ To sign up for a 30-day free trial:
 1. Select the **Speech APIs** tab.
 
    ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Under **Speech services**, select the **Get API Key** button.
 
    ![API key](media/index/try-speech-api-free-trial2.png)

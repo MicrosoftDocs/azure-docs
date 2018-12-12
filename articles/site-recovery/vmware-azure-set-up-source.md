@@ -1,17 +1,17 @@
 ---
-title: Set up the source environment for disaster recovery of VMware VMs to Azure with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to set up your on-premises environment for disaster recovery of VMware VMs to Azure with Azure Site Recovery.
+title: 'Set up the source environment for VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up your on-premises environment to replicate VMware VMs to Azure with Azure Site Recovery.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 
 ---
 
-# Set up the source environment for disaster recovery of VMware VMs to Azure
+# Set up the source environment for VMware to Azure replication
 
 This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. It includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
 
@@ -50,22 +50,22 @@ If source machine has an Antivirus software active, installation folder should b
 
 Exclude following folders from Antivirus software for smooth replication and to avoid connectivity issues
 
- 1. C:\Program Files\Microsoft Azure Recovery Services Agent.
- 2. C:\Program Files\Microsoft Azure Site Recovery Provider
- 3. C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
- 4. C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
- 5. C:\thirdparty
- 6. C:\Temp
- 7. C:\strawberry
- 8. C:\ProgramData\MySQL
- 9. C:\Program Files (x86)\MySQL
- 10. C:\ProgramData\ASR
- 11. C:\ProgramData\Microsoft Azure Site Recovery
- 12. C:\ProgramData\ASRLogs
- 13. C:\ProgramData\ASRSetupLogs
- 14. C:\ProgramData\LogUploadServiceLogs
- 15. C:\inetpub
- 16. ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
+- C:\Program Files\Microsoft Azure Recovery Services Agent.
+- C:\Program Files\Microsoft Azure Site Recovery Provider
+- C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
+- C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
+ - C:\thirdparty
+ - C:\Temp
+ - C:\strawberry
+ - C:\ProgramData\MySQL
+ - C:\Program Files (x86)\MySQL
+ - C:\ProgramData\ASR
+ - C:\ProgramData\Microsoft Azure Site Recovery
+ - C:\ProgramData\ASRLogs
+ - C:\ProgramData\ASRSetupLogs
+ - C:\ProgramData\LogUploadServiceLogs
+ - C:\inetpub
+ - ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### If Antivirus Software is active on scale-out Process server/Master Target
 
@@ -83,4 +83,4 @@ Exclude following folders from Antivirus software
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## Next steps
-[Set up your target environment](./vmware-azure-set-up-target.md) in Azure.
+[Set up your target environment](./vmware-azure-set-up-target.md) 

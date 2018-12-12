@@ -31,7 +31,7 @@ This topic describes how to create a Linux virtual machine (VM) with the Azure c
 * Adding the VM to an availability set or location
 
 > [!IMPORTANT]
-> If you want your VM to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the VM. A VM can be configured to join a virtual network only when you create the VM. For details on virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> If you want your VM to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the VM. A VM can be configured to join a virtual network only when you create the VM. For details on virtual networks, see [Azure Virtual Network Overview](https://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 

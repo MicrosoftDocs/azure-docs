@@ -209,7 +209,7 @@ When no longer needed, delete the test user, the Tor Browser and the conditional
 
     ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
 
 ## Next steps
 

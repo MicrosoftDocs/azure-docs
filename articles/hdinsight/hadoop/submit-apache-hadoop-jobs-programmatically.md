@@ -1,10 +1,10 @@
 ---
-title: Submit Hadoop jobs in HDInsight 
-description: Learn how to submit Hadoop jobs in Azure HDInsight.
+title: Submit Apache Hadoop jobs in HDInsight 
+description: Learn how to submit Apache Hadoop jobs in Azure HDInsight.
 ms.reviewer: jasonh
 services: hdinsight
-ms.author: jasonh
-author: jasonwhowell
+ms.author: hrasheed
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.date: 05/16/2018
 ---
 # Submit Hadoop jobs in HDInsight
 
-You can submit Hadoop jobs in Azure HDInsight by using the Microsoft .NET SDK for HDInsight, curl, or Azure PowerShell.
+You can submit Apache Hadoop jobs in Azure HDInsight by using the Microsoft .NET SDK for HDInsight, curl, or Azure PowerShell.
 
 ## Resources
 

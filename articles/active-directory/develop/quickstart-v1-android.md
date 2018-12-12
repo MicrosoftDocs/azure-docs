@@ -28,7 +28,7 @@ ms.custom: aaddev
 If you're developing an Android application, Microsoft makes it simple and straightforward to sign in Azure Active Directory (Azure AD) users. Azure AD enables your application to access user data through the Microsoft Graph or your own protected web API.
 
 The Azure AD Authentication Library (ADAL) Android library gives your app the ability to begin using the
-[Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
+[Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
 
 In this quickstart, you'll learn how to:
 
@@ -49,7 +49,7 @@ You can use this app for all Azure AD accounts. It supports both single-tenant a
 
 ## Sample code
 
-You can find the full sample code [on Github](https://github.com/Azure-Samples/active-directory-android).
+You can find the full sample code [on GitHub](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
