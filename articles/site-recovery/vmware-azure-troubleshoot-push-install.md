@@ -48,18 +48,18 @@ If you wish to modify the credentials of chosen user account, follow the instruc
 
 ## Insufficient privileges failure (ErrorID: 95518)
 
-When domain trust relationship establishment between the primary domain and workstation fails while trying to login to the source machine,mobility agent installation fails with error id 95518. So, ensure that the user account used to install mobility agent has administrative privileges to login through primary domain of the source machine.
+When domain trust relationship establishment between the primary domain and workstation fails while trying to log in to the source machine, mobility agent installation fails with error id 95518. So, ensure that the user account used to install mobility agent has administrative privileges to log in through primary domain of the source machine.
 
 If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
 ## Login Failure (ErrorID: 95519)
 
-The user account chosen during Enable Replication has been disabled. To enable the user account refer to the article [here](https://aka.ms/enable_login_user) or run the following command by replacing text *username* with the actual user name.
+The user account chosen during Enable Replication has been disabled. To enable the user account, refer to the article [here](https://aka.ms/enable_login_user) or run the following command by replacing text *username* with the actual user name.
 `net user 'username' /active:yes`
 
 ## Login Failure (ErrorID: 95520)
 
-Multiple failed retry efforts to access a machine will lock the user account. This can be due to
+Multiple failed retry efforts to access a machine will lock the user account. The failure can be due to
 
 * Credentials provided during Configuration setup are incorrect OR
 * The user account chosen during Enable Replication is wrong
@@ -68,11 +68,11 @@ So, modify the credentials chosen by following the instructions given [here](vmw
 
 ## Login Failure (ErrorID: 95521)
 
-This error occurs when the logon servers are not available on source machine. This will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)
+This error occurs when the logon servers are not available on source machine. Unavailability of logon servers will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)
 
 ## Login Failure (ErrorID: 95522)
 
-The login service isn't running on your source machine. This will lead to failure of login request and thus mobility agent cannot be installed. To resolve, ensure that Logon service is running on the source machine for successful Login. To start the logon service, run the command "net start Logon" from command prompt or start "NetLogon" service from task manager.
+The login service isn't running on your source machine and caused failure of login request. So, mobility agent cannot be installed. To resolve, ensure that Logon service is running on the source machine for successful Login. To start the logon service, run the command "net start Logon" from command prompt or start "NetLogon" service from task manager.
 
 ## **Connectivity failure (ErrorID: 95117 & 97118)**
 
@@ -92,11 +92,11 @@ Configuration server/ scale-out process server tries to connect to the source VM
     * Find the line that begins with Subsystem, and uncomment the line
     * Restart the sshd service.
 * A connection attempt could have failed if there is no proper response after a period of time, or established connection failed because connected host has failed to respond.
-* It may be a Connectivity/network/domain related issue. It could also be due to DNS name resolving issue or TCP port exhaustion issue. Please check if there are any such known issues in your domain.
+* It may be a Connectivity/network/domain related issue. It could also be due to DNS name resolving issue or TCP port exhaustion issue. Check if there are any such known issues in your domain.
 
 ## Connectivity failure (ErrorID: 95523)
 
-This error occurs when the network in which the source machine resides is not found or mights have been deleted or is no longer available. The only way to resolve the error is by ensuring that the network exists.
+This error occurs when the network in which the source machine resides is not found or might have been deleted or is no longer available. The only way to resolve the error is by ensuring that the network exists.
 
 ## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
@@ -116,9 +116,9 @@ For **later versions**, follow the instructions provided [here](vmware-azure-ins
 
 ## Windows Management Instrumentation (WMI) configuration check (Error code: 95103)
 
-After file and printer services check, enable WMI service for private, public and domain profiles through firewall. These settings are required to complete remote execution on the source machine. To enable,
+After file and printer services check, enable WMI service for private, public, and domain profiles through firewall. These settings are required to complete remote execution on the source machine. To enable,
 
-* Go to Control Panel, click Security and then click Windows Firewall.
+* Go to Control Panel, click Security, and then click Windows Firewall.
 * Click Change Settings and then click the Exceptions tab.
 * In the Exceptions window, select the check box for Windows Management Instrumentation (WMI) to enable WMI traffic through the firewall. 
 
