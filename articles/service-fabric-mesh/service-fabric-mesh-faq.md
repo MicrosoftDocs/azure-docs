@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords: 
 author: chackdan
 ms.author: chackdan
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
@@ -40,7 +40,9 @@ Yes. The quotas for each subscription are:
 ### How long can I leave my application deployed?
 
 We have currently limited the lifetime of an application to two days. This is in order to maximize the use of the free cores allocated to the preview. 
-As a result, you are only allowed to run a given deployment continuously for 48 hours, after which time it will be shut down. If you see this happen, you can validate that the system shut it down by running an `az mesh app show` command in Azure CLI and checking if it returns `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+As a result, you are only allowed to run a given deployment continuously for 48 hours, after which time it will be shut down.
+
+If you see this happen, you can validate that the system shut it down by running the `az mesh app show` command in the Azure CLI. Check to see if it returns `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 For example: 
 
@@ -84,11 +86,11 @@ The following container OS images can be used to deploy services:
 - Linux
     - No known limitations
 
-## Developer experience issues on a local machine
+## Developer experience issues when running on a local machine
 
 ### DNS resolution from an outbound container doesn't work
 
-Service-to-service communication may fail under certain circumstances. This is being actively investigated. To mitigate:
+Service-to-service communication may fail under certain circumstances. This is being  investigated. To mitigate:
 
 - Use Windows RS3 (1709) or higher as your base container image.
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
@@ -106,7 +108,7 @@ In your local development cluster use `{serviceName}.{applicationName}`. In Azur
 
 Azure Mesh does not currently support DNS resolution across applications.
 
-For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) and https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#known-issues  
+For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) and [known dns issues](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### Networking
 
@@ -119,23 +121,23 @@ This will address the issue even if app is already deployed locally and in an un
 
 ### Issues running multiple apps
 
-You might encounter issues with CPU availability and limits being fixed across all applications. To mitigate:
+You might encounter CPU availability and limits being fixed across all applications. To mitigate:
 - Create a five node cluster.
-- Reduce CPU usage in services across the app that is deployed. For example, in your service's service.yaml file, change `cpu: 1.0` to `0.5`
+- Reduce CPU usage in services across the app that is deployed. For example, in your service's service.yaml file, change `cpu: 1.0` to `cpu: 0.5`
 
 Multiple applications can't be deployed to a one-node cluster. To mitigate:
-- Use a five node cluster when you want to deploy multiple apps to a local cluster.
+- Use a five node cluster when deploying multiple apps to a local cluster.
 - Remove apps that you are not currently testing.
 
 ## Feature gaps and other known issues
 
 ### After deploying my application, the network resource associated with it does not have an IP address
 
-There is a known issue in which the IP address doesn't become available until after a delay. Check the status of the network resource in a few minutes to see the associated IP address.
+There is a known issue in which the IP address doesn't become available immediately. Check the status of the network resource in a few minutes to see the associated IP address.
 
 ### My application fails to access the right network/volume resource
 
-In your application model, you need to use the full resource ID for networks and volumes to be able to access the associated resource. Here is an example from the quickstart sample:
+In your application model, use the full resource ID for networks and volumes to be able to access the associated resource. Here is an example from the quickstart sample:
 
 ```json
 "networkRefs": [
@@ -145,7 +147,7 @@ In your application model, you need to use the full resource ID for networks and
 ]
 ```
 
-### When I scale out, all of my containers are affected, including my running ones
+### When I scale out, all of my containers are affected, including running ones
 
 This is a bug and a fix is being implemented.
 
