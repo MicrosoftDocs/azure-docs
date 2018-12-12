@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/1/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
 
 ---
@@ -308,15 +308,7 @@ This support means you can also move:
 Here are the constraints that aren't yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
-* Virtual Machines configured with Azure Backup. Use the below workaround to move these Virtual Machines
-  * Locate the location of your Virtual Machine.
-  * Locate a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` for example, AzureBackupRG_westus2_1
-  * If in Azure portal, then check "Show hidden types"
-  * If in PowerShell, use the `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-  * If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * Now locate the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
-  * Delete this resource
-  * After delete is complete, you'll be able to move your Virtual Machine
+* If your virtual machine is configured for backup, see [Recovery Services limitations](#recovery-services-limitations).
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
