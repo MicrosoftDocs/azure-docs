@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing News Search SDK, Java"
+title: "Quickstart: Perform a news search - Bing News Search SDK for Java"
 titleSuffix: Azure Cognitive Services
-description: Learn how to set up the Bing News Search SDK console application.
+description: Use this quickstart to search for news using the Bing News Search SDK for Java, and process the response.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -11,6 +11,7 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
+ms.custom: seodec2018
 ---
 # Quickstart: Bing News Search SDK with Java
 

@@ -1,6 +1,6 @@
 ---
-title: Upgrading to the latest Azure Search Service REST API version | Microsoft Docs
-description: Upgrading to the latest Azure Search Service REST API version
+title: Upgrade to the latest Azure Search Service REST API version - Azure Search
+description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Search Service REST API version.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,8 +9,9 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
+ms.custom: seodec2018
 ---
-# Upgrading to the latest Azure Search Service REST API version
+# Upgrade to the latest Azure Search Service REST API version
 If you're using a previous version of the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the latest generally available API version, 2017-11-11.
 
 Version 2017-11-11 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new API version.

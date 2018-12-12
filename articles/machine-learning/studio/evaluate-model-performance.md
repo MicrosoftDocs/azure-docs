@@ -4,9 +4,9 @@ description: This article demonstrates how to evaluate the performance of a mode
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -17,14 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# How to evaluate model performance in Azure Machine Learning
+# How to evaluate model performance in Azure Machine Learning Studio
+
 This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
 
 * regression
 * binary classification 
 * multiclass classification
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. 
 

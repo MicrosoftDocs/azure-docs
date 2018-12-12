@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/12/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,9 +30,50 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.x.xx**.  
+The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
-### New features
+## Hotfixes
+
+Azure Stack releases hotfixes on a regular basis.
+
+> [!TIP]  
+> Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack hotfixes:
+> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
+> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+
+### Azure Stack hotfixes
+
+- **1809**: [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
+- **1811**: No current hotfix available.
+
+## Prerequisites
+
+- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+
+- Install the [latest Azure Stack Hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
+
+- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
+
+    ```PowerShell
+    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ``` 
+
+- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates, see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
+
+    ```shell
+    Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
+    The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
+    ``` 
+ 
+- In addition to various quality improvements, the [1809 Hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
+ 
+    ```shell
+    Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
+    ```
+
+    Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
+
+## New features
 
 This update includes the following improvements for Azure Stack:
 
@@ -40,9 +81,13 @@ This update includes the following improvements for Azure Stack:
 
 - This release enhances the Azure Stack operator experience for [managing updates](azure-stack-updates.md) from the **Update** blade.
 
-- Support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
+- Added support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
+<<<<<<< HEAD
 - Support for Service Principals using a client secret with Active Directory Federated Services (AD FS). [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-AD-FS)
+=======
+- Added support for Service Principals using a client secret with Active Directory Federated Services (AD FS). For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)
+>>>>>>> f04472ec0e28a4efd4caf5b06a2dede64da22d85
 
 - This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
@@ -52,17 +97,20 @@ This update includes the following improvements for Azure Stack:
 
 - Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
 
+- Added a new region properties blade that displays registration details of the environment. You can access this information by clicking the **Region Management** tile on the default dashboard in the administrator portal and then selecting **Properties**.
+
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
-- This release adds support for Device Authentication with ADFS in particular when using Azure CLI. 
-<!-- @Matt add Link to CLI for ADFS -->
 
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
+- This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
 
+## Fixed issues
 
-### Fixed issues
+<!-- TBD - IS ASDK --> 
+- Fixed an issue in which the public IP address usage meter data showed the same **EventDateTime** value for each record instead of the **TimeDate** stamp that shows when the record was created. You can now use this data to perform accurate accounting of public IP address usage.
 
 <!-- 3099544 – IS, ASDK --> 
 - Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the USD/Month column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
@@ -83,7 +131,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/en-us/help/4481548) that addresses this issue, the 1811 update will not make any further modifications. 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack Hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a *First* or *Last* name specified.   
@@ -94,11 +142,11 @@ This update includes the following improvements for Azure Stack:
 <!-- 3190553 - IS ASDK -->
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
-### Changes
+## Changes
 
 A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
-### Common Vulnerabilities and Exposures
+## Common Vulnerabilities and Exposures
 
 This update installs the following security updates:  
 
@@ -125,40 +173,9 @@ This update installs the following security updates:
 
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4467684](https://support.microsoft.com/en-us/help/4467684)
 
-### Prerequisites
+## Known issues with the update process
 
-> [!Important]  
-> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
-
-- Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/).
-
-  > [!TIP]  
-  > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
-  > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-  > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
-
-- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
-
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
-    ``` 
-
-- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates, see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
-
-    ```shell
-    Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
-    The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
-    ``` 
- 
-- In addition to various quality improvements, the [1.1809.12.114 Hotfix](https://support.microsoft.com/help/4481548/) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
- 
-    ```shell
-    Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
-    ```
-
-    Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
-
-### Known issues with the update process
+- During installation of this update, both Azure Stack portals (Administrator and User) will be unavailable when the Extension Host is configured. The configuration of the Extension Host does take serveral hours. During that time you can check the status of an update or resume a failed update installation using Azure Stack Admin PowerShell or the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
@@ -166,11 +183,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - <!-- 3139614 | IS --> If you've applied an update to Azure Stack from your OEM, the **Update available** notification may not appear in the Azure Stack Admin portal. To install the Microsoft update, download and import it manually using the instructions located here [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
-### Post-update steps
+## Post-update steps
 
-After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-
-- No hotfix for 1811 available yet.
+After the installation of this update, install any applicable hotfixes. For more information, see [Hotfixes](#hotfixes), as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
 
 ## Known issues (post-installation)
 
@@ -215,6 +230,8 @@ The following are post-installation known issues for this build version.
 
 ### Compute
 
+- When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack.
+
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
 
@@ -222,9 +239,7 @@ The following are post-installation known issues for this build version.
 - When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
 
 <!--  2795678 – IS, ASDK --> 
-- When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. 
-
-   You can safely ignore the warning that says: *You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.*
+- When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: **You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.**
 
 <!-- 2967447 - IS, ASDK --> 
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
@@ -270,12 +285,9 @@ The following are post-installation known issues for this build version.
 - Users must register the storage resource provider before they create their first Azure Function in the subscription.
 
 
-### Usage  
+<!-- ### Usage -->
 
-<!-- TBD - IS ASDK --> 
-- The public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you cannot use this data to perform accurate accounting of public IP address usage.
-
-
+ 
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 

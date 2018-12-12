@@ -1,5 +1,5 @@
 ---
-title: Introduction to App Service Environment v1
+title: Introduction to App Service Environment v1 - Azure
 description: Learn about the App Service Environment v1 feature that provides secure, VNet-joined, dedicated scale units for running all of your apps.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Introduction to App Service Environment v1

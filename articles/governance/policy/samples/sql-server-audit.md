@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Audit SQL Server audit settings
+title: Sample - Audit SQL Server audit settings
 description: This sample policy audits SQL server audit settings.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Audit SQL server audit settings
 
