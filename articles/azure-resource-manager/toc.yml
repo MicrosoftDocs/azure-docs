@@ -77,6 +77,8 @@
   items:
   - name: Create templates
     items:
+    - name: Create templates
+      href: resource-manager-create-templates.md
     - name: Create resource groups by using templates
       href: create-resource-group-in-template.md
     - name: Define resource dependencies
