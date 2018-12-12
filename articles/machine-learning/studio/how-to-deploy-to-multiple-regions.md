@@ -1,5 +1,5 @@
 ---
-title: Deploy Web Service to multiple regions - Azure Machine Learning Studio | Microsoft Docs
+title: Deploy Studio web service to multiple regions - Azure Machine Learning Studio | Microsoft Docs
 description: Steps to deploy (Copy) a New Web Service to other regions. Easily deploy a web service to multiple regions without needing multiple subscriptions or workspaces.
 services: machine-learning
 documentationcenter: ''
@@ -17,8 +17,9 @@ ms.date: 04/19/2017
 ms.custom: seodec18
 ms.author: amlstudiodocs
 ---
-# Azure Machine Learning Studio: Deploy a web service to multiple regions
-The New Azure Web Services allow you to easily deploy a web service to multiple regions without needing multiple subscriptions or workspaces. 
+# Deploy an Azure Machine Learning Studio web service to multiple regions
+
+The New Azure Web Services allow you to easily deploy an Azure Machine Learning Studio web service to multiple regions without needing multiple subscriptions or workspaces. 
 
 Pricing is region specific, therefore you must define a billing plan for each region in which you will deploy the web service.
 

@@ -71,5 +71,5 @@ Your tutorial is now in Azure AI Gallery. Your tutorials are listed on your acco
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

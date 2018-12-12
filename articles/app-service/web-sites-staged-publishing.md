@@ -1,5 +1,5 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
+title: Set up staging environments for web apps - Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Set up staging environments in Azure App Service
