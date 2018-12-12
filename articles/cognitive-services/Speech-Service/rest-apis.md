@@ -419,10 +419,10 @@ This is a typical response for `detailed` recognition.
 
 ## Text-to-speech API
 
-The text-to-speech REST API supports neural and traditional text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
+The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
 
-* For a complete list of voices, see [language support](language-support.md).
-* For information about regional availability, see [regions](regions.md).
+* For a complete list of voices, see [language support](language-support.md#text-to-speech).
+* For information about regional availability, see [regions](regions.md#text-to-speech).
 
 ### Request headers
 

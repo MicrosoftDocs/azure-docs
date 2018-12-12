@@ -16,7 +16,7 @@ Neural voices are available in these regions:
 | Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 
-### Traditional voices
+### Standard voices
 
 Standard voices are available in these regions:
 

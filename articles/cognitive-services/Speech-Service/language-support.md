@@ -61,9 +61,11 @@ The text-to-speech REST API supports these voices, each of which supports a spec
 
 ### Neural voices (Preview)
 
-Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
+Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
 
-For a full list of neural voices and regional availability, see [regions](regions.md).
+Neural voices can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
+
+For a full list of neural voices and regional availability, see [regions](regions.md#neural-voices).
 
 | Locale | Language | Gender | Service name mapping|
 |--------|----------|---------|--------------------|
@@ -72,7 +74,7 @@ For a full list of neural voices and regional availability, see [regions](region
 
 ### Standard voices
 
-More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md).
+More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-voices).
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------
