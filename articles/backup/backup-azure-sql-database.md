@@ -308,7 +308,7 @@ To configure protection for a SQL database:
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
 
-      Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+      Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
       ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -845,22 +845,22 @@ Azure Backup Recovery Services Vault can detect and protect all nodes which are 
 
 ### While I want to protect most of the databases in an instance, I would like to exclude a few. Is it possible to still use the auto-protection feature?
 
-No, auto-protection applies to the entire instance. You cannot selectively protect databases an instance using auto-protection.
+No, [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) applies to the entire instance. You cannot selectively protect databases an instance using auto-protection.
 
 ### Can I have different policies for different databases in an auto-protected instance?
 
-If you already have some protected databases in an instance, they will continue to be protected with their respective policies even after you turn **ON** the auto-protection option. However, all the unprotected databases along with the ones that you would add in future will have only a single policy that you define under **Configure Backup** after the databases are selected. In fact, unlike other protected databases, you cannot even change the policy for a database under an auto-protected instance.
+If you already have some protected databases in an instance, they will continue to be protected with their respective policies even after you turn **ON** the [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) option. However, all the unprotected databases along with the ones that you would add in future will have only a single policy that you define under **Configure Backup** after the databases are selected. In fact, unlike other protected databases, you cannot even change the policy for a database under an auto-protected instance.
 If you want to do so, the only way is to disable the auto-protection on the instance for the time being and then change the policy for that database. You can now re-enable auto-protection for this instance.
 
 ### If I delete a database from an auto-protected instance, will the backups for that database also stop?
 
 No, if a database is dropped from an auto-protected instance, the backups on that database are still attempted. This implies that the deleted database begins to show up as unhealthy under **Backup Items** and is still treated as protected.
 
-The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database. You can now re-enable auto-protection for this instance.
+The only way to stop protecting this database is to disable the [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database. You can now re-enable auto-protection for this instance.
 
 ###  Why can’t I see the newly added database to an auto-protected instance under the protected items?
 
-You may not see a newly added database to an auto-protected instance protected instantly. This is because the discovery typically runs every 8 hours. However, the user can run a manual discovery using **Recover DBs** option to discover and protect new databases immediately as shown in the below image:
+You may not see a newly added database to an [auto-protected](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) instance protected instantly. This is because the discovery typically runs every 8 hours. However, the user can run a manual discovery using **Recover DBs** option to discover and protect new databases immediately as shown in the below image:
 
   ![View Newly Added Database](./media/backup-azure-sql-database/view-newly-added-database.png)
 
