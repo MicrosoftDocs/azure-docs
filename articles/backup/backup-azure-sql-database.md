@@ -42,6 +42,7 @@ The following items are known limitations for the Public Preview:
 - [Backups of distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) have limitations.
 - SQL Server Always On Failover Cluster Instances (FCIs) aren't supported.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Azure PowerShell, the Azure CLI, and the REST APIs aren't currently supported.
+- You cannot protect databases with too many files. Too many is not a very deterministic number, since it not only depends on the number of files but also depends on the path length of the files. This case is less prevalent where the file count in quite high, sometimes in hundreds and thousands as well. The backup job for such database will fail. We are building a solution for this.
 
 Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.
 
@@ -101,6 +102,7 @@ Before you back up your SQL Server database, check the following conditions:
 - Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region or locale as the virtual machine that hosts your SQL Server instance.
 - [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) that are needed to back up the SQL databases.
 - Verify that the [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
+- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#naming- guidelines-for-sql-server-database-to-use-azure-backup) for Azure Backup to take successful backups.
 
 > [!NOTE]
 > You can have only one backup solution at a time to back up SQL Server databases. Disable all other SQL backups before you use this feature; otherwise, the backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict.
@@ -196,6 +198,14 @@ During the installation process, if you receive the error `UserErrorSQLNoSysadmi
     ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 After you associate the database with the Recovery Services vault, the next step is to [configure the backup job](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
+
+## Naming guidelines for SQL Server Database to use Azure Backup
+To ensure smooth backups using Azure Backup for SQL Server in IaaS VM, avoid the following while naming the databases:
+
+  * Trailing/Leading spaces
+  * Trailing ‘!’
+
+We do have aliasing for Azure table unsupported characters, but we recommend avoiding those as well, for more information see this [article](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -297,15 +307,17 @@ To configure protection for a SQL database:
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
 
-    Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+### Autoprotection
 
-      ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
+Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
-      In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
+  ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-      There is no limit on the number of databases that get selected in one go using auto-protect feature (as many databases as in the vault can be selected).  
+  In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
 
-      It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
+  There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
+
+  It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
 
 
 7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
