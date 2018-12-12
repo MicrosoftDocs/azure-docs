@@ -40,9 +40,9 @@ The following table shows the Asset's properties and gives their definitions.
 |properties.alternateId |The alternate ID of the Asset.|
 |properties.assetId |The Asset ID.|
 |properties.container |The name of the asset blob container.|
-|properties.created |The creation date of the Asset.<br/> Datetimes are always in UTC format.|
+|properties.created |The creation date of the Asset.<br/> Datetime is always in UTC format.|
 |properties.description|The Asset description.|
-|properties.lastModified |The last modified date of the Asset.|
+|properties.lastModified |The last modified date of the Asset. <br/> Datetime is always in UTC format.|
 |properties.storageAccountName |The name of the storage account.|
 |properties.storageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
 |type|The type of the resource.|
@@ -124,7 +124,7 @@ Consider the following example of where $skiptoken is used.
 If you request a list of Assets like this:
 
 ```
-GET  https://management.azure.com/subscriptions/7dde500c-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/ts29account1/assets?api-version=2018-06-01-preview HTTP/1.1
+GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/ts29account1/assets?api-version=2018-06-01-preview HTTP/1.1
 x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
