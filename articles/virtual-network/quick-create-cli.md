@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/05/2018
+ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
 ---
@@ -53,12 +53,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create).
-
-> [!TIP]
-> If SSH keys don't already exist in a default key location, the command creates them.
-
- To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
+Create a VM with [az vm create](/cli/azure/vm#az_vm_create). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
 
 ```azurecli-interactive
 az vm create \
