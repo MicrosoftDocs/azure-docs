@@ -80,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Associate a route table to a subnet
 
-Before you can associate a route table to a subnet, you have to create a virtual network and subnet. Then you can associate the route table to a subnet.
+Before you can associate a route table to a subnet, you have to create a virtual network and subnet.
 
 ### Create a virtual network
 
@@ -178,7 +178,7 @@ NVAs are VMs that help with network functions like routing and firewall optimiza
     | ------- | ----- |
     | Virtual network | Leave the default **myVirtualNetwork**. |
     | Subnet | Select **DMZ (10.0.2.0/24)**. |
-    | Public IP | Select **None**. You don't need a a public IP address. The VM won't connect over the internet.|
+    | Public IP | Select **None**. You don't need a public IP address. The VM won't connect over the internet.|
 
 1. Leave the rest of the defaults and select **Next : Management**.
 
@@ -205,7 +205,7 @@ NVAs are VMs that help with network functions like routing and firewall optimiza
 
 ## Turn on IP forwarding
 
-Turn on IP forwarding for *myVmNva*. When Azure sends network traffic to *myVmNva*, if the traffic destined for a different IP address, IP forwarding will send the traffic to the correct location.
+Turn on IP forwarding for *myVmNva*. When Azure sends network traffic to *myVmNva*, if the traffic is destined for a different IP address, IP forwarding will send the traffic to the correct location.
 
 1. On **myVmNva**, under **Settings**, select **Networking**.
 
@@ -254,7 +254,9 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Don
 
 ### Sign in to myVmPrivate over remote desktop
 
-1. In the *Search* box at the top of the portal, enter *myVmPrivate*. When the **myVmPrivate** VM appears in the search results, select it.
+1. In the portal's search bar, enter *myVmPrivate*.
+
+1. When the **myVmPrivate** VM appears in the search results, select it.
 
 1. Select **Connect** to create a remote desktop connection to the *myVmPrivate* VM.
 
@@ -298,7 +300,7 @@ You [turned on IP forwarding](#turn-on-ip-forwarding) for the VM's network inter
     mstsc /v:myvmnva
     ```
 
-1. From PowerShell on the *myVmNva**, enter this command to turn on IP forwarding:
+1. From PowerShell on the *myVmNva*, enter this command to turn on IP forwarding:
 
     ```powershell
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
@@ -323,7 +325,7 @@ You [turned on IP forwarding](#turn-on-ip-forwarding) for the VM's network inter
 
 ## Test the routing of network traffic
 
-First, let's test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM
+First, let's test routing of network traffic from the *myVmPublic* VM to the *myVmPrivate* VM.
 
 1. From PowerShell on the *myVmPublic* VM, enter this command:
 
@@ -343,7 +345,7 @@ First, let's test routing of network traffic to the *myVmPrivate* VM  from the *
     Trace complete.
     ```
 
-    You can see the first hop is to 10.0.2.4. It's NVA's private IP address. The second hop is to 10.0.1.4. The private IP address of the *myVmPrivate* VM. Earlier, you added the route to the *myRouteTablePublic* route table and associated it to the *Public* subnet. As a result, Azure sent the traffic through the NVA and not directly to the *Private* subnet.
+    You can see the first hop is to 10.0.2.4. It's NVA's private IP address. The second hop is to the private IP address of the *myVmPrivate* VM: 10.0.1.4. Earlier, you added the route to the *myRouteTablePublic* route table and associated it to the *Public* subnet. As a result, Azure sent the traffic through the NVA and not directly to the *Private* subnet.
 
 1. Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
 
@@ -372,7 +374,9 @@ First, let's test routing of network traffic to the *myVmPrivate* VM  from the *
 
 When no longer needed, delete the resource group and all resources it has:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+1. In the portal's search bar, enter *myResourceGroup*.
+
+1. When you see **myResourceGroup** in the search results, select it.
 
 1. Select **Delete resource group**.
 
