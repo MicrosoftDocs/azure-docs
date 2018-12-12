@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Search in Node.js | Microsoft Docs
+title: Get started with Azure Search in Node.js - Azure Search
 description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
 author: jj09
 manager: jlembicz
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-
+ms.custom: seodec2018
 ---
 # Get started with Azure Search in Node.js
 > [!div class="op_single_selector"]

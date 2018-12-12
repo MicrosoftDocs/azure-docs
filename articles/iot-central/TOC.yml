@@ -79,6 +79,11 @@
         href: howto-trigger-azure-functions.md
       - name: Export your data
         href: howto-export-data.md
+        items:
+        - name: Export to Event Hubs and Service Bus
+          href: howto-export-data-event-hubs-service-bus.md
+        - name: Export to Blob Storage
+          href: howto-export-data-blob-storage.md
       - name: Visualize your data in Power BI
         href: howto-connect-powerbi.md
       - name: Connect other IoT clouds
