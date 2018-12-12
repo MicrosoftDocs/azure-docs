@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create an autoscaling, zone redundant application gateway with a reserved IP address - Azure PowerShell'
-description: In this tutorial, learn how to create an autoscaling, zone redundant application gateway with a reserved IP address using Azure Powershell.
+description: In this tutorial, learn how to create an autoscaling, zone-redundant application gateway with a reserved IP address using Azure PowerShell.
 services: application-gateway
 author: amitsriva
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 # Tutorial: Create an application gateway that improves web application access
 
-If you're an IT admin concerned with improving web application access, you can to optimize your application gateway to scale based on customer demand and span multiple availability zones. This tutorial helps you configure Azure Application Gateway features that do that: autoscaling, zone redundancy, and reserved VIPs (static IP). You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
+If you're an IT admin concerned with improving web application access, you can optimize your application gateway to scale based on customer demand and span multiple availability zones. This tutorial helps you configure Azure Application Gateway features that do that: autoscaling, zone redundancy, and reserved VIPs (static IP). You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
 
 > [!IMPORTANT] 
 > The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
@@ -20,7 +20,7 @@ If you're an IT admin concerned with improving web application access, you can t
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an autoscale VNet
+> * Create an autoscale virtual network
 > * Create a reserved public IP
 > * Set up your application gateway infrastructure
 > * Specify autoscale
@@ -51,9 +51,9 @@ $rg = "<rg name>"
 New-AzureRmResourceGroup -Name $rg -Location $location
 ```
 
-## Create a VNet
+## Create a virtual network
 
-Create a VNet with one dedicated subnet for an autoscaling application gateway. Currently only one autoscaling application gateway can be deployed in each dedicated subnet.
+Create a virtual network with one dedicated subnet for an autoscaling application gateway. Currently only one autoscaling application gateway can be deployed in each dedicated subnet.
 
 ```azurepowershell
 #Create VNet with two subnets
@@ -75,7 +75,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 
 ## Retrieve details
 
-Retrieve details of the resource group, subnet, and IP in a local object to create the application gateway IP configuration details.
+Retrieve details of the resource group, subnet, and IP in a local object to create the IP configuration details for the application gateway.
 
 ```azurepowershell
 $resourceGroup = Get-AzureRmResourceGroup -Name $rg
@@ -84,9 +84,9 @@ $vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
 $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
-## Configure infrastructure
+## Configure the infrastructure
 
-Configure the IP config, frontend IP config, backend pool, http settings, certificate, port, listener, and rule in identical format to existing Standard Application Gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, listener, and rule in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 ```azurepowershell
 $ipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -114,7 +114,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 
 ## Specify autoscale
 
-Now you can specify autoscale configuration for the application gateway. Two autoscaling configuration types are supported:
+Now you can specify the autoscale configuration for the application gateway. Two autoscaling configuration types are supported:
 
 * **Fixed capacity mode**. In this mode, the application gateway does not autoscale and operates at a fixed Scale Unit capacity.
 
@@ -129,9 +129,9 @@ Now you can specify autoscale configuration for the application gateway. Two aut
    $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
 
-## Create application gateway
+## Create the application gateway
 
-Create Application Gateway and include redundancy zones and the autoscale configuration.
+Create the application gateway and include redundancy zones and the autoscale configuration.
 
 ```azurepowershell
 $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
@@ -142,7 +142,7 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
   -Sku $sku -sslCertificates $sslCert01 -AutoscaleConfiguration $autoscaleConfig
 ```
 
-## Test application gateway
+## Test the application gateway
 
 Use Get-AzureRmPublicIPAddress to get the public IP address of the application gateway. Copy the public IP address or DNS name, and then paste it into the address bar of your browser.
 
@@ -150,7 +150,7 @@ Use Get-AzureRmPublicIPAddress to get the public IP address of the application g
 
 ## Clean up resources
 
-First explore the resources that were created with the application gateway, and then when no longer needed, you can use the `Remove-AzureRmResourceGroup` command to remove the resource group, application gateway, and all related resources.
+First explore the resources that were created with the application gateway. Then, when they're no longer needed, you can use the `Remove-AzureRmResourceGroup` command to remove the resource group, application gateway, and all related resources.
 
 `Remove-AzureRmResourceGroup -Name $rg`
 
