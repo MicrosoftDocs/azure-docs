@@ -16,7 +16,7 @@ ms.author: mbullwin
 # Use PowerShell to set alerts in Application Insights
 You can automate the configuration of [alerts](app-insights-alerts.md) in [Application Insights](app-insights-overview.md).
 
-In addition, you can [set webhooks to automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+In addition, you can [set webhooks to automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > If you want to create resources and alerts at the same time, consider [using an Azure Resource Manager template](app-insights-powershell.md).
@@ -126,10 +126,10 @@ The metrics are sent by different telemetry modules:
 | request,<br/>requestFailed |[Server request](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## Webhooks
-You can [automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised.
+You can [automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
 * [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automate your response to an alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Automate your response to an alert](../azure-monitor/platform/alerts-webhooks.md)

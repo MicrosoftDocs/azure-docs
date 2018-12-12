@@ -1,5 +1,5 @@
 ---
-title: Get started with the Azure WebJobs SDK
+title: Get started with the WebJobs SDK - Azure
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -59,9 +59,9 @@ This article assumes you have [an Azure account](https://azure.microsoft.com/fre
 
 1. In Visual Studio, select **File > New project**.
 
-1. Select **Windows Classic Desktop > Console App (.NET Framework)**.
+2. Select **Windows Classic Desktop > Console App (.NET Framework)**.
 
-1. Name the project *WebJobsSDKSample*, and then select **OK**.
+3. Name the project *WebJobsSDKSample*, and then select **OK**.
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
