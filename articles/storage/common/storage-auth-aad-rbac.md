@@ -23,9 +23,9 @@ An Azure AD identity may be a user, group, or application service principal, or 
 
 Azure Storage supports both built-in and custom RBAC roles. Azure Storage offers these built-in RBAC roles for use with Azure AD:
 
-- [Storage Blob Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Use to grant read/write/delete permissions to Blob storage resources.
+- [Storage Blob Data Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Use to set ownership and ACLs for Azure Data Lake Storage Gen2 (preview). For more information, see [Access control in Azure - [Storage Blob Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Use to grant read/write/delete permissions to Blob storage resources.
 - [Storage Blob Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Use to grant read-only permissions to Blob storage resources.
-- [Storage Blob Data Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Use to set ownership and ACLs for Azure Data Lake Storage Gen2 (preview). For more information, see [Access control in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
+Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
 - [Storage Queue Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Use to grant read/write/delete permissions to Azure queues.
 - [Storage Queue Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview): Use to grant read-only permissions to Azure queues.
 
