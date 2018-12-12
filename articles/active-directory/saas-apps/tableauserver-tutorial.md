@@ -90,7 +90,7 @@ To configure and test Azure AD single sign-on with Tableau Server, you need to c
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Tableau Server application.
 
@@ -183,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	>Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow.
 	>If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -208,7 +208,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Select **Create**.
   
-### Creating a Tableau Server test user
+### Create Tableau Server test user
 
 The objective of this section is to create a user called Britta Simon in Tableau Server. You need to provision all the users in the Tableau server. 
 
@@ -217,7 +217,7 @@ That username of the user should match the value which you have configured in th
 >[!NOTE]
 >If you need to create a user manually, you need to contact the Tableau Server administrator in your organization.
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Tableau Server.
 
@@ -241,7 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. In the **Add Assignment** dialog, select the **Assign** button.
 
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
