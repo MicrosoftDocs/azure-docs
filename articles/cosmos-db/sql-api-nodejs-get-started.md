@@ -10,7 +10,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB so that customers can utilize the global distribution, elastic scaling, multi-master and other capabilities offered by Azure Cosmos DB.
+Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 
 ---
 # Tutorial: Build a Node.js console app with JavaScript SDK to manage Azure Cosmos DB SQL API data
@@ -25,19 +25,17 @@ Customer intent: As a developer, I want to build a Node.js console application t
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-As developer you may have applications that use NoSQL document data. You can use SQL API account in Azure cosmos DB, to store and access this document data. This tutorial shows you how to build a Node.js console application to create Azure Cosmos DB resources and query them.
-
-Don't have time to create the application? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). See [Get the complete solution](#GetSolution) section of this article for quick instructions.
+As a developer, you might have applications that use NoSQL document data. You can use a SQL API account in Azure Cosmos DB to store and access this document data. This tutorial shows you how to build a Node.js console application to create Azure Cosmos DB resources and query them.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create and connect to an Azure Cosmos DB account
-> * Set up your application
-> * Create a database
-> * Create a container
-> * Add items to the container
-> * Perform basic operations on the items, container, and database
+> * Create and connect to an Azure Cosmos DB account.
+> * Set up your application.
+> * Create a database.
+> * Create a container.
+> * Add items to the container.
+> * Perform basic operations on the items, container, and database.
 
 ## Prerequisites 
 
@@ -49,7 +47,7 @@ Make sure you have the following resources:
 
 * [Node.js](https://nodejs.org/) v6.0.0 or higher.
 
-## Create an Azure Cosmos account
+## Create Azure Cosmos DB account
 
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Set up your Node.js application](#SetupNode). 
 
@@ -76,7 +74,7 @@ Before you start writing code to build the application, you can build the framew
 
 ## <a id="Config"></a>Set your app's configurations
 
-Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. By updating few configuration settings, as shown in the following steps you can set your app to talk to Azure Cosmos DB:
+Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. By updating a few configuration settings, as shown in the following steps, you can set your app to talk to Azure Cosmos DB:
 
 1. Open ```config.js``` in your favorite text editor.
 
@@ -166,7 +164,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    };
    ```
 
-   JavaScript SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
+   JavaScript SDK uses the generic terms, container and item. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. 
 
 1. Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
@@ -326,7 +324,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateContainer"></a>Create a container
 
-Next create a container within the Azure Cosmos account so that you can store and query the data. 
+Next create a container within the Azure Cosmos DB account, so that you can store and query the data. 
 
 > [!WARNING]
 Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
@@ -881,32 +879,9 @@ You should see the output of your get started app. The output should match the e
 
 Congratulations! You've completed the Node.js tutorial and have your first Azure Cosmos DB console application!
 
-## <a id="GetSolution"></a>Download the code
-
-If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ).
-
-To run the getting started solution that contains all the code in this article, you will need the following steps:
-
-* An [Azure Cosmos DB account][create-account].
-* The [Getting Started](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) solution available on GitHub.
-
-Install the **@azure/cosmos** module via npm. Use the following command:
-
-* ```npm install @azure/cosmos --save```
-
-Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Set your app's configurations](#Config). 
-
-Then in your terminal, locate your ```app.js``` file and run the command: 
-
-```bash 
-node app.js
-```
-
-That's it, and you're on your way! 
-
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group that you used for the Azure Cosmos account, select **Delete**, then confirm the name of the resource group to delete.
+When these resources are no longer needed, you can delete the resource group, Azure Cosmos DB account, and all the related resources. To do so, select the resource group that you used for the Azure Cosmos DB account, select **Delete**, and then confirm the name of the resource group to delete.
 
 ## Next steps
 
