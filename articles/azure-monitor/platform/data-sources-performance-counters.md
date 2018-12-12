@@ -177,7 +177,7 @@ Following is the default configuration for performance metrics.
 	</source>
 
 ## Data collection
-Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your subscription.
+Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your subscription.
 
 ## Performance record properties
 Performance records have a type of **Perf** and have the properties in the following table.
@@ -198,8 +198,8 @@ Performance records have a type of **Perf** and have the properties in the follo
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## Log searches with Performance records
-The following table provides different examples of log searches that retrieve Performance records.
+## Log queries with Performance records
+The following table provides different examples of log queries that retrieve Performance records.
 
 | Query | Description |
 |:--- |:--- |
@@ -220,5 +220,5 @@ The following table provides different examples of log searches that retrieve Pe
 
 ## Next steps
 * [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](../../azure-monitor/platform/powerbi.md) for additional visualizations and analysis.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
+* Export collected data to [Power BI](powerbi.md) for additional visualizations and analysis.

@@ -16,7 +16,7 @@ ms.author: magoedte
 ---
 
 # Syslog data sources in Azure Monitor
-Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the Log Analytics Agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Azure Monitor where a corresponding record is created.  
+Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Azure Monitor where a corresponding record is created.  
 
 > [!NOTE]
 > Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
@@ -26,7 +26,7 @@ Syslog is an event logging protocol that is common to Linux.  Applications will 
 ![Syslog collection](media/data-sources-syslog/overview.png)
 
 ## Configuring Syslog
-The Log Analytics Agent for Linux will only collect events with the facilities and severities that are specified in its configuration.  You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
+The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration.  You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
 Configure Syslog from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).  This configuration is delivered to the configuration file on each Linux agent.
@@ -200,6 +200,6 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility. |
 
 ## Next steps
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* Learn about [log queriesi](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
 * Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
 * [Configure Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) to collect other types of data.
