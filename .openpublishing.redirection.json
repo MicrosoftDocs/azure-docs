@@ -403,6 +403,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/programming.md",
+            "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query-reference.md",
+            "redirect_url": "/azure/cosmos-db/sql-api-query-reference",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/manage-account.md",
             "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
             "redirect_document_id": false
