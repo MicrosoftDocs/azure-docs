@@ -43,6 +43,10 @@ The application gateway VIP now supports the static VIP type exclusively. This e
 
 For more information about the Application Gateway public preview features, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
 
+## Networking requirements
+
+Application Gateway must be by itself in a virtual network subnet. Make sure that no virtual machines or cloud deployments are using the subnet where you intend to provision the Application Gateway.
+
 ## Secure Sockets Layer (SSL) termination
 
 Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This feature allows web servers to be unburdened from costly encryption and decryption overhead. But sometimes unencrypted communication to the servers is not an acceptable option. This can be due to security requirements, compliance requirements, or the application may only accept a secure connection. For these applications, application gateway supports end to end SSL encryption.
