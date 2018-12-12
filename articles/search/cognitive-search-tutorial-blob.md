@@ -71,7 +71,7 @@ First, sign up for the Azure Search service.
 
 ### Set up Azure Blob service and load sample data
 
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). Please note that Azure Table Storage is not supported for Cognitive Search. For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). Please note that Azure Table Storage is not supported for cognitive search. For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a small file set of different types. 
 
