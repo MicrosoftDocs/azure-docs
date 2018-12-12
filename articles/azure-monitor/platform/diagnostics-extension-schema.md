@@ -23,7 +23,7 @@ This page indexes Azure Diagnostics extension schema versions shipped as part of
 >
 > This page is only relevant if you are using one of these services.
 
-The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../azure-monitor/overview.md).
+The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
 
 ## Azure SDK and diagnostics versions shipping chart  
 
@@ -50,18 +50,18 @@ The Azure Diagnostics extension is used with other Microsoft diagnostics product
 ## Schemas index  
 Different versions of Azure diagnostics use different configuration schemas.
 
-[Diagnostics 1.0 Configuration Schema](azure-diagnostics-schema-1dot0.md)  
+[Diagnostics 1.0 Configuration Schema](diagnostics-extension-schema-1dot0.md)  
 
-[Diagnostics 1.2 Configuration Schema](azure-diagnostics-schema-1dot2.md)  
+[Diagnostics 1.2 Configuration Schema](diagnostics-extension-schema-1dot2.md)  
 
-[Diagnostics 1.3 and later Configuration Schema](azure-diagnostics-schema-1dot3-and-later.md)  
+[Diagnostics 1.3 and later Configuration Schema](diagnostics-extension-schema-1dot3.md)  
 
 ## Version history
 
 ### Diagnostics extension 1.11
 Added support for the Azure Monitor sink. This sink is only applicable to performance counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
 * Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](monitoring-overview-alerts.md) in Azure Monitor
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk (C:, D:, etc.)
 
 Define Azure Monitor as a new sink in your diagnostics extension configuration
@@ -86,7 +86,7 @@ Define Azure Monitor as a new sink in your diagnostics extension configuration
 > [!NOTE]
 > Configuring the Azure Monitor sink for Classic VMs and Classic CLoud Service requires more parameters to be defined in the Diagnostics extension's private config.
 >
-> For more details please reference the [detailed diagnostics extension schema documentation.](azure-diagnostics-schema-1dot3-and-later.md)
+> For more details please reference the [detailed diagnostics extension schema documentation.](diagnostics-extension-schema-1dot3.md)
 
 Next, you can configure your performance counters to be routed to the Azure Monitor Sink.
 ```json
@@ -169,7 +169,7 @@ Added Storage Type to PublicConfig. StorageType can be *Table*, *Blob*, *TableAn
 Added the ability to route to EventHub.
 
 ### Diagnostics extension 1.5
-Added the sinks element and the ability to send diagnostics data to [Application Insights](../application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+Added the sinks element and the ability to send diagnostics data to [Application Insights](../../application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ### Azure SDK 2.6 and diagnostics extension 1.3
 For Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)

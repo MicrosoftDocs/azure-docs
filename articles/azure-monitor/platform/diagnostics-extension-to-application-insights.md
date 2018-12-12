@@ -55,8 +55,8 @@ Example configuration of a sink for Application Insights:
 - The **Sink** *name* attribute is a string value that uniquely identifies the sink.
 
 - The **ApplicationInsights** element specifies instrumentation key of the Application insights resource where the Azure diagnostics data is sent.
-    - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../application-insights/app-insights-create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
-    - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../application-insights/app-insights-cloudservices.md).
+    - If you don't have an existing Application Insights resource, see [Create a new Application Insights resource](../../application-insights/app-insights-create-new-resource.md) for more information on creating a resource and getting the instrumentation key.
+    - If you are developing a Cloud Service with Azure SDK 2.8 and later, this instrumentation key is automatically populated. The value is based on the **APPINSIGHTS_INSTRUMENTATIONKEY** service configuration setting when packaging the Cloud Service project. See [Use Application Insights with Cloud Services](../../application-insights/app-insights-cloudservices.md).
 
 - The **Channels** element contains one or more **Channel** elements.
     - The *name* attribute uniquely refers to that channel.
@@ -71,11 +71,11 @@ A channel acts like a filter and allows you to select specific log levels to sen
 
 The following graphic shows this relationship.
 
-![Diagnostics Public Configuration](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
+![Diagnostics Public Configuration](media/diagnostics-extension-to-application-insights/AzDiag_Channels_App_Insights.png)
 
 The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink at the top level acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 
-![Diagnostics Sinks  Configuration with Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
+![Diagnostics Sinks  Configuration with Application Insights](media/diagnostics-extension-to-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## Complete sink configuration example
 Here is a complete example of the public configuration file that
@@ -210,5 +210,5 @@ In the previous configuration, the following lines have the following meanings:
 
 ## Next Steps
 * Learn how to [view your Azure diagnostics information](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) in Application Insights.
-* Use [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
+* Use [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
 * Use [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) to enable the Azure diagnostics extension for your application

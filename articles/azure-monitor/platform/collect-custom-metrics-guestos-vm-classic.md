@@ -22,7 +22,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 ## Prerequisites
 
-- You must be a [service administrator or co-administrator](../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
+- You must be a [service administrator or co-administrator](../../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
@@ -31,16 +31,16 @@ The process that's outlined in this article only works on classic virtual machin
 ## Create a classic virtual machine and storage account
 
 1. Create a classic VM by using the Azure portal.
-   ![Create Classic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Create Classic VM](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
 1. In the Azure portal, go to the **Storage accounts** resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
-   ![Storage access keys](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
+   ![Storage access keys](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## Create a service principal
 
-Create a service principle in your Azure Active Directory tenant by using the instructions at [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
+Create a service principle in your Azure Active Directory tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app.
 - Save the key and the client ID for use in later steps.
 
@@ -184,14 +184,14 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	On the **Monitor** blade, select **Metrics**.
 
-    ![Navigate metrics](./media/metrics-store-custom-guestos-classic-vm/navigate-metrics.png)
+    ![Navigate metrics](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
 1. In the resources drop-down menu, select your classic VM.
 
 1. In the namespaces drop-down menu, select **azure.vm.windows.guest**.
 
 1. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**.
-   ![Plot metrics](./media/metrics-store-custom-guestos-classic-vm/plot-metrics.png)
+   ![Plot metrics](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 
 ## Next steps
