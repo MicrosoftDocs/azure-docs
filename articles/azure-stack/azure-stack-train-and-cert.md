@@ -6,7 +6,7 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: mabrigg
 
 ---
