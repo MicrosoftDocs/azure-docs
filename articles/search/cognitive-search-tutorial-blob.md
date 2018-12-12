@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial for calling cognitive search APIs in Azure Search | Microsoft Docs'
+title: 'Tutorial for calling cognitive search APIs - Azure Search'
 description: In this tutorial, step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
 manager: pablocas
 author: luiscabrer
@@ -9,6 +9,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
+ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 

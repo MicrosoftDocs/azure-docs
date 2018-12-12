@@ -1,5 +1,5 @@
 ---
-title: How to manage concurrent writes to resources in Azure Search
+title: How to manage concurrent writes to resources - Azure Search
 description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Search indexes, indexers, data sources.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # How to manage concurrency in Azure Search
 

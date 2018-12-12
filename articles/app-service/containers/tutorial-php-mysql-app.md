@@ -1,5 +1,5 @@
 ---
-title: Build a PHP and MySQL web app in Azure App Service on Linux | Microsoft Docs 
+title: Build PHP web app with MySQL on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure.
 services: app-service\web
 author: cephalin
@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Build a PHP and MySQL web app in Azure App Service on Linux
 
