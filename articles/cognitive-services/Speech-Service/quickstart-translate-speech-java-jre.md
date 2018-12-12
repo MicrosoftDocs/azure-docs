@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech, Java (Windows, Linux)'
+title: 'Quickstart: Translate speech, Java (Windows, Linux) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows and Linux users.
 services: cognitive-services
