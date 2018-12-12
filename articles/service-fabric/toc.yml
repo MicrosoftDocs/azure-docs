@@ -723,6 +723,29 @@
       href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
+    - name: sfctl mesh
+      href: service-fabric-sfctl-mesh.md
+      items:
+      - name: sfctl mesh app  
+        href: service-fabric-sfctl-mesh-app.md
+      - name: sfctl mesh code-package-log  
+        href: service-fabric-sfctl-mesh-code-package-log.md
+      - name: sfctl mesh deployment  
+        href: service-fabric-sfctl-mesh-deployment.md
+      - name: sfctl mesh gateway  
+        href: service-fabric-sfctl-mesh-gateway.md
+      - name: sfctl mesh network  
+        href: service-fabric-sfctl-mesh-network.md
+      - name: sfctl mesh secret  
+        href: service-fabric-sfctl-mesh-secret.md
+      - name: sfctl mesh secretvalue  
+        href: service-fabric-sfctl-mesh-secretvalue.md
+      - name: sfctl mesh service  
+        href: service-fabric-sfctl-mesh-service.md
+      - name: sfctl mesh service-replica  
+        href: service-fabric-sfctl-mesh-service-replica.md
+      - name: sfctl mesh volume  
+        href: service-fabric-sfctl-mesh-volume.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
@@ -737,6 +760,11 @@
       href: service-fabric-sfctl-sa-cluster.md
     - name: sfctl service
       href: service-fabric-sfctl-service.md
+    - name: sfctl settings
+      href: service-fabric-sfctl-settings.md
+      items:
+      - name: sfctl settings telemetry
+        href: service-fabric-sfctl-settings-telemetry.md
     - name: sfctl store
       href: service-fabric-sfctl-store.md
   - name: Java API

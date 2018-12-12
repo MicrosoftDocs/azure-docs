@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Deny cool access tiering for storage accounts
+title: Sample - Deny cool access tiering for storage accounts
 description: This sample policy prohibits the use of cool access tiering for blob storage accounts.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Deny cool access tiering for storage accounts
 
