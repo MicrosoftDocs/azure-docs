@@ -81,7 +81,7 @@ What if a VM has five disks and they are striped? You could take a snapshot of e
 
 ### What is managed about Managed Disks?
 
-Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a special kind of random IO storage object in Azure. We call a Managed Disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a Managed Disk, and don’t have to worry about the rest.
+Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a random IO storage object in Azure. We call a Managed Disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a Managed Disk, and don’t have to worry about the rest.
 
 ## Next steps
 

@@ -99,20 +99,16 @@
     items:
     - name: Managed Disks
       href: managed-disks-overview.md
-    - name: Premium SSDs
-      href: premium-storage.md
-    - name: Standard SSDs
-      href: disks-standard-ssd.md
-    - name: Ultra SSDs
-      href: disks-ultra-ssd.md
-    - name: Premium storage performance
+    - name: Disk Types
+      href: disks-types.md
+    - name: Performance Checklist
+      href: disks-performance-checklist.md
+    - name: Designing for high performance
       href: premium-storage-performance.md
-    - name: Standard storage
-      href: standard-storage.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md           
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md     
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
