@@ -183,8 +183,6 @@
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
-        - name: Key vault support
-          href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and restore
@@ -490,6 +488,8 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
+      - name: Secure with Key vault support
+        href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
