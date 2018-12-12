@@ -1,5 +1,5 @@
 ---
-title: Understanding the Azure Resource Graph query language
+title: Understand the query language
 description: Describes how the query language for Azure Resource Graph works.
 services: resource-graph
 author: DCtheGeek
@@ -8,6 +8,7 @@ ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
+ms.custom: seodec18
 ---
 # Understanding the Azure Resource Graph query language
 
