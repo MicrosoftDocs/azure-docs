@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
@@ -52,7 +52,7 @@ If Hyper-V is not enabled on your machine, Docker's installer will offer to enab
 
 #### Install Docker on Windows Server 2016
 
-If you don't have the Hyper-V role enabled, open PowerShell as an administrator and run the following comand to enable Hyper-V, and then restart your computer. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
+If you don't have the Hyper-V role enabled, open PowerShell as an administrator and run the following command to enable Hyper-V, and then restart your computer. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
@@ -87,7 +87,7 @@ Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 
 If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
-If you are working on a single application at a time, for the best debugging performance when you create and run Service Fabric apps, we recommend creating a single-node local development cluster. If you are running multiple applications at a time, create a five-node local development cluster. The cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
+For the best debugging performance if you will only be creating and running a single Service Fabric app at a time, we recommend creating a single-node local development cluster. If you are running multiple applications at a time, create a five-node local development cluster. The cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
 After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a development cluster.
 
