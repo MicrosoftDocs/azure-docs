@@ -29,4 +29,4 @@ To learn how to use these extensions, see:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates]](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md)
