@@ -103,7 +103,7 @@ Before you back up your SQL Server database, check the following conditions:
 - Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region or locale as the virtual machine that hosts your SQL Server instance.
 - [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) that are needed to back up the SQL databases.
 - Verify that the [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#naming-guidelines-for-sql-server-database-to-use-azure-backup) for Azure Backup to take successful backups.
+- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#sql- database-naming-guidelines-for-azure-backup) for Azure Backup to take successful backups.
 
 > [!NOTE]
 > You can have only one backup solution at a time to back up SQL Server databases. Disable all other SQL backups before you use this feature; otherwise, the backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict.
@@ -132,7 +132,7 @@ The tradeoffs between the options are manageability, granular control, and cost.
 
 ## Set permissions for non-Marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. To discover databases on the virtual machine, Azure Backup creates the account **NT Service\AzureWLBackupPluginSvc**. For Azure Backup to discover SQL databases, the **NT Service\AzureWLBackupPluginSvc** account must have SQL and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. TTo discover databases on the virtual machine, Azure Backup creates the account **NT Service\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
 
 To configure permissions:
 
@@ -200,7 +200,7 @@ During the installation process, if you receive the error `UserErrorSQLNoSysadmi
 
 After you associate the database with the Recovery Services vault, the next step is to [configure the backup job](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
-## Naming guidelines for SQL Server Database to use Azure Backup
+## SQL database naming guidelines for Azure Backup
 To ensure smooth backups using Azure Backup for SQL Server in IaaS VM, avoid the following while naming the databases:
 
   * Trailing/Leading spaces
@@ -308,18 +308,9 @@ To configure protection for a SQL database:
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
 
-    ### Autoprotection
-
-    Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+      Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
       ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-      In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
-
-      There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
-
-      It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
-
 
 7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
 
@@ -349,6 +340,22 @@ To configure protection for a SQL database:
 
     ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
+
+### Auto-protect SQL Server in Azure VM  
+
+Auto-protection is a capability that lets you automatically protect all the existing databases as well as the future databases that you would add in a standalone SQL Server instance or a SQL Server Always On availability group.
+
+In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
+
+  ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+  There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
+
+  If for some reason you need to disable the auto-protection on an instance, click the instance name under **Configure Backup** to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto-protection on that instance.
+
+    ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+All the databases in that instance will continue to be protected. However, this action will disable auto-protection on any databases that will be added in the future.
 
 ### Define a backup policy
 
@@ -745,15 +752,9 @@ To stop protection for a database:
 
 7. Select **Stop backup** to stop protection on the database.
 
-  Please note that **Stop Backup** option will not work for a database in an auto-protected instance. The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database.  
+  Please note that **Stop Backup** option will not work for a database in an [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) instance. The only way to stop protecting this database is to disable the [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database.<br>
+  After you have disabled auto-protection, you can **Stop Backup** for the database under **Backup Items**. The instance can again be enabled for auto-protection now.
 
-  You can disable the auto-protection on an instance or Always On availability group under **Configure Backup**. Click the instance name to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto-protection on that instance.
-
-    ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
-
-All the databases in that instance will continue to be protected. However, this action will disable auto-protection on any databases that will be added in the future.
-
-After you have disabled auto-protection, you can **Stop Backup** for the database under **Backup Items**. The instance can again be enabled for auto-protection now.
 
 ### Resume protection for a SQL database
 

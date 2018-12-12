@@ -121,11 +121,15 @@ The following error codes are for registration failures.
 |---|---|---|
 | Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | Guest agent is not enabled or is unhealthy | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
 
+## Configure Backup failures
+
+The following error codes are for configure backup failures.
+
 ### AutoProtectionCancelledOrNotValid
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Autoprotection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are cancelled with this error code. | Enable auto-protection once again to protect all the remaining databases. |
+| Auto-protection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are canceled with this error code. | Enable auto-protection once again to protect all the remaining databases. |
 
 ## Next steps
 
