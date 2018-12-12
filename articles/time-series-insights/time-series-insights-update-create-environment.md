@@ -85,11 +85,6 @@ Before you create an Azure Time Series Insights environment, you will need the n
 
     ![Azure portl][8]
 
-
-
-
-
-
 ## Create a Time Series Insights Preview PAYG environment
 
 This section describes how to create a Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
@@ -144,51 +139,31 @@ This section describes how to create a Time Series Insights Preview environment 
 
    After filling out the fields above, click **Review + Create**.
 
+      ![Review and create][13]
 
+1. Review all fields in the review page and click on **Create**.
 
+   ![Create][14]
 
+1. You can see the status of your deployment.
 
+   ![Deployment complete][15]
 
+1. You should receive access to your time series environment if you own the tenant. To make sure that you have access:
 
+   * Navigate to your newly created Azure Time Series Insights Preview environment. You can do so by searching for your resource group. Then, click on your time series environment:
 
+      ![Deployment complete][16]
 
+   * On the Azure Time Series Insights Preview page, navigate to **Data Access Policies**
 
+     ![Data access policies][17]
 
+   * Verify that your credentials are listed.
 
+     ![Verify your credentials][18]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   If your credentials are not listed, you will have to give yourself permission to access the environment. Read [Grant Data Access](./time-series-insights-data-access.md) to learn more about setting permissions.
 
 ## Analyze data in your environment
 
@@ -293,10 +268,16 @@ Learn more about Time Series Models:
 [4]: media/v2-update-provision/device-four-iot-sim-page.png
 [5]: media/v2-update-provision/device-five-params.png
 [6]: media/v2-update-provision/device-six-dashboard.png
-[7]: media/v2-update-provision/device-six-listings.png
+[7]: media/v2-update-provision/device-seven-listings.png
 [8]: media/v2-update-provision/device-eight-portal.png
 
 [9]: media/v2-update-provision/payg-one-azure.png
 [10]: media/v2-update-provision/payg-two-create.png
 [11]: media/v2-update-provision/payg-three-new.png
 [12]: media/v2-update-provision/payg-four-add.png
+[13]: media/v2-update-provision/payg-five-event-source.png
+[14]: media/v2-update-provision/payg-six-review.png
+[15]: media/v2-update-provision/payg-seven-deploy.png
+[16]: media/v2-update-provision/payg-eight-environment.png
+[17]: media/v2-update-provision/payg-nine-data-access.png
+[18]: media/v2-update-provision/payg-ten-verify.png
