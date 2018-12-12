@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/12/2018
 ms.author: juliako
 ms.custom: seodec18
 
@@ -40,7 +40,7 @@ The following table shows the Asset's properties and gives their definitions.
 |properties.alternateId |The alternate ID of the Asset.|
 |properties.assetId |The Asset ID.|
 |properties.container |The name of the asset blob container.|
-|properties.created |The creation date of the Asset.|
+|properties.created |The creation date of the Asset.<br/> Datetimes are always in UTC format.|
 |properties.description|The Asset description.|
 |properties.lastModified |The last modified date of the Asset.|
 |properties.storageAccountName |The name of the storage account.|
