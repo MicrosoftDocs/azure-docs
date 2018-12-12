@@ -1,5 +1,5 @@
 ---
-title: Indexers in Azure Search | Microsoft Docs
+title: Indexers for crawling data sources during indexing - Azure Search
 description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
@@ -9,6 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Indexers in Azure Search
