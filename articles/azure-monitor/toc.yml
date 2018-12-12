@@ -78,7 +78,7 @@
     - name: Log data ingestion time
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
-      href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json       
+      href: platform/metrics-custom-overview.md       
     - name: Data security
       items:
       - name: Log data
@@ -206,27 +206,27 @@
       - name: Azure Diagnostics extension
         items:
         - name: Overview
-          href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-overview.md
         - name: Send to Azure Storage
-          href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-to-storage.md
         - name: Send to Application Insights
-          href: ../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-to-application-insights.md
         - name: Send to Event Hubs
-          href: ../monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-stream-event-hubs.md
         - name: Troubleshooting
-          href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-troubleshooting.md
         - name: Enable diagnostic settings with Resource Manager templates
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: Prepare for JSON Lines diagnostic logs format
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: VM guest to metrics store
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json  
+          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
         - name: VM scale set guest to metrics store
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json  
+          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
         - name: VM classic guest to metrics store 
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json  
+          href: platform/collect-custom-metrics-guestos-vm-classic.md  
         - name: Cloud service guest to metrics store
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
+          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
       - name: Troubleshoot
         items:
         - name: Log Analytics VM Extension
@@ -430,7 +430,7 @@
       - name: Metrics store REST API
         href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
       - name: GuestOS to metrics store Linux VM (Telegraf)
-        href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json  
+        href: platform/collect-custom-metrics-linux-telegraf.md  
     - name: System Center
       items:
       - name: Configuration Manager
@@ -801,19 +801,19 @@
       - name: Understand Autoscale settings
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: Best practices
-        href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-best-practices.md
       - name: Common metrics
-        href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-metrics.md
       - name: Common patterns
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Autoscale using a custom metric
         href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
       - name: Autoscale VM scale sets using Resource Manager templates
-        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Automatically scale machines in a VM scale set
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
       - name: Configure webhooks and email notifications on autoscale
-        href: ../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-webhook-email.md
     - name: Service notifications
       items:
       - name: View service notifications
@@ -859,7 +859,7 @@
         - name: Get Azure diagnostics
           href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
     - name: Azure CLI samples
-      href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
+      href: platform/cli-samples.md
     - name: Resource Manager templates
       href: platform/template-workspace-configuration.md
     - name: API
@@ -961,14 +961,14 @@
     - name: Activity log event schema
       href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
     - name: Azure Diagnostics extension schema
-      href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/diagnostics-extension-schema.md
       items:
       - name: 1.3 and later
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot3.md
       - name: 1.2
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot2.md
       - name: 1.0
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot0.md
   - name: Feature and API Retirement 
     items:
     - name: Classic autoscale & metrics API
