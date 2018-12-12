@@ -31,7 +31,7 @@ To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## Create code to query the Azure SQL database
+## Create code to query the SQL database
 
 1. In Visual Studio, select **File** > **New** > **Project**. 
    
@@ -39,10 +39,23 @@ To complete this quickstart, make sure you have the following:
    
 1. Enter *sqltest* for the project name, and then select **OK**. The new project opens in **Solution Explorer**.
    
-1. Replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
+1. In **Solution Explorer**, right-click **sqltest** and select **Manage NuGet Packages**. 
+   
+1. On the NuGet page, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
+   
+1. On the **System.Data.SqlClient** page, select **Install**. 
+   - If prompted, select **OK** to continue with the installation. 
+   - If a **License Acceptance** window appears, select **I Accept**.
+   
+1. When the install completes, you can close the NuGet page. 
+   
+   > [!TIP]
+   > You can also connect an Azure SQL database to Visual Studio from the Azure portal. On the SQL database **Overview** toolbar, select **Connect with** > **Visual Studio**, and then select **Open in Visual Studio**. In this case, you do not need to manually install the NuGet package. 
 
->[!IMPORTANT]
->The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
+1. In the Visual Studio project, replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
+   
+   >[!IMPORTANT]
+   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
 
 ```csharp
 using System;
@@ -100,7 +113,7 @@ namespace sqltest
 
 ## Run the code
 
-1. Select **Debug** > **Start Debugging**, select **Start** on the toolbar, or press **F5** to run the app.
+1. In your Visual Studio project, select **Debug** > **Start Debugging**, select **Start** on the toolbar, or press **F5** to run the app.
 2. Verify that the top 20 Category/Product rows from your database are returned, and then close the app window.
 
 ## Next steps
