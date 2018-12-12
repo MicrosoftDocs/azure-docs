@@ -78,9 +78,12 @@ function insertDocumentAndUpdateMetadata(item) {
 
 See the following articles to learn about stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
 
-- [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md)
-- [How to register and use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures)
-- [How to register and use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers)
-- [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#udfs)
+* [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md)
 
-- [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md)
+* [How to register and use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures)
+
+* [How to register and use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers)
+
+* [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#udfs)
+
+* [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md)
