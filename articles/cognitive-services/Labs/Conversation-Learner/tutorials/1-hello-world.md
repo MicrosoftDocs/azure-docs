@@ -68,8 +68,7 @@ This is where you Train the Model on how to respond to user utterances.
 	- Notice that the Bot responded with that action you just created.
 10. Click "Save" button. This will end and save this Training Dialog.
 
-Now you have one Training Dialog in the Model, along with a single Entity and two Actions:
-![](../media/tutorial1_actions.PNG)
+Now you have one Training Dialog in the Model, along with a single Entity and two Actions.
 
 #### Second Training Dialog
 Let's do one more training and see how the Bot responds.
@@ -84,8 +83,6 @@ Let's do one more training and see how the Bot responds.
 6. Click "Score Actions" button.
 7. Select 'Goodbye!'
 8. Click "Save" button.
-
-![](../media/tutorial1_dialogs.PNG)
 
 ### Log Dialogs
 This is where you Test, View and Correct Conversations that you or real users have had with your Bot.
