@@ -17,9 +17,9 @@ Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azu
 * An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
 * An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
   An autoscale setting has a maximum, minimum, and default value of instances.
-* An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](insights-autoscale-common-metrics.md).
+* An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](autoscale-common-metrics.md).
 * All thresholds are calculated at an instance level. For example, "scale out by one instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
-* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./../azure-monitor/platform/activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
+* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./../../azure-monitor/platform/activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
 * Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, or webhooks whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices
@@ -103,7 +103,7 @@ In addition, there is a recurring profile set for Monday. It is set for minimum 
 
 Similarly, when autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
 
-![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
+![autoscale settings](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### Considerations for scaling when multiple rules are configured in a profile
 There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
