@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 12/13/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.x.xx**.
+The Azure Stack 1811 update build number is **1.1811.0.83**.
 
 ## Hotfixes
 
@@ -175,7 +175,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of this update, both Azure Stack portals (Administrator and User) will be unavailable when the Extension Host is configured. The configuration of the Extension Host does take serveral hours. During that time you can check the status of an update or resume a failed update installation using Azure Stack Admin PowerShell or the privileged endpoint.
+- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the Extension Host is configured. The configuration of the Extension Host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
