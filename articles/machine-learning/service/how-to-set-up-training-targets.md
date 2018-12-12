@@ -42,7 +42,6 @@ Azure Machine Learning service has varying support across the various compute ta
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 > [!IMPORTANT]
->
 > <a id="pipeline-only"></a>__*__ _Azure Databricks and Azure Data Lake Analytics can only be used in a pipeline._ For more information on pipelines, see [Pipelines in Azure Machine Learning](concept-ml-pipelines.md).
 >
 > Azure Machine Learning Compute must be created from within a workspace. You can't attach existing instances to a workspace.
@@ -80,7 +79,7 @@ When you start a training run, it creates a snapshot of the directory that conta
 
 When you train locally, you use the SDK to submit the training operation. You can train by using a user-managed or system-managed environment.
 
-### User-managed environment
+### Use a user-managed environment
 
 In a user-managed environment, make sure all of the necessary packages are available in the Python environment where you run the script. The following code snippet is an example of how to configure training for a user-managed environment:
 
@@ -97,7 +96,7 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 ```
 
   
-### System-managed environment
+### Use a system-managed environment
 
 System-managed environments rely on conda to manage the dependencies. Conda creates a file named **conda_dependencies.yml** that contains a list of dependencies. You can ask the system to build a new conda environment and run your scripts there. System-managed environments can be reused later, as long as the conda_dependencies.yml file is unchanged. 
 
@@ -128,7 +127,7 @@ You can use Azure Machine Learning Compute to distribute the training process ac
 
 You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a persistent resource.
 
-### Run-based creation
+### Use run-based creation
 
 You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run and scales up to the number of **max_nodes** that you specify in your run config. The compute is deleted automatically after the run completes.
 
@@ -155,7 +154,7 @@ run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
 
 ```
 
-### Persistent compute (Basic)
+### Use a persistent compute: Basic
 
 A persistent Azure Machine Learning Compute can be reused across jobs. The compute can be shared with other users in the workspace and is kept between jobs.
 
@@ -184,7 +183,7 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-### Persistent compute (Advanced)
+### Use a persistent compute: Advanced
 
 You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
 
@@ -441,7 +440,7 @@ There are two ways to submit a training run:
 >
 > The local compute target can't be used in a pipeline.
 
-### ScriptRunConfig object
+### Use the ScriptRunConfig object
 
 The code pattern to submit a training run with the `ScriptRunConfig` object is the same for all types of compute targets:
 
@@ -458,7 +457,7 @@ run.wait_for_completion(show_output = True)
 ```
 
 
-### Pipeline object
+### Use a pipeline
 
 The code pattern to submit a training run with a `Pipeline` object is the same for all types of compute targets:
 
@@ -505,7 +504,7 @@ To see the compute targets for your workspace, use the following steps:
 
     ![View compute targets](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
-### Create a new compute target
+### Create a compute target
 
 Follow the previous steps to view the list of compute targets. Then use these steps to create a compute target:
 
@@ -532,7 +531,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 Now you can submit a run against the computer targets as described earlier.
 
 
-### Reuse an existing compute in your workspace
+### Reuse an existing compute target
 
 Follow the steps described earlier to view the list of compute targets. Then use these steps to reuse a compute target:
 
