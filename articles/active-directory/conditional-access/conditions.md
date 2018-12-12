@@ -25,7 +25,7 @@ ms.reviewer: calebb
 
 # What are conditions in Azure Active Directory conditional access? 
 
-You can control how authorized users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens"). 
+You can control how users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). In a conditional access policy, you define the response ("Then do this") to the reason for triggering your policy ("When this happens"). 
 
 ![Reason and response](./media/conditions/10.png)
 
@@ -81,7 +81,7 @@ You can exclude specific apps from a policy. However, these apps are still subje
 
 ## Sign-in risk
 
-A sign-in risk is an indicator of the likelihood (high, medium, or low) that a sign-in attempt wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. 
+A sign-in risk is an indicator of the likelihood (high, medium, or low) that a sign-in wasn't made by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign-in. 
 You can use the calculated sign-in risk level as condition in a conditional access policy.
 
 ![Sign-in risk levels](./media/conditions/22.png)
@@ -142,11 +142,11 @@ By default, a conditional access policy applies to the following apps:
 - [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients) - These apps include the Office desktop apps and phone apps. 
 
 
-Additionally, you have the option to target a policy to specific client apps that are not using modern authentication, for example:
+Additionally, you can target a policy to specific client apps that are not using modern authentication, for example:
 
-- Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks using Exchange ActiveSync, affected users get a single quarantine email with information on why they are blocked. If required, the email includes instructions for enrolling their device with Intune.
+- Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks using Exchange ActiveSync, affected users get a single quarantine email with information on why they are blocked. If necessary, the email includes instructions for enrolling their device with Intune.
 
-- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that are not enable for modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client apps](./media/conditions/41.png)
 
