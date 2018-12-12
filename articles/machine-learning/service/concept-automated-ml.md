@@ -54,6 +54,7 @@ A common pitfall of automated machine learning is an inability to see the end-to
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
++ [Samples: Get setup for Automated Machine Learning](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
