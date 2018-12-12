@@ -10,11 +10,9 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Monitor Active Directory replication status with Log Analytics

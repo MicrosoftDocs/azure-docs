@@ -91,7 +91,7 @@ In addition to allowing you to interactively analyze monitoring data, an effecti
 ### Alerts
 [Alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively notify you of critical conditions and potentially attempt to take corrective action. Alert rules based on metrics provide near real time alerting based on numeric values, while rules based on logs allow for complex logic across data from multiple sources.
 
-Alert rules in Azure Monitor use [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
+Alert rules in Azure Monitor use [action groups](../azure-monitor/platform/action-groups.md), which contain unique sets of recipients and actions that can be shared across multiple rules. Based on your requirements, action groups can perform such actions as using webhooks to have alerts start external actions or to integrate with your ITSM tools.
 
 ![Alerts](media/overview/alerts.png)
 
@@ -114,7 +114,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Log Analytics View](media/overview/view.png)
 
 ### Power BI
-[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](../log-analytics/log-analytics-powerbi.md) to take advantage of these additional visualizations.
+[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources and is an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](../azure-monitor/platform/powerbi.md) to take advantage of these additional visualizations.
 
 
 ![Power BI](media/overview/power-bi.png)

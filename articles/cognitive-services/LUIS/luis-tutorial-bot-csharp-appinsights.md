@@ -1,10 +1,11 @@
 ---
-title: Application Insights data from LUIS using C# 
+title: Application Insights using C# 
 titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -12,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights
+# Add LUIS results to Application Insights with a Bot in C#
 
 This tutorial adds LUIS response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
@@ -33,7 +34,7 @@ In this tutorial, you learn how to:
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
-All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) and each line associated with this tutorial is commented with `//LUIS Tutorial:`.
+All of the code in this tutorial is available on the [LUIS-Samples GitHub repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) and each line associated with this tutorial is commented with `//LUIS Tutorial:`.
 
 ## Review LUIS web app bot
 
@@ -169,7 +170,7 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
 3. In the console window, enter the following command:
 
-    ```
+    ```console
     cd site\wwwroot && build.cmd
     ```
 
@@ -185,11 +186,12 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
 3. You should see no difference in the chatbot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
 
-```
-Please deliver a pizza
-Turn off all the lights
-Turn on the hall light
-```
+|Utterances|
+|--|
+|Please deliver a pizza|
+|Turn off all the lights|
+|Turn on the hall light|
+
 
 ## View LUIS entries in Application Insights
 
@@ -226,7 +228,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
 
 3. To pull out the top intent, score, and utterance, add the following just above the last line in the query window:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
     | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
     | extend utterance = tostring(customDimensions.LUIS_query)

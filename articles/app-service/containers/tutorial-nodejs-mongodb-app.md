@@ -1,5 +1,5 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure App Service on Linux | Microsoft Docs 
+title: Build Node.js app with MongoDB on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Node.js app working in Azure App Service on Linux, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Build a Node.js and MongoDB web app in Azure App Service on Linux
 
@@ -44,9 +45,9 @@ What you learn how to:
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
-1. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
-1. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+2. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
+3. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## Test local MongoDB
 

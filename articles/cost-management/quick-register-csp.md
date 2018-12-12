@@ -1,14 +1,14 @@
 ---
 
 title: Register using CSP Partner information with Cloudyn in Azure | Microsoft Docs
-description: Use your CSP Partner information to register with Cloudyn.
+description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom:
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
 ---
@@ -30,13 +30,13 @@ For more information, see [Connect to the Partner Center API](https://msdn.micro
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at http://portal.azure.com.
+- Sign in to the Azure portal at https://portal.azure.com.
 
 ## Register with Cloudyn
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cloudyn**  
-    ![Cloudyn page](./media/quick-register-csp/cost-mgt-billing-service.png)
+    ![Cloudyn page shown in the Azure portal](./media/quick-register-csp/cost-mgt-billing-service.png)
 3. On the **Cloudyn** page, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.
 4. On the Cloudyn portal trial registration page, type your company name, select **Microsoft CSP Partner Program Administrator**, and then click **Next**.  
 5. Enter an **Application ID**, **Commerce ID**, **Application Secret key**, and select the **Default Pricing Plan**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
@@ -45,9 +45,9 @@ For more information, see [Connect to the Partner Center API](https://msdn.micro
   3. Copy the **App ID** GUID from your web application.
   4. Copy the **Commerce ID** GUID from your web application.
   5. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
-    ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
+    ![Partner Dashboard where you copy credential information](./media/quick-register-csp/csp-partner-center.png)
   6. Go back to the Cloudyn registration page and paste the information.  
-      ![CSP account credentials](./media/quick-register-csp/csp-reg.png)
+      ![Paste credential information in the Cloudyn registration page](./media/quick-register-csp/csp-reg.png)
 6. Agree to the Terms of Use then validate your information. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
 7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
 8. Click **Go to Cloudyn** to open the Cloudyn portal and then on the **Cloud Accounts Management** page, you should see your registered CSP account information.
@@ -56,7 +56,7 @@ For more information, see [Connect to the Partner Center API](https://msdn.micro
 
 By default, the Partner Center API is only accessible to direct CSPs. However, a direct CSP provider can configure access for their indirect CSP customers or partners using entity groups in Cloudyn.
 
-To enable access for indirect CSP customers or partners, follow the steps in [Create a trial registration](#create-a-trial-registration) to set up a trial registration. Next, complete the following steps to segment indirect CSP data by using Cloudyn entity groups. Then, assign the appropriate user permissions to the entity groups.
+To enable access for indirect CSP customers or partners, follow the steps in [Register with Clouydn](#register-with-cloudyn) to set up a trial registration. Next, complete the following steps to segment indirect CSP data by using Cloudyn entity groups. Then, assign the appropriate user permissions to the entity groups.
 
 1. Create an entity group with the information at [Create entities](tutorial-user-access.md#create-and-manage-entities).
 2. Follow the steps at [Assigning subscriptions to Cost Entities](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associate the indirect CSP customer’s account and their Azure subscriptions to the entity that you create previously.

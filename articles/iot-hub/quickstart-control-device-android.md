@@ -32,11 +32,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 
-* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install). 
+* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install).
 
-* Android SDK 27 is used by the sample in this article. 
+* Android SDK 27 is used by the sample in this article.
 
-* Two sample applications are required by this quickstart: The [Device SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) and the [Service SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Both of these samples are part of the azure-iot-samples-java repository on Github. Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
+* Two sample applications are required by this quickstart: The [Device SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) and the [Service SDK sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Both of these samples are part of the azure-iot-samples-java repository on GitHub. Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
 
 ## Create an IoT hub
@@ -51,7 +51,7 @@ If you completed the previous [Quickstart: Send telemetry from a device to an Io
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity.
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -83,7 +83,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 ## Retrieve the service connection string
 
 You also need a _service connection string_ to enable the back-end service applications to connect to your IoT hub in order to execute methods and retrieve messages. The following command retrieves the service connection string for your IoT hub:
-   
+
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
@@ -100,7 +100,7 @@ You use this value later in the quickstart. The service connection string is dif
 
 The device SDK sample application can be run on a physical Android device or an Android emulator. The sample connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
 
-1. Open the github sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
+1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
@@ -141,13 +141,13 @@ By default the telemetry app is sending telemetry from the Android device every 
 
 ## Call the direct method
 
-The service application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. 
+The service application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements.
 
 Run this app on a separate physical Android device or Android emulator.
 
-An IoT Hub back-end service application typically runs in the cloud where it is easier to mitigate the risks associated with the sensitive connection string that controls all devices on an IoT Hub. In this example, we are running it as an Android app for demonstration purposes only. The other language versions of this quickstart provide other examples that align more closely with a back-end service application. 
+An IoT Hub back-end service application typically runs in the cloud where it is easier to mitigate the risks associated with the sensitive connection string that controls all devices on an IoT Hub. In this example, we are running it as an Android app for demonstration purposes only. The other language versions of this quickstart provide other examples that align more closely with a back-end service application.
 
-1. Open the github service sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
+1. Open the GitHub service sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
@@ -155,14 +155,14 @@ An IoT Hub back-end service application typically runs in the cloud where it is 
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}
-    DeviceId=MyAndroidDevice    
+    DeviceId=MyAndroidDevice
     ```
 
 3. In Android Studio, click **File** > **Sync Project with Gradle Files**. Verify the build completes.
 
 4. Once the build has completed, click **Run** > **Run 'app'**. Configure the app to run on a separate physical Android device or an Android emulator. For more information on running an Android app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
-5. Once the app loads, update the **Set Messaging Interval** value to **1000** and click **Invoke**. 
+5. Once the app loads, update the **Set Messaging Interval** value to **1000** and click **Invoke**.
 
     Th telemetry messaging interval is in milliseconds. The default telemetry interval of the device sample is set for 5 seconds. This change will update the Android IoT device so that telemetry is sent every second.
 

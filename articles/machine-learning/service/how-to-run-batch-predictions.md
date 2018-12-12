@@ -1,5 +1,6 @@
 ---
-title: Run batch predictions on large data sets with Azure Machine Learning service
+title: Run batch predictions on large data 
+titleSuffix: Azure Machine Learning service
 description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -10,8 +11,8 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
-
 # Run batch predictions on large data sets with Azure Machine Learning service
 
 In this article, you'll learn how to quickly and efficiently make predictions on large quantities of data asynchronously using Azure Machine Learning service.
@@ -25,7 +26,7 @@ In the following steps, you'll create a [machine learning pipeline](concept-ml-p
 
 ## Prerequisites
 
-- You'll need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 - Configure your development environment to install the Azure Machine Learning SDK. For more information, see [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md).
 

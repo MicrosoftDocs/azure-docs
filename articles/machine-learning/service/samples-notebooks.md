@@ -1,5 +1,6 @@
 ---
-title: "Azure Machine Learning service tutorials in Jupyter notebooks"
+title: Example Jupyter notebooks
+titleSuffix: Azure Machine Learning service
 description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service in Python. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
+ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
