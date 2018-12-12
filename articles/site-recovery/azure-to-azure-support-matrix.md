@@ -37,7 +37,7 @@ This article summarizes supported configurations and components when you deploy 
 
 ## Region support
 
-You can replicate and recover VMs between any two regions within the same geographic cluster.
+You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. 
 
 **Geographic cluster** | **Azure regions**
 -- | --
@@ -47,11 +47,12 @@ Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan 
 Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany	| Germany Central, Germany Northeast
-China | China East, China North
+China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
 > For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.
+> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used  as a Target DR region for any of the Azure regions like South Central US. The reason being that due to geographical distance it is recommended to select any other America's region other than Brazil South.  
 
 ## Cache storage
 
