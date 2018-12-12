@@ -52,7 +52,7 @@ In this example, we will use the `PushAudioInputStream` interface.
 
 Add the following JavaScript code:
 
-[!code-js[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
+[!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
 ## Running the sample from command line
 
