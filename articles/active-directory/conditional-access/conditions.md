@@ -93,7 +93,7 @@ Common use cases for this condition are policies that have the following protect
 - Block users with a high sign-in risk. This protection prevents potentially non-legitimate users from accessing your cloud apps. 
 - Require multifactor authentication for users with a medium sign-in risk. By enforcing multifactor authentication, you can provide additional confidence that the sign-in is done by the legitimate owner of an account.
 
-For more information, see [Risky sign-ins](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+For more information, see [block access when a session risk is detected](app-sign-in-risk.md).  
 
 ## Device platforms
 
@@ -111,13 +111,12 @@ A common use case for this condition is a policy that restricts access to your c
 
 ## Device state
 
-The device state condition excludes hybrid Azure AD joined devices and devices marked as compliant from a conditional access policy. This condition is useful when a policy should apply only to an unmanaged device to provide additional session security. For example, only enforce the Microsoft Cloud App Security session control when a device is unmanaged. 
+The device state condition excludes hybrid Azure AD joined devices and devices marked as compliant from a conditional access policy. 
 
 
 ![Configure device state](./media/conditions/112.png)
 
-If you want to block access for unmanaged devices, implement [device-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
+This condition is useful when a policy should apply only to an unmanaged device to provide additional session security. For example, only enforce the Microsoft Cloud App Security session control when a device is unmanaged. 
 
 ## Locations
 
@@ -143,7 +142,7 @@ By default, a conditional access policy applies to all:
 - [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients)
 
 
-An app is classified as follows:
+An app is classified as:
 
 - A website or service if it uses web SSO protocols, SAML, WS-Fed, or OpenID Connect for a confidential client.
 
