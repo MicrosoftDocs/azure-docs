@@ -74,6 +74,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 ### Important tips for assigning users to Zendesk
 
 *    Zendesk roles are automatically and dynamically populated in the Azure portal UI today. Before assigning Zendesk roles to users, ensure that an initial sync is completed against Zendesk to retrieve the latest roles in your Zendesk tenant.
+
+*    It is recommended that a single Azure AD user is assigned to Zendesk to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
   
 *	It is recommended that a single Azure AD user is assigned to Zendesk to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
