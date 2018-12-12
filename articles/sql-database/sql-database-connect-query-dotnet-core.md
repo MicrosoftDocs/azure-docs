@@ -137,7 +137,7 @@ namespace sqltest
 
 2. Verify that the top 20 rows are returned.
 
-```text
+   ```text
    Query data example:
    =========================================
 
@@ -163,7 +163,7 @@ namespace sqltest
    Road Frames LL Road Frame - Black, 62
 
    Done. Press enter.
-```
+   ```
 3. Close the application window.
 
 ## Next steps
