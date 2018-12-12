@@ -1,19 +1,18 @@
 ---
-title: 'Quickstart: Recognize speech in Java (Windows or Linux)'
+title: 'Quickstart: Recognize speech, Java (Windows, Linux)'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Java (Windows or Linux)
+description: In this quickstart, you'll learn create a simple Java application that captures and transcribes user speech from your computer's microphone.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/12/2018
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in Java on Windows or Linux by using the Speech Service SDK
+# Quickstart: Recognize speech with the Speech SDK for Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
