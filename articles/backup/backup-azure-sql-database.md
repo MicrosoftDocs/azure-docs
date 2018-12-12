@@ -103,7 +103,7 @@ Before you back up your SQL Server database, check the following conditions:
 - Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region or locale as the virtual machine that hosts your SQL Server instance.
 - [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) that are needed to back up the SQL databases.
 - Verify that the [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#naming- guidelines-for-sql-server-database-to-use-azure-backup) for Azure Backup to take successful backups.
+- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#naming-guidelines-for-sql-server-database-to-use-azure-backup) for Azure Backup to take successful backups.
 
 > [!NOTE]
 > You can have only one backup solution at a time to back up SQL Server databases. Disable all other SQL backups before you use this feature; otherwise, the backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict.
