@@ -64,7 +64,7 @@ Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.mi
 
 ## OAuth authentication
 
-Services such as Azure Databricks, HDInsight, and Azure Data Factory don't yet integrate with Azure Active Directory (Azure AD) OAuth bearer token authentication.
+Services such as HDInsight, and Azure Data Factory don't yet integrate with Azure Active Directory (Azure AD) OAuth bearer token authentication.
 
 ## Azure Event Grid
 
