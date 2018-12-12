@@ -1,5 +1,5 @@
 ---
-title: Review text in Azure Content Moderator | Microsoft Docs
+title: Review text in Azure Content Moderator - Content Moderator
 description: Learn how to review text in Content Moderator to see its score and detected tags. Use the information to detemine whether content is appropriate.
 services: cognitive-services
 author: sanjeev3
@@ -9,6 +9,7 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Review text

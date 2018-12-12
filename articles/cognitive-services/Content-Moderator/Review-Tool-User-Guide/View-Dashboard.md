@@ -1,5 +1,6 @@
 ---
-title: View the Content Moderator Dashboard | Microsoft Docs
+title: View the Content Moderator Dashboard - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: The Content Moderator Dashboard displays metrics for all content that the tool has reviewed.
 services: cognitive-services
 author: sanjeev3
@@ -9,6 +10,7 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # View Dashboard #

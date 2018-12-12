@@ -1,5 +1,6 @@
 ---
-title: Review images in Azure Content Moderator | Microsoft Docs
+title: Review tagged images - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: The review tool allows human moderators to review images.
 services: cognitive-services
 author: sanjeev3
@@ -9,6 +10,7 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/06/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Review moderated images

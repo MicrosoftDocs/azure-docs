@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Tutorial: eCommerce catalog moderation with machine learning
@@ -43,7 +44,7 @@ The tutorial guides you through these steps:
 
 ## Create a team
 
-Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team. Note the **Team ID** from the **Credentials** page.
+Follow the instructions in the [Try Content Moderator on the web](quick-start.md) quickstart to sign up for Content Moderator and create a team. Note the **Team ID** from the **Credentials** page.
 
 
 ## Define custom tags

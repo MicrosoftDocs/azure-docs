@@ -1,5 +1,5 @@
 ---
-title: Moderate images by using custom lists with the API console - Content Moderator
+title: Moderate images with custom lists and the API console - Content Moderator
 titlesuffix: Azure Content Moderator
 description: Test-drive custom image lists in the Content Moderator API console.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Moderate with custom image lists in the API console

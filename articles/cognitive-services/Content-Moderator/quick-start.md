@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get started with Content Moderator"
+title: "Quickstart: Try Content Moderator on the web - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to get started with Content Moderator.
 services: cognitive-services
@@ -11,9 +11,10 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
-# Quickstart: Get familiar with Content Moderator
+# Quickstart: Try Content Moderator on the web
 
 In this quickstart, you will use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 

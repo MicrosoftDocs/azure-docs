@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Create video reviews using .NET
@@ -31,8 +32,7 @@ This article also assumes that you are already familiar with Visual Studio and C
 
 ## Sign up for Content Moderator
 
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 
 ## Sign up for a review tool account if not completed in the previous step
 

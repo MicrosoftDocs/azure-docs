@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: overview
 ms.date: 10/22/2018
 ms.author: sajagtap
+ms.custom: seodec18
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
 
@@ -57,4 +58,4 @@ You can use the Review APIs to set up team reviews of text, image, and video con
 
 ## Next steps
 
-Follow the [Quickstart](quick-start.md) to get started using Content Moderator.
+Get started using the Content Moderator service by following the instructions in [Try Content Moderator on the web](quick-start.md).

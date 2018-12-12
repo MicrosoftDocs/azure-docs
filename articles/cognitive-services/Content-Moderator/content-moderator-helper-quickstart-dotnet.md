@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Quickstart: Helper code to return a Content Moderator client
@@ -29,7 +30,7 @@ This article assumes that you are already familiar with Visual Studio and C#.
 ## Sign up for Content Moderator services
 
 Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart to learn how you can obtain the key.
 
 ## Create your Visual Studio project
 

@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Tutorial: Facebook content moderation with Content Moderator
@@ -31,7 +32,7 @@ The following figure shows the building blocks of the solution.
 
 ## Create a Content Moderator team
 
-Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart to sign up for Content Moderator and create a team.
 
 ## Configure image moderation workflow (threshold)
 

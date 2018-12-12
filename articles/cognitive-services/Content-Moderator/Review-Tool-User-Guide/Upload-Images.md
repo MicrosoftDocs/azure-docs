@@ -1,5 +1,6 @@
 ---
-title: Upload images to Content Moderator | Microsoft Docs
+title: Upload images to Content Moderator - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Upload images in Content Moderator so that you can submit them for moderation.
 services: cognitive-services
 author: sanjeev3
@@ -9,6 +10,7 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
+ms.custom: seodec18
 ---
 
 # Upload Images #

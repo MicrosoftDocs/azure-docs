@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze text content for objectionable material in Python"
+title: "Quickstart: Analyze text content in Python - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable material using the Content Moderator SDK for Python
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: pafarley
+ms.custom: seodec18
 #As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
