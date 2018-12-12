@@ -49,7 +49,7 @@ When you select **All users**, your policy is applied to all users in the direct
 
 When you **Select users and groups**, you can set the following options:
 
-* **All guest users** targets a policy to B2B guest users. This condition matches any user account that has the **userType** attribute set to **guest**. You can use this setting when a policy needs to be applied as soon as the account is created in an invite flow in Azure AD.
+* **All guest users** targets a policy to B2B guest users. This condition matches any user account that has the **userType** attribute set to **guest**. Use this setting when a policy needs to be applied as soon as the account is created in an invite flow in Azure AD.
 
 * **Directory roles** targets a policy based on a user’s role assignment. This condition supports directory roles like **Global administrator** or **Password administrator**.
 
@@ -137,22 +137,22 @@ For more information, see [What is the location condition in Azure Active Direct
 
 By default, a conditional access policy applies to the following apps:
 
-- [Browser apps](technical-reference.md#supported-browsers) -  Browser apps include websites using the SAML, WS-Federation or OpenID Connect web SSO protocols. This also applies to any website or web service that has been registered as an OAuth confidential client. For example, the Office 365 SharePoint website. 
+- [Browser apps](technical-reference.md#supported-browsers) -  Browser apps include websites using the SAML, WS-Federation, or OpenID Connect web SSO protocols. This also applies to any website or web service that has been registered as an OAuth confidential client. For example, the Office 365 SharePoint website. 
 
-- [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients) - These apps include include the Office desktop applications and phone apps. 
+- [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients) - These apps include the Office desktop apps and phone apps. 
 
 
-In addition to these client app types, you have the option to target a policy to specific client apps that are not build using modern authentication, for example:
+Additionally, you have the option to target a policy to specific client apps that are not using modern authentication, for example:
 
-- Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks access to a client using Exchange ActiveSync, affected users get a single quarantine email that tells them why they are blocked and if required, instruct them to enroll their device with Intune.
+- Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks using Exchange ActiveSync, affected users get a single quarantine email with information on why they are blocked. If required, the email includes instructions for enrolling their device with Intune.
 
-- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP and older Office apps that are not enable for modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that are not enable for modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client apps](./media/conditions/41.png)
 
 Common use cases for this condition are policies with the following requirements:
 
-- **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download  data to a device. At the same time, allow browser access from any device. This scenario prevents saving and syncing documents to an unmanaged device and reduces reducing the chance of data loss if the device is lost or stolen.
+- **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download  data to a device. At the same time, allow browser access from any device. This scenario prevents saving and syncing documents to an unmanaged device and reduces the chance of data loss if the device is lost or stolen.
 
 - **[Require a managed device](require-managed-devices.md)** apps using ActiveSync to access Exchange Online.
 
