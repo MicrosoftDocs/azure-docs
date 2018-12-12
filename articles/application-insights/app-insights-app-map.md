@@ -88,7 +88,7 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ## Set cloud_RoleName
 
-Application Map uses the `cloud_RoleName` property to identify the components on the map.The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
+Application Map uses the `cloud_RoleName` property to identify the components on the map. The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
 
 ### .NET
 
@@ -162,11 +162,11 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### Java
 
-If you use Spring Boot with the Application Insights Spring Boot starter the only required change is to set the desired name of the application in application.properties file.
+If you use Spring Boot with the Application Insights Spring Boot starter the only required change is to set the desired name of the application in the application.properties file.
 
 `spring.application.name=<name-of-app>`
 
-The Spring Boot starter will automatically assign cloudRoleName to the value you enter for spring.application.name property.
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
 
 For further information on Java correlation and how to configure cloudRoleName for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
 
@@ -181,7 +181,7 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-For more information about how do override the `cloud_RoleName` property see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud_RoleName property with telemetry initializers see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## Troubleshooting
 
