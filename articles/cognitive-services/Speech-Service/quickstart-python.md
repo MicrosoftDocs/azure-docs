@@ -37,6 +37,14 @@ The Cognitive Services Speech SDK Python package can be installed from [PyPI](ht
 
 The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
+## Support and Updates
+
+Updates to the Speech SDK Python package will be distributed via PyPI, and announced on the [Release Notes](./releasenotes.md) page.
+If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
+You can check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+
+If you have a problem or are missing a feature, please have a look at our [support page](./support.md).
+
 ## Create a Python Application using the SDK
 
 ### Installing the Speech SDK Python Package and Running the Sample in Visual Studio Code
@@ -105,14 +113,6 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/python` folder.
-
-## Support and Updates
-
-Updates to the Speech SDK Python package will be distributed via PyPI, and announced on the [Release Notes](./releasenotes.md) page.
-If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-You can check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
-
-If you have a problem or are missing a feature, please have a look at our [support page](./support.md).
 
 ## Next steps
 
