@@ -48,7 +48,7 @@ There are two categories of permissions you can assign: access permissions and d
 
 * **Access**: Access permissions control access to an object. Files and directories both have access permissions.
 
-* **Default**: A template of permissions associated with a directory that determine the access permissions for any child items that are created under that directory. Files do not have default permissions.
+* **Default**: A template of permissions associated with a directory that determines the access permissions for any child items that are created under that directory. Files do not have default permissions.
 
 Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
 
