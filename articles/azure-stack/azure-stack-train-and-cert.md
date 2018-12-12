@@ -25,7 +25,7 @@ The following training and certification opportunities are available to help you
 
 ## Certification
 
-Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack certification exam [70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
+*Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack certification*, [Exam 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## Next steps
 
