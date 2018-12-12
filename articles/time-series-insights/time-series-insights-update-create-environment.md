@@ -85,6 +85,11 @@ Before you create an Azure Time Series Insights environment, you will need the n
 
     ![Azure portl][8]
 
+
+
+
+
+
 ## Create a Time Series Insights Preview PAYG environment
 
 This section describes how to create a Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
@@ -95,45 +100,95 @@ This section describes how to create a Time Series Insights Preview environment 
 
 1. Select the **Internet of Things** category, and then select **Time Series Insights**.
 
-  ![Select Create a resource, then select Internet of Things, and then select Time Series Insights][1]
+   ![Select Create a resource, then select Internet of Things, and then select Time Series Insights][9]
 
-1. On the **Basics** tab, enter the required parameters, and then select **Next: Event Source**
+1. Fill the fields on the page as follows:
 
-  ![The Time Series Insights environment Basics tab and the Next: Event Source button][2]
+   | | |
+   | --- | ---|
+   | **Environment name** | Choose a unique name for the Azure Time Series Insights Preview environment. |
+   | **Subscription** | Enter your subscription where you want to create the Azure Time Series Insights Preview environment. It is a best practice to use the same subscription as the rest of your IoT resources created by the device simulator. |
+   | **Resource Group** | A resource group is a container for Azure resources. Choose an existing resource group, or create a new one, for the Azure Time Series Insights Preview environment resource. It is a best practice to use the same resource group as the rest of your IoT resources created by the device simulator. |
+   | **Location** | Choose a data center region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to keep the Azure Time Series Insights Preview environment in the same region as other IoT resources. |
+   | **Tier** |  Select `PAYG` which stands for pay-as-you-go. This is the SKU for Azure Time Series Insights Preview product. |
+   | **Property ID** | Property Id uniquely identifies your time series. Please not that this field is immutable and cannot be changed later. For this tutorial set the field to `iothub-connection-device-id`. To learn more about Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
+   | **Storage Account Name** | Enter a global unique name for a new storage account to be created. |
 
-1. On the **Event Source** tab, enter the required parameters, and then select **Review + Create**.
+   After filling in the fields above, click **Next: Event Source**.
 
-  ![The Event Source tab and the Review + Create button][3]
+   ![Click Next: Event Source][10]
 
-1. On the **Summary** tab, review all the details, and then select **Create** to start provisioning your environment.
+1. On the page, fill the fields as follows:
 
-  ![The Summary tab and the Create button][4]
+   | | |
+   | --- | --- |
+   | **Create an Event Source?** | Enter `Yes`|
+   | **Name** | Requires a unique value, which is used to name the event source.|
+   | **Source Type** | Enter `IoT Hub` |
+   | **Select a Hub?** | Enter `Select Existing` |
+   | **Subscription** | Enter the subscription that you used for device simulator. |
+   | **IoT Hub name** | Enter the IoT hub name that you created for device simulator. |
+   | **IoT Hub access policy** | Enter `iothubowner` |
+   | **Iot Hub consumer group** | You need a unique consumer group for an Azure Time Series Insights Preview. |
+   | **Timestamp** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, do not fill the field. This simulator uses the incoming timestamp from IoT Hub which Time Series Insights defaults to.|
 
-1. When deployment is successful, a notification appears.
+   To create create a unique consumer group:
 
-  ![Deployment succeeded notification][5]
+   1. Click **New** next to the **IoT Hub consumer group** field:
 
-## Send events to your Time Series Insights environment
+      ![Click Next: Event Source][11]
 
-In this section, you use a windmill device simulator to send events to your Time Series Insights environment via an event hub.
+   1. Give the consumer group a unique name and click **Add**:
 
-  1. In the Azure portal, go to your event hub resource and connect it to your Time Series Insights environment. To learn how, see [Connect your resource to an existing event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+      ![Click Add][12]
 
-  1. On the event hub resource page, go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection string-primary key**.
+   After filling out the fields above, click **Review + Create**.
 
-      ![Copy the value for the primary key connection string][6]
 
-  1. Go to [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html). This web app at the URL simulates windmill devices.
 
-  1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the preceding step.
 
-      ![Paste the primary key connection string in the Event Hub Connection String box][7]
 
-  1. Select **Click to start** to push events to your event hub. A file named *instances.json* is downloaded to your computer. Save this file to use later.
 
-  1. Go back to your event hub in the Azure portal. On the event hub **Overview** page, new events that are being received by the event hub are shown.
 
-     ![An event hub Overview page that shows metrics for the event hub][8]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Analyze data in your environment
 
@@ -141,23 +196,23 @@ In this section, you perform basic analytics on your time series data by using t
 
   1. Go to your Time Series Insights update explorer by clicking on the URL from the resource page in the Azure portal.
 
-      ![The Time Series Insights explorer URL][9]
+      ![The Time Series Insights explorer URL][]
 
   1. In the explorer, under **Physical Hierarchy**, select the **Unparented Instances** nodes to see all the time series instances in the environment.
 
-     ![List of unparented instances in the Physical Hierarchy pane][10]
+     ![List of unparented instances in the Physical Hierarchy pane][]
 
   1. In this tutorial, we analyze data that was sent over the past day. Select **Quick Times**, and then select **Last 24 Hours**.
 
-     ![In the Quick Times drop-down box, select Last 24 Hours][11]
+     ![In the Quick Times drop-down box, select Last 24 Hours][]
 
   1. Select **Sensor_0**, and then select **Show Avg Value** to visualize data being sent from this Time Series Insights instance.
 
-     ![Select Show Avg Value for Sensor_0][12]
+     ![Select Show Avg Value for Sensor_0][]
 
   1. Similarly, you can plot data that comes from other Time Series Insights instances to perform basic analytics.
 
-     ![A Time Series Insights data plot][13]
+     ![A Time Series Insights data plot][]
 
 ## Define a type and hierarchy 
 
@@ -165,51 +220,55 @@ In this section, you author a type and hierarchy, and then associate the type an
 
   1. In the explorer, select the **Model** tab.
 
-     ![The Model tab in the explorer menu][14]
+     ![The Model tab in the explorer menu][]
 
   1. In the **Types** section, select **Add** to create a new Time Series Model type.
 
-     ![The Add button on the Types page][15]
+     ![The Add button on the Types page][]
 
   1. In the type editor, enter values for **Name** and **Description**. Create variables for **Average**, **Min**, and **Max** values as shown in the following figures. Select **Create** to save the type.
 
-     ![The Add a Type pane and the Create button][16]
+     ![The Add a Type pane and the Create button][]
 
-     ![The Windmill sample types][17]
+     ![The Windmill sample types][]
 
   1. In the **Hierarchies** section, select **Add** to create a new Time Series Model hierarchy.
 
-     ![The Add button on the Hierarchies page][18]
+     ![The Add button on the Hierarchies page][]
 
   1. In the hierarchy editor, enter a value for **Name** and add hierarchy levels. Select **Create** to save the hierarchy.
 
-     ![The Add a Hierarchy pane and the Create button][19]
+     ![The Add a Hierarchy pane and the Create button][]
 
-     ![The Physical Hierarchy box][20]
+     ![The Physical Hierarchy box][]
 
   1. In the **Instances** section, select an instance, and then select **Edit** to associate a type and hierarchy with this instance.
 
-     ![List of instances][21]
+     ![List of instances][]
 
   1. In the instance editor, select the type and hierarchy that you defined in steps 3 and 5.
 
-     ![The Edit an Instance pane][22]
+     ![The Edit an Instance pane][]
 
   1. Alternatively, to select the type and hierarchy for all instances at once, you can edit the *instances.json* file that was downloaded earlier. In this file, replace all **typeId** and **hierarchyId** fields with the ID obtained in steps 3 and 5.
 
   1. In the **Instances** section, select **Upload JSON** and upload the edited *instances.json* file.
 
-     ![The Upload JSON button][23]
+     ![The Upload JSON button][]
 
   1. Select the **Analytics** tab and refresh your browser. All the instances associated with the type and hierarchy that you defined should appear.
 
-     ![A Time Series Insights data plot][24]
+     ![A Time Series Insights data plot][]
+
+
+
 
 ## Next steps
 
 In this tutorial, you learned how to:  
 
-* Create a Time Series Insights Preview environment.
+* Create and use a device simulation accelerator.
+* Create an Azure Time Series Insights Preview PAYG environment.
 * Connect the Time Series Insights Preview environment to an event hub.
 * Run a wind farm simulation to stream data to the Time Series Insights Preview environment.
 * Perform a basic analysis of the data.
@@ -236,3 +295,8 @@ Learn more about Time Series Models:
 [6]: media/v2-update-provision/device-six-dashboard.png
 [7]: media/v2-update-provision/device-six-listings.png
 [8]: media/v2-update-provision/device-eight-portal.png
+
+[9]: media/v2-update-provision/payg-one-azure.png
+[10]: media/v2-update-provision/payg-two-create.png
+[11]: media/v2-update-provision/payg-three-new.png
+[12]: media/v2-update-provision/payg-four-add.png
