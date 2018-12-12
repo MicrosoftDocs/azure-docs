@@ -87,7 +87,7 @@ Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 
 If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
-For the best debugging performance if you will only be creating and running a single Service Fabric app at a time, we recommend creating a single-node local development cluster. If you are running multiple applications at a time, create a five-node local development cluster. The cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
+For the best debugging performance when you are creating and running a single Service Fabric app at a time, create a single-node local development cluster. If you are running multiple applications at a time, create a five-node local development cluster. The cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
 After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a development cluster.
 
