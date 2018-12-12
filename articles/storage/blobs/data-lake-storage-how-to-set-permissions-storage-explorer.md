@@ -12,11 +12,11 @@ ms.date: 12/11/2018
 ms.author: rogarana
 ---
 
-# How to: Set file and directory level permissions using Azure Storage Explorer
+# How to: Set file and directory level permissions using Azure Storage Explorer on a Azure Data Lake Storage Gen2 (Preview) capable account
 
-Files stored in a storage account, that has the hierarchical namespace enabled, support fine grained permissions and access control list management. These new additions from Azure Data Lake Storage Gen2 allow you to control access to your data and information at lower levels.
+Files stored in a storage account that has the hierarchical namespace enabled support fine grained permissions and access control list (ACL) management. These new additions from Azure Data Lake Storage Gen2 allow you to control access to your data and information at lower levels.
 
-In article, you learn how to use Azure Storage Explorer to:
+In this article, you learn how to use Azure Storage Explorer to:
 
 > [!div class="checklist"]
 > * Set file level permissions
@@ -33,33 +33,33 @@ You can set permissions at the root of your filesystem. To do so, right-click yo
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-The **Manage Access** dialog box pt allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
+The **Manage Access** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
 To add a new user or group to the access control list, select the **Add user or group** box.
 
-Enter the corresponding Azure Active Directory entry you wish to add to the list, then select **Add**.
+Enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.
 
 The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
 > [!NOTE]
 > It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [best practices for Data Lake Storage Gen2](data-lake-storage-best-practices.md).
 
-There are two categories of permissions you can assign: access permissions and default permissions.
+There are two categories of permissions you can assign: access ACLs and default ACLs.
 
-* **Access**: Access permissions control access to an object. Files and directories both have access permissions.
+* **Access**: Access ACLs control access to an object. Files and directories both have access ACLs.
 
-* **Default**: A template of permissions associated with a directory that determines the access permissions for any child items that are created under that directory. Files do not have default permissions.
+* **Default**: A template of ACLs associated with a directory that determines the access ACLs for any child items that are created under that directory. Files do not have default ACLs.
 
 Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
 
 >[!NOTE]
-> Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if it already exists.
+> Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if the file already exists.
 
-You can manage permissions on individual directories as well as individual files, which is what allows you fine grained access control. The process for managing permissions on directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on, and follow the same process.
+You can manage permissions on individual directories, as well as individual files, which is what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
 
 ## Next steps
 
-In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn about permissions, including default permissions, access permissions, and their behavior, continue to our conceptual article on the subject.
+In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn about ACLs, including default ACLs, access ACLs, their behavior, and their corresponding permissions, continue to our conceptual article on the subject.
 
 > [!div class="nextstepaction"]
 > [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
