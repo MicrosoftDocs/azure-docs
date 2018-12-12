@@ -30,7 +30,7 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.0.83**.
+The Azure Stack 1811 update build number is **1.1811.0.87**.
 
 ## Hotfixes
 
