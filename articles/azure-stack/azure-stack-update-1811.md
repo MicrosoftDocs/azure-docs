@@ -103,6 +103,8 @@ This update includes the following improvements for Azure Stack:
 
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
 
+- Managed Disks is now enabled by default when creating virtual machines using Azure Stack portal.
+
 ## Fixed issues
 
 <!-- TBD - IS ASDK --> 
@@ -253,6 +255,21 @@ The following are post-installation known issues for this build version.
 - When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page doesn't show metrics data.
 
    To find metrics data, such as the CPU Percentage chart for the VM, go to the Metrics window and show all the supported Windows VM guest metrics.
+
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
+
+   - For quotas created before the 1808 update, the Managed Disks quota will show 0 values in the Administrator portal, although 2048 GiB is allocated. You can increase or decrease the value based on your actual needs, and the newly set quota value overrides the 2048 GiB default.
+   - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
+
+<!-- TBD - IS ASDK --> 
+- After applying the 1811 update, you might encounter the following issues when deploying VMs with Managed Disks:
+
+   1. If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+   
 
 ### Networking  
 
