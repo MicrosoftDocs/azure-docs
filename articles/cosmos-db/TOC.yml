@@ -253,7 +253,7 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-sql-query-metrics.md
+          href: sql-api-query-metrics.md
         - name : Server-side programming
           items:
           - name: Write stored procedures, triggers and user-defined functions
