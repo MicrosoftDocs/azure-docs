@@ -87,7 +87,7 @@ Azure Event Grid provides several features that vastly improve serverless, ops a
 
 ### Serverless application architectures
 
-![Serverless application architecture](./media/overview/serverless_web_app.png[)](http://azure.com/integration)
+![Serverless application architecture](./media/overview/serverless_web_app.png)
 
 Event Grid connects data sources and event handlers. For example, use Event Grid to trigger a serverless function that analyzes images when added to a blob storage container. 
 
