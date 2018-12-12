@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc
+ms.custom: mvc seodec18
 ms.date: 11/15/2017
 ---
 

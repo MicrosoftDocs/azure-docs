@@ -1,5 +1,5 @@
 ---
-title: Understand the deployment sequence in Azure Blueprints
+title: Understand the deployment sequence order
 description: Learn about the life-cycle that a blueprint goes through and details about each stage.
 services: blueprints
 author: DCtheGeek
@@ -8,6 +8,7 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
 # Understand the deployment sequence in Azure Blueprints
 

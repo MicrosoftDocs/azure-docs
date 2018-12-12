@@ -22,7 +22,7 @@ Azure Machine Learning service is a cloud service that you can use to train, dep
 
 Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. By using machine learning, computers learn without being explicitly programmed.
 
-Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've purchased. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
+Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've . Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
 ## What is Azure Machine Learning service?
 
@@ -46,7 +46,7 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 
 ## What can I do with Azure Machine Learning service?
 
-Azure Machine Learning service can auto-train a model and auto-tune it for you.
+Azure Machine Learning service can autotrain a model and autotune it for you.
 For an example, see [Train a regression model with automated machine learning](tutorial-auto-train-models.md).
 
 By using the Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service workspace.
@@ -78,10 +78,9 @@ Use Machine Learning service if you work in a Python environment, you want more 
 
 ## Free trial
 
->[!Note]
->If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
-You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credits every month that you can use for paid Azure services.
+You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Or you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credits every month that you can use for paid Azure services.
 
 ## Next steps
 
@@ -89,7 +88,7 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 - Follow the full-length tutorial, [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
-- [Use Azure Machine Learning to autogenerate and auto-tune a model](tutorial-auto-train-models.md).
+- [Use Azure Machine Learning to autogenerate and autotune a model](tutorial-auto-train-models.md).
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 

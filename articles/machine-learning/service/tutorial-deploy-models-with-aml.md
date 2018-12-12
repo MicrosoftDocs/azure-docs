@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part two of a two-part series.
+description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # Tutorial (part 2): Deploy an image classification model in Azure Container Instances
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace in the cloud.  
+This tutorial is the second of a two-part tutorial series. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
 Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
@@ -27,14 +27,14 @@ In this part of the tutorial, you use Azure Machine Learning service for the fol
 > * Set up your testing environment.
 > * Retrieve the model from your workspace.
 > * Test the model locally.
-> * Deploy the model to Azure Container Instances.
+> * Deploy the model to Container Instances.
 > * Test the deployed model.
 
-Azure Container Instances isn't ideal for production deployments. But it's great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
+Container Instances isn't ideal for production deployments, but it's great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [how to deploy and where](how-to-deploy-and-where.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter Notebooks server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook, either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -43,7 +43,7 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 
 ## Prerequisites
 
-Do the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) notebook.  
+Do the model training in the following notebook: [Tutorial (part 1): Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).  
 
 
 ## Set up the environment
@@ -167,23 +167,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![Confusion matrix](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Chart showing confusion matrix](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## Deploy as a web service
 
-After you've tested the model and you're satisfied with the results, deploy the model as a web service hosted in Azure Container Instances. 
+After you've tested the model and you're satisfied with the results, deploy the model as a web service hosted in Container Instances. 
 
-To build the correct environment for Azure Container Instances, provide the following components:
+To build the correct environment for Container Instances, provide the following components:
 * A scoring script to show how to use the model.
 * An environment file to show what packages need to be installed.
-* A configuration file to build Azure Container Instances.
+* A configuration file to build the container instance.
 * The model you trained previously.
 
 <a name="make-script"></a>
 
 ### Create the scoring script
 
-Create the scoring script, called **score.py**, used by the web service call to show how to use the model.
+Create the scoring script, called **score.py**. The web service call uses this script to show how to use the model.
 
 You must include two required functions into the scoring script:
 * The `init()` function, which typically loads the model into a global object. This function is run only once when the Docker container is started. 
@@ -218,7 +218,7 @@ def run(raw_data):
 
 ### Create an environment file
 
-Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to ensure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`:
+Next create an environment file, called **myenv.yml**, that specifies all of the script's package dependencies. This file is used to make sure that all of those dependencies are installed in the Docker image. This model needs `scikit-learn` and `azureml-sdk`:
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
@@ -238,7 +238,7 @@ with open("myenv.yml","r") as f:
 
 ### Create a configuration file
 
-Create a deployment configuration file and specify the number of CPUs and gigabytes of RAM needed for your Azure Container Instances container. Although it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you need more later, you have to re-create the image and redeploy the service.
+Create a deployment configuration file and specify the number of CPUs and gigabytes of RAM needed for your Container Instances container. Although it depends on your model, the default of 1 core and 1 gigabyte of RAM is sufficient for many models. If you need more later, you have to re-create the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -249,18 +249,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### Deploy in Azure Container Instances
+### Deploy in Container Instances
 The estimated time to finish deployment is **about seven to eight minutes**.
 
 Configure the image and deploy. The following code goes through these steps:
 
 1. Build an image by using the following files:
-   * The scoring file, `score.py`
-   * The environment file, `myenv.yml`
-   * The model file
+   * The scoring file, `score.py`.
+   * The environment file, `myenv.yml`.
+   * The model file.
 1. Register the image under the workspace. 
-1. Send the image to the Azure Container Instances container.
-1. Start up a container in Azure Container Instances by using the image.
+1. Send the image to the Container Instances container.
+1. Start up a container in Container Instances by using the image.
 1. Get the web service HTTP endpoint.
 
 
@@ -283,7 +283,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Get the scoring web service's HTTP endpoint, which accepts REST client calls. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application: 
+Get the scoring web service's HTTP endpoint, which accepts REST client calls. You can share this endpoint with anyone who wants to test the web service or integrate it into an application: 
 
 ```python
 print(service.scoring_uri)
@@ -292,10 +292,10 @@ print(service.scoring_uri)
 
 ## Test the deployed service
 
-Earlier you scored all the test data with the local version of the model. Now you can test the deployed model with a random sample of 30 images from the test data.  
+Earlier, you scored all the test data with the local version of the model. Now you can test the deployed model with a random sample of 30 images from the test data.  
 
 The following code goes through these steps:
-1. Send the data as a JSON array to the web service hosted in Azure Container Instances. 
+1. Send the data as a JSON array to the web service hosted in Container Instances. 
 
 1. Use the SDK's `run` API to invoke the service. You can also make raw calls by using any HTTP tool such as **curl**.
 
@@ -337,6 +337,7 @@ plt.show()
 ```
 
 This result is from one random sample of test images:
+![Graphic showing results](./media/tutorial-deploy-models-with-aml/results.png)
 
 ![Results](./media/tutorial-deploy-models-with-aml/results.png)
 
@@ -366,7 +367,7 @@ print("prediction:", resp.text)
 
 ## Clean up resources
 
-To keep the resource group and workspace for other tutorials and exploration, you can delete only the Azure Container Instances deployment by using this API call:
+To keep the resource group and workspace for other tutorials and exploration, you can delete only the Container Instances deployment by using this API call:
 
 ```python
 service.delete()
@@ -377,13 +378,4 @@ service.delete()
 
 ## Next steps
 
-In this Azure Machine Learning service tutorial, you used Python for the following tasks:
-
-> [!div class="checklist"]
-> * Set up your testing environment.
-> * Retrieve the model from your workspace.
-> * Test the model locally.
-> * Deploy the model to Azure Container Instances.
-> * Test the deployed model.
- 
-You can also try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial to see how Azure Machine Learning service can auto-select and tune the best algorithm for your model and build that model for you.
+See how Azure Machine Learning service can autoselect and tune the best algorithm for your model and build that model for you. Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 
