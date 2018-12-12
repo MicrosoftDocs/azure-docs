@@ -1,5 +1,5 @@
 ---
-title: Create, manage Azure SQL Managed Instance | Microsoft Docs
+title: Management API reference for Azure SQL Managed Instance | Microsoft Docs
 description: Learn about creating and managing Azure SQL Database Managed Instances.
 services: sql-database
 ms.service: sql-database
@@ -13,9 +13,9 @@ ms.reviewer:
 manager: craigg
 ms.date: 12/03/2018
 ---
-# Create and manage Azure SQL Database Managed Instances
+# Management API reference for Azure SQL Database Managed Instances
 
-You can create and manage Azure SQL Database Managed Instances using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
+You can create and manage Azure SQL Database Managed Instances using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL. In this article you cna find an overview of functions and API that you cna use to create and configure Managed Instance.
 
 ## Azure portal: Create a Managed Instance
 
