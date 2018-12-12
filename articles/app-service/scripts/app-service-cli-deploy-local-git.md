@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository | Microsoft Docs
+title: Azure CLI Script Sample - Create app and deploy code from local Git repo | Microsoft Docs
 description: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web
 documentationcenter: 

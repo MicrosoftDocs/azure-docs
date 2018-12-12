@@ -32,7 +32,7 @@ sections:
   - 
     items: 
       - 
-        text: "Learn how to quickly set up and use Azure Machine Learning service:"
+        text: "Get set up and start using Azure Machine Learning service:"
         type: paragraph
       - 
         text: "<b>Quickstarts:</b>"
@@ -51,7 +51,7 @@ sections:
       - 
         items: 
           - 
-            html: "Part 1: <a href=\"service/tutorial-train-models-with-aml\">Train your own machine learning model</a>"
+            html: "Part 1: <a href=\"service/tutorial-train-models-with-aml\">Train your own  model</a>"
           - 
             html: "Part 2: <a href=\"service/tutorial-deploy-models-with-aml\">Deploy that model</a>"
         style: unordered
@@ -62,9 +62,9 @@ sections:
       - 
         items: 
           - 
-            html: "Part 1: <a href=\"service/tutorial-data-prep\">Prepare NYC taxi data for modeling</a>"
+            html: "Part 1: <a href=\"service/tutorial-data-prep\">Prepare data for modeling</a>"
           - 
-            html: "Part 2: <a href=\"service/tutorial-auto-train-models\">Use automated machine learning to build models</a>"
+            html: "Part 2: <a href=\"service/tutorial-auto-train-models\">Let automated ML train models for you</a>"
         style: unordered
         type: list
       - 
@@ -93,7 +93,7 @@ sections:
             title: "Cognitive Services"
           - 
             href: /azure/machine-learning/studio/
-            html: "<p>Learn how this collaborative, drag-and-drop tool can be used to build, test, and deploy predictive analytics solutions on your data. Learn more...       </p>"
+            html: "<p>A collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data with R or Python. </p>"
             image: 
               src: /azure/machine-learning/media/index/machine-learning-studio.svg
             title: "Azure Machine Learning Studio"

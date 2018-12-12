@@ -13,7 +13,7 @@ ms.component: alerts
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, [custom metrics](../../monitoring-and-diagnostics/metrics-custom-overview.md), [popular logs from Log Analytics converted to metrics](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be platform metrics, [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md), [popular logs from Log Analytics converted to metrics](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), Application Insights standard metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 ## How do metric alerts work
 

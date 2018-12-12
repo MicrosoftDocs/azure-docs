@@ -23,7 +23,7 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 
 * Choose the **scale by** metric.
 
-![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
+![scale by](./media/autoscale-webhook-email/insights-autoscale-notify.png)
 
 ## Virtual Machine scale sets
 For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
