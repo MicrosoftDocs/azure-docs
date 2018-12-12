@@ -71,9 +71,10 @@ Following steps describe how you can set the blob tier to Archive.
 
     `$blob.icloudblob.setstandardblobtier("Archive")`
 
-> ![BEST PRACTICE TIP]
+> [!TIP]
 > If you want the data to archive on ingest, set the default account tier to Hot. If the default tier is Cool, then there is a 30-day early deletion penalty if the data moves to Archive immediately.
 
 ## Next steps
 
-- Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
+-  Learn how to address the [common data tiering scenarios with lifecycle policy rules](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
+
