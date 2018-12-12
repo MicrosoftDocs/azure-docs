@@ -1,5 +1,5 @@
 ---
-title: Configure web apps in Azure App Service
+title: Configure web apps - Azure App Service
 description: How to configure a web app in Azure App Services
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Configure web apps in Azure App Service
