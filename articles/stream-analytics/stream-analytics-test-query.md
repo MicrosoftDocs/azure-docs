@@ -4,7 +4,7 @@ description: How to test your queries in Stream Analytics jobs.
 keywords: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 manager: kfile
 ms.service: stream-analytics

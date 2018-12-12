@@ -19,7 +19,7 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 ## Prerequisites
 
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
-* **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Required NuGet Packages**
 
 ### Install NuGet packages

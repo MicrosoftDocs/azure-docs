@@ -2,7 +2,7 @@
 title: What is Apache Storm - Azure HDInsight 
 description: Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm use cases,storm cluster,what is apache storm
 
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # What is Apache Storm on Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
+[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with [Apache Hadoop](https://hadoop.apache.org/). Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-## Why use Storm on HDInsight?
+## Why use Apache Storm on HDInsight?
 
 Storm on HDInsight provides the following features:
 
@@ -40,15 +40,15 @@ Storm on HDInsight provides the following features:
 
 * **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Store.
 
-    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Apache Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-To get started using Storm, see [Get started with Storm on HDInsight][gettingstarted].
+To get started using Storm, see [Get started with pache Storm on HDInsight][gettingstarted].
 
-## How does Storm work
+## How does Apache Storm work
 
-Storm runs topologies instead of the MapReduce jobs that you might be familiar with. Storm topologies are composed of multiple components that are arranged in a directed acyclic graph (DAG). Data flows between the components in the graph. Each component consumes one or more data streams, and can optionally emit one or more streams. The following diagram illustrates how data flows between components in a basic word-count topology:
+Storm runs topologies instead of the [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  jobs that you might be familiar with. Storm topologies are composed of multiple components that are arranged in a directed acyclic graph (DAG). Data flows between the components in the graph. Each component consumes one or more data streams, and can optionally emit one or more streams. The following diagram illustrates how data flows between components in a basic word-count topology:
 
 ![Example of how components are arranged in a Storm topology](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
 
@@ -60,7 +60,7 @@ Storm runs topologies instead of the MapReduce jobs that you might be familiar w
 
 Apache Storm guarantees that each incoming message is always fully processed, even when the data analysis is spread over hundreds of nodes.
 
-The Nimbus node provides functionality similar to the Hadoop JobTracker, and it assigns tasks to other nodes in a cluster through Zookeeper. Zookeeper nodes provide coordination for a cluster and facilitate communication between Nimbus and the Supervisor process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
+The Nimbus node provides functionality similar to the Apache Hadoop JobTracker, and it assigns tasks to other nodes in a cluster through [Apache ZooKeeper](https://zookeeper.apache.org/). Zookeeper nodes provide coordination for a cluster and facilitate communication between Nimbus and the Supervisor process on the worker nodes. If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.
 
 The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
 
@@ -78,7 +78,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Web connectivity__: All HDInsight clusters provide the Ambari web UI. You can easily monitor, configure, and manage services on your cluster by using the Ambari web UI. Storm clusters also provide the Storm UI. You can monitor and manage running Storm topologies from your browser by using the Storm UI.
 
-  For more information, see the [Manage HDInsight using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documents.
+  For more information, see the [Manage HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Apache Storm UI](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documents.
 
 * __Azure PowerShell and Azure Classic CLI__: PowerShell and classic CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
@@ -92,11 +92,11 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Event Hubs__: For an example of using Event Hubs with a Storm cluster, see the following examples:
 
-    * [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
+    * [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 
-    * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
+    * [Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Database__, __Cosmos DB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
+* __SQL Database__, __Cosmos DB__, __Event Hubs__, and __HBase__: Template examples are included in the Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Apache Storm on HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## Support
 
@@ -116,23 +116,23 @@ The following are some common scenarios for which you might use Storm on HDInsig
 * Search
 * Mobile engagement
 
-For information about real-world scenarios, see the [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) document.
+For information about real-world scenarios, see the [How companies are using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) document.
 
 ## Development
 
 .NET developers can design and implement topologies in C# by using Data Lake Tools for Visual Studio. You can also create hybrid topologies that use Java and C# components.
 
-For more information, see [Develop C# topologies for Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+For more information, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
-You can also develop Java solutions by using the IDE of your choice. For more information, see [Develop Java topologies for Storm on HDInsight](apache-storm-develop-java-topology.md).
+You can also develop Java solutions by using the IDE of your choice. For more information, see [Develop Java topologies for Apache Storm on HDInsight](apache-storm-develop-java-topology.md).
 
-Python can also be used to develop Storm components. For more information, see [Develop Storm topologies using Python on HDInsight](apache-storm-develop-python-topology.md).
+Python can also be used to develop Storm components. For more information, see [Develop Apache Storm topologies using Python on HDInsight](apache-storm-develop-python-topology.md).
 
 ## Common development patterns
 
 ### Guaranteed message processing
 
-Apache Storm can provide different levels of guaranteed message processing. For example, a basic Storm application can guarantee at-least-once processing, and Trident can guarantee exactly once processing.
+Apache Storm can provide different levels of guaranteed message processing. For example, a basic Storm application can guarantee at-least-once processing, and [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) can guarantee exactly once processing.
 
 For more information, see [Guarantees on data processing](https://storm.apache.org/about/guarantees-data-processing.html) at apache.org.
 
@@ -166,13 +166,13 @@ For an example of calculating a top N value, see the [RollingTopWords](https://g
 
 ## Logging
 
-Storm uses Apache Log4j to log information. By default, a large amount of data is logged, and it can be difficult to sort through the information. You can include a logging configuration file as part of your Storm topology to control logging behavior.
+Storm uses [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) to log information. By default, a large amount of data is logged, and it can be difficult to sort through the information. You can include a logging configuration file as part of your Storm topology to control logging behavior.
 
 For an example topology that demonstrates how to configure logging, see [Java-based WordCount](apache-storm-develop-java-topology.md) example for Storm on HDInsight.
 
 ## Next steps
 
-Learn more about real-time analytics solutions with Storm on HDInsight:
+Learn more about real-time analytics solutions with Apache Storm on HDInsight:
 
 * [Get started with Apache Storm on HDInsight][gettingstarted]
 * [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)

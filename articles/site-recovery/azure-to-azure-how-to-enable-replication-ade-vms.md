@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
 
 ---
@@ -101,7 +101,7 @@ You can modify the default target settings used by Site Recovery.
 
 1. Click **Customize:** next to 'Target subscription' to modify the default target subscription. Select the subscription from the list of all the subscriptions available in the same Azure Active Directory (AAD) tenant.
 
-2. Click **Customize:** next to 'Resource group, Storage, Network, and Availability sets to modify the below default settings:
+2. Click **Customize:** next to 'Resource group, Network, Storage and Availability sets to modify the below default settings:
 	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
 	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
 	- In **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.

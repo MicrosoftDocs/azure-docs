@@ -32,7 +32,7 @@ This example uses AzureRM PowerShell cmdlets and a template stored on GitHub. Th
 >[!NOTE]
 >Before you try this example, make sure that you've [configured PowerShell](azure-stack-powershell-configure-user.md) for an Azure Stack user.
 
-1. Go to [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub) and find the **101-simple-windows-vm** template. Save the template to this location: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+1. Go to [http://aka.ms/AzureStackGitHub](https://aka.ms/AzureStackGitHub) and find the **101-simple-windows-vm** template. Save the template to this location: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
 2. Open an elevated PowerShell command prompt.
 3. Replace *username* and *password* in the following script with your username and password, and then run the script.
 

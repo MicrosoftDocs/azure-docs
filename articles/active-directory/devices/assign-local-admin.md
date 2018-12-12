@@ -91,9 +91,9 @@ Starting with the **Windows 10 1709** release, you can do perform this task from
  
 Additionally, you can also add users using the command prompt:
 
-- If your tenant users are synchronized from on-premises Active Directory, use `net localgroup administrators /add “Contoso\username”`.
+- If your tenant users are synchronized from on-premises Active Directory, use `net localgroup administrators /add "Contoso\username"`.
 
-- If your tenant users are created in Azure AD, use `net localgroup administrators /add “AzureAD\UserUpn”`
+- If your tenant users are created in Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## Considerations 

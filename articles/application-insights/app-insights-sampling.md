@@ -5,17 +5,14 @@ services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-
 ---
 # Sampling in Application Insights
 
@@ -31,7 +28,7 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 * You can also set sampling manually, either in the portal on the Usage and estimated costs page; or in the ASP.NET SDK in the .config file; or in the Java SDK in the ApplicationInsights.xml file, to also reduce the network traffic.
 * If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". When sampling is not in operation, `itemCount==1`.
-* If you write Analytics queries, you should [take account of sampling](../log-analytics/query-language/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
+* If you write Analytics queries, you should [take account of sampling](../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 
 ## Types of sampling
 There are three alternative sampling methods:

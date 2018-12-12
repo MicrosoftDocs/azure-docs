@@ -73,6 +73,18 @@ The policy with remaining call count of 0 is the one due to which the throttling
 
 As illustrated above, every throttling error includes the `Retry-After` header, which provides the minimum number of seconds the client should wait before retrying the request. 
 
+## API call rate and throttling error analyzer
+A preview version of a troubleshooting feature is available for the Compute resource provider’s API. These PowerShell cmdlets provide statistics about API request rate per time interval per operation and throttling violations per operation group (policy):
+-	[Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-	[Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+The API call stats can provide great insight into the behavior of a subscription’s client(s) and enable easy identification of call patterns that cause throttling.
+
+A limitation of the analyzer for the time being is that it does not count requests for disk and snapshot resource types (in support of managed disks). Since it gathers data from CRP’s telemetry, it also cannot help in identifying throttling errors from ARM. But those can be identified easily based on the distinctive ARM response headers, as discussed earlier.
+
+The PowerShell cmdlets are using a REST service API, which can be easily called directly by clients (though with no formal support yet). To see the HTTP request format, run the cmdlets with -Debug switch or snoop on their execution with Fiddler.
+
+
 ## Best practices 
 
 - Do not retry Azure service API errors unconditionally and/or immediately. A common occurrence is for client code to get into a rapid retry loop when encountering an error that’s not retry-able. Retries will eventually exhaust the allowed call limit for the target operation’s group and impact other clients of the subscription. 

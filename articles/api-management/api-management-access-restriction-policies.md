@@ -17,7 +17,7 @@ ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management access restriction policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Access restriction policies  
   
@@ -66,7 +66,7 @@ This topic provides a reference for the following API Management policies. For i
 |ignore-case|Can be set to True or False. If set to True case is ignored when the header value is compared against the set of acceptable values.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound  
   
@@ -121,13 +121,17 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
   
 -   **Policy scopes:** product  
   
 ##  <a name="LimitCallRateByKey"></a> Limit call rate by key  
+
+> [!IMPORTANT]
+> This feature is unavailable in the **Consumption** tier of API Management.
+
  The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.  
   
  For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -176,7 +180,7 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
   
@@ -219,7 +223,7 @@ This topic provides a reference for the following API Management policies. For i
 |ip-filter action="allow &#124; forbid"|Specifies whether calls should be allowed or not for the specified IP addresses and ranges.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** global, product, API, operation  
@@ -274,12 +278,16 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
+
+> [!IMPORTANT]
+> This feature is unavailable in the **Consumption** tier of API Management.
+
  The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call limit is reached, the caller receives a `403 Forbidden` response status code.
   
  For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -331,7 +339,7 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** global, product, API, operation  
@@ -501,7 +509,7 @@ This topic provides a reference for the following API Management policies. For i
 |url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** global, product, API, operation  

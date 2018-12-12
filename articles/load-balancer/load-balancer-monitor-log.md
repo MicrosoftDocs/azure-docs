@@ -1,16 +1,14 @@
 ---
-title: Monitor operations, events, and counters for public Basic Load Balancer | Microsoft Docs
+title: Monitor operations, events, and counters for public Basic Load Balancer
+titlesuffix: Azure Load Balancer
 description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-
-ms.assetid: 56656d74-0241-4096-88c8-aa88515d676d
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
@@ -142,7 +140,7 @@ You need to connect to your storage account and retrieve the JSON log entries fo
 
 ## Additional resources
 
-* [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+* [Visualize your Azure Audit Logs with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
 * [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
 ## Next steps

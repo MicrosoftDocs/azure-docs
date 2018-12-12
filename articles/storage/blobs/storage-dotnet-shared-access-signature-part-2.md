@@ -587,5 +587,5 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 * [Shared Access Signatures, Part 1: Understanding the SAS Model](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
-* [Delegating access with a shared access signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Delegating access with a shared access signature (REST API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Introducing Table and Queue SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

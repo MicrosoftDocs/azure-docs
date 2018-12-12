@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Approved VM images
+title: Sample - Approved VM images
 description: This sample policy requires that only approved custom images are deployed in your environment.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Approved VM images
 

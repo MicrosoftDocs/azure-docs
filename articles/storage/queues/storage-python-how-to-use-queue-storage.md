@@ -41,7 +41,7 @@ pip install azure-storage-queue
 > 
 > 
 
-For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
+For alternative installation methods, visit the [Azure Storage SDK for Python on GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## How To: Create a Queue
 The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Storage:
@@ -149,7 +149,7 @@ Now that you've learned the basics of Queue storage, follow these links
 to learn more.
 
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage Team Blog]
 * [Microsoft Azure Storage SDK for Python]
 

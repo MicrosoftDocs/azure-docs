@@ -1,16 +1,16 @@
----
+﻿---
 title: Define a custom view - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Describes how to create site and vertical search services
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
+ms.author: aahi
 ---
 
 # Configure your custom search experience
@@ -60,7 +60,7 @@ Similarly, you can add slices to the Blocked list (except you can’t use an upl
 
 ## Pinned list
 
-The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. The **Pinned** tab contains a list of query term and webpage pairs that specify the webpage that appears as the top result for a specific query. For information about pinning results, see [Adjust Rank](#adjustrank).
+The portal also lets you pin a specific webpage to the top of the search result if the user enters a specific search term. The **Pinned** tab contains a list of query term and webpage pairs that specify the webpage that appears as the top result for a specific query. Additionally, only indexed webpages will be displayed in searches. For information about pinning results, see [Adjust Rank](#adjustrank). 
 
 Pinning results is not available for the Image Search and Video Search experiences.
 
@@ -156,7 +156,7 @@ Follow these steps to use Bing to add slices to your Custom Search instance.
 5.	Click **Add site** next to the result you want to include.
 6.	Click the **Ok** button.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## View statistics
 

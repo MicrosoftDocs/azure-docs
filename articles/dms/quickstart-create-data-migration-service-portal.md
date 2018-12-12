@@ -1,5 +1,5 @@
 ---
-title:  Create Azure Database Migration Service instance using the Azure portal | Microsoft Docs
+title: "Quickstart: Create Azure Database Migration Service instance using the Azure portal | Microsoft Docs"
 description: Use the Azure portal to create an instance of the Azure Database Migration Service
 services: database-migration
 author: pochiraju
@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ---
 
-# Create an instance of the Azure Database Migration Service by using the Azure portal
+# Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
 In this Quickstart, you use the Azure portal to create an instance of the Azure Database Migration Service.  After you create the service, you can use it to migrate data from SQL Server on-premises to an Azure SQL database.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.

@@ -30,7 +30,7 @@ offer. For more information, see [Cloud Portal Manage Users](./cloud-partner-por
 Before an offer can be published on behalf of a publisher account, one
 of individuals with \"owner\" role need to agree to comply with the
 [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/),
-[Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx),
+[Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx),
 and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## To start creating a Cortana Inteligence offer
@@ -246,7 +246,7 @@ Partners can give two types of trial experiences on AppSource.
 
         - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- The **Request for trial** (**Partner Led Trials / PLT**) option requires customers to fill a contact info form for partner followup. The partner follows up and gives a demonstration or trial of the app. For more information, see [AppSource trial experience walkthrough](http://aka.ms/trialexperienceforwebapps) video for a high-level overview.
+- The **Request for trial** (**Partner Led Trials / PLT**) option requires customers to fill a contact info form for partner followup. The partner follows up and gives a demonstration or trial of the app. For more information, see [AppSource trial experience walkthrough](https://aka.ms/trialexperienceforwebapps) video for a high-level overview.
 
 >[!Note]
 >Data shows that **Customer Led Trials** have a higher lead generation potential than **Partner Led Trials**.

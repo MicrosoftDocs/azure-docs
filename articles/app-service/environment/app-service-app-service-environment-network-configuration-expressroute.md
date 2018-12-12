@@ -1,5 +1,5 @@
 ---
-title: Network Configuration Details for Working with Express Route
+title: Network Configuration Details for Working with Express Route - Azure
 description: Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Network Configuration Details for App Service Environments with ExpressRoute
@@ -89,7 +90,7 @@ The recommended approach for configuring outbound access to the Internet is to d
 
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-Remember that 0.0.0.0/0 is a broad address range, and as such will be overridden by more specific address ranges advertised by the ExpressRoute.  To re-iterate the earlier recommendation, a UDR with a 0.0.0.0/0 route should be used in conjunction with an ExressRoute configuration that only advertises 0.0.0.0/0 as well. 
+Remember that 0.0.0.0/0 is a broad address range, and as such will be overridden by more specific address ranges advertised by the ExpressRoute.  To re-iterate the earlier recommendation, a UDR with a 0.0.0.0/0 route should be used in conjunction with an ExpressRoute configuration that only advertises 0.0.0.0/0 as well. 
 
 As an alternative, you can download a comprehensive and updated list of CIDR ranges in use by Azure.  The Xml file containing all of the Azure IP address ranges is available from the [Microsoft Download Center][DownloadCenterAddressRanges].  
 
@@ -117,15 +118,15 @@ Then proceed with creating an App Service Environment!
 To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
 
 <!-- LINKS -->
-[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[NetworkSecurityGroups]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[UDROverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-[UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
+[UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[AzureDownloads]: http://azure.microsoft.com/downloads/ 
-[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653  
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [NewPortal]:  https://portal.azure.com

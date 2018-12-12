@@ -1,20 +1,17 @@
-﻿---
+---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-
 ---
 # How do I ... in Application Insights?
 ## Get an email when ...
@@ -79,7 +76,7 @@ Some points to consider:
 
 ## Separate telemetry from different versions
 
-* Multiple roles in an app: Use a single Application Insights resource, and filter on cloud_Rolename. [Learn more](app-insights-monitor-multi-role-apps.md)
+* Multiple roles in an app: Use a single Application Insights resource, and filter on [cloud_Rolename](app-insights-app-map.md).
 * Separating development, test, and release versions: Use different Application Insights resources. Pick up the instrumentation keys from web.config. [Learn more](app-insights-separate-resources.md)
 * Reporting build versions: Add a property using a telemetry initializer. [Learn more](app-insights-separate-resources.md)
 

@@ -53,7 +53,7 @@ You'll need to consider which identity provider you want to use for Azure Stack 
 
 Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
 
-You can learn more about choosing an identity provider in the [Azure Stack integrated systems connection models article](.\azure-stack-connection-models.md).
+You can learn more about choosing an identity provider in the [Azure Stack integrated systems connection models article](./azure-stack-connection-models.md).
 
 ### AD FS and Graph integration
 If you choose to deploy Azure Stack using AD FS as the identity provider, you must integrate the AD FS instance on Azure Stack with an existing AD FS instance through a federation trust. This allows identities in an existing Active Directory forest to authenticate with resources in Azure Stack.

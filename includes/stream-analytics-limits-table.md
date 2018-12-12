@@ -7,5 +7,5 @@
 | Maximum number of functions per job |60 |There is a hard limit of 60 functions per Stream Analytics job. |
 | Maximum number of Streaming Units per job |120 |There is a hard limit of 120 Streaming Units per Stream Analytics job. |
 | Maximum number of jobs per region |1500 |Each subscription may have up to 1500 jobs per geographical region. |
-| Reference data blob MB | 100 | Reference data blobs cannot be larger than 100 MB each. |
+| Reference data blob MB | 300 | Reference data blobs cannot be larger than 300 MB each. |
 

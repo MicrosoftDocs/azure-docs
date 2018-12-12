@@ -136,7 +136,7 @@ The following table describes the elements of the log file.
 |`Properties/Path/@Hash`|Attribute, String|Base16-encoded MD5 hash of the properties file.|  
 |`Blob/Status`|String|Status of processing the blob.|  
   
-# Drive status codes  
+## Drive status codes  
 The following table lists the status codes for processing a drive.  
   
 |Status code|Description|  

@@ -13,20 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
 
 ---
 
-# How to choose which application type to use when adding an application
+# Choosing the application type when adding an application in Azure Active Directory
+Learn about the four types of applications you can add to Azure Active Directory (Azure AD). When you are adding an application in Azure Active Directory, you'll be prompted to choose one of the four application type. 
 
-This article help you to understand the four main types of applications you can integrate with Azure AD:
-
-* What is supported by each of them
-* Why you might choose which application
-* How to configure those application’s core properties, like how users are **provisioned**, or what **single sign-on** technology to use.
-
-## Supported application types in Azure AD
+## What are the types of applications?
 
 Azure AD supports four main application types that you can add using the **Add** feature found under **Enterprise Applications**. These include:
 
@@ -38,7 +33,7 @@ Azure AD supports four main application types that you can add using the **Add**
 
 -   **Non-Gallery Applications** – Bring your own applications! Any web link you want, or any application that renders a username and password field, supports SAML or OpenID Connect protocols, or supports SCIM that you wish to integrate for single sign-on with Azure AD.
 
-## Features and capabilities supported by all the preceding application types
+## Features and capabilities supported by the application types
 
 The following features are supported by any of the preceding four application types in Azure AD:
 
@@ -103,7 +98,7 @@ Applications you have custom developed through the [Custom-developed application
 
 -   [OpenID Connect 1.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) based sign-on
 
--   [WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) based sign-on
+-   [WS-Federation 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) based sign-on
 
 -   [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) based sign-on
 

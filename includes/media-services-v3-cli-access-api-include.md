@@ -5,7 +5,7 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
 ---
@@ -18,7 +18,7 @@ Before running the script, you can replace the `amsaccount` and `amsResourceGrou
 
 The following command returns a `json` output:
 
-```azurecli-interactive
+```azurecli
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup
 ```
 
@@ -41,6 +41,6 @@ This command produces a response similar to this:
 
 If you would like to get an `xml` in the response, use the following command:
 
-```azurecli-interactive
+```azurecli
 az ams account sp create --account-name amsaccount --resource-group amsResourceGroup --xml
 ```

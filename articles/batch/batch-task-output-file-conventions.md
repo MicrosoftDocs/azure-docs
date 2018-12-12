@@ -13,23 +13,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
-# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET 
+# Persist job and task data to Azure Storage with the Batch File Conventions library for .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-One way to persist task data is to use the [Azure Batch File Conventions library for .NET][nuget_package]. The File Conventions library simplifies the process of storing task output data to Azure Storage and retrieving it. You can use the File Conventions library in both task and client code &mdash; in task code for persisting files, and in client code to list and retrieve them. Your task code can also use the library to retrieve the output of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario. 
+One way to persist task data is to use the [Azure Batch File Conventions library for .NET][nuget_package]. The File Conventions library simplifies the process of storing task output data to Azure Storage and retrieving it. You can use the File Conventions library in both task and client code &mdash; in task code for persisting files, and in client code to list and retrieve them. Your task code can also use the library to retrieve the output of upstream tasks, such as in a [task dependencies](batch-task-dependencies.md) scenario.
 
 To retrieve output files with the File Conventions library, you can locate the files for a given job or task by listing them by ID and purpose. You don't need to know the names or locations of the files. For example, you can use the File Conventions library to list all intermediate files for a given task, or get a preview file for a given job.
 
 > [!TIP]
 > Starting with version 2017-05-01, the Batch service API supports persisting output data to Azure Storage for tasks and job manager tasks that run on pools created with the virtual machine configuration. The Batch service API provides a simple way to persist output from within the code that creates a task and serves as an alternative to the File Conventions library. You can modify your Batch client applications to persist output without needing to update the application that your task is running. For more information, see [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
-> 
-> 
 
 ## When do I use the File Conventions library to persist task output?
 
@@ -38,27 +36,27 @@ Azure Batch provides more than one way to persist task output. The File Conventi
 - You can easily modify the code for the application that your task is running to persist files using the File Conventions library.
 - You want to stream data to Azure Storage while the task is still running.
 - You want to persist data from pools created with either the cloud service configuration or the virtual machine configuration.
-- Your client application or other tasks in the job needs to locate and download task output files by ID or by purpose. 
+- Your client application or other tasks in the job needs to locate and download task output files by ID or by purpose.
 - You want to view task output in the Azure portal.
 
-If your scenario differs from those listed above, you may need to consider a different approach. For more information on other options for persisting task output, see [Persist job and task output to Azure Storage](batch-task-output.md). 
+If your scenario differs from those listed above, you may need to consider a different approach. For more information on other options for persisting task output, see [Persist job and task output to Azure Storage](batch-task-output.md).
 
 ## What is the Batch File Conventions standard?
 
 The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) provides a naming scheme for the destination containers and blob paths to which your output files are written. Files persisted to Azure Storage that adhere to the File Conventions standard are automatically available for viewing in the Azure portal. The portal is aware of the naming convention and so can display files that adhere to it.
 
-The File Conventions library for .NET automatically names your storage containers and task output files according to the File Conventions standard. The File Conventions library also provides methods to query output files in Azure Storage according to job ID, task ID, or purpose.   
+The File Conventions library for .NET automatically names your storage containers and task output files according to the File Conventions standard. The File Conventions library also provides methods to query output files in Azure Storage according to job ID, task ID, or purpose.
 
-If you are developing with a language other than .NET, you can implement the File Conventions standard yourself in your application. For more information, see [About the Batch File Conventions standard](batch-task-output.md#about-the-batch-file-conventions-standard).
+If you are developing with a language other than .NET, you can implement the File Conventions standard yourself in your application. For more information, see [Implement the Batch File Conventions standard](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## Link an Azure Storage account to your Batch account
 
 To persist output data to Azure Storage using the File Conventions library, you must first link an Azure Storage account to your Batch account. If you haven't done so already, link a Storage account to your Batch account by using the [Azure portal](https://portal.azure.com):
 
-1. Navigate to your Batch account in the Azure portal. 
-2. Under **Settings**, select **Storage Account**.
-3. If you do not already have a Storage account associated with your Batch account, click **Storage Account (None)**.
-4. Select a Storage account from the list for your subscription. For best performance, use an Azure Storage account that is in the same region as the Batch account where your tasks are running.
+1. Navigate to your Batch account in the Azure portal.
+1. Under **Settings**, select **Storage Account**.
+1. If you do not already have a Storage account associated with your Batch account, click **Storage Account (None)**.
+1. Select a Storage account from the list for your subscription. For best performance, use an Azure Storage account that is in the same region as the Batch account where your tasks are running.
 
 ## Persist output data
 
@@ -68,12 +66,10 @@ For more information about working with containers and blobs in Azure Storage, s
 
 > [!WARNING]
 > All job and task outputs persisted with the File Conventions library are stored in the same container. If a large number of tasks try to persist files at the same time, [storage throttling limits](../storage/common/storage-performance-checklist.md#blobs) may be enforced.
-> 
-> 
 
 ### Create storage container
 
-To persist task output to Azure Storage, first create a container by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter. It creates a container named according to the File Conventions standard,so that its contents are discoverable by the Azure portal and the retrieval methods discussed later in the article.
+To persist task output to Azure Storage, first create a container by calling [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. This extension method takes a [CloudStorageAccount][net_cloudstorageaccount] object as a parameter. It creates a container named according to the File Conventions standard, so that its contents are discoverable by the Azure portal and the retrieval methods discussed later in the article.
 
 You typically place the code to create a container in your client application &mdash; the application that creates your pools, jobs, and tasks.
 
@@ -116,8 +112,6 @@ These output types allow you to specify which type of outputs to list when you l
 
 > [!TIP]
 > The output kind also determines where in the Azure portal a particular file appears: *TaskOutput*-categorized files appear under **Task output files**, and *TaskLog* files appear under **Task logs**.
-> 
-> 
 
 ### Store job outputs
 
@@ -170,8 +164,6 @@ The node agent is a program that runs on each node in the pool and provides the 
 
 > [!NOTE]
 > When you enable file tracking with **SaveTrackedAsync**, only *appends* to the tracked file are persisted to Azure Storage. Use this method only for tracking non-rotating log files or other files that are written to with append operations to the end of the file.
-> 
-> 
 
 ## Retrieve output data
 
@@ -202,7 +194,7 @@ The Azure portal displays task output files and logs that are persisted to a lin
 To enable the display of your output files in the portal, you must satisfy the following requirements:
 
 1. [Link an Azure Storage account](#requirement-linked-storage-account) to your Batch account.
-2. Adhere to the predefined naming conventions for Storage containers and files when persisting outputs. You can find the definition of these conventions in the File Conventions library [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] library to persist your output, your files are persisted according to the File Conventions standard.
+1. Adhere to the predefined naming conventions for Storage containers and files when persisting outputs. You can find the definition of these conventions in the File Conventions library [README][github_file_conventions_readme]. If you use the [Azure Batch File Conventions][nuget_package] library to persist your output, your files are persisted according to the File Conventions standard.
 
 To view task output files and logs in the Azure portal, navigate to the task whose output you are interested in, then click either **Saved output files** or **Saved logs**. This image shows the **Saved output files** for the task with ID "007":
 

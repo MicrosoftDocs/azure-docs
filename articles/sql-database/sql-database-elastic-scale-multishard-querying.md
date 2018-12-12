@@ -4,7 +4,7 @@ description: Run queries across shards using the elastic database client library
 services: sql-database
 ms.service: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

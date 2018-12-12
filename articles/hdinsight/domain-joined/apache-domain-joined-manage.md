@@ -16,7 +16,7 @@ Learn the users and the roles in HDInsight Enterprise Security Package (ESP), an
 
 ## Use VSCode to link to domain joined cluster
 
-You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+You can link a normal cluster by using Apache Ambari managed username, also link a security Apache Hadoop cluster by using domain username (such as: user1@contoso.com).
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
 
    ![link cluster command](./media/apache-domain-joined-manage/link-cluster-command.png)

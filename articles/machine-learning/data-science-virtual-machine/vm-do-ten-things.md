@@ -1,11 +1,13 @@
 ﻿---
-title: Ten things you can do on the Data Science Virtual Machine on Azure | Microsoft Docs
+title: Data exploration and modeling with Data Science Virtual Machine
+titleSuffix: Azure
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
@@ -59,11 +61,11 @@ For Python, you can use an IDE like Visual Studio Community Edition, which has t
 
 Here is what the custom environment setup looks like in Visual Studio.
 
-![PTVS Setup](./media/vm-do-ten-things/PTVSSetup.png)
+![Screenshot of Visual Studio with Python Tools for Visual Studio selected](./media/vm-do-ten-things/PTVSSetup.png)
 
-See the [PTVS documentation](http://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
+See the [PTVS documentation](https://aka.ms/ptvsdocs) for additional details on how to create Python Environments.
 
-Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](http://aka.ms/ptvsdocs).
+Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right clicking the **Python environments**, selecting **Add/Remove Python Environments**, and then picking the desired environment. You can find more information about working with PTVS in the product [documentation](https://aka.ms/ptvsdocs).
 
 ## 2. Using a Jupyter Notebook to explore and model your data with Python or R
 The Jupyter Notebook is a powerful environment that provides a browser-based "IDE" for data exploration and modeling. You can use Python 2, Python 3 or R (both Open Source and the Microsoft R Server) in a Jupyter Notebook.
@@ -248,7 +250,7 @@ To download code from a GitHub repository, you use the ```git clone``` command. 
 
 In Visual Studio, you can do the same clone operation. The  following screen-shot shows how to access Git and GitHub tools in Visual Studio.
 
-![Git in Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
+![Screenshot of Visual Studio with with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
 
 You can find more information on using Git to work with your GitHub repository from several resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
@@ -260,12 +262,12 @@ Azure blob is a reliable, economical cloud storage for data big and small. This 
 
 * **Create your Azure Blob storage account from [Azure portal](https://portal.azure.com).**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Screenshot of the Storage Account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory containing the azcopy.exe is already on your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool, refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
 * Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![Screenshot of the Azure Storage Explorer accessing a Storage Account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **Move data from VM to Azure Blob: AzCopy**
 
@@ -275,7 +277,7 @@ To move data between your local files and blob storage, you can use AzCopy in co
 
 Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure portal](https://portal.azure.com).
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Screenshot of the Storage account keys and container information in the Azure portal](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 Run AzCopy command in PowerShell or from a command prompt. Here is some example usage of AzCopy command:
 
@@ -290,20 +292,20 @@ Run AzCopy command in PowerShell or from a command prompt. Here is some example 
 
 Once you run your AzCopy command to copy to an Azure blob, you see your file shows up in Azure Storage Explorer shortly.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![Screenshot of the Storage Account, displaying the uploaded CSV file](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
 **Move data from VM to Azure Blob: Azure Storage Explorer**
 
 You can also upload data from the local file in your VM using Azure Storage Explorer:
 
-* To upload data to a container, select the target container and click the **Upload** button.![Upload in Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Upload files to blob](./media/vm-do-ten-things/upload-files-to-blob.png)
+* To upload data to a container, select the target container and click the **Upload** button.![Screenshot of the upload button in the Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![Screenshot of the upload files dialog](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **Read data from Azure Blob: Machine Learning reader module**
 
 In Azure Machine Learning Studio, you can use an **Import Data module** to read data from your blob.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Screenshot of the Import Data module in Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 **Read data from Azure Blob: Python ODBC**
 
@@ -351,7 +353,7 @@ Then plug in your Azure Blob account credentials and read data from Blob:
 
 The data is read in as a data frame:
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### Azure Data Lake
 Azure Data Lake Storage is a hyper-scale repository for big data analytics workloads and compatible with Hadoop Distributed File System (HDFS). It works with Hadoop, Spark, and Azure Data Lake Analytics. In this section, you will learn how you can move data into the Azure Data Lake Store and run analytics using Azure Data Lake Analytics.
@@ -360,17 +362,17 @@ Azure Data Lake Storage is a hyper-scale repository for big data analytics workl
 
 * Create your Azure Data Lake Analytics in [Azure portal](https://portal.azure.com).
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Screenshot of creating Data Lake Analytics from the Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition that is on the virtual machine. After starting Visual Studio and logging in your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Screenshot of the Data Lake Tools in Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
 **Move data from VM to Data Lake: Azure Data Lake Explorer**
 
 You can use **Azure Data Lake Explorer** to upload data from the local files in your Virtual Machine to Data Lake storage.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Screenshot of using the Data Lake Explorer to upload files](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 You can also build a data pipeline to operationalize your data movement to or from Azure Data Lake using the [Azure Data Factory(ADF)](https://azure.microsoft.com/services/data-factory/). Refer to this [article](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) to guide you through the steps to build the data pipelines.
 
@@ -378,11 +380,11 @@ You can also build a data pipeline to operationalize your data movement to or fr
 
 If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you are able to reference the data stored in the storage account.
 
-![Enter storage account and key](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![Screenshot of the Add Data Source dialog](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 In Visual Studio, you can read data from blob storage, do some data manipulation, feature engineering, and output the resulting data to either Azure Data Lake or Azure Blob Storage. When you reference the data in blob storage, use **wasb://**; when you reference the data in Azure Data Lake, use **swbhdfs://**
 
-![Data frame](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![Screenshot of the query with the WASB entry highlighted](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 You may use the following U-SQL queries in Visual Studio:
 
@@ -428,7 +430,7 @@ You may use the following U-SQL queries in Visual Studio:
 
 After your query is submitted to the server, a diagram showing the status of your job is displayed.
 
-![Job status diagram](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![Screenshot of the job dialog status](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
 **Query data in Data Lake: U-SQL**
 
@@ -436,11 +438,11 @@ After the dataset is ingested into Azure Data Lake, you can use [U-SQL language]
 
 After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right-click the file.
 
-![File in Azure Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
+![Screenshot of the csv file in Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
 
 To see the file information:
 
-![File summary](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![Screenshot of the file summary information](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### HDInsight Hadoop Clusters
 Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on the cloud. You can work easily with Azure HDInsight clusters from the data science virtual machine.
@@ -449,7 +451,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 * Create your Azure Blob storage account from [Azure portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
 
-![Create Azure Blob storage account](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Screenshot of creating HDInsight from the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Customize Azure HDInsight Hadoop Clusters from [Azure portal](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -459,7 +461,7 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 * Enable **Remote Access** to the head node of the cluster after it is created. Remember the remote access credentials you specify here as you will need them in the subsequent procedure.
 
-![Enable remote access](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![Enable remote access to the HDInsight cluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Create an Azure Machine Learning workspace. Your Machine Learning Experiments are stored in this Machine Learning workspace. Select the highlighted options in Portal as shown in the following screenshot:
 
@@ -637,7 +639,7 @@ You can also compute the distance between pickup location and dropoff location a
     results.head(5)
 
 
-![Pickup and dropoff table](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![Top rows of the pickup and dropoff table](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -781,7 +783,7 @@ After a while, you can see the data has been loaded in Hadoop clusters:
     pd.read_sql(queryString,connection)
 
 
-![Table of data](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Read data from HDI using Machine Learning: reader module**
 
@@ -805,7 +807,7 @@ The following are the per-requisites steps to access Azure Cosmos DB from the DS
 
 1. The Azure Cosmos DB Python SDK is already installed on the DSVM (Run ```pip install pydocumentdb --upgrade``` from command prompt to update)
 2. Create an Azure Cosmos DB account and a database from [Azure portal](https://portal.azure.com)
-3. Download "Azure Cosmos DB Migration Tool" from [here](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
+3. Download "Azure Cosmos DB Migration Tool" from [here](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice
 4. Import JSON data (volcano data) stored on a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into Cosmos DB with following command parameters to the migration tool (dtui.exe from the directory where you installed the Cosmos DB Migration Tool). Enter the source and target location with these parameters:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

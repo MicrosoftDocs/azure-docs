@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -126,7 +126,7 @@ The following information is required as input for the automation parameters:
 
 |Parameter|Description|Example|
 |---------|---------|---------|
-|CustomAdfsName|Name of the claims provider.<cr>It appears that way on the AD FS landing page.|Contoso|
+|CustomAdfsName|Name of the claims provider.<br>It appears that way on the AD FS landing page.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -168,8 +168,6 @@ The following information is required as input for the automation parameters:
 |CustomAdfsName|Name of the claims provider. It appears that way on the AD FS landing page.|Contoso|
 |CustomADFSFederationMetadataFileContent|Metadata content|$using:federationMetadataFileContent|
 
-
-
 ### Create federation metadata file
 
 For the following procedure, you must use a computer that has network connectivity to the existing AD FS deployment, which becomes the account STS. Also, the necessary certificates must be installed.
@@ -177,9 +175,11 @@ For the following procedure, you must use a computer that has network connectivi
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
    ```PowerShell  
-    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
-    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
-
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. Copy the metadata file to a computer that can communicate with the privileged endpoint.
@@ -210,7 +210,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 Microsoft provides a script that configures the relying party trust, including the claim transformation rules. Using the script is optional as you can run the commands manually.
 
-You can download the helper script from [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) on Github.
+You can download the helper script from [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) on GitHub.
 
 If you decide to manually run the commands, follow these steps:
 

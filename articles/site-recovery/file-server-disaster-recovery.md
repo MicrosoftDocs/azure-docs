@@ -5,7 +5,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
 ---

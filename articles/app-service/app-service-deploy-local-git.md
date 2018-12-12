@@ -1,5 +1,5 @@
 ---
-title: Local Git Deployment to Azure App Service
+title: Deploy from local Git repo - Azure App Service
 description: Learn how to enable local Git deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
+ms.custom: seodec18
 
 ---
 # Local Git Deployment to Azure App Service
@@ -26,7 +27,7 @@ This how-to guide shows you how to deploy your code to [Azure App Service](app-s
 
 To follow the steps in this how-to guide:
 
-* [Install Git](http://www.git-scm.com/downloads).
+* [Install Git](https://www.git-scm.com/downloads).
 * Maintain a local Git repository with code you want to deploy.
 
 To use a sample repository to follow along, run the following command in your local terminal window:

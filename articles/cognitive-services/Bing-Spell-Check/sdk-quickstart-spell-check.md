@@ -17,27 +17,28 @@ ms.author: v-gedod
 The Bing Spell Check SDK contains the functionality of the REST API for spell check.
 
 ## Application dependencies
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
+To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Language.SpellCheck` package.
 
-Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) also installs dependencies, including:
+Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) also installs dependencies, including:
 
 * Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.AZure
+* Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 ## Spell check client
 
-To create an instance of the `SpellCheckAPI` client, add using directive:
+To create an instance of the `SpellCheckClient` client, add using directive:
 
 ```cs
-using Microsoft.Azure.CognitiveServices.SpellCheck;
+using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
 ```
 
 Then, instantiate the client:
 
 ```cs
-var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
 Use the client to check spelling:
@@ -97,7 +98,7 @@ namespace SpellCheckSDK
     {
         static void Main(string[] args)
         {
-            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,6 +142,8 @@ namespace SpellCheckSDK
                 Console.WriteLine("Encountered exception. " + ex.Message);
             }
 
+            SpellCheckError("YOUR-ACCESS-KEY");
+
             Console.WriteLine("Any key to exit...");
             Console.ReadKey();
         }
@@ -148,15 +151,16 @@ namespace SpellCheckSDK
         // This will trigger an error response from the API.
         public static void SpellCheckError(string subscriptionKey)
         {
-            var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+            var client = new SpellCheckClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 
             try
             {
-                var result = client.SpellCheckerAsync(mode: "proof").Result;
-                Console.WriteLine("Correction for Query# \"empty text field\"");
+                var result = client.SpellCheckerAsync(text: "", mode: "proof").Result;
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Correction for Query# \"empty text field\"");
+
                 if (ex.GetBaseException().GetType() == typeof(Exception) )
                 {
                     Console.WriteLine("Encountered exception. " + ex.Message);

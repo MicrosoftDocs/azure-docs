@@ -1,5 +1,5 @@
 ---
-title: Open-source technologies FAQs for Azure web apps | Microsoft Docs
+title: Open-source technologies FAQs - Azure App Service | Microsoft Docs
 description: Get answers to frequently asked questions about open-source technologies in the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
+ms.custom: seodec18
 
 ---
 
@@ -179,7 +180,7 @@ For portal App Setting deployments, the log file is in D:\home\LogFiles. Look fo
 
 ## Can I send email from my Azure web app?
 
-App Service doesn't have a built-in email feature. For some good alternatives for sending email from your app, see this [Stack Overflow discussion](http://stackoverflow.com/questions/17666161/sending-email-from-azure).
+App Service doesn't have a built-in email feature. For some good alternatives for sending email from your app, see this [Stack Overflow discussion](https://stackoverflow.com/questions/17666161/sending-email-from-azure).
 
 ## Why does my WordPress site redirect to another URL?
 

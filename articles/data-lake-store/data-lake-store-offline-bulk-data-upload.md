@@ -48,7 +48,7 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/co
 
 1. Procure a hard disk that meets the requirement to be used for the Azure Import/Export service.
 2. Identify an Azure storage account where the data will be copied after it is shipped to the Azure datacenter.
-3. Use the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command-line utility. Here's a sample snippet that shows how to use the tool.
+3. Use the [Azure Import/Export Tool](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command-line utility. Here's a sample snippet that shows how to use the tool.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

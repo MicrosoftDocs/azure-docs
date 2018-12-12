@@ -11,9 +11,9 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 11/01/2018
 ---
-# Restore a database backup to an Azure SQL Database Managed Instance
+# Quickstart: Restore a database backup to an Azure SQL Database Managed Instance
 
 This quickstart demonstrates how to restore a backup of a database stored in Azure blob storage into the Managed Instance using the Wide World Importers - Standard backup file. This method requires some downtime. 
 

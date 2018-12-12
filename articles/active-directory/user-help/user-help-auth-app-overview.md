@@ -23,6 +23,6 @@ The Microsoft Authenticator app helps you keep your accounts secure through two-
 
 |Article |Description |
 |------|------------|
-|[Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)|Describes where and how to get and install the Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).|
+|[Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)|Describes where and how to get and install the Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).|
 |[Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|
 |[Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)|Provides answers to frequently asked questions about the app.|

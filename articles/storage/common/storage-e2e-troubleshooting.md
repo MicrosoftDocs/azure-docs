@@ -31,7 +31,7 @@ To troubleshoot client applications using Microsoft Azure Storage, you can use a
   
     See [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure portal.
 * **AzCopy**. Server logs for Azure Storage are stored as blobs, so you can use AzCopy to copy the log blobs to a local directory for analysis using Microsoft Message Analyzer. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) for more information about AzCopy.
-* **Microsoft Message Analyzer**. Message Analyzer is a tool that consumes log files and displays log data in a visual format that makes it easy to filter, search, and group log data into useful sets that you can use to analyze errors and performance issues. See [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx) for more information about Message Analyzer.
+* **Microsoft Message Analyzer**. Message Analyzer is a tool that consumes log files and displays log data in a visual format that makes it easy to filter, search, and group log data into useful sets that you can use to analyze errors and performance issues. See [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx) for more information about Message Analyzer.
 
 ## About the sample scenario
 For this tutorial, we'll examine a scenario where Azure Storage metrics indicates a low percent success rate for an application that calls Azure storage. The low percent success rate metric (shown as **PercentSuccess** in the [Azure portal](https://portal.azure.com) and in the metrics tables) tracks operations that succeed, but that return an HTTP status code that is greater than 299. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**. For more details about the low percent success metric, see [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -45,7 +45,7 @@ For our sample scenario, once we've established that the percent success rate me
 ### Some causes of 400-range errors
 The examples below shows a sampling of some 400-range errors for requests against Azure Blob Storage, and their possible causes. Any of these errors, as well as errors in the 300 range and the 500 range, can contribute to a low percent success rate.
 
-Note that the lists below are far from complete. See [Status and Error Codes](http://msdn.microsoft.com/library/azure/dd179382.aspx) on MSDN for details about general Azure Storage errors and about errors specific to each of the storage services.
+Note that the lists below are far from complete. See [Status and Error Codes](https://msdn.microsoft.com/library/azure/dd179382.aspx) on MSDN for details about general Azure Storage errors and about errors specific to each of the storage services.
 
 **Status Code 404 (Not Found) Examples**
 
@@ -73,7 +73,7 @@ In this tutorial, we'll use Message Analyzer to work with three different types 
 * The **HTTP network trace log**, which collects data on HTTP/HTTPS request and response data, including for operations against Azure Storage. In this tutorial, we'll generate the network trace via Message Analyzer.
 
 ### Configure server-side logging and metrics
-First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](http://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
+First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](https://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](https://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
 
 **Via the Azure portal**
 
@@ -118,7 +118,7 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 	```
 
 ### Configure .NET client-side logging
-To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](http://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
+To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](https://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
 
 The client-side log includes detailed information about how the client prepares the request and receives and processes the response.
 
@@ -154,7 +154,7 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 > 
 > 
 
-See [Using the Network Tracing Features](http://technet.microsoft.com/library/jj674819.aspx) on Technet for more details.
+See [Using the Network Tracing Features](https://technet.microsoft.com/library/jj674819.aspx) on Technet for more details.
 
 ## Review metrics data in the Azure portal
 Once your application has been running for a period of time, you can review the metrics charts that appear in the [Azure portal](https://portal.azure.com) to observe how your service has been performing.
@@ -180,15 +180,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 AzCopy is available for download on the [Azure Downloads](https://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-For additional information about downloading server-side logs, see [Download Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+For additional information about downloading server-side logs, see [Download Storage Logging log data](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Use Microsoft Message Analyzer to analyze log data
-Microsoft Message Analyzer is a tool for capturing, displaying, and analyzing protocol messaging traffic, events, and other system or application messages in troubleshooting and diagnostic scenarios. Message Analyzer also enables you to load, aggregate, and analyze data from log and saved trace files. For more information about Message Analyzer, see [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer is a tool for capturing, displaying, and analyzing protocol messaging traffic, events, and other system or application messages in troubleshooting and diagnostic scenarios. Message Analyzer also enables you to load, aggregate, and analyze data from log and saved trace files. For more information about Message Analyzer, see [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx).
 
 Message Analyzer includes assets for Azure Storage that help you to analyze server, client, and network logs. In this section, we'll discuss how to use those tools to address the issue of low percent success in the storage logs.
 
 ### Download and install Message Analyzer and the Azure Storage Assets
-1. Download [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) from the Microsoft Download Center, and run the installer.
+1. Download [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) from the Microsoft Download Center, and run the installer.
 2. Launch Message Analyzer.
 3. From the **Tools** menu, select **Asset Manager**. In the **Asset Manager** dialog, select **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
 4. Click **Sync All Displayed Items** to install the Azure Storage Assets. The available assets include:
@@ -225,7 +225,7 @@ First, determine the time frame that you are interested in reviewing, and keep t
 
 If you still have a large amount of log data, then you may want to specify a session filter to filter your log data before you load it. In the **Session Filter** box, select the **Library** button to choose a predefined filter; for example, choose **Global Time Filter I** from the Azure Storage filters to filter on a time interval. You can then edit the filter criteria to specify the starting and ending timestamp for the interval you want to see. You can also filter on a particular status code; for example, you can choose to load only log entries where the status code is 404.
 
-For more information about importing log data into Microsoft Message Analyzer, see [Retrieving Message Data](http://technet.microsoft.com/library/dn772437.aspx) on TechNet.
+For more information about importing log data into Microsoft Message Analyzer, see [Retrieving Message Data](https://technet.microsoft.com/library/dn772437.aspx) on TechNet.
 
 ### Use the client request ID to correlate log file data
 The Azure Storage Client Library automatically generates a unique client request ID for every request. This value is written to the client log, the server log, and the network trace, so you can use it to correlate data across all three logs within Message Analyzer. See [Client request ID](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) for additional information about the client request ID.
@@ -332,7 +332,7 @@ Using the data shown in the view layouts in these two tabs, you can analyze the 
 Once you know the address of the blob that yielded the 404 error, you can investigate further. If you search the log entries for other messages associated with operations on the same blob, you can check whether the client previously deleted the entity.
 
 ## Analyze other types of storage errors
-Now that you are familiar with using Message Analyzer to analyze your log data, you can analyze other types of errors using view layouts, color rules, and searching/filtering. The tables below lists some issues you may encounter and the filter criteria you can use to locate them. For more information on constructing filters and the Message Analyzer filtering language, see [Filtering Message Data](http://technet.microsoft.com/library/jj819365.aspx).
+Now that you are familiar with using Message Analyzer to analyze your log data, you can analyze other types of errors using view layouts, color rules, and searching/filtering. The tables below lists some issues you may encounter and the filter criteria you can use to locate them. For more information on constructing filters and the Message Analyzer filtering language, see [Filtering Message Data](https://technet.microsoft.com/library/jj819365.aspx).
 
 | To Investigate… | Use Filter Expression… | Expression Applies to Log (Client, Server,   Network, All) |
 | --- | --- | --- |
@@ -356,7 +356,7 @@ Now that you are familiar with using Message Analyzer to analyze your log data, 
 For more information about troubleshooting end-to-end scenarios in Azure Storage, see these resources:
 
 * [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
-* [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
 * [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
-* [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx)

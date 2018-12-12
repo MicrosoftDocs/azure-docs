@@ -1042,7 +1042,7 @@ The general process for logging in with client-flow authentication is as follows
 
 * Configure Azure App Service Authentication and Authorization as you would server-flow authentication.
 * Integrate the authentication provider SDK for authentication to produce an access token.
-* Call the `.login()` method as follows:
+* Call the `.login()` method as follows (`result` should be an `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1060,6 +1060,8 @@ The general process for logging in with client-flow authentication is as follows
     });
     ```
 
+See the complete code example in the next section.
+
 Replace the `onSuccess()` method with whatever code you wish to use on a successful login.  The `{provider}` string is a valid provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, or **twitter**.  If you have implemented custom authentication, then you can also use the custom authentication provider tag.
 
 ### <a name="adal"></a>Authenticate users with the Active Directory Authentication Library (ADAL)
@@ -1069,35 +1071,35 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login][22] tutorial. Make sure to complete the optional step of registering a native client application.
 2. Install ADAL by modifying your build.gradle file to include the following definitions:
 
-```
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
+    ```
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "YourLocalMavenRepoPath\\.m2\\repository"
+        }
     }
-    maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
     }
-}
-packagingOptions {
-    exclude 'META-INF/MSFTSIG.RSA'
-    exclude 'META-INF/MSFTSIG.SF'
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:1.1.1') {
-        exclude group: 'com.android.support'
-    } // Recent version is 1.1.1
-    compile 'com.android.support:support-v4:23.0.0'
-}
-```
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile('com.microsoft.aad:adal:1.1.1') {
+            exclude group: 'com.android.support'
+        } // Recent version is 1.1.1
+        compile 'com.android.support:support-v4:23.0.0'
+    }
+    ```
 
-1. Add the following code to your application, making the following replacements:
+3. Add the following code to your application, making the following replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
-* Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
-* Replace **INSERT-REDIRECT-URI-HERE** with your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.microsoftonline.com/contoso.onmicrosoft.com.
+    * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
+    * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
+    * Replace **INSERT-REDIRECT-URI-HERE** with your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;
@@ -1282,31 +1284,31 @@ This code must be executed before creating a mobile client reference using the *
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
 [Get started with authentication]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
-[2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
+[2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5
-[4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
+[4]: https://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps
 [7]: app-service-mobile-android-get-started-users.md#cache-tokens
-[8]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
-[9]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
+[8]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
+[9]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
 [10]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [11]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[12]: http://azure.github.io/azure-mobile-apps-android-client/
+[12]: https://azure.github.io/azure-mobile-apps-android-client/
 [13]: app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
-[14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
+[14]: https://go.microsoft.com/fwlink/p/?LinkID=717034
 [15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained
-[19]: http://www.odata.org/documentation/odata-version-3-0/
-[20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
+[19]: https://www.odata.org/documentation/odata-version-3-0/
+[20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
 [22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
-[AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+[Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
+[AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

@@ -499,26 +499,26 @@ function Test-Administrator
 From a subscription name:
 
 ```powershell
-function Get-TenantIdFromSubcriptionName( [string] $subname )
+function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
     $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
-Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+Get-TenantIdFromSubscriptionName "ADLTrainingMS"
 ```
 
 From a subscription ID:
 
 ```powershell
-function Get-TenantIdFromSubcriptionId( [string] $subid )
+function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
     $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
 $subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-Get-TenantIdFromSubcriptionId $subid
+Get-TenantIdFromSubscriptionId $subid
 ```
 
 From a domain address such as "contoso.com"

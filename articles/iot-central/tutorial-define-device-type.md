@@ -3,7 +3,7 @@ title: Define a new device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to define a new device type in your Azure IoT Central application. You define the telemetry, state, properties and settings for your type.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -15,7 +15,7 @@ manager: peterpr
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the telemetry, state, properties, and settings for your device type.
 
-To enable you to test your application before you connect a real device, Azure IoT Central generates a simulated device from the device template when you create it.
+To enable you to test your application before you connect a real device, IoT Central generates a simulated device from the device template when you create it.
 
 In this tutorial, you create a **Connected Air Conditioner** device template. A connected air conditioner device:
 
@@ -54,9 +54,9 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 4. To create a new Azure IoT Central application:
     
-    * Choose **Free**. The free 7-day trial has no subscription requirement.
+    * Choose **Trial**. You don't need an Azure subscription to create a Trial application.
     
-       For more information about directories and subscriptions, see [Create your Azure IoT Central application](howto-create-application.md).
+       For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central.md).
     
     * Choose **Custom Application**.
     
@@ -64,9 +64,9 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
     
     * Choose **Create**.
 
-    ![Azure IoT Central Create Application page](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Azure IoT Central Create Application page](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    For more information, see [How to create your Azure IoT Central application](howto-create-application.md).
+    For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
 ## Create a new custom device template
 

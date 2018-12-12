@@ -1,5 +1,5 @@
 ---
-title: Securely Connecting to BackEnd Resources from an App Service Environment
+title: Securely Connecting to BackEnd Resources from an App Service Environment - Azure
 description: Learn about how to securely connect to backend resources from an App Service Environment.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Securely Connecting to Backend Resources from an App Service Environment
@@ -91,7 +92,7 @@ For details around controlling inbound traffic to your App Service Environment, 
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

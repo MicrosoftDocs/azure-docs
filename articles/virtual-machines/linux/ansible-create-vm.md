@@ -200,7 +200,7 @@ This section lists the entire sample Ansible playbook that you've built up over 
 
 This section walks you through running the sample Ansible playbook presented in this article.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Open [Cloud Shell](/azure/cloud-shell/overview).
 

@@ -30,5 +30,5 @@ This package adds the following .NET references:
 ## Connection string for Azure Storage added
 In the App.config file of your project, the **AzureWebJobsStorage** and **AzureWebJobsDashboard** entries were updated with the selected storage account's connection string and key.
 
-For more information, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+For more information, see [Azure WebJobs documentation resources](https://go.microsoft.com/fwlink/?linkid=390226).
 

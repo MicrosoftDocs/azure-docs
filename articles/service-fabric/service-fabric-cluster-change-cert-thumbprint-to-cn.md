@@ -182,9 +182,6 @@ Redeploy the updated template after making the changes.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
-$clusterloc="southcentralus"
-
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
@@ -195,4 +192,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 * Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
+[image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

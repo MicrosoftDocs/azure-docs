@@ -43,7 +43,7 @@ Azure-SSIS | SSIS package execution | SSIS package execution
 
 The following diagram shows how the different integration runtimes can be used in combination to offer rich data integration capabilities and network support:
 
-![Different types of integration runtimes](media\concepts-integration-runtime\different-integration-runtimes.png)
+![Different types of integration runtimes](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## Azure integration runtime
 An Azure integration runtime is capable of:

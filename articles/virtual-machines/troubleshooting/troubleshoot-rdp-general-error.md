@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: genli
 ---
 
@@ -20,7 +20,7 @@ ms.author: genli
 
 This article describes a general error you may experience when you make a Remote Desktop Protocol (RDP) connection to a Windows Virtual Machine (VM) in Azure.
 
-## Symptoms
+## Symptom
 
 When you make an RDP connection to a Window VM in Azure, you may receive the following general error message:
 
@@ -57,11 +57,11 @@ The RDP listener is misconfigured.
 
 ## Solution
 
-To resolve this problem, [back up the operating system disk](../windows/snapshot-copy-managed-disk.md), and [attach the operating system disk to a rescue VM](troubleshoot-recovery-disks-portal-windows.md), and then follow the solution options accordingly, or try the solutions one by one.
+To resolve this problem, [back up the operating system disk](../windows/snapshot-copy-managed-disk.md), and [attach the operating system disk to a rescue VM](troubleshoot-recovery-disks-portal-windows.md), and then follow the steps.
 
 ### Serial Console
 
-#### Step 1: Turn on remote desk
+#### Step 1: Open CMD instance in Serial console
 
 1. Access the [Serial Console](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
@@ -73,100 +73,90 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
    ch -si 1
    ```
 
-4. Enable Remote Desktop through the GPO policy by changing the following policy:
+#### Step 2: Check the values of RDP registry keys:
 
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
-
-5. Some other registry keys that could cause this problem, check the values of the registry keys as follows:
-
-   1. Make sure that the RDP component is enabled.
+1. Check if the RDP is disabled by polices.
 
       ```
-      REM Get the local policy
+      REM Get the local policy 
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
       REM Get the domain policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      If the domain policy exists, the setup on the local policy is overwritten.
+      - If the domain policy exists, the setup on the local policy is overwritten.
+      - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
+      - If the domain policy states that RDP is enabled (0), then no update is needed.
+      - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command: 
+      
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+                  
 
-         - If the domain policy states that RDP is disabled (1), then update the AD policy.
-         - If the domain policy states that RDP is enabled (0), then no update is needed.
-
-      If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command:
-
-         ```
-         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         ```
-
-   2. Check the current configuration of the terminal server.
+2. Check the current configuration of the terminal server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-   3. If the command returns 0, the terminal server is disabled. Then, enable the terminal server as follows:
+      If the command returns 0, the terminal server is disabled. Then, enable the terminal server as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. The Terminal Server module is set to drain mode if the server is on a terminal server farm (RDS or Citrix). Check the current mode of the Terminal Server module.
+3. The Terminal Server module is set to drain mode if the server is on a terminal server farm (RDS or Citrix). Check the current mode of the Terminal Server module.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-   5. If the command returns 1, the Terminal Server module is set to drain mode. Then, set the module to working mode as follows:
+      If the command returns 1, the Terminal Server module is set to drain mode. Then, set the module to working mode as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. Check whether you can connect to the terminal server.
+4. Check whether you can connect to the terminal server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. If the command returns 1, you can't connect to the terminal server. Then, enable the connection as follows:
+      If the command returns 1, you can't connect to the terminal server. Then, enable the connection as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-
-   8. Check the current configuration of the RDP listener.
+5. Check the current configuration of the RDP listener.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-   9. If the command returns 0, the RDP listener is disabled. Then, enable the listener as follows:
+      If the command returns 0, the RDP listener is disabled. Then, enable the listener as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. Check whether you can connect to the RDP listener.
+6. Check whether you can connect to the RDP listener.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. If the command returns 1, you can't connect to the RDP listener. Then, enable the connection as follows:
+   If the command returns 1, you can't connect to the RDP listener. Then, enable the connection as follows:
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-6. Restart the VM.
+7. Restart the VM.
 
-7. Exit from the CMD instance by typing `exit`, and then press **Enter** two times.
+8. Exit from the CMD instance by typing `exit`, and then press **Enter** two times.
 
-8. Restart the VM by typing `restart`.
+9. Restart the VM by typing `restart`, and then connect to the VM.
 
 If the problem still happens, move to the step 2.
 
@@ -180,75 +170,63 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
 ### Offline repair
 
-#### Step 1: Turn on remote desk
+#### Step 1: Turn on Remote Desktop
 
-> [!NOTE]  
-> We assume that the drive letter that is assigned to the attached OS disk is F. Replace it with the appropriate value in your VM. The SYSTEM and SOFTWARE hives need to be unmounted and then mounted.
+1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+2. Start a Remote Desktop connection to the recovery VM.
+3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
+4. Start a Remote Desktop connection to the recovery VM.
+5. Open an elevated command prompt session (**Run as administrator**). Run the following scripts. In this script, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 
-1. Open an elevated CMD instance and run the following scripts on the rescue VM:
+      ```
+      reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
+      reg load HKLM\BROKENSOFTWARE F:\windows\system32\config\SOFTWARE.hiv 
+ 
+      REM Ensure that Terminal Server is enabled 
 
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE.hiv
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
 
-   REM Ensure that Terminal Server is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+      REM Ensure Terminal Service is not set to Drain mode 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service is not set to Drain mode
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
+      REM Ensure Terminal Service has logon enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service has logon enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
+      REM Ensure the RDP Listener is not disabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
 
-   REM Ensure the RDP Listener is not disabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
+      REM Ensure the RDP Listener accepts logons 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure the RDP Listener accepts logons
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
+      REM RDP component is enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
 
-   REM RDP component is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+      reg unload HKLM\BROKENSYSTEM 
+      reg unload HKLM\BROKENSOFTWARE 
+      ```
 
-   reg unload HKLM\BROKENSYSTEM
-   reg unload HKLM\BROKENSOFTWARE
-   ```
+6. If the VM is domain joined, check the following registry key to see if there is a group policy that will disable RDP. 
 
-2. Mount the SYSTEM and SOFTWARE hives.
+      ```
+      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+      ```
 
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE
-   ```
+      If this key value is set to 1 that means RDP is disabled by the policy. To enable Remote Desktop through the GPO policy, change the following policy from domain controller:
 
-3. If the virtual machine is domain joined, RDP could be disabled at a policy level. To validate if it is the case, check the following registry key:
+   
+      **Computer Configuration\Policies\Administrative Templates:**
 
-   ```
-   HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-   ```
-
-4. If this key value is set to 1, RDP is disabled by the policy.
-
-5. Enable Remote Desktop through the GPO policy by changing the following policy:
-
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
-
-6. If this registry key doesn't exist, check the following registry key:
-
-   ```
-   HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
-   ```
-
-7. If this key is set to 1, RDP is turn off. Change the key value to 0.
-8. Detach the disk from the rescue VM.
-9. [Create a new VM from the disk](../windows/create-vm-specialized.md).
+      Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
+  
+7. Detach the disk from the rescue VM.
+8. [Create a new VM from the disk](../windows/create-vm-specialized.md).
 
 If the problem still happens, move to the step 2.
 

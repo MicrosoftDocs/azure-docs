@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: java
 author: lgayhardt
 manager: carmonm
-
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-
 ---
 # Get started with Application Insights in a Java web project
 
@@ -71,7 +68,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
     </dependencies>
 ```
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `<version>2.0.n</version>`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Need to update to a new SDK?* Refresh your project's dependencies.
 
 #### If you're using Gradle... <a name="gradle-setup" />
@@ -94,7 +91,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 #### If you're using Eclipse to create a Dynamic Web project ...
 Use the [Application Insights SDK for Java plug-in][eclipse]. Note: even though using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
 
-* *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK* Refresh your project's dependencies.
 
 #### Otherwise, if you are manually managing dependencies ...
@@ -338,7 +335,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 * On Windows servers, install:
 
-  * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Microsoft Visual C++ Redistributable](https://www.microsoft.com/download/details.aspx?id=40784)
 
     (This component enables performance counters.)
 
@@ -488,7 +485,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 [apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: /app-insights-java-quick-start.md
+[eclipse]: app-insights-java-quick-start.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md

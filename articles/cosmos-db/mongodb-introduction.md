@@ -1,14 +1,12 @@
 ---
-title: 'Introduction to Azure Cosmos DB: MongoDB API | Microsoft Docs'
+title: 'Introduction to Azure Cosmos DB: MongoDB API'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB APIs.
 keywords: what is MongoDB
 services: cosmos-db
 author: SnehaGunda
-manager: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
@@ -17,7 +15,7 @@ experiment_id: "662dc5fd-886f-4a"
 ---
 # Introduction to Azure Cosmos DB: MongoDB API
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
 
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -63,5 +61,4 @@ Information about the Azure Cosmos DB MongoDB API is integrated into the overall
 * Follow the [Use Studio 3T (MongoChef) with Azure Cosmos DB](mongodb-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
 * Follow the [Migrate data to Azure Cosmos DB with protocol support for MongoDB](mongodb-migrate.md) tutorial to import your data to an API for MongoDB database.
 * Connect to an API for MongoDB account using [Robomongo](mongodb-robomongo.md).
-* Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](set-throughput.md#GetLastRequestStatistics).
 * Learn how to [configure read preferences for globally distributed apps](../cosmos-db/tutorial-global-distribution-mongodb.md).

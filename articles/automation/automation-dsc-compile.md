@@ -185,7 +185,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 ## ConfigurationData
 
 **ConfigurationData** allows you to separate structural configuration from any environment-specific
-configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
+configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
 to learn more about **ConfigurationData**.
 
 > [!NOTE]

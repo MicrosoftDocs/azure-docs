@@ -3,14 +3,14 @@ title: "Tutorial: Getting Spell Check Results using Bing Spell Check API"
 titlesuffix: Azure Cognitive Services
 description: Shows how to use Bing Spell Check.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.author: v-jaswel
+ms.author: aahi
 ---
 
 # Tutorial: Build a Web page Spell Check client
