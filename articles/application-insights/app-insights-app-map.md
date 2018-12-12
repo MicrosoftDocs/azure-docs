@@ -56,7 +56,7 @@ Select **investigate failures** to launch the failures pane.
 
 ### Investigate performance
 
-To troubleshoot performance problems select **investigate performance**
+To troubleshoot performance problems, select **investigate performance**
 
 ![Screenshot of investigate performance button](media/app-insights-app-map/investigate-performance.png)
 
@@ -64,7 +64,7 @@ To troubleshoot performance problems select **investigate performance**
 
 ### Go to details
 
-Select **go to details** to explore the end-to-end transaction experience which can offer views done to the call stack level.
+Select **go to details** to explore the end-to-end transaction experience, which can offer views done to the call stack level.
 
 ![Screenshot of go-to-details button](media/app-insights-app-map/go-to-details.png)
 
@@ -80,21 +80,32 @@ To query and investigate your applications data further click **view in analytic
 
 ### Alerts
 
-To view active alerts and the underlying rules that cause the alerts to be tiggered, select **alerts**.
+To view active alerts and the underlying rules that cause the alerts to be triggered, select **alerts**.
 
 ![Screenshot of alerts button](media/app-insights-app-map/alerts.png)
 
 ![Screenshot of analytics experience](media/app-insights-app-map/alerts-view.png)
 
-## Video
+## Troubleshooting
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+If you are having trouble getting Application Map to work as expected, try the following:
 
-## Feedback
-Please provide feedback through the portal feedback option.
+1. Make sure you’re using an officially supported SDK. Unsupported/community SDKs might not support correlation.
+
+    Refer to this [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) for a list of supported SDKs.
+
+2. Upgrade all components to the latest SDK version.
+
+3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/en-us/azure/azure-functions/functions-versions).
+
+4. Ensure cloud_RoleName is correctly configured. This [article](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-multi-role-apps) explains how role-name is used in Application Map. 
+
+## Portal feedback
+To provide feedback, use the portal feedback option.
 
 ![MapLink-1 image](./media/app-insights-app-map/13.png)
 
 ## Next steps
 
-* [Azure portal](https://portal.azure.com)
+* [Monitor multi-component applications](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-multi-role-apps)
+* [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
