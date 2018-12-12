@@ -1,0 +1,29 @@
+---
+title: Discover Azure SQL Database Managed Instance management endpoint | Microsoft Docs
+description: Learn how to get Azure SQL Database Managed Instance management endpoint public IP address and verify its built-in firewall protection
+services: sql-database
+ms.service: sql-database
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
+ms.topic: howto
+author: srdan-bozovic-msft
+ms.author: srbozovi
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 12/04/2018
+---
+# Determine the management endpoint IP address
+
+Let’s assume that Managed Instance host is `mi-demo.xxxxxx.database.windows.net`. Run `nslookup` using the host name.
+
+![Resolving internal host name](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
+
+Now do another `nslookup` for highlighted name removing the `.vnet.` segment. You’ll get the public IP address as a result of executing this command.
+
+![Resolving public IP address](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
+
+
+## Next steps
+
+For more information about Managed Instances and connectivity, see [Azure SQL Database Managed Instance Connectivity Architecture](sql-database-managed-instance-connectivity-architecture.md).

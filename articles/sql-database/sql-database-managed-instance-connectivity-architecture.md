@@ -24,41 +24,6 @@ The Azure SQL Database Managed Instance is placed inside Azure VNet and the subn
 - Connecting a Managed Instance to linked server or another on-premises data store.
 - Connecting a Managed Instance to Azure resources.
 
-Number of instances that can be deployed in the subnet depend on the [subnet IP range](sql-database-managed-instance-determine-size-of-vnet-subnet.md). You can deploy Managed Instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) once you configure it to satisfy [Managed Instance networking requirements](#network-requirements), or create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
-
-**Virtual cluster** is a security boundary within the subnet that represents a security container for all Managed Instances placed in the subnet. Virtual cluster contains a management endpoint that Microsoft uses for managing the Managed Instance. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level.
-
-## Network requirements
-
-You can deploy Managed Instance in a dedicated subnet (the Managed Instance subnet) inside the virtual network that conforms to the following requirements:
-- **Dedicated subnet**: The Managed Instance subnet must not contain any other cloud service associated with it, and it must not be a Gateway subnet. You won’t be able to create a Managed Instance in a subnet that contains resources other than Managed Instance, and you can not later add other resources in the subnet.
-- **Compatible Network Security Group (NSG)**: An NSG associated with a Managed Instance subnet must contain rules shown in the following tables (Mandatory inbound security rules and Mandatory outbound security rules) in front of any other rules. You can use an NSG to fully control access to the Managed Instance data endpoint by filtering traffic on port 1433. 
-- **Compatible user-defined route table (UDR)**: The Managed Instance subnet must have a user route table with **0.0.0.0/0 Next Hop Internet** as the mandatory UDR assigned to it. In addition, you can add a UDR that routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA). 
-- **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*. 
-- **No service endpoints**: The Managed Instance subnet must not have a service endpoint associated to it. Make sure that service endpoints option is disabled when creating the virtual network.
-- **Sufficient IP addresses**: The Managed Instance subnet must have the bare minimum of 16 IP addresses (recommended minimum is 32 IP addresses). For more information, see [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances)
-
-> [!IMPORTANT]
-> You won’t be able to deploy a new Managed Instance if the destination subnet is not compatible with all of these requirements. When a Managed Instance is created, a *Network Intent Policy* is applied on the subnet to prevent non-compliant changes to networking configuration. After the last instance is removed from the subnet, the *Network Intent Policy* is removed as well
-
-### Mandatory inbound security rules 
-
-| NAME       |PORT                        |PROTOCOL|SOURCE           |DESTINATION|ACTION|
-|------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |Any        |Allow |
-|mi_subnet   |Any                         |Any     |MI SUBNET        |Any        |Allow |
-|health_probe|Any                         |Any     |AzureLoadBalancer|Any        |Allow |
-
-### Mandatory outbound security rules 
-
-| NAME       |PORT          |PROTOCOL|SOURCE           |DESTINATION|ACTION|
-|------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Any              |Any        |Allow |
-|mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
-
-  > [!Note]
-  > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-find-management-endpoint-id-address.md) shows how you can discover management endpoint IP address and verify firewall rules. 
-
 ## Communication overview
 
 The following diagram shows entities that connect to Managed Instance as well as resources that Managed Instance has to reach out in order to function properly.
@@ -106,12 +71,43 @@ Management and deployment services connect to Managed Instance using [management
 
 ## Management endpoint
 
-The Azure SQL Database Managed Instance virtual cluster contains a management endpoint that Microsoft uses for managing the Managed Instance. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level.
+The Azure SQL Database Managed Instance virtual cluster contains a management endpoint that Microsoft uses for managing the Managed Instance. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level. You can [find management endpoint ip address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-When connections are initiated from inside the Managed Instance (backup, audit log) it appears that traffic originates from management endpoint public IP address. You could limit access to public services from Managed Instance by setting firewall rules to allow the Managed Instance IP address only.
+When connections are initiated from inside the Managed Instance (backup, audit log) it appears that traffic originates from management endpoint public IP address. You could limit access to public services from Managed Instance by setting firewall rules to allow the Managed Instance IP address only. Find mor einformation about the method that can [verify the Managed Instance built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > This doesn’t apply to setting firewall rules for Azure services that are in the same region as Managed Instance as the Azure platform has an optimization for the traffic that goes between the services that are collocated.
+
+## Network requirements
+
+You can deploy Managed Instance in a dedicated subnet (the Managed Instance subnet) inside the virtual network that conforms to the following requirements:
+- **Dedicated subnet**: The Managed Instance subnet must not contain any other cloud service associated with it, and it must not be a Gateway subnet. You won’t be able to create a Managed Instance in a subnet that contains resources other than Managed Instance, and you can not later add other resources in the subnet.
+- **Compatible Network Security Group (NSG)**: An NSG associated with a Managed Instance subnet must contain rules shown in the following tables (Mandatory inbound security rules and Mandatory outbound security rules) in front of any other rules. You can use an NSG to fully control access to the Managed Instance data endpoint by filtering traffic on port 1433. 
+- **Compatible user-defined route table (UDR)**: The Managed Instance subnet must have a user route table with **0.0.0.0/0 Next Hop Internet** as the mandatory UDR assigned to it. In addition, you can add a UDR that routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA). 
+- **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*. 
+- **No service endpoints**: The Managed Instance subnet must not have a service endpoint associated to it. Make sure that service endpoints option is disabled when creating the virtual network.
+- **Sufficient IP addresses**: The Managed Instance subnet must have the bare minimum of 16 IP addresses (recommended minimum is 32 IP addresses). For more information, see [Determine the size of subnet for Managed Instances](sql-database-managed-instance-determine-size-of-vnet-subnet.md). You can deploy Managed Instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) once you configure it to satisfy [Managed Instance networking requirements](#network-requirements), or create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
+
+> [!IMPORTANT]
+> You won’t be able to deploy a new Managed Instance if the destination subnet is not compatible with all of these requirements. When a Managed Instance is created, a *Network Intent Policy* is applied on the subnet to prevent non-compliant changes to networking configuration. After the last instance is removed from the subnet, the *Network Intent Policy* is removed as well
+
+### Mandatory inbound security rules 
+
+| NAME       |PORT                        |PROTOCOL|SOURCE           |DESTINATION|ACTION|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |Any        |Allow |
+|mi_subnet   |Any                         |Any     |MI SUBNET        |Any        |Allow |
+|health_probe|Any                         |Any     |AzureLoadBalancer|Any        |Allow |
+
+### Mandatory outbound security rules 
+
+| NAME       |PORT          |PROTOCOL|SOURCE           |DESTINATION|ACTION|
+|------------|--------------|--------|-----------------|-----------|------|
+|management  |80, 443, 12000|TCP     |Any              |Any        |Allow |
+|mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
+
+  > [!Note]
+  > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-find-management-endpoint-id-address.md) shows how you can discover management endpoint IP address and verify firewall rules. 
 
 ## Next steps
 
