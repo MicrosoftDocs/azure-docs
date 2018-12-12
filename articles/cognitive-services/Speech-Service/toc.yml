@@ -53,9 +53,9 @@
     items:
     - name: Convert text-to-speech
       items:
-      - name: 'C# (.NET Core), REST'
+      - name: 'C# (.NET Core)'
         href: quickstart-dotnet-text-to-speech.md
-      - name: 'Using Python, REST'
+      - name: 'Python'
         href: quickstart-python-text-to-speech.md
   - name: Speech Devices SDK
     href: speech-devices-sdk-qsg.md
