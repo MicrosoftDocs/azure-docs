@@ -1,5 +1,5 @@
 ---
-title: OS and runtime patching in Azure App Service | Microsoft Docs
+title: OS and runtime patching cadence - Azure App Service | Microsoft Docs
 description: Describes how Azure App Service updates the OS and runtimes, and how you can get update announcements.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # OS and runtime patching in Azure App Service

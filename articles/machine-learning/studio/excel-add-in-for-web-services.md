@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
+ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio web services
 Excel makes it easy to call web services directly without the need to write any code.

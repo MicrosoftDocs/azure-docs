@@ -31,10 +31,10 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 | Active Directory reporting | Events | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API](../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
 | Security Center resource status | Status | [All supported resources](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST API:** [Security Statuses](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Resource Health | Status | Supported services | <ul><li>**REST API:** [Resource health REST API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
-| Azure Monitor metric alerts | Notifications | [See list here](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure metric alerts](insights-webhooks-alerts.md)</li></ul> |
+| Azure Monitor metric alerts | Notifications | [See list here](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Azure metric alerts](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
 | Azure Monitor Activity Log alerts | Notifications | All Azure services | <ul><li>**Webhook:** Azure Activity Log alerts</li></ul> |
 | Autoscale notifications | Notifications | [See list here](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Autoscale notification webhook payload schema](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Log Search Query alerts | Notifications | Log Analytics | <ul><li>**Webhook:** [Webhook action for log alert rules](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
+| Log Search Query alerts | Notifications | Log Analytics | <ul><li>**Webhook:** [Webhook action for log alert rules](../monitoring-and-diagnostics/../azure-monitor/platform/alerts-log-webhook.md)</li></ul> |
 | Application Insights metric alerts | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../application-insights/app-insights-alerts.md)</li></ul> |
 | Application Insights web tests | Notifications | Application Insights | <ul><li>**Webhook:** [Application Insights alerts](../application-insights/app-insights-alerts.md)</li></ul> |
 

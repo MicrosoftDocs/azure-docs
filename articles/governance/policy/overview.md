@@ -8,7 +8,6 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
 ---
 # What is Azure Policy?
 
@@ -77,7 +76,7 @@ them. You can assign any of these policies through the Azure portal, PowerShell,
 
 Policy evaluation happens with several different actions, such as policy assignment or policy
 updates. For a complete list, see [Policy evaluation
-triggers](./how-to/getting-compliance-data.md#evaluation-triggers).
+triggers](./how-to/get-compliance-data.md#evaluation-triggers).
 
 To learn more about the structures of policy definitions, review [Policy Definition Structure](./concepts/definition-structure.md).
 

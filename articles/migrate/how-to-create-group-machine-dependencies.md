@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -13,6 +13,8 @@ ms.author: raynew
 
 This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment by visualizing dependencies of machines. You typically use this method when you want to assess groups of VMs with higher levels of confidence by cross-checking machine dependencies, before you run an assessment. Dependency visualization can help you effectively plan your migration to Azure. It helps you ensure that nothing is left behind and surprise outages do not occur when you are migrating to Azure. You can discover all interdependent systems that need to migrate together and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.
 
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ## Prepare for dependency visualization
 Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.

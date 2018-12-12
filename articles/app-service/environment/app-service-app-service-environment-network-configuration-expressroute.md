@@ -1,5 +1,5 @@
 ---
-title: Network Configuration Details for Working with Express Route
+title: Network Configuration Details for Working with Express Route - Azure
 description: Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Network Configuration Details for App Service Environments with ExpressRoute
