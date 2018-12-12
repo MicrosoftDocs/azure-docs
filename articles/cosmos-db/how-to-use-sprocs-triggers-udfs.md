@@ -10,7 +10,7 @@ ms.date: 12/08/2018
 ms.author: mjbrown
 ---
 
-# How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB
+# How to register and use stored procedures, triggers, user-defined functions in Azure Cosmos DB
 
 The SQL API in Azure Cosmos DB supports registering and invoking stored procedures, triggers and user-defined functions (UDFs) written in JavaScript. You can use the SQL API [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) or [Python](sql-api-sdk-python.md) SDKs to register and invoke the stored procedures. Once you have defined one or more stored procedures, triggers, and user-defined functions, you can load and view them in the [Azure portal](https://portal.azure.com/) by using Data Explorer.
 
@@ -171,7 +171,7 @@ The following examples show how to register and call a pre-trigger by using the 
 When executing, pre-triggers are passed in the RequestOptions object by specifying `PreTriggerInclude` and then passing the name of the trigger in a List object.
 
 > [!NOTE]
-> Even though the name of the trigger is passed in a List, you can still execute only one trigger per operation.
+> Even though the name of the trigger is passed as a List, you can still execute only one trigger per operation.
 
 ### Pre-triggers - .NET SDK
 
@@ -206,7 +206,7 @@ RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new Lis
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
 
-### Pre-triggers - Java
+### Pre-triggers - Java SDK
 
 The following code shows how to register a pre-trigger using the Java SDK:
 
@@ -239,7 +239,7 @@ requestOptions.setPreTriggerInclude(Arrays.asList("trgPreValidateToDoItemTimesta
 asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
-### Pre-triggers - JavaScript
+### Pre-triggers - JavaScript SDK
 
 The following code shows how to register a pre-trigger using the JavaScript SDK:
 
@@ -267,7 +267,7 @@ await container.items.create({
 }, {preTriggerInclude: [triggerId]});
 ```
 
-### Pre-triggers - Python
+### Pre-triggers - Python SDK
 
 The following code shows how to register a pre-trigger using the Python SDK:
 
@@ -296,7 +296,7 @@ client.CreateItem(container_link, item, { 'preTriggerInclude': 'trgPreValidateTo
 
 Below are examples of how to register a post-trigger using the Cosmos DB SDKs. Refer to the [Post-trigger example](how-to-write-sprocs-triggers-udfs.md#post-triggers) as the source for this post-trigger is saved as `trgPostUpdateMetadata.js`.
 
-### Post-triggers - .NET
+### Post-triggers - .NET SDK
 
 The following code shows how to register a post-trigger using the .Net SDK:
 
@@ -327,7 +327,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.createDocumentAsync(containerUri, newItem, options);
 ```
 
-### Post-triggers - Java
+### Post-triggers - Java SDK
 
 The following code shows how to register a post-trigger using the Java SDK:
 
@@ -358,7 +358,7 @@ requestOptions.setPostTriggerInclude(Arrays.asList("trgPostUpdateMetadata"));
 asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
 ```
 
-### Post-triggers - JavaScript
+### Post-triggers - JavaScript SDK
 
 The following code shows how to register a post-trigger using the JavaScript SDK:
 
@@ -386,7 +386,7 @@ const triggerId = "trgPostUpdateMetadata";
 await container.items.create(item, {postTriggerInclude: [triggerId]});
 ```
 
-### Post-triggers - Python
+### Post-triggers - Python SDK
 
 The following code shows how to register a post-trigger using the Python SDK:
 
@@ -415,7 +415,7 @@ client.CreateItem(container_link, item, { 'postTriggerInclude': 'trgPostUpdateMe
 
 Below are examples of how to register a user-defined function using the Cosmos DB SDKs. Refer to this [User-defined function example](how-to-write-sprocs-triggers-udfs.md#udfs) as the source for this post-trigger is saved as `udfTax.js`.
 
-### User-defined functions - .NET
+### User-defined functions - .NET SDK
 
 The following code shows how to register a user-defined function using the .Net SDK:
 
@@ -444,7 +444,7 @@ foreach (var result in results)
 }
 ```
 
-### User-defined functions - Java
+### User-defined functions - Java SDK
 
 The following code shows how to register a user-defined function using the Java SDK:
 
@@ -482,7 +482,7 @@ queryObservable.subscribe(
 completionLatch.await();
 ```
 
-### User-defined functions - JavaScript
+### User-defined functions - JavaScript SDK
 
 The following code shows how to register a user-defined function using the JavaScript SDK:
 
@@ -502,7 +502,7 @@ const sql = "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000";
 const {result} = await container.items.query(sql).toArray();
 ```
 
-### User-defined functions - Python
+### User-defined functions - Python SDK
 
 The following code shows how to register a user-defined function using the Python SDK:
 

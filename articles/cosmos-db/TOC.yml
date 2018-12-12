@@ -145,9 +145,9 @@
         href: database-transactions-optimistic-concurrency.md
     - name: Server-side programming
       items:
-        - name: Stored procedures, triggers and user-defined functions
+        - name: Stored procedures, triggers and UDFs
           href: storedprocedures-triggers-udfs.md
-        - name: Javascript language-integrated query API
+        - name: Javascript query API
           href: js-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
@@ -256,11 +256,11 @@
           href: sql-api-query-metrics.md
         - name : Server-side programming
           items:
-          - name: Write stored procedures, triggers and user-defined functions
+          - name: Define stored procedures, triggers and UDFs
             href: how-to-write-sprocs-triggers-udfs.md
-          - name: Write with Javascript language-integrated query API
+          - name: Define stored procedures, triggers and UDFs with Javascript query API
             href: how-to-write-js-query-api.md
-          - name: Use stored procedures, triggers and user-defined functions
+          - name: Use stored procedures, triggers and UDFs
             href: how-to-use-sprocs-triggers-udfs.md  
         - name: Data types
           items:
