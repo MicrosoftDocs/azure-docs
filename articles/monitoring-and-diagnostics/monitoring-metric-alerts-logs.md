@@ -34,7 +34,7 @@ There are many benefits for using **Metric Alerts for Logs** over query based [L
 > [!NOTE]
 > To view supported metrics for being extracted from Log Analytics workspace via [Azure Monitor - Metrics](monitoring-metric-charts.md); a metric alert for log must be created for the said metric. The dimensions chosen in Metric Alert for logs - will only appear for exploration via Azure Monitor - Metrics.
 
-# Creating metric alert for Log Analytics
+## Creating metric alert for Log Analytics
 Metric data from popular logs is piped before it is processed in Log Analytics, into Azure Monitor - Metrics. This allows users to leverage the capabilities of the Metric platform as well as metric alert - including having alerts with frequency as low as 1 minute. 
 Listed below are the means of crafting a metric alert for logs.
 
@@ -350,5 +350,5 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 ## Next steps
 
 * Learn more about the [ metric alerts](https://aka.ms/createmetricalert).
-* Learn about [log alerts in Azure](monitor-alerts-unified-log.md).
+* Learn about [log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
 * Learn about [alerts in Azure](monitoring-overview-alerts.md).

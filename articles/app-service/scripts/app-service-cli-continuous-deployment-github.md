@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
+title: Azure CLI Script Sample - Create app with continuous deployment from GitHub | Microsoft Docs
 description: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub
 services: app-service\web
 documentationcenter: 

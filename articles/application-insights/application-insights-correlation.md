@@ -25,7 +25,7 @@ Application Insights defines a [data model](application-insights-data-model.md) 
 
 Distributed logical operation typically consists of a set of smaller operations - requests processed by one of the components. Those operations are defined by [request telemetry](application-insights-data-model-request-telemetry.md). Every request telemetry has its own `id` that uniquely globally identifies it. And all telemetry - traces, exceptions, etc. associated with this request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation like http call to another component represented by [dependency telemetry](application-insights-data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
+Every outgoing operation (such as an http call to another component) is represented by [dependency telemetry](application-insights-data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that is globally unique. Request telemetry, initiated by this dependency call, uses it as `operation_parentId`.
 
 You can build the view of distributed logical operation using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. Those fields also define the causality order of telemetry calls.
 
