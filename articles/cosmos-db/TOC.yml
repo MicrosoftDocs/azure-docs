@@ -256,8 +256,6 @@
         items:
         - name: Tune query performance
           href: sql-api-sql-query-metrics.md
-        - name: SQL data partitioning
-          href: sql-api-partition-data.md
         - name : Server-side programming
           items:
           - name: Write stored procedures, triggers and user-defined functions
