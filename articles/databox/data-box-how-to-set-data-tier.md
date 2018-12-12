@@ -30,12 +30,9 @@ The default blob tier is specified when the storage account is created in the Az
 
 The tiers cannot be specified if you are trying to create a new accout when ordering a Data Box. To specify tiers, you need to create a storage account first with the specified access tier attribute. When creating the Data Box order, you can simply select this existing storage account.
 
-For more information on how to set the default blob tier, go to 
--	How to set a default blob tier? Link to storage account details for setting hot/cool
-
+For more information on how to set the default blob tier during storage account creation, go to [Create a storage account in Azure portal](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal).
 
 ## Move data to a non-default tier
-
 
 -	How do I move data into the ‘non-default’ tier (E.g. Archive) 
 o	DLM (preview): https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts
