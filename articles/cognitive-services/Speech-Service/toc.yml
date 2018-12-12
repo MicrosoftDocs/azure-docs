@@ -45,6 +45,8 @@
       items:
       - name: 'C# (.NET Core on Windows)'
         href: quickstart-translate-speech-dotnetcore-windows.md
+      - name: 'C++ (Windows)'
+        href: quickstart-translate-speech-cpp-windows.md
       - name: 'Java (Windows, Linux)'
         href: quickstart-translate-speech-java-jre.md
   - name: REST APIs
@@ -55,7 +57,7 @@
         href: quickstart-dotnet-text-to-speech.md
       - name: 'Using Python, REST'
         href: quickstart-python-text-to-speech.md
-  - name: Get started with Speech Devices SDK
+  - name: Speech Devices SDK
     href: speech-devices-sdk-qsg.md
     displayName: roobo, speech devices sdk
 - name: Tutorials
