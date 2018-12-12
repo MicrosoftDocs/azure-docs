@@ -4,7 +4,7 @@ description: Use PowerShell to deploy and manage backups in Azure for Azure file
 services: backup
 author: pvrk
 manager: shivamg
-keywords: Powershell; Azure files backup; Azure files restore;
+keywords: PowersShell; Azure files backup; Azure files restore;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/12/2018
@@ -65,7 +65,7 @@ To begin:
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the *Register-AzResourceProvider** cmdlet again.
+    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **Register-AzResourceProvider** cmdlet again.
 
 The following tasks can be automated with PowerShell:
 
@@ -126,9 +126,9 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 ```
 
 > [!NOTE]
-> We are planning to deprecate the setting of vault context as per Azure Powershell guidelines. Instead we recommend users to pass the vault ID as mentioned below
+> We are planning to deprecate the setting of vault context as per Azure PowerShell guidelines. Instead we recommend users to pass the vault ID as mentioned below
 
-Alternatively, you can store/fetch the ID of the vault to which you want to perform a Powershell operation and pass it to the relevant command.
+Alternatively, you can store/fetch the ID of the vault to which you want to perform a PowerShell operation and pass it to the relevant command.
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
