@@ -5,7 +5,7 @@ keywords: azure app service, web app, linux, oss
 services: app-service
 documentationCenter: ''
 authors: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
