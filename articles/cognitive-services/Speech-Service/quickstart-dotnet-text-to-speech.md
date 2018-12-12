@@ -22,7 +22,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 
 This quickstart requires:
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
 * An Azure subscription key for the Speech Service
 

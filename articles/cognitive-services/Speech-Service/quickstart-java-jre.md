@@ -28,7 +28,7 @@ This quickstart requires:
 * Operating System: Windows (64-bit) or Ubuntu Linux 16.04 (64-bit)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [JDK 8 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for the Speech Service
+* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 If you're running Ubuntu 16.04, make sure these dependencies are installed before starting Eclipse.
 
