@@ -57,7 +57,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
    
     ![HDInsight Linux get started resource group](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group")
     
-5. The tile also lists the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
+5. The tile also lists the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters does not delete the storage account.
     
 
 > [!NOTE]
@@ -135,5 +135,3 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-
