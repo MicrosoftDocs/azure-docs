@@ -30,11 +30,11 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.0.83**.
+The Azure Stack 1811 update build number is **1.1811.0.87**.
 
 ## Hotfixes
 
-Azure Stack releases hotfixes on a regular basis.
+Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating Azure Stack to 1811.
 
 > [!TIP]  
 > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack hotfixes:
@@ -43,14 +43,14 @@ Azure Stack releases hotfixes on a regular basis.
 
 ### Azure Stack hotfixes
 
-- **1809**: [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
+- **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
 
 ## Prerequisites
 
 - Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-- Install the [latest Azure Stack Hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
+- Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
@@ -65,7 +65,7 @@ Azure Stack releases hotfixes on a regular basis.
     The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
     ``` 
  
-- In addition to various quality improvements, the [1809 Hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
+- In addition to various quality improvements, the [1809 hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
  
     ```shell
     Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
@@ -129,7 +129,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack Hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a *First* or *Last* name specified.   
