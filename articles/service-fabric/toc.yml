@@ -123,6 +123,8 @@
         href: service-fabric-reliable-services-introduction.md
       - name: Service partitioning
         href: service-fabric-concepts-partitioning.md
+      - name: Reconfiguring stateful services
+        href: service-fabric-concepts-reconfiguration.md
       - name: Reliable Services lifecycle - C#
         href: service-fabric-reliable-services-lifecycle.md
       - name: Reliable Services lifecycle - Java
