@@ -20,7 +20,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 * Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
 * Run a wind farm simulation to stream data into the Azure Time Series Insights Preview environment.
 * Perform basic analysis on the data.
-* Define a Time Series Model type and hierarchy and associate it with your instances.
+* Define a Time Series Model Type and Hierarchy and associate it with your instances.
 
 # Create a device simulation
 
@@ -83,7 +83,7 @@ Before you create an Azure Time Series Insights environment, you will need the n
 
 1. Take note of the IoT Hub, subscription, and resource group names.
 
-    ![Azure portl][8]
+    ![Azure portal][8]
 
 ## Create a Time Series Insights Preview PAYG environment
 
@@ -106,7 +106,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Resource Group** | A resource group is a container for Azure resources. Choose an existing resource group, or create a new one, for the Azure Time Series Insights Preview environment resource. It is a best practice to use the same resource group as the rest of your IoT resources created by the device simulator. |
    | **Location** | Choose a data center region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to keep the Azure Time Series Insights Preview environment in the same region as other IoT resources. |
    | **Tier** |  Select `PAYG` which stands for pay-as-you-go. This is the SKU for Azure Time Series Insights Preview product. |
-   | **Property ID** | Property Id uniquely identifies your time series. Please not that this field is immutable and cannot be changed later. For this tutorial set the field to `iothub-connection-device-id`. To learn more about Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
+   | **Property ID** | Uniquely identifies your time series. Note that this field is immutable and cannot be changed later. For this tutorial set the field to `iothub-connection-device-id`. To learn more about Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
    | **Storage Account Name** | Enter a global unique name for a new storage account to be created. |
 
    After filling in the fields above, click **Next: Event Source**.
@@ -127,7 +127,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Iot Hub consumer group** | You need a unique consumer group for an Azure Time Series Insights Preview. |
    | **Timestamp** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, do not fill the field. This simulator uses the incoming timestamp from IoT Hub which Time Series Insights defaults to.|
 
-   To create create a unique consumer group:
+   To create a unique consumer group:
 
    1. Click **New** next to the **IoT Hub consumer group** field:
 
@@ -203,7 +203,7 @@ In this section, you perform basic analytics on your time series data by using t
 
 ## Define and apply a model
 
-In this section, you will apply a model to structure your data. To complete the model you will need to define Types, Hierarchies and Instances. To learn more about data modelling, go to [Time Series Models](./time-series-insights-update-tsm.md).
+In this section, you will apply a model to structure your data. To complete the model, you will define Types, Hierarchies, and Instances. To learn more about data modeling, go to [Time Series Models](./time-series-insights-update-tsm.md).
 
 1. In the explorer, select the **Model** tab
 
@@ -213,7 +213,7 @@ In this section, you will apply a model to structure your data. To complete the 
 
    ![Click Add][28]
 
-1. Next, define three variables: pressure, temperature and humidity in a type. Enter the following fields:
+1. Next, define three variables: Pressure, Temperature, and Humidity in a Type. Enter the following fields:
 
    | | |
    | --- | ---|
@@ -242,7 +242,7 @@ In this section, you will apply a model to structure your data. To complete the 
 
       ![Define Temperature][30]
 
-   * Now, define Humdity:
+   * Now, define Humidity:
 
       | | |
       | --- | ---|
@@ -330,7 +330,7 @@ In this section, you will apply a model to structure your data. To complete the 
 
    ![Explore the last hour][39]
 
-1. Click on the times eries under **Pacific Science Center** and click **Show Max Humidity**.
+1. Click on the times series under **Pacific Science Center** and click **Show Max Humidity**.
 
    ![Show max Humidity][40]
 
@@ -340,7 +340,7 @@ In this section, you will apply a model to structure your data. To complete the 
 
    ![View, filter, and zoom][42]
 
-1. You can also left-click a region and then right click to see event details:
+1. You can also left-click a region and then right-click to see event details:
 
    ![View, filter, and zoom][43]
 
