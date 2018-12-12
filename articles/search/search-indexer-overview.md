@@ -42,7 +42,7 @@ Indexers crawl data stores on Azure.
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) 
-    * Please note that Azure Table Storage is not supported for [Azure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/cognitive-search-concept-intro)
+    * Please note that Azure Table Storage is not supported for [Azure Cognitive Search](cognitive-search-concept-intro.md)
 
 
 ## Basic configuration steps
