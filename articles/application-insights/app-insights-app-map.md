@@ -129,10 +129,11 @@ In ApplicationInsights.config:
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
 ```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
     protected void Application_Start()
     {
-    using Microsoft.ApplicationInsights.Extensibility;
-    using CustomInitializer.Telemetry;
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
     }
