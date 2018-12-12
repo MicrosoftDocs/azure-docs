@@ -135,28 +135,24 @@ For more information, see [What is the location condition in Azure Active Direct
 
 ## Client apps
 
-By default, a conditional access policy applies to all:
+By default, a conditional access policy applies to the following apps:
 
-- [Browser apps](technical-reference.md#supported-browsers) 
+- [Browser apps](technical-reference.md#supported-browsers) -  Browser apps include websites using the SAML, WS-Federation or OpenID Connect web SSO protocols. This also applies to any website or web service that has been registered as an OAuth confidential client. For example, the Office 365 SharePoint website. 
 
-- [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients)
-
-
-An app is classified as:
-
-- A website or service if it uses web SSO protocols, SAML, WS-Fed, or OpenID Connect for a confidential client.
-
-- A mobile app or desktop application if it uses the mobile app OpenID Connect for a native client.
+- [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients) - These apps include include the Office desktop applications and phone apps. 
 
 
-With the client apps condition, you have the option to target a policy to specific subsets of apps, authentication protocols and mail applications that use Microsoft Exchange ActiveSync.
+In addition to these client app types, you have the option to target a policy to specific client apps that are not build using modern authentication, for example:
 
+- Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks access to a client using Exchange ActiveSync, affected users get a single quarantine email that tells them why they are blocked and if required, instruct them to enroll their device with Intune.
+
+- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP and older Office apps that are not enable for modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client apps](./media/conditions/41.png)
 
 Common use cases for this condition are policies with the following requirements:
 
-- **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
+- **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download  data to a device. At the same time, allow browser access from any device. This scenario prevents saving and syncing documents to an unmanaged device and reduces reducing the chance of data loss if the device is lost or stolen.
 
 - **[Require a managed device](require-managed-devices.md)** apps using ActiveSync to access Exchange Online.
 
@@ -180,7 +176,11 @@ You can only select **Exchange ActiveSync clients** if:
     ![Apply policy only to supported platforms](./media/conditions/33.png)
 
 
-All controls except [requiring a managed device](require-managed-devices.md) lead to a block.
+When access is blocked because a [managed device](require-managed-devices.md) is required, the affected users get a single mail that guides them to use Intune. 
+
+If an approved app is required, the affected users get guidelines to install and use the Outlook mobile client.
+
+In other cases, for example, if MFA is required, the affected users are blocked, because clients using Basic authentication don't support MFA.
 
 You can only target this setting to users and groups. It doesn’t support guests or roles. If a guest or role condition is configured, all users are blocked because conditional access can't determine if the policy should apply to the user or not.
 
