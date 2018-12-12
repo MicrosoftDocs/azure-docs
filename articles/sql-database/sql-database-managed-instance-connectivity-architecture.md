@@ -112,7 +112,7 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
-- Learn how to [configure new VNet](sql-database-managed-instance-create-vnet-subnet.md)) or [configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md) where you can deploy Managed Instances.
+- Learn how to [configure new VNet](sql-database-managed-instance-create-vnet-subnet.md) or [configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md) where you can deploy Managed Instances.
 - [Calculate out the size of the subnet](sql-database-managed-instance-determine-size-of-vnet-subnet.md) where you will deploy Managed Instances. 
 - For a quickstart see how to create Managed Instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md)
