@@ -71,7 +71,7 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
     sh build
     ```
     
-    or on windows:
+    or on Windows:
     
     ```
     ./build.cmd
