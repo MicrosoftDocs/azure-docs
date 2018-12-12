@@ -103,7 +103,7 @@ Before you back up your SQL Server database, check the following conditions:
 - Identify or [create a Recovery Services vault](backup-azure-sql-database.md#create-a-recovery-services-vault) in the same region or locale as the virtual machine that hosts your SQL Server instance.
 - [Check the permissions on the virtual machine](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) that are needed to back up the SQL databases.
 - Verify that the [SQL virtual machine has network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#sql- database-naming-guidelines-for-azure-backup) for Azure Backup to take successful backups.
+- Check whether the SQL databases are named as per the [naming guidelines](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) for Azure Backup to take successful backups.
 
 > [!NOTE]
 > You can have only one backup solution at a time to back up SQL Server databases. Disable all other SQL backups before you use this feature; otherwise, the backups will interfere and fail. You can enable Azure Backup for IaaS VM along with SQL backup without any conflict.
@@ -201,6 +201,7 @@ During the installation process, if you receive the error `UserErrorSQLNoSysadmi
 After you associate the database with the Recovery Services vault, the next step is to [configure the backup job](backup-azure-sql-database.md#configure-backup-for-sql-server-databases).
 
 ## SQL database naming guidelines for Azure Backup
+
 To ensure smooth backups using Azure Backup for SQL Server in IaaS VM, avoid the following while naming the databases:
 
   * Trailing/Leading spaces
@@ -222,7 +223,7 @@ Azure Backup discovers all databases on a SQL Server instance. You can protect t
 
 3. In the **All services** dialog box, enter **Recovery Services**. As you type, your input filters the list of resources. Select **Recovery Services vaults** in the list.
 
-    ![Enter and choose Recovery Services vaults](./media/backup-azure-sql-database/all-services.png) <br/>
+  ![Enter and choose Recovery Services vaults](./media/backup-azure-sql-database/all-services.png) <br/>
 
     The list of Recovery Services vaults in the subscription appears.
 
@@ -347,13 +348,13 @@ Auto-protection is a capability that lets you automatically protect all the exis
 
 In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
 
-  ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
+![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-  There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
+There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
 
-  If for some reason you need to disable the auto-protection on an instance, click the instance name under **Configure Backup** to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto-protection on that instance.
+If for some reason you need to disable the auto-protection on an instance, click the instance name under **Configure Backup** to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto-protection on that instance.
 
-    ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
 All the databases in that instance will continue to be protected. However, this action will disable auto-protection on any databases that will be added in the future.
 
