@@ -52,7 +52,7 @@ Before you upgrade, note the following:-
 > Please refer to the detailed SCVMM documentation of [prerequisites](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)
 
 ## Windows Server 2012 R2 hosts which aren't managed by SCVMM
-The left of steps mentioned below handles the user configuration described [here](../Documents/GitHub/azure-docs-pr/articles/site-recovery/hyper-v-azure-architecture.md) executed by following the [steps mentioned here](../Documents/GitHub/azure-docs-pr/articles/site-recovery/hyper-v-azure-tutorial.md)
+The left of steps mentioned below handles the user configuration described [here](https://docs.microsoft.com/azure/site-recovery/hyper-v-azure-architecture) executed by following the [steps mentioned here](https://docs.microsoft.com/azure/site-recovery/hyper-v-prepare-on-premises-tutorial)
 
 > [!WARNING]
 > As mentioned in the prerequisites, these steps only apply to a clustered environment scenario.
