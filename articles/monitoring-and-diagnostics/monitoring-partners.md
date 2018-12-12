@@ -229,7 +229,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure Monitor Grafana integration."
-[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure Monitor Influxdata Telegraf integration."
+[influxdata-doc]: ./../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influxdata Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."

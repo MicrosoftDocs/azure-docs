@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Interactive Query on HDInsight
   items:
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0

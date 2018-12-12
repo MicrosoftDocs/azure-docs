@@ -19,9 +19,6 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
@@ -36,9 +33,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Review installer.log to determine the cause of the installation failure.
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller**  
-If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version, you may hit the issue where the sync agent will fail to install.
 
-To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
+To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
@@ -112,14 +109,14 @@ This issue can occur if a management operation on the server endpoint fails. If 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
-Get-AzStorageSyncServerEndpoint `
+Get-AzureRmStorageSyncServerEndpoint `
     -SubscriptionId mysubguid `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
     -SyncGroupName mysyncgroup
 
 # Update the free space percent policy for the server endpoint
-Set-AzStorageSyncServerEndpoint `
+Set-AzureRmStorageSyncServerEndpoint `
     -Id serverendpointid `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
@@ -130,7 +127,7 @@ This issue can occur if the Storage Sync Monitor process is not running or the s
 
 To resolve this issue, perform the following steps:
 
-1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade the Azure File Sync agent to version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) if not currently installed.
+1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Verify Firewall and Proxy settings are configured correctly:
 	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
 	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
@@ -584,20 +581,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzAccount
+$acctInfo = Connect-AzureRmAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
+# use Login-AzureRMAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzLocation | ForEach-Object { 
+Get-AzureRmLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -610,7 +607,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzResourceGroup | ForEach-Object { 
+Get-AzureRmResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -621,7 +618,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzStorageSync `
+Login-AzureRmStorageSync `
     –SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
@@ -631,7 +628,7 @@ Login-AzStorageSync `
 # exists.
 $syncServices = [System.String[]]@()
 
-Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
+Get-AzureRmStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
     $syncServices += $_.DisplayName
 }
 
@@ -642,7 +639,7 @@ if ($storageSyncServices -notcontains $syncService) {
 # Check to make sure the provided Sync Group exists
 $syncGroups = [System.String[]]@()
 
-Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
+Get-AzureRmStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
     $syncGroups += $_.DisplayName
 }
 
@@ -651,13 +648,13 @@ if ($syncGroups -notcontains $syncGroup) {
 }
 
 # Get reference to cloud endpoint
-$cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
+$cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
     -ResourceGroupName $resourceGroup `
     -StorageSyncServiceName $storageSyncService `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -691,7 +688,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 
 # [PowerShell](#tab/powershell)
 ```PowerShell
-$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
     $_.IsSnapshot -eq $false
 }
@@ -719,7 +716,7 @@ if ($fileShare -eq $null) {
 # [PowerShell](#tab/powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {

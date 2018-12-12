@@ -458,6 +458,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/search/search-case-studies.md",
+            "redirect_url": "https://azure.microsoft.com/case-studies",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/active-directory-saas-scc-lifecycle-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-scclifecycle-tutorial",
             "redirect_document_id": true
@@ -10993,6 +10998,21 @@
         {
             "source_path": "articles/machine-learning/cortana-analytics-playbook-vehicle-telemetry-powerbi.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-powerbi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry.md",
+            "redirect_url": "https://gallery.azure.ai/browse?s=vehicle%20telemetry%20analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-deep-dive.md",
+            "redirect_url": "https://gallery.azure.ai/browse?s=vehicle%20telemetry%20analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-vehicle-telemetry-powerbi.md",
+            "redirect_url": "https://gallery.azure.ai/browse?s=vehicle%20telemetry%20analytics",
             "redirect_document_id": false
         },
         {
@@ -31904,6 +31924,106 @@
         {
             "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md",
             "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-alert-instances",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-schema.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-schema",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot0",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-storage.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-to-storage",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostics-extension-troubleshooting",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-virtual-machine-scale-sets",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-best-practices",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-common-metrics",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-webhook-email",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-cli-samples.md",
+            "redirect_url":  "/azure/azure-monitor/platform/cli-samples",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-custom-overview.md",
+            "redirect_url":  "/azure/azure-monitor/platform/metrics-custom-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-custom-metrics-guestos-vm-cloud-service-classic",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-custom-metrics-guestos-vm-classic",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md",
+            "redirect_url":  "/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf",
             "redirect_document_id":  true
         },
         {
