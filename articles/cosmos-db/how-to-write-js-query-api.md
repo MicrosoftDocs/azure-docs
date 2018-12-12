@@ -1,21 +1,21 @@
 ---
-title: How to write stored procedures and triggers using the JavaScript Query API in Azure Cosmos DB 
+title: How to write stored procedures and triggers using the JavaScript query API in Azure Cosmos DB 
 description: Learn how to write stored procedures and triggers using the JavaScript Query API in Azure Cosmos DB 
 author: markjbrown
 
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/08/2018
+ms.date: 12/11/2018
 ms.author: mjbrown
 ---
 
-# How to write stored procedures and triggers in Azure Cosmos DB using the JavaScript Query API
+# How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API
 
-Azure Cosmos DB allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL that can be used to write stored procedures or triggers in Cosmos DB. To learn more about JavaScript Query API support in Cosmos DB read [Working with JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md).
+Azure Cosmos DB allows you to perform optimized queries by using a fluent JavaScript interface without any knowledge of SQL language that can be used to write stored procedures or triggers. To learn more about JavaScript Query API support in Azure Cosmos DB, see [Working with JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md) article.
 
-## <a id="stored-procedures">Write a stored procedure using the JavaScript query API
+## <a id="stored-procedures">Stored procedure using the JavaScript query API
 
-The following code sample is an example of how the JavaScript Query API can be used in the context of a stored procedure. The stored procedure inserts a Cosmos DB item, given by an input parameter, and updates a metadata document, using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input item's size property.
+The following code sample is an example of how the JavaScript query API is used in the context of a stored procedure. The stored procedure inserts an Azure Cosmos DB item that is specified by an input parameter, and updates a metadata document by using the `__.filter()` method, with minSize, maxSize, and totalSize based upon the input item's size property.
 
 > [!NOTE]
 > `__` (double-underscore) is an alias to `getContext().getCollection()` when using the JavaScript query API.
@@ -76,7 +76,7 @@ function insertDocumentAndUpdateMetadata(item) {
 
 ## Next steps
 
-See the following articles to learn about stored procedures, triggers and user-defined functions in Cosmos DB:
+See the following articles to learn about stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
 
 - [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md)
 - [How to register and use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures)
