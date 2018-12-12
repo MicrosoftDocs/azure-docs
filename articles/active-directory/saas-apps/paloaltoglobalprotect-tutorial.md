@@ -102,10 +102,10 @@ To configure Azure AD single sign-on with Palo Alto Networks - GlobalProtect, pe
     ![Palo Alto Networks - GlobalProtect Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<Customer Firewall URL>`.
+    `https://<Customer Firewall URL>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<Customer Firewall URL>/SAML20/SP`.
+    `https://<Customer Firewall URL>/SAML20/SP`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Palo Alto Networks - GlobalProtect Client support team](https://support.paloaltonetworks.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -143,7 +143,7 @@ To configure Azure AD single sign-on with Palo Alto Networks - GlobalProtect, pe
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Palo Alto Networks - GlobalProtect** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Palo Alto Networks - GlobalProtect** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
