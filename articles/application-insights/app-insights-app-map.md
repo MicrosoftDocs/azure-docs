@@ -56,7 +56,7 @@ Select **investigate failures** to launch the failures pane.
 
 ### Investigate performance
 
-To troubleshoot performance problems, select **investigate performance**
+To troubleshoot performance problems, select **investigate performance**.
 
 ![Screenshot of investigate performance button](media/app-insights-app-map/investigate-performance.png)
 
@@ -88,7 +88,7 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ## Set cloud_RoleName
 
-Application Map uses the `cloud_RoleName` property to identify the components on the map.The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name, or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
+Application Map uses the `cloud_RoleName` property to identify the components on the map.The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
 
 ### .NET
 
@@ -193,7 +193,7 @@ If you are having trouble getting Application Map to work as expected, try the f
 
 2. Upgrade all components to the latest SDK version.
 
-3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/en-us/azure/azure-functions/functions-versions).
+3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
 4. Ensure [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) is correctly configured.
 
