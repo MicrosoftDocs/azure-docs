@@ -36,7 +36,7 @@ Since March 2018, the next generation of alerting and multi-dimensional monitori
 Newer metrics for Azure resources are available as:
 
 - **Azure Monitor Standard platform metrics** – which provides popular pre-populated metrics from various Azure services and products. For more information, see this article on [Supported metrics on Azure Monitor](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) and [Support metric alerts on Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
-- **Azure Monitor Custom metrics** – which provides metrics from user driven sources including the Azure Diagnostics agent. For more information, see this article on [Custom metrics in Azure Monitor](metrics-custom-overview.md). Using custom metrics, you can also publish metrics collected by [Windows Azure Diagnostics agent](metrics-store-custom-guestos-resource-manager-vm.md) and [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md).
+- **Azure Monitor Custom metrics** – which provides metrics from user driven sources including the Azure Diagnostics agent. For more information, see this article on [Custom metrics in Azure Monitor](../azure-monitor/platform/metrics-custom-overview.md). Using custom metrics, you can also publish metrics collected by [Windows Azure Diagnostics agent](../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md) and [InfluxData Telegraf agent](../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md).
 
 ## Retirement of Classic monitoring and alerting platform
 
