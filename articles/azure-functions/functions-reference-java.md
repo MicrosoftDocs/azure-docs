@@ -356,11 +356,11 @@ You must have enabled file system logging in the Azure Portal or Azure CLI befor
 
 ## Environment variables
 
-In Functions, [app settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), such as service connection strings, are exposed as environment variables during execution. You can access these settings using, `System.getenv("AzureWebJobsStorage")`
+In Functions, [app settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), such as service connection strings, are exposed as environment variables during execution. You can access these settings using, `System.getenv("AzureWebJobsStorage")`
 
 Example:
 
-Add [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) with name testAppSetting and value testAppSettingValue
+Add [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) with name testAppSetting and value testAppSettingValue
 
 ```java
 

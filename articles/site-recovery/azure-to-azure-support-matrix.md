@@ -37,7 +37,7 @@ This article summarizes supported configurations and components when you deploy 
 
 ## Region support
 
-You can replicate and recover VMs between any two regions within the same geographic cluster.
+You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. 
 
 **Geographic cluster** | **Azure regions**
 -- | --
@@ -47,11 +47,12 @@ Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan 
 Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany	| Germany Central, Germany Northeast
-China | China East, China North
+China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
-> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.
+> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.</br>
+> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used  as a Target DR region for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.  
 
 ## Cache storage
 
@@ -173,6 +174,7 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |  
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
+Standard SSD | Not Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |   	 	 
@@ -194,6 +196,18 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction 
 >[!IMPORTANT]
 > Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
 
+## Azure Site Recovery limits to replicate Data change rates
+The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. We should also note that there are two limits to consider, per disk data churn and per virtual machine data churn.
+For example, if we look at  Premium P20 disk in the below table, Site Recovery can handle 5 MB/s churn per disk with at max of five such disks per VM  due to the limit of 25 MB/s total churn per VM.
+
+**Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
+---|---|---|---
+Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 ## Replicated machines - networking
 **Configuration** | **Support** | **Details**
 --- | --- | ---

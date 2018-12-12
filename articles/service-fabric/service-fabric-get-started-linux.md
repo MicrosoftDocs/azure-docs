@@ -101,7 +101,14 @@ To install the SDK and associated runtime package via the apt-get command-line t
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Refresh your package lists based on the newly added repositories.
+7. Add Azul JDK Key to your APT keyring and setup its repository.
+
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    ```
+
+8. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
@@ -169,7 +176,7 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
 RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
@@ -230,13 +237,12 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 ## Set up Java development
 
-To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
+To build Service Fabric services using Java, install Gradle to run build tasks. Run the below command to install Gradle. The Service Fabric Java libraries are pulled from Maven.
 
 
 * Ubuntu
 
     ```bash
-    sudo apt-get install openjdk-8-jdk-headless
     sudo apt-get install gradle
     ```
 
