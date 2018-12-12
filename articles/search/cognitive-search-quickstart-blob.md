@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs'
+title: 'Quickstart:Cognitive search pipeline in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 

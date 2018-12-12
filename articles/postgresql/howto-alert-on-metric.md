@@ -76,5 +76,5 @@ Once you have created an alert, you can select it and do the following actions:
 * **Disable** or **Enable** the alert, if you want to temporarily stop or resume receiving notifications.
 
 ## Next steps
-* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

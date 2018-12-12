@@ -51,7 +51,7 @@ Here are some of the things you can do with the Activity Log:
 
 
 * Query and view it in the **Azure portal**.
-* [Create an alert on an Activity Log event.](monitoring-activity-log-alerts.md)
+* [Create an alert on an Activity Log event.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
