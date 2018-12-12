@@ -1,5 +1,5 @@
 ---
-title: How to configure Google authentication for your App Services application
+title: Configure Google authentication - Azure App Service
 description: Learn how to configure Google authentication for your App Services application.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 # How to configure your App Service application to use Google login

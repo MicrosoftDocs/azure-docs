@@ -1,5 +1,5 @@
 ---
-title: Operating system functionality on Azure App Service
+title: Operating system functionality in App Service - Azure
 description: Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Operating system functionality on Azure App Service

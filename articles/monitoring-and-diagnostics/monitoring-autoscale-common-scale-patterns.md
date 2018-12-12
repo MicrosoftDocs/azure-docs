@@ -14,7 +14,7 @@ This article describes some of the common patterns to scale your resource in Azu
 
 Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# Lets get started
+## Lets get started
 
 This article assumes that you are familiar with auto scale. You can [get started here to scale your resource][1]. The following are some of the common scale patterns.
 

@@ -1,7 +1,7 @@
 ---
-title: Where to deploy models 
+title: Deploy models as web services
 titleSuffix: Azure Machine Learning service
-description: Learn about the different ways that you can deploy your models into production using the Azure Machine Learning service.
+description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.custom: seodec18
 ---
 
@@ -25,6 +25,8 @@ You can deploy models to the following compute targets:
 | [Azure Kubernetes Service (AKS)](#aks) | Web service | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
 | [Azure IoT Edge](#iotedge) | IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | Web service | Ultra-low latency for real-time inferencing. |
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 ## Prerequisites
 
@@ -73,7 +75,7 @@ model = Model.register(model_path = "model.pkl",
 > [!NOTE]
 > While the example shows using an model stored as a pickle file, you can also used ONNX models. For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
-For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> Create an image configuration
 
@@ -124,8 +126,6 @@ image = ContainerImage.create(name = "myimage",
 
 Images are versioned automatically when you register multiple images with the same name. For example, the first image registered as `myimage` is assigned an ID of `myimage:1`. The next time you register an image as `myimage`, the ID of the new image is `myimage:2`.
 
-Image creation takes around 5 minutes.
-
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
 ## Deploy the image
@@ -142,7 +142,7 @@ When you get to deployment, the process is slightly different depending on the c
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
 - You need to quickly deploy and validate your model. ACI deployment is finished in less than 5 minutes.
-- You are testing a model that is under development. ACI allows you to deploy 20 container groups per subscription. For more information, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
+- You are testing a model that is under development. To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
 
 To deploy to Azure Container Instances, use the following steps:
 

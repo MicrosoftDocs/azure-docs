@@ -1,7 +1,7 @@
 ---
-title: Create and use compute targets for model training
+title: Compute targets for model training
 titleSuffix: Azure Machine Learning service
-description: Learn how to select and configure the training environments (compute targets) used to train your machine learning models. The Azure Machine Learning service lets you easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target.
+description: Configure the training environments (compute targets) for machine learning model training. You can easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -37,7 +37,7 @@ Azure Machine Learning service has varying support across the various compute ta
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 

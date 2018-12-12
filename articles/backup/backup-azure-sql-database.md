@@ -794,19 +794,15 @@ The following section provides additional information about SQL database backup.
 ### Can I throttle the speed of the SQL Server backup policy?
 
 Yes. You can throttle the rate at which the backup policy executes to minimize the impact on a SQL Server instance.
-
 To change the setting:
-
-1. On the SQL Server instance, in the C:\Program Files\Azure Workload Backup\bin folder, open the **TaskThrottlerSettings.json** file.
-
-2. In the TaskThrottlerSettings.json file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5).
+1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin folder*, create the **ExtensionSettingsOverrides.json** file.
+2. In the **ExtensionSettingsOverrides.json** file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Save your changes. Close the file.
-
-4. On the SQL Server instance, open **Task Manager**. Restart the **Azure Backup Workload Coordinator Service**.
+4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.
 
 ### Can I run a full backup from a secondary replica?
-
 No. This feature isn't supported.
 
 ### Do successful backup jobs create alerts?

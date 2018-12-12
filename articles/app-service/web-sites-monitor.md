@@ -1,5 +1,5 @@
 ---
-title: Monitor Apps in Azure App Service | Microsoft Docs
+title: Monitor apps - Azure App Service | Microsoft Docs
 description: Learn how to monitor Apps in Azure App Service by using the Azure portal.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
+ms.custom: seodec18
 
 ---
 # How to: Monitor Apps in Azure App Service
