@@ -33,7 +33,7 @@ This article describes the basic concepts and syntax needed to develop a custom 
 + The syntax and keywords of the Net# specification language
 + Examples of custom neural networks created using Net# 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Neural network basics
 

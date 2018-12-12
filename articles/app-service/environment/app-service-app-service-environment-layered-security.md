@@ -1,5 +1,5 @@
 ---
-title: Layered Security Architecture with App Service Environments
+title: Layered Security Architecture with App Service Environments - Azure
 description: Implementing a layered security architecture with App Service Environments.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Implementing a Layered Security Architecture with App Service Environments

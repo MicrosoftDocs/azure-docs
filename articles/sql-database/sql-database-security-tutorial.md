@@ -7,9 +7,9 @@ ms.subservice: security
 ms.custom:
 ms.devlang: 
 ms.topic: tutorial
-author: DRediske
-ms.author: daredis
-ms.reviewer: vanto, carlrab
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/01/2018
 ---
