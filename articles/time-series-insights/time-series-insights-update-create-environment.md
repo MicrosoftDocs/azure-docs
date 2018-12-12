@@ -375,8 +375,8 @@ Learn more about Time Series Models:
 [3]: media/v2-update-provision/device-three-launch.png
 [4]: media/v2-update-provision/device-four-iot-sim-page.png
 [5]: media/v2-update-provision/device-five-params.png
-[6]: media/v2-update-provision/device-six-dashboard.png
-[7]: media/v2-update-provision/device-seven-listings.png
+[6]: media/v2-update-provision/device-six-listings.png
+[7]: media/v2-update-provision/device-seven-dashboard.png
 [8]: media/v2-update-provision/device-eight-portal.png
 
 [9]: media/v2-update-provision/payg-one-azure.png
