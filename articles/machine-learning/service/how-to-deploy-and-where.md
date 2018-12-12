@@ -73,7 +73,7 @@ model = Model.register(model_path = "model.pkl",
 > [!NOTE]
 > While the example shows using an model stored as a pickle file, you can also used ONNX models. For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
-For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> Create an image configuration
 
