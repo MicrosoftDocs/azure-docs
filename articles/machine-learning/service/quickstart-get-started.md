@@ -33,7 +33,7 @@ The following Azure resources are added automatically to your workspace when the
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning, such as compute cluster size. Learn more about the [default limits and how to increase your quota](how-to-manage-quotas.md).
+The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is compute cluster size. Learn more about the [default limits and how to increase your quota](how-to-manage-quotas.md).
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
@@ -59,7 +59,7 @@ This example shows how the workspace can help you keep track of information gene
 
 ### Open a notebook 
 
-Azure Notebooks provides a free cloud platform for Jupyter Notebooks that's preconfigured with everything you need to run Machine Learning.  
+Azure Notebooks provides a free cloud platform for Jupyter notebooks that's preconfigured with everything you need to run Machine Learning.  
 
 Select `Open Azure Notebooks` to try your first experiment.
 
@@ -92,7 +92,7 @@ Close the `Reports` pop-up.
 
 Select `my-first-experiment`.
 
-See information about the run you just performed. Scroll down the page to find the table of runs. Select the run number link.
+See information about the run you just did. Scroll down the page to find the table of runs. Select the run number link.
 
  ![Run history link](./media/quickstart-get-started/report.png)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Regression model tutorial: Automatically train models'
 titleSuffix: Azure Machine Learning service
-description: Learn how to generate an ML model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning service.
+description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -13,11 +13,11 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ---
 
-# Tutorial (part 2): Use automated machine learning to build your regression model
+# Tutorial: Use automated machine learning to build your regression model
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [prepared the NYC taxi data for regression modeling](tutorial-data-prep.md).
 
-Now you're ready to start building your model with Azure Machine Learning service. In this part of the tutorial, you use the prepared data and automatically generate a regression model to predict taxi fare prices. By using the automated machine learning (ML) capabilities of the service, you define your machine learning goals and constraints. You launch the automated machine learning process. Then allow the algorithm selection and hyperparameter tuning to happen for you. The automated ML technique iterates over many combinations of algorithms and hyperparameters till it finds the best model based on your criterion.
+Now you're ready to start building your model with Azure Machine Learning service. In this part of the tutorial, you use the prepared data and automatically generate a regression model to predict taxi fare prices. By using the automated machine learning capabilities of the service, you define your machine learning goals and constraints. You launch the automated machine learning process. Then allow the algorithm selection and hyperparameter tuning to happen for you. The automated machine learning technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
@@ -26,7 +26,7 @@ In this tutorial, you learn the following tasks:
 > [!div class="checklist"]
 > * Set up a Python environment and import the SDK packages.
 > * Configure an Azure Machine Learning service workspace.
-> * Auto-train a regression model.
+> * Autotrain a regression model.
 > * Run the model locally with custom parameters.
 > * Explore the results.
 > * Register the best model.
@@ -39,7 +39,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
-> * You need an automated machine learning configured environment. Examples are Azure Notebooks, a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
+> * An automated machine learning configured environment. Examples are Azure Notebooks, a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
 
 ## Get the notebook
 
@@ -600,7 +600,7 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-You now have the necessary packages and data ready for auto-training your model.
+You now have the necessary packages and data ready for autotraining your model.
 
 ## Automatically train a model
 
@@ -719,7 +719,7 @@ RunDetails(local_run).show()
 
 ### Option 2: Get and examine all run iterations in Python
 
-Alternatively, you can retrieve the history of each experiment and explore the individual metrics for each iteration run:
+You can also retrieve the history of each experiment and explore the individual metrics for each iteration run:
 
 ```python
 children = list(local_run.get_children())
@@ -1093,7 +1093,7 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## Test the best model accuracy
 
-Use the best model to run predictions on the test dataset. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` dataset. Print the first ten predicted cost values from `y_predict`:
+Use the best model to run predictions on the test dataset. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` dataset. Print the first 10 predicted cost values from `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
@@ -1125,7 +1125,7 @@ plt.show()
 
 ![Prediction scatter plot](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Calculate the `root mean squared error` of the results. Use the `y_test` dataframe. Convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable, **cost**, and indicates roughly how far your predictions are from the actual value:
+Calculate the `root mean squared error` of the results. Use the `y_test` dataframe. Convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable, **cost**. It indicates roughly how far your predictions are from the actual value:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1137,7 @@ rmse
 
     3.2204936862688798
 
-Run the following code to calculate mean absolute percent error (MAPE) by using the full `y_actual` and `y_predict` datasets. This metric calculates an absolute difference between each predicted and actual value, sums all the differences, and then expresses that sum as a percent of the total of the actual values:
+Run the following code to calculate mean absolute percent error (MAPE) by using the full `y_actual` and `y_predict` datasets. This metric calculates an absolute difference between each predicted and actual value and sums all the differences. Then it expresses that sum as a percent of the total of the actual values:
 
 ```python
 sum_actuals = sum_errors = 0

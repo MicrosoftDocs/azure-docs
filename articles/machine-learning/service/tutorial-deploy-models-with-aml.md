@@ -15,9 +15,9 @@ ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
 
-# Tutorial (part 2): Deploy an image classification model in Azure Container Instances
+# Tutorial: Deploy an image classification model in Azure Container Instances
 
-This tutorial is the second of a two-part tutorial series. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
 Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
@@ -144,7 +144,7 @@ The output shows the confusion matrix:
     Overall accuracy: 0.9204
    
 
-Use `matplotlib` to display the confusion matrix as a graph. In this graph, the x-axis represents the actual values, and the y-axis represents the predicted values. The color in each grid represents the error rate. The lighter the color, the higher the error rate is. For example, many 5's are misclassified as 3's. Hence you see a bright grid at (5,3):
+Use `matplotlib` to display the confusion matrix as a graph. In this graph, the x-axis shows the actual values, and the y-axis shows the predicted values. The color in each grid shows the error rate. The lighter the color, the higher the error rate is. For example, many 5's are misclassified as 3's. So you see a bright grid at (5,3):
 
 ```python
 # normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
@@ -171,7 +171,7 @@ plt.show()
 
 ## Deploy as a web service
 
-After you've tested the model and you're satisfied with the results, deploy the model as a web service hosted in Container Instances. 
+After you tested the model and you're satisfied with the results, deploy the model as a web service hosted in Container Instances. 
 
 To build the correct environment for Container Instances, provide the following components:
 * A scoring script to show how to use the model.
@@ -238,7 +238,7 @@ with open("myenv.yml","r") as f:
 
 ### Create a configuration file
 
-Create a deployment configuration file and specify the number of CPUs and gigabytes of RAM needed for your Container Instances container. Although it depends on your model, the default of 1 core and 1 gigabyte of RAM is sufficient for many models. If you need more later, you have to re-create the image and redeploy the service.
+Create a deployment configuration file. Specify the number of CPUs and gigabytes of RAM needed for your Container Instances container. Although it depends on your model, the default of one core and 1 gigabyte of RAM is sufficient for many models. If you need more later, you have to re-create the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -378,4 +378,6 @@ service.delete()
 
 ## Next steps
 
-See how Azure Machine Learning service can autoselect and tune the best algorithm for your model and build that model for you. Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 
++ Learn about all of the [deployment options for Azure Machine Learning service](how-to-deploy-and-where.md), including Azure Container Instances, Azure Kubernetes Service, FPGAs, and Azure IoT Edge.
+
++ See how Azure Machine Learning service can autoselect and tune the best algorithm for your model and build that model for you. Try out the [automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 
