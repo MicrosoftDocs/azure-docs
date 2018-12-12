@@ -177,8 +177,8 @@
 ### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## Scale
 ### [Media Processing](media-services-scale-media-processing-overview.md)
