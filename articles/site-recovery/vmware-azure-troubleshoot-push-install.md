@@ -6,7 +6,6 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-
 ms.date: 12/12/2018
 
 
