@@ -74,7 +74,7 @@ The following table shows how these options may be applied to the Asset properti
 |Name|Filter|Order|
 |---|---|---|
 |id|||
-|name|Supports: Eq, Gt, Lt|Supports:Ascending and Descending|
+|name|Supports: Eq, Gt, Lt|Supports: Ascending and Descending|
 |properties.alternateId |Supports: Eq||
 |properties.assetId |Supports: Eq||
 |properties.container |||
@@ -103,6 +103,8 @@ If a query response contains many items, the service returns an "\@odata.nextLin
 
 If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
 
+#### c# example
+
 The following C# example shows how to enumerate through all the assets in the account.
 
 ```csharp
@@ -115,7 +117,47 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
+#### REST example
+
+Consider the following example of where $skiptoken is used.
+
+If you request a list of Assets like this:
+
+```
+GET  https://management.azure.com/subscriptions/7dde500c-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/ts29account1/assets?api-version=2018-06-01-preview HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+You would get back a response similar to this:
+
+```
+HTTP/1.1 200 OK
+ 
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/ts29account1/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/ts29account1/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/ts29account1/assets?api-version=2018-06-01-preview&$skiptoken=Asset+517"
+}
+```
+
+You would then request the next page by sending a get request for:
+
+```
+https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/ts29account1/assets?api-version=2018-06-01-preview&$skiptoken=Asset+517
+```
+
+For more REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
 ## Storage side encryption
 
