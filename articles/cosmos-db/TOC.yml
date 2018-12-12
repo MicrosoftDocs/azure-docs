@@ -256,9 +256,9 @@
           href: sql-api-query-metrics.md
         - name : Server-side programming
           items:
-          - name: Define stored procedures, triggers, and UDFs
+          - name: Write stored procedures, triggers, and UDFs
             href: how-to-write-sprocs-triggers-udfs.md
-          - name: Define stored procedures, triggers, and UDFs with JavaScript query API
+          - name: Write stored procedures, triggers, and UDFs with JavaScript query API
             href: how-to-write-js-query-api.md
           - name: Use stored procedures, triggers, and UDFs
             href: how-to-use-sprocs-triggers-udfs.md  
