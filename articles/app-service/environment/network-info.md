@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service Environment
+title: Networking considerations with App Service Environment - Azure
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
