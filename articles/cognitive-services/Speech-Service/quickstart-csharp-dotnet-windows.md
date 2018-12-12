@@ -12,7 +12,7 @@ ms.date: 11/05/2018
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize and transcribe speech using the Speech SDK and .NET Framework (Windows)
+# Quickstart: Recognize speech with the Speech SDK for .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -25,7 +25,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 To complete this project, you'll need:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* A subscription key for the Speech Service
+* A subscription key for the Speech Service. [Get one for free](get-started.md).
 * Access to your computer's microphone
 
 ## Create a Visual Studio project
@@ -68,6 +68,5 @@ The code is available in the `quickstart/csharp-dotnet-windows` folder.
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

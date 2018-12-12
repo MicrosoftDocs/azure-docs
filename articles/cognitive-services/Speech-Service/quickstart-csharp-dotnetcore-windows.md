@@ -66,6 +66,8 @@ Look for this sample in the `quickstart/csharp-dotnetcore-windows` folder.
 
 ## Next steps
 
+Additional samples, such as how to read speech from an audio file, are available on GitHub.
+
 > [!div class="nextstepaction"]
 > [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
 
