@@ -1,40 +1,52 @@
-- name: Azure Machine Learning Documentation (Preview)
+- name: Azure Machine Learning Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Machine Learning service?
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: How the service works
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md    
   - name: What's happening to Workbench?
-    displayName: desktop
+    displayName: desktop ui 
     href: overview-what-happened-to-workbench.md 
+  - name: Release notes
+    displayName: what's new issues bugs
+    href: azure-machine-learning-release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Portal
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: Get started - Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: Tutorials
   items:
-  - name: 'Train models: Part 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Deploy models: Part 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Train automated ML models 
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Image classification (MNIST data)
+    items:
+    - name: 1. Train a model
+      displayName: build modeling
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Deploy a model
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regression (NYC Taxi data)
+    items:
+    - name: 1. Prepare data for modeling
+      href: tutorial-data-prep.md
+    - name: 2. Auto-train an ML model
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Samples
-  items:
-  - name: Jupyter notebooks (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Concepts   
-  items: 
+  items:
+  - name: Automated machine learning
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: Model management
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -48,19 +60,18 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Configure an environment
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Configure your dev environment
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: VS Code Tools for AI
-      displayName: Visual Studio Code, vscode
+    - name: Visual Studio Code extension
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Get started
         href: how-to-vscode-tools.md
       - name: Train and deploy        
         href: how-to-vscode-train-deploy.md
   - name: Prepare data
-    displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md   
+    displayName: data prep, etl, elt, data preparation 
     items:
     - name: Load data
       href: how-to-load-data.md
@@ -71,29 +82,28 @@
   - name: Train models
     items:    
     - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Access data in training
       href: how-to-access-data.md
-    - name: Create estimators
+    - name: Create estimators in training
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md  
+    - name: Use PyTorch
+      href: how-to-train-pytorch.md
+    - name: Use TensorFlow
+      href: how-to-train-tensorflow.md  
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md    
     - name: Track experiments and metrics
       href: how-to-track-experiments.md
   - name: Automate machine learning
-    displayName: automl, auto ml
-    href: how-to-automated-ml.md	
+    displayName: automl, auto ml	
     items:
     - name: Configure auto training
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX models	
     items:    
@@ -102,18 +112,10 @@
   - name: Deploy models	
     items:    
     - name: Where to deploy models
-      displayName: publish
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: Deploy to ACI
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: Deploy to AKS
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
-    - name: Deploy to FPGAs
+    - name: FPGAs
       href: how-to-deploy-fpga-web-service.md  
-    - name: Deploy to IoT Edge
-      href: how-to-deploy-to-iot.md 
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
@@ -121,30 +123,34 @@
   - name: Consume web services
     items:  
     - name: Consume in real-time
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
+    - name: Run batch predictions
+      href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
-    - name: Collect and evaluate data 
+    - name: Collect and evaluate model data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
+  - name: Create your first pipeline
+    href: how-to-create-your-first-pipeline.md 
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Use the Machine Learning CLI
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: Reference
   items:    
   - name: Machine learning SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: Data prep SDK
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk 
 - name: Resources
   items:  
@@ -154,10 +160,8 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Release notes
-    displayName: what's new
-    href: azure-machine-learning-release-notes.md  
   - name: Known issues
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
@@ -166,8 +170,8 @@
     href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
-    - name: How to migrate
-      displayName: Workbench, upgrade, update, transfer
+    - name: Migrate from Workbench
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md    
     - name: Export or delete account data (deprecated)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -330,8 +334,6 @@
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: Model data collection API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Old concepts
-      href: ../desktop-workbench/overview-general-concepts.md    
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md
       items:    

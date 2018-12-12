@@ -91,7 +91,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: Which APIs do I use to get information about Office 365 Activity logs?**
 
-**A:** Use the [Office 365 Management APIs](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) to access the Office 365 Activity logs through an API.
+**A:** Use the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) to access the Office 365 Activity logs through an API.
 
 ---
 

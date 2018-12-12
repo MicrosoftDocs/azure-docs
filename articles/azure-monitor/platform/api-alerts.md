@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Create and manage alert rules in Log Analytics with REST API
@@ -24,7 +21,7 @@ The Log Analytics Alert REST API allows you to create and manage alerts in Log A
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools, you can utilize the RESTful Azure Resource Manager API to make calls to Log Analytics workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 
 ## Prerequisites
-Currently, alerts can only be created with a saved search in Log Analytics.  You can refer to the [Log Search REST API](../../log-analytics/log-analytics-queries.md) for more information.
+Currently, alerts can only be created with a saved search in Log Analytics.  You can refer to the [Log Search REST API](../../azure-monitor/log-query/log-query-overview.md) for more information.
 
 ## Schedules
 A saved search can have one or more schedules. The schedule defines how often the search is run and the time interval over which the criteria is identified.
@@ -245,7 +242,7 @@ Use the Put method with an existing action ID to modify a severity action for a 
 #### Action Groups
 All alerts in Azure, use Action Group as the default mechanism for handling actions. With Action Group, you can specify your actions once and then associate the action group to multiple alerts - across Azure. Without the need, to repeatedly declare the same actions over and over again. Action Groups support multiple actions - including email, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI and more. 
 
-For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) in Portal or use [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor](../../azure-monitor/platform/action-groups.md) in Portal or use [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 To add association of action group to an alert, specify the unique Azure Resource Manager ID of the action group in the alert definition. A sample illustration is provided below:
 
@@ -438,17 +435,17 @@ Use the Put method with an existing action ID to modify a remediation action for
 Following is a complete example to create a new email alert.  This creates a new schedule along with an action containing a threshold and email.
 
     $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-	$resourceGroup  = "MyResourceGroup"    
-	$workspaceName    = "MyWorkspace"
+    $resourceGroup  = "MyResourceGroup"    
+    $workspaceName    = "MyWorkspace"
     $searchId       = "MySearch"
-	$scheduleId     = "MySchedule"
-	$thresholdId    = "MyThreshold"
-	$actionId       = "MyEmailAction"
-
+    $scheduleId     = "MySchedule"
+    $thresholdId    = "MyThreshold"
+    $actionId       = "MyEmailAction"
+    
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 #### Webhook actions
@@ -508,6 +505,6 @@ Use the Put method with an existing action ID to modify a webhook action for a s
 
 
 ## Next steps
-* Use the [REST API to perform log searches](../../log-analytics/log-analytics-queries.md) in Log Analytics.
+* Use the [REST API to perform log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics.
 * Learn about [log alerts in azure alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

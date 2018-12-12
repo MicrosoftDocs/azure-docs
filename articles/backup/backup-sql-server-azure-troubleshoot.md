@@ -3,7 +3,7 @@ title: Azure Backup troubleshooting guide for SQL Server VMs | Microsoft Docs
 description: Troubleshooting information for backing up SQL Server VMs to Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: 

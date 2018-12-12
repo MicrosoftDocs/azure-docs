@@ -3,7 +3,7 @@ title: Manage user data in Azure Security Center | Microsoft Docs
 description: " Learn how to manage user data in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 

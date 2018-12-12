@@ -2,13 +2,13 @@
 title: Planning your VM backup infrastructure in Azure
 description: Important considerations when planning to back up virtual machines in Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backup vms, backup virtual machines
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
+ms.author: raynew
 ---
 
 # Plan your VM backup infrastructure in Azure

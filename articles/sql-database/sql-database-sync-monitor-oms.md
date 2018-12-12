@@ -91,7 +91,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  Log Analytics information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Log Analytics information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../azure-monitor/platform/data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 
