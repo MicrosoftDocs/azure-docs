@@ -1,5 +1,5 @@
 ---
-title: Configuration FAQs for Azure web apps | Microsoft Docs
+title: Configuration FAQs - Azure App Service | Microsoft Docs
 description: Get answers to frequently asked questions about configuration and management issues for the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
 
 ---
@@ -102,7 +102,7 @@ For more information, see [FAQs for App Service certificates and custom domains]
 
 ## Why do I see the message "Partially Succeeded" when I try to back up my web app?
 
-A common cause of backup failure is that some files are in use by the application. Files that are in use are locked while you perform the backup. This prevents these files from being backed up and might result in a "Partially Succeeded" status. You can potentially prevent this from occurring by excluding files from the backup process. You can choose to back up only what is needed. For more information, see [Backup just the important parts of your site with Azure web apps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
+A common cause of backup failure is that some files are in use by the application. Files that are in use are locked while you perform the backup. This prevents these files from being backed up and might result in a "Partially Succeeded" status. You can potentially prevent this from occurring by excluding files from the backup process. You can choose to back up only what is needed. For more information, see [Backup just the important parts of your site with Azure web apps](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## How do I remove a header from the HTTP response?
 
@@ -284,7 +284,7 @@ For detailed documentation for authentication and authorization in App Service, 
 
 ## How do I redirect the default *.azurewebsites.net domain to my Azure web app's custom domain?
 
-When you create a new website by using Web Apps in Azure, a default *sitename*.azurewebsites.net domain is assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain, you can redirect the default URL. To learn how to redirect all traffic from your website's default domain to your custom domain, see [Redirect the default domain to your custom domain in Azure web apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
+When you create a new website by using Web Apps in Azure, a default *sitename*.azurewebsites.net domain is assigned to your site. If you add a custom host name to your site and don’t want users to be able to access your default *.azurewebsites.net domain, you can redirect the default URL. To learn how to redirect all traffic from your website's default domain to your custom domain, see [Redirect the default domain to your custom domain in Azure web apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## How do I determine which version of .NET version is installed in App Service?
 
@@ -292,7 +292,7 @@ The quickest way to find the version of Microsoft .NET that's installed in App S
 
 ## Why isn't Autoscale working as expected?
 
-If Azure Autoscale hasn't scaled in or scaled out the web app instance as you expected, you might be running into a scenario in which we intentionally choose not to scale to avoid an infinite loop due to "flapping." This usually happens when there isn't an adequate margin between the scale-out and scale-in thresholds. To learn how to avoid "flapping" and to read about other Autoscale best practices, see [Autoscale best practices](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+If Azure Autoscale hasn't scaled in or scaled out the web app instance as you expected, you might be running into a scenario in which we intentionally choose not to scale to avoid an infinite loop due to "flapping." This usually happens when there isn't an adequate margin between the scale-out and scale-in thresholds. To learn how to avoid "flapping" and to read about other Autoscale best practices, see [Autoscale best practices](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## Why does Autoscale sometimes scale only partially?
 

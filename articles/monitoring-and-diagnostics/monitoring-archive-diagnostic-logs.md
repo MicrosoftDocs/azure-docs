@@ -20,7 +20,7 @@ In this article, we show how you can use the Azure portal, PowerShell Cmdlets, C
 
 ## Prerequisites
 
-Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location.
+Before you begin, you need to [create a storage account](../storage/common/storage-quickstart-create-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location.
 
 > [!NOTE]
 >  You cannot currently archive data to a storage account that behind a secured virtual network.
@@ -155,7 +155,7 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 
 ## Next steps
 
-* [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Download blobs for analysis](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Stream diagnostic logs to an Event Hubs namespace](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Archive Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Read more about diagnostic logs](monitoring-overview-of-diagnostic-logs.md)

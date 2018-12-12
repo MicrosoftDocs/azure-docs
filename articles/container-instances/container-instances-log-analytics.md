@@ -19,7 +19,7 @@ To send container instance data to Log Analytics, you must create a container gr
 
 To enable logging in your container instances, you need the following:
 
-* [Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](/azure/cloud-shell/overview))
 
 ## Get Log Analytics credentials
@@ -130,7 +130,8 @@ ContainerInstanceLog_CL
 For more information about querying logs and configuring alerts in Azure Log Analytics, see:
 
 * [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 
 ### Monitor container CPU and memory
 

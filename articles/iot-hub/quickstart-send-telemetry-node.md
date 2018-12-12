@@ -41,7 +41,8 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
 
 ## Register a device
 

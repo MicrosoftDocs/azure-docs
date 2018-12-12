@@ -5,10 +5,10 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
 ---
 # Ethereum proof-of-work consortium solution template
@@ -113,7 +113,7 @@ Fifth region| Fifth region to deploy the consortium network (Visible only when n
 
 ### Network size and performance
 
-Next, under **Network size and performance** specify inputs for the size of the consortium network, such as number and size of mining nodes and transaction nodes.
+Next, under **Network size and performance** specify inputs for the size of the consortium network. Such as, number and size of mining nodes and transaction nodes.
 
 ![Network size and performance](./media/ethereum-deployment/network-size-performance.png)
 
@@ -271,13 +271,13 @@ Next, import the module:
 
 Finally, run the function with the appropriate input:
 
-- **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
+- **MyGatewayResourceId:** Resource path of your Gateway. This is the template deployment
     output parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
+- **OtherGatewayResourceId:** Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment output parameter of also
     named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : A name for you to identify this Gateway connection.
-- **Shared Key** : The pre-established secret between the two members of the consortium
+- **ConnectionName:** A name for you to identify this Gateway connection.
+- **Shared Key:** The pre-established secret between the two members of the consortium
     network that are establishing a connection.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId
@@ -290,15 +290,15 @@ Download the Azure CLI script and store it locally. The location of the Azure CL
 
 Run the script with the appropriate input:
 
-- **MyGatewayResourceId** : Resource path of your Gateway. This is the template deployment
+- **MyGatewayResourceId:** Resource path of your Gateway. This is the template deployment
     output parameter named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : Resource path of the joining member's gateway. This is
+- **OtherGatewayResourceId:** Resource path of the joining member's gateway. This is
     provided by the joining member and is the template deployment parameter of their
     deployment also named **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : A name for you to identify this Gateway connection.
-- **Shared Key** : The pre-established secret between the two members of the consortium
+- **ConnectionName:** A name for you to identify this Gateway connection.
+- **Shared Key:** The pre-established secret between the two members of the consortium
     network that are establishing a connection.
-- **Location** : The Azure region where your gateway resource is deployed.
+- **Location:** The Azure region where your gateway resource is deployed.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -336,7 +336,7 @@ To install the extension in Chrome, go to Customize and control Google Chrome (o
 
 ![MetaMask extension](./media/ethereum-deployment/metamask-extension.png)
 
-Once installed, open MetaMask and create a new vault. By default, the vault will be connected to the Morden Test Network. You will need to change this to connect to the deployed private consortium network, specifically to the load balancer in front of the transaction nodes. From the template output, retrieve the exposed Ethereum RPC endpoint at port 8545, named as `ETHEREUM-RPC-ENDPOINT`, and enter it in custom RPC as shown below.
+Once installed, open MetaMask and create a new vault. By default, the vault will be connected to the Morden Test Network. Change this to connect to the deployed private consortium network, specifically to the load balancer in front of the transaction nodes. From the template output, retrieve the exposed Ethereum RPC endpoint at port 8545, named as `ETHEREUM-RPC-ENDPOINT`, and enter it in custom RPC as shown below.
 
 ![MetaMask settings](./media/ethereum-deployment/metamask-settings.png)
 

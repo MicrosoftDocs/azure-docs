@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API'
 description: Presents a Xamarin code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: codemillmatt 
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -76,7 +75,7 @@ If you don't wish to use git, you can also [download the project as a ZIP file](
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
 
-The following snippets are all taken from the `MongoService` class, found at the follwing path: src/TaskList.Core/Services/MongoService.cs.
+The following snippets are all taken from the `MongoService` class, found at the following path: src/TaskList.Core/Services/MongoService.cs.
 
 * Initialize the Mongo Client.
     ```cs
@@ -154,7 +153,7 @@ The following snippets are all taken from the `MongoService` class, found at the
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Connection String in the next steps.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Connection String in the next steps.
 
 2. Open the **APIKeys.cs** file in the **Helpers** directory of the **TaskList.Core** project.
 

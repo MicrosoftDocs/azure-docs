@@ -530,7 +530,7 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
         image (str): Image file path
         service_endpoint_url(str): web service endpoint url
         service_key(str): Service key. None for local deployment.
-        parameters (dict): Additional request paramters in dictionary. Default is {}.
+        parameters (dict): Additional request parameters in dictionary. Default is {}.
 
 
     Returns:

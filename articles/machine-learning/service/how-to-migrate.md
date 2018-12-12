@@ -1,5 +1,6 @@
 ---
-title: Migrate to Azure Machine Learning service
+title: Migrate from Workbench
+titleSuffix: Azure Machine Learning service
 description: Learn how to upgrade or migrate to the late version of Azure Machine Learning service from an earlier version.
 services: machine-learning
 ms.service: machine-learning
@@ -12,9 +13,9 @@ author: haining
 ms.date: 09/24/2018
 ---
 
-# Migrate to the latest version of Azure Machine Learning service 
+# Migrate from Workbench to the latest version of Azure Machine Learning service 
 
-**If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
+**If you have installed the Workbench  application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed, or an experimentation and/or model management account, you don't need to migrate anything.
 
 ## What can I migrate?
 Most artifacts created in the first preview of Azure Machine Learning service are stored in your own local or cloud storage. These artifacts won't disappear. To migrate, register the artifacts again with the updated Azure Machine Learning service. 
@@ -34,7 +35,7 @@ The following table and article explain what you can do with your existing asset
 |Registered images|No|Re-create the deployment Docker image under a new workspace.|
 |Deployed web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
-|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](http://aka.ms/aml-sdk) for new work.|
+|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](https://aka.ms/aml-sdk) for new work.|
 
 
 Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
@@ -58,7 +59,7 @@ This new workspace is the top-level service resource and enables you to use all 
 
 Instead of having your projects in a workspace in the cloud, projects are now directories on your local machine in the latest release. See a diagram of the [latest architecture](concept-azure-machine-learning-architecture.md). 
 
-To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
+To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.
 
 For example:
 ```python
@@ -71,11 +72,10 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 To migrate web services, redeploy your models using the new SDK or CLI to the new deployment targets. There is no need to change your original scoring file, model file dependencies files, environment file, and schema files. 
 
-In the latest version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. 
+In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. 
 
 Learn more in these articles:
-+ [Deploy to ACI](how-to-deploy-to-aci.md)
-+ [Deploy to AKS](how-to-deploy-to-aks.md)
++ [How to deploy and where](how-to-deploy-and-where.md)
 + [Tutorial: Deploy models with Azure Machine Learning service](tutorial-deploy-models-with-aml.md)
 
 When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
@@ -104,7 +104,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## Data preparation files
-Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets.  [Learn how to get the data prep SDK](how-to-data-prep.md). 
+Data preparation files are not portable without the Workbench. But you can still prepare any size data set for modeling using the new Azure Machine Learning Data Prep SDK or use Azure Databricks for big data sets. [Learn how to get the data prep SDK](https://aka.ms/data-prep-sdk).
 
 ## Next steps
 

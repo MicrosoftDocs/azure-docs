@@ -1,27 +1,25 @@
 ---
-title: Manage Windows-based Hadoop clusters in HDInsight using the Azure portal 
-description: Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console.
+title: Manage Windows-based Apache Hadoop clusters in HDInsight using the Azure portal 
+description: Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Apache Hadoop command console.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 
 ROBOTS: NOINDEX
 
 ---
-# Manage Windows-based Hadoop clusters in HDInsight by using the Azure portal
+# Manage Windows-based Apache Hadoop clusters in HDInsight by using the Azure portal
 
-Using the [Azure portal][azure-portal], you can create Windows-based Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
+Using the [Azure portal][azure-portal], you can create Windows-based [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
-The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
+The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## Prerequisites
 
@@ -48,12 +46,12 @@ Before you begin this article, you must have the following:
 ## Create clusters
 For the creation instructions using the Portal, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported,
-see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). You can customize HDInsight by using one of the following options:
+HDInsight works with a wide range of Apache Hadoop components. For the list of the components that have been verified and supported,
+see [What version of Apache Hadoop is in Azure HDInsight](hdinsight-component-versioning.md). You can customize HDInsight by using one of the following options:
 
 * Use Script Action to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph or Solr. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
 * Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster creation. These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
-* Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+* Some native Java components, like [Apache Mahout](https://mahout.apache.org/) and [Cascading](https://www.cascading.org/), can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Apache Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -91,7 +89,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
    * **Ambari Views**: Links to Ambari Web.
 
      > [!IMPORTANT]
-     > To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
+     > To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md).
      >
      >
 
@@ -106,7 +104,7 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
    * **Cluster AAD Identity**:
    * **Azure Storage Keys**: View the default storage account and its key. The storage account is configuration during the cluster creation process.
    * **Cluster Login**: Change the cluster HTTP user name and password.
-   * **External Metastores**: View the Hive and Oozie metastores. The metastores can only be configured during the cluster creation process.
+   * **External Metastores**: View the [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/) metastores. The metastores can only be configured during the cluster creation process.
    * **Scale Cluster**: Increase and decrease the number of cluster worker nodes.
    * **Remote Desktop**: Enable and disable remote desktop (RDP) access, and configure the RDP username.  The RDP user name must be different from the HTTP user name.
    * **Partner of Record**:
@@ -152,12 +150,12 @@ The cluster scaling feature allows you to change the number of worker nodes used
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
-* Hadoop
+* Apache Hadoop
 
     You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
 
     When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
-* HBase
+* Apache HBase
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
 
@@ -166,13 +164,13 @@ The impact of changing the number of data nodes for each type of cluster support
         >balancer
 
     For more information on using the HBase shell, see []
-* Storm
+* Apache Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
 
     Rebalancing can be accomplished in two ways:
 
-  * Storm web UI
+  * Apache Storm web UI
   * Command-line interface (CLI) tool
 
     Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
@@ -206,7 +204,7 @@ There are many ways you can program the process:
 * User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory/compute-linked-services.md) and [Transform and analyze using Azure Data Factory](../data-factory/transform-data.md) for on-demand and self-defined HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 * Use Azure Classic CLI. See [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md).
-* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+* Use HDInsight .NET SDK. See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
@@ -264,7 +262,7 @@ See [List and show clusters](#list-and-show-clusters).
 ## Open HDInsight Query console
 The HDInsight Query console includes the following features:
 
-* **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Hive queries using the Query Console](hadoop/apache-hadoop-use-hive-query-console.md).
+* **Hive Editor**: A GUI web interface for submitting Hive jobs.  See [Run Apache Hive queries using the Query Console](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Job history**: Monitor Hadoop jobs.  
@@ -301,7 +299,7 @@ You can also use the **Browse the file system** utility from the **Hadoop UI** i
 The **Usage** section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
 
 > [!IMPORTANT]
-> To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)
+> To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 >
 >
 
@@ -326,7 +324,7 @@ The credentials for the cluster that you provided at its creation give access to
     The default values for Expires On is a week.
 
    > [!NOTE]
-   > You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable Remote Desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
+   > You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable Remote Desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](https://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
    >
    >
 
@@ -347,7 +345,7 @@ To connect to the cluster by using Remote Desktop and use the Hadoop command lin
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    For more information on Hadoop commands, see [Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    For more information on Hadoop commands, see [Apache Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can change based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
 
@@ -359,14 +357,14 @@ In the previous screenshot, the folder name has the Hadoop version number embedd
     cd %hcatalog_home%
 
 ## Next steps
-In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Hadoop command-line tool. To learn more, see the following articles:
+In this article, you have learned how to create an HDInsight cluster by using the Portal, and how to open the Apache Hadoop command-line tool. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administer HDInsight Using Azure Classic CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
-* [Submit Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Submit Apache Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Get Started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
+* [What version of Apache Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop command line"

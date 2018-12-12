@@ -35,7 +35,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. See [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) to understand the VPN type use (PolicyBased or RouteBased) for the VPN Gateway solution you want to configure.
 
-To help configure your VPN device, refer to the links that correspond to appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
+To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
 
 |**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased configuration instructions** |**RouteBased configuration instructions** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -57,7 +57,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Juniper |J-Series |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
 | Juniper |ISG |ScreenOS 6.3 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper |SSG |ScreenOS 6.2 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
-| Microsoft |Routing and Remote Access Service |Windows Server 2012 |Not compatible |[Configuration samples](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Microsoft |Routing and Remote Access Service |Windows Server 2012 |Not compatible |[Configuration samples](https://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Gateway |N/A |[Configuration guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Not compatible |
 | Palo Alto Networks |All devices running PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 or later<br>RouteBased: 7.1.4 |[Configuration guide](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuration guide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | Next Generation UTM (NU series) | 9.0.1.3 | Not compatible | [Configuration guide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |

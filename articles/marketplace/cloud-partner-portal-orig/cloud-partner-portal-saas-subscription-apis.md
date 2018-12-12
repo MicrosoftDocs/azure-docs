@@ -25,7 +25,7 @@ This article explains how to create a SaaS offer with APIs. The APIs are
 necessary for allowing subscriptions to your SaaS offer if you have Sell
 through Azure selected. If you want to build a regular SaaS listing that
 does not have commerce enabled, see 
-[SaaS Application Technical Publishing Guide]./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
+[SaaS Application Technical Publishing Guide](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
 
 This article is divided into two sections:
 

@@ -134,7 +134,7 @@ Here's how Contoso will run the migration:
 > * **Step 1: Provision AKS and ACR**: Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
 > * **Step 2: Build Docker containers**: They set up CI for Docker containers using Azure DevOps, and push them to the ACR.
 > * **Step 3: Deploy back-end microservices**: They deploy the rest of the infrastructure that will be leveraged by back-end microservices.
-> * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, inlcuding blob storage for the pet phones, the Cosmos DB, and Vision API.
+> * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, including blob storage for the pet phones, the Cosmos DB, and Vision API.
 > * **Step 5: Migrate the back end**: They deploy microservices and run on AKS, to migrate the back end.
 > * **Step 6: Publish the front end**: They publish the SmartHotel360 app to the Azure App service, and the Function App that will be called by the pet service.
 
@@ -490,7 +490,7 @@ Now Contoso admins configure the Web App to use Contoso resources.
 
     ![Json settings](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the storage blog they created earlier.
+5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the blob storage they created earlier.
 
     ![Rename and upload](./media/contoso-migration-rebuild/configure-webapp3.png)
 
@@ -540,7 +540,7 @@ Contoso admins can now publish the website.
 
     ![New environment](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-14. They select **Azure App Service deployment with slot**, and name the enviroment **Prod**.
+14. They select **Azure App Service deployment with slot**, and name the environment **Prod**.
 15. They click on **1 job, 2 tasks**, and select the subscription, app service name, and the **staging** slot.
 
     ![Environment name](./media/contoso-migration-rebuild/vsts-publishfront10.png)

@@ -6,13 +6,12 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: zr-msft
+ms.author: zarhoads
 ms.date: "07/09/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
 ---
 # Get Started on Azure Dev Spaces with .NET Core and Visual Studio
 
@@ -35,7 +34,7 @@ In this guide, you will learn how to:
    Complete the following steps under each heading of the create AKS cluster form.
 
     - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, Central US, WestEurope, WestUS2, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
+    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, EastUS2, Central US, WestEurope, WestUS2, SoutheastAsia, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
     - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
 
    Make sure to choose Kubernetes version 1.9.6 or later.
@@ -98,6 +97,9 @@ If you choose a cluster that hasn't been enabled to work with Azure Dev Spaces, 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Choose **OK**.
+
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
 
  A background task will be started to accomplish this. It will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 

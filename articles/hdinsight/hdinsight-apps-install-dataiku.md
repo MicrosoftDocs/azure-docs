@@ -1,6 +1,6 @@
 ---
 title: Install published application - Dataiku DDS - Azure HDInsight 
-description: Install and use the Dataiku DDS third-party Hadoop application.
+description: Install and use the Dataiku DDS third-party Apache Hadoop application.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -14,7 +14,7 @@ ms.author: ashish
 ---
 # Install published application - Dataiku DDS
 
-This article describes how to install and run the [Dataiku DDS](https://www.dataiku.com/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [Dataiku DDS](https://www.dataiku.com/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About Dataiku DSS
 
@@ -22,9 +22,9 @@ The Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/con
 
 You can use DSS to implement a complete analytical solution, beginning with data ingestion, preparation, and processing. A DSS solution can also include training and applying machine learning models, visualization, and then operationalizing.
 
-You can install DSS on HDInsight using Hadoop or Spark clusters. You can install DSS on existing running clusters, or when creating new clusters. DSS also supports using Azure Blob storage as a connector for reading data.
+You can install DSS on HDInsight using [Apache Hadoop](https://hadoop.apache.org/) or [Apache Spark](https://spark.apache.org/) clusters. You can install DSS on existing running clusters, or when creating new clusters. DSS also supports using Azure Blob storage as a connector for reading data.
 
-You can use DSS to build projects, which then can generate MapReduce or Spark jobs. These jobs are executed as regular MapReduce or Spark jobs on HDInsight, so you can scale the cluster on demand.
+You can use DSS to build projects, which then can generate [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  or Spark jobs. These jobs are executed as regular MapReduce or Spark jobs on HDInsight, so you can scale the cluster on demand.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 
 ## Install the Dataiku DSS published application
 
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md).
 
 ## Launch Dataiku DSS
 

@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -31,6 +31,9 @@ The following restrictions apply when using Run Command:
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
 * Outbound connectivity from the VM is required to return the results of the script.
+
+> [!NOTE]
+> To function correctly, the Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts may run successfully but not return the results. If you are blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
 
 ## Run a command
 

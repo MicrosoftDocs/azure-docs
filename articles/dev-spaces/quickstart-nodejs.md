@@ -1,16 +1,15 @@
 ---
 title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: zarhoads
 ms.date: "09/26/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Node.js)
 
@@ -28,7 +27,7 @@ In this guide, you will learn how to:
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 or higher.
-- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>

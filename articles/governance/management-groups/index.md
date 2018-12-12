@@ -6,11 +6,11 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
+ms.topic: overview
 ---
 # Organize your resources with Azure management groups
 
@@ -33,21 +33,17 @@ You can build a flexible structure of management groups and subscriptions to org
 resources into a hierarchy for unified policy and access management. The following diagram shows an
 example of creating a hierarchy for governance using management groups.
 
-![tree](./media/MG_overview.png)
+![tree](./media/tree.png)
 
-By creating a hierarchy like this example you can apply a policy, for example, VM locations limited
-to US West Region on the group "Infrastructure Team management group" to enable internal compliance
-and security policies. This policy will inherit onto both EA subscriptions under that management
-group and will apply to all VMs under those subscriptions. As this policy inherits from the
-management group to the subscriptions, this security policy cannot be altered by the resource or
+Create a hierarchy so you can apply a policy, for example, limit VM locations
+to US West Region on the group "Infrastructure Team management group". This policy will inherit onto both EA subscriptions under that management
+group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or
 subscription owner allowing for improved governance.
 
-Another scenario where you would use management groups is to provide user access to multiple
-subscriptions. By moving multiple subscriptions under that management group, you have the ability
-create one [role-based access control](../../role-based-access-control/overview.md) (RBAC)
+Another scenario where you would use management groups is to provide user access to multi
+subscriptions. By moving many subscriptions under that management group, you can create one [role-based access control](../../role-based-access-control/overview.md) (RBAC)
 assignment on the management group, which will inherit that access to all the subscriptions.
-Without the need to script RBAC assignments over multiple subscriptions, one assignment on the
-management group can enable users to have access to everything they need.
+One assignment on the management group can enable users to have access to everything they need instead of scripting RBAC over different subscriptions.
 
 ### Important facts about management groups
 
@@ -55,8 +51,8 @@ management group can enable users to have access to everything they need.
 - A management group tree can support up to six levels of depth.
   - This limit doesn't include the Root level or the subscription level.
 - Each management group and subscription can only support one parent.
-- Each management group can have multiple children.
-- All subscriptions and management groups are contained within a single hierarchy in each directory. See [Important facts about the Root management group](#important-facts-about-the-root-management-group) for exceptions during the Preview.
+- Each management group can have many children.
+- All subscriptions and management groups are within a single hierarchy in each directory. See [Important facts about the Root management group](#important-facts-about-the-root-management-group) for exceptions during the Preview.
 
 ## Root management group for each directory
 
@@ -99,19 +95,19 @@ resources within the directory by having one hierarchy within the directory.
 
 ## Trouble seeing all subscriptions
 
-A few directories that starting using management groups early in the preview before (June 25 2018) could see an issue where all the subscriptions are not enforced into the hierarchy.  This reason is because the processes to enforce subscriptions into the hierarchy was implemented after a role or policy assignment was done on the root management group in the directory.
+A few directories that started using management groups early in the preview before (June 25 2018) could see an issue where all the subscriptions aren't enforced into the hierarchy.  The processes to enforce subscriptions into the hierarchy were implemented after a role or policy assignment were done on the root management group in the directory.
 
 ### How to resolve the issue
 
-There are two self serve options to resolve this.
+There are two options you can do to resolve this issue.
 
 1. Remove all Role and Policy assignments from the root management group
-    1. By removing any policy and role assignments from the root management group, the service will backfill all subscriptions into the hierarchy the next overnight cycle.  The reason for this check is to ensure there is no accidental access given or policy assignment to all of the tenants subscriptions.
+    1. By removing any policy and role assignments from the root management group, the service will backfill all subscriptions into the hierarchy the next overnight cycle.  This process is so there's no accidental access given or policy assignment to all of the tenants subscriptions.
     1. The best way to do this process without impacting your services is to apply the role or policy assignments one level below the Root management group. Then you can remove all assignments from the root scope.
 1. Call the API directly to start the backfill process
-    1. Any authorized customer in the directory can call the *TenantBackfillStatusRequest* or *StartTenantBackfillRequest* APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This process also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level as you are saying it is okay that any policy or access assignment on the root can be applied to all subscriptions.
+    1. Any customer in the directory can call the *TenantBackfillStatusRequest* or *StartTenantBackfillRequest* APIs. When the StartTenantBackfillRequest API is called, it kicks off the initial setup process of moving all the subscriptions into the hierarchy. This process also starts the enforcement of all new subscription to be a child of the root management group. This process can be done without changing any assignments on the root level. By calling the API, you're saying it's okay that any policy or access assignment on the root can be applied to all subscriptions.
 
-If you have questions on this backfill process, please contact: managementgroups@microsoft.com  
+If you have questions on this backfill process, contact: managementgroups@microsoft.com  
   
 ## Management group access
 
@@ -134,12 +130,26 @@ The following chart shows the list of roles and the supported actions on managem
 |Resource Policy Contributor |        |        |      |        |               | X             |       |
 |User Access Administrator   |        |        |      |        | X             |               |       |
 
-*: MG Contributor and MG Reader only allow users to perform those actions on the management group scope.  
+*: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 
 ### Custom RBAC Role Definition and Assignment
 
 Custom RBAC roles aren't supported on management groups at this time. See the [management group
 feedback forum](https://aka.ms/mgfeedback) to view the status of this item.
+
+## Audit management groups using activity logs
+
+To track management groups via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track management groups activity.
+
+1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
+1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see management group activities. You'll want to filter by Resource Provider **Microsoft.Management** for all management group activity.  Example:
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## Next steps
 
@@ -147,6 +157,6 @@ To learn more about management groups, see:
 
 - [Create management groups to organize Azure resources](create.md)
 - [How to change, delete, or manage your management groups](manage.md)
-- [Install the Azure PowerShell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Install the Azure CLI extension](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Review management groups in Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
+- [Review management groups in REST API](https://aka.ms/mgAPIdocs)
+- [Review management groups in Azure CLI](https://aka.ms/mgclidoc)

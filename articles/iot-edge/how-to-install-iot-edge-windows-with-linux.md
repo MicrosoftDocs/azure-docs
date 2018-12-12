@@ -1,8 +1,8 @@
 ---
-title: How to install Azure IoT Edge on Windows with Linux containers | Microsoft Docs
-description: Azure IoT Edge installation instructions on Windows with Linux containers
+title: Install Azure IoT Edge on Windows with Linux containers | Microsoft Docs
+description: Azure IoT Edge installation instructions on Windows devices configured for Linux containers
 author: kgremban
-manager: timlt
+manager: philmea
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -10,6 +10,7 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
+ms.custom: seodec18
 ---
 # Install the Azure IoT Edge runtime on Windows to use with Linux containers
 
@@ -31,9 +32,9 @@ For more information about which operating systems are currently supported, refe
 
 ## Install the container runtime 
 
-Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (for example, Docker). 
+Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container runtime (for example, Docker). 
 
-You can use [Docker for Windows][lnk-docker-for-windows] for development and testing. Configure Docker for Windows [to use Linux containers][lnk-docker-config]
+You can use [Docker for Windows](https://www.docker.com/docker-windows) for development and testing. Configure Docker for Windows [to use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 ## Install the Azure IoT Edge Security Daemon
 
@@ -44,7 +45,7 @@ A single IoT Edge device can be provisioned manually using a device connections 
 
 ### Option 1: Install and manually provision
 
-1. Follow the steps in [Register a new Azure IoT Edge device][lnk-dcs] to register your device and retrieve the device connection string. 
+1. Follow the steps in [Register a new Azure IoT Edge device](how-to-register-device-portal.md) to register your device and retrieve the device connection string. 
 
 2. On your IoT Edge device, run PowerShell as an administrator. 
 
@@ -59,7 +60,7 @@ A single IoT Edge device can be provisioned manually using a device connections 
 
 ### Option 2: Install and automatically provision
 
-1. Follow the steps in [Create and provision a simulated TPM Edge device on Windows][lnk-dps] to set up the Device Provisioning Service and retrieve its **Scope ID**, simulate a TPM device and retrieve its **Registration ID**, then create an individual enrollment. Once your device is registered in your IoT Hub, continue with the installation.  
+1. Follow the steps in [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md) to set up the Device Provisioning Service and retrieve its **Scope ID**, simulate a TPM device and retrieve its **Registration ID**, then create an individual enrollment. Once your device is registered in your IoT Hub, continue with the installation.  
 
    >[!TIP]
    >Keep the window that's running the TPM simulator open during your installation and testing. 
@@ -109,20 +110,6 @@ If your network has a proxy server, follow the steps in [Configure your IoT Edge
 
 ## Next steps
 
-Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules][lnk-modules].
+Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
-If you are having problems with the Edge runtime installing properly, check out the [troubleshooting][lnk-trouble] page.
-
-
-<!-- Images -->
-[img-docker-nat]: ./media/how-to-install-iot-edge-windows-with-linux/dockernat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-modules]: how-to-deploy-modules-portal.md
+If you are having problems with the Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.

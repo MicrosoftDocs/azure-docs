@@ -4,7 +4,6 @@
 ## [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [About Azure identity management](fundamentals/identity-fundamentals.md)
 ## [Understand Azure identity solutions](fundamentals/understand-azure-identity-solutions.md)
-## [Choose a hybrid identity solution](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Residency and data considerations](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQs](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Add new users to Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Manage user profiles](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Reset user passwords](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Share accounts](active-directory-sharing-accounts.md)
 ### [Assign users to admin roles](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
@@ -266,7 +264,6 @@
 
 #### Permissions
 ##### [Choose permissions for an API](develop/perms-for-given-api.md)
-##### [Grant permissions to my app](develop/registration-config-grant-permissions-how-to.md)
 ##### [Delegated vs application permissions](develop/delegated-and-app-perms.md)
 ##### [Application consent](develop/consent-framework.md)
 
@@ -305,22 +302,12 @@
 ##### [Problem with custom-developed app](manage-apps/application-sign-in-problem-custom-dev.md)
 ##### [Problem with on-premises app - Application Proxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
-### [Develop apps](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 
 ## Manage your directory
 ### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Integrate on-premises identities using Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md)
@@ -329,9 +316,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Deploy AD FS in Azure](hybrid/how-to-connect-fed-azure-adfs.md)
-### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
+
 
 ## [Troubleshoot](fundamentals/active-directory-troubleshooting-support-howto.md)
 
@@ -362,5 +347,5 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

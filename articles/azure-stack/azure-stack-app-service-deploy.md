@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/29/2018
 ms.author: anwestg
 
 ---
@@ -24,7 +24,7 @@ ms.author: anwestg
 Use the guidance in this article to deploy App Service in Azure Stack.
 
 > [!IMPORTANT]  
-> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.3.
+> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.4.
 
 You can give your users the ability to create web and API applications. To let users create these applications, you need to:
 
@@ -70,8 +70,8 @@ To deploy App Service resource provider, follow these steps:
 
    b. In **Azure Stack Subscriptions**, select the **Default Provider Subscription**.
 
-     >[!NOTE]
-     >Currently, App Service can only be deployed to the **Default Provider Subscription**.
+     > [!IMPORTANT]  
+     > App Service **must** be deployed to the **Default Provider Subscription**.
 
    c. In the **Azure Stack Locations**, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
 
@@ -194,21 +194,21 @@ To deploy App Service resource provider, follow these steps:
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
 
-2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
+2. In the overview, under status, check to see that the **Status** displays **All roles are ready**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >If you're deploying to an existing virtual network and using an internal IP address to connect to your fileserver, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:<br>
-    >  - Source: Any
-    >  - Source port range: *
-    >  - Destination: IP Addresses
-    >  - Destination IP address range: Range of IPs for your fileserver
-    >  - Destination port range: 445
-    >  - Protocol: TCP
-    >  - Action: Allow
-    >  - Priority: 700
-    >  - Name: Outbound_Allow_SMB445
+    If you're deploying to an existing virtual network and using an internal IP address to connect to your fileserver, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+
+    - Source: Any
+    - Source port range: *
+    - Destination: IP Addresses
+    - Destination IP address range: Range of IPs for your fileserver
+    - Destination port range: 445
+    - Protocol: TCP
+    - Action: Allow
+    - Priority: 700
+    - Name: Outbound_Allow_SMB445
 
 ## Test drive App Service on Azure Stack
 

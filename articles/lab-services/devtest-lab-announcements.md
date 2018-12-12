@@ -31,7 +31,7 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 ## Steps to post an announcement in an existing lab
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. If necessary, select **All Services**, and then select **DevTest Labs** from the list. (Your lab might already be shown on the Dashboard under **All Resources**).
 1. From the list of labs, select the lab in which you want to post an announcement.  
 1. On the lab's **Overview** area, select **Configuration and policies**.  
@@ -66,7 +66,7 @@ When you no longer want to show this announcement to lab users, return to the **
 
 ## Steps for users to view an announcement
 
-1. From the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab.
+1. From the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab.
 
 1. If the lab has an announcement posted for it, an information notice is shown at the top of the lab's Overview page. This information notice is the announcement title that was specified when the announcement was created.
 

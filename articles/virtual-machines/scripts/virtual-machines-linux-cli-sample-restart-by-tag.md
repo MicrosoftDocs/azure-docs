@@ -33,7 +33,7 @@ The first restarts all the VMs in the resource group.
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-The second gets the tagged VMs using `az resouce list` and filters to the resources that are VMs,
+The second gets the tagged VMs using `az resource list` and filters to the resources that are VMs,
 and restarts those VMs.
 
 ```bash

@@ -33,9 +33,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Review installer.log to determine the cause of the installation failure.
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller**  
-If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version, you may hit the issue where the sync agent will fail to install.
 
-To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
+To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
@@ -89,10 +89,11 @@ The following built-in roles have the required Microsoft Authorization permissio
 * User Access Administrator
 
 To determine whether your user account role has the required permissions:  
-1. In the Azure portal, select **Resource Groups**.
+1. In the Azure portal, select **Resource groups**.
 2. Select the resource group where the storage account is located, and then select **Access control (IAM)**.
-3. Select the **role** (for example, Owner or Contributor) for your user account.
-4. In the **Resource Provider** list, select **Microsoft Authorization**. 
+3. Select the **Role assignments** tab.
+4. Select the **Role** (for example, Owner or Contributor) for your user account.
+5. In the **Resource Provider** list, select **Microsoft Authorization**. 
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
@@ -126,7 +127,7 @@ This issue can occur if the Storage Sync Monitor process is not running or the s
 
 To resolve this issue, perform the following steps:
 
-1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade the Azure File Sync agent to version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) if not currently installed.
+1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Verify Firewall and Proxy settings are configured correctly:
 	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
 	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
@@ -363,7 +364,7 @@ This error occurs when the Azure file share storage limit has been reached, whic
 
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into it's own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
+If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into its own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
 
 <a id="-2134351824"></a>**The Azure file share cannot be found.**  
 | | |
@@ -514,7 +515,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Error string** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
 | **HRESULT** | 0x80c80253 |
@@ -700,8 +701,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Ensure Azure File Sync has access to the storage account.**  
 # [Portal](#tab/portal)
-1. Click **Access control (IAM)** on the left-hand table of contents to navigate to the list of users and applications (*service principals*) which have access to your storage account.
-2. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
+1. Click **Access control (IAM)** on the left-hand table of contents.
+1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
+1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
 
     ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

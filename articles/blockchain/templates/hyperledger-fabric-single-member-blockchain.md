@@ -5,10 +5,10 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
 ---
 # Hyperledger Fabric single member network
@@ -22,15 +22,15 @@ After reading this article, you will:
 
 ## About blockchain
 
-If you are new to the blockchain community, this is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
+If you are new to the blockchain community, this solution template is a great opportunity to learn about the technology in an easy and configurable manner on Azure. Blockchain is the underlying technology behind Bitcoin; however, it is much more than just an enabler for a virtual currency. It is a composite of existing database, distributed system, and cryptographic technologies that enables secure multi-party computation with guarantees around immutability, verifiability, auditability, and resiliency to attack. Different protocols employ different mechanisms to provide these attributes. [Hyperledger Fabric](https://github.com/hyperledger/fabric) is one such protocol.
 
 ## Consortium architecture on Azure
 
 This template deploys a topology to help test and simulate production for users within a single organization (single member). This deployment comprises of a multi-node network in a single region, soon to be expanded to multiple regions.
 
-The network is comprised of three types of nodes:
+The network is composed of three types of nodes:
 
-1. **Member Node**: A node running the Fabric membership service that registers and manages members of the network. This node can eventually be clustered for scalability and high availability, however in this lab, a single member node will be used.
+1. **Member Node**: A node running the Fabric membership service that registers and manages members of the network. This node may be clustered for scalability and high availability; However in this lab, a single member node will be used.
 2. **Orderer Nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
 3. **Peer Nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
 
@@ -51,13 +51,13 @@ Once you have a subscription, go to the [Azure portal](https://portal.azure.com)
 
 ## Deployment
 
-To start, select the **Hyperledger Fabric Single Member Blockchain** and click **Create**. This will open the **Basics** blade in the wizard.
+To start, select the **Hyperledger Fabric Single Member Blockchain** and click **Create** to open the **Basics** blade in the wizard.
 
 The Template Deployment will walk you through configuring the multi-node network. The deployment flow is divided into three steps: Basics, Network configuration, and Fabric configuration.
 
 ### Basics
 
-Under the **Basics** blade, specify values for standard parameters for any deployment, such as subscription, resource group, and basic virtual machine properties.
+In the **Basics** blade, specify values for standard parameters for any deployment. Such as, subscription, resource group, and basic virtual machine properties.
 
 ![Basics](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -66,7 +66,7 @@ Parameter Name| Description| Allowed Values|Default Value
 **Resource prefix**| A string used as a base for naming the deployed resources.|6 characters or less|NA
 **VM user name**| The user name of the administrator for each of the virtual machines deployed for this member.|1 - 64 characters|azureuser
 **Authentication type**| The method to authenticate to the virtual machine.|Password or SSH public key|Password
-**Password (Authentication type = Password)**|The password for the administrator account for each of the virtual machines deployed. The password must contain 3 of the following: 1 upper case character, 1 lower case character, 1 number, and 1 special character.<br /><br />While all VMs initially have the same password, you can change the password after provisioning.|12 - 72 characters|NA
+**Password (Authentication type = Password)**|The password for the administrator account for each of the virtual machines deployed. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character.<br /><br />While all VMs initially have the same password, you can change the password after provisioning.|12 - 72 characters|NA
 **SSH Key (Authentication type = Public Key)**|The secure shell key used for remote login.||NA
 **Restrict access by IP address**|Setting to determine type whether client endpoint access is restricted or not.|Yes/No| No
 **Allowed IP address or subnet (restrict access by IP address = Yes)**|The IP address or the set of IP addresses that is allowed to access the client endpoint when access control is enabled.||NA
@@ -76,7 +76,7 @@ Parameter Name| Description| Allowed Values|Default Value
 
 ### Network size and performance
 
-Next, under **Network size and performance,** specify inputs for the size of the consortium network, such as the number of membership, orderer, and peer nodes. Choose infrastructure options and your virtual machine size.
+Next, in **Network size and performance,** specify inputs for the size of the consortium network. Such as, the number of membership, orderer, and peer nodes. Choose infrastructure options and your virtual machine size.
 
 ![Network size and performance](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -88,7 +88,7 @@ Parameter Name| Description| Allowed Values|Default Value
 **Storage performance**|The type of storage backing each of the deployed nodes. To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard or Premium|Standard
 **Virtual machine size** |The virtual machine size used for all nodes in the network|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F series,<br />Standard DS,<br />and Standard FS|Standard D1_v2
 
-### Fabric specific settings
+### Fabric-specific settings
 
 Finally, under **Fabric Settings**, specify Fabric-related configuration settings.
 
@@ -131,7 +131,7 @@ The details screen will show you a summary of the deployment, followed by three 
 - The _PREFIX_ , also called _deployment prefix_ , uniquely identifies your resources and your deployment. It
     will be used when using the command-line based tools.
 - The _SSH-TO-FIRST-VM_ gives you a pre-assembled ssh command with all the right parameters required
-    to connect to the first VM in your network; in the case of Hyperledger Fabric, it will be the Fabric-CA
+    to connect to the first VM in your network; For Hyperledger Fabric, it will be the Fabric-CA
     node.
 
 You can remotely connect to the virtual machines for each node via SSH with your provided admin username and password/SSH key. Since the node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to access the first transaction node is the third template output, **SSH-TO-FIRST-VM (for the sample deployment: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 3000, the second is on 3001, the third is on 3002, etc.).

@@ -76,13 +76,13 @@ Now, build the project by selecting just the **ActorService** project, and then 
 ## Step 3:  Decide on health policies and upgrade parameters
 Familiarize yourself with the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and the [upgrade process](service-fabric-application-upgrade.md) to get a good understanding of the various upgrade parameters, time-outs, and health criterion applied. For this walkthrough, the service health evaluation criterion is set to the default (and recommended) values, which means that all services and instances should be *healthy* after the upgrade.  
 
-However, let's increase the *HealthCheckStableDuration* to 60 seconds (so that the services are healthy for at least 20 seconds before the upgrade proceeds to the next update domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
+However, let's increase the *HealthCheckStableDuration* to 180 seconds (so that the services are healthy for at least 120 seconds before the upgrade proceeds to the next update domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
 
 Finally, let's also set the *UpgradeFailureAction* to rollback. This option requires Service Fabric to roll back the application to the previous version if it encounters any issues during the upgrade. Thus, when starting the upgrade (in Step 4), the following parameters are specified:
 
 FailureAction = Rollback
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 

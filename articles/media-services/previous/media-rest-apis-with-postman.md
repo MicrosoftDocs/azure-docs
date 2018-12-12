@@ -4,7 +4,7 @@ description: Learn how to configure Postman for Media Services REST API calls.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 10/29/2018
 ms.author: juliako
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: How to configure Google authentication for your App Services application
+title: Configure Google authentication - Azure App Service
 description: Learn how to configure Google authentication for your App Services application.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 # How to configure your App Service application to use Google login
@@ -22,11 +23,11 @@ ms.author: mahender
 
 This topic shows you how to configure Azure App Service to use Google as an authentication provider.
 
-To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 ## <a name="register"> </a>Register your application with Google
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which you use later to configure your Google app.
-2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
+2. Navigate to the [Google apis](https://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 3. Once the project is created, select it. From the project dashboard, click **Go to APIs overview**.
 4. Select **Enable APIs and services**. Search for **Google+ API**, and select it. Then click **Enable**.
 5. In the left navigation, **Credentials** > **OAuth consent screen**, then select your **Email address**,  enter a **Product Name**, and click **Save**.
@@ -64,7 +65,7 @@ You are now ready to use Google for authentication in your app.
 
 <!-- URLs. -->
 
-[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
+[Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure portal]: https://portal.azure.com/
 

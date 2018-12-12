@@ -49,7 +49,7 @@ Before you can configure Virtual WAN, you must first enroll your subscription in
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal (preview)](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal (preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 

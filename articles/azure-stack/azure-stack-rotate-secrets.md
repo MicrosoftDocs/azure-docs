@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -41,7 +41,7 @@ Infrastructure service certificates for external-facing services that are provid
 
    <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
 
-> [!NOTE]
+> [!NOTE]  
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
 
 In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements.
@@ -89,7 +89,7 @@ Running secret rotation using the instructions below will remediate these alerts
 5.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
 6.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
 7.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
-8.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+8.  Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating external and internal secrets
 
@@ -217,7 +217,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     ```powershell
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
-    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 

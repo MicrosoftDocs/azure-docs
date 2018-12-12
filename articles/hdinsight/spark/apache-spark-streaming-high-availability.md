@@ -3,17 +3,17 @@ title: Create highly available Spark Streaming jobs in YARN - Azure HDInsight
 description: How to set up Spark Streaming for a high-availability scenario.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
 ---
-# Create high-availability Spark Streaming jobs with YARN
+# Create high-availability Apache Spark Streaming jobs with YARN
 
-Spark Streaming enables you to implement scalable, high-throughput, fault-tolerant applications for data streams processing. You can connect Spark Streaming applications on a HDInsight Spark cluster to a variety of data sources, such as Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, raw TCP sockets, or by monitoring the HDFS filesystem for changes. Spark Streaming supports fault tolerance with the guarantee that any given event is processed exactly once, even with a node failure.
+[Apache Spark](https://spark.apache.org/) Streaming enables you to implement scalable, high-throughput, fault-tolerant applications for data streams processing. You can connect Spark Streaming applications on a HDInsight Spark cluster to a variety of data sources, such as Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), raw TCP sockets, or by monitoring the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) filesystem for changes. Spark Streaming supports fault tolerance with the guarantee that any given event is processed exactly once, even with a node failure.
 
 Spark Streaming creates long-running jobs during which you are able to apply transformations to the data and then push the results out to filesystems, databases, dashboards, and the console. Spark Streaming processes micro-batches of data, by first collecting a batch of events over a defined time interval. Next, that batch is sent on for processing and output. Batch time intervals are typically defined in fractions of a second.
 
@@ -49,7 +49,7 @@ RDDs have several properties that assist highly-available and fault-tolerant Spa
 
 To create an application that processes each event once (and only once), consider how all system points of failure restart after having an issue, and how you can avoid data loss. Exactly-once semantics require that no data is lost at any point, and that message processing is restartable, regardless of where the failure occurs. See [Create Spark Streaming jobs with exactly-once event processing](apache-spark-streaming-exactly-once.md).
 
-## Spark Streaming and YARN
+## Spark Streaming and Apache Hadoop YARN
 
 In HDInsight, cluster work is coordinated by *Yet Another Resource Negotiator* (YARN). Designing high availability for Spark Streaming includes techniques for Spark Streaming, and also for YARN components.  An example configuration using YARN is shown below. 
 
@@ -115,8 +115,8 @@ To summarize, using checkpointing + WAL + reliable receivers, you will be able t
 
 ## Next steps
 
-* [Spark Streaming Overview](apache-spark-streaming-overview.md)
-* [Create Spark Streaming jobs with exactly-once event processing](apache-spark-streaming-exactly-once.md)
-* [Long-running Spark Streaming Jobs on YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Apache Spark Streaming Overview](apache-spark-streaming-overview.md)
+* [Create Apache Spark Streaming jobs with exactly-once event processing](apache-spark-streaming-exactly-once.md)
+* [Long-running Apache Spark Streaming Jobs on YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Structured Streaming: Fault Tolerant Semantics](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Discretized Streams: A Fault-Tolerant Model for Scalable Stream Processing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

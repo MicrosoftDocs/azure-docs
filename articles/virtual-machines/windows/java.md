@@ -35,7 +35,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
 2. Install [Maven](http://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     

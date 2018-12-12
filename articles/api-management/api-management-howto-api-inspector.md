@@ -31,18 +31,19 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Trace a call
 
+![API tracing](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. Select **APIs**.
 2. Click **Demo Conference API** from your API list.
-3. Select **GetSpeakers** operation.
-4. Switch to the **Test** tab.
+3. Switch to the **Test** tab.
+4. Select **GetSpeakers** operation.
 5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
-
-    ![API tracing header](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
@@ -54,9 +55,9 @@ In this tutorial, you learn how to:
     In the **inbound** section, you see the original request API Management received from the caller and all the policies applied to the request including the rate-limit and set-header policies we added in step 2.
 
     In the **backend** section, you see the requests API Management sent to the API backend and the response it received.
-    
+
     In the **outbound** section, you see all the policies applied to the response before sending back to the caller.
- 
+
     > [!TIP]
     > Each step also shows the elapsed time since the request is received by API Management.
 

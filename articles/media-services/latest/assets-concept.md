@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets in Azure Media Services | Microsoft Docs
+title: Assets in Media Services - Azure | Microsoft Docs
 description: This article gives an explanation of what assets are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,8 +11,10 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # Assets
@@ -31,19 +33,19 @@ Also, read about [storage accounts in Media Services](storage-account-concept.md
 
 The following table shows the Asset's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.alternateId |string|The alternate ID of the Asset.|
-|properties.assetId |string|The Asset ID.|
-|properties.container |string|The name of the asset blob container.|
-|properties.created |string|The creation date of the Asset.|
-|properties.description |string|The Asset description.|
-|properties.lastModified |string|The last modified date of the Asset.|
-|properties.storageAccountName |string|The name of the storage account.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
-|type|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id|Fully qualified resource ID for the resource.|
+|name|The name of the resource.|
+|properties.alternateId |The alternate ID of the Asset.|
+|properties.assetId |The Asset ID.|
+|properties.container |The name of the asset blob container.|
+|properties.created |The creation date of the Asset.|
+|properties.description|The Asset description.|
+|properties.lastModified |The last modified date of the Asset.|
+|properties.storageAccountName |The name of the storage account.|
+|properties.storageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
+|type|The type of the resource.|
 
 For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 

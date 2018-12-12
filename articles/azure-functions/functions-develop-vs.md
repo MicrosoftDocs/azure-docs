@@ -24,7 +24,7 @@ The Azure Functions Tools provides the following benefits:
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This article shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
+This article provides details about how to use the Azure Functions Tools for Visual Studio 2017 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
@@ -77,6 +77,9 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
+    >[!IMPORTANT]
+    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
+
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
 
 ## Configure the project for local development
@@ -111,15 +114,16 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Extensions.Logging;
 
     namespace FunctionApp1
     {
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
+            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
-                log.Info($"C# Queue trigger function processed: {myQueueItem}");
+                log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
     }
@@ -147,9 +151,9 @@ As with triggers, input and output bindings are added to your function as bindin
         public static void Run(
             [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
             [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
             myQueueItemCopy = myQueueItem;
         }
     }
@@ -180,7 +184,7 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
 
-The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project. 
+The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -188,11 +192,13 @@ This displays the **Application Settings** dialog for the function app, where yo
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Local** represents a setting value in the local.settings.json file, and **Remote** is the current setting in the function app in Azure.  Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
+
 You can also manage application settings in one of these other ways:
 
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## Monitoring functions
 

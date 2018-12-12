@@ -3,7 +3,7 @@ title: Use decoration markers to highlight text - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Shows how to enable text decorations in search responses.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services

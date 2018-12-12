@@ -9,7 +9,6 @@ ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin

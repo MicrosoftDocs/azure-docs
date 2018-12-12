@@ -1,23 +1,15 @@
 ---
-title: Azure Site Recovery Deployment Planner for VMware to Azure| Microsoft Docs
-description: This is the Azure Site Recovery Deployment Planner user guide.
-services: site-recovery
-documentationcenter: ''
+title: About the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure| Microsoft Docs
+description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
 author: nsoneji
 manager: garavd
-editor:
-
-ms.assetid:
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---
-# Azure Site Recovery Deployment Planner for VMware to Azure
+# About the Azure Site Recovery Deployment Planner for VMware to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments.
 
 ## Overview
@@ -103,9 +95,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
     Example:
     Copy the .zip file to E:\ drive and extract it.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR Deployment Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Update to the latest version of Deployment Planner
 If you have a previous version of Deployment Planner, do either of the following:
@@ -121,7 +113,7 @@ If you have a previous version of Deployment Planner, do either of the following
 
 
 ## Version history
-The latest Site Recovery Deployment Planner tool version is 2.2.
+The latest Site Recovery Deployment Planner tool version is 2.3.
 See the [Site Recovery Deployment Planner version history](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 ## Next steps

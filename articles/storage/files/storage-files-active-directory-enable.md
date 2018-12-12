@@ -84,7 +84,11 @@ The following image shows how to enable Azure AD authentication over SMB for you
   
 ### PowerShell  
 
-To enable Azure AD authentication over SMB from Azure PowerShell, first install the `AzureRM.Storage 6.0.0-preview` module. For information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+To enable Azure AD authentication over SMB from Azure PowerShell, first install the `AzureRM.Storage` module, version `6.0.0-preview`, as follows. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 Next, create a new storage account, then call [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) and set the **EnableAzureFilesAadIntegrationForSMB** parameter to **true**. In the example below, remember to replace the placeholder values with your own values.
 
@@ -266,10 +270,10 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 ```
 
 ### Configure NTFS permissions with icacls
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values shown in brackets in the example with your own values.
 
 ```
-icacls <mounted-drive-letter> /grant <user-email>:(f)
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
 For more information on how to use icacls to set NTFS permissions and on the different type of permissions supported, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).

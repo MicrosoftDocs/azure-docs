@@ -9,10 +9,12 @@
     href: rbac-and-directory-admin-roles.md
 - name: Quickstarts
   items:
-  - name: Grant access for a user
-    href: quickstart-assign-role-user-portal.md
+  - name: View roles for a user
+    href: check-access.md
 - name: Tutorials
   items:
+  - name: Grant access for a user - Portal
+    href: quickstart-assign-role-user-portal.md
   - name: Grant access for a user - PowerShell
     href: tutorial-role-assignments-user-powershell.md
   - name: Grant access for a group - PowerShell
@@ -47,6 +49,8 @@
       href: role-assignments-template.md
   - name: Deny access
     items:
+    - name: Portal
+      href: deny-assignments-portal.md
     - name: REST API
       href: deny-assignments-rest.md
   - name: Custom roles

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Password policy | Microsoft Docs
 description: Understand password policies on managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Password and account lockout policies on managed domains
@@ -115,5 +115,5 @@ To create a custom FGPP on your managed domain:
 >
 
 ## Next steps
-* [Learn about Active Directory fine grained password policies](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394)
+* [Learn about Active Directory fine grained password policies](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 * [Configure fine grained password policies using AD Administration Center](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)

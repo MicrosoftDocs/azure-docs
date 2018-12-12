@@ -1,5 +1,5 @@
 ---
-title: Deployment FAQs for Azure web apps | Microsoft Docs
+title: Deployment FAQs - Azure App Service | Microsoft Docs
 description: Get answers to frequently asked questions about deployment for the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -14,8 +14,9 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
+ms.custom: seodec18
 
 ---
 # Deployment FAQs for Web Apps in Azure
@@ -75,7 +76,7 @@ To resolve FTP issues:
 
 ## How do I publish my code to App Service?
 
-The Azure Quickstart is designed to help you deploy your app by using the deployment stack and method of your choice. To use the Quickstart, in the Azure portal, go to **Settings** > **App Deployment**.
+The Azure Quickstart is designed to help you deploy your app by using the deployment stack and method of your choice. To use the Quickstart, in the Azure portal, go to your app service, under **Deployment**, select **Quickstart**.
 
 ## Why does my app sometimes restart after deployment to App Service?
 

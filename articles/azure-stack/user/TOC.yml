@@ -126,6 +126,8 @@
         href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
+      - name: Deploy Ethereum
+        href: azure-stack-ethereum.md
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
       - name: Add Kubernetes cluster
@@ -134,6 +136,8 @@
           href: azure-stack-solution-template-kubernetes-deploy.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
+      - name: Deploy Cognitive Services
+        href: azure-stack-solution-template-cognitive-services.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -143,7 +147,7 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: Configure PowerShell
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-user.md
       - name: Download Azure Stack tools
         href: ../azure-stack-powershell-download.md

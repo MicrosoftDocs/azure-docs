@@ -117,7 +117,7 @@ Modify the following query to return the amount of elastic pool data space used.
 ```sql
 -- Connect to master
 -- Elastic pool data space used in MB  
-SELECT TOP 1 avg_storage_percent * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
+SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC

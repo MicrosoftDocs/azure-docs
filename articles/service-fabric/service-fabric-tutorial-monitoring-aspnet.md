@@ -75,6 +75,8 @@ Follow these steps to configure Application Insights for both VotingWeb and Voti
 1. Right-click on the name of the service, and click **Configure Application Insights...**.
 
     ![Configure AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>Depending on the project type, when you Right-click on the name of the service, you may need to click Add-> Application Insights Telemetry ...
 
 2. Click **Start Free**.
 3. Sign in to your account (with which you also set up your Azure subscription) and select the subscription in which you created the Application Insights resource. Find the resource under *Existing Application Insights resource* in the "Resource" dropdown. Click **Register** to add Application Insights to your service.

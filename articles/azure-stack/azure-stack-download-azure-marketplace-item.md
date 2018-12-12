@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: ''
 ---
@@ -164,8 +164,10 @@ There are two parts to this scenario:
 
    You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file. The text file is stored in the destination location. The *version* value is the version noted when downloading the item from Azure in the previous procedure. 
  
-   In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. The value for *-Osuri* is an example path to the blob storage location for the item.
+   In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. The value for *-Osuri* is an example path to the blob storage location for the item. 
 
+   As an alternative to this script, you can use the [procedure described in this article](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) to import the .VHD image using the Azure portal.
+ 
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -175,6 +177,7 @@ There are two parts to this scenario:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
+   
    **About solution templates:**
    Some templates can include a small 3 MB .VHD file with the name **fixed3.vhd**. You don't need to import that file to Azure Stack. Fixed3.vhd.  This file is included with some solution templates to meet publishing requirements for the Azure Marketplace.
 

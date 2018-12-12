@@ -1,17 +1,17 @@
 ---
-title: Support matrix for Hyper-V replication to Azure | Microsoft Docs
-description: Summarizes the supported components and requirements for Hyper-V replication to Azure with Azure Site Recovery
+title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure | Microsoft Docs
+description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
 
-# Support matrix for Hyper-V replication to Azure
+# Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure
 
 
 This article summarizes the supported components and settings for disaster recovery of on-premises Hyper-V VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
@@ -166,6 +166,9 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
+
+> [!NOTE]
+> When replicating Hyper-VMs (managed with/without SCVMM) from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or SCVMM as applicable.
 
 
 ## Provider and agent

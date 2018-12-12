@@ -53,7 +53,7 @@ The following diagram shows how the networks communicate between data centers.
    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
->This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](http://azure.microsoft.com/pricing/details/bandwidth/).  
+>This architecture incurs outbound data charges for data replicated between Azure regions. See [Bandwidth Pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## Create remote replica
 
@@ -101,13 +101,13 @@ To create a replica in a remote data center, do the following steps:
    - Use the network from the remote data center.
    - Assign the IP address from the new Azure load balancer. 
 
-1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
+1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](https://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 
-1. [Add a replica to the availability group on the new SQL Server](http://msdn.microsoft.com/library/hh213239.aspx).
+1. [Add a replica to the availability group on the new SQL Server](https://msdn.microsoft.com/library/hh213239.aspx).
 
    For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
 
@@ -139,9 +139,9 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
 
 The replica in the remote data center is part of the availability group but it is in a different subnet. If this replica becomes the primary replica, application connection time-outs may occur. This behavior is the same as an on-premises availability group in a multi-subnet deployment. To allow connections from client applications, either update the client connection or configure name resolution caching on the cluster network name resource.
 
-Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](http://msdn.microsoft.com/library/gg471494#Anchor_0).
+Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
 
 ## Fail over to remote region
 
@@ -172,12 +172,12 @@ After testing connectivity, move the primary replica back to your primary data c
 
 For more information, see the following topics:
 
-- [Perform a Planned Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
-- [Perform a Forced Manual Failover of an Availability Group (SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
+- [Perform a Planned Manual Failover of an Availability Group (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
+- [Perform a Forced Manual Failover of an Availability Group (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
 ## Additional Links
 
-* [Always On Availability Groups](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure Virtual Machines](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure Availability Sets](../manage-availability.md)

@@ -135,7 +135,7 @@ The following steps illustrate how to create a queue:
   
 	![Create queue](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-	As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created. Therefore, if you run the app when the queue exists, the method returns **false**. To run the app multiple times, you must delete the queue before running the app again. Deleting the queue can be done via the **CloudQueue.Delete** method. You can also delete the queue using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created. Therefore, if you run the app when the queue exists, the method returns **false**. To run the app multiple times, you must delete the queue before running the app again. Deleting the queue can be done via the **CloudQueue.Delete** method. You can also delete the queue using the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add a message to a queue
 

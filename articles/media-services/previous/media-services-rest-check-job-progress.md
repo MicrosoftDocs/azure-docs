@@ -4,7 +4,7 @@ description: Learn how to track job progress.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 11/05/2018
 ms.author: juliako
 
 ---
