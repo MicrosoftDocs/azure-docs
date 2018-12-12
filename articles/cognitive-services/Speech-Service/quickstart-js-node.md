@@ -50,54 +50,21 @@ Create a new file in the folder, named `index.js` and open this file with a text
 
 In this example, we will use the `PushAudioInputStream` interface.
 
-Create the following JavaScript skeleton:
+Add the following JavaScript code:
 
-```javascript
-"use strict";
-
-var sdk = require("microsoft-cognitiveservices-speech-sdk");
-
-var fs = require("fs"); // provides access to the file system
-
-var filename = "whatstheweatherlike.wav"; // 16000Hz, Mono support only.
-var fileContents = fs.readFileSync(filename);
-var arrayBuffer = Uint8Array.from(fileContents).buffer;
-
-var audioStream = sdk.AudioInputStream.createPushStream();
-audioStream.write(arrayBuffer);
-audioStream.close();
-
-var audioConfig = sdk.AudioConfig.fromStreamInput(audioStream);
-var speechConfig = sdk.SpeechConfig.fromSubscription("YOUR_SUBSCRIPTION", "YOUR_REGION");
-
-var recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-
-recognizer.recognizeOnceAsync(
-    function (result) {
-      console.log(result);
-
-      recognizer.close();
-      recognizer = undefined;
-    },
-    function (err) {
-      console.trace("err - " + err);
-
-      recognizer.close();
-      recognizer = undefined;
-    });
-```
+[!code-js[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
 ## Running the sample from command line
 
-To launch the app, adapt `YOUR_SUBSCRIPTION`, `YOUR_REGION` (and `whatstheweatherlike.wav`, if necessary). The you can execute it by calling
+To launch the app, adapt `YourSubscriptionKey`, `YourServiceRegion`, and `YourAudioFile.wav` to your configuration. Then you can execute it by calling
 
-```nodejs
+```shell
 node index.js
 ```
 
 It will trigger a recognition using the provided filename and present the output on the console.
 
-Here is a sample output of running main.java after updating the subscription key and using the file `whatstheweatherlike.wav`.
+Here is a sample output of running `index.js` after updating the subscription key and using the file `whatstheweatherlike.wav`.
 
 ```json
 SpeechRecognitionResult {
