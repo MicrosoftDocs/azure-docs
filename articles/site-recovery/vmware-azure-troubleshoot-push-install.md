@@ -13,7 +13,7 @@ ms.date: 12/12/2018
 ---
 # Troubleshoot Mobility Service push installation issues
 
-Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to
+Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to:
 
 * Credential/Privilege errors
 * Login failures
@@ -33,11 +33,11 @@ When you enable replication, Azure Site Recovery tries to push install mobility 
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
   * For Linux (**error 95108**), you must choose the root account for successful installation of mobility agent. Additionally, SFTP services should be running. To enable SFTP subsystem and password authentication in the sshd_config file,
-    * Sign in as root.
-    * Go to /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
-    * Uncomment the line, and change the value to yes
-    * Find the line that begins with Subsystem, and uncomment the line
-    * Restart the sshd service.
+    1. Sign in as root.
+    2. Go to /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
+    3. Uncomment the line, and change the value to yes.
+    4. Find the line that begins with Subsystem, and uncomment the line.
+    5. Restart the sshd service.
 
 If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
@@ -60,7 +60,7 @@ The user account chosen during Enable Replication has been disabled. To enable t
 
 ## Login Failure (ErrorID: 95520)
 
-Multiple failed retry efforts to access a machine will lock the user account. The failure can be due to
+Multiple failed retry efforts to access a machine will lock the user account. The failure can be due to:
 
 * Credentials provided during Configuration setup are incorrect OR
 * The user account chosen during Enable Replication is wrong
@@ -69,7 +69,7 @@ So, modify the credentials chosen by following the instructions given [here](vmw
 
 ## Login Failure (ErrorID: 95521)
 
-This error occurs when the logon servers are not available on source machine. Unavailability of logon servers will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)
+This error occurs when the logon servers are not available on source machine. Unavailability of logon servers will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
 ## Login Failure (ErrorID: 95522)
 
