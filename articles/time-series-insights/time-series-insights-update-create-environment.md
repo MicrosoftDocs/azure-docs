@@ -155,7 +155,7 @@ This section describes how to create a Time Series Insights Preview environment 
 
       ![Deployment complete][16]
 
-   * On the Azure Time Series Insights Preview page, navigate to **Data Access Policies**
+   * On the Azure Time Series Insights Preview page, navigate to **Data Access Policies**.
 
      ![Data access policies][17]
 
@@ -169,7 +169,7 @@ This section describes how to create a Time Series Insights Preview environment 
 
 In this section, you perform basic analytics on your time series data by using the Time Series Insights update explorer.
 
-1. Go to your Azure Time Series Insights Preview explorer by clicking on the URL from the resource page in the Azure portal.
+1. Go to your Azure Time Series Insights Preview explorer by clicking on the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 
    ![The Time Series Insights explorer URL][19]
 
