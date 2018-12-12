@@ -102,7 +102,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to
 
 **Component** | **Supported**
 --- | ---
-File systems | ext3, ext4, XFS.
+File systems | ext3, ext4, XFS
 Volume manager | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 is supported. <br/> 2. LVM is supported for data disks only. <br/> 3. Azure VMs have only a single OS disk.<br/><br/>From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, LVM and LVM2 are supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
