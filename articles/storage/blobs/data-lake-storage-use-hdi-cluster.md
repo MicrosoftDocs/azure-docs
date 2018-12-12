@@ -95,7 +95,7 @@ When creating an HDInsight cluster from the Portal, you have the options (as sho
 
 ### Use Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md) ]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 If you [installed and configured Azure PowerShell][powershell-install], you can use the following code from the Azure PowerShell prompt to create a storage account and container:
 
