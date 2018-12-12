@@ -1,5 +1,5 @@
 ---
-title: Configuring a Web Application Firewall (WAF) for App Service Environment
+title: Configuring a Web Application Firewall (WAF) for App Service Environment - Azure
 description: Learn how to configure a web application firewall in front of your App Service Environment.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Configuring a Web Application Firewall (WAF) for App Service Environment
 ## Overview

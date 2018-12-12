@@ -17,7 +17,7 @@ ms.author: diberry
 The `phonenumber` entity extracts a variety of phone numbers including country code. Because this entity is already trained, you do not need to add example utterances to the application. The `phonenumber` entity is supported in `en-us` culture only. 
 
 ## Types of phonenumber
-Phonenumber is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) Github repository
+Phonenumber is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) GitHub repository
 
 ## Resolution for prebuilt phonenumber entity
 The following example shows the resolution of the **builtin.phonenumber** entity.

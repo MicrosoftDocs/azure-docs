@@ -193,7 +193,7 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 
 ### How frequently can Data Sync synchronize my data
 
-The minimum frequency is every five minutes.
+The minimal duration between triggering synchronizations is five minutes.
 
 ### Does SQL Data Sync fully create and provision tables
 

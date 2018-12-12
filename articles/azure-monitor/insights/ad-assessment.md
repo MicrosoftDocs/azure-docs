@@ -10,12 +10,9 @@ ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.component: 
-
 ---
 # Optimize your Active Directory environment with the Active Directory Health Check solution in Log Analytics
 

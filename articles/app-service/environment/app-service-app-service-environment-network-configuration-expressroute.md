@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
+ms.custom: seodec18
 ---
 
 # Network configuration details for App Service Environment for PowerApps with Azure ExpressRoute

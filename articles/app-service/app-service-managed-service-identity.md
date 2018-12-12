@@ -1,5 +1,5 @@
 ---
-title: Managed identities in App Service and Azure Functions | Microsoft Docs
+title: Managed identities overview - Azure App Service | Microsoft Docs
 description: Conceptual reference and setup guide for managed identities in Azure App Service and Azure Functions
 services: app-service
 author: mattchenderson
@@ -155,7 +155,7 @@ Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId pro
 ## Adding a user-assigned identity (preview)
 
 > [!NOTE] 
-> User-assigned identities are currently in preview. Sovreign clouds are not yet supported.
+> User-assigned identities are currently in preview. Sovereign clouds are not yet supported.
 
 Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app config.
 
