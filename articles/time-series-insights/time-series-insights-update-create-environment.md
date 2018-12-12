@@ -201,6 +201,150 @@ In this section, you perform basic analytics on your time series data by using t
 
    ![Select the From option][26]
 
+## Define and apply a model
+
+In this section, you will apply a model to structure your data. To complete the model you will need to define Types, Hierarchies and Instances. To learn more about data modelling, go to [Time Series Models](./time-series-insights-update-tsm.md).
+
+1. In the explorer, select the **Model** tab
+
+   ![Select the model tab][27]
+
+1. Next, click on **+ Add** to add a type. On the right side, a type editor will open.
+
+   ![Click Add][28]
+
+1. Next, define three variables: pressure, temperature and humidity in a type. Enter the following fields:
+
+   | | |
+   | --- | ---|
+   | **Name** | Enter `Chiller` |
+   | **Description** | Enter `This is a type definition of Chiller` |
+
+   * Now, define Pressure with three variables:
+
+      | | |
+      | --- | ---|
+      | **Name** | Enter `Avg Pressure` |
+      | **Value** | Select **pressure (Double)**. Note, it could take a few minutes for this field to populate after Time Series Insights starts receiving events |
+      | **Aggregation Operation** | Select `AVG` |
+
+      ![Add a variable][29]
+
+      Click on **+Variable** to add the next variable.
+
+   * Now, define Temperature:
+
+      | | |
+      | --- | ---|
+      | **Name** | Enter `Avg Temperature` |
+      | **Value** | Select **temperature (Double)**. Note, it could take a few minutes for this field to populate after Time Series Insights starts receiving events |
+      | **Aggregation Operation** | Select `AVG`|
+
+      ![Define Temperature][30]
+
+   * Now, define Humdity:
+
+      | | |
+      | --- | ---|
+      | **Name** | Enter `Max Humidity` |
+      | **Value** | Select **humidity (Double)**. Note, it could take a few minutes for this field to populate after Time Series Insights starts receiving events |
+      | **Aggregation Operation** | Select `MAX`|
+
+      ![Define Temperature][31]
+
+   After defining variables, click **Create**.
+
+1. You can see your Type added:
+
+   ![See type added][32]
+
+1. The next step is to add a Hierarchy. In the **Hierarchies** section, select **+ Add** to create a new hierarchy:
+
+   ![Add a Hierarchy][33]
+
+1. Define Hierarchy. Enter the fields as follows:
+
+   | | |
+   | --- | ---|
+   | **Name** | Enter `Location Hierarchy` |
+   | **Level 1** | Enter `Country` |
+   | **Level 2** | Enter `City` |
+   | **Level 3** | Enter `Building` |
+
+   After filling in the fields above, click on **Create**.
+
+   ![Define a Hierarchy][34]
+
+1. You can see the hierarchy created:
+
+   ![See your Hierarchy][35]
+
+1. After defining your Hierarchy, click **Instances** on the left. After the instances appear, click the first instance and select **Edit**:
+
+   ![Edit an instance][36]
+
+1. On the right side, a text editor will appear. Add the following fields:
+
+   | | |
+   | --- | --- |
+   | **Type** | Select `Chiller` |
+   | **Description** | Enter `Instance for Chiller-01.1` |
+   | **Hierarchies** | Enable `Location Hierarchy` |
+   | **Country** | Enter `USA` |
+   | **City** | Enter `Seattle` |
+   | **Building** | Enter `Space Needle` |
+
+    After filling in the fields above, click **Save**.
+
+   ![Save a chiller][37]
+
+1. Repeat the previous step for the other sensors. Use the following fields:
+
+   * For Chiller 01.2:
+
+     | | |
+     | --- | --- |
+     | **Type** | Select `Chiller` |
+     | **Description** | Enter `Instance for Chiller-01.2` |
+     | **Hierarchies** | Enable `Location Hierarchy` |
+     | **Country** | Enter `USA` |
+     | **City** | Enter `Seattle` |
+     | **Building** | Enter `Pacific Science Center` |
+
+   * For Chiller 01.3:
+
+     | | |
+     | --- | --- |
+     | **Type** | Select `Chiller` |
+     | **Description** | Enter `Instance for Chiller-01.1` |
+     | **Hierarchies** | Enable `Location Hierarchy` |
+     | **Country** | Enter `USA` |
+     | **City** | Enter `New York` |
+     | **Building** | Enter `Empire State Building` |
+
+1. Go to **Analyze** tab and refresh the page. Expand all hierarchy levels to find the time series.
+
+   ![View the analyze tab][38]
+
+1. To explore time series over the last hour, change **Quick Times** to last hour:
+
+   ![Explore the last hour][39]
+
+1. Click on the times eries under **Pacific Science Center** and click **Show Max Humidity**.
+
+   ![Show max Humidity][40]
+
+1. The time series for **Max Humidity** with an interval size of 1 minute will open. Left-click a region to filter a range. Then, right-click and zoom to analyze events in the time-frame:
+
+   ![View, filter, and zoom][41]
+
+   ![View, filter, and zoom][42]
+
+1. You can also left-click a region and then right click to see event details:
+
+   ![View, filter, and zoom][43]
+
+   ![View, filter, and zoom][44]
 
 ## Next steps
 
@@ -254,3 +398,22 @@ Learn more about Time Series Models:
 [24]: media/v2-update-provision/analyze-six-from.png
 [25]: media/v2-update-provision/analyze-seven-change-from.png
 [26]: media/v2-update-provision/analyze-eight-all.png
+
+[27]: media/v2-update-provision/define-one-model.png
+[28]: media/v2-update-provision/define-two-add.png
+[29]: media/v2-update-provision/define-three-variable.png
+[30]: media/v2-update-provision/define-four-avg.png
+[31]: media/v2-update-provision/define-five-humidity.png
+[32]: media/v2-update-provision/define-six-type.png
+[33]: media/v2-update-provision/define-seven-hierarchy.png
+[34]: media/v2-update-provision/define-eight-add-hierarchy.png
+[35]: media/v2-update-provision/define-nine-created.png
+[36]: media/v2-update-provision/define-ten-edit.png
+[37]: media/v2-update-provision/define-eleven-chiller.png
+[38]: media/v2-update-provision/define-twelve.png
+[39]: media/v2-update-provision/define-thirteen-explore.png
+[40]: media/v2-update-provision/define-fourteen-show-max.png
+[41]: media/v2-update-provision/define-fifteen-filter.png
+[42]: media/v2-update-provision/define-sixteen.png
+[43]: media/v2-update-provision/define-seventeen.png
+[44]: media/v2-update-provision/define-eighteen.png
