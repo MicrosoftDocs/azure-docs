@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
 ---
 
@@ -16,15 +16,15 @@ ms.custom: seodec18
 
 This tutorial guides you through the process of creating an Azure Time Series Insights pay-as-you-go (PAYG) Preview environment. In this tutorial, you learn how to:
 
-* Create a Time Series Insights Preview environment.
-* Connect the Time Series Insights Preview environment to an event hub in Azure Event Hubs.
-* Run a wind farm simulation to stream data into the Time Series Insights Preview environment.
+* Create an Azure Time Series Insights Preview environment.
+* Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
+* Run a wind farm simulation to stream data into the Azure Time Series Insights Preview environment.
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy and associate it with your instances.
 
 # Create a device simulation
 
-In this section, you will create three simulated devices will send data to an IoT Hub.
+In this section, you will create three simulated devices that will send data to an IoT Hub.
 
 1. Go to the [Azure IoT solution accelerators home page](https://www.azureiotsolutions.com/Accelerators). The Azure IoT solution accelerators home page displays several pre-built examples. Sign in using your Azure account. Then, select **Device Simulation**.
 
@@ -87,7 +87,7 @@ Before you create an Azure Time Series Insights environment, you will need the n
 
 ## Create a Time Series Insights Preview PAYG environment
 
-This section describes how to create a Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
+This section describes how to create an Azure Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
 
 1. Sign in to the Azure portal by using your subscription account.
 
@@ -167,7 +167,7 @@ This section describes how to create a Time Series Insights Preview environment 
 
 ## Analyze data in your environment
 
-In this section, you perform basic analytics on your time series data by using the Time Series Insights update explorer.
+In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
 1. Go to your Azure Time Series Insights Preview explorer by clicking on the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 
