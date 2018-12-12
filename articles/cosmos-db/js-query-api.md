@@ -13,20 +13,20 @@ ms.reviewer: sngun
 
 # Working with JavaScript language-integrated query API with Azure Cosmos DB
 
-In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos DB server-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) allows you to perform optimized queries using a fluent JavaScript interface without any knowledge of SQL. The JavaScript query API allows you to programmatically build queries by passing predicate functions into chainable function calls, with a syntax familiar to ECMAScript5's Array built-ins and popular JavaScript libraries like Lodash. Queries are parsed by the JavaScript runtime and efficiently executed using Azure Cosmos DB indices.
+In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos DB server-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) allows you to perform optimized queries using a JavaScript interface. You don't have to be aware of the SQL language to use this JavaScript interface. The JavaScript query API allows you to programmatically build queries by passing predicate functions into sequence of function calls, with a syntax familiar to ECMAScript5's array built-ins and popular JavaScript libraries like Lodash. Queries are parsed by the JavaScript runtime and efficiently executed using Azure Cosmos DB indices.
 
-## Supported functions
+## Supported JavaScript functions
 
 | **Function** | **Description** |
 |---------|---------|
-|**chain() ... .value([callback] [, options])**|Starts a chained call that must be terminated with value().|
-|**filter(predicateFunction [, options] [, callback])**|Filters the input using a predicate function that returns true/false in order to filter in/out input documents into the resulting set. This function behaves similar to a WHERE clause in SQL.|
-|**flatten([isShallow] [, options] [, callback])**|Combines and flattens arrays from each input item in to a single array. This function behaves similar to SelectMany in LINQ.|
-|**map(transformationFunction [, options] [, callback])**|Applies a projection given a transformation function that maps each input item to a JavaScript object or value. This function behaves similar to a SELECT clause in SQL.|
-|**pluck([propertyName] [, options] [, callback])**|This function is a shortcut for a map that extracts the value of a single property from each input item.|
-|**sortBy([predicate] [, options] [, callback])**|Produce a new set of documents by sorting the documents in the input document stream in ascending order using the given predicate. This function behaves similar to an ORDER BY clause in SQL.|
-|**sortByDescending([predicate] [, options] [, callback])**|Produce a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This function behaves similar to an ORDER BY x DESC clause in SQL.|
-|**unwind(collectionSelector, [resultSelector], [options], [callback])**|Performs a self-join with inner array and adds results from both sides as tuples to the result projection. For instance, joining a person document with person.pets would produce [person, pet] tuples. This is similar to .NET LINK SelectMany.|
+|`chain() ... .value([callback] [, options])`|Starts a chained call that must be terminated with value().|
+|`filter(predicateFunction [, options] [, callback])`|Filters the input using a predicate function that returns true/false in order to filter in/out input documents into the resulting set. This function behaves similar to a WHERE clause in SQL.|
+|`flatten([isShallow] [, options] [, callback])`|Combines and flattens arrays from each input item into a single array. This function behaves similar to SelectMany in LINQ.|
+|`map(transformationFunction [, options] [, callback])`|Applies a projection given a transformation function that maps each input item to a JavaScript object or value. This function behaves similar to a SELECT clause in SQL.|
+|`pluck([propertyName] [, options] [, callback])`|This function is a shortcut for a map that extracts the value of a single property from each input item.|
+|`sortBy([predicate] [, options] [, callback])`|Produces a new set of documents by sorting the documents in the input document stream in ascending order by using the given predicate. This function behaves similar to an ORDER BY clause in SQL.|
+|`sortByDescending([predicate] [, options] [, callback])`|Produces a new set of documents by sorting the documents in the input document stream in descending order using the given predicate. This function behaves similar to an ORDER BY x DESC clause in SQL.|
+|`unwind(collectionSelector, [resultSelector], [options], [callback])`|Performs a self-join with inner array and adds results from both sides as tuples to the result projection. For instance, joining a person document with person.pets would produce [person, pet] tuples. This is similar to SelectMany in .NET LINK.|
 
 When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on Azure Cosmos DB indices:
 
@@ -59,7 +59,7 @@ The following table presents various SQL queries and the corresponding JavaScrip
 
 ## Next steps
 
-Learn more concepts and how-to write and use stored procedures, triggers and user-defined functions in Azure Cosmos DB:
+Learn more concepts and how-to write and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
 
 - [How to write stored procedures and triggers using Javascript Query API](how-to-write-js-query-api.md#)
 - [Working with Azure Cosmos DB stored procedures, triggers and user-defined functions](storedprocedures-triggers-udfs.md)
