@@ -29,7 +29,7 @@ With Device Simulation, you can define device models to simulate your physical d
 
 You can run simulations for one to thousands of devices connecting to any IoT hub. To help with testing, you can optionally deploy an IoT hub along with Device Simulation for a standalone environment.
 
-Device Simulation is free. However, Device Simulation deploys to your Azure subscription in the cloud and does consume Azure resources. If Device Simulation doesn't meet your requirements, the source code is also available on GitHub for you're to copy and modify.
+Device Simulation is free. However, Device Simulation deploys to your Azure subscription in the cloud and does consume Azure resources. If Device Simulation doesn't meet your requirements, the [source code is also available on GitHub](https://github.com/Azure/device-simulation-dotnet) for you to copy and modify.
 
 ## Sample simulations
 
