@@ -33,9 +33,9 @@ You can set permissions at the root of your filesystem. To do so, right-click yo
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-The **Manage Access** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
+The **Manage Permission** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
-To add a new user or group to the access control list, select the **Add user or group** box.
+To add a new user or group to the access control list, select the **Add user or group** field.
 
 Enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.
 
