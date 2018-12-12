@@ -528,7 +528,7 @@ results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE 
 
 Learn more concepts and how-to write and use stored procedures, triggers and user-defined functions in Azure Cosmos DB:
 
-- [Working with Azure Cosmos DB stored procedures, triggers and user-defined functions in Azure Cosmos DB](sprocs-triggers-udfs.md)
+- [Working with Azure Cosmos DB stored procedures, triggers and user-defined functions in Azure Cosmos DB](storedprocedures-triggers-udfs.md)
 - [Working with JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md)
 - [How to write stored procedures, triggers and user-defined functions in Azure Cosmos DB](how-to-write-sprocs-triggers-udfs.md)
 - [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-js-query-api.md)

@@ -82,7 +82,7 @@ See the following articles to learn about stored procedures, triggers, and user-
 
 * [How to register and use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures)
 
-* [How to register and use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers)
+* How to register and use [pre-triggers](how-to-use-sprocs-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-sprocs-triggers-udfs.md#post-triggers) in Azure Cosmos DB
 
 * [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#udfs)
 

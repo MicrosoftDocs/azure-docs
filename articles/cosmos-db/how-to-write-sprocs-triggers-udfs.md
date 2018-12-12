@@ -11,9 +11,9 @@ ms.author: mjbrown
 
 # How to write stored procedures, triggers and user-defined functions in Azure Cosmos DB
 
-Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the SQL API in Azure Cosmos DB, you can define the stored procedures, triggers and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md) and the [Cosmos DB SQL API client SDKs](sql-api-dotnet-samples). 
+Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the SQL API in Azure Cosmos DB, you can define the stored procedures, triggers and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md) and the [Cosmos DB SQL API client SDKs](sql-api-dotnet-samples.md). 
 
-To call a stored procedure, trigger and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-sprocs-triggers-udfs.md).
+To call a stored procedure, trigger and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md).
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
@@ -221,7 +221,7 @@ Pre-triggers cannot have any input parameters. The request object in the trigger
 
 When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means using the trigger in a replace operation as shown in the following code is not permitted.
 
-For examples of how to register and call a pre-trigger, see [How to use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers) article.
+For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-sprocs-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-sprocs-triggers-udfs.md#post-triggers) articles. 
 
 ### <a id="post-triggers"></a>Post-triggers
 
@@ -263,7 +263,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 
 One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. This post-trigger runs as part of the same transaction that is used by the create Azure Cosmos DB item. Therefore, if you get an exception during the post-trigger execution, for example, if you are unable to update the metadata item, the whole transaction will fail and it is rolled back. So the Azure Cosmos DB item is created and an exception is returned.
 
-For examples of how to register and call post-triggers, see [How to use triggers in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#triggers) article.
+For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-sprocs-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-sprocs-triggers-udfs.md#post-triggers) articles. 
 
 ## <a id="udfs"></a>How to write user-defined functions
 
