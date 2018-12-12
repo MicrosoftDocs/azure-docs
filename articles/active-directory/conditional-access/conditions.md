@@ -136,92 +136,61 @@ For more information, see [What is the location condition in Azure Active Direct
 
 ## Client apps
 
-By using the client apps condition, you can apply a policy to different types of applications. Examples are websites,services, mobile apps, and desktop applications. 
+By default, a conditional access policy applies to all:
+
+- [Browser apps](technical-reference.md#supported-browsers) 
+
+- [Mobile and desktop apps using modern authentication](technical-reference.md#supported-mobile-applications-and-desktop-clients)
 
 
-
-An application is classified as follows:
+An app is classified as follows:
 
 - A website or service if it uses web SSO protocols, SAML, WS-Fed, or OpenID Connect for a confidential client.
 
 - A mobile app or desktop application if it uses the mobile app OpenID Connect for a native client.
 
-For a list of the client apps you can use in your conditional access policy, see [Client apps condition](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition) in the Azure Active Directory Conditional Access technical reference.
 
-Common use cases for this condition are policies with the following protections: 
+With the client apps condition, you have the option to target a policy to specific subsets of apps, authentication protocols and mail applications that use Microsoft Exchange ActiveSync.
 
-- Require a [compliant device](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
+
+![Client apps](./media/conditions/41.png)
+
+Common use cases for this condition are policies with the following requirements:
+
+- **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
+
+- **[Require a managed device](require-managed-devices.md)** apps using ActiveSync to access Exchange Online.
+
+- **[Block legacy authentication](block-legacy-authentication.md)** to Azure AD (other clients)
 
 - Block access from web applications but allow access from mobile and desktop applications.
 
-You can apply this condition to web SSO and modern authentication protocols. You can also apply it to mail applications that use Microsoft Exchange ActiveSync. Examples are the native mail apps on most smartphones. 
 
-You can only select the client apps condition if Microsoft Office 365 Exchange Online is the only cloud app you've selected.
 
-![Cloud apps](./media/conditions/32.png)
+### Exchange ActiveSync clients
 
-Selecting **Exchange ActiveSync** as a client apps condition is supported only if you don't have other conditions  configured in a policy. However, you can narrow down the scope of this condition to apply only to supported platforms.
+You can only select **Exchange ActiveSync clients** if:
 
+
+- Microsoft Office 365 Exchange Online is the only cloud app you've selected.
+
+    ![Cloud apps](./media/conditions/32.png)
+
+- You don't have other conditions configured in a policy. However, you can narrow down the scope of this condition to apply only to [supported platforms](technical-reference.md#device-platform-condition).
  
-![Apply policy only to supported platforms](./media/conditions/33.png)
-
-Applying this condition only to supported platforms is equal to all device platforms in a [device platform condition](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
-![Configure device platforms](./media/conditions/34.png)
+    ![Apply policy only to supported platforms](./media/conditions/33.png)
 
 
- For more information, see these articles:
+All controls except [requiring a managed device](require-managed-devices.md) lead to a block.
+
+You can only target this setting to users and groups. It doesn’t support guests or roles. If a guest or role condition is configured, all users are blocked because conditional access can't determine if the policy should apply to the user or not.
+
+
+ For more information, see:
 
 - [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
 - [Azure Active Directory app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
-
-
-### Legacy authentication  
-
-Conditional access now applies to older Microsoft Office clients that don't support modern authentication. It also applies to clients that use mail protocols like POP, IMAP, and SMTP. By using legacy authentication, you can configure policies like **block access from other clients**.
-
-
-![Configure client apps](./media/conditions/160.png)  
-
-
-#### Known issues
-
-- Configuring a policy for **Other clients** blocks the entire organization from certain clients like SPConnect. This block happens because older clients authenticate in unexpected ways. The issue doesn't apply to major Office applications like the older Office clients. 
-
-- It can take up to 24 hours for the policy to go into effect. 
-
-
-#### Frequently asked questions
-
-**Q:** Will this authentication block Microsoft Exchange Web Services?
-
-It depends on the authentication protocol that Exchange Web Services uses. If the Exchange Web Services application uses modern authentication, it's covered by the **Mobile apps and desktop clients** client app. Basic authentication is covered by the **Other clients** client app.
-
-
-**Q:** What controls can I use for **Other clients**?
-
-Any control can be configured for **Other clients**. However, the end-user experience will be blocked access for all cases. **Other clients** don't support controls like MFA, compliant device, and domain join. 
- 
-**Q:** What conditions can I use for **Other clients**?
-
-Any condition can be configured for **Other clients**.
-
-**Q:** Does Exchange ActiveSync support all conditions and controls?
-
-No. The following list summarizes Exchange ActiveSync support: 
-
-- Exchange ActiveSync supports only user and group targeting. It doesn’t support guests or roles. If a guest or role condition is configured, all users are blocked. Exchange ActiveSync blocks all users because it can't determine if the policy should apply to the user or not.
-
-- Exchange ActiveSync works only with Microsoft Exchange Online as the cloud app. 
-
-- Exchange ActiveSync doesn't support any condition except the client app itself. 
-
-- Exchange ActiveSync can be configured with any control. All controls except device compliance lead to a block.
-
-**Q:** Do the policies apply to all client apps by default going forward?
-
-No. There's no change in the default policy behavior. The policies continue to apply to browser and mobile applications and desktop clients by default.
 
 
 
