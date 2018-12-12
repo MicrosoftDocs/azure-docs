@@ -4,7 +4,7 @@ description: This article provides an overview of disaster recovery of VMware VM
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 

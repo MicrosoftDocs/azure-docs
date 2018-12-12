@@ -27,7 +27,7 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
-> [The newer alerts](monitoring-overview-alerts.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](alert-activity-log.md).
+> [The newer alerts](monitoring-overview-alerts.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## Categories in the Activity Log
@@ -51,7 +51,7 @@ Here are some of the things you can do with the Activity Log:
 
 
 * Query and view it in the **Azure portal**.
-* [Create an alert on an Activity Log event.](monitoring-activity-log-alerts.md)
+* [Create an alert on an Activity Log event.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
@@ -77,7 +77,7 @@ In the Azure portal, you can filter your Activity Log by these fields:
 
 Once you have defined a set of filters, you can pin a query to your Azure dashboard to always keep an eye on specific events.
 
-For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../log-analytics/log-analytics-activity.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
+For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
@@ -96,7 +96,7 @@ You can use a storage account or event hub namespace that is not in the same sub
 >  You cannot currently archive data to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 

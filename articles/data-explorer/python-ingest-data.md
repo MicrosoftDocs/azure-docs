@@ -33,8 +33,8 @@ In addition to an Azure subscription, you need the following to complete this qu
 Install *azure-kusto-data* and *azure-kusto-ingest*.
 
 ```
-pip install azure-kusto-data==0.0.13
-pip install azure-kusto-ingest==0.0.13
+pip install azure-kusto-data
+pip install azure-kusto-ingest
 ```
 
 ## Add import statements and constants

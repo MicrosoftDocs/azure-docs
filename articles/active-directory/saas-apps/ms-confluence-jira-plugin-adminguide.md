@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
 
 ---
@@ -63,9 +63,23 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 7.8
-* Jira Service Desk: 3.0 to 3.2
+* Jira Core and Software: 6.0 to 7.12
+* Jira Service Desk: 3.0.0 to 3.5.0
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: 5.0 to 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## Installation
 
@@ -75,7 +89,7 @@ To install the plug-in, follow these steps:
 
 2. Go to the Jira/Confluence administration console and select **Add-ons**.
 
-3. From the Atlassian Marketplace, search for **Microsoft SAML SSO Plugin**.
+3. From the Microsoft Download Center, download the [Microsoft SAML SSO Plugin for Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO Plugin for Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    The appropriate version of the plug-in appears in the search results.
 
@@ -167,9 +181,23 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.8
-* Jira Service Desk: 3.0 to 3.2
+* Jira Core and Software: 6.0 to 7.12
+* Jira Service Desk: 3.0.0 to 3.5.0
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence: 5.0 to 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### Is the plug-in free or paid?
 

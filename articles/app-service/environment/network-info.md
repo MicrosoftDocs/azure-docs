@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service Environment
+title: Networking considerations with App Service Environment - Azure
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
@@ -229,10 +230,10 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

@@ -34,7 +34,7 @@ You can also use [Azure Active Directory](https://azure.microsoft.com/services/a
 ## Upload a management certificate
 Once you have a management certificate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certificate (private key) can connect through the Management API and access the resources for the associated subscription.
 
-1. Log in to the [Azure portal](http://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 2. Click **All services** at the bottom Azure service list, then select **Subscriptions** in the _General_ service group.
 
     ![Subscription menu](./media/azure-api-management-certs/subscriptions_menu.png)

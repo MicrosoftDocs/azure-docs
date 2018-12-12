@@ -30,11 +30,14 @@ The file share also contains a 5-GB image that is created for you which automati
 
 ## Use existing resources
 
-By using the advanced option, you can associate existing resources. When the storage setup prompt appears, select **Show advanced settings** to view additional options. The populated storage options filter for locally redundant storage (LRS),  geo-redundant storage (GRS), and zone-redundant storage (ZRS) accounts. Go [here to learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) about replication options for Azure Storage accounts.
+By using the advanced option, you can associate existing resources. When selecting a Cloud Shell region you must select a backing storage account co-located in the same region. For example, if your assigned region is West US than you must associate a file share that resides within West US as well.
+
+When the storage setup prompt appears, select **Show advanced settings** to view additional options. The populated storage options filter for locally redundant storage (LRS),  geo-redundant storage (GRS), and zone-redundant storage (ZRS) accounts. 
+
+> [!NOTE]
+> Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file share. Which type of redundancy depends on your goals and price preference. [Learn more about replication options for Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
 
 ![The Resource group setting](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-When selecting a Cloud Shell region you must select to mount a backing storage account in that region as well.
 
 ### Supported storage regions
 Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to. To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.

@@ -1,6 +1,6 @@
 ---
-title: Predefined data extraction, natural language, image processing skills (Azure Search) | Microsoft Docs
-description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Seach pipeline.
+title: Built-in data extraction, natural language, image processing - Azure Search
+description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Search pipeline.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,13 +9,17 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 # Predefined skills for content enrichment (Azure Search)
 
 In this article, you learn about the cognitive skills provided with Azure Search. A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## Predefined skills
 

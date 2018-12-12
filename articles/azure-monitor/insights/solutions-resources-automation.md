@@ -1,23 +1,19 @@
 ---
 title: Azure Automation resources in management solutions | Microsoft Docs
 description: Management solutions will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
-services:  monitoring
+services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service:  monitoring
-ms.devlang: na
+ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
-
 ms.custom: H1Hack27Feb2017
-
 ---
 # Adding Azure Automation resources to a management solution (Preview)
 > [!NOTE]
@@ -314,8 +310,8 @@ The runbook should depend on the module resource to ensure that it's created bef
 ### Updating modules
 If you update a management solution that includes a runbook that uses a schedule, and the new version of your solution has a new module used by that runbook, then the runbook may use the old version of the module.  You should include the following runbooks in your solution and create a job to run them before any other runbooks.  This will ensure that any modules are updated as required before the runbooks are loaded.
 
-* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) will ensure that all of the modules used by runbooks in your solution are the latest version.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) will reregister all of the schedule resources to ensure that the runbooks linked to them with use the latest modules.
+* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) will ensure that all of the modules used by runbooks in your solution are the latest version.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) will reregister all of the schedule resources to ensure that the runbooks linked to them with use the latest modules.
 
 
 

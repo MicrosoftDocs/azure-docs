@@ -1,5 +1,5 @@
 ---
-title:  Java Enterprise support for Azure App Service on Linux | Microsoft Docs
+title:  Java Enterprise support on Linux - Azure App Service | Microsoft Docs
 description: Developer's guide to deploying Java Enterprise apps using Wildfly with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,6 +12,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
+ms.custom: seodec18
 
 ---
 
@@ -77,7 +78,7 @@ To configure Wildfly for a data source connection, follow the same process outli
 2. Follow the steps outline in "Modules and Dependencies" to create and upload your XML module descriptor, JBoss CLI script, startup script, and JDBC .jar dependency.
 
 
-More information on configuring Wildfly with [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html), and [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) is available. You can use these customized instructions along with the generalized approach above to add data source definitions to your server.
+More information on configuring Wildfly with [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), and [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) is available. You can use these customized instructions along with the generalized approach above to add data source definitions to your server.
 
 ## Messaging providers
 
@@ -99,7 +100,7 @@ By default App Service on Linux will use session affinity cookies to ensure that
 - If an application instance is restarted or scaled down, the user session state in the application server will be lost.
 - If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
 
-You can configure Wildfly to use an external session store such as [Redis Cache](/azure/redis-cache/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
+You can configure Wildfly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
 
 ## Enable web sockets
 

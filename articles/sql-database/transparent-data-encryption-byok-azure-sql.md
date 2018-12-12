@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 12/04/2018
 ---
 # Azure SQL Transparent Data Encryption: Bring Your Own Key support
 
-Bring Your Own Key (BYOK) support for [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) allows you to encrypt the Database Encryption Key (DEK) with an asymmetric key called TDE Protector.  The TDE Protector is stored under your control in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure’s cloud-based external key management system. Azure Key Vault is the first key management service with which TDE has integrated support for BYOK. The TDE DEK, which is stored on the boot page of a database is encrypted and decrypted by the TDE protector. The TDE Protector is stored in Azure Key Vault and never leaves the key vault. If the server's access to the key vault is revoked, a database cannot be decrypted and read into memory.  The TDE protector is set at the logical server level and is inherited by all databases associated with that server.
+Bring Your Own Key (BYOK) support for [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) allows you to encrypt the Database Encryption Key (DEK) with an asymmetric key called TDE Protector.  The TDE Protector is stored under your control in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure’s cloud-based external key management system. Azure Key Vault is the first key management service with which TDE has integrated support for BYOK. The TDE DEK, which is stored on the boot page of a database is encrypted and decrypted by the TDE protector. The TDE Protector is stored in Azure Key Vault and never leaves the key vault. If the server's access to the key vault is revoked, a database cannot be decrypted and read into memory. For Azure SQL Database, the TDE protector is set at the logical server level and is inherited by all databases associated with that server. For Azure SQL Managed Instance, the TDE protector is set at the instance level and it is inherited by all *encrypted* databases on that instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
 
-With BYOK support, users can now control key management tasks including key rotations, key vault permissions, deleting keys, and enable auditing/reporting on all TDE protectors using Azure Key Vault functionality. Key Vault provides central key management, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet regulatory compliance.  
+With BYOK support, users can control key management tasks including key rotations, key vault permissions, deleting keys, and enable auditing/reporting on all TDE protectors using Azure Key Vault functionality. Key Vault provides central key management, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet regulatory compliance.  
 
 TDE with BYOK provides the following benefits:
 
@@ -37,34 +37,34 @@ TDE with BYOK provides the following benefits:
 When TDE is first configured to use a TDE protector from Key Vault, the server sends the DEK of each TDE-enabled database to Key Vault for a wrap key request. Key Vault returns the encrypted database encryption key, which is stored in the user database.  
 
 > [!IMPORTANT]
-> It is important to note that **once a TDE Protector is stored in Azure Key Vault, it never leaves the Azure Key Vault**. The logical server can only send key operation requests to the TDE protector key material within Key Vault, and **never accesses or caches the TDE protector**. The Key Vault administrator has the right to revoke Key Vault permissions of the server at any point, in which case all connections to the server are cut off.
+> It is important to note that **once a TDE Protector is stored in Azure Key Vault, it never leaves the Azure Key Vault**. The server can only send key operation requests to the TDE protector key material within Key Vault, and **never accesses or caches the TDE protector**. The Key Vault administrator has the right to revoke Key Vault permissions of the server at any point, in which case all connections to the server are cut off.
 
 ## Guidelines for configuring TDE with BYOK
 
 ### General Guidelines
 
-- Ensure Azure Key Vault and Azure SQL Database are going to be in the same tenant.  Cross-tenant key vault and server interactions **are not supported**.
+- Ensure Azure Key Vault and Azure SQL Database/Managed Instance are going to be in the same tenant.  Cross-tenant key vault and server interactions **are not supported**.
 - Decide which subscriptions are going to be used for the required resources – moving the server across subscriptions later requires a new setup of TDE with BYOKs. Learn more about [moving resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - When configuring TDE with BYOK, it is important to consider the load placed on the key vault by repeated wrap/unwrap operations. For example, since all databases associated with a logical server use the same TDE protector, a failover of that server will trigger as many key operations against the vault as there are databases in the server. Based on our experience and documented [key vault service limits](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), we recommend associating at most 500 Standard / General Purpose or 200 Premium / Business Critical databases with one Azure Key Vault in a single subscription to ensure consistently high availability when accessing the TDE protector in the vault.
 - Recommended: Keep a copy of the TDE protector on premises.  This requires an HSM device to create a TDE Protector locally and a key escrow system to store a local copy of the TDE Protector.  Learn [how to transfer a key from a local HSM to Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 ### Guidelines for configuring Azure Key Vault
 
-- Create a key vault with [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) enabled to protect from data loss in case of accidental key – or key vault – deletion.  You must use [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vault (this option is not available from the AKV Portal yet – but required by SQL):  
+- Create a key vault with [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) enabled to protect from data loss in case of accidental key – or key vault – deletion.  You must use [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vault (this option is not available from the AKV Portal yet – but required by Azure SQL):  
   - Soft deleted resources are retained for a set period of time, 90 days unless they are recovered or purged.
   - The **recover** and **purge** actions have their own permissions associated in a key vault access policy.
 - Set a resource lock on the key vault to control who can delete this critical resource and help to prevent accidental or unauthorized deletion.  [Learn more about resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Grant the logical server access to the key vault using its Azure Active Directory (Azure AD) Identity.  When using the Portal UI, the Azure AD identity gets automatically created and the key vault access permissions are granted to the server.  Using PowerShell to configure TDE with BYOK, the Azure AD identity must be created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) for detailed step-by-step instructions when using PowerShell.
+- Grant the logical server access to the key vault using its Azure Active Directory (Azure AD) Identity.  When using the Portal UI, the Azure AD identity gets automatically created and the key vault access permissions are granted to the server.  Using PowerShell to configure TDE with BYOK, the Azure AD identity must be created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) and [Configure TDE with BYOK for Managed Instance](http://aka.ms/sqlmibyoktdepowershell) for detailed step-by-step instructions when using PowerShell.
 
   > [!NOTE]
   > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy, the  server loses access to the key vault, and TDE encrypted databases are dropped within 24 hours.
 
-- When using firewalls and virtual networks with Azure Key Vault, you must configure the following: 
-  - Allow trusted Microsoft services to bypass this firewall – chose YES 
- 		 
- 	> [!NOTE] 
- 	> If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases are dropped within 24 hours.
+- When using firewalls and virtual networks with Azure Key Vault, you must configure the following:
+  - Allow trusted Microsoft services to bypass this firewall – chose YES
+
+ > [!NOTE]
+ > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases are dropped within 24 hours.
 
 - Enable auditing and reporting on all encryption keys: Key Vault provides logs that are easy to inject into other security information and event management (SIEM) tools. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
 - To ensure high-availability of encrypted databases, configure each logical server with two Azure Key Vaults that reside in different regions.

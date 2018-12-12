@@ -26,7 +26,7 @@ Complete the steps in [Get started with custom policies](active-directory-b2c-ge
 
 By using the page UI customization feature, you can customize the look and feel of any custom policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
 
-Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
+Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
 
 ## Create your HTML5 content
 
@@ -95,7 +95,7 @@ To create a public container in Blob storage, do the following:
 Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`.
+2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
 3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 4. For **Allowed Headers**, enter an asterisk (*).
 5. For **Exposed Headers**, enter an asterisk (*).
@@ -106,7 +106,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 Validate that you're ready by doing the following:
 
-1. Go to the [www.test-cors.org](http://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
+1. Go to the [www.test-cors.org](https://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
 2. Click **Send Request**.  
     If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 

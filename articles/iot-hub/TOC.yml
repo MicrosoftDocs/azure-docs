@@ -18,6 +18,8 @@
     href: quickstart-send-telemetry-java.md
   - name: Send telemetry (Python)
     href: quickstart-send-telemetry-python.md
+  - name: Send telemetry (Android)
+    href: quickstart-send-telemetry-android.md
   - name: Send telemetry (iOS)
     href: quickstart-send-telemetry-ios.md
   - name: Control a device (Node.js)
@@ -28,6 +30,8 @@
     href: quickstart-control-device-java.md
   - name: Control a device (Python)
     href: quickstart-control-device-python.md
+  - name: Control a device (Android)
+    href: quickstart-control-device-android.md
 - name: Tutorials
   items:
   - name: Routing messages

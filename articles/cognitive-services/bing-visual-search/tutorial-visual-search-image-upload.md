@@ -19,6 +19,15 @@ This tutorial breaks down the process of uploading an image to Bing and getting 
 
 This tutorial is provided for the developer that wants to explore the contents of the Bing Visual Search response. It does not apply all use and display requirements (for example, it does not provide a link to Microsoft's privacy policy). For all usage requirements, see [Bing Use and Display Requirements](./use-and-display-requirements.md).
 
+For this tutorial, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure Portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
 
 ## Where to start?
 
@@ -1327,4 +1336,4 @@ Here's the complete HTML and JavaScript example.
 
 ## Next steps
 
-To see how getting insights works using and insights token, see [Bing Visual Search SDK ImageInsightsToken tutorial](.\tutorial-visual-search-insights-token.md).
+To see how getting insights works using and insights token, see [Bing Visual Search SDK ImageInsightsToken tutorial](./tutorial-visual-search-insights-token.md).

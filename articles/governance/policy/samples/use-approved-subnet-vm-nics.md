@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Use approved subnet for VM network interfaces
+title: Sample - Use approved subnet for VM network interfaces
 description: This sample policy requires that network interfaces use an approved subnet.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Use approved subnet for VM network interfaces
 

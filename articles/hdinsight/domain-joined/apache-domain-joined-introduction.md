@@ -16,7 +16,7 @@ In the past, Azure HDInsight supported only a single user: local admin. This wor
 
 You can create an HDInsight cluster with Enterprise Security Package (ESP) that's joined to an Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to the HDInsight cluster. No one from outside the enterprise can log on or access the HDInsight cluster. 
 
-The enterprise admin can configure role-based access control (RBAC) for Apache Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
+The enterprise admin can configure role-based access control (RBAC) for Apache Hive security by using [Apache Ranger](https://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
 
 > [!NOTE]
 > Oozie is now enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
@@ -38,14 +38,14 @@ With this setup, enterprise employees can log on to the cluster nodes by using t
 ## Authorization
 A best practice that most enterprises follow is making sure that not every employee has access to all enterprise resources. Likewise, the admin can define role-based access control policies for the cluster resources. 
 
-For example, the admin can configure [Apache Ranger](http://hortonworks.com/apache/ranger/) to set access control policies for Hive. This functionality ensures that employees can access only as much data as they need to be successful in their jobs. SSH access to the cluster is also restricted to only the administrator.
+For example, the admin can configure [Apache Ranger](https://hortonworks.com/apache/ranger/) to set access control policies for Hive. This functionality ensures that employees can access only as much data as they need to be successful in their jobs. SSH access to the cluster is also restricted to only the administrator.
 
 ## Auditing
 Auditing of all access to the cluster resources, and the data, is necessary to track unauthorized or unintentional access of the resources. It's as important as protecting the HDInsight cluster resources from unauthorized users and securing the data. 
 
 The admin can view and report all access to the HDInsight cluster resources and data. The admin can also view and report all changes to the access control policies created in Apache Ranger supported endpoints. 
 
-A HDInsight cluster with ESP uses the familiar Apache Ranger UI to search audit logs. On the back end, Ranger uses [Apache Solr](http://hortonworks.com/apache/solr/) for storing and searching the logs.
+A HDInsight cluster with ESP uses the familiar Apache Ranger UI to search audit logs. On the back end, Ranger uses [Apache Solr](https://hortonworks.com/apache/solr/) for storing and searching the logs.
 
 ## Encryption
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it. 

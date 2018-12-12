@@ -1,8 +1,7 @@
 ---
-title: Develop and Debug C# modules for Azure IoT Edge in Visual Studio 2017 | Microsoft Docs
+title: Develop and debug C# modules in Visual Studio - Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio 2017 to develop and debug C# module for Azure IoT Edge
 services: iot-edge
-keywords: 
 author: shizn
 manager: philmea
 
@@ -10,7 +9,7 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-
+ms.custom: seodec18
 ---
 # Use Visual Studio 2017 to develop and debug C# modules for Azure IoT Edge (Preview)
 

@@ -101,7 +101,7 @@ To configure a hosted UI for your web app, follow these steps:
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## Consume custom UI
 

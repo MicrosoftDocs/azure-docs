@@ -5,9 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 
 ---
@@ -36,9 +35,9 @@ This article summarizes supported configurations and components when you deploy 
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs within the same region** | Not supported.
 
-# Region support
+## Region support
 
-You can replicate and recover VMs between any two regions within the same geographic cluster.
+You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind. 
 
 **Geographic cluster** | **Azure regions**
 -- | --
@@ -48,21 +47,21 @@ Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan 
 Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany	| Germany Central, Germany Northeast
-China | China East, China North
+China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
-> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.
+> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.</br>
+> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used  as a Target DR region for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.  
 
 ## Cache storage
 
 This table summarizes support for the cache storage account used by Site Recovery during replication.
 
-**Setting** | **Details**
---- | ---
+**Setting** | **Support** | **Details**
+--- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Not supported. | The limitation exists for cache storage because transaction costs for V2 are substantially higher than V1 storage accounts.
-Azure Storage firewalls for virtual networks  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data isn't supported.
-
+Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## Replicated machine operating systems
@@ -141,7 +140,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default to
 --- | --- | ---
 Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/windows/sizes.md).
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically based on the source region settings. You can modify these settings.
-Availability zones | Not supported | You can't currently replicate VMs deployed in availability zones.
+Availability zones | Supported |  
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
 VM scale sets | Not supported |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
@@ -175,6 +174,7 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |  
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
+Standard SSD | Not Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |   	 	 
@@ -190,12 +190,24 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
-Azure Storage firewalls for Virtual networks  | Yes | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
+Azure Storage firewalls for Virtual networks  | Supported | If you are restricting the virtual network access to storage accounts, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
 
 >[!IMPORTANT]
 > Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
 
+## Azure Site Recovery limits to replicate Data change rates
+The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. We should also note that there are two limits to consider, per disk data churn and per virtual machine data churn.
+For example, if we look at  Premium P20 disk in the below table, Site Recovery can handle 5 MB/s churn per disk with at max of five such disks per VM  due to the limit of 25 MB/s total churn per VM.
+
+**Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
+---|---|---|---
+Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 ## Replicated machines - networking
 **Configuration** | **Support** | **Details**
 --- | --- | ---

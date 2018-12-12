@@ -45,7 +45,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 1. Using the IP address of your server, open the Login page at *http://\<IP address\>:3000* or the *\<DNSName>\:3000* in your browser. While 3000 is the default port, note you might have selected a different port during setup. You should see a login page for the Grafana server you built.
 
-    ![Grafana login screen](.\media\monitor-how-to-grafana\grafana-login-screen.png)
+    ![Grafana login screen](./media/monitor-how-to-grafana/grafana-login-screen.png)
 
 2. Log in with the user name *admin* and the Grafana server admin password you created earlier. If you're using a local setup, the default password would be *admin*, and you'd be requested to change it on your first login.
 
@@ -53,7 +53,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 Once successfully logged in, you should see that the Azure Monitor data source plugin is already included.
 
-![Grafana includes Azure Monitor plugin](.\media\monitor-how-to-grafana\grafana-includes-azure-monitor-plugin-dark.png)
+![Grafana includes Azure Monitor plugin](./media/monitor-how-to-grafana/grafana-includes-azure-monitor-plugin-dark.png)
 
 1. Select **Add data source** to add and configure the Azure Monitor data source.
 
@@ -78,7 +78,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 5. If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 6. Select **Save**, and Grafana will test the credentials for each API. You should see a message similar to the following one.  
-    ![Grafana data source config approved](.\media\monitor-how-to-grafana\grafana-data-source-config-approved-dark.png)
+    ![Grafana data source config approved](./media/monitor-how-to-grafana/grafana-data-source-config-approved-dark.png)
 
 ## Build a Grafana dashboard
 
@@ -87,11 +87,11 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 2. In the new dashboard, select the **Graph**. You can try other charting options but this article uses *Graph* as an example.
 
 3. A blank graph shows up on your dashboard. Click on the panel title and select **Edit** to enter the details of the data you want to plot in this graph chart.
-    ![Grafana new graph](.\media\monitor-how-to-grafana\grafana-new-graph-dark.png)
+    ![Grafana new graph](./media/monitor-how-to-grafana/grafana-new-graph-dark.png)
 
 4. Select the Azure Monitor data source you've configured.
     * Collecting Azure Monitor metrics - select **Azure Monitor** in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace **Microsoft.Compute/VirtualMachines**. Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
-    ![Grafana graph config for Azure Monitor](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-monitor-dark.png)
+    ![Grafana graph config for Azure Monitor](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-monitor-dark.png)
     * Collecting Azure Log Analytics data - select **Azure Log Analytics** in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any Log Analytics query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Select the visualization type, **Time series** **Table**, and run the query.
     
     > [!NOTE]
@@ -99,7 +99,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
     > The default query provided with the plugin uses two macros: "$__timeFilter() and $__interval. 
     > These macros allow Grafana to dynamically calculate the time range and time grain, when you zoom in on part of a chart. You can remove these macros and use a standard time filter, such as *TimeGenerated > ago(1h)*, but that means the graph would not support the zoom in feature.
     
-    ![Grafana graph config for Azure Log Analytics](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-log-analytics-dark.png)
+    ![Grafana graph config for Azure Log Analytics](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
     ![Grafana Two Charts Example](media/monitor-send-to-grafana/grafana6.png)
@@ -136,7 +136,7 @@ Usage
 You can configure a variable that will list all available **Solution** values, and then update your query to use it.
 To create a new variable, click the dashboard's Settings button in the top right area, select **Variables**, and then **New**.
 On the variable page, define the data source and query to run in order to get the list of values.
-![Grafana configure variable](.\media\monitor-how-to-grafana\grafana-configure-variable-dark.png)
+![Grafana configure variable](./media/monitor-how-to-grafana/grafana-configure-variable-dark.png)
 
 Once created, adjust the query to use the selected value(s) and your charts will respond accordingly:
 ```
@@ -146,13 +146,13 @@ Usage
 | sort by TimeGenerated
 ```
     
-![Grafana use variables](.\media\monitor-how-to-grafana\grafana-use-variables-dark.png)
+![Grafana use variables](./media/monitor-how-to-grafana/grafana-use-variables-dark.png)
 
 ### Create dashboard playlists
 
 One of the many useful features of Grafana is the dashboard playlist. You can create multiple dashboards and add them to a playlist configuring an interval for each dashboard to show. Select **Play** to see the dashboards cycle through. You may want to display them on a large wall monitor to provide a status board for your group.
 
-![Grafana Playlist Example](.\media\monitor-how-to-grafana\grafana7.png)
+![Grafana Playlist Example](./media/monitor-how-to-grafana/grafana7.png)
 
 ## Clean up resources
 
