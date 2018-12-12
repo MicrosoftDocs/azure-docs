@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: jeedes
 
 ---
@@ -83,11 +83,12 @@ For single sign-on to work, Azure AD needs to know what the counterpart user in 
 
 To configure and test Azure AD single sign-on with Tableau Server, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Tableau Server test user](#creating-a-tableau-server-test-user)** - to have a counterpart of Britta Simon in Tableau Server that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Tableau Server Single Sign-On](#configure-tableau-server-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Create Tableau Server test user](#create-tableau-server-test-user)** - to have a counterpart of Britta Simon in Cisco Umbrella that is linked to the Azure AD representation of user.
+5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -148,15 +149,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save certificate file on your computer.
 
-	![The Certificate download link](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+	![The Certificate download link](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
+### Configure Tableau Server Single Sign-On 
 
-9. On the **CONFIGURATION** tab, select **User Identity & Access**, and then select the **Authentication** Method tab.
+1. To get SSO configured for your application, you need to sign-on to your Tableau Server tenant as an administrator.
+
+2. On the **CONFIGURATION** tab, select **User Identity & Access**, and then select the **Authentication** Method tab.
 
 	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
-10. On the **CONFIGURATION** page, perform the following steps:
+3. On the **CONFIGURATION** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
