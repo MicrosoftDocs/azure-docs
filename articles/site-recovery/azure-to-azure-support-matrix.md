@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 10/28/2018
 ms.author: raynew
 
 ---
