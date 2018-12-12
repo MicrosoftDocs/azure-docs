@@ -25,28 +25,13 @@ To complete this quickstart, make sure you have the following:
 
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
   
-  1. Select **Set server firewall** on the database **Overview** toolbar. 
-  1. On the **Firewall settings** page, select **Add client IP** to allow your current computer to access the database. 
-  1. Make sure your client IP appears in the rules list, and enter any other public IP addresses or ranges you want to access the database. 
-  1. Select **Save**. 
-
 - An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
 ## Get SQL server connection information
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-For some scenarios, you may need to use ADO.NET, JDBC, ODBC, or PHP connection strings to connect to your database. 
-
-**To get connection strings for your Azure SQL database:**
-
-1. On the database **Overview** page, select **Show database connection strings**. Or, in the left menu, select **Connection strings**.  
-   
-1. On the **Connection strings** page, select the **Copy** icon to copy the appropriate ADO.NET, JDBC, ODBC, or PHP connection string. 
-
-   ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-
-## Create a new Visual Studio project
+## Create code to query the Azure SQL database
 
 1. In Visual Studio, select **File** > **New** > **Project**. 
    
@@ -54,22 +39,7 @@ For some scenarios, you may need to use ADO.NET, JDBC, ODBC, or PHP connection s
    
 1. Enter *sqltest* for the project name, and then select **OK**. The new project opens in **Solution Explorer**.
    
-1. In **Solution Explorer**, right-click **sqltest** and select **Manage NuGet Packages**. 
-   
-1. On the NuGet page, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
-   
-1. On the **System.Data.SqlClient** page, select **Install**. 
-   - If prompted, select **OK** to continue with the installation. 
-   - If a **License Acceptance** window appears, select **I Accept**.
-   
-1. When the install completes, you can close the NuGet page. 
-
-> [!TIP]
-> You can also connect an Azure SQL database to Visual Studio from the Azure portal. Select **Connect with** > **Visual Studio** on the portal database page, and then select **Open in Visual Studio**. In this case, you do not need to manually install the NuGet package. 
-  
-## Add code to query the Azure SQL database
-
-In your Visual Studio project, replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
+1. Replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
 
 >[!IMPORTANT]
 >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
