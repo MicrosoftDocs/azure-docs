@@ -23,18 +23,24 @@ This article lists the steps to install the Azure IoT Edge runtime on your Windo
 >[!NOTE]
 Using Linux containers on Windows sytems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
 
-## Supported Windows versions
-Azure IoT Edge can be used for development and testing on following versions of Windows, when using Linux containers:
+## Prerequisites
+
+Use this section to review whether your Windows device can support IoT Edge, and to prepare it for a container engine before installation. 
+
+### Supported Windows versions
+The latest version of Azure IoT Edge can run on the following versions of Windows:
   * Windows 10/IoT Enterprise/IoT Core with October 2018 update (Build 17663).
-  * Windows Server 1803
+  * Windows Server 2016 or newer
 
 For more information about which operating systems are currently supported, refer to [Azure IoT Edge support](support.md#operating-systems). 
 
-## Prepare for a container engine 
+For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+
+### Prepare for a container engine 
 
 Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container engine. For production scenarios, use the Moby engine included in the installation script to run Windows containers on your Windows device. For developing and testing, you can run Linux containers on your Windows device, but you need to install and configure a container engine before installing IoT Edge. For either scenario, see the following sections for prerequisites to prepare your device. 
 
-### Moby engine for Windows containers
+#### Moby engine for Windows containers
 
 For Windows devices running IoT Edge in production scenarios, Moby is the only officially supported container engine. The installation script automatically installs the Moby engine on your device before installing IoT Edge. Prepare your device by turning on the Containers feature. 
 
@@ -42,22 +48,22 @@ For Windows devices running IoT Edge in production scenarios, Moby is the only o
 2. Find and select **Containers**.
 3. Select **OK**. 
 
-### Docker for Linux containers
+#### Docker for Linux containers
 
 If you're using a Windows device to develop and test containers that will be deployed on Linux devices, you can use [Docker for Windows](https://www.docker.com/docker-windows) as your container engine. Docker can be configured to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). You need to install Docker and configure it before installing IoT Edge. Linux containers are not supported on Windows devices in production. 
 
 If your IoT Edge device is a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V. If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
 
-## Install the Azure IoT Edge security daemon
+## Install IoT Edge on a new device
 
 >[!NOTE]
 >Azure IoT Edge software packages are subject to the license terms located in the packages (in the LICENSE directory). Please read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
 A PowerShell script downloads and installs the Azure IoT Edge security daemon. The security daemon then starts the first of two runtime modules, the IoT Edge agent, which enables remote deployments of other modules. 
 
-A single IoT Edge device can be provisioned in one of three ways. Provision a device manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to provision. Or, provision a device based on files already on the device, which is helfpul if you've installed IoT Edge on the device before. Depending on your provisioning choice, choose the appropriate installation script. 
+When you install the IoT Edge runtime for the first time on a device, you need to provision the device with an identity from an IoT hub. A single IoT Edge device can be provisioned manually using a device connections string provided by IoT Hub. Or, you can use the Device Provisioning Service to automatically provision devices, which is helpful when you have many devices to set up. Depending on your provisioning choice, choose the appropriate installation script. 
 
-The following suggestions describe the common use cases and parameters for the IoT Edge installation script, but for the full list of options run `get-help Install-SecurityDaemon -full` in a PowerShell window. 
+The following sections describe the common use cases and parameters for the IoT Edge installation script on a new device. 
 
 ### Option 1: Install and manually provision
 
@@ -72,19 +78,13 @@ This example shows a manual installation with Windows containers:
 Install-SecurityDaemon -Manual -ContainerOs Windows -DeviceConnectionString '<connection-string>'
 ```
 
-To install and provision a device manually, your installation command can use the these common parameters: 
+When you install and provision a device manually, you can use additional parameters to modify the installation including:
+* Direct traffic to go through a proxy server
+* Point the installer to an offline directory
+* Declare a specific agent container image, and provide credentials if it's in a private registry
+* Skip the Moby CLI installation
 
-| Parameter | Accepted values | Comments |
-| --------- | --------------- | -------- |
-| **Manual** | None | **Required**. Declares that you will provide a device connection string to provision the device manually |
-| **DeviceConnectionString** | **Required**. A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | If you don't provide a connection string in the script parameters, you will be prompted for one during installation. |
-| **ContainerOs** | **Windows** or **Linux** | The base operating system for containers on this device. If no container OS is specified, Linux is the default value.<br><br>If set to Windows, the Moby engine will be included in the installation. If set to Linux, you need to install a container engine before starting the installation. Linux containers on Windows is a useful development scenario, but not supported in production. |
-| **Proxy** | Proxy URL | Include this parameter if your device needs to go through a proxy server to reach the internet. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
-| **OfflineInstallationPath** | Directory path | If this parameter is included, the installer will check the directory for the iotedged zip, Moby engine zip, Moby CLI zip, and VC Runtime MSI files required for installation. If all four files are in the directory, you can install IoT Edge while offline. You can also use this parameter to override the online version of a specific component. |
-| **AgentImage** | IoT Edge agent image URI | By default, a new IoT Edge installation uses the latest rolling tag for the IoT Edge agent image. Use this parameter to set a specific tag for the image version, or to provide your own agent image. For more information, see [Understand IoT Edge tags](how-to-update-iot-edge.md#understand-iot-edge-tags). |
-| **Username** | Container registry username | Use this parameter only if you set the -AgentImage parameter to a container in a private registry. Provide a username with access to the registry. |
-| **Password** | Secure password string | Use this parameter only if you set the -AgentImage parameter to a container in a private registry. Provide the password to access the registry. | 
-| **SkipMobyCli** | None | Don't install the Moby CLI (docker.exe) to $MobyInstallDirectory. Only applicable if -ContainerOS is set to Windows. |
+For more information about these installation options, continue reading this article or skip to learn about [All installation parameters](#all-installation-parameters).
 
 ### Option 2: Install and automatically provision
 
@@ -102,24 +102,17 @@ The following example shows an automatic installation with Windows containers:
 Install-SecurityDaemon -Dps -ContainerOs Windows -ScopeId <DPS scope ID> -RegistrationId <device registration ID>
 ```
 
-To install and provision a device automatically, your installation command can use these common parameters:
+When you install and provision a device manually, you can use additional parameters to modify the installation including:
+* Direct traffic to go through a proxy server
+* Point the installer to an offline directory
+* Declare a specific agent container image, and provide credentials if it's in a private registry
+* Skip the Moby CLI installation
 
-| Parameter | Accepted values | Comments |
-| --------- | --------------- | -------- |
-| **Dps** | None | **Required**. Declares that you will provide a Device Provisioning Service (DPS) scope ID and your device's Registration ID to provision through DPS.  |
-| **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required**. If you don't provide a scope ID in the script parameters, you will be prompted for one during installation. |
-| **RegistrationId** | A registration ID generated by your device | **Required**. If you don't provide a registration ID in the script parameters, you will be prompted for one during installtion. 
-| **ContainerOs** | **Windows** or **Linux** | If no container OS is specified, Linux is the default value. For Windows containers, a container engine will be included in the installation. For Linux containers, you need to install a container engine before starting the installation. Linux containers on Windows is a useful development scenario, but not supported in production. |
-| **Proxy** | Proxy URL | Include this parameter if your device needs to go through a proxy server to reach the internet. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
-| **OfflineInstallationPath** | Directory path | If this parameter is included, the installer will check the directory for the iotedged zip, Moby engine zip, Moby CLI zip, and VC Runtime MSI files required for installation. If all four files are in the directory, you can install IoT Edge while offline. You can also use this parameter to override the online version of a specific component. |
-| **AgentImage** | IoT Edge agent image URI | By default, a new IoT Edge installation uses the latest rolling tag for the IoT Edge agent image. Use this parameter to set a specific tag for the image version, or to provide your own agent image. For more information, see [Understand IoT Edge tags](how-to-update-iot-edge.md#understand-iot-edge-tags). |
-| **Username** | Container registry username | Use this parameter only if you set the -AgentImage parameter to a container in a private registry. Provide a username with access to the registry. |
-| **Password** | Secure password string | Use this parameter only if you set the -AgentImage parameter to a container in a private registry. Provide the password to access the registry. | 
-| **SkipMobyCli** | None | Don't install the Moby CLI (docker.exe) to $MobyInstallDirectory. Only applicable if -ContainerOS is set to Windows. |
+For more information about these installation options, continue reading this article or skip to learn about [All installation parameters](#all-installation-parameters).
 
-### Option 3: Install based on existing files
+## Update an existing installation
 
-In this third option, you declare that a configuration file already exists on the device with its provisioning information. This option is mostly used to update the IoT Edge security daemon and runtime after uninstalling an existing version. You can use this installation option whether your device was originally provisioned manually or automatically. 
+If you've already installed the IoT Edge runtime on a device before and provisioned it with an identity from IoT Hub, then you can use a simplified installation script. The flag `-ExistingConfig` declares that an IoT Edge configuration file already exists on the device. The configuration file contains information about the device identity as well as certificates and network settings. You can use this installation option whether your device was originally provisioned manually or automatically. 
 
 For more information, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
@@ -130,15 +123,54 @@ This example shows an installation that points to an existing configuration file
 Install-SecurityDaemon -ExistingConfig -ContainerOs Windows
 ```
 
-To install IoT Edge with an existing configuration, your installtion command can use these common parameters: 
+When you install IoT Edge from an existing configuration file, you can use additional parameters to modify the installation, including:
+* Direct traffic to go through a proxy server
+* Point the installer to an offline directory, or 
+* Skip the Moby CLI installation. 
+
+You can't declare an IoT Edge agent container image with script parameters, because that information is already set in the configuration file from the previous installation. If you want to modify the agent container image, do so in the config.yaml file. 
+
+For more information about these installation options, continue reading this article or skip to learn about [All installation parameters](#all-installation-parameters).
+
+## Install without internet
+
+During installation four files are downloaded: 
+* IoT Edge security daemon (iotedgd) zip 
+* Moby engine zip
+* Moby CLI zip
+* Visual C++ redistributable package (VC runtime) msi
+
+You can download one or all of these files ahead of time to the device, then point the installation script at the directory that contains the files. The installer checks the directory first, and then only downloads components that aren't found. If all four files are available offline, you can have a completely offline installation. You can also use this feature to override the online versions of one or more component.  
+
+To install with offline components, use the `-OfflineInstallationPath` parameter and provide the absolute path to the file directory. For example,
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -DeviceConnectionString '<connection-string>' -OfflineInstallationPath C:\Downloads\iotedgeoffline
+```
+
+## All installation parameters
+
+The previous sections introduced common installation scenarios with examples of how to use parameters to modify the installation script. This section provides a reference table of the valid parameters you can use to install IoT Edge. For more information, run `get-help Install-SecurityDaemon -full` in a PowerShell window. 
+
+To install IoT Edge with an existing configuration, your installation command can use these common parameters: 
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| **ExistingConfig** | None | **Required**. Declares that a config.yaml file already exists on the device with its provisioning information. |
+| **Manual** | None | **Switch parameter**. Every installation must be declared either manual, dps, or existingconfig.<br><br>Declares that you will provide a device connection string to provision the device manually |
+| **Dps** | None | **Switch parameter**. Every installation must be declared either manual, DPS, or existingconfig.<br><br>Declares that you will provide a Device Provisioning Service (DPS) scope ID and your device's Registration ID to provision through DPS.  |
+| **ExistingConfig** | None | **Switch parameter**. Every installation must be declared either manual, dps, or existingconfig.<br><br>Declares that a config.yaml file already exists on the device with its provisioning information. |
+| **DeviceConnectionString** | **Required** for manual installation. A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | If you don't provide a connection string in the script parameters, you will be prompted for one during installation. |
+| **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required** for DPS installation. If you don't provide a scope ID in the script parameters, you will be prompted for one during installation. |
+| **RegistrationId** | A registration ID generated by your device | **Required** for DPS installation. If you don't provide a registration ID in the script parameters, you will be prompted for one during installtion. |
 | **ContainerOs** | **Windows** or **Linux** | If no container OS is specified, Linux is the default value. For Windows containers, a container engine will be included in the installation. For Linux containers, you need to install a container engine before starting the installation. Linux containers on Windows is a useful development scenario, but not supported in production. |
 | **Proxy** | Proxy URL | Include this parameter if your device needs to go through a proxy server to reach the internet. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
+| **InvokeWebRequestParameters** | Hashtable of parameters and values | During installation, several web requests are made. Use this field to set parameters for those web requests. This parameter is useful to configure credentials for proxy servers. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Directory path | If this parameter is included, the installer will check the directory for the iotedged zip, Moby engine zip, Moby CLI zip, and VC Runtime MSI files required for installation. If all four files are in the directory, you can install IoT Edge while offline. You can also use this parameter to override the online version of a specific component. |
-| **SkipMobyCli** | None | Don't install the Moby CLI (docker.exe) to $MobyInstallDirectory. Only applicable if -ContainerOS is set to Windows. |
+| **AgentImage** | IoT Edge agent image URI | By default, a new IoT Edge installation uses the latest rolling tag for the IoT Edge agent image. Use this parameter to set a specific tag for the image version, or to provide your own agent image. For more information, see [Understand IoT Edge tags](how-to-update-iot-edge.md#understand-iot-edge-tags). |
+| **Username** | Container registry username | Use this parameter only if you set the -AgentImage parameter to a container in a private registry. Provide a username with access to the registry. |
+| **Password** | Secure password string | Use this parameter only if you set the -AgentImage parameter to a container in a private registry. Provide the password to access the registry. | 
+| **SkipMobyCli** | None | Only applicable if -ContainerOS is set to Windows. Don't install the Moby CLI (docker.exe) to $MobyInstallDirectory. |
 
 ## Verify successful installation
 
@@ -167,10 +199,6 @@ And, list running modules with:
 ```powershell
 iotedge list
 ```
-
-## Tips and suggestions
-
-If your network has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) to install and start the IoT Edge runtime.
 
 ## Uninstall IoT Edge
 
