@@ -42,7 +42,8 @@ The following items are known limitations for the Public Preview:
 - [Backups of distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) have limitations.
 - SQL Server Always On Failover Cluster Instances (FCIs) aren't supported.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Azure PowerShell, the Azure CLI, and the REST APIs aren't currently supported.
-- You cannot protect databases with too many files. Too many is not a very deterministic number, since it not only depends on the number of files but also depends on the path length of the files. This case is less prevalent where the file count in quite high, sometimes in hundreds and thousands as well. The backup job for such database will fail. We are building a solution for this.
+- Backup/restore operations for mirror databases, database snapshots and databases under FCI are not supported.
+- Database with too many files cannot be protected. Too many is not a very deterministic number, because it not only depends on the number of files but also depends on the path length of the files. Such cases are less prevalent in which the file count can be quite high, sometimes in hundreds and thousands as well. The backup job for such databases will fail. We are building a solution to handle this.
 
 Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.
 
@@ -307,17 +308,17 @@ To configure protection for a SQL database:
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
 
-### Autoprotection
+    ### Autoprotection
 
-Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+    Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
-  ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
+      ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-  In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
+      In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
 
-  There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
+      There is no limit on the number of databases that get selected in one go using auto-protect feature. Configure backup is triggered for all the databases together and can be tracked in the **Backup Jobs**.
 
-  It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
+      It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
 
 
 7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
