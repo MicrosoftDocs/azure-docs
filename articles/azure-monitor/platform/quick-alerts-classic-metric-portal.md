@@ -15,7 +15,7 @@ ms.component: alerts
 
 Azure Monitor makes metrics available for many Azure resources. These metrics convey the performance and health of those resources. In many cases metric values can point to something being wrong with a resource. You can create metric alerts to monitor for abnormal behavior and be notified if it occurs. This Quickstart steps through creating a Logic App, creating a job, and visualizing the metrics for the logic app. It then goes through creating an alert, and receiving a notification for a metric for the Logic App resource.
 
-For more information on metrics and metric alerts, see  [Azure Monitor metrics overview](../azure-monitor/platform/data-collection.md) and [Azure Monitor alerts overview](./monitoring-overview-alerts.md). 
+For more information on metrics and metric alerts, see  [Azure Monitor metrics overview](../../azure-monitor/platform/data-collection.md) and [Azure Monitor alerts overview](./alerts-overview.md). 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -31,18 +31,18 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 3. Enter the name myLogicApp and the Resource Group myResourceGroup. Use your subscription.  Use the default location. Check the **Pin to Dashboard** option.  When complete, click **Create**. 
 
-    ![Enter basic information about your logic app in the portal](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Enter basic information about your logic app in the portal](./media/quick-alerts-classic-metric-portal/create-logic-app-portal.png)  
 
 
 4. The logic app should be pinned to your dashboard. Navigate to the logic app by clicking on it.
 
 5. In the Logic App panel, select the **Logic App Designer**
 
-     ![Created a recurrence trigger in the logic app designer in the portal panel](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Created a recurrence trigger in the logic app designer in the portal panel](./media/quick-alerts-classic-metric-portal/logic-app-designer.png)  
 
 6. Set up your values as seen in the following diagram.
 
-    ![Configure the logic app trigger in the portal panel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
+    ![Configure the logic app trigger in the portal panel](./media/quick-alerts-classic-metric-portal/create-logic-app-triggers.png) 
 
 7. In the designer, select the **Recurrence** trigger.
 
@@ -70,7 +70,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 5. You should now see a chart plotting the total number of runs your logic app has started over the past hour. If you do not see any, make sure you have waited at least 5 minutes from the step above. Then refresh your browser. 
 
-    ![Plot a metric chart for the logic app resource](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Plot a metric chart for the logic app resource](./media/quick-alerts-classic-metric-portal/logic-app-metric-chart.png)
 
 ## Create a metric alert for your logic app
 
@@ -82,7 +82,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Finally, under **Additional administrator email(s)** enter your email address. This alert ensures that you receive an email in the event your logic app has more than 10 failed runs within a period of 5 minutes.
 
-    ![Configure the logic app alert in the portal panel](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Configure the logic app alert in the portal panel](./media/quick-alerts-classic-metric-portal/logic-app-metrics-alert-portal.png)
 
 ## Receive metric alert notifications for your logic app
 1. Within a few moments, you should receive an email from 'Microsoft Azure Alerts' to inform you the alert has been 'activated'.
@@ -110,4 +110,4 @@ Other quick starts in this collection build upon this quickstart. If you plan to
 In this quickstart, you’ve learned how to create a metric alert for your resources. For more information on metric alerts, click through to our overview on alerts.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor subscription action alerts](./monitor-quick-audit-notify-action-in-subscription.md )
+> [Azure Monitor subscription action alerts](./../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md )

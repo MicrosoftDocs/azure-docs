@@ -27,6 +27,6 @@ The rate limit thresholds are:
 - When an email address is rate limited, an additional notification is sent to communicate the rate limiting. The email states when the rate limiting expires.
 
 ## Next steps ##
-* Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).
-* Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
-* Learn how to [configure alerts whenever a service health notification is posted](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Learn more about [SMS alert behavior](alerts-sms-behavior.md).
+* Get an [overview of activity log alerts](alerts-overview.md), and learn how to receive alerts.  
+* Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

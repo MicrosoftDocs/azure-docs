@@ -18,13 +18,13 @@ This article describes what alerts are, their benefits, and how to get started u
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](monitoring-overview-alerts.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
+This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](alerts-overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
 
 ## Overview
 
 The diagram below represents the flow of alerts. 
 
-![Alert Flow](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
+![Alert Flow](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
 Alert rules are separated from alerts and the action that are taken when an alert fires. 
 
@@ -47,11 +47,11 @@ The key attributes of an alert rule are:
 
 **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
 
-**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../azure-monitor/platform/action-groups.md).
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
 
 ## What you can alert on
 
-You can alert on metrics and logs as described in [monitoring data sources](monitoring-data-sources.md). These include but are not limited to:
+You can alert on metrics and logs as described in [monitoring data sources](../../monitoring-and-diagnostics/monitoring-data-sources.md). These include but are not limited to:
 - Metric values
 - Log search queries
 - Activity Log events
@@ -82,7 +82,7 @@ The default Alerts page provides a summary of alerts that are created within a p
 
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 
-![Alerts page](media/monitoring-overview-alerts/alerts-page.png)
+![Alerts page](media/alerts-overview/alerts-page.png)
 
 You can filter this view by selecting values in the dropdown menus at the top of the page.
 
@@ -104,7 +104,7 @@ Select the following values at the top of the Alerts page to open another page.
 ## Manage alert rules
 Click on **Manage alert rules** to show the **Rules** page. **Rules** is a single place for managing all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited, enabled, or disabled from this page.  
 
- ![alerts-rules](./media/monitoring-overview-alerts/alerts-preview-rules.png)
+ ![alerts-rules](./media/alerts-overview/alerts-preview-rules.png)
 
 
 ## Create an alert rule
@@ -117,22 +117,22 @@ You create a new alert rule with the following three steps:
  
 This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you are guided through defining the logic of the alert rule automatically.  
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
+Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
 
 Previously, Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
 
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
-| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Web availability tests | Not supported. See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 
 ## All alerts page 
 Click on Total Alerts to see the all alerts page. Here you can view a list of alerts that were created within the selected time window. You can view either a list of the individual alerts or a list of the smart groups that contain the alerts. Select the banner at the top of the page to toggle between views.
 
-![All Alerts page](media/monitoring-overview-alerts/all-alerts-page.png)
+![All Alerts page](media/alerts-overview/all-alerts-page.png)
 
 You can filter the view by selecting the following values in the dropdown menus at the top of the page.
 
@@ -153,7 +153,7 @@ Select **Columns** at the top of the page to select which columns to display.
 ## Alert detail page
 The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
 
-![Alert detail](media/monitoring-overview-alerts/alert-detail2.png)
+![Alert detail](media/alerts-overview/alert-detail2.png)
 
 The Alert detail page includes the following sections.
 
@@ -169,13 +169,13 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information, see [Alerts classic](./../azure-monitor/platform/alerts-classic.overview.md)
+For more information, see [Alerts classic](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## Next steps
 
 - [Learn more about Smart Groups](https://aka.ms/smart-groups)
-- [Learn about action groups](../azure-monitor/platform/action-groups.md)
+- [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
 
