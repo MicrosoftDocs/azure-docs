@@ -86,7 +86,7 @@ The following container OS images can be used to deploy services:
 - Linux
     - No known limitations
 
-## Developer experience issues when running on a local machine
+## Developer experience issues
 
 ### DNS resolution from an outbound container doesn't work
 
