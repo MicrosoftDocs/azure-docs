@@ -33,7 +33,7 @@ To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the
 
 To begin:
 
-1. [Download the latest version of 'Az' PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azurermps-6.13.0) (the minimum version required is: 0.7.0)
+1. [Download the latest version of 'Az' PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (the minimum version required is: 0.7.0)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
@@ -65,7 +65,7 @@ To begin:
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the *egister-AzureRmResourceProvider** cmdlet again.
+    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the *Register-AzResourceProvider** cmdlet again.
 
 The following tasks can be automated with PowerShell:
 
@@ -126,9 +126,9 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 ```
 
 > [!NOTE]
-> We are planning to deprecate the setting of vault context as per Azure powershell guidelines. Instead we recommend users to pass the vault ID as mentioned below
+> We are planning to deprecate the setting of vault context as per Azure Powershell guidelines. Instead we recommend users to pass the vault ID as mentioned below
 
-Alternatively, you can store/fetch the ID of the vault to which you want to perform a powershell operation and pass it to the relevant command.
+Alternatively, you can store/fetch the ID of the vault to which you want to perform a Powershell operation and pass it to the relevant command.
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
