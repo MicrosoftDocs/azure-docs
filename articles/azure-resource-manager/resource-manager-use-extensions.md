@@ -17,28 +17,16 @@ ms.author: jgao
 ---
 # Provide post-deployment configurations by using extensions
 
-With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state.
+Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. For vm extension specific information, see [Virtual machine extensions and features for Windows](../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
 
-## Template structure
+To find out the available extensions, browse to the [template reference](https://docs.microsoft.com/azure/templates/). In **Filter by title**, enter **extension**.
 
-The template consists of JSON and expressions that you can use to construct values for your deployment. To understand the different sections of a template and the properties that are available in those sections, see [Template structure](./resource-group-authoring-templates.md).
+To learn how to use these extensions, see:
 
-## Template reference
-
-Before creating a template to deploy an Azure resource, you need to know the template schema of the resource. The schema information can be found from the [template reference](https://docs.microsoft.com/azure/templates/). To learn how to use the reference, see [Utilize template reference](./resource-manager-tutorial-create-encrypted-storage-accounts.md). You can also find the schema information using the [Azure Resource Explorer (Preview)](https://resources.azure.com/).
-
-## Template samples
-
-Most users choose creating a template by modifying an existing template.  [Azure Quickstart templates](https://azure.microsoft.com/resources/templates) has a good collection of samples. You can also generate a template by using the Azure portal.  For a tutorial, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
-
-## Create templates
-
-The most popular template authoring tools are Visual Studio Code and Visual Studio. For more information, see:
-
-- [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
-- [Quickstart: Creating and deploying Azure resource groups through Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md).
+- [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates]](./resource-manager-tutorial-deploy-vm-extensions.md)

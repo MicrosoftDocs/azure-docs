@@ -87,6 +87,8 @@
       href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
+    - name: Use template extensions
+      href: resource-manager-use-extensions.md
     - name: Update resources
       href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: Create resources at the subscription level
