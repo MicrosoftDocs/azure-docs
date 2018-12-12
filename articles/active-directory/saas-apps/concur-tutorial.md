@@ -102,15 +102,15 @@ To configure Azure AD single sign-on with Concur, perform the following steps:
     ![Concur Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://www.concursolutions.com/UI/SSO/<OrganizationId>`.
+    `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<customer-domain>.concursolutions.com`.
+    `https://<customer-domain>.concursolutions.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Concur Client support team](https://www.concur.co.in/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -129,9 +129,9 @@ To configure Azure AD single sign-on with Concur, perform the following steps:
 To configure single sign-on on **Concur** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from Azure portal to [Concur support team](https://www.concur.co.in/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
   > [!NOTE]
-  > The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact [Concur Client support team](https://www.concur.co.in/contact) to perform. 
+  > The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact [Concur Client support team](https://www.concur.co.in/contact) to perform.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
