@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [ArcGIS Online Client support team](http://support.esri.com/en/) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [ArcGIS Online Client support team](https://support.esri.com/en/) to get these values.
 
 6. On the **SAML Signing Certificate** section, Click on **Download** to download **Federation Metadata XML** and then save the xml file on your computer.
 

@@ -1,5 +1,6 @@
 ---
-title: Use Load Balancer health probes to protect your service | Microsoft Docs
+title: Use Load Balancer health probes to protect your service
+titlesuffix: Azure Load Balancer
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -7,9 +8,10 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2018
+ms.date: 12/11/2018
 ms.author: kumud
 ---
 
@@ -180,7 +182,7 @@ In addition to Load Balancer health probes, the following operations use this IP
 - Enables the VM Agent to communicating with the platform to signal it is in a “Ready” state
 - Enables communication with the DNS virtual server to provide filtered name resolution to customers that do not define custom DNS servers.  This filtering ensures that customers can only resolve the hostnames of their deployment.
 
-For Load Balancer's health probe to mark your instance up, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.
+For Load Balancer's health probe to mark your instance up, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.  By default, every network security group includes the [service tag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic.
 
 If you don't allow this IP address in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This can cause your load balanced service to fail. 
 
@@ -197,7 +199,6 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Limitations
 
 -  HTTPS probes do not support mutual authentication with a client certificate.
--  SDK, PowerShell do not support HTTPS probes at this time.
 
 ## Next steps
 

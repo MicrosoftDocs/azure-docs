@@ -1,6 +1,6 @@
 ﻿---
 title: Import SQL BACPAC files with Azure Resource Manager templates | Microsoft Docs
-description: Learn how to use SQL Database extension to import SQL BACPAC files with Azure Resource Manager templates
+description: Learn how to use SQL Database extension to import SQL BACPAC files with Azure Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/29/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
 
 # Tutorial: Import SQL BACPAC files with Azure Resource Manager templates
 
-Learn how to use Azure SQL Database extensions to import a BACPAC file. In this tutorial, you create a template to deploy an Azure SQL Server, a SQL Database, and a BACPAC file. For information about deploying Azure virtual machine extensions using Azure Resource Manager templates, see [# Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md).
+Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager templates. Deployment artifacts are any files, in addition to the main template file that are needed to complete a deployment. The BACPAC file is an artifact. In this tutorial, you create a template to deploy an Azure SQL Server, a SQL Database, and import a BACPAC file. For information about deploying Azure virtual machine extensions using Azure Resource Manager templates, see [# Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 
@@ -46,7 +46,7 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-A BACPAC file is shared on an [Azure Storage account with the public access](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
+A BACPAC file is shared on an [Azure Storage account](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) with the public access. To create your own, see [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
 ## Open a Quickstart template
 
@@ -65,12 +65,13 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
     * `Microsoft.SQL/servers/securityAlertPolicies`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
     * `Microsoft.SQL.servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+
     It is helpful to get some basic understanding of the template before customizing it.
 4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Edit the template
 
-You need to add two additional resources to the template.
+Add two additional resources to the template.
 
 * To allow the SQL database extension to import BACPAC files, you need to allow access to Azure services. Add the following JSON to the SQL server definition:
 
@@ -79,7 +80,7 @@ You need to add two additional resources to the template.
         "type": "firewallrules",
         "name": "AllowAllAzureIps",
         "location": "[parameters('location')]",
-        "apiVersion": "2014-04-01",
+        "apiVersion": "2015-05-01-preview",
         "dependsOn": [
             "[variables('databaseServerName')]"
         ],
@@ -127,17 +128,17 @@ You need to add two additional resources to the template.
     * **storageKeyType**: The type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Because the provided BACPAC file is shared on an Azure Storage account with public access, `SharedAccessKey' is used here.
     * **storageKey**: The storage key to use. If storage key type is SharedAccessKey, it must be preceded with a "?."
     * **storageUri**: The storage uri to use. If you choose not to use the BACPAC file provided, you need to update the values.
-    * **administratorLoginPassword**: The password of the SQL administrator. It is recommended to use a generated password. See [Prerequisites](#prerequisites).
+    * **administratorLoginPassword**: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
+Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell
 $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+$adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
@@ -148,7 +149,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -TemplateFile azuredeploy.json
 ```
 
-It is recommended to use a generated password. See [Prerequisites](#prerequisites).
+Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 
@@ -167,7 +168,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file. The BACPAC file is stored in an Azure storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see
 
 > [!div class="nextstepaction"]
-> [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Secure the artifacts](./resource-manager-tutorial-secure-artifacts.md)

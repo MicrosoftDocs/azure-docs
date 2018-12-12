@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
 ---
@@ -44,11 +44,8 @@ SQL Data Warehouse (SQL DW) now enables enhanced insights into analytical worklo
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## Instant Data Movement 
-In addition to Shuffle, Instant Data Movement now extends to Broadcast and Partition move.
-
-## Scale Up Column Store: Columnstore metadata memory management (SQL Server)
-Optimized memory management for column store metadata 
+## Columnstore memory management
+As the number of compressed column store row groups increases, the memory required to manage the internal column segment metadata for those rowgroups increases.  As a result, query performance and queries executed against some of the Columnstore Dynamic Management Views (DMVs) can degrade.  Improvements have made in this release to optimize the size of the internal metadata for these cases, leading to improved experience and performance for such queries. 
 
 ## Azure Data Lake Storage Gen2 integration (GA)
 Azure SQL Data Warehouse (SQL DW) now has native integration with Azure Data Lake Storage Gen2. Customers can now load data using external tables from ABFS into SQL DW. This functionality enables customers to integrate with their data lakes in Data Lake Storage Gen2. 
@@ -60,6 +57,7 @@ Azure SQL Data Warehouse (SQL DW) now has native integration with Azure Data Lak
 | **CETAS to Parquet failures in small resource classes on Data warehouses of DW2000 and more** | This fix correctly identifies a null reference in the Create External Table As to Parquet code path. |
 |**Identity column value might lose in some CTAS operation** | The value of an identify column may not be preserved when CTASed to another table. Reported in a blog: [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Internal failure in some cases when a session is terminated while a query is still running** | This fix triggers an InvalidOperationException if a session is terminated when the query is still running. |
+| **(Deployed in November 2018) Customers were experiencing a suboptimal performance when attempting to load multiple small files from ADLS (Gen1) using Polybase.** | System performance was bottlenecked during AAD security token validation. Performance problems were mitigated by enabling caching of security tokens. |
 
 
 ## Next steps

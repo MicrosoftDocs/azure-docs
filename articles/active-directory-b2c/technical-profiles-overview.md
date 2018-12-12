@@ -102,7 +102,7 @@ Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and  **AAD-UserReadUsing
 </TechnicalProfile>
 ```
 
-A technical profile may include or inherit another technical profile, which may include another one. There is no limit on the number of levels. Depending on the business requirements, your user journey may call **AAD-UserReadUsingAlternativeSecurityId** that raises an error if a user social account not exists, or **AAD-UserReadUsingAlternativeSecurityId-NoError** which doesn't raise an error.
+A technical profile may include or inherit another technical profile, which may include another one. There is no limit on the number of levels. Depending on the business requirements, your user journey may call **AAD-UserReadUsingAlternativeSecurityId** that raises an error if a user social account doesn't exist, or **AAD-UserReadUsingAlternativeSecurityId-NoError** which doesn't raise an error.
 
 
 

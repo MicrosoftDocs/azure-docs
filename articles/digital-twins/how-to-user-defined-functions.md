@@ -6,24 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
 ---
 
 # How to use user-defined functions in Azure Digital Twins
 
-With [user-defined functions](./concepts-user-defined-functions.md), the user can run custom logic against incoming telemetry and spatial graph metadata. Then the user can send events to predefined endpoints. This guide walks through an example of acting on temperature events to detect and alert on any reading above a certain temperature.
+[User-defined functions](./concepts-user-defined-functions.md) (UDF) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata. Then the user can send events to predefined endpoints. This guide walks through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
-In the following examples, `https://yourManagementApiUrl` refers to the URI of the Azure Digital Twins APIs:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management
-```
-
-| Custom attribute name | Replace with |
-| --- | --- |
-| yourInstanceName | The name of your Azure Digital Twins instance |
-| yourLocation | Which server region your instance is hosted on |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## Client library reference
 
@@ -48,7 +39,7 @@ Matchers are graph objects that determine what user-defined functions run for a 
 The following example matcher evaluates to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function:
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -59,14 +50,13 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "yourSpaceIdentifier"
+  "SpaceId": "YOUR_SPACE_IDENTIFIER"
 }
 ```
 
-| Custom attribute name | Replace with |
+| Value | Replace with |
 | --- | --- |
-| yourManagementApiUrl | The full URL path for your Management API  |
-| yourSpaceIdentifier | Which server region your instance is hosted on |
+| YOUR_SPACE_IDENTIFIER | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
 
@@ -77,30 +67,30 @@ After the matchers are created, upload the function snippet with the following *
 > - The body is multipart:
 >   - The first part is about metadata needed for the UDF.
 >   - The second part is the JavaScript compute logic.
-> - In the `userDefinedBoundary` section, replace the `SpaceId` and `Machers` GUIDs.
+> - In the **USER_DEFINED_BOUNDARY** section, replace the **SpaceId** and **Machers** values.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
-| Custom attribute name | Replace with |
+| Parameter value | Replace with |
 | --- | --- |
-| yourManagementApiUrl | The full URL path for your Management API  |
+| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
 
 ### Body
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "yourSpaceIdentifier",
+  "SpaceId": "YOUR_SPACE_IDENTIFIER",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["yourMatcherIdentifier"]
+  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -108,13 +98,13 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| Custom attribute name | Replace with |
+| Value | Replace with |
 | --- | --- |
-| yourSpaceIdentifier | The space identifier  |
-| yourMatcherIdentifier | The ID of the matcher you want to use |
+| YOUR_SPACE_IDENTIFIER | The space identifier  |
+| YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
 
 ### Example functions
 
@@ -194,44 +184,39 @@ We need to create a role assignment for the user-defined function to run under. 
 1. Query for roles and get the ID of the role you want to assign to the UDF. Pass it to **RoleId**:
 
     ```plaintext
-    GET https://yourManagementApiUrl/api/v1.0/system/roles
+    GET YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
-    | Custom attribute name | Replace with |
-   | --- | --- |
-   | yourManagementApiUrl | The full URL path for your Management API  |
-
-2. **ObjectId** will be the UDF ID that was created earlier.
-3. Find the value of **Path** by querying your spaces with `fullpath`.
-4. Copy the returned `spacePaths` value. You'll use that in the following code:
+1. **ObjectId** will be the UDF ID that was created earlier.
+1. Find the value of **Path** by querying your spaces with `fullpath`.
+1. Copy the returned `spacePaths` value. You'll use that in the following code:
 
     ```plaintext
-    GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
-   ```
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
+    ```
 
-    | Custom attribute name | Replace with |
-   | --- | --- |
-   | yourManagementApiUrl | The full URL path for your Management API  |
-   | yourSpaceName | The name of the space you want to use |
+    | Parameter value | Replace with |
+    | --- | --- |
+    | *YOUR_SPACE_NAME* | The name of the space you wish to use |
 
-4. Paste the returned `spacePaths` value into **Path** to create a UDF role assignment:
+1. Paste the returned `spacePaths` value into **Path** to create a UDF role assignment:
 
     ```plaintext
-    POST https://yourManagementApiUrl/api/v1.0/roleassignments
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
     {
-      "RoleId": "yourDesiredRoleIdentifier",
-      "ObjectId": "yourUserDefinedFunctionId",
-      "ObjectIdType": "UserDefinedFunctionId",
-      "Path": "yourAccessControlPath"
+      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "Path": "YOUR_ACCESS_CONTROL_PATH"
     }
     ```
 
-    | Custom attribute name | Replace with |
+    | Your value | Replace with |
     | --- | --- |
-    | yourManagementApiUrl | The full URL path for your Management API  |
-    | yourDesiredRoleIdentifier | The identifier for the desired role |
-    | yourUserDefinedFunctionId | The ID for the UDF you want to use |
-    | yourAccessControlPath | The access control path |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | The identifier for the desired role |
+    | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the UDF you want to use |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the UDF type |
+    | YOUR_ACCESS_CONTROL_PATH | The access control path |
 
 ## Send telemetry to be processed
 

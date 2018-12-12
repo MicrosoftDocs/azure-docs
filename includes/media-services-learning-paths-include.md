@@ -1,3 +1,10 @@
+---
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: juliako
+---
 Check out the latest version of Azure Media Services: [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/).
 
 You can start with the following topics: 

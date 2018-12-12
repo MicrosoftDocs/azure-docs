@@ -76,7 +76,7 @@ The vfxt.py script can be used for these cluster management tasks:
 
 Like Avere Control Panel, vfxt.py operations try to make sure changed data is stored permanently on back-end storage before shutting down or destroying the cluster or node. This makes it a safer option than the Avere portal.
 
-vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 A complete vfxt.py usage guide is available on GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

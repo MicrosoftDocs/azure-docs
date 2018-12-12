@@ -8,20 +8,20 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Tutorial: Customize the user interface of your applications in Azure Active Directory B2C
 
-For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [built-in policies](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
+For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create UI customization files
-> * Create a sign-up and sign-in policy that uses the files
+> * Create a sign-up and sign-in user flow that uses the files
 > * Test the customized UI
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -57,12 +57,14 @@ Although you can store your files in many ways, for this tutorial, you store the
 
 ### Enable CORS
 
- Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a policy. Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from other domains.
+ Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a user flow. Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from other domains.
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, **Allowed headers**, and **Exposed headers**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`.
-3. For **Allowed verbs**, select both `GET` and `OPTIONS`.
-4. For **Max age**, enter 200.
+2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
+4. For **Allowed Headers**, enter an asterisk (*).
+5. For **Exposed Headers**, enter an asterisk (*).
+6. For **Max age**, enter 200.
 
     ![Enable CORS](./media/tutorial-customize-ui/enable-cors.png)
 
@@ -131,9 +133,9 @@ In this tutorial, you store the files that you created in the storage account so
 4. Copy the URL for the file that you uploaded to use later in the tutorial.
 5. Repeat step 3 and 4 for the *style.css* file.
 
-## Create a sign-up and sign-in policy
+## Create a sign-up and sign-in user flow
 
-To complete the steps in this tutorial, you need to create a test application and a sign-up or sign-in policy in Azure AD B2C. You can apply the principles described in this tutorial to the other user experiences, such as profile editing.
+To complete the steps in this tutorial, you need to create a test application and a sign-up or sign-in user flow in Azure AD B2C. You can apply the principles described in this tutorial to the other user experiences, such as profile editing.
 
 ### Create an Azure AD B2C application
 
@@ -147,29 +149,34 @@ Communication with Azure AD B2C occurs through an application that you create in
 6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
 7. Click **Create**.
 
-### Create the policy
+### Create the user flow
 
-To test your customization files, you create a built-in sign-up or sign-in policy that uses the application that you previously created.
+To test your customization files, you create a built-in sign-up or sign-in user flow that uses the application that you previously created.
 
-1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then click **Add**.
-2. Enter a name for the policy. For example, *signup_signin*. The prefix *B2C_1* is automatically added to the name when the policy is created.
-3. Select **Identity providers**, set **Email sign-up** for a local account, and then click **OK**.
-4. Select **Sign-up attributes**, choose the attributes that you want to collect from the customer during sign-up. For example, set **Country/Region**, **Display Name**, and **Postal Code**, and then click **OK**.
-5. Select **Application claims**, choose the claims that you want returned in the authorization tokens sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new** and **User's Object ID**, and then click **OK**.
-6. Select **Page UI customization**, select **Unified sign-up or sign-in page**, and the click **Yes** for **Use custom page**.
-7. In **Custom page URI**, enter the URL for the *custom-ui.html* file that you recorded earlier, and then click **OK**.
-8. Click **Create**.
+1. In your Azure AD B2C tenant, select **User flows**, and then click **New user flow**.
+2. On the **Recommended** tab, click **Sign up and sign in**.
+3. Enter a name for the user flow. For example, *signup_signin*. The prefix *B2C_1* is automatically added to the name when the user flow is created.
+4. Under **Identity providers**, select **Email sign-up**.
+5. Under **User attributes and claims**, click **Show more**.
+6. In the **Collect attribute** column, choose the attributes that you want to collect from the customer during sign-up. For example, set **Country/Region**, **Display Name**, and **Postal Code**.
+7. In the **Return claim** column, choose the claims that you want returned in the authorization tokens sent back to your application after a successful sign-up or sign-in experience. For example, select **Display Name**, **Identity Provider**, **Postal Code**, **User is new** and **User's Object ID**.
+8. Click **OK**.
+9. Click **Create**.
+10. Under **Customize**, select **Page layouts**. Select **Unified sign-up or sign-in page**, and the click **Yes** for **Use custom page content**.
+11. In **Custom page URI**, enter the URL for the *custom-ui.html* file that you recorded earlier.
+12. At the top of the page, click **Save**.
 
-## Test the policy
+## Test the user flow
 
-1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**, and then select the policy that you created. For example, *B2C_1_signup_signin*.
-2. Make sure that the application that you created is selected in **Select application**, and then click **Run Now**.
+1. In your Azure AD B2C tenant, select **User flows** and select the user flow that you created. For example, *B2C_1_signup_signin*.
+2. At the top of the page, click **Run user flow**.
+3. Click the **Run user flow** button.
 
-    ![Run the sign-up or sign-in policy](./media/tutorial-customize-ui/signup-signin.png)
+    ![Run the sign-up or sign-in user flow](./media/tutorial-customize-ui/run-user-flow.png)
 
     You should see a page similar to the following example with the elements centered based on the CSS file that you created:
 
-    ![Policy results](./media/tutorial-customize-ui/run-now.png) 
+    ![User flow results](./media/tutorial-customize-ui/run-now.png) 
 
 ## Next steps
 
@@ -177,7 +184,7 @@ In this article, you learned how to:
 
 > [!div class="checklist"]
 > * Create UI customization files
-> * Create a sign-up and sign-in policy that uses the files
+> * Create a sign-up and sign-in user flow that uses the files
 > * Test the customized UI
 
 > [!div class="nextstepaction"]

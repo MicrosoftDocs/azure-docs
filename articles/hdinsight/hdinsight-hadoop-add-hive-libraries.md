@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
 # Add custom Apache Hive libraries when creating your HDInsight cluster
 
-Learn how to pre-load Apache Hive libraries on HDInsight. This document contains information on using a Script Action to pre-load libraries during cluster creation. Libraries added using the steps in this document are globally available in Hive - there is no need to use [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) to load them.
+Learn how to pre-load [Apache Hive](https://hive.apache.org/) libraries on HDInsight. This document contains information on using a Script Action to pre-load libraries during cluster creation. Libraries added using the steps in this document are globally available in Hive - there is no need to use [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) to load them.
 
 ## How it works
 
@@ -89,4 +89,4 @@ Once cluster creation finishes, you are able to use the jars added through this 
 
 ## Next steps
 
-For more information on working with Hive, see [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+For more information on working with Hive, see [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)

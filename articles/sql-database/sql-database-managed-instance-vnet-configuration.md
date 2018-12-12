@@ -60,6 +60,9 @@ To create a Managed Instance, create a dedicated subnet (the Managed Instance su
 |management  |80, 443, 12000|TCP     |Any              |Any        |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
 
+  > [!Note]
+  > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-management-endpoint.md) shows how you can discover management endpoint IP address and verify firewall rules. 
+
 ##  Determine the size of subnet for Managed Instances
 
 When you create a Managed Instance, Azure allocates a number of virtual machines depending on the tier you selected during provisioning. Because these virtual machines are associated with your subnet, they require IP addresses. To ensure high availability during regular operations and service maintenance, Azure may allocate additional virtual machines. As a result, the number of required IP addresses in a subnet is larger than the number of Managed Instances in that subnet. 

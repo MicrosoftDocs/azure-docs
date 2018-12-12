@@ -166,7 +166,7 @@ The HANA/log/backup volume is not supposed to be the volume for database backups
 
 In addition to the storage that's provided, you can purchase additional storage capacity in 1-TB increments. This additional storage can be added as new volumes to a HANA Large Instance.
 
-During onboarding with SAP HANA on Azure service management, the customer specifies a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500) During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). As a result, at deployment time you need to define the following:
+During onboarding with SAP HANA on Azure service management, the customer specifies a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500). During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). As a result, at deployment time you need to define the following:
 
 - The SID of the different HANA instances (sidadm is derived from it).
 - The memory sizes of the different HANA instances. The memory size per instance defines the size of the volumes in each individual volume set.

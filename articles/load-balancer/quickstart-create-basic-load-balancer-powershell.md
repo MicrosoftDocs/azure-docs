@@ -1,11 +1,11 @@
 ---
-title: Quickstart:Create a Basic Load Balancer - Azure PowerShell | Microsoft Docs
+title: 'Quickstart: Create a Basic Load Balancer - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a Basic Load Balancer using PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
-ms:custom: mvc
+ms:custom: seodec18
 ---
 
 # <a name="get-started"></a>Quickstart: Create a public load balancer using Azure PowerShell
@@ -39,7 +39,7 @@ To access your app on the Internet, you need a public IP address for the load ba
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## Create Basic Load Balancer
@@ -246,7 +246,7 @@ Set an administrator username and password for the VMs with [Get-Credential](htt
 $cred = Get-Credential
 ```
 
-Now you can create the VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates two VMs and the required virtual network components if they do not already exist:
+Now you can create the VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates two VMs and the required virtual network components if they do not already exist. During the VM creation below example, the previously created NICs are associated with the VMs since they are assigned the same virtual network (*myVnet*) and subnet (*mySubnet*):
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

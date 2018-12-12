@@ -1,5 +1,6 @@
 ---
-title: Quickstart:Create a Standard Load Balancer - Azure PowerShell | Microsoft Docs
+title: 'Quickstart: Create a Standard Load Balancer - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a Standard Load Balancer using PowerShell
 services: load-balancer
 documentationcenter: na
@@ -13,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
+ms:custom: seodec18
 ---
 
 # <a name="get-started"></a>Quickstart: Create a Standard Load Balancer using Azure PowerShell

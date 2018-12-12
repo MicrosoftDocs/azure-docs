@@ -40,7 +40,7 @@ To perform the tasks listed in this article, you need:
 ## Task 1 - Enable Azure AD Application Proxy for your Azure AD directory
 Perform the following steps to enable the Azure AD Application Proxy for your Azure AD directory.
 
-1. Sign in as an administrator in the [Azure portal](http://portal.azure.com).
+1. Sign in as an administrator in the [Azure portal](https://portal.azure.com).
 
 2. Click **Azure Active Directory** to bring up the directory overview. Click **Enterprise applications**.
 

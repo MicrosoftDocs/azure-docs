@@ -1,13 +1,14 @@
 ---
-title: "Security filters for trimming Azure Search results using Active Directory identities | Microsoft Docs"
-description: Access control on Azure Search content using security filters and Active Directory identities.
-author: "revitalbarletz"
-manager: "jlembicz"
+title: Security filters to trim results using Active Directory identities- Azure Search
+description: Access control on Azure Search content using security filters and Azure Active Directory (AAD) identities.
+author: brjohnstmsft
+manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
 # Security filters for trimming Azure Search results using Active Directory identities
 
@@ -92,7 +93,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### Step 4: Cache the groups identifiers
-Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching] to send a single Http request with multiple users and build the cache.
+Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) to send a single Http request with multiple users and build the cache.
 
 Microsoft Graph is designed to handle a high volume of requests. If an overwhelming number of requests occur, Microsoft Graph fails the request with HTTP status code 429. For more information, see [Microsoft Graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

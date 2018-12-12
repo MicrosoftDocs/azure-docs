@@ -100,7 +100,7 @@
         href: https://azure.microsoft.com/roadmap/
       - name: Cloudyn Pricing
         href: https://azure.microsoft.com/pricing/details/cost-management
-      - name: Clouydn Regional Availability
+      - name: Cloudyn Regional Availability
         href: https://azure.microsoft.com/regions/services/
       - name: Cloudyn FAQ
         href: cost-mgt-faq.md

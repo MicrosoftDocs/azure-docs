@@ -205,7 +205,7 @@ To schedule a new Update Deployment for the VM, select **Schedule update deploym
 * **Update classification** - Select the types of software the update deployment included in the deployment. The classification types are:
   * Critical and security updates
   * Other updates
-* **Updates to Exclude** - You can provide a list of package names that should be skipped during the update deployment. Package names support wildcards (such as, \*kernal\*).
+* **Updates to Exclude** - You can provide a list of package names that should be skipped during the update deployment. Package names support wildcards (such as, \*kernel\*).
 
   ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

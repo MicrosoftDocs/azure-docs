@@ -34,7 +34,7 @@ For more information about scaling HDInsight, see [Scale HDInsight clusters](hdi
 
 ## Use Tez instead of Map Reduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -46,7 +46,7 @@ Tez is faster because:
 * **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
 * **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
 
-For more information on these concepts, see [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+For more information on these concepts, see [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 You can make any Hive query Tez enabled by prefixing the query with the following set command:
 
@@ -66,7 +66,7 @@ Some partitioning considerations:
 
 * **Do not under partition** - Partitioning on columns with only a few values can cause few partitions. For example, partitioning on gender only creates two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
 * **Do not over partition** - On the other extreme, creating a partition on a column with a unique value (for example, userid) causes multiple partitions. Over partition causes much stress on the cluster namenode as it has to handle the large number of directories.
-* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the parition size is potentially skewed and performance may vary tremendously.
+* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the partition size is potentially skewed and performance may vary tremendously.
 
 To create a partition table, use the *Partitioned By* clause:
 

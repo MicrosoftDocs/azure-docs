@@ -1,6 +1,6 @@
 ---
-title: Use Hadoop Pig with REST in HDInsight - Azure 
-description: Learn how to use REST to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
+title: Use Apache Hadoop Pig with REST in HDInsight - Azure 
+description: Learn how to use REST to run Pig Latin jobs on an Apache Hadoop cluster in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -12,14 +12,14 @@ ms.date: 04/10/2018
 ms.author: hrasheed
 
 ---
-# Run Pig jobs with Hadoop on HDInsight by using REST
+# Run Pig jobs with Apache Hadoop on HDInsight by using REST
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight using the WebHCat REST API.
+Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight using the WebHCat REST API.
 
 > [!NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](../hdinsight-hadoop-linux-information.md).
+> If you are already familiar with using Linux-based Apache Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Prerequisites
 
@@ -28,14 +28,14 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [Curl](http://curl.haxx.se/)
+* [Curl](https://curl.haxx.se/)
 
-* [jq](http://stedolan.github.io/jq/)
+* [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Run Pig jobs by using Curl
 
 > [!NOTE]
-> The REST API is secured via [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). Always make requests by using Secure HTTP (HTTPS) to ensure that your credentials are securely sent to the server.
+> The REST API is secured via [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Always make requests by using Secure HTTP (HTTPS) to ensure that your credentials are securely sent to the server.
 >
 > When using the commands in this section, replace `USERNAME` with the user to authenticate to the cluster, and replace `PASSWORD` with the password for the user account. Replace `CLUSTERNAME` with the name of your cluster.
 >

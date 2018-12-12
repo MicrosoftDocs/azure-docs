@@ -14,7 +14,7 @@ ms.date: 11/06/2018
 
 # Tutorial: Use the Apache Kafka Producer and Consumer APIs
 
-Learn how to use the Kafka Producer and Consumer APIs with Kafka on HDInsight.
+Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight.
 
 The Kafka Producer API allows applications to send streams of data to the Kafka cluster. The Kafka Consumer API allows applications to read streams of data from the cluster.
 
@@ -52,7 +52,7 @@ The following environment variables may be set when you install Java and the JDK
 
 ## Set up your deployment environment
 
-This tutorial requires Apache Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+This tutorial requires Apache Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
 ## Understand the code
 
@@ -167,7 +167,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. To get the Kafka broker hosts and the Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account.
+    2. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -223,8 +223,8 @@ Records stored in Kafka are stored in the order they are received within a parti
 
 ## Next steps
 
-In this document, you learned how to use the Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
+In this document, you learned how to use the Apache Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
-* [Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)
+* [Apache Kafka Streams API with HDInsight](apache-kafka-streams-api.md)

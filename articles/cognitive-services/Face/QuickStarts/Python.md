@@ -18,7 +18,7 @@ ms.author: pafarley
 
 In this quickstart, you will use the Azure Face REST API with Python to detect human faces in an image. The script will draw frames around the faces and superimpose gender and age information on the image.
 
-![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../media/labelled-faces-python.png)
+![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../images/labelled-faces-python.png)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 

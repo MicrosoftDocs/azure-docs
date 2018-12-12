@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
 
 ---
@@ -40,23 +40,19 @@ In this tutorial, you do the following actions:
 ## View the usage of VMs in the lab 
 
 1. Select **Virtual machines** on menu to the left. 
-2. Confirm that you see the status of VMs and the number of hours the VMs have been running. The time you spend on a student VM is not counted against the usage time shown in the last column. 
+2. Confirm that you see the status of VMs and the number of hours the VMs have been running. The time you spend on a student VM doesn't count against the usage time shown in the last column. 
 
     ![VM usage](../media/tutorial-track-usage/vm-usage.png)
 
 ## Manage student VMs 
-As you hover the mouse over a row in the list of virtual machine, you see controls to do the following tasks: 
+As you hover the mouse over a row in the list of virtual machine, you see controls to do the following tasks (as shown in the image in the previous section): 
 
 - Connect to a VM
 - Start a VM
 - Stop a VM
 - Delete a VM
 
-![VM controls](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## Next steps
-In this tutorial, you learned how to find users who have registered with the lab, track usage of VMs in the lab, and manage VMs in the lab.
-
-To learn more about classroom labs, see topics under [How-to guides](how-to-manage-lab-accounts.md).
+To learn more about classroom labs, see articles under [How-to guides](how-to-manage-lab-accounts.md).

@@ -23,7 +23,7 @@ ms.author: cawa
 ## Overview
 This article describes how to securely save secret application configuration settings for Azure applications.
 
-Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like Github. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
+Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like GitHub. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
 
 To make sure development process is secure, tooling and framework libraries are created to save application secret settings securely with minimal or no source code change.
 
@@ -97,7 +97,7 @@ If you are writing a quick prototype and don't want to provision Azure resources
 
 1. Install the following NuGet package to your project
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
@@ -142,7 +142,7 @@ Follow instructions from ASP.NET core section to configure a Key Vault for your 
 
 1. Install the following NuGet package to your project
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.

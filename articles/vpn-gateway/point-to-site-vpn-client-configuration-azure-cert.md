@@ -168,7 +168,7 @@ You can use the following CLI commands, or use the strongSwan steps in the [GUI]
 1. Download the VPNClient package from Azure portal.
 2. Extract the File.
 3. From the **Generic** folder, copy or move the VpnServerRoot.cer to /etc/ipsec.d/cacerts.
-4. From the **Generic** folder, copy or move cp client.p12 to /etc/ipsec.d/private/.
+4. Copy or move cp client.p12 to /etc/ipsec.d/private/. This file is client certificate for Azure VPN Gateway.
 5. Open VpnSettings.xml file and copy the <VpnServer> value. You will use this value in the next step.
 6. Adjust the values in the example below, then add the example to the /etc/ipsec.conf configuration.
   
@@ -181,7 +181,7 @@ You can use the following CLI commands, or use the strongSwan steps in the [GUI]
   leftauth=eap-tls
   leftid=%client # use the DNS alternative name prefixed with the %
   right= Enter the VPN Server value here# Azure VPN gateway address
-  rightid=%Enter the VPN Server value here# Azure VPN gateway address, prefixed with %
+  rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
   rightsubnet=0.0.0.0/0
   leftsourceip=%config
   auto=add

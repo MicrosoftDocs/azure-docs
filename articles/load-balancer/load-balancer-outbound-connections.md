@@ -1,10 +1,12 @@
 ---
-title: Outbound connections in Azure | Microsoft Docs
+title: Outbound connections in Azure
+titlesuffix: Azure Load Balancer
 description: This article explains how Azure enables VMs to communicate with public internet services.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -31,7 +33,7 @@ There are multiple [outbound scenarios](#scenarios). You can combine these scena
 
 ## <a name="scenarios"></a>Scenario overview
 
-Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager](#arm).  Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources. 
+Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources. 
 
 | Scenario | Method | IP protocols | Description |
 | --- | --- | --- | --- |
