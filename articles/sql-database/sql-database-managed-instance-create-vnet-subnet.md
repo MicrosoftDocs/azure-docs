@@ -15,7 +15,7 @@ ms.date: 09/20/2018
 ---
 # Configure a VNet for Azure SQL Database Managed Instance
 
-This topics explains how to create a valid VNet and subnet where you can deploy Azure SQL Database Managed Instances.
+This topic explains how to create a valid VNet and subnet where you can deploy Azure SQL Database Managed Instances.
 
 Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). This deployment enables the following scenarios: 
 - Secure private IP address.
@@ -26,7 +26,8 @@ Azure SQL Database Managed Instance must be deployed within an Azure [virtual ne
   > [!Note]
   > You should [determine the size of subnet for Managed Instance](sql-database-managed-instance-determine-size-of-vnet-subnet.md) before you deploy first instance because the sunet cannot be resized once you put the resources inside.
 
-  > [!Note] If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md). 
+  > [!Note]
+  > If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md). 
 
 ## Create a new virtual network for a Managed Instance
 
@@ -47,7 +48,7 @@ The easiest way to create and configure virtual network is to use Azure Resource
 
 ![Configure azure network](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
-You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets you can delete the default one. 
+You might change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Once you press "Purchase" button, this form will create and configure your environment. If you don't need two subnets, you can delete the default one. 
 
 ## Next steps
 

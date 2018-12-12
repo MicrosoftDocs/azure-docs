@@ -15,7 +15,7 @@ ms.date: 12/04/2018
 ---
 # Verifying the Managed Instance built-in firewall
 
-The Managed Instance [mandatory inbound security rules](sql-database-managed-instance-vnet-configuration.md#mandatory-inbound-security-rules) require management ports 9000, 9003, 1438, 1440, 1452 to be open from **Any source** on the Network Security Group (NSG) that protects the Managed Instance. Although these ports are open at the NSG level, they are protected at the network level by the built-in firewall.
+The Managed Instance [mandatory inbound security rules](sql-database-managed-instance-connectivity-architecture.md#mandatory-inbound-security-rules) require management ports 9000, 9003, 1438, 1440, 1452 to be open from **Any source** on the Network Security Group (NSG) that protects the Managed Instance. Although these ports are open at the NSG level, they are protected at the network level by the built-in firewall.
 
 To verify these ports, use any security scanner tool to test these ports. The following screenshot shows how to use one of these tools.
 

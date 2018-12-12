@@ -15,12 +15,12 @@ ms.date: 09/20/2018
 ---
 # Configure an existing VNet for Azure SQL Database Managed Instance
 
-Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) and the subnet dedicated for Managed Instances only. You can use the existing VNet and subnet if it is configured acording to the [Managed Instance VNet requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
+Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) and the subnet dedicated for Managed Instances only. You can use the existing VNet and subnet if it is configured according to the [Managed Instance VNet requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
 
 If you have a new subnet that is still not configured, you are not sure is the subnet aligned with the [requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements), or you want to check is the subnet still compliant with the [network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements) after some changes that you made, you can validate and modify your network using the script explained in this section. 
 
   > [!Note]
-  > You can only create a Managed Instance in Resource Manager virtual networks. Classic deployment model is not suported. Make sure that you calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances) section, becuas ethe subnet cannot be resized once you deploy the resources inside.
+  > You can only create a Managed Instance in Resource Manager virtual networks. Azure VNets deployed using Classic deployment model are not suported. Make sure that you calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances) section, becuase the subnet cannot be resized once you deploy the resources inside.
 
 ## Validate and modify an existing virtual network for Managed Instances 
 
@@ -39,7 +39,7 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 ```
 Subnet preparation is done in three simple steps:
 
-- Validate - Selected virtual netwok and subnet are validated for Managed Instance networking requirements.
+- Validate - Selected virtual network and subnet are validated for Managed Instance networking requirements.
 - Confirm - User is shown a set of changes that need to be made to prepare subnet for Managed Instance deployment and asked for consent.
 - Prepare - Virtual network and subnet are configured properly.
 
