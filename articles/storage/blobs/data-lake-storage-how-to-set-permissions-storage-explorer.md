@@ -1,5 +1,5 @@
 ---
-title: "Setting permissions with an Azure Data Lake Storage Gen2 (Preview) capable account"
+title: "Set permissions for Data Lake Storage Gen2 with Azure Storage Explorer"
 description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 (Preview) capable storage account.
 services: storage
 author: roygara
