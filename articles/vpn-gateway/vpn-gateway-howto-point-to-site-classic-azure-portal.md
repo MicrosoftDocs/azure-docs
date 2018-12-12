@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
 
 ---
@@ -135,7 +135,7 @@ In this step, you create a gateway subnet and a dynamic routing gateway. In the 
 7. Select the gateway **Size**. The size is the gateway SKU for your virtual network gateway. In the Azure portal, the default SKU is **Default**. For more information about gateway SKUs, see [About VPN gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
   ![Gateway size](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-8. Select the **Routing Type** for your gateway. P2S configurations require a **Dynamic** routing type. Select **OK** when you have finished configuring this page.
+8. Select the **Routing Type** for your gateway. P2S configurations require a **Dynamic** routing type. Select **OK** when you've finished configuring this page.
 
   ![Configure routing type](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
@@ -197,7 +197,7 @@ You can use the same VPN client configuration package on each client computer, a
 
 ### Install a client certificate
 
-To create a P2S connection from a different client computer than the one used to generate the client certificates, install a client certificate. When you install a client certificate, you need the password that was created when the client certificate was exported. Typically, you'll only need to double-click the certificate to install it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
+To create a P2S connection from a different client computer than the one used to generate the client certificates, install a client certificate. When you install a client certificate, you need the password that was created when the client certificate was exported. Typically, you can install the certificate by just double-clicking it. For more information, see [Install an exported client certificate](vpn-gateway-certificates-point-to-site.md#install).
 
 
 ## Connect to your VNet
