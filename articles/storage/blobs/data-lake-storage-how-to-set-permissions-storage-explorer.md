@@ -12,7 +12,7 @@ ms.date: 12/11/2018
 ms.author: rogarana
 ---
 
-# How to: Set file and directory level permissions using Azure Storage Explorer on a Azure Data Lake Storage Gen2 (Preview) capable account
+# How to: Set file and directory level permissions using Azure Storage Explorer on an Azure Data Lake Storage Gen2 (Preview) capable account
 
 Files stored in a storage account that has the hierarchical namespace enabled support fine grained permissions and access control list (ACL) management. These new additions from Azure Data Lake Storage Gen2 allow you to control access to your data and information at lower levels.
 
@@ -55,11 +55,11 @@ Within both of these categories, there are three permissions you can then assign
 >[!NOTE]
 > Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if the file already exists.
 
-You can manage permissions on individual directories, as well as individual files, which is what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
+You can manage permissions on individual directories, as well as individual files, which are what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
 
 ## Next steps
 
-In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn about ACLs, including default ACLs, access ACLs, their behavior, and their corresponding permissions, continue to our conceptual article on the subject.
+In this how-to, you learned how to set permissions on files and directories using **Azure Storage Explorer**. To learn more about ACLs, including default ACLs, access ACLs, their behavior, and their corresponding permissions, continue to our conceptual article on the subject.
 
 > [!div class="nextstepaction"]
 > [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
