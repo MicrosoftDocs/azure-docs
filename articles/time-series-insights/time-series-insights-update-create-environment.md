@@ -65,7 +65,7 @@ In this section, you will create three simulated devices that will send data to 
     | **Device Model** | **Name**: Enter `Chiller` **Amount**: Enter `3` |
     | **Target IoT Hub** | Set to `Use pre-provisioned IoT Hub` |
 
-    After filling the required parameters, click on ***Start Simulation**.
+    After filling the required parameters, click on **Start Simulation**.
 
 1. In the device simulation dashboard, see the **Active devices** and **Messages per second**.
 
@@ -137,7 +137,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
       ![Click Add][12]
 
-   After filling out the fields above, click **Review + Create**.
+   After filling out the fields above, click **Review + create**.
 
       ![Review and create][13]
 
@@ -177,7 +177,7 @@ In this section, you perform basic analytics on your time series data by using t
 
    ![List of unparented instances][20]
 
-1. In the time series shown, click on the first instance. Then, click on **Show Avg Pressure**.
+1. In the time series shown, click on the first instance. Then, click on **Show Avg pressure**.
 
    ![Show average pressure][21]
 
@@ -205,7 +205,7 @@ In this section, you perform basic analytics on your time series data by using t
 
 In this section, you will apply a model to structure your data. To complete the model, you will define Types, Hierarchies, and Instances. To learn more about data modeling, go to [Time Series Models](./time-series-insights-update-tsm.md).
 
-1. In the explorer, select the **Model** tab
+1. In the explorer, select the **Model** tab:
 
    ![Select the model tab][27]
 
@@ -225,7 +225,7 @@ In this section, you will apply a model to structure your data. To complete the 
       | | |
       | --- | ---|
       | **Name** | Enter `Avg Pressure` |
-      | **Value** | Select **pressure (Double)**. Note, it could take a few minutes for this field to populate after Time Series Insights starts receiving events |
+      | **Value** | Select **pressure (Double)**. Note, it could take a few minutes for this field to populate after Azure Time Series Insights starts receiving events |
       | **Aggregation Operation** | Select `AVG` |
 
       ![Add a variable][29]
@@ -237,7 +237,7 @@ In this section, you will apply a model to structure your data. To complete the 
       | | |
       | --- | ---|
       | **Name** | Enter `Avg Temperature` |
-      | **Value** | Select **temperature (Double)**. Note, it could take a few minutes for this field to populate after Time Series Insights starts receiving events |
+      | **Value** | Select **temperature (Double)**. Note, it could take a few minutes for this field to populate after Azure Time Series Insights starts receiving events |
       | **Aggregation Operation** | Select `AVG`|
 
       ![Define Temperature][30]
@@ -247,7 +247,7 @@ In this section, you will apply a model to structure your data. To complete the 
       | | |
       | --- | ---|
       | **Name** | Enter `Max Humidity` |
-      | **Value** | Select **humidity (Double)**. Note, it could take a few minutes for this field to populate after Time Series Insights starts receiving events |
+      | **Value** | Select **humidity (Double)**. Note, it could take a few minutes for this field to populate after Azure Time Series Insights starts receiving events |
       | **Aggregation Operation** | Select `MAX`|
 
       ![Define Temperature][31]
@@ -258,7 +258,7 @@ In this section, you will apply a model to structure your data. To complete the 
 
    ![See type added][32]
 
-1. The next step is to add a Hierarchy. In the **Hierarchies** section, select **+ Add** to create a new hierarchy:
+1. The next step is to add a Hierarchy. In the **Hierarchies** section, select **+ Add** to create a new Hierarchy:
 
    ![Add a Hierarchy][33]
 
@@ -275,7 +275,7 @@ In this section, you will apply a model to structure your data. To complete the 
 
    ![Define a Hierarchy][34]
 
-1. You can see the hierarchy created:
+1. You can see the Hierarchy created:
 
    ![See your Hierarchy][35]
 
@@ -322,7 +322,7 @@ In this section, you will apply a model to structure your data. To complete the 
      | **City** | Enter `New York` |
      | **Building** | Enter `Empire State Building` |
 
-1. Go to **Analyze** tab and refresh the page. Expand all hierarchy levels to find the time series.
+1. Go to **Analyze** tab and refresh the page. Expand all Hierarchy levels to find the time series.
 
    ![View the analyze tab][38]
 
@@ -352,14 +352,14 @@ In this tutorial, you learned how to:
 
 * Create and use a device simulation accelerator.
 * Create an Azure Time Series Insights Preview PAYG environment.
-* Connect the Time Series Insights Preview environment to an event hub.
-* Run a wind farm simulation to stream data to the Time Series Insights Preview environment.
+* Connect the Azure Time Series Insights Preview environment to an event hub.
+* Run a wind farm simulation to stream data to the Azure Time Series Insights Preview environment.
 * Perform a basic analysis of the data.
 * Define a Time Series Model type and hierarchy and associate them with your instances.
 
-Now that you know how to create your own Time Series Insights update environment, learn more about the key concepts in Time Series Insights.
+Now that you know how to create your own Azure Time Series Insights Preview environment, learn more about the key concepts in Azure Time Series Insights.
 
-Read about Time Series Insights storage configuration:
+Read about Azure Time Series Insights storage configuration:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
