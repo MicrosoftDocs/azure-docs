@@ -44,7 +44,7 @@ For this tutorial, you need:
 
     ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-3. Copy the **ADO.NET** connection string if you intend to use it (optional).
+3. Copy the **ADO.NET** connection string if you intend to use it.
   
 ## Create a new .NET Core project
 
@@ -53,7 +53,7 @@ For this tutorial, you need:
     ```cmd
     dotnet new console
     ```
-    This creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**) and needed binaries.
+    This creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**), and needed binaries.
 
 2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This adds `System.Data.SqlClient` as a dependency.
 
@@ -67,12 +67,12 @@ For this tutorial, you need:
 
 1. In a text editor, open **Program.cs**.
 
-2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
+2. Replace the contents with the following code and add the appropriate values for your server, database, username, and password.
 
 > [!NOTE]
 > To use an ADO.NET connection string, replace the 4 lines in the code
-> setting the server, database, user, and password with the line below. In
-> the string, set your user name and password.
+> setting the server, database, username, and password with the line below. In
+> the string, set your username and password.
 >
 >    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
