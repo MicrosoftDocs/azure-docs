@@ -1,6 +1,6 @@
 ---
-title: Azure and Dynamcis 365 consulting service offer - Enter Storefront Details | Microsoft Docs
-description: Guide for defining and publishing a Azure or Dynamcis 365 consulting service offer in the Cloud Partner Portal.
+title: Azure and Dynamics 365 consulting service offer - Enter Storefront Details | Microsoft Docs
+description: Guide for defining storefront details in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: qianw211
@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Storefront Details tab
 
-Next, you need enter the details for your storefront. The **Storefront
+Next, you need to enter the details for your storefront. The **Storefront
 Details** consists of the following sections:
 
 -   Offer Details
@@ -214,7 +214,7 @@ be available. A single offer cannot be published in multiple countries
 or regions. A new offer must be created for each country or region.
 
 >[!Note]
->AppSource consulting services are currently live in the United States, United Kingdom, and Canada. Australia will launch shortly with other countries to follow. You can submit an offer for a country that is not yet live and it will be reviewed and prepared to go live. A minimum number of offers ready for go live are needed to open a new country, so offers for countries that are not live are encouraged.
+>AppSource consulting services are currently live in the United States, United Kingdom, and Canada. You can submit an offer for a country that is not yet live and it will be reviewed and prepared to go live. A minimum number of offers ready to go live are needed to open a new country, so offers for countries that are not live are encouraged.
 
 **Industries**
 

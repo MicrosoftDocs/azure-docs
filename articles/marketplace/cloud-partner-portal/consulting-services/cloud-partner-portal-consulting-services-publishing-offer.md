@@ -1,6 +1,6 @@
 ---
-title: Azure and Dynamcis 365 consulting service offer | Microsoft Docs
-description: Guide for defining and publishing a Azure or Dynamcis 365 consulting service offer in the Cloud Partner Portal.
+title: Azure and Dynamics 365 consulting service offer | Microsoft Docs
+description: Guide for defining and publishing an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: qianw211
@@ -20,10 +20,6 @@ ms.author: pbutlerm
 # Azure and Dynamics 365 consulting service offer
 
 This section explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or the <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Solutions based upon Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> are eligible to be listed on AppSource. Other offers based upon other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> are eligible for listing on Azure Marketplace.
-
-<!--
-<table> <tr> <td>This section explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or the <a href="https://appsource.microsoft.com">AppSource Marketplace</a>. Solutions based upon Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> are eligible to be listed on AppSource. Other offers based upon other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> are eligible for listing on Azure Marketplace. </td> <td><img src="./media/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
--->
 
 ## Publishing benefits
 

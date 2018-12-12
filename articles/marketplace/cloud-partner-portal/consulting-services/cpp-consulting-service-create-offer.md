@@ -1,6 +1,6 @@
 ---
-title: Azure and Dynamcis 365 consulting service offer - Creating the offer | Microsoft Docs
-description: Guide for defining and publishing a Azure or Dynamcis 365 consulting service offer in the Cloud Partner Portal.
+title: Azure and Dynamics 365 consulting service offer - Creating the offer | Microsoft Docs
+description: Guide for creating an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: qianw211
