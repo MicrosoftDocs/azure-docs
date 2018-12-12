@@ -15,9 +15,9 @@ ms.reviewer: sngun
 
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript. When using the SQL API in Azure Cosmos DB, you can write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** in the JavaScript language. You can write your logic in JavaScript that executed inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md) or the [Cosmos DB SQL API client SDKs](how-to-use-sprocs-triggers-udfs.md).
 
-## Benefits using stored procedures, triggers, and UDFs
+## Benefits of using server-side programming
 
-Writing stored procedures and user-defined functions (UDFs) in JavaScript allows you to build rich applications and they have the following advantages:
+Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaScript allows you to build rich applications and they have the following advantages:
 
 * **Procedural logic:** JavaScript as a high-level programming language that provides rich and familiar interface to express business logic. You can perform a sequence of complex operations on the data.
 

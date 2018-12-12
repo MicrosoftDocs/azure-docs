@@ -30,7 +30,7 @@ In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos
 
 When included inside predicate and/or selector functions, the following JavaScript constructs get automatically optimized to run directly on Azure Cosmos DB indices:
 
-- Simple operators: = + - * / % | ^ & == != === !=== < > <= >= || && << >> >>>! ~
+- Simple operators: `=` `+` `-` `*` `/` `%` `|` `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!` `~`
 - Literals, including the object literal: {}
 - var, return
 
