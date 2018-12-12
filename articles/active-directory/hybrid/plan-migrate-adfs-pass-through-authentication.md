@@ -277,13 +277,14 @@ Use this option when your federation was not initially configured by using Azure
    4. On the **User Sign-in** screen, change the radio button from **Do not configure** to **Pass-through Authentication**, select **Enable single sign-on** then select **Next**.
    5. In **Enable Single Sign-on** screen, enter the credentials of Domain Administrator account, then select **Next**.
 
-      > [!NOTE]
-      > Domain Administrator credentials are required for enabling Seamless Single Sign-on as the process performs the following actions which require these elevated permissions. The domain administrator credentials are not stored in Azure AD Connect or in Azure AD. They're used only to enable the feature and then discarded after successful completion.
-      >
-      > * A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory (AD).
-      > * The computer account's Kerberos decryption key is shared securely with Azure AD.
-      > * In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
-   6. In the **Ready to Configure** screen, make sure **Start Synchronization process when configuration completes** checkbox is selected. Then select **Configure**.</br>  
+   > [!NOTE]
+   > Domain Administrator credentials are required for enabling Seamless Single Sign-on as the process performs the following actions which require these elevated permissions. The domain administrator credentials are not stored in Azure AD Connect or in Azure AD. They're used only to enable the feature and then discarded after successful completion.
+   >
+   > * A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory (AD).
+   > * The computer account's Kerberos decryption key is shared securely with Azure AD.
+   > * In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
+
+   6. In the **Ready to Configure** screen, make sure **Start Synchronization process when configuration completes** checkbox is selected. Then select **Configure**.</br>
    ‎![picture](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)</br>
    The following steps occur when selecting Configure:
    * The first Pass-through Authentication Agent is installed
@@ -291,7 +292,7 @@ Use this option when your federation was not initially configured by using Azure
    * Seamless Single Sign-On is enabled.  
    7. Verify that **Federation** is still **Enabled** and **Seamless single sign-on** and **Pass-thorough authentication** are now Enabled.
    ![Picture 2](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
-   8. Select **Pass-through Authentication** and verify that the status is **Active**.</br>  
+   8. Select **Pass-through Authentication** and verify that the status is **Active**.</br>
    
    If the Authentication Agent is not active, follow [these troubleshooting steps](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication) before proceeding with the domain conversation process in the next step. You risk causing an authentication outage if you convert your domains prior to validating that your PTA agents have installed successfully and that their status shows as "Active" in the Azure portal.  
    9. Next deploy additional authentication agents. Open the **Azure portal**, browse to **Azure Active Directory**, **Azure AD Connect** and click **Pass-through Authentication**.
@@ -299,8 +300,9 @@ Use this option when your federation was not initially configured by using Azure
    
    The download of additional authentication agents will begin. Install the secondary Authentication Agent on a domain-joined server.
 
-      > [!NOTE]
-      > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the User Sign In section of the Azure AD Connect tool. Any additional Authentication Agents should be installed on a separate server. It is recommended to have between 2-3 additional Authentication Agents available.
+  > [!NOTE]
+  > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the User Sign In section of the Azure AD Connect tool. Any additional Authentication Agents should be installed on a separate server. It is recommended to have between 2-3 additional Authentication Agents available.
+  
    11. Run the Authentication Agent installation. During the installation, you will need to provide credentials of a **Global Administrator** account.</br>
    ![Picture 1243067215](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image23.png)</br>
    ![Picture 1243067216](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image24.png)</br>

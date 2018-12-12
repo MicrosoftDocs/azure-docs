@@ -171,7 +171,7 @@ While similar customizations are available, some visual changes should be expect
 While the domain conversion process itself is relatively quick, Azure AD might still send some authentication requests to your AD FS servers for a period of up to 4 hours after the domain conversion has finished. During this four hour window, and depending on various service side caches, these authentications might not be accepted by Azure AD and users will receive an error as they will be able to authenticate successfully against AD FS still, but Azure AD will no longer accept a user’s issued token as that federation trust is now removed.
 
 > [!NOTE]
-> This will only impact users who access the services via a browser during this post conversion window until the service side cache is cleared. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) should not be impacted as Exchange Online keeps a cache of their credentials for a period of time that is used to re-authenticate the user silently without needing to go back to AD FS. Credentials stored on the device for these clients are used to re-authenticate themselves silently once this cached is cleared and hence users should not receive any password prompts as a result of the domain conversion process. Conversely, for Modern Authentication clients (Office 2013/2016, IOS, and Android Apps) these use a valid Refresh Token to obtain new access tokens for continued access to resources instead of going back to AD FS, and hence are immune to any password prompts as a result of the domain conversion process and will continue to function without any extra configuration required.
+> This will only impact users who access the services via a browser during this post conversion window until the service side cache is cleared. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) should not be impacted as Exchange Online keeps a cache of their credentials for a period of time that is used to re-authenticate the user silently without needing to go back to AD FS. Credentials stored on the device for these clients are used to re-authenticate themselves silently once this cached is cleared and hence users should not receive any password prompts as a result of the domain conversion process. Conversely, for Modern Authentication clients (Office 2013/2016, IOS, and Android Apps) these use a valid Refresh Token to obtain new access tokens for continued access to resources instead of going back to AD FS,and hence are immune to any password prompts as a result of the domain conversion process and will continue to function without any extra configuration required.
 
 > [!IMPORTANT]
 > Don’t shut down your AD FS environment or remove the Office 365 relying party trust until you have verified all users are successfully authenticating using cloud authentication.
@@ -254,7 +254,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 
 Follow the [steps to roll out](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) the required changes to your devices.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Making this change won’t modify the way your users sign in to Azure AD. However, it’s important this configuration is applied to all your devices before you continue with the Step 3. Also note that users signing in on devices that have not received this configuration will simply need to enter username and password to sign in to Azure AD.
 
 ### Step 3 – Change sign-in method to PHS and enable Seamless SSO
@@ -268,26 +268,28 @@ Use this method when your AD FS was initially configured using Azure AD Connect.
    ![Picture 27](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image7.png)</br>
    3. In the ***Connect to Azure AD** screen provide the username and password of a **Global Administrator**.
    4. In the **User Sign-in** screen, change the radio button from Federation with AD FS to Pass Hash Synchronization, and make sure to check the box Do not convert user accounts as this is a deprecated step and will be removed from a future version of AAD Connect. Also select Enable single sign-on then select **Next**.
-‎   ![Picture 29](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)</br>
+   ![Picture 29](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image8.png)</br>
    
-   >[!NOTE]
+   > [!NOTE]
    > Starting with Azure AD Connect version 1.1.880.0, the Seamless single sign-on checkbox is enabled by default.
+   
    > [!IMPORTANT]
    > You can safely ignore the warnings indicating that user conversion and full password hash synchronization are required steps for converting from federation to cloud authentication. Please note that these steps are not required anymore, future versions of Azure AD Connect will not have an option to convert users. If you still see these warnings, check that you are running the latest version of Azure AD Connect and that you are using the latest version of this guide. For more information, see the [Update Azure AD Connect section](#_Update_Azure_AD).
    
    5. In Enable Single Sign-on screen, enter the credentials of Domain Administrator account, then select Next.
    ‎![Picture 35](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)</br>
    
-   >[!NOTE]
+   > [!NOTE]
    > Domain Administrator credentials are required for enabling Seamless Single Sign-on as the process performs the following actions which require these elevated permissions. The domain administrator credentials are not stored in Azure AD Connect or in Azure AD. They're used only to enable the feature and then discarded after successful completion
    >  * A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory (AD).
    >  * The computer account's Kerberos decryption key is shared securely with Azure AD.
    >  * In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
    >  * The domain administrator credentials are not stored in Azure AD Connect or in Azure AD. They're used only to enable the feature and then discarded after successful completion
+   
    6. In the Ready to Configure screen, make sure "Start Synchronization process when configuration completes" checkbox is selected. Then select Configure.
    ‎![Picture 36](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image10.png)</br>  
 ‎   
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > At this point all your federated domains will be changed to Managed authentication which will now leverage Password Hash Synchronization as the method for authentication.
    7. Open the Azure AD portal, select Azure Active Directory, and then select Azure AD Connect.
    8. Verify that that Federation is Disabled while Seamless single sign-on and Password Sync are Enabled.  
@@ -320,11 +322,14 @@ As part of this process, you will enable Seamless SSO and switch your domains fr
    > * A computer account named AZUREADSSOACC (which represents Azure AD) is created in your on-premises Active Directory (AD).
    > * The computer account's Kerberos decryption key is shared securely with Azure AD.
    > * In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
+   
    6. In the Ready to Configure screen, make sure "Start Synchronization process when configuration completes" checkbox is selected. Then select Configure.  
    ‎![Picture 41](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)</br>
    When selecting configure, Seamless SSO will be configured as per the previews step. Password Hash Synchronization configuration won’t be modified as it has been previously enabled.
+   
    > [!IMPORTANT]
    > No changes will be made to the way users sign in at this point.  
+   
    7. On the Azure AD Portal, verify that that Federation continues to be Enabled and now Seamless single sign-on is Enabled.
    ![Picture 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
@@ -378,6 +383,7 @@ Then, the user will get redirected and signed into the Access Panel successfully
 
 > [!NOTE]
 > Seamless Single Sign-On works on Office 365 services that supports domain hint (for example, myapps.microsoft.com/contoso.com). The Office 365 portal (portal.office.com) currently doesn’t support domain hint and therefore it is expected that users will need to type their UPN. Once a UPN is entered, Seamless single sign on can retrieve the Kerberos ticket on behalf of the user and log them in without typing a password. 
+
 > [!NOTE]
 > Consider deploying [Azure AD Hybrid Join on Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) for an improved single sign-on experience.
 
