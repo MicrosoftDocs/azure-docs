@@ -136,9 +136,9 @@
     - name: Migration
       items:
           - name: Migrate from federation to PHS
-            href: plan-migrate-adfs-to-phs.md
+            href: plan-migrate-adfs-password-hash-sync.md
           - name: Migrate from federation to PTA
-            href: plan-migrate-adfs-to-pta.md
+            href: plan-migrate-adfs-pass-through-authentication.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview
