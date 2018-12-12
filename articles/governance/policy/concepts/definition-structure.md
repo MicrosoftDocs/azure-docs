@@ -244,6 +244,8 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
+- `identity.type`
+  - Returns the type of [Managed Identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
 - `tags.<tagName>`
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
