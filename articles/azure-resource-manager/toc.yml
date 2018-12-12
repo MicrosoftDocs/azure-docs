@@ -1,5 +1,5 @@
 - name: Azure Resource Manager Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is Resource Manager?

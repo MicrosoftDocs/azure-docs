@@ -69,7 +69,7 @@ Note that the workspaceID property takes the full Azure resource ID of the works
 
 ### Via Azure CLI
 
-To enable streaming via the [Azure CLI](insights-cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+To enable streaming via the [Azure CLI](../azure-monitor/platform/cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

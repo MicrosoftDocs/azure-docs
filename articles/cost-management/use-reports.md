@@ -1,18 +1,18 @@
 ---
 title: Use Cloudyn reports in Azure | Microsoft Docs
-description: This article describes how to use various reports in the Cloudyn portal.
+description: This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal to help you effectively use them.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom:
+ms.custom: seodec18
 ---
 
-# Use Cloudyn reports
+# Reports available in the Cloudyn portal
 
 This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use Cloudyn reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
 
@@ -54,7 +54,7 @@ Dashboards in Cloudy provide a high-level view of reports. Dashboards are made u
 
 ## Budget information in reports
 
-Many Cloudyn reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget settings](#budget-settings).
+Many Cloudyn reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget Management settings](#budget-management-settings).
 
 ## Reports and reporting features
 

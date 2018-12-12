@@ -13,7 +13,7 @@ ms.author: tulasim
 ms.custom: seodec18
 ---
 
-# QnA Maker Limits
+# QnA Maker knowledge base limits and boundaries
 Comprehensive list of limits across QnA Maker.
 
 ## Knowledge Bases

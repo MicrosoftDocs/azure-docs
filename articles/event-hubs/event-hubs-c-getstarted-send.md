@@ -1,6 +1,6 @@
 ---
 title: Send events using C - Azure Event Hubs | Microsoft Docs
-description: Send events to Azure Event Hubs using C
+description: This article provides a walkthrough for creating a C application that sends events to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy

@@ -1,5 +1,5 @@
 ---
-title: Use a custom Docker image for Web App for Containers - Azure | Microsoft Docs
+title: Use a custom Docker image for Web App for Containers - Azure App Service | Microsoft Docs
 description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
@@ -17,6 +17,7 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Use a custom Docker image for Web App for Containers
 
