@@ -237,7 +237,7 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 
 ## Set up Java development
 
-To build Service Fabric services using Java, install Gradle to run build tasks. Run the command below to install Gradle. The Service Fabric Java libraries are pulled from Maven.
+To build Service Fabric services using Java, install Gradle to run build tasks. Run the below command to install Gradle. The Service Fabric Java libraries are pulled from Maven.
 
 
 * Ubuntu
