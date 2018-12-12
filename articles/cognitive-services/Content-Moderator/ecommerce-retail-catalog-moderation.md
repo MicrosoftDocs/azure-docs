@@ -3,14 +3,14 @@ title: "Tutorial: eCommerce catalog moderation - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: Automatically moderate eCommerce catalogs with machine learning and AI.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: sajagtap
+ms.author: pafarley
 ---
 
 # Tutorial: eCommerce catalog moderation with machine learning
