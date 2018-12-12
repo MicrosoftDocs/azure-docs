@@ -96,7 +96,7 @@ Service-to-service communication may fail under certain circumstances. This is b
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
 - In the Docker file for your service, add `EXPOSE <port>` where port is the port you are exposing your service on. For example:
 
-```XML
+```
 EXPOSE 80
 ```
 
