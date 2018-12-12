@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: raynew
 
 ---
@@ -67,45 +67,46 @@ Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 t
 
 **Supported release** | **Azure Site Recovery Mobility Service version** | **Kernel version** |
 --- | --- | --- |
-14.04 LTS | 9.20 | 3.13.0-24-generic to 3.13.0-161-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-138-generic |
-14.04 LTS | 9.19 | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-131-generic |
-14.04 LTS | 9.18 | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-130-generic |
-14.04 LTS | 9.17 | 3.13.0-24-generic to 3.13.0-149-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-127-generic |
+14.04 LTS | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-131-generic |
+14.04 LTS | [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-130-generic |
+14.04 LTS | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery) | 3.13.0-24-generic to 3.13.0-149-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-127-generic |
+14.04 LTS | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-119-generic |
 |||
-16.04 LTS | 9.20 | 4.4.0-21-generic to 4.4.0-138-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-38-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1025-azure|
-16.04 LTS | 9.19 | 4.4.0-21-generic to 4.4.0-131-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1019-azure|
-16.04 LTS | 9.18 | 4.4.0-21-generic to 4.4.0-130-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic |
-16.04 LTS | 9.17 | 4.4.0-21-generic to 4.4.0-127-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-43-generic |
+16.04 LTS | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 4.4.0-21-generic to 4.4.0-131-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1019-azure|
+16.04 LTS | [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | 4.4.0-21-generic to 4.4.0-130-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic |
+16.04 LTS | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery) | 4.4.0-21-generic to 4.4.0-127-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-43-generic |
+16.04 LTS | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-38-generic |
 
 ### Debian kernel versions
 
 
 **Supported release** | **Azure Site Recovery Mobility Service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | 9.17,9.18,9.19,9.20 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery),[9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery),[9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 3.2.0-4-amd64 to 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.20 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
-Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.16 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
+Debian 8 | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
+Debian 8 | [9.17](https://support.microsoft.com/en-us/help/4344054/update-rollup-26-for-azure-site-recovery), [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
+Debian 8 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup-25-for-azure-site-recovery) | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.6-amd64 |
+
 
 ### SUSE Linux Enterprise Server 12 supported kernel versions
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.64-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.19](https://support.microsoft.com/en-us/help/4468181/azure-site-recovery-update-rollup-30) | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.18](https://support.microsoft.com/en-us/help/4055712/update-rollup-27-for-azure-site-recovery) | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
 
 ## Linux file systems/guest storage
 
 **Component** | **Supported**
 --- | ---
 File systems | ext3, ext4, XFS.
-Volume manager | Before 9.20 version, <br/> 1. LVM2 is supported. <br/> 2. LVM is supported for data disks only. <br/> 3. Azure VMs have only a single OS disk.<br/><br/>From 9.20 version onwards, LVM and LVM2 are supported
+Volume manager | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 is supported. <br/> 2. LVM is supported for data disks only. <br/> 3. Azure VMs have only a single OS disk.<br/><br/>From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, LVM and LVM2 are supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
-Directories | Before 9.20 version, <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From 9.20 version onwards, above restrictions are not applicable.
+Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, above restrictions are not applicable.
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility Service version 9.10 onward. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
@@ -237,7 +238,7 @@ Configuration server | Coordinates communications between on-premises VMware ser
 Process server|Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.| For fresh installation, click [here](vmware-azure-set-up-process-server-scale.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | For fresh installation, click [here](vmware-azure-install-mobility-service.md). For upgrading existing component to latest version, click [here](vmware-physical-mobility-service-overview.md#update-the-mobility-service).
 
-To learn about the latest features and fixes, click [here](https://aka.ms/latest_asr_updates).
+To learn about the latest features and fixes, click [here](https://aka.ms/ASR_latest_release_notes).
 
 
 ## Next steps
