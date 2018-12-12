@@ -146,7 +146,7 @@ Additionally, you can target a policy to specific client apps that are not using
 
 - Client apps using the Microsoft Exchange ActiveSync protocol. When a policy blocks using Exchange ActiveSync, affected users get a single quarantine email with information on why they are blocked. If necessary, the email includes instructions for enrolling their device with Intune.
 
-- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- Other clients. These apps include clients that use basic authentication with mail protocols like IMAP, MAPI, POP, SMTP, and older Office apps that don't use modern authentication. For more information, see [How modern authentication works for Office 2013 and Office 2016 client apps](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Client apps](./media/conditions/41.png)
 
