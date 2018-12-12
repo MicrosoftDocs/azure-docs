@@ -11,11 +11,11 @@ ms.component: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
-By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
+By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
 This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Windows Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Windows Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
 
-If you're new to Resource Manager templates, learn about [template deployments](../azure-resource-manager/resource-group-overview.md) and their structure and syntax.  
+If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/resource-group-overview.md) and their structure and syntax.  
 
 ## Prerequisites
 
@@ -269,7 +269,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
 
 1. On the **Monitor** page, select **Metrics**. 
 
-   ![Monitor - Metrics page](media/metrics-store-custom-guestos-resource-manager-vmss/metrics.png) 
+   ![Monitor - Metrics page](media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png) 
 
 1. Change the aggregation period to **Last 30 minutes**.  
 

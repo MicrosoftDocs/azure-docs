@@ -20,7 +20,7 @@ ms.author: mbullwin
 
 * [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app-insights-java-troubleshoot.md)
 
 *I get no data from my server*
@@ -112,7 +112,7 @@ From [client web pages](app-insights-javascript.md):
 
 From other sources, if you configure them:
 
-* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Docker containers](app-insights-docker.md)
 * [Import tables to Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)

@@ -11,13 +11,13 @@ ms.component: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 
-By using the Azure Monitor [Diagnostics extension](azure-diagnostics.md), you can collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+By using the Azure Monitor [Diagnostics extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for a Windows virtual machine to the Azure Monitor data store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
 Storing them in this location allows you to access the same actions for platform metrics. Actions include near-real time alerting, charting, routing, and access from a REST API and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.   
 
-If you're new to Resource Manager templates,  learn about [template deployments](../azure-resource-manager/resource-group-overview.md) and their structure and syntax.  
+If you're new to Resource Manager templates,  learn about [template deployments](../../azure-resource-manager/resource-group-overview.md) and their structure and syntax.  
 
 ## Prerequisites
 
@@ -268,7 +268,7 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 3. On the Monitor page, select **Metrics**. 
 
-   ![Metrics page](media/metrics-store-custom-guestos-resource-manager-vm/metrics.png) 
+   ![Metrics page](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png) 
 
 4. Change the aggregation period to **Last 30 minutes**.  
 
