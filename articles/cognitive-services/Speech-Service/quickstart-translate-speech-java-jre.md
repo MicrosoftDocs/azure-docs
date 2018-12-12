@@ -14,13 +14,13 @@ ms.author: erhopf
 
 # Quickstart: Recognize speech in Java on Windows or Linux by using the Speech Service SDK
 
-In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on Windows 64-bit and Ubuntu Linux 16.04 (64-bit), and is built with the Speech SDK Maven package and the Eclipse Java IDE.
+In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Ubuntu Linux 16.04, and is built with the Speech SDK Maven package and the Eclipse Java IDE.
 
 ## Prerequisites
 
 This quickstart requires:
 
-* Operating System: Windows (64-bit) or Ubuntu Linux 16.04 (64-bit)
+* Operating System: 64-bit Windows or 64-bit Ubuntu Linux 16.04
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [JDK 8 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * An Azure subscription key for the Speech Service
@@ -171,12 +171,13 @@ The speech input from your microphone will be transcribed into German and logged
 
 ## Next steps
 
-Additional samples to read audio from a file, and to output the translated text as synthesized speech are available on GitHub.
+Additional samples, such as how to read speech from an audio file, and output translated text as synthesized speech, are available on GitHub.
 
 > [!div class="nextstepaction"]
-> [See samples on GitHub](https://aka.ms/csspeech/samples)
+> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
+- [Quickstart: Recognize speech, Java (Windows, Linux)](quickstart-java-jre.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)
