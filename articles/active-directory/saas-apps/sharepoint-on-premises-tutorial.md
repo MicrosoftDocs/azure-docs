@@ -41,7 +41,6 @@ To configure Azure AD integration with SharePoint on-premises, you need the foll
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * SharePoint on-premises supports **SP** initiated SSO
-* SharePoint on-premises supports **Just In Time** user provisioning
 
 ## Adding SharePoint on-premises from the gallery
 
@@ -102,18 +101,18 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
     ![SharePoint on-premises Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<YourSharePointServerURL>/_trust/default.aspx`.
+    `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. In the **Identifier** box, type a URL using the following pattern:
-    `urn:sharepoint:federation`.
+    `urn:sharepoint:federation`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<YourSharePointServerURL>/_trust/default.aspx`.
+    `https://<YourSharePointServerURL>/_trust/default.aspx`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [SharePoint on-premises Client support team](https://support.office.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -177,7 +176,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	> [!NOTE]
 	> Some of the external users will not able to use this single sign-on integration as their UPN will have mangled value something like `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Soon we will allow customers app config on how to handle the UPN depending on the user type. After that all your guest users should be able to use SSO seamlessly as the organization employees.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
