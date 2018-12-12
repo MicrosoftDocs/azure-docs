@@ -164,17 +164,17 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 ## Build and run the app
 
 Press F11, or select **Run** > **Debug**.
-The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
+
+The speech input from your microphone will be transcribed into German and logged in the console window. Press "Enter" to stop capturing speech.
 
 ![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-translate-output.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/java-jre` folder.
-
 ## Next steps
 
+Additional samples to read audio from a file, and to output the translated text as synthesized speech are available on GitHub.
+
 > [!div class="nextstepaction"]
-> [Tutorial: Recognize intents from speech by using the Speech SDK](how-to-recognize-intents-from-speech-csharp.md)
+> [See samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
