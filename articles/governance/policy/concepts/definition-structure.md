@@ -1,5 +1,5 @@
 ---
-title: Azure Policy definition structure
+title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 services: azure-policy
 author: DCtheGeek
@@ -8,6 +8,7 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
+ms.custom: seodec18
 ---
 # Azure Policy definition structure
 
@@ -243,6 +244,8 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
+- `identity.type`
+  - Returns the type of [Managed Identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
 - `tags.<tagName>`
   - Where **\<tagName\>** is the name of the tag to validate the condition for.

@@ -1,5 +1,5 @@
 ---
-title: Explore the Azure Time Series Insights JavaScript client library
+title: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs
 description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
 manager: cshankar
@@ -8,6 +8,7 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
+ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
 

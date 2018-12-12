@@ -64,7 +64,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 
 ## Payload schema
 
-The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](monitoring-action-groups.md) is used:
+The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](../azure-monitor/platform/action-groups.md) is used:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":
@@ -117,5 +117,5 @@ The POST operation contains the following JSON payload and schema for all near n
 ## Next steps
 
 * Learn more about the new [Alerts experience](monitoring-overview-alerts.md).
-* Learn about [log alerts in Azure](monitor-alerts-unified-log.md).
+* Learn about [log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
 * Learn about [alerts in Azure](monitoring-overview-alerts.md).

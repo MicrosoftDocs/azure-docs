@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook.  This tutorial is part two of a two-part series.
+description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -15,35 +15,35 @@ ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
 
-# Tutorial (part 2):  Deploy an image classification model in Azure Container Instance (ACI)
+# Tutorial:  Deploy an image classification model in Azure Container Instance
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
-Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
+Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
-In this part of the tutorial, you use Azure Machine Learning service to:
+In this part of the tutorial, you use the Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Set up your testing environment
 > * Retrieve the model from your workspace
 > * Test the model locally
-> * Deploy the model to ACI
+> * Deploy the model to Container Instances
 > * Test the deployed model
 
-ACI is not ideal for production deployments, but it is great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see the [How to deploy and where](how-to-deploy-and-where.md) document.
+Container Instances isn't ideal for production deployments, but it's great for testing and understanding the workflow. For scalable production deployments, consider using Azure Kubernetes Service. For more information, see [How to deploy and where](how-to-deploy-and-where.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Run the `tutorials/img-classification-part2-deploy.ipynb` notebook, either in Azure Notebooks or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.2
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.2.
 
 ## Prerequisites
 
-Complete the model training in the [Tutorial #1: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) notebook.  
+Complete the model training in the following notebook: [Tutorial #1: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).  
 
 
 ## Set up the environment
@@ -119,7 +119,7 @@ y_hat = clf.predict(X_test)
 
 ###  Examine the confusion matrix
 
-Generate a confusion matrix to see how many samples from the test set are classified correctly. Notice the mis-classified value for the incorrect predictions. 
+Generate a confusion matrix to see how many samples from the test set are classified correctly. Notice the misclassified value for the incorrect predictions. 
 
 ```python
 from sklearn.metrics import confusion_matrix
@@ -144,10 +144,10 @@ The output shows the confusion matrix:
     Overall accuracy: 0.9204
    
 
-Use `matplotlib` to display the confusion matrix as a graph. In this graph, the X axis represents the actual values, and the Y axis represents the predicted values. The color in each grid represents the error rate. The lighter the color, the higher the error rate is. For example, many 5's are mis-classified as 3's. Hence you see a bright grid at (5,3).
+Use `matplotlib` to display the confusion matrix as a graph. In this graph, the X axis represents the actual values, and the Y axis represents the predicted values. The color in each grid represents the error rate. The lighter the color, the higher the error rate is. For example, many 5's are misclassified as 3's. Hence, you see a bright grid at (5,3).
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -167,23 +167,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![confusion matrix](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Chart showing confusion matrix](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## Deploy as web service
 
-Once you've tested the model and are satisfied with the results, deploy the model as a web service hosted in ACI. 
+Once you've tested the model and are satisfied with the results, deploy the model as a web service hosted in Container Instances. 
 
-To build the correct environment for ACI, provide the following:
+To build the correct environment for Container Instances, provide the following:
 * A scoring script to show how to use the model
 * An environment file to show what packages need to be installed
-* A configuration file to build the ACI
+* A configuration file to build the container instance
 * The model you trained before
 
 <a name="make-script"></a>
 
 ### Create scoring script
 
-Create the scoring script, called score.py, used by the web service call to show how to use the model.
+Create the scoring script, called score.py. The web service call uses this to show how to use the model.
 
 You must include two required functions into the scoring script:
 * The `init()` function, which typically loads the model into a global object. This function is run only once when the Docker container is started. 
@@ -238,7 +238,7 @@ with open("myenv.yml","r") as f:
 
 ### Create configuration file
 
-Create a deployment configuration file and specify the number of CPUs and gigabyte of RAM needed for your ACI container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
+Create a deployment configuration file, and specify the number of CPUs and gigabyte of RAM needed for your Container Instances container. While it depends on your model, the default of 1 core and 1 gigabyte of RAM is usually sufficient for many models. If you feel you need more later, you would have to recreate the image and redeploy the service.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -249,18 +249,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### Deploy in ACI
+### Deploy in Container Instances
 Estimated time to complete: **about 7-8 minutes**
 
 Configure the image and deploy. The following code goes through these steps:
 
-1. Build an image using:
-   * The scoring file (`score.py`)
-   * The environment file (`myenv.yml`)
-   * The model file
+1. Build an image by using:
+   * The scoring file (`score.py`).
+   * The environment file (`myenv.yml`).
+   * The model file.
 1. Register that image under the workspace. 
-1. Send the image to the ACI container.
-1. Start up a container in ACI using the image.
+1. Send the image to the Container Instances container.
+1. Start up a container in Container Instances by using the image.
 1. Get the web service HTTP endpoint.
 
 
@@ -283,7 +283,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Get the scoring web service's HTTP endpoint, which accepts REST client calls. This endpoint can be shared with anyone who wants to test the web service or integrate it into an application. 
+Get the scoring web service's HTTP endpoint, which accepts REST client calls. You can share this endpoint with anyone who wants to test the web service or integrate it into an application. 
 
 ```python
 print(service.scoring_uri)
@@ -292,14 +292,14 @@ print(service.scoring_uri)
 
 ## Test deployed service
 
-Earlier you scored all the test data with the local version of the model. Now, you can test the deployed model with a random sample of 30 images from the test data.  
+Earlier, you scored all the test data with the local version of the model. Now, you can test the deployed model with a random sample of 30 images from the test data.  
 
 The following code goes through these steps:
-1. Send the data as a JSON array to the web service hosted in ACI. 
+1. Send the data as a JSON array to the web service hosted in Container Instances. 
 
-1. Use the SDK's `run` API to invoke the service. You can also make raw calls using any HTTP tool such as curl.
+1. Use the SDK's `run` API to invoke the service. You can also make raw calls by using any HTTP tool, such as curl.
 
-1. Print the returned predictions and plot them along with the input images. Red font and inverse image (white on black) is used to highlight the misclassified samples. 
+1. Print the returned predictions, and plot them along with the input images. Red font and inverse image (white on black) is used to highlight the misclassified samples. 
 
  Since the model accuracy is high, you might have to run the following code a few times before you can see a misclassified sample.
 
@@ -337,7 +337,7 @@ plt.show()
 ```
 
 Here is the result of one random sample of test images:
-![results](./media/tutorial-deploy-models-with-aml/results.png)
+![Graphic showing results](./media/tutorial-deploy-models-with-aml/results.png)
 
 You can also send raw HTTP request to test the web service.
 
@@ -365,7 +365,7 @@ print("prediction:", resp.text)
 
 ## Clean up resources
 
-To keep the resource group and workspace for other tutorials and exploration, you can delete only the ACI deployment using this API call:
+To keep the resource group and workspace for other tutorials and exploration, you can delete only the Container Instances deployment by using this API call:
 
 ```python
 service.delete()
@@ -376,13 +376,6 @@ service.delete()
 
 ## Next steps
 
-In this Azure Machine Learning service tutorial, you used Python to:
++ Learn about all of the [deployment options for Azure Machine Learning service](how-to-deploy-and-where.md), including ACI, Azure Kubernetes Service, FPGAs, and IoT Edge.
 
-> [!div class="checklist"]
-> * Set up your testing environment
-> * Retrieve the model from your workspace
-> * Test the model locally
-> * Deploy the model to ACI
-> * Test the deployed model
- 
-You can also try out the [Automatic algorithm selection](tutorial-auto-train-models.md) tutorial to see how Azure Machine Learning service can auto-select and tune the best algorithm for your model and build that model for you.
++ See how Azure Machine Learning service can auto-select and tune the best algorithm for your model, and build that model for you. Try out the [Automatic algorithm selection](tutorial-auto-train-models.md) tutorial. 

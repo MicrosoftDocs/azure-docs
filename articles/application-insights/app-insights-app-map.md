@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 
@@ -56,7 +56,7 @@ Select **investigate failures** to launch the failures pane.
 
 ### Investigate performance
 
-To troubleshoot performance problems select **investigate performance**
+To troubleshoot performance problems, select **investigate performance**.
 
 ![Screenshot of investigate performance button](media/app-insights-app-map/investigate-performance.png)
 
@@ -64,7 +64,7 @@ To troubleshoot performance problems select **investigate performance**
 
 ### Go to details
 
-Select **go to details** to explore the end-to-end transaction experience which can offer views done to the call stack level.
+Select **go to details** to explore the end-to-end transaction experience, which can offer views done to the call stack level.
 
 ![Screenshot of go-to-details button](media/app-insights-app-map/go-to-details.png)
 
@@ -80,21 +80,128 @@ To query and investigate your applications data further click **view in analytic
 
 ### Alerts
 
-To view active alerts and the underlying rules that cause the alerts to be tiggered, select **alerts**.
+To view active alerts and the underlying rules that cause the alerts to be triggered, select **alerts**.
 
 ![Screenshot of alerts button](media/app-insights-app-map/alerts.png)
 
 ![Screenshot of analytics experience](media/app-insights-app-map/alerts-view.png)
 
-## Video
+## Set cloud_RoleName
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+Application Map uses the `cloud_RoleName` property to identify the components on the map.The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
 
-## Feedback
-Please provide feedback through the portal feedback option.
+### .NET
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here
+                telemetry.Context.Cloud.RoleName = "RoleName";
+            }
+        }
+    }
+}
+```
+
+**Load your initializer**
+
+In ApplicationInsights.config:
+
+```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="CustomInitializer.Telemetry.MyTelemetryInitializer, CustomInitializer"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+```
+
+*Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+### Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
+appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
+```
+
+### Alternate method for Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+
+appInsights.defaultClient.addTelemetryProcessor(envelope => {
+    envelope.tags["ai.cloud.role"] = "your role name";
+    envelope.tags["ai.cloud.roleInstance"] = "your role instance"
+});
+```
+
+### Java
+
+If you use Spring Boot with the Application Insights Spring Boot starter the only required change is to set the desired name of the application in application.properties file.
+
+`spring.application.name=<name-of-app>`
+
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for spring.application.name property.
+
+For further information on Java correlation and how to configure cloudRoleName for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
+
+### Client/browser-side JavaScript
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
+For more information about how do override the `cloud_RoleName` property see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
+## Troubleshooting
+
+If you are having trouble getting Application Map to work as expected, try the following:
+
+1. Make sure you’re using an officially supported SDK. Unsupported/community SDKs might not support correlation.
+
+    Refer to this [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) for a list of supported SDKs.
+
+2. Upgrade all components to the latest SDK version.
+
+3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+
+4. Ensure [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) is correctly configured.
+
+## Portal feedback
+To provide feedback, use the portal feedback option.
 
 ![MapLink-1 image](./media/app-insights-app-map/13.png)
 
 ## Next steps
 
-* [Azure portal](https://portal.azure.com)
+* [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

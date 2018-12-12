@@ -1,5 +1,5 @@
 ---
-title: Build a Ruby and Postgres web app in Azure App Service on Linux | Microsoft Docs 
+title: Build a Ruby web app with Postgres on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Ruby app working in Azure, with connection to a PostgreSQL database in Azure.
 services: app-service\web
 documentationcenter: ''
@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Build a Ruby and Postgres web app in Azure App Service on Linux
 

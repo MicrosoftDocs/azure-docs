@@ -1,5 +1,5 @@
 ---
-title: Query types and composition in Azure Search | Microsoft Docs
+title: Query types and composition - Azure Search
 description: Basics for building a search query in Azure Search, using parameters to filter, select, and sort results.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-
+ms.custom: seodec2018
 ---
 # Query types and composition in Azure Search
 
