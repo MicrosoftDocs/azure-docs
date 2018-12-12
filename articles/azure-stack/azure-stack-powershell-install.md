@@ -37,7 +37,7 @@ To check your version, run **$PSVersionTable.PSVersion** and compare the **Major
   > [!Note]
   > PowerShell 5.0 requires a Windows machine.
 
-- **Run Powershell in an elevated command prompt. You must run PowerShell with administrative privileges.
+- **Run Powershell in an elevated command prompt**. You must run PowerShell with administrative privileges.
 
 - **PowerShell Gallery access**
   You need access to the [PowerShell Gallery](https://www.powershellgallery.com). The gallery is the central repository for PowerShell content. The **PowerShellGet** module contains cmdlets for discovering, installing, updating, and publishing PowerShell artifacts such as modules, DSC resources, role capabilities, and scripts from the PowerShell Gallery and other private repositories. If you are using PowerShell in a disconnected scenario, you must retrieve resources from a machine with a connection to the Internet and store them in a location accessible to your disconnected machine.
@@ -100,11 +100,7 @@ Run the following PowerShell script to install these modules on your development
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
-    See the [release notes](link) for the changes in the AzureStack module version 1.6.0
-
-    Azure stack 1811 update comes with the following storage-related features.
-    <Add a high level list>
-
+    
     To make use of these features, Execute the following and explicitly load the module versions.
 
     ```PowerShell
