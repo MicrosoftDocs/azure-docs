@@ -57,7 +57,7 @@ All three flavors of Azure SQL Database offer some ability to dynamically scale 
 
 Scaling resources is the easiest and the most effective way to improve performance of your database without changing either database or application code. In some cases, even the highest service tiers, compute sizes, and performance optimizations might not handle your workload on successful and cost-effective way. In that cases you have these additional options to scale your database:
 
-- [Read scale-out](sql-database-read-scale-out.md) is a feature available in where you are getting one read-only replica of your data where you can execute demanding read-only queries such as reports. Red-only replica will handle your read-only workload without affecting resource usage on your primary database.
+- [Read scale-out](sql-database-read-scale-out.md) is a feature available in where you are getting one read-only replica of your data where you can execute demanding read-only queries such as reports. Read-only replica will handle your read-only workload without affecting resource usage on your primary database.
 - [Database sharding](sql-database-elastic-scale-introduction.md) is a set of techniques that enables you to split your data into several databases and scale them independently.
 
 ## Next steps

@@ -34,7 +34,7 @@ If you want to use a preconfigured integration, see how to:
 ## Configuring a custom notification using the service health webhook payload
 If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during service health notifications.
 
-Look [here to see an example](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) of what the `ServiceHealth` webhook payload looks like.
+Look [here to see an example](../azure-monitor/platform/activity-log-alerts-webhook.md) of what the `ServiceHealth` webhook payload looks like.
 
 You can detect this is a service health alert by looking at `context.eventSource == "ServiceHealth"`. From there, the properties that are most relevant to ingest are:
  * `data.context.activityLog.status`
@@ -99,7 +99,7 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 
 
 ## Testing your webhook integration via an HTTP POST request
-1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 2. Create an HTTP POST request as follows:
 
@@ -115,6 +115,6 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
 
 ## Next steps
-- Review the [activity log alert webhook schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Learn about [service health notifications](../monitoring-and-diagnostics/monitoring-service-notifications.md).
 - Learn more about [action groups](../azure-monitor/platform/action-groups.md).

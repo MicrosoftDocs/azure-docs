@@ -1,5 +1,5 @@
 ---
-title: Text split cognitive search skill (Azure Search) | Microsoft Docs
+title: Text split cognitive search skill - Azure Search
 description: Break text into chunks or pages of text based on length in an Azure Search enrichment pipeline. 
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Text split cognitive skill
 
