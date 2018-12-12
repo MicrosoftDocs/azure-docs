@@ -8,7 +8,7 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.component: hybrid
 ms.author: billmath
 
