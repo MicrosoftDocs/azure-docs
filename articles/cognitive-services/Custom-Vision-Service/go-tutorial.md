@@ -47,35 +47,37 @@ Create a new file called *sample.go* in your preferred project directory.
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions.
 
 ```go
-package main
-
 import(
-	"bytes"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"time"
-	"github.com/Azure/services/cognitiveservices/v2.2/customvision/training"
-	"github.com/Azure/services/cognitiveservices/v2.0/customvision/prediction"
+    "context"
+    "bytes"
+    "fmt"
+    "io/ioutil"
+    "path"
+    "log"
+    "time"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/customvision/prediction"
 )
 
 var (
-	training_key string = "<your training key>"
-	prediction_key string = "<your prediction key>"
-	endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
-	project_name string = "Go Sample Project"
-	sampleDataDirectory = "<path to sample images>"
+    training_key string = "<your training key>"
+    prediction_key string = "<your prediction key>"
+    endpoint string = "https://southcentralus.api.cognitive.microsoft.com"
+    project_name string = "Go Sample Project"
+    sampleDataDirectory = "<path to sample images>"
 )
 
 func main() {
     fmt.Println("Creating project...")
 
-	trainer := training.New(training_key, endpoint)
+    ctx = context.Background()
 
-	project, err := trainer.CreateProject(project_name, "", nil)
-	if (err != nil) {
-		log.Fatal(err)
-	}
+    trainer := training.New(training_key, endpoint)
+
+    project, err := trainer.CreateProject(ctx, project_name, "sample project", nil, string(training.Multilabel))
+    if (err != nil) {
+        log.Fatal(err)
+    }
 ```
 
 ### Create tags in the project
@@ -83,8 +85,8 @@ func main() {
 To create classification tags to your project, add the following code to the end of *sample.go*:
 
 ```go
-	hemlockTag, _ := trainer.CreateTag(*project.ID, "Hemlock", "")
-	cherryTag, _ := trainer.CreateTag(*project.ID, "Japanese Cherry", "")
+     hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree tag", string(training.Regular))
+    cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
 
 ### Upload and tag images
@@ -96,29 +98,28 @@ To add the sample images to the project, insert the following code after the tag
 
 ```go
     fmt.Println("Adding images...")
-	japaneseCherryImages, err := ioutil.ReadDir(sampleDataDirectory + "Japanese Cherry")
-	if err != nil {
-		fmt.Println("Error finding Sample images")
-	}
+    japaneseCherryImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Japanese Cherry"))
+    if err != nil {
+        fmt.Println("Error finding Sample images")
+    }
 
-	hemLockImages, err := ioutil.ReadDir(sampleDataDirectory + "Hemlock")
-	if err != nil {
-		fmt.Println("Error finding Sample images")
-	}
+    hemLockImages, err := ioutil.ReadDir(path.Join(sampleDataDirectory, "Hemlock"))
+    if err != nil {
+        fmt.Println("Error finding Sample images")
+    }
 
-	for _, file := range hemLockImages {
-		imageFile, _ := ioutil.ReadFile(sampleDataDirectory + "Hemlock/" + file.Name())
-		imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
+    for _, file := range hemLockImages {
+        imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Hemlock", file.Name()))
+        imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
 
-		trainer.CreateImagesFromData(*project.ID, imageData, []string{ hemlockTag.ID.String() })
-	}
+        trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ hemlockTag.ID.String() })
+    }
 
-	for _, file := range japaneseCherryImages {
-		imageFile, _ := ioutil.ReadFile(sampleDataDirectory + "Japanese Cherry/" + file.Name())
-		imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
-		trainer.CreateImagesFromData(*project.ID, imageData, []string{ cherryTag.ID.String() })
-	}
-
+    for _, file := range japaneseCherryImages {
+        imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Japanese Cherry", file.Name()))
+        imageData := ioutil.NopCloser(bytes.NewReader(imageFile))
+        trainer.CreateImagesFromData(ctx, *project.ID, imageData, []string{ cherryTag.ID.String() })
+    }
 ```
 
 ### Train the classifier
@@ -126,18 +127,19 @@ To add the sample images to the project, insert the following code after the tag
 This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this each time you retrain the model.
 
 ```go
-fmt.Println("Training...")
-	iteration, _ := trainer.TrainProject(*project.ID)
-	for {
-		if *iteration.Status != "Training" {
-			break
-		}
-		fmt.Println("Training status: " + *iteration.Status)
-		time.Sleep(1 * time.Second)
-		iteration, _ = trainer.GetIteration(*project.ID, *iteration.ID)
-	}
+    fmt.Println("Training...")
+    iteration, _ := trainer.TrainProject(ctx, *project.ID)
+    for {
+        if *iteration.Status != "Training" {
+            break
+        }
+        fmt.Println("Training status: " + *iteration.Status)
+        time.Sleep(1 * time.Second)
+        iteration, _ = trainer.GetIteration(ctx, *project.ID, *iteration.ID)
+    }
+    fmt.Println("Training status: " + *iteration.Status)
 
-	trainer.UpdateIteration(*project.ID, *iteration.ID, iteration)
+    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
 ```
 
 ### Get and use the default prediction endpoint
@@ -146,15 +148,15 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 ```go
     fmt.Println("Predicting...")
-	predictor := prediction.New(prediction_key, endpoint)
+    predictor := prediction.New(prediction_key, endpoint)
 
-	testImageData, _ := ioutil.ReadFile(sampleDataDirectory + "Test/test_image.jpg")
-	results, _ := predictor.PredictImage(*project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_image.jpg"))
+    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
 
-	for _, prediction := range *results.Predictions	{
-		fmt.Printf("\t%s: %.2f%%", *prediction.Tag, *prediction.Probability * 100)
-		fmt.Println("")
-	}
+    for _, prediction := range *results.Predictions	{
+        fmt.Printf("\t%s: %.2f%%", *prediction.Tag, *prediction.Probability * 100)
+        fmt.Println("")
+    }
 }
 ```
 
@@ -163,7 +165,8 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 Run *sample.go*.
 
 ```PowerShell
-Go sample.go
+go build sample.go
+go run sample.go
 ```
 
 The output of the application should be similar to the following text:
@@ -172,6 +175,8 @@ The output of the application should be similar to the following text:
 Creating project...
 Adding images...
 Training...
+Training status: Training
+Training status: Training
 Training status: Training
 Training status: Completed
 Done!
