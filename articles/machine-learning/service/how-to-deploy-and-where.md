@@ -124,8 +124,6 @@ image = ContainerImage.create(name = "myimage",
 
 Images are versioned automatically when you register multiple images with the same name. For example, the first image registered as `myimage` is assigned an ID of `myimage:1`. The next time you register an image as `myimage`, the ID of the new image is `myimage:2`.
 
-Image creation takes around 5 minutes.
-
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
 ## Deploy the image
@@ -142,7 +140,7 @@ When you get to deployment, the process is slightly different depending on the c
 Use Azure Container Instances for deploying your models as a web service if one or more of the following conditions is true:
 
 - You need to quickly deploy and validate your model. ACI deployment is finished in less than 5 minutes.
-- You are testing a model that is under development. ACI allows you to deploy 20 container groups per subscription. For more information, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
+- You are testing a model that is under development. To see quota and region availability for ACI, see the [Quotas and region availability for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) document.
 
 To deploy to Azure Container Instances, use the following steps:
 
