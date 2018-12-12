@@ -28,7 +28,7 @@ For this tutorial, you need:
 - [.NET Core for your operating system](https://www.microsoft.com/net/core) installed. 
 
 > [!NOTE]
-> This quickstart uses the mySampleDatabase database. If you want to use a different database, you will need
+> This quickstart uses the *mySampleDatabase* database. If you want to use a different database, you will need
 > to change the database references and modify the `SELECT` query in the C# code.
 
 
@@ -53,9 +53,9 @@ For this tutorial, you need:
     ```cmd
     dotnet new console
     ```
-    This creates new console app project files including an initial C# code file (**Program.cs**), an XML configuration file **sqltest.csproj**) and needed binaries.
+    This creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**) and needed binaries.
 
-2. In a text editor, open **sqltest.csproj** and paste the following XML between the **<Project>** tags. This adds `System.Data.SqlClient` as a dependency.
+2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This adds `System.Data.SqlClient` as a dependency.
 
     ```xml
     <ItemGroup>
