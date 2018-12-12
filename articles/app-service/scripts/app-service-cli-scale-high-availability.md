@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Scale a web app worldwide with a high-availability architecture | Microsoft Docs
+title: Azure CLI Script Sample - Scale app worldwide with Traffic Manager | Microsoft Docs
 description: Azure CLI Script Sample - Scale a web app worldwide with a high-availability architecture
 services: appservice
 documentationcenter: appservice

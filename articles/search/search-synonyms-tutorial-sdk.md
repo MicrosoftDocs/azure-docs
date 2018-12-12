@@ -1,6 +1,6 @@
 ---
-title: Synonyms C# tutorial in Azure Search | Microsoft Docs
-description: In this tutorial, add the synonyms feature to an index in Azure Search.
+title: Synonyms C# tutorial - Azure Search
+description: In this C# tutorial, learn how to add the synonyms feature to an index in Azure Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
+ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
 # Tutorial: Add synonyms for Azure Search in C#
