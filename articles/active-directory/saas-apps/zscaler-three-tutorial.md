@@ -90,7 +90,7 @@ To configure and test Azure AD single sign-on with Zscaler Three, you need to co
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Zscaler Three application.
 
@@ -224,7 +224,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Click **OK** to close the **Internet Options** dialog.
 
-### Creating an Azure AD test user
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -249,13 +249,13 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Select **Create**.
 
-### Creating a Zscaler Three test user
+### Create Zscaler Three test user
 
 The objective of this section is to create a user called Britta Simon in Zscaler Three. Zscaler Three supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Zscaler Three if it doesn't exist yet.
 >[!Note]
 >If you need to create a user manually, contact [Zscaler Three support team](https://www.zscaler.com/company/contact).
 
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zscaler Three.
 
@@ -287,7 +287,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
