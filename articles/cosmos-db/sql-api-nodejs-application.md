@@ -84,7 +84,7 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
    
    ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Stop the application by using CTRL+C in the terminal window and select **y** to terminate the batch job.
+ Stop the application by using CTRL+C in the terminal window, and select **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Install the required modules
 
@@ -272,7 +272,7 @@ Now that you have completed the initial setup and configuration, next you will w
    module.exports = config;
    ```
 
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys page of your Azure Cosmos DB account on the [Microsoft Azure portal](https://portal.azure.com). 
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys page of your Azure Cosmos DB account on the [Azure portal](https://portal.azure.com). 
 
 4. Save and close the **config.js** file.
 
@@ -379,7 +379,7 @@ Now let’s build the user interface so that a user can interact with the applic
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    This code tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages. Save and close the **layout.jade** file.
+    This code tells the **Jade** engine to render some HTML for our application, and creates a **block** called **content** where we can supply the layout for our content pages. Save and close the **layout.jade** file.
 
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following code:
 
@@ -440,16 +440,16 @@ Now that you have built the application, you can run it locally by using the fol
     ![Screenshot of the MyTodo List application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
-    > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files is left justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, then refresh your browser window. 
+    > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files are left-justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, and then refresh your browser window. 
 
-2. Use the Item, Item Name, and Category fields to enter a new task and then select **Add Item**. It creates a document in Azure Cosmos DB with those properties. 
+2. Use the Item, Item Name, and Category fields to enter a new task, and then select **Add Item**. It creates a document in Azure Cosmos DB with those properties. 
 
 3. The page should update to display the newly created item in the ToDo
    list.
    
     ![Screenshot of the application with a new item in the ToDo list](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
 
-4. To complete a task, check the checkbox in the Complete column,
+4. To complete a task, select the check box in the Complete column,
    and then select **Update tasks**. It updates the document you already created and removes it from the view.
 
 5. To stop the application, press CTRL+C in the terminal window and then select **Y** to terminate the batch job.
@@ -458,9 +458,9 @@ Now that you have built the application, you can run it locally by using the fol
 
 After your application succeeds locally, you can deploy it to Azure by using the following steps:
 
-1. If you haven't already done so, enable a git repository for your Web Apps.
+1. If you haven't already done so, enable a git repository for your Web Apps application.
 
-2. Add your Web Apps as a git remote.
+2. Add your Web Apps application as a git remote.
    
    ```bash
    git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
@@ -473,8 +473,6 @@ After your application succeeds locally, you can deploy it to Azure by using the
    ```
 
 4. In a few seconds, your web application is published and launched in a browser.
-
-If you want to download or refer to the complete reference application for this tutorial, you can download it from [GitHub][GitHub].
 
 ## Clean up resources
 
