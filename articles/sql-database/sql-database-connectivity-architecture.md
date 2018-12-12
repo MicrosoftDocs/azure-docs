@@ -15,7 +15,7 @@ ms.date: 11/02/2018
 ---
 # Azure SQL Database Connectivity Architecture
 
-This article explains the Azure SQL Database connectivity architecture and explains how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
+This article explains the Azure SQL Database connectivity architecture as well as how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
 
 > [!IMPORTANT]
 > **[Upcoming change] For service endpoint connections to Azure SQL servers, a `Default` connectivity behavior changes to `Redirect`.**
@@ -30,7 +30,7 @@ This article explains the Azure SQL Database connectivity architecture and expla
 > - Application connects to an existing server infrequently so our telemetry didn't capture the information about those applications 
 > - Automated deployment logic creates a logical server assuming that the default behavior for service endpoint connections is `Proxy` 
 >
-> If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open ports 11000-12000 as well as IP ranges to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags) on both VM firewall and NSG rules to enable uninterrupted traffic flow. If this is not an option for you, switch server explicitly to `Proxy`.
+> If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open VM firewall rules and Network Security Groups (NSG) to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags). If this is not an option for you, switch server explicitly to `Proxy`.
 
 ## Connectivity architecture
 
@@ -38,10 +38,9 @@ The following diagram provides a high-level overview of the Azure SQL Database c
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-The following steps describe how a connection is established to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) and the Azure SQL Database gateway.
+The following steps describe how a connection is established to an Azure SQL database:
 
-- Clients connect to the SLB, which has a public IP address and listens on port 1433.
-- The SLB forwards traffic to the Azure SQL Database gateway.
+- Clients connect to the gateway, that has a public IP address and listens on port 1433.
 - The gateway, depending on the effective connection policy, redirects or proxies the traffic to the right database cluster.
 - Inside the database cluster traffic is forwarded to the appropriate Azure SQL database.
 
@@ -49,13 +48,13 @@ The following steps describe how a connection is established to an Azure SQL dat
 
 Azure SQL Database supports the following three options for the connection policy setting of a SQL Database server:
 
-- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region (try this using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags)), not just the Azure SQL Database Gateway IP addresses. Because packets go directly to the database, latency and throughput have improved performance.
-- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure SQL Database Gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags)), not just the Azure SQL Database gateway IP addresses. Because packets go directly to the database, latency and throughput have improved performance.
+- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure SQL Database gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The effective policy depends on whether connections originate from within Azure (`Redirect`) or outside of Azure (`Proxy`).
 
 ## Connectivity from within Azure
 
-If you are connecting from within Azure your connections have a connection policy of `Redirect` by default. A policy of `Redirect` means that connections after the TCP session is established to the Azure SQL database, the client session is then redirected to the right database cluster with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the cluster. Thereafter, all subsequent packets flow directly to the cluster, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
+If you are connecting from within Azure your connections have a connection policy of `Redirect` by default. A policy of `Redirect` means that after the TCP session is established to the Azure SQL database, the client session is then redirected to the right database cluster with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the cluster. Thereafter, all subsequent packets flow directly to the cluster, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
@@ -73,7 +72,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 
 | Region Name | Primary IP address | Secondary IP address |
 | --- | --- |--- |
-| Australia East | 191.238.66.109 | 13.75.149.87 |
+| Australia East | 13.75.149.87 | 40.79.161.1 |
 | Australia South East | 191.239.192.109 | 13.73.109.251 |
 | Brazil South | 104.41.11.5 | |
 | Canada Central | 40.85.224.249 | |
