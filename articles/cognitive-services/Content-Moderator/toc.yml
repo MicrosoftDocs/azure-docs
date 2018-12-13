@@ -21,7 +21,7 @@
         href: text-moderation-quickstart-python.md
 - name: Tutorials
   items:
-  - name: eCommerce image moderation
+  - name: Moderate e-commerce images
     href: ecommerce-retail-catalog-moderation.md
 - name: Concepts
   items:
