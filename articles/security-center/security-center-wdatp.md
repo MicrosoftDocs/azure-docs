@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/13/2018
 ms.author: barclayn
 
 ---
@@ -55,20 +55,19 @@ Only servers in subscriptions for the standard service tier are supported.
 
 ## Onboarding servers to Security Center 
 
-To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the ATP Server onboarding.
+To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Windows Defender ATP server onboarding.
 
-In the onboarding blade - 
-
-1.	Select or create workspace to which to store the data
-If you can’t see all your workspace, it may be due to the lack of permissions , to set the permissions go follow these instructions.
-2.	You need to have a workspace that is set to the standard tier , select Upgrade to set the workspace's pricing tier to Standard and start your free 30-day trial
-Azure Security Center Standard will be applied $15/node/month. Pricing details>
+1. In the **Onboarding** blade select or create a workspace in which to store the data. <br>
+2. If you can’t see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
 	
-3.	Select Add Servers to view instructions on how to install the Microsoft Monitoring Agent. Learn more>
+3.	Select **Add servers** to view instructions on how to install the Microsoft Monitoring Agent. 
 
-4.	After onboarding, you can monitor the machines under Compute and apps>
+4.	After onboarding, you can monitor the machines under **Compute and apps**.
 
-## Enable Azure Threat Protection integration
+  ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
+
+
+## Enable Windows Defender ATP integration
 
 To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
 
