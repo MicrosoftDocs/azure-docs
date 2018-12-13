@@ -116,6 +116,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 7. You can also check the PostgreSQL version:
    
         $ psql -V
+
 8. Initialize the database:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
