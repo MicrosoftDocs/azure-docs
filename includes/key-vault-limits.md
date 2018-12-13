@@ -18,6 +18,20 @@ Key transactions (Max transactions allowed in 10 seconds, per vault per region<s
 |ECC SECP256K1|5|1000|10|2000|
 |
 
+>  [!NOTE]
+   If you look at the table below we see that for software backed keys we allow 2000 transactions per 10 seconds. And for HSM 1000 transactions per 10 seconds. And the ratio of software backed transactions for 3072 keys to 2048 keys is 500/2000 or 0.4. This means that if a customer does 500 3k transactions in 10 seconds they reach their max limit and cannot do any other key operations. 
+   
+|Key Type  | Software Key |HSM-key  |
+|---------|---------|---------|
+|RSA 2048-bit     |    2000     |   1000    |
+|RSA 3072-bit     |     500    |    250     |
+|RSA 4096-bit     |    125     |    250     |
+|ECC P-256     |    2000     |  1000     |
+|ECC P-384     |    2000     |  1000     |
+|ECC P-521     |    2000     |  1000     |
+|ECC SECP256K1     |    2000     |  1000     |
+
+
 Secrets, Managed Storage Account Keys, and vault transactions:
 | Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
