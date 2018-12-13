@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 12/14/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.0.87**.
+The Azure Stack 1811 update build number is **1.1811.0.93**.
 
 ## Hotfixes
 
