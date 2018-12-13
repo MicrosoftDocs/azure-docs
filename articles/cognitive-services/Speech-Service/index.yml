@@ -65,6 +65,8 @@ sections:
       - image:
           src: media/index/logo_objc.jpg
       - image:
+          src: media/index/logo_nodejs.svg
+      - image:
           src: media/index/logo_js.svg
       - image:
           src: media/index/logo_rest_sr.svg
@@ -83,6 +85,7 @@ sections:
         - href: quickstart-js-node
         - href:
         - href:
+        - href:
       - title: Windows 10 (x86)
         values:
         - href: quickstart-csharp-uwp
@@ -93,6 +96,7 @@ sections:
         - href:
         - href:
         - href: quickstart-js-node
+        - href:
         - href:
         - href:
       - title: Linux (x64)
@@ -107,6 +111,7 @@ sections:
         - href: quickstart-js-node
         - href:
         - href:
+        - href:
       - title: Linux (x86)
         values:
         - href:
@@ -119,6 +124,7 @@ sections:
         - href: quickstart-js-node
         - href:
         - href:
+        - href:
       - title: Android (ARM32/ARM64)
         values:
         - href:
@@ -126,6 +132,7 @@ sections:
         - href:
         - href:
         - href: quickstart-java-android
+        - href:
         - href:
         - href:
         - href:
@@ -143,6 +150,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
       - title: Devices SDK (ARM64)
         values:
         - href:
@@ -150,6 +158,7 @@ sections:
         - href:
         - href:
         - href: speech-devices-sdk
+        - href:
         - href:
         - href:
         - href:
@@ -167,6 +176,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
       - title: macOS (x64)
         values:
         - href:
@@ -179,8 +189,10 @@ sections:
         - href: quickstart-js-node
         - href:
         - href:
+        - href:
       - title: Browser
         values:
+        - href:
         - href:
         - href:
         - href:
