@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create app with continuous deployment from Azure Repos | Microsoft Docs
+title: Azure CLI Script Sample - Create app and deploy continuously from Azure Repos | Microsoft Docs
 description: Azure CLI Script Sample - Create a web app with continuous deployment from Azure Repos
 services: app-service\web
 documentationcenter: 

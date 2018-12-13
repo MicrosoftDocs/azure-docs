@@ -50,7 +50,7 @@ Then stream logs to your console using `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-For more information, see [Streaming logs with the Azure CLI](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface).
+For more information, see [Streaming logs with the Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
 
 ### App logging
 

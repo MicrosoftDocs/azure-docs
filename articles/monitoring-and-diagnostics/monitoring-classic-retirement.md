@@ -36,7 +36,7 @@ Since March 2018, the next generation of alerting and multi-dimensional monitori
 Newer metrics for Azure resources are available as:
 
 - **Azure Monitor Standard platform metrics** – which provides popular pre-populated metrics from various Azure services and products. For more information, see this article on [Supported metrics on Azure Monitor](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) and [Support metric alerts on Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts).
-- **Azure Monitor Custom metrics** – which provides metrics from user driven sources including the Azure Diagnostics agent. For more information, see this article on [Custom metrics in Azure Monitor](metrics-custom-overview.md). Using custom metrics, you can also publish metrics collected by [Windows Azure Diagnostics agent](metrics-store-custom-guestos-resource-manager-vm.md) and [InfluxData Telegraf agent](metrics-store-custom-linux-telegraf.md).
+- **Azure Monitor Custom metrics** – which provides metrics from user driven sources including the Azure Diagnostics agent. For more information, see this article on [Custom metrics in Azure Monitor](../azure-monitor/platform/metrics-custom-overview.md). Using custom metrics, you can also publish metrics collected by [Windows Azure Diagnostics agent](../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md) and [InfluxData Telegraf agent](../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md).
 
 ## Retirement of Classic monitoring and alerting platform
 
@@ -47,7 +47,7 @@ Older classic monitoring and alerting will be retired on 30 June 2019; including
 - Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](../azure-monitor/platform/alerts-classic.overview.md) of Azure portal
 
-All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal page](../azure-monitor/platform/alerts-classic-portal.md), and [Resource Template](monitoring-enable-alerts-using-template.md) will remain usable until end of June 2019. 
+All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal page](../azure-monitor/platform/alerts-classic-portal.md), and [Resource Template](../azure-monitor/platform/alerts-enable-template.md) will remain usable until end of June 2019. 
 
 At the end of June 2019, in Azure Monitor:
 
@@ -70,4 +70,4 @@ This article will be continually updated will links & details regarding the new 
 ## Next steps
 
 * Learn about the [new unified Azure Monitor](../azure-monitor/overview.md).
-* Learn more about the new [Azure Alerts](monitoring-overview-alerts.md).
+* Learn more about the new [Azure Alerts](../azure-monitor/platform/alerts-overview.md).

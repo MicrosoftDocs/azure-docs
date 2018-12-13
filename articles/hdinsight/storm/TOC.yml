@@ -4,7 +4,7 @@
   items:
   - name: Overview
     href: apache-storm-overview.md
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -186,7 +186,7 @@
     - name: Migrate to Resource Manager development tools
       href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
       maintainContext: true
-    - name: 'Availability and reliability '
+    - name: Availability and reliability
       href: ../hdinsight-high-availability-linux.md
       maintainContext: true
     - name: Upgrade HDInsight cluster to newer version
