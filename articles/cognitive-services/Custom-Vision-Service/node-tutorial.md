@@ -124,7 +124,7 @@ This code creates the first iteration in the project and marks it as the default
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
 ```javascript
-     const predictor = new PredictionApiClient(predictionKey, endPoint);
+    const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
     const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id });
