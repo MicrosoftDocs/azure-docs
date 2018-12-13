@@ -10,10 +10,10 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ---
 
-# Service and tools for data migration
+# Services and tools available for data migration scenarios
 
 This article provides a matrix of the Microsoft and third-party services and tools available to assist you with various database and data migration scenarios and specialty tasks.
 

@@ -224,7 +224,7 @@ Then select the options for where you want to send diagnostic data:
 ## Set up alerts for your logic app
 
 To monitor specific metrics or exceeded thresholds for your logic app, 
-set up [alerts in Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
+set up [alerts in Azure](../azure-monitor/platform/alerts-overview.md). 
 Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 To set up alerts without 
