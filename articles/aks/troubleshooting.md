@@ -67,17 +67,25 @@ It is possible that you are getting this error because you have modified the tag
 
 ### How do I renew the service principal secret on my AKS cluster?
 
-By default, AKS clusters are created with a service principal that has a one year expiration time. As you near the one year expiration date, you can reset the credentials to extend the service principal for an additional period of time. Use the [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command, and provide the name of your service principal ID.
+By default, AKS clusters are created with a service principal that has a one year expiration time. As you near the one year expiration date, you can reset the credentials to extend the service principal for an additional period of time.
 
-The following example first gets the service principal ID of your cluster using the [az aks show](/cli/azure/aks#az-aks-show) command. Provide your own `<secret>` password to use, and then set an expiration time:
+The following example performs the following steps:
+
+1. Gets the service principal ID of your cluster using the [az aks show](/cli/azure/aks#az-aks-show) command.
+1. Lists the service principal client secret using the [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. Extends the service principal for another one year using the [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command. The service principal client secret must remain the same for the AKS cluster to run correctly.
 
 ```azurecli
-# Get the service principal ID of your cluster
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
 
-# Reset the credentials for your AKS service principal
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
 az ad sp credential reset \
     --name $sp_id \
-    --password <secret> \
+    --password $key_secret \
     --years 1
 ```
