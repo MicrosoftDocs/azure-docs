@@ -112,7 +112,6 @@ For more information on the Application Insights data model, see [data model](ap
 
 See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
-
 ## Telemetry correlation in .NET
 
 Over time .NET defined number of ways to correlate telemetry and diagnostics logs. There is `System.Diagnostics.CorrelationManager` allowing to track [LogicalOperationStack and ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` and Windows ETW define the method [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` uses [Log Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF and Http wire up "current" context propagation.
@@ -133,7 +132,7 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 ## Telemetry correlation in the Java SDK
 The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
 
-Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) is not supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) isn't supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
 ## Role Name
@@ -162,7 +161,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 ## Next steps
 
 - [Write custom telemetry](app-insights-api-custom-events-metrics.md)
-- [Learn more about](app-insights-app-map.md#set-cloud-rolename) setting cloud_RoleName for other SDKs.
+- [Learn more about](app-insights-app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
