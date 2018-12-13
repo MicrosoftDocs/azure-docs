@@ -53,8 +53,6 @@ or
 
 * MXF, GXF, and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
 
-Support for explicit/user-supplied channel mapping will be provided in the near future.
-
 ## Input video codecs
 | Input video codecs | Supported |
 | --- | --- | --- | --- |
