@@ -140,12 +140,12 @@ Take the following steps to cable your device for power and network.
 
 ## Next steps
 
-In this tutorial, you learned about Data Box Edge topics such as:
+In this tutorial, you learned about Data Box Edge topics such as how to:
 
 > [!div class="checklist"]
-> * Unpacking the device
-> * Racking the device
-> * Cabling the device
+> * Unpack the device
+> * Rack the device
+> * Cable the device
 
 Advance to the next tutorial to learn how to connect, set up, and activate your device.
 
