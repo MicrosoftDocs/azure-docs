@@ -43,7 +43,7 @@ If you wish to test a health probe failure or mark down an individual instance, 
 
 For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe targeting a TCP, HTTP, or HTTPS listener to reflect the health of your UDP application.
 
-Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling [TCP timestamps](#limitations) will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking the respective endpoint down.
+Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling [TCP timestamps](#limitations) will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.
 
 ## <a name="types"></a>Probe types
 
