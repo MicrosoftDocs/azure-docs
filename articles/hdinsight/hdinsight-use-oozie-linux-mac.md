@@ -10,28 +10,28 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
 ---
-# Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight
+# Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Learn how to use Apache Oozie with Hadoop on Azure HDInsight. Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
+Learn how to use Apache Oozie with Apache Hadoop on Azure HDInsight. Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 
-* Apache MapReduce
+* Apache Hadoop MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
-> [!NOTE]
-> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive]. To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> [!NOTE]  
+> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Apache Pig and Apache Hive with Data Factory][azure-data-factory-pig-hive]. To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## Prerequisites
 
 * **A regular HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Example workflow
@@ -48,9 +48,9 @@ The workflow used in this document contains two actions. Actions are definitions
 
     The Hive script used in this document counts the total visits for each platform, such as Android or iPhone, and stores the counts to a new Hive table.
 
-    For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
+    For more information about Hive, see [Use Apache Hive with HDInsight][hdinsight-use-hive].
 
-2. A Sqoop action exports the contents of the new Hive table to a table created in Azure SQL Database. For more information about Sqoop, see [Use Hadoop Sqoop with HDInsight][hdinsight-use-sqoop].
+2. A Sqoop action exports the contents of the new Hive table to a table created in Azure SQL Database. For more information about Sqoop, see [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
 > For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight][hdinsight-versions].
@@ -84,7 +84,7 @@ Oozie expects you to store all the resources required for a job in the same dire
 
     Replace `username` with your SSH user name.
 
-    > [!NOTE]
+    > [!NOTE]  
     > You can ignore errors that indicate the user is already a member of the `users` group.
 
 ## Add a database driver
@@ -95,7 +95,7 @@ Because this workflow uses Sqoop to export data to the SQL database, you must pr
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > You may receive a message that the file already exists.
 
 If your workflow used other resources, such as a jar that contains a MapReduce application, you need to add those resources as well.
@@ -226,7 +226,7 @@ To create a SQL database, follow the steps in the [Create a SQL database](../sql
 
 ### Create the table
 
-> [!NOTE]
+> [!NOTE]  
 > There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
 
@@ -294,7 +294,7 @@ The job definition describes where to find the workflow.xml. It also describes w
     <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Store is used instead, it begins with `adl://`.
 
     Save the contents of the `<value>` element, as it's used in the next steps.
@@ -370,7 +370,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
    * Replace all instances of `wasb://mycontainer@mystorageaccount.blob.core.windows.net` with the value you received earlier for the default storage.
 
-     > [!WARNING]
+     > [!WARNING]  
      > If the path is a `wasb` path, you must use the full path. Do not shorten it to just `wasb:///`.
 
    * Replace `YourName` with your login name for the HDInsight cluster.
@@ -378,7 +378,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
      Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files, such as `${nameNode}`.
 
-     > [!NOTE]
+     > [!NOTE]  
      > The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
 
 5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
@@ -387,7 +387,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
 The following steps use the Oozie command to submit and manage Oozie workflows on the cluster. The Oozie command is a friendly interface over the [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > When you use the Oozie command, you must use the FQDN for the HDInsight head node. This FQDN is only accessible from the cluster, or if the cluster is on an Azure virtual network, from other machines on the same network.
 
 
@@ -429,7 +429,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
     oozie job -info <JOBID>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Replace `<JOBID>` with the ID returned in the previous step.
 
     This returns information like the following text:
@@ -457,7 +457,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
     oozie job -start JOBID
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Replace `<JOBID>` with the ID returned previously.
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.
@@ -486,7 +486,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
         Windows Phone   1791
         (6 rows affected)
 
-For more information on the Oozie command, see [Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+For more information on the Oozie command, see [Apache Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ## Oozie REST API
 
@@ -500,7 +500,7 @@ With the Oozie REST API, you can build your own tools that work with Oozie. The 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-For more information on how to use the Oozie REST API, see [Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+For more information on how to use the Oozie REST API, see [Apache Oozie Web Services API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ## Oozie web UI
 
@@ -654,7 +654,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
     ![Coordinator Job Info](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > This image only shows successful runs of the job, not the individual actions within the scheduled workflow. To see the individual actions, select one of the **Action** entries.
 
     ![Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
@@ -693,7 +693,7 @@ The following are specific errors you might encounter and how to resolve them.
 
     sudo adduser USERNAME users
 
-> [!NOTE]
+> [!NOTE]  
 > It can take several minutes before HDInsight recognizes that the user has been added to the group.
 
 ### Launcher ERROR (Sqoop)
@@ -724,11 +724,11 @@ For example, for the job in this document, you would use the following steps:
 
 In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
 
-* [Use the time-based Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
-* [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data]
-* [Use Sqoop with Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
-* [Use Pig with Hadoop on HDInsight][hdinsight-use-pig]
+* [Use the time-based Apache Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
+* [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
+* [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]
+* [Use Apache Hive with Apache Hadoop on HDInsight][hdinsight-use-hive]
+* [Use Apache Pig with Apache Hadoop on HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
