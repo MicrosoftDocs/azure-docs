@@ -20,8 +20,6 @@
 
 - name: Tutorials
   items:
-  - name: Define security policies
-    href: tutorial-security-policy.md
   - name: Protect your resources
     href: tutorial-protect-resources.md
   - name: Respond to incidents
@@ -44,8 +42,8 @@
     href: security-center-wdatp.md
   - name: Protect App Service
     href: security-center-app-services.md
-  - name: View security policies
-    href: security-center-azure-policy.md
+  - name: Working with security policies
+    href: tutorial-security-policy.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
   - name: Security Center settings

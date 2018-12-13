@@ -169,6 +169,8 @@
       href: backup-dpm-automation.md
     - name: Windows Server in Azure portal
       href: backup-client-automation.md
+    - name: Azure File shares in Azure portal
+      href: backup-azure-afs-automation.md
   - name: Use Azure Backup REST API
     items:
     - name: Create Recovery Services vault

@@ -1,5 +1,5 @@
 ---
-title: Create a Node.js web app in Azure | Microsoft Docs
+title: Create Node.js web app - Azure App Service | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
+ms.custom: seodec18
+
 ---
 # Create a Node.js web app in Azure
 
@@ -114,10 +116,10 @@ Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp l
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
+Browse to your newly created web app. Replace `<app_name>` with a unique app name.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 Here is what your new web app should look like:
