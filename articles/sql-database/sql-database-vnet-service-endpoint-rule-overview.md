@@ -1,5 +1,5 @@
 ---
-title: "Virtual Network service endpoints and rules for Azure SQL Database | Microsoft Docs"
+title: "Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse | Microsoft Docs"
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
@@ -11,9 +11,9 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 12/13/2018
 ---
-# Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
+# Use Virtual Network service endpoints and rules for Azure SQL
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
 
