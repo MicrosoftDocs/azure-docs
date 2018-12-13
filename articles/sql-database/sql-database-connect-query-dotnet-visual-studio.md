@@ -1,6 +1,6 @@
 ---
-title: Use Visual Studio and C# to query Azure SQL Database | Microsoft Docs
-description: Use Visual Studio to create a C# app that connects to an Azure SQL Database and queries it using Transact-SQL statements.
+title: Use Visual Studio, .NET Framework, and C# to query Azure SQL Database | Microsoft Docs
+description: Use Visual Studio to create a C# app that connects to an Azure SQL Database and queries it with Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,16 +13,19 @@ ms.reviewer:
 manager: craigg
 ms.date: 12/11/2018
 ---
-# Quickstart: Use .NET (C#) with Visual Studio to connect and query an Azure SQL database
+# Quickstart: Use .NET and C# with Visual Studio to connect to and query an Azure SQL database
 
-This quickstart demonstrates how to use the [.NET framework](https://www.microsoft.com/net/) in Visual Studio to connect to and query an Azure SQL database with Transact-SQL statements.
+This quickstart shows how to use the [.NET framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL database with Transact-SQL statements.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
+  
+  >[!IMPORTANT]
+  >The code in this article uses the sample AdventureWorksLT data. To get this data, select **Sample (AdventureWorksLT)** under **Select source** when creating your database. 
+  
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) to allow the public IP address of the computer you use.
   
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
@@ -38,10 +41,8 @@ To complete this quickstart, you need:
 1. In the **New Project** dialog, select **Visual C#**, and then select **Console App (.NET Framework)**.
    
 1. Enter *sqltest* for the project name, and then select **OK**. The new project is created. 
-
-opens in **Solution Explorer**.
    
-1. In **Solution Explorer**, right-click **sqltest** and select **Manage NuGet Packages**. 
+1. Select **Project** > **Manage NuGet Packages**. 
    
 1. In **NuGet Package Manager**, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
    
@@ -49,12 +50,9 @@ opens in **Solution Explorer**.
    - If prompted, select **OK** to continue with the installation. 
    - If a **License Acceptance** window appears, select **I Accept**.
    
-1. When the install completes, you can close the NuGet pane. 
+1. When the install completes, you can close **NuGet Package Manager**. 
    
-   > [!TIP]
-   > You can also connect an Azure SQL database to Visual Studio from the Azure portal. On the SQL database **Overview** toolbar, select **Connect with** > **Visual Studio**, and then select **Open in Visual Studio**. In this case, you do not need to manually install the NuGet package. 
-
-1. In the Visual Studio project, replace the contents of **Program.cs** with the following code. Substitute the appropriate values for your \<server>, \<username>, \<password>, and \<database>.
+1. In the code editor, replace the **Program.cs** contents with the following code. Substitute your values for `<server>`, `<username>`, `<password>`, and `<database>`.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
@@ -115,7 +113,7 @@ namespace sqltest
 
 ## Run the code
 
-1. In your Visual Studio project, select **Debug** > **Start Debugging**, select **Start** on the toolbar, or press **F5** to run the app.
+1. In your Visual Studio project, select **Debug** > **Start Debugging**, or select **Start** on the toolbar, or press **F5** to run the app.
 2. Verify that the top 20 Category/Product rows from your database are returned, and then close the app window.
 
 ## Next steps
