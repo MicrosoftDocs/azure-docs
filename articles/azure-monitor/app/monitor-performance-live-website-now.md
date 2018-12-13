@@ -95,6 +95,21 @@ Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\Po
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
+### Could not load file or assembly 'System.Diagnostics.DiagnosticSource'
+
+You may get this error after enabling Applicatio Insights. This is because the installer replaces this dll in your bin directory.
+To fix update your web.config:
+
+```
+<dependentAssembly>
+    <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
+    <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>
+</dependentAssembly>
+```
+
+We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+
+
 ### Application diagnostic messages
 
 * Open Status Monitor and select your application on left pane. Check if there are any diagnostics messages for this application in the "Configuration notifications" section:
