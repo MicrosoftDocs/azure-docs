@@ -129,7 +129,7 @@ An HTTP / HTTPS probe fails when:
 
 ### <a name="guestagent"></a>Guest agent probe (Classic only)
 
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   You should consider this an option of last resort.  You should always define a health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
+Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   This is an option of last resort.  Always define a health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
 
 A guest agent probe is a check of the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
 
