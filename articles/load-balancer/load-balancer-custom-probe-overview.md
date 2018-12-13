@@ -64,7 +64,7 @@ Health probe protocol and probe port are independent.  For example, HTTP operate
 
 ### <a name="tcpprobe"></a> TCP probe
 
-TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  This is then followed by a four-way close TCP handshake.
+TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port and closed with a four-way close TCP handshake.
 
 The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration cannot exceed 120 seconds.
 
