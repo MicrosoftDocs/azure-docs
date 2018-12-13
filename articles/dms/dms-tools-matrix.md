@@ -36,8 +36,8 @@ The following tables identify the service and tools that you can use to plan suc
 | Oracle | Azure DB for PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |  |
 | Cassandra | Cosmos DB |  |  |  |
-| MySQL | Azure DB for MySQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | MySQL | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/) | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
+| MySQL | Azure DB for MySQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS MySQL | Azure DB for MySQL |  |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | PostgreSQL | Azure DB for PostgreSQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS PostgreSQL | Azure DB for PostgreSQL |  |  | [TCO Calculator](https://azure.microsoft.com/pricing/tco/calculator/) |
@@ -60,8 +60,8 @@ The following tables identify the service and tools that you can use to plan suc
 | Oracle | Azure DB for PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB |  | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |  |  |
-| MySQL | Azure DB for MySQL |  |  |  |
 | MySQL | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/) |  |
+| MySQL | Azure DB for MySQL |  |  |  |
 | RDS MySQL | Azure DB for MySQL |  |  |  |
 | PostgreSQL | Azure DB for PostgreSQL |  |  |  |
 | RDS PostgreSQL | Azure DB for PostgreSQL |  |  |  |
@@ -84,8 +84,8 @@ The following tables identify the service and tools that you can use to plan suc
 | Oracle | Azure DB for PostgreSQL |  |  |  |
 | MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Imanis Data*](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Imanis Data*](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Cloudamize*](https://www.cloudamize.com/)<br/>[Imanis Data*](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Cassandra | Cosmos DB | [Imanis Data*](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis Data*](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis Data*](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) |
-| MySQL | Azure DB for MySQL | [MySQL dump*](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| MySQL | Azure DB for MySQL | [MySQL dump*](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS MySQL | Azure DB for MySQL | [MySQL dump*](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | PostgreSQL | Azure DB for PostgreSQL | [PG dump*](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS PostgreSQL | Azure DB for PostgreSQL | [PG dump*](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -108,8 +108,8 @@ The following tables identify the service and tools that you can use to plan suc
 | Oracle | Azure DB for PostgreSQL |  |
 | MongoDB | Cosmos DB | [Cloudamize*](https://www.cloudamize.com/) |
 | Cassandra | Cosmos DB |  |
-| MySQL | Azure DB for MySQL |  |
 | MySQL | Azure SQL DB, MI, VM |  |
+| MySQL | Azure DB for MySQL |  |
 | RDS MySQL | Azure DB for MySQL |  |
 | PostgreSQL | Azure DB for PostgreSQL |  |
 | RDS PostgreSQL | Azure DB for PostgreSQL |  |
