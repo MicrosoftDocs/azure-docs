@@ -80,7 +80,7 @@ sections:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href:
-        - href:
+        - href: quickstart-js-node
         - href:
         - href:
       - title: Windows 10 (x86)
@@ -92,7 +92,7 @@ sections:
         - href:
         - href:
         - href:
-        - href:
+        - href: quickstart-js-node
         - href:
         - href:
       - title: Linux (x64)
@@ -104,7 +104,7 @@ sections:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href:
-        - href:
+        - href: quickstart-js-node
         - href:
         - href:
       - title: Linux (x86)
@@ -116,7 +116,7 @@ sections:
         - href:
         - href:
         - href:
-        - href:
+        - href: quickstart-js-node
         - href:
         - href:
       - title: Android (ARM32/ARM64)
@@ -176,10 +176,10 @@ sections:
         - href:
         - href: quickstart-python
         - href:
+        - href: quickstart-js-node
         - href:
         - href:
-        - href:
-      - title: Web
+      - title: Browser
         values:
         - href:
         - href:
