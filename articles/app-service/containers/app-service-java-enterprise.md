@@ -111,6 +111,6 @@ By default, web sockets are enabled on App Service. To get started with WebSocke
 App Service provides tools to help you troubleshoot problems with your application.
 
 -	Turn on logging by clicking **Diagnostic Logs** in the left-hand navigation pane. Click **File System** to set your storage quota and retention period, and save your changes. You can find these logs under `/home/LogFiles/`.
--	[Use SSH to connect to the application instance](/app-service-linux-ssh-support) to view logs for running applications.
+-	[Use SSH to connect to the application instance](app-service-linux-ssh-support.md) to view logs for running applications.
 -	Check diagnostic logs in the **Diagnostic Logs** panel of the Portal, or by using the Azure CLI command:
 ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
