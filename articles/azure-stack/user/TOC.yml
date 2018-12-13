@@ -35,8 +35,6 @@
         href: azure-stack-solution-hybrid-identity.md
       - name: Configure hybrid cloud connectivity
         href: azure-stack-solution-hybrid-connectivity.md
-      - name: Create an edge machine learning solution
-        href: azure-stack-solution-machine-learning.md
       - name: Create a staged data analytics solution
         href: azure-stack-solution-staged-data-analytics.md
       - name: Create cross-cloud scaling solutions with Azure

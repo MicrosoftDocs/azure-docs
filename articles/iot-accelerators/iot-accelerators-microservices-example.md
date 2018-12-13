@@ -67,8 +67,14 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
  "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. To build your new docker image, type
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    or on Windows:
+    
+    ```
+    ./build.cmd
     ```
 
 7. To verify your new image was successfully created, type
