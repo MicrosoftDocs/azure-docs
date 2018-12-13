@@ -99,7 +99,7 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 Enabling Javascript via App Services can cause html responses to be cut off.
 
 - Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
-- Workaround 2: add sdk via code and remove extension (Note that Profiler and Snapshot debugger won't with this configuration)
+- Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't with this configuration)
 
 We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
 
