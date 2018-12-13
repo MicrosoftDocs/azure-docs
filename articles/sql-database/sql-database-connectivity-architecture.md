@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database connectivity architecture | Microsoft Docs
-description: This document explains the Azure SQL Database connectivity architecture from within Azure or from outside of Azure.
+title: Directing Azure traffic to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
+description: This document explains the Azure SQL Database and SQL Data Warehouse connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,9 +13,9 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
 ---
-# Azure SQL Database Connectivity Architecture
+# Azure SQL Connectivity Architecture
 
-This article explains the Azure SQL Database connectivity architecture as well as how the different components function to direct traffic to your instance of Azure SQL Database. These Azure SQL Database connectivity components function to direct network traffic to the Azure database with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
+This article explains the Azure SQL Database and SQL Data Warehouse connectivity architecture as well as how the different components function to direct traffic to your instance of Azure SQL. These connectivity components function to direct network traffic to the Azure SQL Database or SQL Data Warehouse with clients connecting from within Azure and with clients connecting from outside of Azure. This article also provides script samples to change how connectivity occurs, and the considerations related to changing the default connectivity settings.
 
 > [!IMPORTANT]
 > **[Upcoming change] For service endpoint connections to Azure SQL servers, a `Default` connectivity behavior changes to `Redirect`.**
@@ -31,6 +31,9 @@ This article explains the Azure SQL Database connectivity architecture as well a
 > - Automated deployment logic creates a logical server assuming that the default behavior for service endpoint connections is `Proxy` 
 >
 > If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open VM firewall rules and Network Security Groups (NSG) to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags). If this is not an option for you, switch server explicitly to `Proxy`.
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 ## Connectivity architecture
 
