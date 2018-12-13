@@ -82,7 +82,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 
 **Custom metrics** are metrics that you define in addition to the standard metric that are automatically available. Custom metrics must be created against a single resource in the same region as that resource. You can create custom metrics using the following methods:
     - [Define custom metrics in your application](../../application-insights/app-insights-api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
-    - Publish custom metrics from your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../../monitoring-and-diagnostics/azure-diagnostics.md).
+    - Publish custom metrics from your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publish custom metrics from your Linux virtual machines using [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
     - Write custom metrics from an Azure service using the custom metrics API.
     
