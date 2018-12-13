@@ -65,4 +65,19 @@ Make sure that the default NSG is not modified and port 22 is open for connectio
 
 It is possible that you are getting this error because you have modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* in the AKS cluster breaks the SLO.
 
+### How do I renew the service principal secret on my AKS cluster?
 
+By default, AKS clusters are created with a service principal that has a one year expiration time. As you near the one year expiration date, you can reset the credentials to extend the service principal for an additional period of time. Use the [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command, and provide the name of your service principal ID.
+
+The following example first gets the service principal ID of your cluster using the [az aks show](/cli/azure/aks#az-aks-show) command. Provide your own `<secret>` password to use, and then set an expiration time:
+
+```azurecli
+# Get the service principal ID of your cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+
+# Reset the credentials for your AKS service principal
+az ad sp credential reset \
+    --name $sp_id \
+    --password <secret> \
+    --years 1
+```
