@@ -5,15 +5,12 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-
 ---
 
 # Sources of data in Azure Monitor

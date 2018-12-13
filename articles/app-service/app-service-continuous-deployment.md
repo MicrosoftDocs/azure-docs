@@ -1,5 +1,5 @@
 ---
-title: Continuous deployment to Azure App Service | Microsoft Docs
+title: Continuous deployment - Azure App Service | Microsoft Docs
 description: Learn how to enable continuous deployment to Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
+ms.custom: seodec18
 
 ---
 # Continuous deployment to Azure App Service
@@ -144,9 +145,9 @@ In the left menu, click **Deployment Center** > **GitHub** or **Azure DevOps Ser
 
 [Azure portal]: https://portal.azure.com
 [Azure DevOps portal]: https://azure.microsoft.com/services/devops/
-[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Installing Git]: https://git-scm.com/book/en/Getting-Started-Installing-Git
 [How to use PowerShell for Azure]: /powershell/azureps-cmdlets-docs
-[Git Documentation]: http://git-scm.com/documentation
+[Git Documentation]: https://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html

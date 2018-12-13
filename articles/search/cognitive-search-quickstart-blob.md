@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs'
+title: 'Quickstart:Cognitive search pipeline in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 
@@ -42,7 +43,10 @@ You can try out cognitive search in an Azure Search service created in the follo
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## Prerequisites
 
@@ -61,7 +65,7 @@ First, sign up for the Azure Search service.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time and you need more help.
 
-  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Create Azure Search service in the portal")
+  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
 
 1. For Resource group, create a resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
 
@@ -71,12 +75,14 @@ First, sign up for the Azure Search service.
 
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
   > [!NOTE]
-  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
+  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-services.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Service definition page in the portal")
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
 
 ### Set up Azure Blob service and load sample data
 
@@ -98,7 +104,7 @@ Go back to the Azure Search service dashboard page and click **Import data** on 
 
 In **Connect to your data** > **Azure Blob storage**, select the account and container you created. Give the data source a name, and use default values for the rest. 
 
-   ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Click **OK** to create the data source.

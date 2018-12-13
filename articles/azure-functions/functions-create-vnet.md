@@ -28,7 +28,7 @@ Wordpress on a VM was chosen because it is one of the least expensive resources 
 
 1.	Go to the Azure portal
 2.	Add a new resource by opening the “Create a resource” blade
-3.	Search for “[Wordpress LEMP7 Max Performance on CentOS](http://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)” and open its creation blade 
+3.	Search for “[Wordpress LEMP7 Max Performance on CentOS](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)” and open its creation blade 
 4.	In the creation blade configure the VM with the following information:
     1.	Create a new resource group for this VM to make cleaning up the resources easier at the end of the tutorial. I named my Resource Group “Function-VNET-Tutorial”
     1.	Give the virtual machine a unique name. I named mine “VNET-Wordpress”
@@ -115,7 +115,7 @@ Your Function App is connected to both the Internet and your VNET. The proxy is 
 Azure Functions running on App Service plans are running on the same service as web apps, so all of the documnention for Web Apps will apply to dedicated Functions.
 
 1. [Learn more about VNET integration with App Service / Functions here](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Learn more about VNETs in Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
+1. [Learn more about VNETs in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
 1. [Enable for networking features and control with App Service Environments](https://docs.microsoft.com/azure/app-service/environment/intro)
 1. [Connect to individual on-premises resources without firewall changes using Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 1. [Learn more about Function Proxies](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)

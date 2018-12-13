@@ -34,7 +34,7 @@ Here are some of the things you can do with diagnostic logs:
 
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
+* Analyze them with [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Log Analytics with no need to first write the data to storage.  
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
@@ -57,7 +57,7 @@ Resource diagnostic logs are configured using resource diagnostic settings. Tena
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
-These settings are easily configured via the diagnostic settings in the portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
+These settings are easily configured from the diagnostic settings in the portal, with Azure PowerShell and CLI commands, or using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.

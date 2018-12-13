@@ -1,12 +1,12 @@
 ---
-title: Cortana Intelligence Competitions FAQ | Microsoft Docs
+title: Cortana Intelligence Competitions FAQ - Azure Machine Learning Studio | Microsoft Docs
 description: Frequently asked questions about Microsoft Cortana Intelligence Competitions.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
+
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -65,7 +65,7 @@ The competition platform currently doesn't support team participation. Each comp
 
 Competitions are free to participate in. You do, however, need access to an Azure Machine Learning workspace to participate. You can create a Free workspace without a credit card by simply logging in with a valid Microsoft account, or an Office 365 account. If you're already an Azure or Cortana Intelligence Suite customer, you can create and use a Standard workspace under the same Azure subscription. If you'd like to purchase an Azure subscription, go to the [Azure pricing](https://azure.microsoft.com/pricing) page. Note that the standard rates will apply when using a Standard workspace to construct experiments. For more information, see [Azure Machine Learning pricing information](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **What are public and private scores?**
 
