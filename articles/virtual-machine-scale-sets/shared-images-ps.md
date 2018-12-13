@@ -55,7 +55,7 @@ Create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azu
 
 ```azurepowershell-interactive
 New-AzureRmVmss `
-  -ResourceGroupName myResourceGroup `
+  -ResourceGroupName myVMSSRG `
   -Location 'South Central US' `
   -VMScaleSetName 'myScaleSet' `
   -VirtualNetworkName 'myVnet' `
@@ -77,6 +77,7 @@ When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myGalleryRG
+Remove-AzureRmResourceGroup -Name myVMSSRG
 ```
 
 
