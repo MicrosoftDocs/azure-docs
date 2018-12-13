@@ -56,7 +56,7 @@ import(
     "log"
     "time"
     "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.2/customvision/training"
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/customvision/prediction"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction"
 )
 
 var (
