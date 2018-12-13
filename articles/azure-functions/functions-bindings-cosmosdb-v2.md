@@ -113,7 +113,7 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```cs
-    #r "Microsoft.Azure.Documents.Client"
+    #r "Microsoft.Azure.DocumentDB.Core"
 
     using System;
     using Microsoft.Azure.Documents;
