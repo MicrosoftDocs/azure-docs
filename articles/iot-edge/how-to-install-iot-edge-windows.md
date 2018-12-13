@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. 
 
-To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+To learn more about the IoT Edge runtime, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. Windows support is currently in Preview.
 
@@ -28,11 +28,18 @@ Using Linux containers on Windows sytems is not a recommended or supported produ
 Use this section to review whether your Windows device can support IoT Edge, and to prepare it for a container engine before installation. 
 
 ### Supported Windows versions
-The latest version of Azure IoT Edge can run on the following versions of Windows:
-  * Windows 10/IoT Enterprise/IoT Core with October 2018 update (Build 17663).
-  * Windows Server 2016 or newer
 
-For more information about which operating systems are currently supported, refer to [Azure IoT Edge support](support.md#operating-systems). 
+Azure IoT Edge supports different versions of Windows, depending on whether you're running Windows containers or Linux containers. 
+
+The latest version of Azure IoT Edge with Windows containers can run on the following versions of Windows:
+* Windows 10 or IoT Core with October 2018 update (build 17763)
+* Windows Server 2019 (build 17763)
+
+The latest version of Azure IoT Edge with Linux containers can run on the following versions of Windows: 
+* Windows 10 Anniversary update (build 14393) or newer
+* Windows Server 2016 or newer
+
+For more information about which operating systems are currently supported, see [Azure IoT Edge support](support.md#operating-systems). 
 
 For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
@@ -50,9 +57,9 @@ For Windows devices running IoT Edge in production scenarios, Moby is the only o
 
 #### Docker for Linux containers
 
-If you're using a Windows device to develop and test containers that will be deployed on Linux devices, you can use [Docker for Windows](https://www.docker.com/docker-windows) as your container engine. Docker can be configured to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). You need to install Docker and configure it before installing IoT Edge. Linux containers are not supported on Windows devices in production. 
+If you're using Windows to develop and test containers for Linux devices, you can use [Docker for Windows](https://www.docker.com/docker-windows) as your container engine. Docker can be configured to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). You need to install Docker and configure it before installing IoT Edge. Linux containers are not supported on Windows devices in production. 
 
-If your IoT Edge device is a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V. If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
+If your IoT Edge device is a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V. If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2-GB memory.
 
 ## Install IoT Edge on a new device
 
@@ -132,7 +139,7 @@ You can't declare an IoT Edge agent container image with script parameters, beca
 
 For more information about these installation options, continue reading this article or skip to learn about [All installation parameters](#all-installation-parameters).
 
-## Install without internet
+## Offline installation
 
 During installation four files are downloaded: 
 * IoT Edge security daemon (iotedgd) zip 
@@ -140,7 +147,9 @@ During installation four files are downloaded:
 * Moby CLI zip
 * Visual C++ redistributable package (VC runtime) msi
 
-You can download one or all of these files ahead of time to the device, then point the installation script at the directory that contains the files. The installer checks the directory first, and then only downloads components that aren't found. If all four files are available offline, you can have a completely offline installation. You can also use this feature to override the online versions of one or more component.  
+You can download one or all of these files ahead of time to the device, then point the installation script at the directory that contains the files. The installer checks the directory first, and then only downloads components that aren't found. If all four files are available offline, you can install with no internet connection. You can also use this feature to override the online versions of one or more components.  
+
+For the latest installation files along with previous versions, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases)
 
 To install with offline components, use the `-OfflineInstallationPath` parameter and provide the absolute path to the file directory. For example,
 
@@ -157,13 +166,13 @@ To install IoT Edge with an existing configuration, your installation command ca
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| **Manual** | None | **Switch parameter**. Every installation must be declared either manual, dps, or existingconfig.<br><br>Declares that you will provide a device connection string to provision the device manually |
+| **Manual** | None | **Switch parameter**. Every installation must be declared either manual, DPS, or existingconfig.<br><br>Declares that you will provide a device connection string to provision the device manually |
 | **Dps** | None | **Switch parameter**. Every installation must be declared either manual, DPS, or existingconfig.<br><br>Declares that you will provide a Device Provisioning Service (DPS) scope ID and your device's Registration ID to provision through DPS.  |
-| **ExistingConfig** | None | **Switch parameter**. Every installation must be declared either manual, dps, or existingconfig.<br><br>Declares that a config.yaml file already exists on the device with its provisioning information. |
-| **DeviceConnectionString** | **Required** for manual installation. A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | If you don't provide a connection string in the script parameters, you will be prompted for one during installation. |
+| **ExistingConfig** | None | **Switch parameter**. Every installation must be declared either manual, DPS, or existingconfig.<br><br>Declares that a config.yaml file already exists on the device with its provisioning information. |
+| **DeviceConnectionString** | A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | **Required** for manual installation. If you don't provide a connection string in the script parameters, you will be prompted for one during installation. |
 | **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required** for DPS installation. If you don't provide a scope ID in the script parameters, you will be prompted for one during installation. |
-| **RegistrationId** | A registration ID generated by your device | **Required** for DPS installation. If you don't provide a registration ID in the script parameters, you will be prompted for one during installtion. |
-| **ContainerOs** | **Windows** or **Linux** | If no container OS is specified, Linux is the default value. For Windows containers, a container engine will be included in the installation. For Linux containers, you need to install a container engine before starting the installation. Linux containers on Windows is a useful development scenario, but not supported in production. |
+| **RegistrationId** | A registration ID generated by your device | **Required** for DPS installation. If you don't provide a registration ID in the script parameters, you will be prompted for one during installation. |
+| **ContainerOs** | **Windows** or **Linux** | If no container OS is specified, Linux is the default value. For Windows containers, a container engine will be included in the installation. For Linux containers, you need to install a container engine before starting the installation. Running Linux containers on Windows is a useful development scenario, but not supported in production. |
 | **Proxy** | Proxy URL | Include this parameter if your device needs to go through a proxy server to reach the internet. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Hashtable of parameters and values | During installation, several web requests are made. Use this field to set parameters for those web requests. This parameter is useful to configure credentials for proxy servers. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Directory path | If this parameter is included, the installer will check the directory for the iotedged zip, Moby engine zip, Moby CLI zip, and VC Runtime MSI files required for installation. If all four files are in the directory, you can install IoT Edge while offline. You can also use this parameter to override the online version of a specific component. |
@@ -202,7 +211,7 @@ iotedge list
 
 ## Uninstall IoT Edge
 
-If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command remove the IoT Edge runtime, along with your existing configuration and the Moby engine data. 
+If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data. 
 
 ```PowerShell
 . {Invoke-WebRequest} -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -215,6 +224,6 @@ If you intend to reinstall IoT Edge on your device, leave out the `-DeleteConfig
 
 Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
-If you are having problems with the Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
+If you are having problems installing IoT Edge properly, check out the [troubleshooting](troubleshoot.md) page.
 
 To update an existing installation to the newest version of IoT Edge, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
