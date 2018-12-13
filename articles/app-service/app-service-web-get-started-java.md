@@ -1,5 +1,5 @@
 ---
-title: Create your first Java web app in Azure
+title: Create Java web app - Azure App Service
 description: Learn how to run web apps in App Service by deploying a basic Java app. 
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
+ms.custom: seodec18
+
 ---
 # Create your first Java web app in Azure
 

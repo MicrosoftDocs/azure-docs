@@ -90,7 +90,7 @@ If you have decided to use a separate Application Insights resource for each bui
 
 This has the effect of inserting your Application Insights instrumentation keys into the files named `ServiceConfiguration.*.cscfg`. ([Sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-If you want to vary the level of diagnostic information sent to Application Insights, you can do so [by editing the `.cscfg` files directly](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+If you want to vary the level of diagnostic information sent to Application Insights, you can do so [by editing the `.cscfg` files directly](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="sdk"></a>Install the SDK in each project
 This option adds the ability to add custom business telemetry to any role, for a closer analysis of how your application is used and performs.
@@ -227,7 +227,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Configure sending Azure Diagnostics to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Configure sending Azure Diagnostics to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automate creation of Application Insights resources](app-insights-powershell.md)
 * [Automate Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)

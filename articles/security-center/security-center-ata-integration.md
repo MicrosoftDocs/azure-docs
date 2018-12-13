@@ -64,7 +64,7 @@ Once you finish the installation, the integration is completed, and you will be 
 In this document, you learned how to connect Microsoft ATA to Security Center. To learn more about Security Center, see the following articles:
 
 * [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md)
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.

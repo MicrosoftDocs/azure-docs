@@ -8,7 +8,7 @@ editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
-ms.date: 5/04/2018
+ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/22/2018
+ms.date: 12/10/2018
 ---
 # SQL Database frequently asked questions (FAQ)
 
@@ -190,9 +190,9 @@ For example:
 > [!NOTE]
 > For a limited period, backup charges and IO charges are free of charge.
 
-## How does the use of active geo-replication in an elastic pool show up on my bill
+## How does the use of active geo-replication or auto-failover groups in an elastic pool show up on my bill
 
-Unlike single databases, using [active geo-replication](sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
+Unlike single databases, using [active geo-replication](sql-database-active-geo-replication.md) or [auto-failover groups](sql-database-auto-failover-group.md) with elastic databases doesn't have a direct billing impact. You are only charged for the resources provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill
 
