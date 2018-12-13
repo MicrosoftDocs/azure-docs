@@ -34,7 +34,7 @@ You can see the full application topology across multiple levels of related appl
 
 This experience starts with progressive discovery of the components. When you first load the application map, a set of queries are triggered to discover the components related to this component. A button at the top-left corner will update with the number of components in your application as they are discovered. 
 
-On clicking "Update map components", the map is refreshed with all components discovered until that point.
+On clicking "Update map components", the map is refreshed with all components discovered until that point. Depending on the complexity of your application, this may take a minute to load.
 
 If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
@@ -72,7 +72,7 @@ Select **go to details** to explore the end-to-end transaction experience, which
 
 ### View in Analytics
 
-To query and investigate your applications data further click **view in analytics**.
+To query and investigate your applications data further, click **view in analytics**.
 
 ![Screenshot of view in analytics button](media/app-insights-app-map/view-in-analytics.png)
 
@@ -88,7 +88,7 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ## Set cloud_RoleName
 
-Application Map uses the `cloud_RoleName` property to identify the components on the map.The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
+Application Map uses the `cloud_RoleName` property to identify the components on the map. The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
 
 ### .NET
 
@@ -126,7 +126,7 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-*Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
+An alternate method is to instantiate the initializer in code, for example in Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -162,11 +162,11 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### Java
 
-If you use Spring Boot with the Application Insights Spring Boot starter the only required change is to set the desired name of the application in application.properties file.
+If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
 `spring.application.name=<name-of-app>`
 
-The Spring Boot starter will automatically assign cloudRoleName to the value you enter for spring.application.name property.
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
 
 For further information on Java correlation and how to configure cloudRoleName for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
 
@@ -181,11 +181,11 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-For more information about how do override the `cloud_RoleName` property see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud_RoleName property with telemetry initializers, see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## Troubleshooting
 
-If you are having trouble getting Application Map to work as expected, try the following:
+If you're having trouble getting Application Map to work as expected, try these steps:
 
 1. Make sure you’re using an officially supported SDK. Unsupported/community SDKs might not support correlation.
 
@@ -195,7 +195,7 @@ If you are having trouble getting Application Map to work as expected, try the f
 
 3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Ensure [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) is correctly configured.
+4. Confirm [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) is correctly configured.
 
 ## Portal feedback
 To provide feedback, use the portal feedback option.

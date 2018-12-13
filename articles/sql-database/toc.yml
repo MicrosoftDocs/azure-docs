@@ -152,7 +152,7 @@
       href: sql-database-managed-instance-index.yml
     - name: Managed instance overview
       href: sql-database-managed-instance.md
-    - name: Create and manage
+    - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
