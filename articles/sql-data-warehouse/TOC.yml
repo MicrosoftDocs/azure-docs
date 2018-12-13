@@ -19,6 +19,8 @@
 - name: Release Notes
   href: release-notes.md
   items:
+    - name: December 2018 
+      href: release-notes-december-2018.md  
     - name: October 2018 
       href: release-notes-october-2018.md
     - name: September 2018 
