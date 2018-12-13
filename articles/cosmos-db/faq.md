@@ -1,19 +1,16 @@
 ---
-title: Azure Cosmos DB frequently asked questions | Microsoft Docs
+title: Frequently asked questions about different APIs in Azure Cosmos DB
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 ---
-# Azure Cosmos DB FAQ
-
-## Azure Cosmos DB fundamentals
+# Frequently asked questions about different APIs in Azure Cosmos DB
 
 ### What happened to the DocumentDB API?
 
@@ -74,7 +71,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 To ask a technical question, you can post to one of these two question and answer forums:
 
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -121,10 +118,6 @@ When you set a region, remember that Azure Cosmos DB respects sovereign and gove
 ### Is it possible to switch from container level throughput provisioning to database level throughput provisioning? Or vice versa
 
 Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
-
-### How do I create fixed collection with partition key
-
-Currently you can create collection with a partition key throughput by using the [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) method of .Net SDK or by using the [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Creating a fixed collection by using Azure portal isn't currently supported.
 
 ### Does Azure CosmosDB support time series analysis?
 
@@ -300,7 +293,7 @@ You can share your feedback in any of the following ways:
 
 * [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### What is the connection string that I need to use to connect to the Table API?
 
@@ -521,7 +514,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 
 ### For C#/.NET development, should I use the Microsoft.Azure.Graphs package or Gremlin.NET?
 
-Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](http://tinkerpop.apache.org/).
+Azure Cosmos DB Gremlin API leverages the open-source drivers as the main connectors for the service. So the recommended option is to use [drivers that are supported by Apache Tinkerpop](https://tinkerpop.apache.org/).
 
 ### How are RU/s charged when running queries on a graph database?
 
@@ -535,7 +528,7 @@ Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to aut
 
 ### How can I protect against injection attacks using Gremlin drivers?
 
-Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Most native Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
 

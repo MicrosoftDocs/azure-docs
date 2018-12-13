@@ -1,14 +1,14 @@
 ---
-title: 'Configure Azure ExpressRoute Global Reach using Azure CLI | Microsoft Docs'
+title: 'Configure ExpressRoute Global Reach: Azure CLI | Microsoft Docs'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
-documentationcenter: na
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 
@@ -52,22 +52,15 @@ You can enable ExpressRoute Global Reach between any two ExpressRoute circuits a
 
 ## Enable connectivity between your on-premises networks
 
-Run the following CLI to connect two ExpressRoute circuits.
+Run the following CLI to connect two ExpressRoute circuits. When running the command, consider the following:
 
-> [!NOTE]
-> *peer-circuit* should be the full resource ID, e.g.
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* *peer-circuit* should be the full resource ID, for example: `/subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}`
+
+* *-AddressPrefix* must be a /29 IPv4 subnet, e.g. "10.0.0.0/29". We will use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure VNets or in your on-premises networks.
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
-
-> [!IMPORTANT]
-> *-AddressPrefix* must be a /29 IPv4 subnet, e.g. "10.0.0.0/29". We will use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure VNets or in your on-premises networks.
-> 
 
 The CLI output looks like the following.
 

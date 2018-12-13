@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/06/2018
+ms.date: 12/10/2018
 ms.author: ryanwi
 ---
 
@@ -386,6 +386,11 @@ Defines the scaling trigger.
                             <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
+                    <xs:attribute name="UseOnlyPrimaryLoad" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>Use load of primary replica as average load of partition.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
                 </xs:complexType>
             </xs:element>
         </xs:choice>
@@ -468,6 +473,11 @@ Defines a scaling mechanism based on the average load of partitions of a service
                     <xs:attribute name="ScaleIntervalInSeconds" type="xs:string" use="required">
                         <xs:annotation>
                             <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="UseOnlyPrimaryLoad" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>Use load of primary replica as average load of partition.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>

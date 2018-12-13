@@ -14,6 +14,7 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
+ms.custom: seodec18
 ---
 
 # Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment
@@ -77,7 +78,7 @@ To create a Key Vault:
 
 1. Select the following image to sign in to Azure and open a template. The template creates a Key Vault and a Key Vault secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.  Don't select **Purchase** after you enter the values.
 

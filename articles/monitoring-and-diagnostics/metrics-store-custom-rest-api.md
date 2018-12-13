@@ -88,7 +88,7 @@ If you receive an error message with some part of the process, consider the foll
 1. You can't issue metrics against a subscription or resource group as your Azure resource. 
 1. You can't put a metric into the store that's over 20 minutes old. The metric store is optimized for alerting and real-time charting. 
 2. The number of dimension names should match the values and vice versa. Check the values. 
-2. You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](metrics-custom-overview.md#supported-regions). 
+2. You might be emitting metrics against a region that doesn’t support custom metrics. See [supported regions](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -112,4 +112,4 @@ If you receive an error message with some part of the process, consider the foll
 
  
 ## Next steps
-- Learn more about [custom metrics](metrics-custom-overview.md).
+- Learn more about [custom metrics](../azure-monitor/platform/metrics-custom-overview.md).

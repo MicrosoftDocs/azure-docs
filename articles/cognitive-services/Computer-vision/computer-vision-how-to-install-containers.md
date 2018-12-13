@@ -1,10 +1,11 @@
 ---
-title: How to install and run containers
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: Install and run containers
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
@@ -34,7 +35,7 @@ Docker must be configured to allow the containers to connect with and send billi
 
 For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
-### Server requirements and recommendations
+### Container requirements and recommendations
 
 The Recognize Text container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 8 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 8 GB of allocated memory.
 
@@ -157,7 +158,9 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Computer Vision containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
-* ** Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.  
+
+> [!IMPORTANT]
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 

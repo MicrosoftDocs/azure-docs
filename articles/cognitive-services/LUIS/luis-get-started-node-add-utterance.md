@@ -1,10 +1,11 @@
 ---
-title: Node.js Quickstart - change model and train LUIS app
+title: Change, train app, Node.js
 titleSuffix: Azure Cognitive Services
-description: In this Node.js quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
+description: In this Node.js quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
@@ -24,7 +25,7 @@ ms.author: diberry
 * NPM dependencies for this article: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## Example utterances JSON file
 
@@ -74,7 +75,7 @@ Run the application from a command-line with Node.js.
 
 Calling `npm start`adds the utterances, trains, and gets training status.
 
-```CMD
+```console
 > npm start 
 ```
 

@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
-ms.comopnent: 
 ---
 
 # IIS logs in Log Analytics
@@ -76,5 +73,5 @@ The following table provides different examples of log queries that retrieve IIS
 
 ## Next steps
 * Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
 * Configure alerts in Log Analytics to proactively notify you of important conditions found in IIS logs.

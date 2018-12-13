@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 9: Sentiment analysis including positive, negative, and neutral in LUIS"
+title: Sentiment analysis
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -92,7 +92,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 2. Toggle **Sentiment Analysis** to enable this setting. 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## Publish
 
@@ -104,7 +104,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 2. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {
