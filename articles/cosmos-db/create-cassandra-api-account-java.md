@@ -44,14 +44,14 @@ This tutorial covers the following tasks:
    |Setting   |Suggested value  |Description  |
    |---------|---------|---------|
    |ID   |   Enter a unique name    | Enter a unique name to identify this Azure Cosmos account. <br/><br/>Because cassandra.cosmosdb.azure.com is appended to the ID that you provide to create your contact point, use a unique but identifiable ID.         |
-   |API    |  Cassandra   |  The API determines the type of account to create. <br/> Select **Cassandra**, because in this article you will create a wide-column database that can be queried by using CQL syntax.  |
+   |API    |  Cassandra   |  The API determines the type of account to create. <br/> Select **Cassandra**, because in this article you will create a wide-column database that can be queried by using Cassandra Query Language (CQL) syntax.  |
    |Subscription    |  Your subscription        |  Select Azure subscription that you want to use for this Azure Cosmos account.        |
    |Resource Group   | Enter a name    |  Select **Create New**, and then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
    |Location    |  Select the region closest to your users    |  Select the geographic location in which to host your Azure Cosmos account. Use the location that's closest to your users, to give them the fastest access to the data.    |
 
    ![Create account with portal](./media/create-cassandra-api-account-java/create-account.png)
 
-4. Select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see the **Deployment succeeded** notification in the right corner of the portal.
+4. Select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see the **Deployment succeeded** notification on the right side of the portal.
 
 ## Get the connection details of your account  
 
@@ -98,13 +98,13 @@ Use the following steps to build the sample from scratch:
 
    Add the [CassandraUtils](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java) class to create the cluster and to open and close Cassandra sessions. The cluster connects to the Cassandra API account in Azure Cosmos DB and returns a session to access. Use the [Configurations](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/util/Configurations.java) class to read connection string information from the config.properties file. 
 
-5. The Java sample creates a database with user information such as user name, user ID, user city. You need to define get and set methods to access user details in the main function.
+5. The Java sample creates a database with user information such as user name, user ID, and user city. You need to define get and set methods to access user details in the main function.
  
    Create a [User.java](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/src/main/java/com/azure/cosmosdb/cassandra/User.java) class under the `src/main/java/com/azure/cosmosdb/cassandra/` folder with get and set methods. 
 
 ## Add a database and a table  
 
-This section describes how to add a database (keyspace) and a table, by using the Cassandra Query Language (CQL).
+This section describes how to add a database (keyspace) and a table, by using CQL.
 
 1. Under the `src\main\java\com\azure\cosmosdb\cassandra` folder, create a new folder named `repository`. 
 
