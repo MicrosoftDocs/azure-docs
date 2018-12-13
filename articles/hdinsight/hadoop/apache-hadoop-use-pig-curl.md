@@ -28,14 +28,14 @@ Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDIns
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [Curl](http://curl.haxx.se/)
+* [Curl](https://curl.haxx.se/)
 
-* [jq](http://stedolan.github.io/jq/)
+* [jq](https://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Run Pig jobs by using Curl
 
 > [!NOTE]
-> The REST API is secured via [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). Always make requests by using Secure HTTP (HTTPS) to ensure that your credentials are securely sent to the server.
+> The REST API is secured via [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Always make requests by using Secure HTTP (HTTPS) to ensure that your credentials are securely sent to the server.
 >
 > When using the commands in this section, replace `USERNAME` with the user to authenticate to the cluster, and replace `PASSWORD` with the password for the user account. Replace `CLUSTERNAME` with the name of your cluster.
 >

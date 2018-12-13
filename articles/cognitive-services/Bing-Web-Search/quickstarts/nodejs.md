@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Perform a search with Node.js - Bing Web Search API"
+title: "Quickstart: Perform a web search with Node.js - Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Node.js and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using Node.js, and receive a JSON response
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,10 +10,11 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
 ms.author: aahi
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
 ---
 
-# Quickstart: Use Node.js to call the Bing Web Search API  
+# Search the web using the Bing Web Search REST API and Node.js
 
 Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.
 
