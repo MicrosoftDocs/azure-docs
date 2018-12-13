@@ -61,7 +61,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     ``` 
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
-​
+
     If you ignore every warning and still choose to install the 1811 update, the update will fail with the following message:   
  
     ```shell
@@ -106,6 +106,8 @@ This update includes the following improvements for Azure Stack:
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
+
+- **Azure Stack PowerShell** has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For steps on updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
 - Managed Disks is now enabled by default when creating virtual machines using the 	Azure Stack portal.
 
