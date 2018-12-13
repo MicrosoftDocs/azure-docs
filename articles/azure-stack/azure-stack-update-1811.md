@@ -50,7 +50,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 - Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker).
+- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
@@ -107,9 +107,9 @@ This update includes the following improvements for Azure Stack:
 
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
 
-- Managed Disks is now enabled by default when creating virtual machines using Azure Stack portal.
+- Managed Disks is now enabled by default when creating virtual machines using the 	Azure Stack portal.
 
-- Extended data at rest encryption protection to include also all the infrastructure data stored on local volumes (i.e. not on cluster shared volumes). For more information, see [this article](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker)
+- Extended data at rest encryption protection to include all the infrastructure data stored on local volumes (not on cluster shared volumes). For more information, see [this article](azure-stack-security-bitlocker.md)
 
 ## Fixed issues
 
@@ -150,7 +150,7 @@ This update includes the following improvements for Azure Stack:
 - A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
 <!-- 3083238 IS -->
-- Security enhancements now include encryption of Azure Stack internal identity system. This results in an increase in the backup size of the identity role. Refer to [infrastructure backup documentaton](azure-stack-backup-reference.md#storage-location-sizing) for updated sizing guidance for the external storage location. This will result in a longer time to complete the backup due to the larger data transfer. This change impacts integrated systems. 
+- Security enhancements now include encryption of the Azure Stack internal identity system. This results in an increase in the backup size of the identity role. For updated sizing guidance for the external storage location, see the [infrastructure backup documentation](azure-stack-backup-reference.md#storage-location-sizing). This results in a longer time to complete the backup due to the larger size data transfer. This change impacts integrated systems. 
 
 ## Common Vulnerabilities and Exposures
 
@@ -278,7 +278,6 @@ The following are post-installation known issues for this build version.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
    
-
 ### Networking  
 
 <!-- 1766332 - IS ASDK --> 
