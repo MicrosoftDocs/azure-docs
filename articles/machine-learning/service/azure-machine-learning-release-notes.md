@@ -19,7 +19,7 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ## 2018-12-04: General Availability
 
-Azure Machine Learning service is now generally available.
+zure Machine Learning service is now generally available.
 
 ### Azure Machine Learning Compute
 With this release, we are announcing a new managed compute experience through [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute can be used for Training and Batch inferencing, is single- to multi-node compute, and does the cluster management and job scheduling for the user. It autoscales by default, has support for both CPU and GPU resources and also allows using Low-Priority VMs for reduced cost. It replaces Batch AI compute for Azure Machine Learning.
@@ -30,7 +30,6 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 > We recommend creating a new workspace to use Azure Machine Learning Compute. There is a remote chance that users trying to create Azure Machine Learning Compute from an existing workspace might see an error. Existing compute in your workspace should continue to work unaffected.
 
 ### Azure Machine Learning SDK for Python v1.0.2
-
 + **Breaking changes**
   + With this release, we are removing support for creating a VM from Azure Machine Learning. You can still attach an existing cloud VM or a remote on-premises server. 
   + We are also removing support for BatchAI, all of which should be supported through Azure Machine Learning Compute now.
@@ -51,7 +50,6 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 <!--+ **Bugs fixed**-->
 
 ### Azure Machine Learning Data Prep SDK v0.5.2
-
 + **Breaking changes** 
   * `SummaryFunction.N` was renamed to `SummaryFunction.Count`.
   
@@ -61,6 +59,9 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
   * to_spark_dataframe() will no longer crash when Spark uses Kryo serialization
   * Value Count Inspector can now show more than 1000 unique values
   * Random Split no longer fails if the original Dataflow doesn’t have a name  
+
++ **More information**
+  * [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py)
 
 ### Docs and notebooks
 + ML Pipelines
