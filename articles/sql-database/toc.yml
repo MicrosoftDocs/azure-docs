@@ -286,7 +286,7 @@
       href: elastic-jobs-overview.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Monitoring and performance tuning
+  - name: Monitoring and tuning
     items:
     - name: Monitoring and performance tuning
       href: sql-database-monitor-tune-overview.md
