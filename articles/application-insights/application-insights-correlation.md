@@ -77,7 +77,7 @@ We're transitioning to [W3C Distributed tracing format](https://w3c.github.io/tr
 #### Enable W3C distributed tracing support for ASP.NET Classic apps
 
 This feature is available in Microsoft.ApplicationInsights.Web and Microsoft.ApplicationInsights.DependencyCollector packages starting with version 2.8.0-beta1.
-It is **off** by default, to enable it, change `ApplicationInsights.config`:
+It's **off** by default, to enable it, change `ApplicationInsights.config`:
 
 * under `RequestTrackingTelemetryModule` add `EnableW3CHeadersExtraction` element with value set to `true`
 * under `DependencyTrackingTelemetryModule` add `EnableW3CHeadersInjection` element with value set to `true`
@@ -85,7 +85,7 @@ It is **off** by default, to enable it, change `ApplicationInsights.config`:
 #### Enable W3C distributed tracing support for ASP.NET Core apps
 
 This feature is in Microsoft.ApplicationInsights.AspNetCore with version 2.5.0-beta1 and Microsoft.ApplicationInsights.DependencyCollector version 2.8.0-beta1.
-It is **off** by default, to enable it set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
+It's **off** by default, to enable it set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -133,7 +133,7 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 ## Telemetry correlation in the Java SDK
 The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
 
-Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) is not supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
 ## Role Name
