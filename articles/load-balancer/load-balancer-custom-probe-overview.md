@@ -1,5 +1,5 @@
 ---
-title: Use Load Balancer health probes to protect your service
+title: Use Load Balancer health probes to scale and provide high availability for your service
 titlesuffix: Azure Load Balancer
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
@@ -31,7 +31,7 @@ The types of health probes available and the way health probes behave depends on
 
 ## <a name="design"></a> Design guidance
 
-Health probes can impact the availability and scalability of your service. You need to carefully review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
+Health probes are used to make your service resilient and allow it to scale. A misconfiguration or bad design can impact the availability and scalability of your service. You need to carefully review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
 
 When you design the health model for your application, you should probe a port on a backend instance that reflects the health of that instance __and__ the application service you are providing.  The probe port may not always be the same as the port your application provides service on.  Sometimes it can be useful for your application to generate a health probe response to not only detect your application health, but also signal directly to Load Balancer whether your instance should receive or not receive new flows.  You can manipulate the probe response to allow your application to create backpressure and throttle delivery of new flows to an instance by failing the health probe or prepare for maintenance of your application and initiate draining your scenario.  When using Standard Load Balancer, a [probe down](#probedown) signal will always allow TCP flows to continue until idle timeout or closure. 
 
