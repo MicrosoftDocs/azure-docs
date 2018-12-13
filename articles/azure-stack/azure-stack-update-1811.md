@@ -66,14 +66,14 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
  
     ```shell
     The required SSL certificates for the Extension Host have not been found. The Azure Stack update will halt.
-    Refer to this link to prepare for Extension Host: https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-extension-host-prepare, then resume the update.
+    Refer to this link to prepare for Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare, then resume the update.
 
     Exception: The Certificate path does not exist: <certificate path here>
     ``` 
  
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
-    Note that during installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 ## New features
 
