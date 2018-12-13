@@ -212,8 +212,6 @@
 
   - name: Reference Architecture
     items:
-    - name: Overview
-      href: iot-accelerators-achitecture-overview.md
     - name: Download
       href: https://aka.ms/iotrefarchitecture
     - name: Partner implementations
