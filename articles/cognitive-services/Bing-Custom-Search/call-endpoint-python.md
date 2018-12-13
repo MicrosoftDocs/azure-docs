@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Quickstart: Call your Bing Custom Search endpoint using Python
 
-Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in Python, the Bing Custom Search API is a RESTful web service compatible with most programming languages.
+Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in Python, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py)
 
 ## Prerequisites
 
