@@ -18,7 +18,7 @@ This article provides answers to common questions we see when deploying disaster
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
 
-### How to configure Site recovery on Azure VM, What are the best practices?
+### How to configure Site Recovery on Azure VMs, What are the best practices?
 •	[Understand Azure to Azure architecture](azure-to-azure-architecture.md)</br>
 •	[Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)</br>
 •	[Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)</br>
@@ -27,12 +27,12 @@ Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details
 
 ## Replication
 
-### Can I replicate Azure disk encryption enabled VMs ?
-Yes, you can replicate them. Refer [artcile](azure-to-azure-how-to-enable-replication-ade-vms.md) to enable replication of Azure disk encryption (ADE) enabled VMs.
+### Can I replicate Azure disk encryption enabled VMs?
+Yes, you can replicate them. Refer [article](azure-to-azure-how-to-enable-replication-ade-vms.md) to enable replication of Azure disk encryption (ADE) enabled VMs.
 
 ### Can I replicate VMs to another subscription?
 Yes, You can replicate Azure VMs to a different subscription with in the same Azure Active Directory tenant.
-Configuring DR [across subscriptions](https://azure.microsoft.com/blog/cross-subscription-dr) is very simple. You have to select the subscription at the time of replication.
+Configuring DR [across subscriptions](https://azure.microsoft.com/blog/cross-subscription-dr) is simple. You can select another subscription at the time of replication.
 
 ### Can I replicate zone pinned Azure VMs to another region.
 Yes, you can [replicate zone pinned VMs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) to another region.
@@ -57,7 +57,7 @@ The oldest recovery point you can use is 72 hours.
 Go to Site Recovery Vault > Site Recovery Infrastructure > Replication policies. Select policy that you want to edit and save the changes. Any change will apply to all the existing replications too. 
 
 ### What are application consistent points?
-Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. Note that if you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
+Application-consistent snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken. If you enable application-consistent snapshots, it will affect the performance of applications running on source virtual machines. Ensure that the value you set is less than the number of additional recovery points you configure.
 
 ## Failover
 
