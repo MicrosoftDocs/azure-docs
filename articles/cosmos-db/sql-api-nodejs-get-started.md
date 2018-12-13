@@ -320,8 +320,6 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    node app.js
    ```
 
-Congratulations! You have successfully created an Azure Cosmos DB database.
-
 ## <a id="CreateContainer"></a>Create a container
 
 Next create a container within the Azure Cosmos DB account, so that you can store and query the data. 
@@ -442,8 +440,6 @@ A container can be created by using either the `createIfNotExists` or create fun
    node app.js
    ```
 
-Congratulations! You have successfully created an Azure Cosmos DB container.
-
 ## <a id="CreateItem"></a>Create an item
 
 An item can be created by using the create function of the **Items** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into Azure Cosmos DB.
@@ -494,8 +490,6 @@ An item can be created by using the create function of the **Items** class. When
    ```bash 
    node app.js
    ```
-
-Congratulations! You have successfully created an Azure Cosmos DB item.
 
 
 ## <a id="Query"></a>Query Azure Cosmos DB resources
@@ -553,7 +547,6 @@ Azure Cosmos DB supports rich queries against JSON documents stored in each cont
    node app.js
    ```
 
-Congratulations! You have successfully queried your Azure Cosmos DB items.
 
 ## <a id="ReplaceItem"></a>Replace an item
 Azure Cosmos DB supports replacing the content of items.
@@ -599,7 +592,6 @@ Azure Cosmos DB supports replacing the content of items.
    node app.js
    ```
 
-Congratulations! You have successfully replaced an Azure Cosmos DB item.
 
 ## <a id="DeleteItem"></a>Delete an item
 
@@ -645,7 +637,6 @@ Azure Cosmos DB supports deleting JSON items.
    node app.js
    ```
 
-Congratulations! You have successfully deleted an Azure Cosmos DB item.
 
 ## <a id="DeleteDatabase"></a>Delete the database
 
@@ -876,8 +867,6 @@ You should see the output of your get started app. The output should match the e
     Completed successfully
     Press any key to exit
    ```
-
-Congratulations! You've completed the Node.js tutorial and have your first Azure Cosmos DB console application!
 
 ## <a id="GetSolution"></a>Get the complete Node.js tutorial solution 
 
