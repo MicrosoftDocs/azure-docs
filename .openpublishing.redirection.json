@@ -1773,6 +1773,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-managed-instance-vnet-configuration.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-management-endpoint.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
             "redirect_document_id": false
