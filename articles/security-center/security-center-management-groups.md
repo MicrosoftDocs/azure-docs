@@ -3,7 +3,7 @@ title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
 description: Learn about gaining tenant-wide visibility in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 

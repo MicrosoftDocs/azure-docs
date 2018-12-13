@@ -62,7 +62,7 @@ Some security tokens have built-in mechanisms that prevent unauthorized parties 
 
 If a bearer token is transmitted outside a secure channel, a malicious party can use a man-in-the-middle attack to acquire the token and use it to gain unauthorized access to a protected resource. The same security principles apply when bearer tokens are stored or cached for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner.
 
-For additional bearer token security considerations, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+For additional bearer token security considerations, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
 More information about the different types of tokens that are used in Azure AD B2C are available in [the Azure AD token reference](active-directory-b2c-reference-tokens.md).
 

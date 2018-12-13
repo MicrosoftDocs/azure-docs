@@ -139,7 +139,7 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
-  - name: Event schemas
+  - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
     items:

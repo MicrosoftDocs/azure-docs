@@ -26,7 +26,7 @@ When you set up Application Insights monitoring for your web app, you create an 
 You typically choose to use separate resources or a single shared resource in different scenarios:
 
 * Different, independent applications - Use a separate resource and ikey for each app.
-* Multiple components or roles of one business application - Use a [single shared resource](app-insights-monitor-multi-role-apps.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
+* Multiple components or roles of one business application - Use a [single shared resource](app-insights-app-map.md) for all the component apps. Telemetry can be filtered or segmented by the cloud_RoleName property.
 * Development, Test, and Release - Use a separate resource and ikey for versions of the system in 'stamp' or stage of production.
 * A | B testing - Use a single resource. Create a TelemetryInitializer to add a property to the telemetry that identifies the variants.
 
@@ -107,7 +107,7 @@ There are several different methods of setting the Application Version property.
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>

@@ -41,7 +41,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## Install doAzureParallel
 
-In the RStudio console, install the [doAzureParallel Github package](http://www.github.com/Azure/doAzureParallel). The following commands download and install the package and its dependencies in your current R session: 
+In the RStudio console, install the [doAzureParallel GitHub package](http://www.github.com/Azure/doAzureParallel). The following commands download and install the package and its dependencies in your current R session: 
 
 ```R
 # Install the devtools package  

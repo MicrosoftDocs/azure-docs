@@ -3,7 +3,7 @@ title: Provide security contact details in Azure Security Center | Microsoft Doc
 description: This document shows you how to provide security contact details in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Provide security contact details in Azure Security Center

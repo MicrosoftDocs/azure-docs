@@ -176,7 +176,7 @@ From an availability test result, you can see the transaction details across all
 
 * Inspect the response received from your server.
 * Diagnose failure with correlated server side telemetry collected while processing the failed availability test.
-* Log an issue or work item in Git or VSTS to track the problem. The bug will contain a link to this event.
+* Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
 Learn more about the end to end transaction diagnostics experience [here](app-insights-transaction-diagnostics.md).
@@ -277,7 +277,7 @@ When the test is complete, you are shown response times and success rates.
 
 ## Automation
 * [Use PowerShell scripts to set up an availability test](app-insights-powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) that is called when an alert is raised.
+* Set up a [webhook](../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## <a name="qna"></a> FAQ
 

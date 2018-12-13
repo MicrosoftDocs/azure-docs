@@ -185,7 +185,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
 |[REAN Cloud LLC.](https://www.reancloud.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
-|[Reperi LLC](https://www.reperi.com)|
+|[Reperi LLC](https://web.archive.org/web/20180123175957/http://www.reperi.com:80/|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[rmsource, Inc.](https://www.rmsource.com)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
