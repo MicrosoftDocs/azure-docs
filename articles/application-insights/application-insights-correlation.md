@@ -46,9 +46,9 @@ You can analyze resulting telemetry running a query:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-In the result view note that all telemetry items share the root `operation_Id`. When ajax call made from the page - new unique id `qJSXU` is assigned to the dependency telemetry and pageView's id is used as `operation_ParentId`. In turn server request uses ajax's id as `operation_ParentId`, etc.
+In the result view note that all telemetry items share the root `operation_Id`. When ajax call made from the page - new unique ID `qJSXU` is assigned to the dependency telemetry and pageView's ID is used as `operation_ParentId`. In turn server request uses ajax's ID as `operation_ParentId`, etc.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -61,7 +61,7 @@ Now when the call `GET /api/stock/value` made to an external service you want to
 
 We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
 
-- `Request-Id` carry the globally unique id of the call
+- `Request-Id` carry the globally unique ID of the call
 - `Correlation-Context` - carry the name value pairs collection of the distributed trace properties
 
 The standard also defines two schemas of `Request-Id` generation - flat and hierarchical. With the flat schema, there is a well-known `Id` key defined for the `Correlation-Context` collection.
@@ -71,8 +71,8 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 ### W3C Distributed Tracing
 
 We are transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
-- `traceparent` - carries globally unique operation id and unique identifier of the call
-- `tracestate` - carries tracing system specific context.
+- `traceparent` - carries globally unique operation ID and unique identifier of the call
+- `tracestate` - carries tracing system-specific context.
 
 #### Enable W3C distributed tracing support for ASP.NET Classic apps
 
@@ -131,9 +131,9 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
-The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
 
-Currently, automatic context propagation across messaging technologies (e.g. Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` API's, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
 ## Role Name
