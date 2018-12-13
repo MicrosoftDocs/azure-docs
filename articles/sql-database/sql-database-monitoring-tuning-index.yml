@@ -53,5 +53,5 @@ sections:
     - html: Learn how <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">Intelligent query processing</a> can improve performance of your database.
     - html: Setup and operate <a href="sql-database-operate-query-store.md">Query store</a> - the core SQL Server technology that enables you to get real-time insights into query performance.
     - html: Learn how to use <a href="sql-database-operate-query-store.md">Dynamic Management Views</a> to analyze performance of your workload.
-    - html: Learn how to monitor database activities with <a href="sql-database-xevent-db-diff-from-svr">XEvents</a>.
-    - html: Learn how to <a href="sql-database-xevent-db-diff-from-svr">manually tune your database</a>.
+    - html: Learn how to monitor database activities with <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
+    - html: Learn how to <a href="sql-database-performance-guidance.md">manually tune your database</a>.
