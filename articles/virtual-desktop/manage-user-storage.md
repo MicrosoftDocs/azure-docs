@@ -20,6 +20,12 @@ In this tutorial, learn how to:
 > * Prepare the VM to act as a file share for the User Profile Disk.
 > * Enable the host pool to use the file share.
 
+You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+
+```powershell
+PS C:\> Install-Module WindowsVirtualDesktop
+```
+
 ## Create a new VM that will act as a file share
 
 To create a new VM that will act as a file share:
@@ -51,9 +57,11 @@ To prepare the VM to act as a file share for the User Profile Disk:
     2. *NameOfShare*: the name of the folder where the User Profile Disk will be stored.
     3. *SizeInGB*: the User Profile Disk’s file size.
     4. **DomainName\SecurityGroupFromStep1**: the name of the security group where all session host VMs are added.
+        
         ```powershell
         .\SetupUVHD.ps1 -UvhdSharePath "<PathOfShare> " -ShareName "NameOfShare" -MaxGB <SizeInGB> -DomainGroupForSessionHosts "<DomainName>\<SecurityGroupFromStep1>"
         ```
+
 9. After running the cmdlet, “Setup Completed Successfully” should appear in the PowerShell window.
 
 ## Enable the host pool to use the file share
