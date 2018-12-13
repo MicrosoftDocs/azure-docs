@@ -28,7 +28,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
-[!INCLUDE [cognitive-services-bing-web-search-prerequisites](../../../includes/cognitive-services-bing-web-search-prerequisites.md)]
+[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Run the code
 
