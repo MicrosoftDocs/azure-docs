@@ -11,9 +11,9 @@ ms.author: mjbrown
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 
-Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the SQL API in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md) and the [Cosmos DB SQL API client SDKs](sql-api-dotnet-samples.md). 
+Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the SQL API in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) and the [Cosmos DB SQL API client SDKs](sql-api-dotnet-samples.md). 
 
-To call a stored procedure, trigger, and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md).
+To call a stored procedure, trigger, and user-defined function, you need to register it. For more information, see [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
@@ -37,7 +37,7 @@ var helloWorldStoredProc = {
 
 The context object provides access to all operations that can be performed in Azure Cosmos DB, as well as access to the request and response objects. In this case, you use the response object to set the body of the response to be sent back to the client.
 
-Once written, the stored procedure must be registered with a collection. To learn more, see [How to use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures) article.
+Once written, the stored procedure must be registered with a collection. To learn more, see [How to use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures) article.
 
 ### <a id="create-an-item"></a>Create an item using stored procedure
 
@@ -223,7 +223,7 @@ Pre-triggers cannot have any input parameters. The request object in the trigger
 
 When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means using the trigger in a replace operation as shown in the following code is not permitted.
 
-For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-sprocs-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-sprocs-triggers-udfs.md#post-triggers) articles. 
+For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) articles. 
 
 ### <a id="post-triggers"></a>Post-triggers
 
@@ -265,7 +265,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 
 One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. This post-trigger runs as part of the same transaction that is used by the create Azure Cosmos DB item. Therefore, if you get an exception during the post-trigger execution, for example, if you are unable to update the metadata item, the whole transaction will fail and it is rolled back. So the Azure Cosmos DB item is created and an exception is returned.
 
-For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-sprocs-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-sprocs-triggers-udfs.md#post-triggers) articles. 
+For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) articles. 
 
 ## <a id="udfs"></a>How to write user-defined functions
 
@@ -296,16 +296,16 @@ function tax(income) {
     }
 ```
 
-For examples of how to register and use a user-defined function, see [How to use user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#udfs) article.
+For examples of how to register and use a user-defined function, see [How to use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) article.
 
 ## Next steps
 
 Learn more concepts and how-to write or use stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
 
-* [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md)
+* [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-js-query-api.md)
+* [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md)
 
-* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](storedprocedures-triggers-udfs.md)
+* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md)
 
-* [Working with JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md)
+* [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md)

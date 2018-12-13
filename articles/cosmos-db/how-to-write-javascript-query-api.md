@@ -11,7 +11,7 @@ ms.author: mjbrown
 
 # How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API
 
-Azure Cosmos DB allows you to perform optimized queries by using a fluent JavaScript interface without any knowledge of SQL language that can be used to write stored procedures or triggers. To learn more about JavaScript Query API support in Azure Cosmos DB, see [Working with JavaScript language integrated query API in Azure Cosmos DB](js-query-api.md) article.
+Azure Cosmos DB allows you to perform optimized queries by using a fluent JavaScript interface without any knowledge of SQL language that can be used to write stored procedures or triggers. To learn more about JavaScript Query API support in Azure Cosmos DB, see [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) article.
 
 ## <a id="stored-procedures"></a>Stored procedure using the JavaScript query API
 
@@ -78,12 +78,12 @@ function insertDocumentAndUpdateMetadata(item) {
 
 See the following articles to learn about stored procedures, triggers, and user-defined functions in Azure Cosmos DB:
 
-* [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md)
+* [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [How to register and use stored procedures in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#stored-procedures)
+* [How to register and use stored procedures in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures)
 
-* How to register and use [pre-triggers](how-to-use-sprocs-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-sprocs-triggers-udfs.md#post-triggers) in Azure Cosmos DB
+* How to register and use [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) in Azure Cosmos DB
 
-* [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-sprocs-triggers-udfs.md#udfs)
+* [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs)
 
 * [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md)
