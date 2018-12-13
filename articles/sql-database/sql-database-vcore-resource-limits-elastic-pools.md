@@ -212,7 +212,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|384|384|384|384|384|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|80000|90000|50000|60000|80000|100000|200000|
+|Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
 |Max concurrent workers (requests)|1680|1890|2100|2520|3360|4200|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|100|100|100|100|100|100|100|

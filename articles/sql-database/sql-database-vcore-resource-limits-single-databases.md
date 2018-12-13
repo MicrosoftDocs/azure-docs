@@ -196,7 +196,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|384|384|384|384|384|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Target IOPS (64 KB)|80000|90000|50000|60000|80000|100000|200000|
+|Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|
