@@ -35,7 +35,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
 3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub.
 
-4. Save these projects, then check it into your Azure Repos.
+4. Save these projects, then commit into your Azure Repos.
     
 > [!NOTE]
 > For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
