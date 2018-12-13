@@ -72,28 +72,21 @@ Azure Storage services APIs:
 
 1802 update to 1809 update:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Previous versions:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage services management APIs:
 
-1811 update or newer versions:
-
- - [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- 
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 Previous versions:
 
@@ -103,7 +96,17 @@ Previous versions:
  
 ## SDK versions
 
-For more information about Azure Stack supported storage client libraries, see [Get started with Azure Stack storage development tools](azure-stack-storage-dev.md).
+Azure Stack storage supports the following client libraries:
+
+| Client library | Azure Stack supported version | Link                                                                                                                                                                                                                                                                                                                                     | Endpoint specification       |
+|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET           | From 6.2.0 to 8.7.0.          | NuGet package:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config file              |
+| Java           | From 4.1.0 to 6.1.0           | Maven package:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Connection string setup      |
+| Node.js        | From 1.1.0 to 2.7.0           | NPM link:<br>https://www.npmjs.com/package/azure-storage<br>(For example: run "npm install azure-storage@2.7.0")<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Service instance declaration |
+| C++            | From 2.4.0 to 3.1.0           | NuGet package:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Connection string setup      |
+| PHP            | From 0.15.0 to 1.0.0          | GitHub release:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Install via Composer (see details below)                                                                                                                                                                                                                  | Connection string setup      |
+| Python         | From 0.30.0 to 1.0.0          | GitHub release:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Service instance declaration |
+| Ruby           | From 0.12.1 to 1.0.1          | RubyGems package:<br>Common:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-ruby/releases | Connection string setup      |
 
 ## Next steps
 
