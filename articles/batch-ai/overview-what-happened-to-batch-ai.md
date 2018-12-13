@@ -12,9 +12,9 @@ ms.author: garye
 
 # What's happening to Azure Batch AI?
 
-**The Azure Batch AI service is retiring in March.** The at-scale training and testing capabilities of Batch AI are now available in [Azure Machine Learning service](../machine-learning/service/overview-what-is-azure-ml.md), which became generally available on December 4, 2018.
+**The Azure Batch AI service is retiring in March.** The at-scale training and scoring capabilities of Batch AI are now available in [Azure Machine Learning service](../machine-learning/service/overview-what-is-azure-ml.md), which became generally available on December 4, 2018.
 
-Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring machine learning models. This compute target is called [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). [Start migrating and using it today](#migrate). You can interact with the Azure Machine Learning service through its [Python SDKs](../machine-learning/service/quickstart-create-workspace-with-python.md) and the [Azure portal](../machine-learning/service/quickstart-get-started.md).
+Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring machine learning models. This compute target is called [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). [Start migrating and using it today](#migrate). You can interact with the Azure Machine Learning service through its [Python SDKs](../machine-learning/service/quickstart-create-workspace-with-python.md), command-line interface, and the [Azure portal](../machine-learning/service/quickstart-get-started.md).
 
 ## Support timeline
 
@@ -40,7 +40,7 @@ To avoid disruptions to your applications and to benefit from the latest feature
 
 Support is available to existing customers wanting to migrate to the more comprehensive [Azure Machine Learning service](https://aka.ms/aml-docs).
 
-If Azure Machine Learning service doesn't meet your need where a supported functionality exists in Batch AI service, open a Batch AI support request with the support team to whitelist your subscription. 
+If Azure Machine Learning service doesn't meet your need where a supported functionality exists in Batch AI service, open a Batch AI support request with the support team to whitelist your subscription to use Batch AI until service retirement.
 
 ## Next steps
 
