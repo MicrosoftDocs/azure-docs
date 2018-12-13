@@ -402,6 +402,8 @@
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Determine size of Managed Instance subnet 
+      href: sql-database-managed-instance-determine-size-vnet-subnet.md
     - name: Create new VNet and subnet for Managed Instance
       href: sql-database-managed-instance-create-vnet-subnet.md
     - name: Configure existing VNet and subnet for Managed Instance
