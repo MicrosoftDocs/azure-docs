@@ -51,7 +51,7 @@ For more information on the version of the .NET framework and Mono included with
 
 ## Create the C\# projects
 
-### Hive UDF
+### Apache Hive UDF
 
 1. Open Visual Studio and create a solution. For the project type, select **Console App (.NET Framework)**, and name the new project **HiveCSharp**.
 
@@ -111,7 +111,7 @@ For more information on the version of the .NET framework and Mono included with
 
 3. Build the project.
 
-### Pig UDF
+### Apache Pig UDF
 
 1. Open Visual Studio and create a solution. For the project type, select **Console Application**, and name the new project **PigUDF**.
 
@@ -164,7 +164,7 @@ For more information on the version of the .NET framework and Mono included with
 
     * If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click the __(Default Container)__.
 
-    * If this entry cannot be expanded, you are using __Azure Data Lake Store__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
+    * If this entry cannot be expanded, you are using __Azure Data Lake Storage__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
 
 6. To upload the .exe files, use one of the following methods:
 
@@ -172,11 +172,11 @@ For more information on the version of the .NET framework and Mono included with
 
         ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * If using __Azure Data Lake Store__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
+    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
 
     Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
 
-## Run a Hive query
+## Run an Apache Hive query
 
 1. In Visual Studio, open **Server Explorer**.
 
@@ -189,7 +189,7 @@ For more information on the version of the .NET framework and Mono included with
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Store
+    -- Uncomment the following if you are using Azure Data Lake Storage
     -- add file adl:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -208,7 +208,7 @@ For more information on the version of the .NET framework and Mono included with
 
 6. Click **Refresh** to refresh the summary until **Job Status** changes to **Completed**. To view the job output, click **Job Output**.
 
-## Run a Pig job
+## Run an Apache Pig job
 
 1. Use one of the following methods to connect to your HDInsight cluster:
 
@@ -252,10 +252,10 @@ For more information on the version of the .NET framework and Mono included with
 
 ## Next steps
 
-In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](python-udf-hdinsight.md).
+In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Apache Hive and Apache Pig in HDInsight](python-udf-hdinsight.md).
 
 For other ways to use Pig and Hive, and to learn about using MapReduce, see the following documents:
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)

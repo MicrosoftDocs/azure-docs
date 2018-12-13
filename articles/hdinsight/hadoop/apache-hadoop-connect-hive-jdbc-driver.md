@@ -160,14 +160,14 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Now that you have learned how to use JDBC to work with Hive, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Use Zeppelin to run Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Connect Excel to Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
+* [Connect Excel to Apache Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
+* [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).
 * [Upload data to HDInsight](../hdinsight-upload-data.md)
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
