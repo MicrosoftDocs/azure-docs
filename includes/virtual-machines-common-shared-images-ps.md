@@ -10,9 +10,6 @@
  ms.custom: include file
 ---
 
-## Before you begin
-
-To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
 
 ## Launch Azure Cloud Shell
 
@@ -101,7 +98,7 @@ Create an image version from a managed image using [New-AzureRmGalleryImageVersi
 
 
 ```azurepowershell-interactive
-$region1 = @{Name='West US';ReplicaCount=1}
+$region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
 $job = $imageVersion = New-AzureRmGalleryImageVersion `
