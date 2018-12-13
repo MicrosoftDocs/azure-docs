@@ -66,7 +66,7 @@ An Azure Cosmos container is specialized into API-specific entities as follows:
 
 | **Azure Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Container | Table | Collection | Graph | Table |
+|Azure Cosmos container | Collection | Table | Collection | Graph | Table |
 
 ### Properties of an Azure Cosmos container
 
@@ -102,7 +102,7 @@ Depending on the choice of the API, an Azure Cosmos item can represent either a 
 
 | **Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Item | Row | Document | Node or Edge | Item |
+|Azure Cosmos item | Document | Row | Document | Node or Edge | Item |
 
 ### Properties of an item
 
