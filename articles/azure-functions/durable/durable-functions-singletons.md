@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # Singleton orchestrators in Durable Functions (Azure Functions)
 
-For background jobs or actor-style orchestrations, you often need to ensure that only one instance of a particular orchestrator runs at a time. This can be done in [Durable Functions](durable-functions-overview.md) by assigning a specific instance ID to an orchestrator when creating it.
+For background jobs you often need to ensure that only one instance of a particular orchestrator runs at a time. This can be done in [Durable Functions](durable-functions-overview.md) by assigning a specific instance ID to an orchestrator when creating it.
 
 ## Singleton example
 
