@@ -8,20 +8,23 @@ ms.author: genemi
 
 ## C# program example
 
-The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program performs the following actions:
+The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program demonstrates the following actions:
 
-- [Connect to SQL database using ADO.NET](#cs_1_connect) and closes the connection (which drops any temporary tables from tempdb)
-- [Methods that return T-SQL source code](#cs_2_return) to:
-    - Creates tables
-    - Populates the tables with data, by issuing T-SQL INSERT statements
-    - Updates data by use of a join
-    - Deletes data by use of a join
-    - Selects data rows by use of a join
+- [Connect to SQL database using ADO.NET](#cs_1_connect)
+- [Methods that return T-SQL statements](#cs_2_return) to:
+    - Create tables
+    - Populate tables with data, by issuing INSERT statements
+    - Update data by use of a join
+    - Delete data by use of a join
+    - Select data by use of a join
 - [Submit T-SQL to the database](#cs_3_submit)
 
-#### To compile and run
+> [!NOTE]
+> The connection is automatically closed when the program finishes running. Any data from temporary tables, or *tempdb* is dropped.
 
-This C# program is logically one .cs file. But here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following:
+### To compile and run
+
+This C# program is logically one .cs file. Here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following steps:
 
 1. Create a C# project in Visual Studio.
     - The project type should be a *console* application, from something like the following hierarchy:
@@ -29,14 +32,14 @@ This C# program is logically one .cs file. But here the program is physically di
 
 1. In the file *Program.cs*, erase the small starter lines of code.
 
-1. Into *Program.cs*, copy and paste each of the following blocks, in the same sequence they are presented here.
+1. In *Program.cs*, copy and paste each of the following blocks, in the same sequence they're presented here.
 
 1. In *Program.cs*, edit the following values in the `Main` method:
 
-   - `cb.DataSource`
-   - `cd.UserID`
-   - `cb.Password`
-   - `cb.InitialCatalog`
+   - *cb.DataSource*
+   - *cb.UserID*
+   - *cb.Password*
+   - *cb.InitialCatalog*
 
 1. Verify that the assembly *System.Data.dll* is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
 
@@ -45,7 +48,7 @@ This C# program is logically one .cs file. But here the program is physically di
 1. To run the program from Visual Studio, click the **Start** button. The report output is displayed in a cmd.exe window.
 
 > [!NOTE]
-> You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in *tempdb*. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any REFERENCES for foreign keys are not enforced for temporary tables.
+> You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in *tempdb*. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any references to foreign keys are not enforced for temporary tables.
 
 <a name="cs_1_connect"/>
 
@@ -101,9 +104,9 @@ namespace csharp_db_test
 
 #### Entity Relationship Diagram (ERD)
 
-The CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables. If you are using tempdb, comment out the `--REFERENCES` keyword using a pair of leading dashes.
+The CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables. If you're using *tempdb*, comment out the `--REFERENCES` keyword using a pair of leading dashes.
 
-Next is an ERD that displays the relationship between the two tables. The values in the #tabEmployee.DepartmentCode *child* column are limited to the values present in the #tabDepartment.Department *parent* column.
+Next is an ERD that displays the relationship between the two tables. The values in the **tabEmployee.DepartmentCode** *child* column are limited to values from the **tabDepartment.DepartmentCode** *parent* column.
 
 ![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
@@ -215,7 +218,7 @@ static string Build_6_Tsql_SelectEmployees()
 
 ### Submit T-SQL to the database
 
-The first method is designed to run the T-SQL SELECT statement that is built by the **Build_6_Tsql_SelectEmployees** method. The second method is called for operations that modify the data content of tables without returning any data rows.
+The first method runs the T-SQL SELECT statement that is built by the **Build_6_Tsql_SelectEmployees** method. The second method modifies the data content of tables without returning any data rows.
 
 ```csharp
 static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
@@ -273,7 +276,7 @@ static void Submit_Tsql_NonQuery(
 
 ### C# block 8: Actual test output to the console
 
-This section captures the output that the program sent to the console. Only the guid values vary between test runs.
+This section captures the output that the program sent to the console. Only the GUID values vary between test runs.
 
 ```output
 =================================
