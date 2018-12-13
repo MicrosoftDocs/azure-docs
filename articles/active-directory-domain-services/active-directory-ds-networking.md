@@ -98,7 +98,7 @@ The following table illustrates a sample NSG you can configure for a virtual net
 
 Additionally, the NSG also illustrates how to lock down secure LDAP access over the internet. Skip this rule if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
 
-![Sample NSG to secure LDAPS access over the internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **More information** - [Create a Network Security Group](../virtual-network/manage-network-security-group.md).
 

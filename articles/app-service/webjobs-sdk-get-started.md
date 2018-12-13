@@ -1,5 +1,5 @@
 ---
-title: Get started with the Azure WebJobs SDK
+title: Get started with the WebJobs SDK - Azure
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -59,9 +59,9 @@ This article assumes you have [an Azure account](https://azure.microsoft.com/fre
 
 1. In Visual Studio, select **File > New project**.
 
-1. Select **Windows Classic Desktop > Console App (.NET Framework)**.
+2. Select **Windows Classic Desktop > Console App (.NET Framework)**.
 
-1. Name the project *WebJobsSDKSample*, and then select **OK**.
+3. Name the project *WebJobsSDKSample*, and then select **OK**.
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -392,7 +392,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 In this section you run locally again to verify that logging data is now going to Application Insights as well as to the console.
 
-1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello App Insights!* as the message text.
+1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function-in-azure), except enter *Hello App Insights!* as the message text.
 
 1. Run the project.
 

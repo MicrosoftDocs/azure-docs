@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
 
 ---
 # Protect App Service with Azure Security Center
 This article helps you use Azure Security Center to monitor and protect your applications running on top of App Service.
 
-App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure. App Service offers auto-scaling and high availability, support both Windows and Linux, as well as automated deployments from GitHub, Visual Studio Team Services or any Git repository. 
+App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure. App Service offers auto-scaling and high availability, support both Windows and Linux, as well as automated deployments from GitHub, Azure DevOps, or any Git repository. 
 
 Vulnerabilities in web applications are frequently exploited by attackers, because they have a common and dynamic interface for almost every organization on the Internet. Requests to applications running on top of App Service goes through several gateways deployed in Azure data centers around the world, responsible for routing each request to its corresponding application. 
 
@@ -59,7 +59,7 @@ To disable monitoring and recommendations for your App Service, repeat this proc
 ## See also
 In this article, you learned how to use monitoring capabilities in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md): Learn how to configure security settings in Azure Security Center.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security settings in Azure Security Center.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Find frequently asked questions about using the service.

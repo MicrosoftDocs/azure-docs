@@ -87,7 +87,7 @@ By leveraging the authentication, authorization and access control capabilities 
 
 Centralized management and fully integration with other directories
 
-Azure Active Directory provides single sign-on to thousands of SaaS applications and on-premises web applications. See the [Azure Active Directory federation compatibility list: third-party identity providers that can be used to implement single sign-on](https://msdn.microsoft.com/library/azure/jj679342.aspx) article for more details about the SSO third-party that were tested by Microsoft. This capability enables organization to implement a variety of B2B scenarios while keeping control of the identity and access management. However, during the B2B designing process, is important to understand the authentication method that is used by the partner and validate if this method is supported by Azure. Currently, the following methods are supported by Azure AD:
+Azure Active Directory provides single sign-on to thousands of SaaS applications and on-premises web applications. See the [Azure Active Directory federation compatibility list: third-party identity providers that can be used to implement single sign-on](how-to-connect-fed-compatibility.md) article for more details about the SSO third-party that were tested by Microsoft. This capability enables organization to implement a variety of B2B scenarios while keeping control of the identity and access management. However, during the B2B designing process, is important to understand the authentication method that is used by the partner and validate if this method is supported by Azure. Currently, the following methods are supported by Azure AD:
 
 * Security Assertion Markup Language (SAML)
 * OAuth

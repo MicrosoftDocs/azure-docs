@@ -63,7 +63,7 @@ If you lose your device or your device becomes compromised, you'll have to redo 
 
 3. In the **Manage account** area, select **Forget MFA on remembered devices**.
     
-    Choosing this option means that you'll have to go through the Multi-Factor Authentication process again after you sign in.
+    Choosing this option means that you'll have to go through the Multi-Factor Authentication (MFA) process again after you sign in.
 
     ![Profile screen with the forget link highlighted](media/security-info/security-info-forget.png)
 
@@ -73,7 +73,7 @@ This article helps you to troubleshoot your security info, including two-step ve
 
 |Problem|Solution|
 |-------|--------|
-|I don't have my phone with me|It's possible that you don't have your phone with you at all times, but that you'll still want to sign in to your work or school account. To fix this problem, you can sign in using a different authentication method that doesn't require your phone, such as your email address or your office phone number. To add additional methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
+|I don't have my phone with me|It's possible that you don't have your phone with you at all times, but that you'll still want to sign in to your work or school account. To fix this problem, you can sign in using a different authentication method that doesn't require your phone, such as your office phone number. To add additional methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
 |I lost my phone or it was stolen|Unfortunately, losing your phone or it being stolen can happen. In this situation, it's highly recommended that you let your organization know so your IT staff can reset your app passwords and clear any remembered devices from your trusted devices list. You can also forget your own trusted devices by following the steps in the [Manage your security info for a lost or potentially compromised device](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) section.|
 |I got a new phone number|There are two ways to fix this problem. You can sign in using an alternate authentication method that doesn't require your phone number, such as email, or if that's not an option, you can contact your organization's IT staff and have them clear your settings. To add additional methods to your security info, you can follow the steps in the [Change your info](#change-your-info) section.|
 |My default method is wrong|You can update your default method in your security options. For specific details, you can go to the [Change your info](#change-your-info) section.|

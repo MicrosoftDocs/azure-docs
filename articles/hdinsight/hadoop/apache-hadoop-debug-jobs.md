@@ -1,5 +1,5 @@
 ---
-title: 'Debug Apache Hadoop in HDInsight: View logs and interpret error messages - Azure '
+title: 'Debug Apache Hadoop: View logs and interpret error messages - Azure HDInsight'
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 services: hdinsight
 ms.reviewer: jasonh
@@ -99,7 +99,9 @@ You can now use Excel to filter and sort as necessary. You may want to include o
 
 To view the logs, see [Access Apache Hadoop YARN application logs on Linux-based HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-For more information about application logs, see [Simplifying user-logs management and access in Apache Hadoop  YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+For more information about application logs, see [Simplifying user-logs management and access in Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
 
 ## View cluster health and job logs
 ### Access the Ambari UI

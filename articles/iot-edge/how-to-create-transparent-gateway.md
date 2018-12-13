@@ -1,6 +1,6 @@
 ---
-title: Create a transparent gateway with Azure IoT Edge | Microsoft Docs
-description: Use an Azure IoT Edge device as a transparent gateway that can process information for multiple devices
+title: Create transparent gateway device - Azure IoT Edge | Microsoft Docs
+description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,6 +8,7 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Configure an IoT Edge device to act as a transparent gateway
@@ -26,7 +27,7 @@ A downstream device can be any application or platform that has an identity crea
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub owner CA), and a series of certificates, signed with this CA, and a CA for the Edge device.
 
-![Gateway setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Gateway certificate setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 The gateway presents its Edge device CA certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure the Edge device CA certificate is signed by the owner CA certificate. This process allows the downstream device to confirm the gateway comes from a trusted source.
 
