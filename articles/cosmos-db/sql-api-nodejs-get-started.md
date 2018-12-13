@@ -879,6 +879,27 @@ You should see the output of your get started app. The output should match the e
 
 Congratulations! You've completed the Node.js tutorial and have your first Azure Cosmos DB console application!
 
+## <a id="GetSolution"></a>Get the complete Node.js tutorial solution 
+
+If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). 
+
+To run the getting started solution that contains all the code in this article, you will need the following steps: 
+
+* An [Azure Cosmos DB account][create-account]. 
+* The [Getting Started](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) solution available on GitHub. 
+
+Install the **@azure/cosmos** module via npm. Use the following command: 
+
+* ```npm install @azure/cosmos --save``` 
+
+Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
+
+Then in your terminal, locate your ```app.js``` file and run the command:  
+
+```bash  
+node app.js 
+```
+
 ## Clean up resources
 
 When these resources are no longer needed, you can delete the resource group, Azure Cosmos DB account, and all the related resources. To do so, select the resource group that you used for the Azure Cosmos DB account, select **Delete**, and then confirm the name of the resource group to delete.
