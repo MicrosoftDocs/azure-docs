@@ -14,20 +14,17 @@ ROBOTS: NOINDEX
 Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on using script actions with Linux-based clusters, see [Script action development with HDInsight (Linux)](hdinsight-hadoop-script-actions-linux.md).
->
->
 
 
+Script Action can be used to install additional software running on an Apache Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.
 
-Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.
-
-> [!NOTE]
+> [!NOTE]  
 > If you experience the following error message:
 >
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+> 
 > It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
@@ -92,16 +89,16 @@ HDInsight provides several scripts to install additional components on HDInsight
 
 | Name | Script |
 | --- | --- |
-| **Install Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark]. |
+| **Install Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. See [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]. |
 | **Install R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. See [Install and use R on HDInsight clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Install Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). |
-| **Install Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
-| **Pre-load Hive libraries** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
+| **Install Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. See [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). |
+| **Install Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. See [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
+| **Pre-load Hive libraries** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. See [Add Apache Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 Script Action can be deployed from the Azure portal, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
 
-> [!NOTE]
+> [!NOTE]  
 > The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 >
 >
@@ -151,25 +148,25 @@ Here are the helper methods that are provided by this script:
 ## Best practices for script development
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
 
-* Check for the Hadoop version
+* Check for the Hadoop version.
 
     Only HDInsight version 3.1 (Hadoop 2.4) and above support using Script Action to install custom components on a cluster. In your custom script, you must use the **Get-HDIHadoopVersion** helper method to check the Hadoop version before proceeding with performing other tasks in the script.
-* Provide stable links to script resources
+* Provide stable links to script resources.
 
     Users should make sure that all the scripts and other artifacts used in the customization of a cluster remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration. These resources are required if the reimaging of nodes in the cluster is required. The best practice is to download and archive everything in a Storage account that the user controls. This account can be the default Storage account or any of the additional Storage accounts specified at the time of deployment for a customized cluster.
     In the Spark and R customized cluster samples provided in the documentation, for example, there is a local copy of the resources in this Storage account: https://hdiconfigactions.blob.core.windows.net/.
-* Ensure that the cluster customization script is idempotent
+* Ensure that the cluster customization script is idempotent.
 
     You must expect that the nodes of an HDInsight cluster are reimaged during the cluster lifetime. The cluster customization script is run whenever a cluster is reimaged. This script must be designed to be idempotent in the sense that upon reimaging, the script should ensure that the cluster is returned to the same customized state that it was in just after the script ran for the first time when the cluster was initially created. For example, if a custom script installed an application at D:\AppLocation on its first run, then on each subsequent run, upon reimaging, the script should check whether the application exists at the D:\AppLocation location before proceeding with other steps in the script.
-* Install custom components in the optimal location
+* Install custom components in the optimal location.
 
     When cluster nodes are reimaged, the C:\ resource drive and D:\ system drive can be reformatted, resulting in the loss of data and applications that had been installed on those drives. This loss could also happen if an Azure virtual machine (VM) node that is part of the cluster goes down and is replaced by a new node. You can install components on the D:\ drive or in the C:\apps location on the cluster. All other locations on the C:\ drive are reserved. Specify the location where applications or libraries are to be installed in the cluster customization script.
-* Ensure high availability of the cluster architecture
+* Ensure high availability of the cluster architecture.
 
     HDInsight has an active-passive architecture for high availability, in which one head node is in active mode (where the HDInsight services are running) and the other head node is in standby mode (in which HDInsight services are not running). The nodes switch active and passive modes if HDInsight services are interrupted. If a script action is used to install services on both head nodes for high availability, note that the HDInsight failover mechanism is not able to automatically fail over these user-installed services. So user-installed services on HDInsight head nodes that are expected to be highly available must either have their own failover mechanism if in active-passive mode or be in active-active mode.
 
     An HDInsight Script Action command runs on both head nodes when the head-node role is specified as a value in the *ClusterRoleCollection* parameter. So when you design a custom script, make sure that your script is aware of this setup. You should not run into problems where the same services are installed and started on both of the head nodes and they end up competing with each other. Also, be aware that data is lost during reimaging, so software installed via Script Action has to be resilient to such events. Applications should be designed to work with highly available data that is distributed across many nodes. As many as 1/5 of the nodes in a cluster can be reimaged at the same time.
-* Configure the custom components to use Azure Blob storage
+* Configure the custom components to use Azure Blob storage.
 
     The custom components that you install on the cluster nodes might have a default configuration to use Hadoop Distributed File System (HDFS) storage. You should change the configuration to use Azure Blob storage instead. On a cluster reimage, the HDFS file system gets formatted and you would lose any data that is stored there. Using Azure Blob storage instead ensures that your data is retained.
 
@@ -291,9 +288,9 @@ In the event that an execution failure occurs, the output describing it is also 
 
 ## See also
 * [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize]
-* [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
-* [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
+* [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
+* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
+* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

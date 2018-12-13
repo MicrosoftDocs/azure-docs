@@ -1,6 +1,6 @@
 ---
-title: Manage Azure IoT Hub cloud device messaging with Azure IoT Toolkit extension for Visual Studio Code | Microsoft Docs
-description: Learn how to use Azure IoT Toolkit extension for Visual Studio Code to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
+title: Manage Azure IoT Hub cloud device messaging with Azure IoT Hub Toolkit extension for Visual Studio Code | Microsoft Docs
+description: Learn how to use Azure IoT Hub Toolkit extension for Visual Studio Code to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
@@ -10,29 +10,29 @@ ms.date: 7/20/2018
 ms.author: junhan
 ---
 
-# Use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and IoT Hub
+# Use Azure IoT Hub Toolkit extension for Visual Studio Code to send and receive messages between your device and IoT Hub
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management easier. This article focuses on how to use Azure IoT Toolkit extension for Visual Studio Code to send and receive messages between your device and your IoT hub.
+[Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit) is a useful Visual Studio Code extension that makes IoT Hub management easier. This article focuses on how to use Azure IoT Hub Toolkit extension for Visual Studio Code to send and receive messages between your device and your IoT hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## What you will learn
 
-You learn how to use Azure IoT Toolkit extension for Visual Studio Code to monitor device-to-cloud messages and to send cloud-to-device messages. Device-to-cloud messages could be sensor data that your device collects and then sends to your IoT hub. Cloud-to-device messages could be commands that your IoT hub sends to your device to blink an LED that is connected to your device.
+You learn how to use Azure IoT Hub Toolkit extension for Visual Studio Code to monitor device-to-cloud messages and to send cloud-to-device messages. Device-to-cloud messages could be sensor data that your device collects and then sends to your IoT hub. Cloud-to-device messages could be commands that your IoT hub sends to your device to blink an LED that is connected to your device.
 
 ## What you will do
 
-- Use Azure IoT Toolkit extension for Visual Studio Code to monitor device-to-cloud messages.
-- Use Azure IoT Toolkit extension for Visual Studio Code to send cloud-to-device messages.
+- Use Azure IoT Hub Toolkit extension for Visual Studio Code to monitor device-to-cloud messages.
+- Use Azure IoT Hub Toolkit extension for Visual Studio Code to send cloud-to-device messages.
 
 ## What you need
 
 - An active Azure subscription.
 - An Azure IoT hub under your subscription.
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+- [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 
 ## Sign in to access your IoT hub
 
@@ -50,7 +50,7 @@ You learn how to use Azure IoT Toolkit extension for Visual Studio Code to monit
 To monitor messages that are sent from your device to your IoT hub, follow these steps:
 
 1. Right-click your device and select **Start Monitoring D2C Message**.
-1. The monitored messages will be shown in **OUTPUT** > **Azure IoT Toolkit** view.
+1. The monitored messages will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
 1. To stop monitoring, right-click the **OUTPUT** view and select **Stop Monitoring D2C Message**.
 
 ## Send cloud-to-device messages
@@ -59,7 +59,7 @@ To send a message from your IoT hub to your device, follow these steps:
 
 1. Right-click your device and select **Send C2D Message to Device**. 
 1. Enter the message in input box.
-1. Results will be shown in **OUTPUT** > **Azure IoT Toolkit** view.
+1. Results will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
 
 ## Next steps
 
