@@ -1,5 +1,5 @@
 ---
-title: Use Visual Studio, .NET Framework, and C# to query Azure SQL Database | Microsoft Docs
+title: Use Visual Studio with .NET and C# to query Azure SQL Database | Microsoft Docs
 description: Use Visual Studio to create a C# app that connects to an Azure SQL Database and queries it with Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 12/11/2018
 ---
-# Quickstart: Use .NET and C# with Visual Studio to connect to and query an Azure SQL database
+# Quickstart: Use .NET and C# in Visual Studio to connect to and query an Azure SQL database
 
 This quickstart shows how to use the [.NET framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL database with Transact-SQL statements.
 
@@ -22,9 +22,6 @@ This quickstart shows how to use the [.NET framework](https://www.microsoft.com/
 To complete this quickstart, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-  >[!IMPORTANT]
-  >The code in this article uses the sample AdventureWorksLT data. To get this data, select **Sample (AdventureWorksLT)** under **Select source** when creating your database. 
   
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) to allow the public IP address of the computer you use.
   
@@ -113,8 +110,8 @@ namespace sqltest
 
 ## Run the code
 
-1. In your Visual Studio project, select **Debug** > **Start Debugging**, or select **Start** on the toolbar, or press **F5** to run the app.
-2. Verify that the top 20 Category/Product rows from your database are returned, and then close the app window.
+1. To run the app, select **Debug** > **Start Debugging**, or select **Start** on the toolbar, or press **F5**.
+1. Verify that the top 20 Category/Product rows from your database are returned, and then close the app window.
 
 ## Next steps
 
