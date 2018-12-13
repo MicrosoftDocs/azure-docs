@@ -53,7 +53,7 @@ If you haven't yet set up your profile picture, an icon with the inviter's initi
   ![displaying the inviter's initials](media/invitation-email-elements/inviters-initials.png)
 
 ### Body
-The body contains the message that the inviter composes or is passed through the invitation API. It is a text area, so it does not process HTML tags for security reasons.
+The body contains the message that the inviter composes when [inviting a guest user to the directory, group, or app](add-users-administrator.md) or [by using the invitation API](customize-invitation-api.md). It is a text area, so it does not process HTML tags for security reasons.
 
 ### Footer section
 The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. Special cases:
