@@ -1,20 +1,13 @@
 ---
-title: Azure Data Catalog frequently asked questions | Microsoft Docs
+title: Azure Data Catalog frequently asked questions
 description: Frequently asked questions about Azure Data Catalog, including capabilities for data source discovery, annotation, and management.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # Azure Data Catalog frequently asked questions
 This article provides answers to frequently asked questions related to the Azure Data Catalog service.
@@ -100,7 +93,7 @@ You can delete an object from Data Catalog by selecting the object in the portal
 An expert is a person who has an informed perspective about a data object. An object can have multiple experts. An expert does not need to be the “owner” for an object, but is simply someone who knows how the data can and should be used.
 
 ## How do I share information with the Data Catalog team if I encounter problems?
-To report problems, share information, and ask questions, go to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+To report problems, share information, and ask questions, go to the [Azure Data Catalog forum](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## Does the catalog work with another data source that I’m interested in?
 We’re actively working on adding more data sources to Data Catalog. If you want to see a specific data source supported, suggest it (or voice your support if it has already been suggested) by going to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
@@ -128,4 +121,4 @@ Select the data assets in the Data Catalog, and then click the **Take Ownership*
 To update the metadata for data assets that are already registered in the catalog, simply re-register the data source that contains the assets. Any changes in the data source, such as columns being added or removed from tables or views, are updated in the catalog, but any annotations provided by users are retained.
 
 ## My question isn’t answered here. Where can I go for answers?
-Go to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
+Go to the [Azure Data Catalog forum](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.

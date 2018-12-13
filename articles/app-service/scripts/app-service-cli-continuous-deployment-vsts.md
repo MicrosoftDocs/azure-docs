@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services
+title: Azure CLI Script Sample - Create app and deploy continuously from Azure Repos | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app with continuous deployment from Azure Repos
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,26 +15,27 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: jeconnoc
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Create a web app with continuous deployment from Visual Studio Team Services
+# Create a web app with continuous deployment using Azure CLI
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Visual Studio Team Services repository. For this sample, you need:
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a Azure DevOps repository. For this sample, you need:
 
-* A Visual Studio Team Services repository with application code, that you have administrative permissions for.
-* A [Personal Access Token (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) for your Visual Studio Team Services account.
+* A Azure DevOps repository with application code, that you have administrative permissions for.
+* A [Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) for your Azure DevOps organization.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

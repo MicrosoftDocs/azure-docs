@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
@@ -65,7 +65,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
     ``` 
 ## Next steps
 
-- [See all of my groups](../active-directory-groups-view-azure-portal.md)
+- [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
 - [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
 - [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)

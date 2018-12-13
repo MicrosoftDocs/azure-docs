@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2016
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
 ---
 # Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 > [!NOTE]
 > Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to virtual machine scale sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
@@ -32,10 +32,10 @@ The following explanation applies to the pieces of the previous diagram.
 
 ## Resource Metrics
 Resources emit metrics, these metrics are later processed by rules. Metrics come via different methods.
-Virtual machine scale sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md).
+Virtual machine scale sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ## Custom Metrics
-You can also leverage your own custom metrics that your application(s) may be emitting. If you have configured your application(s) to send metrics to Application Insights you can leverage those metrics to make decisions on whether to scale or not. 
+You can also leverage your own custom metrics that your application(s) may be emitting. If you have configured your application(s) to send metrics to Application Insights you can leverage those metrics to make decisions on whether to scale or not.
 
 ## Time
 Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
@@ -77,7 +77,7 @@ The full list of configurable fields and descriptions is available in the [Autos
 
 For code examples, see
 
-* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)  
 * [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## Horizontal vs vertical scaling
@@ -90,26 +90,27 @@ For more information, see [Vertically scale Azure virtual machine with Azure Aut
 ## Methods of access
 You can set up autoscale via
 
-* [Azure portal](insights-how-to-scale.md)
+* [Azure portal](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
-* [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale)
+* [Cross-platform Command Line Interface (CLI)](../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## Supported services for autoscale
 | Service | Schema & Docs |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](insights-how-to-scale.md) |
+| Web Apps |[Scaling Web Apps](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
+| Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
 
-* [Azure Monitor autoscale common metrics](insights-autoscale-common-metrics.md)
-* [Best practices for Azure Monitor autoscale](insights-autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
+* [Azure Monitor autoscale common metrics](../azure-monitor/platform/autoscale-common-metrics.md)
+* [Best practices for Azure Monitor autoscale](../azure-monitor/platform/autoscale-best-practices.md)
+* [Use autoscale actions to send email and webhook alert notifications](../azure-monitor/platform/autoscale-webhook-email.md)
 * [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Troubleshooting Virtual Machine Scale Sets Autoscale](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

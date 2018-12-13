@@ -1,20 +1,24 @@
 ---
-title: Interpret method in the Knowledge Exploration Service API | Microsoft Docs
-description: Learn how to use the Interpret method in the Knowledge Exploration Service (KES) API in Cognitive Services.
+title: Interpret method - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Learn how to use the Interpret method in the Knowledge Exploration Service (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ---
 
 # interpret Method
+
 The *interpret* method takes a natural language query string and returns formatted interpretations of user intent based on the grammar and index data.  To provide an interactive search experience, this method may be called as each character is entered by the user with the *complete* parameter set to 1 to enable auto-complete suggestions.
 
 ## Request
+
 `http://<host>/interpret?query=<query>[&<options>]`
 
 Name|Value| Description
@@ -28,6 +32,7 @@ timeout  | Number (default=1000) | Timeout in milliseconds. Only interpretations
 Using the *count* and *offset* parameters, a large number of results may be obtained incrementally over multiple requests.
 
 ## Response (JSON)
+
 JSONPath     | Description
 ---------|---------
 $.query	|*query* parameter from the request.
@@ -42,6 +47,7 @@ $.interpretations[\*].rules[\*].output.value|Value of the semantic output.
 $.aborted | True if the request timed out.
 
 ### Parse XML
+
 The parse XML annotates the (completed) query with information about how it matches against the rules in the grammar and attributes in the index.  Below is an example from the academic publications domain:
 
 ```xml
@@ -60,6 +66,7 @@ The `<rule>` element delimits the range in the query matching the rule specified
 The `<attr>` element delimits the range in the query matching the index attribute specified by its `name` attribute.  When the match involves a synonym in the input query, the `canonical` attribute will contain the canonical value matching the synonym from the index.
 
 ## Example
+
 In the academic publications example, the following request returns up to 2 auto-completion suggestions for the prefix query "papers by jaime":
 
 `http://<host>/interpret?query=papers by jaime&complete=1&count=2`

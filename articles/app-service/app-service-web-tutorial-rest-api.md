@@ -1,5 +1,5 @@
 ---
-title: RESTful API with CORS in Azure App Service | Microsoft Docs
+title: Host RESTful API with CORS - Azure App Service | Microsoft Docs
 description: Learn how Azure App Service helps you host your RESTful APIs with CORS support.
 services: app-service\api
 documentationcenter: dotnet
@@ -13,9 +13,10 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
+ms.custom: seodec18
 
 ---
 # Tutorial: Host a RESTful API with CORS in Azure App Service
@@ -164,13 +165,16 @@ In production, your browser app would have a public URL instead of the localhost
 
 ### Enable CORS 
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az_resource_update) command. Replace the _&lt;appname>_ placeholder.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az resource update`](/cli/azure/resource#az-resource-update) command. Replace the _&lt;appname>_ placeholder.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
 You can set more than one client URL in `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). You can also enable all client URLs with `"['*']"`.
+
+> [!NOTE]
+> If your app requires credentials such as cookies or authentication tokens to be sent, the browser may require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, set `properties.cors.supportCredentials` to `true` in your CORS config. This cannot be enabled when `allowedOrigins` includes `'*'`.
 
 ### Test CORS again
 

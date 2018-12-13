@@ -4,7 +4,7 @@ description: This topic shows how to perform advanced encoding by customizing Me
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/30/2018
 ms.author: juliako
 
 ---

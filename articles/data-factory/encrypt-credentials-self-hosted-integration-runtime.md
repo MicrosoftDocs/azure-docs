@@ -22,9 +22,6 @@ You can encrypt and store credentials for your on-premises data stores (linked s
 
 You pass a JSON definition file with credentials to the <br/>[**New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet to produce an output JSON definition file with the encrypted credentials. Then, use the updated JSON definition to create the linked services.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
-
 ## Author SQL Server linked service
 Create a JSON file named **SqlServerLinkedService.json** in any folder with the following content:  
 

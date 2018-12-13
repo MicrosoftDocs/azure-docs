@@ -11,10 +11,10 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/04/2017
+ms.topic: conceptual
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 
 ---
 
@@ -26,7 +26,7 @@ Make sure that the STS that the claims-aware app redirects to is available outsi
 
 ## Publish your application
 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md).
 2. Navigate to the application page in the portal and select **Single sign-on**.
 3. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **Azure AD single sign-on disabled** as your **Internal Authentication Method**. If you chose **Passthrough** as your **Preauthentication Method**, you don't need to change anything.
 
@@ -51,7 +51,7 @@ If all the internal URLs for your applications are fully qualified domain names 
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## Next steps
-* [Enable single-sign on](application-proxy-single-sign-on.md) for applications that aren't claims-aware
+* [Enable single-sign on](configure-single-sign-on-portal.md) for applications that aren't claims-aware
 * [Enable native client apps to interact with proxy applications](application-proxy-configure-native-client-application.md)
 
 

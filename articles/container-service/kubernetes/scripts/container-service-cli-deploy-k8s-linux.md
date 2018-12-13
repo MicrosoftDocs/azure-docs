@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create ACS Linux Kubernetes Cluster| Microsoft 
 description: Azure CLI Script Sample - Create ACS Linux Kubernetes Cluster
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -16,10 +16,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
+ms.author: iainfou
 ---
 
-# Create an Azure Container Service Kubernetes Linux Cluster
+# (DEPRECATED) Create an Azure Container Service Kubernetes Linux Cluster
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 This sample creates an Azure Container Service cluster running Kubernetes for Linux based containers.
 
@@ -53,8 +55,8 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Creates and ACS cluster. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Creates and ACS cluster. |
 
 ## Next steps
 

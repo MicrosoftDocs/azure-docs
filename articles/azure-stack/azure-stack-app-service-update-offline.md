@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 11/13/2018
 ms.author: anwestg
 
 ---
@@ -22,7 +22,7 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4.
 >
 >
 
@@ -40,7 +40,7 @@ By following the instructions in this article, you can upgrade the [App Service 
 
 To upgrade the App Service resource provider in an Azure Stack environment, you must complete these tasks:
 
-1. Download the [App Service Installer](https://aka.ms/appsvcupdate2installer)
+1. Download the [App Service Installer](https://aka.ms/appsvcupdate4installer)
 2. Create an offline upgrade package.
 3. Run the App Service installer (appservice.exe) and complete the upgrade.
 
@@ -89,7 +89,7 @@ To upgrade App Service in a disconnected environment, you must first create an o
 
 5. Review and accept the third-party license terms and then click **Next**.
 
-6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
+6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
 
     ![Azure Stack Cloud Information][3]
 
@@ -97,10 +97,10 @@ To upgrade App Service in a disconnected environment, you must first create an o
 
    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         * If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click  **Sign In**.
-        * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, *cloudadmin@azurestack.local*. Enter your password, and click **Sign In**.
+        * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example _cloudadmin@azurestack.local_. Enter your password, and click **Sign In**.
    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-   4. If an existing App Service deployment is discovered, then the resource group and storage account will be populated and greyed out.
+   4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.
    5. Click **Next** to review the upgrade summary.
 
     ![App Service Installation Detected][4]

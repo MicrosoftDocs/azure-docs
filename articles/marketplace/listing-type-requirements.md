@@ -21,13 +21,14 @@ ms.author: ellacroi
 # Requirements by Listing Type  
 The technical and marketing content requirements vary by storefront, offer type, and listing type. Review the following specifications to verify your compliance.  
 1. Storefront Requirements:  
-    *   [AppSource](#storefront-requirements:-appSource)  
-    *   [Azure Marketplace](#storefront-requirements:-azure-marketplace)  
+    *   [AppSource](#storefront-requirements-appSource)  
+    *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Listing Type and Offer Type Requirements:  
     *   For more information about listing types and offer types, visit the Determine the Listing Type for Your Solution page located at [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  
 
 ## Storefront Requirements: AppSource  
 The following table describes the prerequisite requirements for publishing on AppSource.  
+
 | Requirement | Details | Required or Recommended |  
 |:--- |:--- |:--- |  
 | ***Azure Active Directory (Azure AD)*** | Your app must allow Azure Active Directory federated single sign-on (Azure AD federated SSO) with consent enabled.<ul> <li>For more information about enabling Azure AD federated SSO, visit the Configuring single sign-on to applications that are not in the Azure Active Directory application gallery page located at [docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).</li> </ul> | Required |   
@@ -42,6 +43,7 @@ The following table describes the prerequisite requirements for publishing on Ap
 
 ## Storefront Requirements: Azure Marketplace  
 The following are prerequisite requirements for listing types in Azure Marketplace.  
+
 | Requirement | Details | Listing type |  
 |:--- |:--- |:--- |  
 | ***Participation policies*** | You app must follow the Azure Marketplace participation policies.<ul> <li>For more information about the participation policies, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
@@ -59,10 +61,10 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Consulting Services | AppSource | [Requirements: AppSource: List: Consulting Services](#requirements:-appsource:-list:-consulting-services) |  
-| Consulting Services | Azure Marketplace | [Requirements: Azure Marketplace: List: Consulting Services](#requirements:-azure-marketplace:-list:-consulting-services) |  
+| Consulting Services | AppSource | [Requirements: AppSource: List: Consulting Services](#requirements-appsource-list-consulting-services) |  
+| Consulting Services | Azure Marketplace | [Requirements: Azure Marketplace: List: Consulting Services](#requirements-azure-marketplace-list-consulting-services) |  
 | Contact Me | AppSource | [](#) |  
-| Contact Me | Azure Marketplace | [Requirements: AppSource: List: Contact Me](#requirements:-azure-marketplace:-list:-contact-me) |  
+| Contact Me | Azure Marketplace | [Requirements: AppSource: List: Contact Me](#requirements-azure-marketplace-list-contact-me) |  
 
 #### Requirements: AppSource: List: Consulting service  
 
@@ -86,12 +88,12 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Free / SaaS trial | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements:-trial) |  
-| Free / SaaS trial | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Free trial / SaaS trial](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| Interactive demo | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements:-trial) |  
-| Interactive demo | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Interactive demo](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| Test drive | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements:-trial) |  
-| Test drive | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Test drive](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| Free / SaaS trial | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Free / SaaS trial | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Free trial / SaaS trial](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Interactive demo | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Interactive demo | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Interactive demo](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Test drive | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Test drive | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### Requirements: Azure Marketplace: Trial  
 
@@ -128,11 +130,11 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Azure apps: Managed app | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Managed app](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  
-| Azure apps: Solution template | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Solution template](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  
-| Containers | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Container](#requirements:-azure-marketplace:-transact:-container) |  
-| SaaS app  | Azure Marketplace | [Requirements: Azure Marketplace: Transact: SaaS app](#requirements:-azure-marketplace:-transact:-saas-app) |  
-| Virtual machine | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Virtual machine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  
+| Azure apps: Managed app | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Managed app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure apps: Solution template | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Solution template](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Containers | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
+| SaaS app  | Azure Marketplace | [Requirements: Azure Marketplace: Transact: SaaS app](#requirements-azure-marketplace-transact-saas-app) |  
+| Virtual machine | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Virtual machine](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 <!-- #### Requirements: Azure Marketplace: Transact: Azure apps: Managed app  
 

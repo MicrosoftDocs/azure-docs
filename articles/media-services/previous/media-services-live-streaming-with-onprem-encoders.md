@@ -50,7 +50,7 @@ The following diagram represents a live-streaming workflow that uses an on-premi
 ## <a id="scenario"></a>Common live-streaming scenario
 The following steps describe tasks involved in creating common live-streaming applications.
 
-1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Start and configure an on-premises live encoder that has a multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) stream as output. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     You can also perform this step after you create your channel.
 2. Create and start a channel.
@@ -101,7 +101,7 @@ Use the secondary URL if you want to improve the durability and fault tolerance 
 
     In this scenario, both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance, as well as data redundancy. This scenario can tolerate both encoder failures and disconnects, even if one encoder stops working. It assumes that encoders are time synced and provide exactly the same data.  
 
-For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### Ingest URLs (endpoints)
 A channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   
@@ -142,7 +142,7 @@ Channels provide a preview endpoint (preview URL) that you use to preview and va
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
 
-Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
+Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address is allowed. An allowed IP address can be specified as one of the following:

@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Build a web app with .NET and the MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a web app with .NET and the MongoDB API'
 description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: slyons
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -11,10 +10,19 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2018
-ms.author: sngun
+ms.author: sclyon
 
 ---
 # Azure Cosmos DB: Build a MongoDB API web app with .NET and the Azure portal
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -120,7 +128,7 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
 
 2. Open the **Dal.cs** file in the **DAL** directory. 
 

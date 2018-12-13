@@ -1,5 +1,5 @@
 ---
-title: Azure Security data export to SIEM- Pipeline Configuration [Preview] | Microsoft Docs
+title: Azure Security data export to SIEM- Pipeline Configuration | Microsoft Docs
 description: This article documents the produce of getting Azure security center logs to a SIEM
 services: security-center
 documentationcenter: na
@@ -10,15 +10,15 @@ editor: ''
 ms.assetid: 
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
 
 ---
 
-# Azure Security data export to SIEM- Pipeline Configuration [Preview]
+# Azure Security data export to SIEM-Pipeline Configuration
 
 This document details the procedure to export Azure Security Center security data to a SIEM.
 
@@ -34,11 +34,11 @@ High-level overview
 
 ## What is the Azure security data exposed to SIEM?
 
-In this preview version we expose the [security alerts.](../security-center/security-center-managing-and-responding-alerts.md) In upcoming releases, we will enrich the data set with security recommendations.
+In this version we expose the [security alerts.](../security-center/security-center-managing-and-responding-alerts.md) In upcoming releases, we will enrich the data set with security recommendations.
 
-## How to setup the pipeline? 
+## How to setup the pipeline
 
-### Create an Event Hub 
+### Create an Event Hub
 
 Before you begin, you need to [create an Event Hubs namespace](../event-hubs/event-hubs-create.md). This namespace and Event Hub is the destination for all your monitoring data.
 

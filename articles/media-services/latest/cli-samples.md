@@ -1,23 +1,27 @@
 ---
-title: Azure CLI Examples - Azure Media Services | Microsoft Docs
-description: Azure CLI Examples for Azure Media Services service
+title: Azure CLI examples - Azure Media Services | Microsoft Docs
+description: Azure CLI examples for Azure Media Services service
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 04/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # Azure CLI examples for Azure Media Services
 
-The following table includes links to Azure CLI examples for Azure Media Services.
+The following table includes links to the Azure CLI examples for Azure Media Services.
+
+## Examples
 
 |  |  |
 |---|---|
@@ -35,4 +39,4 @@ The following table includes links to Azure CLI examples for Azure Media Service
 
 ## See also
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

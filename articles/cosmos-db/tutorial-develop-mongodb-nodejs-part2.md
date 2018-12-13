@@ -1,21 +1,19 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 2 | Microsoft Docs"
+title: Node.Js, Angular app using MongoB API (Part2)
+titleSuffix: Azure Cosmos DB
 description: Part 2 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+author: johnpapa 
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
-ms.custom: mvc
+ms.date: 12/06/2018
+ms.author: jopapa
+ms.custom: seodec18
 
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
+# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app
 
 This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
 
@@ -114,10 +112,10 @@ This tutorial also requires:
 
    app.use(bodyParser.json());
    app.use(bodyParser.urlencoded({ extended: false }));
-   app.use(express.static(path.join(root, 'dist')));
+   app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
    app.use('/api', routes);
    app.get('*', (req, res) => {
-     res.sendFile('dist/index.html', {root});
+     res.sendFile('dist/angular-cosmosdb/index.html', {root});
    });
 
    app.listen(port, () => console.log(`API running on localhost:${port}`));

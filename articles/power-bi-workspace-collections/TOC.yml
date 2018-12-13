@@ -51,7 +51,7 @@
   - name: JavaScript
     href: https://github.com/Microsoft/PowerBI-JavaScript/wiki
   - name: Management REST APIs
-    href: /rest/api/powerbiembedded/
+    href: https://docs.microsoft.com/rest/api/power-bi-workspace-collections/
   - name: REST APIs
     href: https://msdn.microsoft.com/library/azure/mt711507.aspx
 - name: Resources

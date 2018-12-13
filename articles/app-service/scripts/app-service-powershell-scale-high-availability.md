@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture | Microsoft Docs
+title: Azure PowerShell Script Sample - Scale app worldwide with Traffic Manager | Microsoft Docs
 description: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture
 services: app-service\web
 documentationcenter: 
@@ -27,7 +27,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/scale-geographic/scale-geographic.ps1 "Scale a web app worldwide with a high-availability architecture")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/scale-geographic/scale-geographic.ps1 "Scale a web app worldwide with a high-availability architecture")]
 
 ## Clean up deployment 
 

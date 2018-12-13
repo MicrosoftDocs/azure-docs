@@ -4,10 +4,6 @@ description: This article describes metrics available for Traffic Manager in Azu
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -42,7 +38,7 @@ Figure 2 displays the same information, however, it is split by endpoints. As a 
 *Figure 2: Split view with query volume shown per endpoint returned*
 
 ## Endpoint status by endpoint
-Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md) to understand the health status of the endpoints in the profile. It takes two values:
+Use [this metric](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) to understand the health status of the endpoints in the profile. It takes two values:
  - use **1** , if the endpoint is up.
  - use **0** if the endpoint is down.
 
@@ -65,4 +61,4 @@ In addition to processing and displaying metrics from Traffic Manager, Azure Mon
 
 ## Next steps
 - Learn more about [Azure Monitor service](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Learn how to [create a new chart using Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#how-do-i-create-a-new-chart)
+- Learn how to [create a new chart using Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#create-a-new-chart)

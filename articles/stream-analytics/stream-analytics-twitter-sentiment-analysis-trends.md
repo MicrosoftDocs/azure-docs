@@ -230,7 +230,7 @@ To compare the number of mentions among topics, you can use a [Tumbling window](
 
 1. Close the **Inputs** blade if you haven't already.
 
-2. In the job blade, click the **Query** box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
+2. In the **Overview** blade, click **Edit Query** near the top right of the Query box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
 
 3. Make sure that the TwitterWpfClient application is running. 
 
@@ -333,7 +333,7 @@ A job input, query, and output are specified. You are ready to start the Stream 
 
 After your job has started running and is processing the real-time Twitter stream, you can view the output for sentiment analysis.
 
-You can use a tool like [Azure Storage Explorer](https://http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
+You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

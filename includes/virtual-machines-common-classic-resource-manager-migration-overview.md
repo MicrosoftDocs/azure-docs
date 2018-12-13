@@ -12,7 +12,7 @@ ms.custom: include file
 ---
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
-In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
+This article describes how to migrate infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). 
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there’s a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -24,7 +24,7 @@ These classic IaaS resources are supported during migration
 
 * Virtual Machines
 * Availability Sets
-* Cloud Services
+* Cloud Services with Virtual Machines
 * Storage Accounts
 * Virtual Networks
 * VPN Gateways
@@ -34,12 +34,12 @@ These classic IaaS resources are supported during migration
 * Reserved IPs
 
 ## Supported scopes of migration
-There are 4 different ways to complete migration of compute, network, and storage resources. These are
+There are four different ways to complete migration of compute, network, and storage resources:
 
-* Migration of virtual machines (NOT in a virtual network)
-* Migration of virtual machines (in a virtual network)
-* Storage accounts migration
-* Unattached resources (Network Security Groups, Route Tables & Reserved IPs)
+* [Migration of virtual machines (NOT in a virtual network)](#migration-of-virtual-machines-not-in-a-virtual-network)
+* [Migration of virtual machines (in a virtual network)](#migration-of-virtual-machines-in-a-virtual-network)
+* [Migration of storage accounts](#migration-of-storage-accounts)
+* [Migration of unattached resources](#migration-of-unattached-resources)
 
 ### Migration of virtual machines (NOT in a virtual network)
 In the Resource Manager deployment model, security is enforced for your applications by default. All VMs need to be in a virtual network in the Resource Manager model. The Azure platform restarts (`Stop`, `Deallocate`, and `Start`) the VMs as part of the migration. You have two options for the virtual networks that the Virtual Machines will be migrated to:
@@ -49,7 +49,6 @@ In the Resource Manager deployment model, security is enforced for your applicat
 
 > [!NOTE]
 > In this migration scope, both the management-plane operations and the data-plane operations may not be allowed for a period of time during the migration.
->
 >
 
 ### Migration of virtual machines (in a virtual network)
@@ -63,23 +62,25 @@ The following configurations are not currently supported. If support is added in
 > [!NOTE]
 > In this migration scope, the management plane may not be allowed for a period of time during the migration. For certain configurations as described earlier, data-plane downtime occurs.
 >
->
 
-### Storage accounts migration
+### Migration of storage accounts
 To allow seamless migration, you can deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process.
+
+If your storage account does not have any associated disks or Virtual Machines data and only has blobs, files, tables, and queues then the migration to Azure Resource Manager can be done as a standalone migration without dependencies.
 
 > [!NOTE]
 > The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account.
 >
->
 
-### Unattached resources (Network Security Groups, Route Tables & Reserved IPs)
-Network Security Groups, Route Tables & Reserved IPs that are not attached to any Virtual Machines and Virtual Networks can be migrated independently.
+### Migration of unattached resources
+Storage Accounts with no associated disks or Virtual Machines data may be migrated independently.
+
+Network Security Groups, Route Tables & Reserved IPs that are not attached to any Virtual Machines and Virtual Networks can also be migrated independently.
 
 <br>
 
 ## Unsupported features and configurations
-We do not currently support some features and configurations. The following sections describe our recommendations around them.
+Some features and configurations are not currently supported; the following sections describe our recommendations around them.
 
 ### Unsupported features
 The following features are not currently supported. You can optionally remove these settings, migrate the VMs, and then re-enable the settings in the Resource Manager deployment model.
@@ -105,13 +106,13 @@ The following configurations are not currently supported.
 | Compute |Boot diagnostics with Premium storage |Disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs. |
 | Compute | Cloud services that contain web/worker roles | This is currently not supported. |
 | Compute | Cloud services that contain more than one availability set or multiple availability sets. |This is currently not supported. Please move the Virtual Machines to the same availability set before migrating. |
-| Compute | VM with Azure Security Center extension | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. To migrate the Virtual Machines, please disable the security center policy on the subscription which will remove the Security Center monitoring extension from the Virtual Machines. |
+| Compute | VM with Azure Security Center extension | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. To migrate the Virtual Machines, disable the security center policy on the subscription, which will remove the Security Center monitoring extension from the Virtual Machines. |
 | Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. While the migration of these VMs is not supported, follow the guidance [here](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) to keep backups that were taken prior to migration.  |
 | Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. Please move the Web/Worker roles to their own Virtual Network before migrating. Once the classic Virtual Network is migrated, the migrated Azure Resource Manager Virtual Network can be peered with the classic Virtual Network to achieve similar configuration as before.|
-| Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more about this see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md).|
+| Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
 | Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
 | Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
-| Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, please change the VNET of the API Management deployment which is a no downtime operation. |
+| Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, change the VNET of the API Management deployment, which is a no downtime operation. |

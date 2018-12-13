@@ -1,12 +1,14 @@
 ---
-title: 'Quickstart: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs'
+title: 'Quickstart:Cognitive search pipeline in Azure portal - Azure Search'
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 
@@ -20,12 +22,31 @@ In this quickstart, try the enrichment pipeline in the [Azure portal](https://po
 * Run the wizard (an entity skill detects people, location, and organizations)
 * Use [Search explorer](search-explorer.md) to query the enriched data.
 
+## <a name="supported-regions"></a> Supported Regions
+
 You can try out cognitive search in an Azure Search service created in the following regions:
 
+* West Central US
 * South Central US
+* East US
+* East US 2
+* West US 2
+* Canada Central
 * West Europe
+* UK South
+* North Europe
+* Brazil South
+* Southeast Asia
+* Central India
+* Australia East
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!NOTE]
+> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+>
+> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 ## Prerequisites
 
@@ -44,30 +65,32 @@ First, sign up for the Azure Search service.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time and you need more help.
 
-  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Create Azure Search service in the portal")
+  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Create Azure Search service in the portal")
 
 1. For Resource group, create a resource group to contain all the resources you create in this quickstart. This makes it easier to clean up the resources after you have finished the quickstart.
 
-1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions.
+1. For Location, choose one of the [supported regions](#supported-regions) for Cognitive Search.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Service definition page in the portal")
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Service definition page in the portal")
   > [!NOTE]
-  > Cognitive Search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
+  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. You will be able to perform a limited number of enrichments without associating a paid Cognitive Services resource. Learn [more](cognitive-search-attach-cognitive-services.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Service definition page in the portal")
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Service definition page in the portal")
 
 ### Set up Azure Blob service and load sample data
 
-The enrichment pipeline pulls from Azure data sources supported by [Azure Search indexers](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources supported by [Azure Search indexers](search-indexer-overview.md). Please note that Azure Table Storage is not supported for cognitive search. For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
 1. Using the Azure Storage Explorer, in the container you created, click **Upload** to upload the sample files.
 
@@ -81,7 +104,7 @@ Go back to the Azure Search service dashboard page and click **Import data** on 
 
 In **Connect to your data** > **Azure Blob storage**, select the account and container you created. Give the data source a name, and use default values for the rest. 
 
-   ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Azure blob configuration](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Click **OK** to create the data source.
@@ -118,7 +141,7 @@ Because you defined a skillset, the wizard assumes that you want the source data
 
 In **Customize index**, review the attributes on the fields to see how they are used in an index. Searchable indicates a field can be searched. Retrievable means it can be returned in results. 
 
-Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search Explorer**.
+Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search explorer**.
 
 Click **OK** to accept the index definition.
 
@@ -141,11 +164,11 @@ Click **OK** to import, enrich, and index the data.
 
 Indexing and enrichment can take time, which is why smaller data sets are recommended for early exploration. You can monitor indexing in the Notifications page of the Azure portal. 
 
-## Query in Search Explorer
+## Query in Search explorer
 
-After an index is created, you can submit queries to return documents from the index. In the portal, use **Search Explorer** to run queries and view results. 
+After an index is created, you can submit queries to return documents from the index. In the portal, use **Search explorer** to run queries and view results. 
 
-1. On the search service dashboard page, click **Search Explorer** on the command bar.
+1. On the search service dashboard page, click **Search explorer** on the command bar.
 
 1. Select **Change Index** at the top to select the index you created.
 

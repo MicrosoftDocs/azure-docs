@@ -25,7 +25,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location WestUS
 
 ## Create an API Management service
 
-This is long running operation and could take up to 15 minutes.
+This is a long running operation and could take up to 15 minutes.
 
 ```azurepowershell-interactive
 New-AzureRmApiManagement -ResourceGroupName "myResourceGroup" -Location "West US" -Name "apim-name" -Organization "myOrganization" -AdminEmail "myEmail" -Sku "Developer"

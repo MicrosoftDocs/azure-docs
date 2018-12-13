@@ -17,13 +17,10 @@ ms.author: douglasl
 ---
 # Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-spark.md)
-> * [Version 2 - Preview](transform-data-using-spark.md)
+> * [Version 1](v1/data-factory-spark.md)
+> * [Current version](transform-data-using-spark.md)
 
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Spark Activity in V1](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.

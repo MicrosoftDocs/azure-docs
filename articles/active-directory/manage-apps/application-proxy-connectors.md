@@ -2,20 +2,15 @@
 title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 11/15/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: it-pro
+ms.reviewer: japere
 ---
 
 # Understand Azure AD Application Proxy connectors
@@ -30,7 +25,24 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 
 To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to be able to communicate with the Application Proxy service as well as the on-premises applications that you publish. 
 
-For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-enable.md).
+### Windows server
+You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you are publishing.
+
+The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. To enable TLS 1.2:
+
+1. Set the following registry keys:
+	
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Restart the server
+
+
+For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-add-on-premises-application.md).
 
 ## Maintenance
 The connectors and the service take care of all the high availability tasks. They can be added or removed dynamically. Each time a new request arrives it is routed to one of the connectors that is currently available. If a connector is temporarily not available, it doesn't respond to this traffic.
@@ -47,7 +59,7 @@ You don't have to manually delete connectors that are unused. When a connector i
 
 ## Automatic updates
 
-Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-enable.md) to get any updates. 
+Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-add-on-premises-application.md) to get any updates. 
 
 If you don't want to wait for an automatic update to come to your connector, you can perform a manual upgrade. Go to the [connector download page](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) on the server where your connector is located and select **Download**. This process kicks off an upgrade for the local connector. 
 
@@ -75,7 +87,7 @@ While connectors will automatically load balance within a connector group, it is
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
+\* This machine used a custom setting to raise some of the default connection limits beyond .Net recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
  
 >[!NOTE]
 >There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
@@ -88,7 +100,6 @@ Connectors only send outbound requests. The outbound traffic is sent to the Appl
 
 For more information about configuring outbound firewall rules, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Use the [Azure AD Application Proxy Connector Ports Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) to verify that your connector can reach the Application Proxy service. At a minimum, make sure that the Central US region and the region closest to you have all green checkmarks. Beyond that, more green checkmarks means greater resiliency. 
 
 ## Performance and scalability
 
@@ -120,7 +131,7 @@ Connectors can also be joined to domains or forests that have a partial trust, o
 
 Usually, connector deployment is straightforward and requires no special configuration. However, there are some unique conditions that should be considered:
 
-* Organizations that limit the outbound traffic must [open required ports](application-proxy-enable.md#open-your-ports).
+* Organizations that limit the outbound traffic must [open required ports](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * FIPS-compliant machines might be required to change their configuration to allow the connector processes to generate and store a certificate.
 * Organizations that lock down their environment based on the processes that issue the networking requests have to make sure that both connector services are enabled to access all required ports and IPs.
 * In some cases, outbound forward proxies may break the two-way certificate authentication and cause the communication to fail.

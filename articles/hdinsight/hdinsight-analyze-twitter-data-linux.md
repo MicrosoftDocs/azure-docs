@@ -1,25 +1,20 @@
 ---
-title: Analyze Twitter data with Apache Hive - Azure HDInsight | Microsoft Docs
-description: Learn how to use use Hive and Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
+title: Analyze Twitter data with Apache Hive - Azure HDInsight 
+description: Learn how to use Apache Hive and Apache Hadoop on HDInsight to transform raw TWitter data into a searchable Hive table.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
+ms.date: 06/26/2018
+ms.author: hrasheed
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
-# Analyze Twitter data using Hive and Hadoop on HDInsight
+# Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight
 
-Learn how to use Apache Hive to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
+Learn how to use [Apache Hive](https://hive.apache.org/) to process Twitter data. The result is a list of Twitter users who sent the most tweets that contain a certain word.
 
 > [!IMPORTANT]
 > The steps in this document were tested on HDInsight 3.6.
@@ -28,7 +23,7 @@ Learn how to use Apache Hive to process Twitter data. The result is a list of Tw
 
 ## Get the data
 
-Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com/docs/platform-objects/tweets) as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
+Twitter allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
 
 ### Create a Twitter application
 
@@ -183,7 +178,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Run the HiveQL job
 
-1. Use the following command to create a file containing HiveQL statements:
+1. Use the following command to create a file containing [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) statements:
 
    ```bash
    nano twitter.hql
@@ -304,7 +299,7 @@ These commands store the data in a location that all nodes in the cluster can ac
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    This command runs the the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
+    This command runs the **twitter.hql** file. Once the query completes, you see a `jdbc:hive2//localhost:10001/>` prompt.
 
 4. From the beeline prompt, use the following query to verify that data was imported:
 
@@ -323,15 +318,14 @@ These commands store the data in a location that all nodes in the cluster can ac
 
 ## Next steps
 
-You have learned how to transform an unstructured JSON dataset into a structured Hive table. To learn more about Hive on HDInsight, see the following documents:
+You have learned how to transform an unstructured JSON dataset into a structured [Apache Hive](https://hive.apache.org/) table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

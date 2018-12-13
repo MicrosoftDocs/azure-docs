@@ -3,8 +3,8 @@ title: Managing your virtual machine image in the Azure Marketplace | Microsoft 
 description: Detailed guide on how to manage your virtual machine image in the Azure Marketplace after initial publication
 services: Azure Marketplace
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: mbaldwin;
+ms.author: hascipio;
 
 ---
 # Post-production guide for virtual machine offers in the Azure Marketplace
@@ -26,7 +26,7 @@ After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you
 * **SKU Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
 * **Publisher Namespace**: In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under “Step 2 Register Your Company”) > **Publisher Namespace** > **Namespace**.
 
-After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/marketplace), you can't change the following text boxes:
+After the offer/SKU is listed in the [Marketplace](https://azure.microsoft.com/marketplace), you can't change the following text boxes:
 
 * **Offer Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
 * **SKU Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.

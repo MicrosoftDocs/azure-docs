@@ -1,5 +1,5 @@
 ---
-title: Configure web apps in Azure App Service
+title: Configure web apps - Azure App Service
 description: How to configure a web app in Azure App Services
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Configure web apps in Azure App Service
@@ -42,7 +43,7 @@ The **Application settings** blade has settings grouped under several categories
 For technical reasons, enabling Java for your app disables the .NET, PHP, and Python options.
 
 <a name="platform"></a>
-**Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
+**Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard tier. Free and Shared tier always run in a 32-bit environment.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -53,6 +54,13 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 
 **Managed Pipeline Version**. Sets the IIS [pipeline mode]. Leave this set to Integrated (the default) unless you have a legacy app that requires an older version of IIS.
 
+**HTTP Version**. Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol. 
+
+> [!NOTE]
+> Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, either [buy an App Service Certificate](web-sites-purchase-ssl-web-site.md) for your app's custom domain or [bind a third party certificate](app-service-web-tutorial-custom-ssl.md).
+
+**ARR Affinity**. In an app that's scaled out to multiple VM instances, ARR Affinity cookies guarantee that the client is routed to the same instance for the life of the session. To improve the performance of stateless applications, set this option to **Off**.   
+
 **Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the web app into production when you push an update to that slot. For more information, see [Deploy to staging slots for web apps in Azure App Service](web-sites-staged-publishing.md).
 
 ### Debugging
@@ -62,9 +70,12 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 This section contains name/value pairs that your web app will load on start up. 
 
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
+* For App Service on Linux or Web App for Containers, if you have nested json key structure in your name like `ApplicationInsights:InstrumentationKey` you will need to have `ApplicationInsights__InstrumentationKey` as key name. So notice that any `:` should be replaced by `__` (i.e. double underscore).
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
 
 App settings are always encrypted when stored (encrypted-at-rest).
+
+App settings can be resolved from Key Vault using [Key Vault references](app-service-key-vault-references.md).
 
 ### Connection strings
 Connection strings for linked resources. 
@@ -81,6 +92,8 @@ For PHP, Python, Java and Node applications, these settings will be available as
 For example, if a MySql connection string were named `connectionstring1`, it would be accessed through the environment variable `MYSQLCONNSTR_connectionString1`.
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
+
+Connection strings can be resolved from Key Vault using [Key Vault references](app-service-key-vault-references.md).
 
 ### Default documents
 The default document is the web page that is displayed at the root URL for a website.  The first matching file in the list is used. 
@@ -163,14 +176,14 @@ For more information, see [How to: Monitor web endpoint status].
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [Enable HTTPS for an app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[How to: Monitor web endpoint status]: http://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
-[pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale a web app in Azure App Service]: ./web-sites-scale.md
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 

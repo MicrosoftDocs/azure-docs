@@ -24,7 +24,7 @@ robots: noindex
 > * [Using Monitoring and Management app](data-factory-monitor-manage-app.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [monitor and manage Data Factory pipelines in](../monitor-visually.md).
 
 This article describes how to monitor, manage, and debug your pipelines by using Azure portal and PowerShell.
 
@@ -286,7 +286,7 @@ In case the slice has failed validation because of a policy failure (for example
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Use Azure PowerShell
-You can rerun failures by using the **Set-AzureRmDataFactorySliceStatus** cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) topic for syntax and other details about the cmdlet.
+You can rerun failures by using the **Set-AzureRmDataFactorySliceStatus** cmdlet. See the [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) topic for syntax and other details about the cmdlet.
 
 **Example:**
 

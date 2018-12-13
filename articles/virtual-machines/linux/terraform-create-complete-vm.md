@@ -71,8 +71,8 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 ```
-:
-The following section creates a subnet named *mySubnet* in the *myVnet* virtual network
+
+The following section creates a subnet named *mySubnet* in the *myVnet* virtual network:
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -105,7 +105,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 Network Security Groups control the flow of network traffic in and out of your VM. The following section creates a network security group named *myNetworkSecurityGroup* and defines a rule to allow SSH traffic on TCP port 22:
 
 ```tf
-resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -137,6 +137,7 @@ resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
+    network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -240,10 +241,6 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 To bring all these sections together and see Terraform in action, create a file called *terraform_azure.tf* and paste the following content:
 
 ```tf
-variable "resourcename" {
-  default = "myResourceGroup"
-}
-
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

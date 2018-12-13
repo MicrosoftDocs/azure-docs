@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Delete a backup for a web app | Microsof
 description: Azure PowerShell Script Sample - Delete a backup for a web app
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -14,11 +14,12 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Delete a backup for a web app
+# Delete a backup for a web using Azure PowerShell
 
 This sample script creates a web app in App Service with its related resources, and then creates a one-time backup for it. 
 
@@ -26,7 +27,7 @@ To run this script, you need an existing backup for a web app. To create one, se
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## Clean up deployment 
 

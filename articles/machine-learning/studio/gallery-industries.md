@@ -1,12 +1,11 @@
 ---
-title: Azure AI Gallery industry-specific solutions | Microsoft Docs
-description: Discover industry solutions in the Azure AI Gallery.
+title: Azure AI Gallery industry solutions - Azure Machine Learning Studio | Microsoft Docs
+description: The Industries section of Azure AI Gallery brings together various resources that are specific to such industries as retail, manufacturing, banking, and healthcare.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
+author: ericlicoding
 
+editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
 ms.service: machine-learning
 ms.component: studio
@@ -15,21 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-
+ms.custom: previous-ms.author=garye, previous-author=garyericson
+ms.author: amlstudiodocs
 ---
 # Discover industry-specific solutions in the Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## Industry-specific Cortana Intelligence solutions
 The
-**[Industries](https://gallery.cortanaintelligence.com/industries)**
-section of the Gallery brings together various resources that are specific to such industries as
+**[Industries](https://gallery.azure.ai/industries)**
+section of [Azure AI Gallery](http://gallery.cortanaintelligence.com) brings together various resources that are specific to such industries as
 
-* [Retail](https://gallery.cortanaintelligence-int.com/industries/retail) - Find retail solutions such as sales forecasting, predicting customer churn, and developing pricing models.
-* [Manufacturing](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - Find manufacturing solutions such as anticipating equipment maintenance and forecasting energy prices.
-* [Banking](https://gallery.cortanaintelligence-int.com/industries/banking) - Find banking solutions such as predicting credit risk and monitoring for online fraud.
-* [Healthcare](https://gallery.cortanaintelligence-int.com/industries/healthcare) - Find healthcare solutions such as detecting disease, and predicting hospital readmissions.
+* [Retail](https://gallery.azure.ai/industries/retail) - Find retail solutions such as sales forecasting, predicting customer churn, and developing pricing models.
+* [Manufacturing](https://gallery.azure.ai/industries/manufacturing) - Find manufacturing solutions such as anticipating equipment maintenance and forecasting energy prices.
+* [Banking](https://gallery.azure.ai/industries/banking) - Find banking solutions such as predicting credit risk and monitoring for online fraud.
+* [Healthcare](https://gallery.azure.ai/industries/healthcare) - Find healthcare solutions such as detecting disease, and predicting hospital readmissions.
 
 These resources include experiments, custom modules, APIs, collections, and any other Gallery items that can help you develop solutions specific to the industry you're working in.
 
@@ -51,5 +48,5 @@ These resources include experiments, custom modules, APIs, collections, and any 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

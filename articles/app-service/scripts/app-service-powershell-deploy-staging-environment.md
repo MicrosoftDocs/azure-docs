@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment | Microsoft Docs
+title: Azure PowerShell Script Sample - Create app and deploy code to staging slot | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment
 services: app-service\web
 documentationcenter: 
@@ -26,7 +26,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
 
 ## Clean up deployment 
 

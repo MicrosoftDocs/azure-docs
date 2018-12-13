@@ -11,7 +11,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
@@ -47,7 +47,7 @@ This article is intended for people who are publishing an app with this scenario
 
 If you already have Application Proxy enabled, and have a connector installed, you can skip this section and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
-The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-enable.md).
+The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **Application proxy**.
@@ -62,7 +62,7 @@ The Application Proxy connector is a Windows Server service that directs the tra
 
 There are two actions you need to take in the Azure portal. First, you need to publish your application with Application Proxy. Then, you need to collect some information about the app that you can use during the PingAccess steps.
 
-Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
 1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
@@ -137,7 +137,7 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
 ### Optional - Update GraphAPI to send custom fields
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./../develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/v1-id-and-access-tokens.md). If you need a custom claim that sends other tokens, use Graph Explorer or the manifest for the application in the Azure Portal to set the app field *acceptMappedClaims* to **True**.    
 
 This example uses Graph Explorer:
 
@@ -148,7 +148,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-This example uses the [Azure portal](https://portal.azure.com) to udpate the *acceptedMappedClaims* field:
+This example uses the [Azure portal](https://portal.azure.com) to update the *acceptedMappedClaims* field:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
 2. Select **Azure Active Directory** > **App registrations**.
 3. Select your application > **Manifest**.
@@ -159,10 +159,10 @@ This example uses the [Azure portal](https://portal.azure.com) to udpate the *ac
 >[!NOTE]
 >To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
 >
->Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### Optional - Use a custom claim
-To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## Download PingAccess and configure your app
 

@@ -1,12 +1,14 @@
 ---
 title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS) and Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 06/11/2018
-ms.topic: article
+ms.topic: tutorial
+ms.date: 12/04/2018
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
@@ -25,7 +27,7 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
@@ -69,13 +71,12 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
         backend "azurerm" {}
     }
-
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -105,6 +106,26 @@ Create the Terraform configuration file that declares the resources for the Kube
         location = "${var.location}"
     }
 
+    resource "azurerm_log_analytics_workspace" "test" {
+        name                = "${var.log_analytics_workspace_name}"
+        location            = "${var.log_analytics_workspace_location}"
+        resource_group_name = "${azurerm_resource_group.k8s.name}"
+        sku                 = "${var.log_analytics_workspace_sku}"
+    }
+
+    resource "azurerm_log_analytics_solution" "test" {
+        solution_name         = "ContainerInsights"
+        location              = "${azurerm_log_analytics_workspace.test.location}"
+        resource_group_name   = "${azurerm_resource_group.k8s.name}"
+        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
+        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+
+        plan {
+            publisher = "Microsoft"
+            product   = "OMSGallery/ContainerInsights"
+        }
+    }
+
     resource "azurerm_kubernetes_cluster" "k8s" {
         name                = "${var.cluster_name}"
         location            = "${azurerm_resource_group.k8s.location}"
@@ -115,14 +136,14 @@ Create the Terraform configuration file that declares the resources for the Kube
             admin_username = "ubuntu"
 
             ssh_key {
-            key_data = "${file("${var.ssh_public_key}")}"
+                key_data = "${file("${var.ssh_public_key}")}"
             }
         }
 
         agent_pool_profile {
-            name            = "default"
+            name            = "agentpool"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -130,6 +151,13 @@ Create the Terraform configuration file that declares the resources for the Kube
         service_principal {
             client_id     = "${var.client_id}"
             client_secret = "${var.client_secret}"
+        }
+
+        addon_profile {
+            oms_agent {
+            enabled                    = true
+            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            }
         }
 
         tags {
@@ -191,6 +219,20 @@ Create the Terraform configuration file that declares the resources for the Kube
     variable location {
         default = "Central US"
     }
+
+    variable log_analytics_workspace_name {
+        default = "testLogAnalyticsWorkspaceName"
+    }
+
+    # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
+    variable log_analytics_workspace_location {
+        default = "eastus"
+    }
+
+   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
+   variable log_analytics_workspace_sku {
+        default = "PerGB2018"
+   }
     ```
 
 1. Exit insert mode by selecting the **Esc** key.
@@ -288,7 +330,14 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. The command will request two values: **var.client_id** and **var.client_secret**. For the **var.client_id** variable, enter the **appId** value associated with your service principal. For the **var.client_secret** variable, enter the **password** value associated with your service principal.
+1. Export your service principal credentials. Replace the &lt;your-client-id> and &lt;your-client-secret> placeholders with the **appId** and **password** values associated with your service principal, respectively.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Run the `terraform plan` command to create the Terraform plan that defines the infrastructure elements. 
 
     ```bash
     terraform plan -out out.plan
@@ -354,10 +403,14 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
     ![The kubectl tool allows you to verify the health of your Kubernetes cluster](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
+## Monitor health and logs
+When the AKS cluster was created, monitoring was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal. For more information on container health monitoring,
+see [Monitor Azure Kubernetes Service health](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+
 ## Next steps
 In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](http://aka.ms/terraform)  
- [Terraform Azure provider source](http://aka.ms/tfgit)  
- [Terraform Azure modules](http://aka.ms/tfmodules)
+ [Terraform Azure provider documentation](https://aka.ms/terraform)  
+ [Terraform Azure provider source](https://aka.ms/tfgit)  
+ [Terraform Azure modules](https://aka.ms/tfmodules)

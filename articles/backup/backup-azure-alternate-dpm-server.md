@@ -13,7 +13,7 @@ ms.author: adigan
 You can use Azure Backup Server to recover the data you've backed up to a Recovery Services vault. The process for doing so is integrated into the Azure Backup Server management console, and is similar to the recovery workflow for other Azure Backup components.
 
 > [!NOTE]
-> This article is applicable for [System Center Data Protection Manager 2012 R2 with UR7 or later] (https://support.microsoft.com/en-us/kb/3065246), combined with the [latest Azure Backup agent](http://aka.ms/azurebackup_agent).
+> This article is applicable for [System Center Data Protection Manager 2012 R2 with UR7 or later] (https://support.microsoft.com/en-us/kb/3065246), combined with the [latest Azure Backup agent](https://aka.ms/azurebackup_agent).
 >
 >
 

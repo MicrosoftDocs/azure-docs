@@ -10,7 +10,6 @@ ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
@@ -50,7 +49,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you pass a link to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls the next Telemetry Processor in the chain.
 
-    ``` C#
+    ```csharp
 
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -95,9 +94,9 @@ To filter telemetry, you write a telemetry processor and register it with the SD
     }
 
     ```
-1. Insert this in ApplicationInsights.config:
+3. Insert this in ApplicationInsights.config:
 
-```XML
+```xml
 
     <TelemetryProcessors>
       <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
@@ -137,7 +136,7 @@ TelemetryClients created after this point will use your processors.
 #### Synthetic requests
 Filter out bots and web tests. Although Metrics Explorer gives you the option to filter out synthetic sources, this option reduces traffic by filtering them at the SDK.
 
-``` C#
+```csharp
 
     public void Process(ITelemetry item)
     {
@@ -178,7 +177,7 @@ If you only want to diagnose calls that are slow, filter out the fast ones.
 >
 >
 
-``` C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -251,6 +250,7 @@ If you provide a telemetry initializer, it is called whenever any of the Track*(
 
 In ApplicationInsights.config:
 
+```xml
     <ApplicationInsights>
       <TelemetryInitializers>
         <!-- Fully qualified type name, assembly name: -->
@@ -258,6 +258,7 @@ In ApplicationInsights.config:
         ...
       </TelemetryInitializers>
     </ApplicationInsights>
+```
 
 *Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
 
@@ -274,6 +275,25 @@ In ApplicationInsights.config:
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
 <a name="js-initializer"></a>
+
+### Java telemetry initializers
+
+[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+
+```Java
+public interface TelemetryInitializer
+{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
+
+void initialize(Telemetry telemetry); }
+```
+
+Then register the custom initializer in your applicationinsights.xml file.
+
+```xml
+<Add type="mypackage.MyConfigurableContextInitializer">
+<Param name="some_config_property" value="some_value" />
+</Add>
+```
 
 ### JavaScript telemetry initializers
 *JavaScript*

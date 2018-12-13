@@ -1,5 +1,5 @@
 ---
-title: Migrate an active DNS name to Azure App Service | Microsoft Docs
+title: Migrate an active DNS name - Azure App Service | Microsoft Docs
 description: Learn how to migrate a custom DNS domain name that is already assigned to a live site to Azure App Service without any downtime.
 services: app-service
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Migrate an active DNS name to Azure App Service
@@ -52,11 +53,18 @@ The TXT record you need depends on the DNS record you want to migrate. For examp
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| @ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
 | www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
 | \* (wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 In your DNS records page, note the record type of the DNS name you want to migrate. App Service supports mappings from CNAME and A records.
+
+> [!NOTE]
+> For certain providers, such as CloudFlare, `awverify.*` is not a valid record. Use `*` only instead.
+
+> [!NOTE]
+> Wildcard `*` records won't validate subdomains with an existing CNAME's record. You may need to explicitly create a TXT record for each subdomain.
+
 
 ### Enable the domain for your app
 

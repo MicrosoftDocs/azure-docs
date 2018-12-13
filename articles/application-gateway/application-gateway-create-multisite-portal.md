@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -99,7 +99,7 @@ In this example, you create two virtual machines to be used as backend servers f
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `

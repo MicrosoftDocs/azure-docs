@@ -3,7 +3,7 @@ title: Recover from catastrophic data loss in Azure Stack using the Infrastructu
 description: When a catastrophic failure causes Azure Stack to fail, your can restore your infrastructure data when reestablishing your Azure Stack deployment.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 11/05/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
 
 ---
@@ -36,11 +36,11 @@ This scenario addresses recovering your entire installation in the event of a fa
 
 The journey of protecting Azure Start starts with backing up the infrastructure and app/tenant data separately. This document covers how to protect the infrastructure. 
 
-![Initial deployment of Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Initial deployment of Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 In worst case scenarios where all data is lost, recovering Azure Stack is the process of restoring the infrastructure data unique to that deployment of Azure Stack and all user data. 
 
-![Redeploy Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Redeploy Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## Restore
 
@@ -69,4 +69,4 @@ None of the user Infrastructure as a Service (IaaS) or Platform as a Service (Pa
 
 ## Next steps
 
- - Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).
+Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).

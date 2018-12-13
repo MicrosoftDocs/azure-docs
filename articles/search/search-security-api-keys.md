@@ -1,5 +1,5 @@
 ---
-title: Create, manage, and secure admin and query api-keys for Azure Search | Microsoft Docs
+title: Create, manage, and secure admin and query api-keys - Azure Search
 description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,20 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 
 # Create and manage api-keys for an Azure Search service
 
-All requests to a search service need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
+All requests to a search service need a read-only api-key that was generated specifically for your service. The api-key is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. In [REST solutions](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), the api-key is typically specified in a request header. In [.NET solutions](search-howto-dotnet-sdk.md#core-scenarios), a key is often specified as a configuration setting and then passed as [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin key) or [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (query key) on [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+Keys are created with your search service during service provisioning. You can view and obtain key values in the [Azure portal](https://portal.azure.com).
+
+![Portal page, Settings, Keys section](media/search-manage/azure-search-view-keys.png)
+
+## What is an api-key
 
 An api-key is a string composed of randomly generated numbers and letters. Through [role-based permissions](search-security-rbac.md), you can delete or read the keys, but you can't replace a key with a user-defined password or use Active Directory as the primary authentication methodology for accessing search operations. 
 
@@ -55,7 +61,7 @@ If you regenerate both primary and secondary keys at the same time, any applicat
 ## Secure api-keys
 Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
-+ In the service dashboard, click **Access control (IAM)** to view role assignments for your service.
++ In the service dashboard, click **Access control (IAM)** and then the **Role assignments** tab to view role assignments for your service.
 
 Members of the following roles can view and regenerate keys: Owner, Contributor, [Search Service Contributors](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

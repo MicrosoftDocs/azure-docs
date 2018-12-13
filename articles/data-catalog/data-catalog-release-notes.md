@@ -1,20 +1,13 @@
 ---
-title: Azure Data Catalog release notes | Microsoft Docs
+title: Azure Data Catalog release notes
 description: Release notes for Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # Azure Data Catalog release notes
 ## Notes for the November 20, 2015 release of Azure Data Catalog

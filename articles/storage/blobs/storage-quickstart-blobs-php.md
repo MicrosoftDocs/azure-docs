@@ -3,13 +3,11 @@ title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft 
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
 services: storage
 author: roygara
-manager: jeconnoc
 
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: rogarana
 ---
 
@@ -18,14 +16,12 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [PHP](http://php.net/downloads.php)
-* Install [the Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+Make sure you have the following additional prerequisites installed:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+* [PHP](http://php.net/downloads.php)
+* [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) used in this quickstart is a basic PHP application.  
@@ -125,7 +121,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **createBlockBlob()** method. 
 
-The sample code takes a local file and uploads it to Azure. The file is stored as as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
+The sample code takes a local file and uploads it to Azure. The file is stored as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");

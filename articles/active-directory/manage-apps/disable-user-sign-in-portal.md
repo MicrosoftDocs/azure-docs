@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
@@ -37,7 +37,7 @@ It's easy to disable an enterprise application so that no users may sign in to i
 8. Select the **Save** command.
 
 ## Next steps
-* [See all my groups](../active-directory-groups-view-azure-portal.md)
+* [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
 * [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
 * [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)

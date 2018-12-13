@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
 ---
@@ -28,15 +28,15 @@ If you don't have an Event Hubs namespace, you first need to create one. If you 
 
 The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the **Configure** tab for your Event Hubs namespace. 
 
-To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+To update the Activity Log log profile to include streaming, the user who's making the change must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
 
 ### Via the Azure portal
 1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
    
-   ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Select the **Export** button at the top of the log.
+   ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Select the **Export to Event Hub** button at the top of the log.
    
-   ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing through your Activity Log in the portal.
 3. In the section that appears, select **All regions**. Do not select particular regions.
@@ -47,8 +47,9 @@ To update the Activity Log log profile to include streaming, the user who's maki
    > If you select anything other than **All regions**, you'll miss key events that you expect to receive. The Activity Log is a global (non-regional) log, so most events do not have a region associated with them. 
    >
 
-4. Select **Save** to save these settings. The settings are immediately applied to your subscription.
-5. If you have several subscriptions, repeat this action and send all the data to the same event hub.
+4. Click the **Azure Event Hubs** option, and select an event hubs namespace to which logs should be sent, then click **OK**.
+5. Select **Save** to save these settings. The settings are immediately applied to your subscription.
+6. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell cmdlets
 If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
@@ -72,7 +73,7 @@ If a log profile already exists, you first need to remove the existing log profi
    $eventHubNamespace = "<event hub namespace>"
 
    # Build the service bus rule Id from the settings above
-   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
@@ -94,5 +95,5 @@ The schema for the Activity Log is available in [Monitor subscription activity w
 ## Next steps
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md)
+* [Set up an alert based on an Activity Log event](../azure-monitor/platform/alerts-log-webhook.md)
 

@@ -1,26 +1,21 @@
 ---
-title: 'Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template | Microsoft Docs'
+title: 'Quickstart: Create Apache Hadoop clusters using Resource Manager and query data with Apache Hive - Azure HDInsight'
 description: Learn how to create HDInsight clusters, and query data with Hive.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-
-
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template and run a Hive job
 ---
-# Quickstart: Get started with Hadoop and Hive in Azure HDInsight using Resource Manager template
+# Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using Resource Manager template
 
-In this article, you learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
+In this article, you learn how to create [Apache Hadoop](https://hadoop.apache.org/) clusters in HDInsight using a Resource Manager template, and then run Hive jobs in HDInsight. Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and then delete the cluster. In this article, you perform all the three tasks.
 
 In this quickstart, you use a Resource Manager template to create an HDInsight Hadoop cluster. You can also create a cluster using the [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).
 
@@ -252,6 +247,7 @@ In this article, you learned how to create a Linux-based HDInsight cluster using
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* For information on how to create an HDInsight cluster with Data Lake Storage, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
 
 To learn more about analyzing data with HDInsight, see the following articles:
@@ -275,5 +271,3 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

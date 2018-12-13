@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/17/2018
 ms.author: dobett
 ---
 
@@ -48,137 +48,29 @@ The following steps show you how to prepare your Raspberry Pi for building a C a
     sudo apt-get update
     ```
 
-1. Use the following command to add the required development tools and libraries to your Raspberry Pi:
+1. To complete the steps in this how-to guide follow the steps in [set up your Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to add the required development tools and libraries to your Raspberry Pi.
 
-    ```sh
-    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
-    ```
+## View the code
 
-1. Use the following commands to download, build, and install the IoT Hub client libraries on your Raspberry Pi:
+The [sample code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) used in this guide is available in the Azure IoT C SDKs GitHub repository.
 
-    ```sh
-    cd ~
-    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    mkdir cmake
-    cd cmake
-    cmake ..
-    make
-    sudo make install
-    ```
+### Download the source code and prepare the project
 
-## Create a project
+To prepare the project, clone or download the [Azure IoT C SDKs repository](https://github.com/Azure/azure-iot-sdk-c) from GitHub.
 
-Complete the following steps using the **ssh** connection to your Raspberry Pi:
+The sample is located in the **samples/solutions/remote_monitoring_client** folder.
 
-1. Create a folder called `remote_monitoring` in your home folder on the Raspberry Pi. Navigate to this folder in your shell:
+Open the **remote_monitoring.c** file in the **samples/solutions/remote_monitoring_client** folder in a text editor.
 
-    ```sh
-    cd ~
-    mkdir remote_monitoring
-    cd remote_monitoring
-    ```
-
-1. Create the four files **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, and **CMakeLists.txt** in the `remote_monitoring` folder.
-
-1. In a text editor, open the **remote_monitoring.c** file. On the Raspberry Pi, you can use either the **nano** or **vi** text editor. Add the following `#include` statements:
-
-    ```c
-    #include "iothubtransportmqtt.h"
-    #include "schemalib.h"
-    #include "iothub_client.h"
-    #include "serializer_devicetwin.h"
-    #include "schemaserializer.h"
-    #include "azure_c_shared_utility/threadapi.h"
-    #include "azure_c_shared_utility/platform.h"
-    #include <string.h>
-    ```
-
-[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
-
-Save the **remote_monitoring.c** file and exit the editor.
-
-## Add code to run the app
-
-In a text editor, open the **remote_monitoring.h** file. Add the following code:
-
-```c
-void remote_monitoring_run(void);
-```
-
-Save the **remote_monitoring.h** file and exit the editor.
-
-In a text editor, open the **main.c** file. Add the following code:
-
-```c
-#include "remote_monitoring.h"
-
-int main(void)
-{
-  remote_monitoring_run();
-
-  return 0;
-}
-```
-
-Save the **main.c** file and exit the editor.
+[!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## Build and run the application
 
-The following steps describe how to use *CMake* to build your client application.
+The following steps describe how to use *CMake* to build the client application. The remote monitoring client application is built as part of the build process for the SDK.
 
-1. In a text editor, open the **CMakeLists.txt** file in the `remote_monitoring` folder.
+1. Edit the **remote_monitoring.c** file to replace `<connectionstring>` with the device connection string you noted at the start of this how-to guide when you added a device to the solution accelerator.
 
-1. Add the following instructions to define how to build your client application:
-
-    ```cmake
-    macro(compileAsC99)
-      if (CMAKE_VERSION VERSION_LESS "3.1")
-        if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-          set (CMAKE_C_FLAGS "--std=c99 ${CMAKE_C_FLAGS}")
-          set (CMAKE_CXX_FLAGS "--std=c++11 ${CMAKE_CXX_FLAGS}")
-        endif()
-      else()
-        set (CMAKE_C_STANDARD 99)
-        set (CMAKE_CXX_STANDARD 11)
-      endif()
-    endmacro(compileAsC99)
-
-    cmake_minimum_required(VERSION 2.8.11)
-    compileAsC99()
-
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
-
-    include_directories(${AZUREIOT_INC_FOLDER})
-
-    set(sample_application_c_files
-        ./remote_monitoring.c
-        ./main.c
-    )
-
-    set(sample_application_h_files
-        ./remote_monitoring.h
-    )
-
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
-
-    target_link_libraries(sample_app
-      serializer
-      iothub_client_mqtt_transport
-      umqtt
-      iothub_client
-      aziotsharedutil
-      parson
-      pthread
-      curl
-      ssl
-      crypto
-      m
-    )
-    ```
-
-1. Save the **CMakeLists.txt** file and exit the editor.
-
-1. In the `remote_monitoring` folder, create a folder to store the *make* files that CMake generates. Then run the **cmake** and **make** commands as follows:
+1. Navigate to root of your cloned copy of the [Azure IoT C SDKs repository](https://github.com/Azure/azure-iot-sdk-c) repository and run the following commands to build the client application:
 
     ```sh
     mkdir cmake
@@ -190,7 +82,12 @@ The following steps describe how to use *CMake* to build your client application
 1. Run the client application and send telemetry to IoT Hub:
 
     ```sh
-    ./sample_app
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
+
+    The console displays messages as:
+
+    - The application sends sample telemetry to the solution accelerator.
+    - Responds to methods invoked from the solution dashboard.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

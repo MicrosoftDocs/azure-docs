@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
 ---
 
@@ -35,7 +35,7 @@ Check the type of the Azure VPN gateway.
 
 2. Check the **Overview** page of the VPN gateway for the type information.
     
-    ![Overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### Step 1. Check whether the on-premises VPN device is validated
 

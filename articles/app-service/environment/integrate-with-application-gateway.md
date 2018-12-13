@@ -1,5 +1,5 @@
 ---
-title: Integrate your ILB App Service Environment with the Azure Application Gateway
+title: Integrate ILB App Service Environment with Application Gateway - Azure
 description: Walkthrough on how to integrate an app in your ILB App Service Environment with an Application Gateway
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway #
 
@@ -128,6 +129,6 @@ After setup is completed and you have allowed a short amount of time for your DN
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md

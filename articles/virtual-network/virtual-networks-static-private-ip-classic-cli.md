@@ -1,6 +1,6 @@
 ---
-title: Configure private IP addresses for VMs (Classic) - Azure CLI 1.0| Microsoft Docs
-description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure command-line interface (CLI) 1.0.
+title: Configure private IP addresses for VMs (Classic) - Azure classic CLI| Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure classic command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -19,7 +19,7 @@ ms.author: genli
 ms.custom: H1Hack27Feb2017
 
 ---
-# Configure private IP addresses for a virtual machine (Classic) using the Azure CLI 1.0
+# Configure private IP addresses for a virtual machine (Classic) using the Azure classic CLI
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -29,12 +29,12 @@ ms.custom: H1Hack27Feb2017
 
 This article covers the classic deployment model. You can also [manage a static private IP address in the Resource Manager deployment model](virtual-networks-static-private-ip-arm-cli.md).
 
-The sample Azure CLI commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-cli.md).
+The sample Azure classic CLI commands that follow expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-classic-cli.md).
 
 ## How to specify a static private IP address when creating a VM
 To create a new VM named *DNS01* in a new cloud service named *TestService* based on the scenario above, follow these steps:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/cli/azure/install-cli-version-1.0) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure service create** command to create the cloud service.
    
         azure service create TestService --location uscentral
@@ -71,7 +71,7 @@ To create a new VM named *DNS01* in a new cloud service named *TestService* base
    * **TestService**. Name of the cloud service where the VM will be created.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image used to create the VM.
    * **adminuser**. Local administrator for the Windows VM.
-   * **AdminP@ssw0rd**. Local administrator password for the Windows VM.
+   * <strong>AdminP@ssw0rd</strong>. Local administrator password for the Windows VM.
 
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following Azure CLI command and observe the value for *Network StaticIP*:
@@ -120,4 +120,3 @@ It’s recommended that you do not statically assign the private IP assigned to 
 * Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
 * Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 * Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-

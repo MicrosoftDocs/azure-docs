@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Azure PowerShell samples for API Management
 
-The following table includes links to bash scripts built using the Azure PowerShell.
+The following table contains sample scripts for working with the API Management service from PowerShell.
 
 | | |
 |-|-|

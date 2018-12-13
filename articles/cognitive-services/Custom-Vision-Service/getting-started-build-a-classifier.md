@@ -1,12 +1,14 @@
 ---
-title: Build a classifier with Custom Vision Service - Azure Cognitive Services | Microsoft Docs
+title: Building a classifier - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Learn how to use the Custom Vision Service to create a classifier that can discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
 ---
@@ -78,8 +80,6 @@ To create a new project, use the following steps:
     Custom Vision Service accepts training images in .jpg, .png, and .bmp format, up to 6 MB per image. (Prediction images can be up to 4 MB per image.) We recommend that images be 256 pixels on the shortest edge. Any images shorter than 256 pixels on the shortest edge are scaled up by Custom Vision Service.
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![The browse local files button is shown near bottom center.](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > The REST API can be used to load training images from URLs.

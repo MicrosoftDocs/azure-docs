@@ -1,8 +1,15 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+---
 ## Deploy template from Cloud Shell
 
 You can use [Cloud Shell](../articles/cloud-shell/overview.md) to deploy your template. However, you must first load your template into the storage account for your Cloud Shell. If you have not used Cloud Shell, see [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for information about setting it up.
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select your Cloud Shell resource group. The name pattern is `cloud-shell-storage-<region>`.
 

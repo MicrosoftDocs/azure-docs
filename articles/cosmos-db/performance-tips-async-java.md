@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB performance tips for Async Java | Microsoft Docs
+title: Azure Cosmos DB performance tips for Async Java
 description: Learn client configuration options to improve Azure Cosmos DB database performance
 keywords: how to improve database performance
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: java
@@ -13,14 +12,15 @@ ms.date: 03/27/2018
 ms.author: sngun
 
 ---
+
+# Performance tips for Azure Cosmos DB and Async Java
+
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# Performance tips for Azure Cosmos DB and Async Java
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Async Java SDK](sql-api-sdk-async-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
@@ -45,11 +45,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 3. **Tuning ConnectionPolicy**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using the Async Java SDK, and are subjected to the default max connection pool size (1000). This default value should be ideal for the majority of use cases. However, in case you have a very large collection with many partitions, you can set the max connection pool size to a larger number (say, 1500) using setMaxPoolSize.
+    Azure Cosmos DB requests are made over HTTPS/REST when using the Async Java SDK, and are subjected to the default max connection pool size (1000). This default value should be ideal for the majority of use cases. However, in case you have a large collection with many partitions, you can set the max connection pool size to a larger number (say, 1500) using setMaxPoolSize.
 
 4. **Tuning parallel queries for partitioned collections**
 
-    Azure Cosmos DB SQL Async Java SDK supports parallel queries, which enable you to query a partitioned collection in parallel (see [Working with the SDKs](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) and the related [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) for more info). Parallel queries are designed to improve query latency and throughput over their serial counterpart.
+    Azure Cosmos DB SQL Async Java SDK supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
 
     (a) ***Tuning setMaxDegreeOfParallelism\:***
     Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use setMaxDegreeOfParallelism to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism. 
@@ -63,7 +63,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 5. **Implement backoff at getRetryAfterInMilliseconds intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. For more information, see [Exceeding reserved throughput limits](request-units.md#RequestRateTooLarge) and DocumentClientException.getRetryAfterInMilliseconds.
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. 
 6. **Scale out your client-workload**
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
@@ -81,11 +81,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     You may also set the page size using the setMaxItemCount method.
     
-9. **Use Appropriate Scheduler (Avoid stealing Eventloop IO Netty threads)**
+9. **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty eventloop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO eventloop netty threads. So it is important to not block the shared IO eventloop netty threads. Doing CPU intensive work or blocking operation on the IO eventloop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
-    For example the following code executes a cpu intensive work on the eventloop IO netty thread:
+    For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -101,7 +101,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
       });
     ```
 
-    After result is received if you want to do CPU intensive work on the result you should avoid doing so on eventloop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
+    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
 
     ```java
     import rx.schedulers;
@@ -126,14 +126,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 	For More Information, Please look at the [Github page](https://github.com/Azure/azure-cosmosdb-java) for Async Java SDK.
 
 10. **Disable netty's logging**
-    Netty library logging is chatty and needs to be turned off (suppressing log in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
+    Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
 11. **OS Open files Resource Limit**
-    Some Linux systems (like Redhat) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
+    Some Linux systems (like Red Hat) have an upper limit on the number of open files and so the total number of connections. Run the following to view the current limits:
 
     ```bash
     ulimit -a
@@ -172,7 +172,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     </dependency>
     ```
 
-For other platforms (Redhat, Windows, Mac, etc.,) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
+For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
 
 ## Indexing Policy
  
@@ -211,7 +211,7 @@ For other platforms (Redhat, Windows, Mac, etc.,) refer to these instructions ht
     response.getRequestCharge();
     ```             
 
-    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before throttling subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Handle rate limiting/request rate too large**
 

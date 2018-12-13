@@ -1,19 +1,16 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 3 | Microsoft Docs"
+title: Node.Js, Angular app using MongoB API (Part3)
+titleSuffix: Azure Cosmos DB
 description: Part 3 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB. 
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+author: johnpapa
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
-ms.custom: mvc
-
+ms.date: 12/06/2018
+ms.author: jopapa
+ms.custom: seodec18
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 3: Build the UI with Angular
 
@@ -108,8 +105,8 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     @Component({
       selector: 'app-heroes',
-      templateUrl: './heroes.component.html'
-        styleUrls: ['./heroes.component.scss']
+      templateUrl: './heroes.component.html',
+      styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;

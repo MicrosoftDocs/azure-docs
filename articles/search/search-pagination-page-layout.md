@@ -1,5 +1,5 @@
 ---
-title: How to page search results in Azure Search | Microsoft Docs
+title: How to page items in a search results page - Azure Search
 description: Pagination in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # How to page search results in Azure Search
 This article provides guidance on how to use the Azure Search Service REST API to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation.
@@ -97,7 +97,6 @@ See [Search Documents (Azure Search API)](https://docs.microsoft.com/rest/api/se
 * [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice)
 * [Index Operations](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Document Operations](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Video and tutorials about Azure Search](search-video-demo-tutorial-list.md)
 * [Faceted Navigation in Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->

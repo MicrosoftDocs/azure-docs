@@ -2,18 +2,18 @@
 title: Overview of Azure Database for PostgreSQL relational database service
 description: Provides an overview of Azure Database for PostgreSQL relational database service.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/02/2018
+ms.date: 11/14/2018
 ---
 # What is Azure Database for PostgreSQL?
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine. Azure Database for PostgreSQL delivers:
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine, versions 9.5, 9.6, and 10. Azure Database for PostgreSQL delivers:
 
 - Built-in high availability with no additional cost
 - Predictable performance, using inclusive pay-as-you-go pricing
@@ -50,7 +50,7 @@ The Azure Database for PostgreSQL service uses storage encryption for data at-re
 By default, the Azure Database for PostgreSQL service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in-motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable requiring SSL for connecting to your database service if your client application does not support SSL connectivity.
 
 ## Contacts
-For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Note that this is not a technical support alias.
+For any questions or suggestions you might have about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Note that this is not a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

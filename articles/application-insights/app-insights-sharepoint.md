@@ -1,20 +1,17 @@
-﻿---
+---
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-
 ---
 # Monitor a SharePoint site with Application Insights
 Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
@@ -30,7 +27,7 @@ The window that opens is the place where you'll see performance and usage data a
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -80,18 +77,6 @@ The first events will appear in Search.
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
-
-From the overview blade, click **Usage analytics** to see to charts of users, sessions and page views:
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-Click any chart to see more details - for example Page Views:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-Or Users:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## Capturing User Id
 The standard web page code snippet doesn't capture the user id from SharePoint, but you can do that with a small modification.

@@ -1,13 +1,14 @@
 ---
-title: How to page through the available videos | Microsoft Docs
+title: How to page through the available videos - Bing Video Search
+titlesuffix: Azure Cognitive Services
 description: Shows how to page through all of the videos that Bing can return.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 910A485F-BCF3-42B9-958D-DD48BDEDA965
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---
@@ -60,3 +61,6 @@ For example, if you want to page 30 videos at a time, you'd set `count` to 30 an
 
 > [!NOTE]
 > Paging applies only to videos search (/videos/search), and not to video insights (/videos/details) or trending videos (/videos/trending).
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 

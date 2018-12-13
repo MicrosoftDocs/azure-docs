@@ -12,7 +12,7 @@ ms.custom: include file
 ---
 
 > [!div class="op_single_selector"]
-> * [Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+> * [Portal](../articles/virtual-network/tutorial-filter-network-traffic.md)
 > * [PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md)
 > * [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md)
 > * [PowerShell (Classic)](../articles/virtual-network/virtual-networks-create-nsg-classic-ps.md)

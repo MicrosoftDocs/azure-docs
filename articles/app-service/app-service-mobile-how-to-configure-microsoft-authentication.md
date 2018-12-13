@@ -1,5 +1,5 @@
 ---
-title: How to configure Microsoft Account authentication for your App Services application
+title: Configure Microsoft Account authentication - Azure App Service
 description: Learn how to configure Microsoft Account authentication for your App Services application.
 author: mattchenderson
 services: app-service
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 # How to configure your App Service application to use Microsoft Account login
@@ -38,6 +39,8 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
     > [!IMPORTANT]
     > The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
+    
+8. Click **Save**
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 1. Back in the [Azure portal], navigate to your application, click **Settings** > **Authentication / Authorization**.
@@ -62,5 +65,5 @@ You are now ready to use Microsoft Account for authentication in your app.
 
 <!-- URLs. -->
 
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure portal]: https://portal.azure.com/
