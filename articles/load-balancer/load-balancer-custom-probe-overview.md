@@ -19,7 +19,7 @@ ms.author: kumud
 
 Azure Load Balancer uses health probes to determine which backend pool instances will receive new flows. You can use health probes to detect the failure of an application on a backend instance. You can also generate a custom response to a health probe and use the health probe for flow control and signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance and can also be used to manage load or planned downtime. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance.
 
-The types of health probes available and the way health probes behave depends on which SKU of Load Balancer you are using. For example, the behavior of new and existing flows depends on whether a flow is TCP or UDP as well as which Load Balancer SKU you are using.
+Health probes support multiple protocols. The availability of a specific type of health probe to support a specific protocol varies by Load Balancer SKU.  Additionally, the behavior of the service varies by Load Balancer SKU.
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ The types of health probes available and the way health probes behave depends on
 
 ## <a name="types"></a>Probe types
 
-The health probe type can be configured by specifying one of three different types of health probes protocols:
+The health probe can be configured for listeners using the following three protocols:
 
 - [TCP listeners](#tcpprobe)
 - [HTTP endpoints](#httpprobe)
@@ -180,7 +180,7 @@ In addition to Load Balancer health probes, the following operations use this IP
 
 ## <a name="design"></a> Design guidance
 
-Health probes are used to make your service resilient and allow it to scale. A misconfiguration or bad design can impact the availability and scalability of your service. You need to carefully review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
+Health probes are used to make your service resilient and allow it to scale. A misconfiguration or bad design pattern can impact the availability and scalability of your service. You need to carefully review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
 
 When you design the health model for your application, you should probe a port on a backend instance that reflects the health of that instance __and__ the application service you are providing.  The application port and the probe port is not required to be the same.  In some scenarios, it may be desirable for the probe port to be different than the port your application provides service on.  
 
