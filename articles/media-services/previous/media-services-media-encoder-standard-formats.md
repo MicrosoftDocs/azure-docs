@@ -24,7 +24,7 @@ ms.author: juliako;anilmur
 
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 
-## Input Container/File Formats
+## Input container/file Formats
 | File formats (file extensions) | Supported |
 | --- | --- | --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
@@ -78,7 +78,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Apple ProRes 4444 XQ |Yes |
 | HEVC/H.265| Main Profile|
 
-## Input Audio Codecs
+## Input audio codecs
 | Input Audio Codecs | Supported |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
@@ -95,7 +95,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Dolby® Digital (AC3) |No |
 | Dolby® Digital Plus (E-AC3) |No |
 
-## Output Formats and codecs
+## Output formats and codecs
 The following table lists the codecs and file formats that are supported for export.
 
 | File Format | Video Codec | Audio Codec |
