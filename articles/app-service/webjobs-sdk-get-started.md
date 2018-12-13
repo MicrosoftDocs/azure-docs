@@ -392,7 +392,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 In this section you run locally again to verify that logging data is now going to Application Insights as well as to the console.
 
-1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello App Insights!* as the message text.
+1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function-in-azure), except enter *Hello App Insights!* as the message text.
 
 1. Run the project.
 

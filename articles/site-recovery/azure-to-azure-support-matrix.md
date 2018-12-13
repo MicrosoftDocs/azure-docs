@@ -129,7 +129,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default to
 
 ## Replicated machines - Linux file system/guest storage
 
-* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
+* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS, BTRFS
 * Volume manager: LVM2
 * Multipath software: Device Mapper
 
