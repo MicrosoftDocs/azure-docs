@@ -145,7 +145,7 @@
         href: database-transactions-optimistic-concurrency.md
     - name: Server-side programming
       items:
-        - name: Stored procedures, triggers and UDFs
+        - name: Stored procedures, triggers & UDFs
           href: storedprocedures-triggers-udfs.md
         - name: JavaScript query API
           href: js-query-api.md
@@ -256,11 +256,11 @@
           href: sql-api-query-metrics.md
         - name : Server-side programming
           items:
-          - name: Write stored procedures, triggers, and UDFs
+          - name: Write stored procedures, triggers & UDFs
             href: how-to-write-sprocs-triggers-udfs.md
-          - name: Write stored procedures, and triggers with JavaScript query API
+          - name: Write stored procedures & triggers with JavaScript query API
             href: how-to-write-js-query-api.md
-          - name: Use stored procedures, triggers, and UDFs
+          - name: Use stored procedures, triggers & UDFs
             href: how-to-use-sprocs-triggers-udfs.md  
         - name: Data types
           items:
@@ -488,7 +488,7 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
-      - name: Secure with Key vault support
+      - name: Secure with Key Vault
         href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
