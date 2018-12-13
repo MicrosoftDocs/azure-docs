@@ -105,7 +105,7 @@ This update includes the following improvements for Azure Stack:
 
 - Added a new region properties blade that displays registration details of the environment. You can access this information by clicking the **Region Management** tile on the default dashboard in the administrator portal and then selecting **Properties**.
 
-- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
+- Added a new privileged endpoint command to update the BMC credential with user name and password, used to communicate with the physical machines. For more information, see [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
 
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
