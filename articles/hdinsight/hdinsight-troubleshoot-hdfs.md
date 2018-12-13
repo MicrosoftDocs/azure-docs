@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/2/2017
 ---
 
-# Troubleshoot HDFS by using Azure HDInsight
+# Troubleshoot Apache Hadoop HDFS by using Azure HDInsight
 
 Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
 
