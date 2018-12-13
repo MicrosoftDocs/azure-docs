@@ -28,6 +28,9 @@ In this tutorial you learn how to:
 > * Upload data to your container
 > * Create a search service through the portal
 > * Connect a search service to a storage account
+> * Create a data source
+> * Configure the index
+> * Create a indexer
 > * Use the search service to search your container
 
 ## Prerequisites
