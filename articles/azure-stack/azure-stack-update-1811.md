@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2018
+ms.date: 12/15/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -58,7 +58,13 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
-    ``` 
+    ```
+
+    If you do not have the extension host requirements met, the `Test-AzureStack` output displays the following message: 
+
+    ```shell
+    To proceed with installation of the 1811 update, you will need to import the SSL certificates required for Extension Host, which simplifies network integration and increases the security posture of Azure Stack. Refer to this link to prepare for Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare
+    ```
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
 
@@ -73,7 +79,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
  
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
-    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
 ## New features
 
