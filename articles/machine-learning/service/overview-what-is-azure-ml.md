@@ -89,6 +89,8 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 - [Use Azure Machine Learning to auto-generate and autotune a model](tutorial-auto-train-models.md).
 
+- Learn about [Azure ML Data Prep SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py) to prepare your data.
+
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) article.
