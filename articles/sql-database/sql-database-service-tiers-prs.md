@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Premium RS service tier retirement | Microsoft Docs
-description: The Premium RS service tier is being retired and support for it is ending - migrate now.  
+description: The Premium RS service tier is being retired and support for it is ending - see migration options.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 12/13/2018
 ---
-# Azure SQL Database Premium RS service tier (preview) is being retired and you must migrate
+# Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
 
 In February 2018, Microsoft announced that the Premium RS service tier in Azure SQL Database would not be released for general availability and would no longer be supported after January 31, 2019. This end of support data have been extended to June 30, 2019. This article explains your options for migrating a from the Premium RS service tier to another service tier. After June 30, 2019, Microsoft will automatically migrate your Premium RS databases to a generally available service tier that most closely matches the performance requirements of your Premium RS database.
 
@@ -35,7 +35,7 @@ Review the guidance in this article along with our pricing and documentation to 
 
 ## Migrate compute-intensive workloads and save
 
-For your compute-intensive Premium RS workloads, we recommend migrating to our generally available vCore-based General Purpose service tier and save more with license-included rates using the Azure Hybrid Benefit for SQL Server and reserved capacity offers. If you would rather remain on a DTU-based purchasing option, you can migrate your compute-intensive Premium RS databases to a Standard service tier and still save versus the Premium RS general availability pricing.
+For your compute-intensive Premium RS workloads, we recommend migrating to our generally available vCore-based General Purpose service tier and save more with license-included rates using the Azure Hybrid Benefit for SQL Server and reserved capacity offers. If you would rather remain on a DTU-based purchasing option, you can migrate your compute-intensive Premium RS databases to a Standard service tier and still save versus the Premium RS general availability pricing (if it had gone into general availability).
 
 > [!WARNING]
 > Migrating your Premium RS workloads to DTU-based Premium service tiers may increase monthly costs versus current Premium RS pricing. We recommend considering the Hyperscale or Business Critical tiers with Azure Hybrid Benefit and reserved capacity pricing to maintain similar or lower costs than Premium RS.
