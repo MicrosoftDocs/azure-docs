@@ -24,7 +24,7 @@ sections:
     className: cardsM
     columns: 3
     items:
-      - title: Query Performance Insight
+      - title: Query Performance Insights
         href: /azure/sql-database/sql-database-query-performance
         html: <p>Easily monitor resource usage in your Azure SQL Database (Single Database) using built-in monitoring capabilities on the Azure portal.</p>
       - title: Azure SQL Analytics
@@ -35,7 +35,7 @@ sections:
         html: <p>Automatic tuning can automatically fix query plan issues, create necessary indexes, and drop unused indexes.</p>
       - title: Intelligent Performance Insight
         href: /azure/sql-database/sql-database-intelligent-insights
-        html: <p>Built-in intelligence in Azure SQL Database detect disruptive events that cause poor performancein your databases.</p>
+        html: <p>Built-in intelligence in Azure SQL Database detect disruptive events that cause poor performance in your databases.</p>
       - title: Performance recommendations
         href: /azure/sql-database/sql-database-advisor
         html: <p>Azure SQL Database provides a set of recommendations that can help you to optimize your database.</p>
@@ -49,5 +49,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Learn how can <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">Intelligent query processing</a> improve performance of your database.
-    - html: <a href="sql-database-geo-replication-overview.md">Query store</a> is core SQL Server technology that enables you to get real-time insights into query performance.
+    - html: Learn more about <a href="sql-database-monitor-tune-overview.md">Monitoring and tuning</a> in Azure SQL Database.
+    - html: Learn how <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">Intelligent query processing</a> can improve performance of your database.
+    - html: Setup and operate <a href="sql-database-operate-query-store.md">Query store</a> - the core SQL Server technology that enables you to get real-time insights into query performance.
+    - html: Learn how to use <a href="sql-database-operate-query-store.md">Dynamic Management Views</a> to analyze performance of your workload.
+    - html: Learn how to monitor database activities with <a href="sql-database-xevent-db-diff-from-svr">XEvents</a>.
+    - html: Learn how to <a href="sql-database-xevent-db-diff-from-svr">manually tune your database</a>.
