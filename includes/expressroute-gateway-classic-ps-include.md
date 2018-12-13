@@ -16,7 +16,7 @@
 
 ## Add a gateway
 
-When you add a gateway to a virtual network using the classic resource model, you modify the network configuration file directly before creating the gateway. The values in the examples below must be present in the file in order to create a gateway. If your virtual network previously had a gateway associated to it, some of these values will already be present. Modify the file to reflect the values below.
+When you add a gateway to a virtual network using the classic resource model, you modify the network configuration file directly before creating the gateway. The values in the examples below must be present in the file to create a gateway. If your virtual network previously had a gateway associated to it, some of these values will already be present. Modify the file to reflect the values below.
 
 ### Download the network configuration file
 
@@ -36,8 +36,8 @@ When you add a gateway to a virtual network using the classic resource model, yo
   ```
 3. Navigate to the VirtualNetworkSites and modify the fields. 
 
-  * If you need a gateway subnet, you can add one at this time. The name must be "GatewaySubnet". 
-  * Verify the  Gateway section of the file exists. If it doesn't, add it. This is required to associated the virtual network with the local network site (which represents the network to which you are connecting). 
+  * If you need a gateway subnet, you can add one at this time. The name must be "GatewaySubnet".
+  * Verify the  Gateway section of the file exists. If it doesn't, add it. This is required to associate the virtual network with the local network site (which represents the network to which you are connecting). 
   * Verify that the connection type = Dedicated. This is required for ExpressRoute connections.
 
   ```
