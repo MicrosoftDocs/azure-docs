@@ -136,8 +136,15 @@ The [Application Insights Java SDK](app-insights-java-get-started.md) supports a
 Currently, automatic context propagation across messaging technologies (e.g. Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` API's, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
-### Role Name
-At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_roleName` by doing one of the following:
+## Role Name
+
+At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
+
+If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
+
+`spring.application.name=<name-of-app>`
+
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
 
 If you are using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` will set the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
 ```XML
@@ -145,7 +152,9 @@ If you are using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializ
   <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
 </ContextInitializers>
 ```
+
 Via the cloud context class:
+
 ```Java
 telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
@@ -153,6 +162,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 ## Next steps
 
 - [Write custom telemetry](app-insights-api-custom-events-metrics.md)
+- [Learn more about](app-insights-app-map.md#set-cloud-rolename) setting cloud_RoleName for other SDKs.
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
