@@ -15,6 +15,10 @@ ms.date: 12/04/2018
 ---
 # Determine the management endpoint IP address
 
+The Azure SQL Database Managed Instance virtual cluster contains a management endpoint that Microsoft uses for managingement operations. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level. You can determine the IP address of the management end-point; however, you cannot access this endpoint.
+
+## Determine IP address
+
 Let’s assume that Managed Instance host is `mi-demo.xxxxxx.database.windows.net`. Run `nslookup` using the host name.
 
 ![Resolving internal host name](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
