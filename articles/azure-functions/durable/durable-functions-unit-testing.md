@@ -1,5 +1,5 @@
 ---
-title: Durable Functions unit testing
+title: Azure Durable Functions unit testing
 description: Learn how to unit test Durable Functions.
 services: functions
 author: kadimitr

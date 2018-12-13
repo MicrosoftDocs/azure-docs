@@ -185,9 +185,9 @@ This section provides an overview of how to run the [sample project](https://git
 
 1. If you want to see logs in Application Insights when you run locally:
 
-  a. Create an Application Insights resource, app type **General**.
+    a. Create an Application Insights resource, app type **General**.
 
-  b. Save the instrumentation key in the *App.config* file.
+    b. Save the instrumentation key in the *App.config* file.
 
 1. Run the project.
 
@@ -211,8 +211,8 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
 
 1. Choose the prerelease version 3.x of the following packages:
 
-* `Microsoft.Azure.WebJobs.Extensions`
-* `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. Change `Main` method code to get the Storage connection string and the Application Insights instrumentation key from an *appsettings.json* file, using the .NET Core configuration framework.  Here's an example:
 
