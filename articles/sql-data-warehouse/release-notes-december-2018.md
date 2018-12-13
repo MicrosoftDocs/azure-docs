@@ -24,7 +24,7 @@ Using Polybase you can also import data into Azure SQL Data Warehouse from Azure
 
 For more information on VNet Service Endpoints in Azure SQL Data Warehouse, refer to the [blog post](https://azure.microsoft.com/en-us/blog/general-availability-of-vnet-service-endpoints-for-azure-sql-data-warehouse/) or the [documentation](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json).
 
-## Automatic Performance Monitoring in Azure SQL Data Warehouse
+## Automatic Performance Monitoring (Preview)
 [Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-2017) is now available in Preview for Azure SQL Data Warehouse. Query Store is designed to help you with query performance troubleshooting by tracking queries, query plans, runtime statistics, and query history to help you monitor the activity and performance of your data warehouse. Query Store is a set of internal stores and Dynamic Management Views (DMVs) that allow you to:
 
 - Identify and tune top resource consuming queries
