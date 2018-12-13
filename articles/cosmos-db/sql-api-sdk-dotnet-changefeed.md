@@ -38,6 +38,11 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.5"/>2.2.5
+* Added support for handling split in collections that use shared database throughput.
+  * This release fixes an issue that may occur during split in collections using shared database throughput when split result into partition re-balancing with only one child partition key range created, rather than two. When this happens, Change Feed Processor may get stuck deleting the lease for old partition key range and not creating new leases. The issue is fixed in this release.
+  * Minor breaking change: added new method IChangeFeedDocumentClient.ReadOffersFeedAsync, that is used to check whether colleciton has assigned dedicated thoughput or shares throughput with other collections in the database. Providing custom implementation of IChangeFeedDocumentClient is an advanced scenario and can be used to monitor all calls by Change Feed Processor to monitored and lease collections. With this change, IChangeFeedDocumentClient implementation must be changed by implementing the new method.
+
 ### <a name="2.2.4"/>2.2.4
 * Added new property ChangeFeedProcessorOptions.StartContinuation to support starting change feed from request continuation token. This is only used when lease collection is empty or a lease does not have ContinuationToken set. For leases in lease collection that have ContinuationToken set, the ContinuationToken is used and ChangeFeedProcessorOptions.StartContinuation is ignored.
 

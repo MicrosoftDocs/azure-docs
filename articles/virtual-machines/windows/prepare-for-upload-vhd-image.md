@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
 
 ---
@@ -69,6 +69,16 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    If the VM need to work with any specific proxy, you must add a proxy exception to the Azure IP address ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), so the VM has connectivity to the Azure:
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell

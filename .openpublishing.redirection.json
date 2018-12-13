@@ -22957,8 +22957,13 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-azure-policy.md",
+            "redirect_url": "/azure/security-center/tutorial-security-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-policies.md",
-            "redirect_url": "/azure/security-center/security-center-azure-policy",
+            "redirect_url": "/azure/security-center/tutorial-security-policy",
             "redirect_document_id": false
         },
         {
