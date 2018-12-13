@@ -15,7 +15,7 @@ ms.date: 12/04/2018
 ---
 # Determine the management endpoint IP address
 
-The Azure SQL Database Managed Instance virtual cluster contains a management endpoint that Microsoft uses for managingement operations. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level. You can determine the IP address of the management end-point; however, you cannot access this endpoint.
+The Azure SQL Database Managed Instance virtual cluster contains a management endpoint that Microsoft uses for management operations. The management endpoint is protected with a built-in firewall on the network level and mutual certificate verification on the application level. You can determine the IP address of the management endpoint, but you can't access this endpoint.
 
 ## Determine IP address
 
