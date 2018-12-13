@@ -317,8 +317,6 @@ Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition late
 This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
 ```csharp
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
 
     HttpWebRequest request = null;
     request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -331,6 +329,8 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
