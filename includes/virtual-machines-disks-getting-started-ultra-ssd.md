@@ -77,7 +77,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 - During VM Creation, Ultra SSDs can be implicitly created as well. However, these disks will receive a default value for IOPS (500) and throughput (8 MiB/s).
 - Additional Ultra SSDs can be attached to Ultra SSD compatible VMs.
-- Ultra SSD supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. ONce a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
+- Ultra SSD supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 - Growing the disk capacity does require a virtual machine to be de-allocated.
 
 ## Next steps
