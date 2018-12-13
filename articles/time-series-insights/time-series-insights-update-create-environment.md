@@ -1,5 +1,5 @@
 ﻿---
-title: Azure Time Series Insights Preview set up - Set up an Azure Time Series Insights Preview environment tutorial | Microsoft Docs
+title: 'Tutorial: Set up an Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Learn how to set up your environment in Azure Time Series Insights Preview.
 author: ashannon7
 ms.author: anshan
@@ -14,42 +14,42 @@ ms.custom: seodec18
 
 # Tutorial: Set up an Azure Time Series Insights Preview environment
 
-This tutorial guides you through the process of creating an Azure Time Series Insights pay-as-you-go (PAYG) Preview environment. In this tutorial, you learn how to:
+This tutorial guides you through the process of creating an Azure Time Series Insights Preview pay-as-you-go (PAYG) environment. In this tutorial, you learn how to:
 
 * Create an Azure Time Series Insights Preview environment.
 * Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
 * Run a wind farm simulation to stream data into the Azure Time Series Insights Preview environment.
 * Perform basic analysis on the data.
-* Define a Time Series Model Type and Hierarchy and associate it with your instances.
+* Define a Time Series Model type and hierarchy, and associate it with your instances.
 
 # Create a device simulation
 
-In this section, you will create three simulated devices that will send data to an IoT Hub.
+In this section, you'll create three simulated devices that will send data to an IoT hub.
 
-1. Go to the [Azure IoT solution accelerators home page](https://www.azureiotsolutions.com/Accelerators). The Azure IoT solution accelerators home page displays several pre-built examples. Sign in using your Azure account. Then, select **Device Simulation**.
+1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). The page displays several prebuilt examples. Sign in by using your Azure account. Then, select **Device Simulation**.
 
-   ![Azure IoT solution accelerators home page][1]
+   ![Azure IoT solution accelerators page][1]
 
-   Lastly, click **Try Now**.
+   Select **Try Now**.
 
-1. Enter the required parameters on the **Create Device Simulation** solution page:
+1. Enter the required parameters on the **Create Device Simulation solution** page:
 
    | Parameter | Description |
    | --- | --- |
-   | Solution name |	A unique value, used for creation of a new resource group. The listed Azure resources are | created and assigned to the resource group. |
-   | Subscription |	Specify the same subscription used for creation of your TSI environment |
-   | Region |	Specify the same region used for creation of your TSI. |
-   | Deploy optional Azure Resources	| Leave IoT Hub checked, as the simulated devices will use it to connect/stream data. |
+   | **Solution name** |	Enter a unique value for creation of a new resource group. The listed Azure resources are created and assigned to the resource group. |
+   | **Subscription** |	Specify the same subscription used for creation of your Time Series Insights environment |
+   | **Region** |	Specify the same region used for creation of your Time Series Insights environment. |
+   | **Deploy optional Azure Resources**	| Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
 
-   After entering the required parameters, click on **Create Solution**. Wait for approximately 10-15 minutes for your solution to be deployed.
+   After entering the required parameters, select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
 
-   ![Create device simulation solution][2]
+   ![Create device simulation solution page][2]
 
-1. In your **Solution Accelerator Dashboard**, click the **Launch** button:
+1. In your solution accelerator dashboard, select the **Launch** button:
 
    ![Launch the device simulation solution][3]
 
-1. You will be redirected to the **Microsoft Azure IoT Device Simulation** page. Click **+ New simulation** located in the upper right of the screen.
+1. You're redirected to the **Microsoft Azure IoT Device Simulation** page. Select **+ New simulation** on the upper right of the page.
 
    ![Azure IoT simulation page][4]
 
@@ -61,27 +61,27 @@ In this section, you will create three simulated devices that will send data to 
     | --- | --- |
     | **Name** | Enter a unique name for a simulator |
     | **Description** | Enter a definition |
-    | **Simulation Duration** | Set to `Run indefinitely` |
-    | **Device Model** | **Name**: Enter `Chiller` **Amount**: Enter `3` |
-    | **Target IoT Hub** | Set to `Use pre-provisioned IoT Hub` |
+    | **Simulation duration** | Set to **Run indefinitely** |
+    | **Device model** | **Name**: Enter **Chiller** </br>**Amount**: Enter **3** |
+    | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub** |
 
-    After filling the required parameters, click on **Start Simulation**.
+    After filling the required parameters, select **Start simulation**.
 
-1. In the device simulation dashboard, see the **Active devices** and **Messages per second**.
+1. In the device simulation dashboard, see **Active devices** and **Messages per second**.
 
     ![Azure IoT simulation dashboard][6]
 
 ## List device simulation properties
 
-Before you create an Azure Time Series Insights environment, you will need the names of your IoT Hub, subscription, and resource group name.
+Before you create an Azure Time Series Insights environment, you need the names of your IoT hub, subscription, and resource group.
 
-1. Go to the **Solution Accelerator Dashboard** and sign in using the same Azure subscription account. Find the device simulation that you created in the previous steps.
+1. Go to the solution accelerator dashboard and sign in by using the same Azure subscription account. Find the device simulation that you created in the previous steps.
 
-1. Click on your device simulator and click **Launch**. Click on the **Azure Management Portal** link is displayed on the right-hand side.
+1. Select your device simulator and select **Launch**. Select the **Azure Management Portal** link on the right side.
 
     ![Simulator listings][7]
 
-1. Take note of the IoT Hub, subscription, and resource group names.
+1. Take note of the IoT hub, subscription, and resource group names.
 
     ![Azure portal][8]
 
@@ -95,9 +95,9 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
 1. Select the **Internet of Things** category, and then select **Time Series Insights**.
 
-   ![Select Create a resource, then select Internet of Things, and then select Time Series Insights][9]
+   ![Select Internet of Things, and then select Time Series Insights][9]
 
-1. Fill the fields on the page as follows:
+1. Fill in the fields on the page as follows:
 
    | | |
    | --- | ---|
