@@ -23,7 +23,7 @@ Each action is made up of the following properties:
 * **Action type**: The action to perform. Examples include sending a voice call, SMS, email; or triggering various types of automated actions. See types later in this article. 
 * **Details**: The corresponding details which vary by *action type*. 
 
-For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## Create an action group by using the Azure portal ##
 1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** blade consolidates all your monitoring settings and data in one view.
@@ -67,7 +67,7 @@ After you create an action group, it's visible in the **Action groups** section 
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-You may have up to 1000 email actions in an Action Group. See the [rate limiting information](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) article
+You may have up to 1000 email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
 
 **ITSM** - You may have up to 10 ITSM actions in an Action Group
 ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
@@ -80,11 +80,11 @@ ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection
 Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads
 
 **SMS** - You may have up to 10 SMS actions in an Action Group
-See the [rate limiting information](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) article
-See the [SMS alert behavior](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md) article
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
+See the [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) article
 
 **Voice** - You may have up to 10 Voice actions in an Action Group</dd>
-See the [rate limiting information](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) article</dd>
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article</dd>
 
 **Webhook** - You may have up to 10 Webhook actions in an Action Group. 
 Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.
@@ -101,9 +101,9 @@ To receive updates about changes to these IP addresses we recommend you configur
 
 
 ## Next steps ##
-* Learn more about [SMS alert behavior](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md).  
+* Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
-* Learn more about [rate limiting](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) on alerts.
-* Get an [overview of activity log alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md), and learn how to receive alerts.  
+* Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
+* Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
