@@ -158,10 +158,10 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 
 
 ## Next Steps
-* [Learn more about Azure Monitor](../azure-monitor/overview.md)
-* [Access metrics using the REST API](monitoring-rest-api-walkthrough.md)
-* [Stream the Activity Log to a non-Microsoft service](monitoring-stream-activity-logs-event-hubs.md)
-* [Stream Diagnostic Logs to a non-Microsoft service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Learn more about Azure Monitor](../../azure-monitor/overview.md)
+* [Access metrics using the REST API](rest-api-walkthrough.md)
+* [Stream the Activity Log to a non-Microsoft service](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Stream Diagnostic Logs to a non-Microsoft service](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
@@ -228,8 +228,8 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
-[grafana-doc]: ./monitor-send-to-grafana.md "Azure Monitor Grafana integration."
-[influxdata-doc]: ./../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influxdata Telegraf integration."
+[grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."
+[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influxdata Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."

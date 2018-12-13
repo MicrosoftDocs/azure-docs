@@ -35,7 +35,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 6. After the deployment completes, select **Go to Resource Group**. You see a list of newly created resources.
 
-    ![Grafana resource group objects](media/monitor-send-to-grafana/grafana1.png)
+    ![Grafana resource group objects](media/grafana-plugin/grafana1.png)
 
     If you select the network security group (*grafana-nsg* in this case), you can see that port 3000 is used to access Grafana server.
 
@@ -60,7 +60,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 2. Pick a name for the data source and select **Azure Monitor** as the type from the dropdown.
 
 3. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
-    * See [these instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
+    * See [these instructions](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
     * See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
     The Log Analytics API requires the [Log Analytics Reader role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), which includes the Reader role's permissions and adds to it.
 
@@ -102,7 +102,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
     ![Grafana graph config for Azure Log Analytics](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
-    ![Grafana Two Charts Example](media/monitor-send-to-grafana/grafana6.png)
+    ![Grafana Two Charts Example](media/grafana-plugin/grafana6.png)
 
 
 ## Optional: Monitor your custom metrics in the same Grafana server
@@ -119,7 +119,7 @@ Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, a
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Here is an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
-![Grafana Example Metrics](media/monitor-send-to-grafana/grafana8.png)
+![Grafana Example Metrics](media/grafana-plugin/grafana8.png)
 
 ## Advanced Grafana features
 
@@ -162,4 +162,4 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](../azure-monitor/platform/data-collection.md)
+* [Overview of Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md)

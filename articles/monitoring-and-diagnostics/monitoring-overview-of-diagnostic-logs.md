@@ -42,7 +42,7 @@ You can use a storage account or Event Hubs namespace that is not in the same su
 >  You cannot currently archive network flow logs to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

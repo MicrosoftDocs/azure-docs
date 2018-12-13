@@ -51,7 +51,7 @@ Metrics and resource level diagnostic logs provide information about the _intern
 
 
 ### Metrics
-Most Azure services will generate [platform metrics](data-collection.md#metrics) that reflect their performance and operation. The specific [metrics will vary for each type of resource](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).  They are accessible from the Metrics explorer and can be copied to Log Analytics for trending and other analysis.
+Most Azure services will generate [platform metrics](data-collection.md#metrics) that reflect their performance and operation. The specific [metrics will vary for each type of resource](../../azure-monitor/platform/metrics-supported.md).  They are accessible from the Metrics explorer and can be copied to Log Analytics for trending and other analysis.
 
 
 ### Resource diagnostic Logs

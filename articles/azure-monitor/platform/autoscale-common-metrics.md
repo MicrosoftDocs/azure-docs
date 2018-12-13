@@ -28,8 +28,8 @@ If either preceding case is true, then review [Use PowerShell to enable Azure Di
 ### Host metrics for Resource Manager-based Windows and Linux VMs
 The following host-level metrics are emitted by default for Azure VM and VMSS in both Windows and Linux instances. These metrics describe your Azure VM, but are collected from the Azure VM host rather than via agent installed on the guest VM. You may use these metrics in autoscaling rules.
 
-- [Host metrics for Resource Manager-based Windows and Linux VMs](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
-- [Host metrics for Resource Manager-based Windows and Linux VM Scale Sets](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
+- [Host metrics for Resource Manager-based Windows and Linux VMs](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Host metrics for Resource Manager-based Windows and Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### Guest OS metrics Resource Manager-based Windows VMs
 When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension. The diagnostics extension emits a set of metrics taken from inside of the VM. This means you can autoscale off of metrics that are not emitted by default.
