@@ -96,12 +96,9 @@ Run the following PowerShell script to install these modules on your development
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
-    See the [release notes](https://www.powershellgallery.com/packages/AzureStack/1.6.0) for the changes in the Azure Stack module version 1.6.0
-
-    Azure Stack 1811 update comes with new storage-related features, which can be found [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-azs-1811/articles/azure-stack/azure-stack-update-1811.md)
 
 
-    To make use of these features, Execute the following and specify the module version you to load.
+    Execute the following and specify the module version you to load.
 
     ```PowerShell
     # Install the Azure.Storage module version 4.5.0
