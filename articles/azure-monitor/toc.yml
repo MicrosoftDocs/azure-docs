@@ -120,11 +120,11 @@
   - name: Respond to incidents
     items:
     - name: Alerts 
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-overview.md
     - name: Classic alerts 
       href: platform/alerts-classic.overview.md  
     - name: Smart groups
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json  
+      href: platform/alerts-smartgroups-overview.md  
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Metric alerts
@@ -739,11 +739,11 @@
         - name: Alerts with dynamic thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-logs.md
         - name: Create a newer metric alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-create-templates.md
         - name: Create a classic metric alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json    
+          href: platform/alerts-enable-template.md    
         - name: Have a classic metric alert call a webhook
           href: platform/alerts-webhooks.md
       - name: Use log alerts
@@ -759,7 +759,7 @@
         - name: Configure alerts on an activity log event
           href: platform/alerts-activity-log.md
         - name: Migrate to activity log alerts
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/migrate-management-alerts.md
         - name: Configure alerts on service notifications
           href: platform/alerts-activity-log-service-notifications.md
       - name: Use application alerts
@@ -775,11 +775,11 @@
         - name: Learn about the webhook schema
           href: platform/activity-log-alerts-webhook.md
         - name: SMS alert behavior
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-sms-behavior.md
         - name: Alert rate limiting
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-rate-limiting.md
         - name: Create action groups with Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-create-resource-manager-template.md
         - name: Implement a Logic App action
           href: platform/action-groups-logic-app.md
       - name: Alerts from Operations Manager
@@ -789,11 +789,11 @@
         - name: Manage alert instances
           href: platform/alerts-managing-alert-instances.md
         - name: Manage smart groups
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json   
+          href: platform/alerts-managing-smart-groups.md   
         - name: Manage alert and smart group states
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json  
+          href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json   
+          href: platform/alerts-managing-nagios-zabbix-scom.md   
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale

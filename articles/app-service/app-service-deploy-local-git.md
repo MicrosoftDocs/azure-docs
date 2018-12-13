@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
-### Create a deployment user
+### Configure a deployment user
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -82,7 +82,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### Deploy your project
 
-Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable Git for your app](#enable-git-for-you-app).
+Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable Git for your app](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

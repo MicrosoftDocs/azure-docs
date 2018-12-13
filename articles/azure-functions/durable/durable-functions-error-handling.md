@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -22,7 +22,7 @@ Any exception that is thrown in an activity function is marshalled back to the o
 
 For example, consider the following orchestrator function that transfers funds from one account to another:
 
-#### C#
+### C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -33,16 +33,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -51,9 +51,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -61,7 +61,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
@@ -103,7 +103,7 @@ If the call to the **CreditAccount** function fails for the destination account,
 
 When you call activity functions or sub-orchestration functions, you can specify an automatic retry policy. The following example attempts to call a function up to three times and waits 5 seconds between each retry:
 
-#### C#
+### C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -113,26 +113,26 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-The `CallActivityWithRetryAsync` (C#) or `callActivityWithRetry` (JS) API takes a `RetryOptions` parameter. Suborchestration calls using the `CallSubOrchestratorWithRetryAsync` (C#) or `callSubOrchestratorWithRetry` (JS) API can use these same retry policies.
+The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Suborchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
 
 There are several options for customizing the automatic retry policy. They include the following:
 
@@ -145,9 +145,9 @@ There are several options for customizing the automatic retry policy. They inclu
 
 ## Function timeouts
 
-You might want to abandon a function call within an orchestrator function if it is taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` in conjunction with `Task.WhenAny`, as in the following example:
+You might want to abandon a function call within an orchestrator function if it is taking too long to complete. The proper way to do this today is by creating a [durable timer](durable-functions-timers.md) using `context.CreateTimer` (.NET) or `context.df.createTimer` (JavaScript) in conjunction with `Task.WhenAny` (.NET) or `context.df.Task.any` (JavaScript), as in the following example:
 
-#### C#
+### C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -176,7 +176,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
