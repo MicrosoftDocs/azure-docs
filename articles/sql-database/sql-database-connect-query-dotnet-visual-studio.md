@@ -53,60 +53,60 @@ To complete this quickstart, you need:
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
-
-```csharp
-using System;
-using System.Data.SqlClient;
-using System.Text;
-
-namespace sqltest
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            try 
-            { 
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "<server>.database.windows.net"; 
-                builder.UserID = "<username>";            
-                builder.Password = "<password>";     
-                builder.InitialCatalog = "<database>";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    Console.WriteLine("\nQuery data example:");
-                    Console.WriteLine("=========================================\n");
-                    
-                    connection.Open();       
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                    sb.Append("JOIN [SalesLT].[Product] p ");
-                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-                            }
-                        }
-                    }                    
-                }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            Console.ReadLine();
-        }
-    }
-}
-```
+   
+   ```csharp
+   using System;
+   using System.Data.SqlClient;
+   using System.Text;
+   
+   namespace sqltest
+   {
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               try 
+               { 
+                   SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                   builder.DataSource = "<server>.database.windows.net"; 
+                   builder.UserID = "<username>";            
+                   builder.Password = "<password>";     
+                   builder.InitialCatalog = "<database>";
+   
+                   using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                   {
+                       Console.WriteLine("\nQuery data example:");
+                       Console.WriteLine("=========================================\n");
+                       
+                       connection.Open();       
+                       StringBuilder sb = new StringBuilder();
+                       sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
+                       sb.Append("FROM [SalesLT].[ProductCategory] pc ");
+                       sb.Append("JOIN [SalesLT].[Product] p ");
+                       sb.Append("ON pc.productcategoryid = p.productcategoryid;");
+                       String sql = sb.ToString();
+   
+                       using (SqlCommand command = new SqlCommand(sql, connection))
+                       {
+                           using (SqlDataReader reader = command.ExecuteReader())
+                           {
+                               while (reader.Read())
+                               {
+                                   Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
+                               }
+                           }
+                       }                    
+                   }
+               }
+               catch (SqlException e)
+               {
+                   Console.WriteLine(e.ToString());
+               }
+               Console.ReadLine();
+           }
+       }
+   }
+   ```
 
 ## Run the code
 
