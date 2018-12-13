@@ -23,7 +23,7 @@ To create the instance, use the [Bing Custom Search portal](https://customsearch
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create a custom search instance
 

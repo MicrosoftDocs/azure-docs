@@ -24,9 +24,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 - Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
-You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
-
-[!INCLUDE [cognitive-services-bing-web-search-prerequisites](../../../includes/cognitive-services-bing-web-search-prerequisites.md)]
+[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
@@ -218,7 +216,7 @@ To run this example, follow these steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web page](./custom-search-web-page.md)
+> [Build a Custom Search web page](./tutorials/custom-search-web-page.md)
 
 - [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
