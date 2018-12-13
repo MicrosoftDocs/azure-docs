@@ -68,8 +68,6 @@ Once you have finished adding or modifying DNS records at your domain provider, 
 ## Next steps
 For more information, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
 
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
-
 <!-- URL List -->
 
 [CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
