@@ -23,10 +23,10 @@ You can create one or more Azure Cosmos databases under your account. A database
 
 | **Azure Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos database | Database | Keyspace | Database | NA | NA |
+|Azure Cosmos database | Database | Keyspace | Database | Database | NA |
 
 > [!NOTE]
-> With Gremlin and Table APIs accounts, when you create your first graph or table a default database is automatically created within your Azure Cosmos account.
+> With Table APIs accounts, when you create your first table a default database is automatically created within your Azure Cosmos account.
 
 ### Operations on an Azure Cosmos database
 
