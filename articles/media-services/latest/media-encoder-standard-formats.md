@@ -16,15 +16,12 @@ ms.date: 12/12/2018
 ms.author: juliako;anilmur
 
 ---
-# Media Encoder Standard Formats and Codecs
+# Media Encoder Standard formats and codecs
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 2](media-services-media-encoder-standard-formats.md)
-> * [Version 3](../latest/media-encoder-standard-formats.md)
-
-This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
+This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md). 
 
 ## Input Container/File Formats
+
 | File formats (file extensions) | Supported |
 | --- | --- | --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
