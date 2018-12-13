@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 12/14/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.0.87**.
+The Azure Stack 1811 update build number is **1.1811.0.93**.
 
 ## Hotfixes
 
@@ -48,9 +48,9 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 ## Prerequisites
 
-- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
-
-- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker).
+- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md). 
+ 
+- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
@@ -60,26 +60,26 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ``` 
 
-- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates, see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
-
+- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
+​
+    If you ignore every warning and still choose to install the 1811 update, the update will fail with the following message:   
+ 
     ```shell
-    Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
-    The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
+    The required SSL certificates for the Extension Host have not been found. The Azure Stack update will halt.
+    Refer to this link to prepare for Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare, then resume the update.
+
+    Exception: The Certificate path does not exist: <certificate path here>
     ``` 
  
-- In addition to various quality improvements, the [1809 hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
- 
-    ```shell
-    Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
-    ```
-
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
+
+    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 ## New features
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, the Extenstion Host is enabled. The Extension Host simplifies network integration and improves the security posture of Azure Stack.
+- With this release, the extension host is enabled. The extension host simplifies network integration and improves the security posture of Azure Stack.
 
 - This release enhances the Azure Stack operator experience for [managing updates](azure-stack-updates.md) from the **Update** blade.
 
@@ -107,9 +107,9 @@ This update includes the following improvements for Azure Stack:
 
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
 
-- Managed Disks is now enabled by default when creating virtual machines using Azure Stack portal.
+- Managed Disks is now enabled by default when creating virtual machines using the 	Azure Stack portal.
 
-- Extended data at rest encryption protection to include also all the infrastructure data stored on local volumes (i.e. not on cluster shared volumes). For more information, see [this article](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker)
+- Extended data at rest encryption protection to include all the infrastructure data stored on local volumes (not on cluster shared volumes). For more information, see [this article](azure-stack-security-bitlocker.md)
 
 ## Fixed issues
 
@@ -150,7 +150,7 @@ This update includes the following improvements for Azure Stack:
 - A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
 <!-- 3083238 IS -->
-- Security enhancements now include encryption of Azure Stack internal identity system. This results in an increase in the backup size of the identity role. Refer to [infrastructure backup documentaton](azure-stack-backup-reference.md#storage-location-sizing) for updated sizing guidance for the external storage location. This will result in a longer time to complete the backup due to the larger data transfer. This change impacts integrated systems. 
+- Security enhancements now include encryption of the Azure Stack internal identity system. This results in an increase in the backup size of the identity role. For updated sizing guidance for the external storage location, see the [infrastructure backup documentation](azure-stack-backup-reference.md#storage-location-sizing). This results in a longer time to complete the backup due to the larger size data transfer. This change impacts integrated systems. 
 
 ## Common Vulnerabilities and Exposures
 
@@ -181,7 +181,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the Extension Host is configured. The configuration of the Extension Host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
@@ -278,7 +278,6 @@ The following are post-installation known issues for this build version.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
    
-
 ### Networking  
 
 <!-- 1766332 - IS ASDK --> 

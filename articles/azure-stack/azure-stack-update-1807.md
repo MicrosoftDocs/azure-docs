@@ -159,9 +159,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the Azure Stack [1805 Update](azure-stack-update-1805.md) before you apply the Azure Stack 1807 update.  There was no update 1806.  
-
-- Install the latest available [update or hotfix for version 1805](azure-stack-update-1805.md#post-update-steps).  
+- Install the Azure Stack [1805 Update](azure-stack-update-1805.md) before you apply the Azure Stack 1807 update. There was no update 1806.  
+ 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
