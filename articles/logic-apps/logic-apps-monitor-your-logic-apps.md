@@ -199,7 +199,7 @@ Learn [how to save your query](../logic-apps/logic-apps-track-b2b-messages-omspo
 Along with Azure Log Analytics, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 
 
-* [Archive Azure Diagnostics Logs in Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 You can then get real-time monitoring by using telemetry and analytics from other services, 

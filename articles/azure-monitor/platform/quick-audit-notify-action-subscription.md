@@ -29,7 +29,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 3. Enter "myNetworkSG" as the **Name** and create a new resource group named **myResourceGroup**. Click the **Create** button.
 
-    ![Create a network security group in the portal](./media/monitor-quick-audit-notify-action-in-subscription/create-network-security-group.png)
+    ![Create a network security group in the portal](./media/quick-audit-notify-action-subscription/create-network-security-group.png)
 
 ## Browse the Activity Log in the portal
 
@@ -39,7 +39,7 @@ An event has now been added to the Activity Log that describes the creation of t
 
 2. In the **Activity Log** section, click the **Resource Group** dropdown and select **myResourceGroup**. Change the **Timespan** dropdown to **Last 1 hour**. Click **Apply**.
 
-    ![Filter the Activity Log](./media/monitor-quick-audit-notify-action-in-subscription/browse-activity-log.png)
+    ![Filter the Activity Log](./media/quick-audit-notify-action-subscription/browse-activity-log.png)
 
 3. Click on the **Write NetworkSecurityGroups** event in the table of events shown.
 
@@ -47,11 +47,11 @@ An event has now been added to the Activity Log that describes the creation of t
 
 The section that appears contains basic details of the operation that was performed, including the name, the timestamp, and the user or application that performed it.
 
-![View event summary in the Activity Log](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
+![View event summary in the Activity Log](./media/quick-audit-notify-action-subscription/activity-log-summary.png)
 
 Click on the **JSON** tab to view the full event details. This includes the details of how the user or application was authorized to perform the operation, the event category and level, and the status of the operation.
 
-![View event details in the Activity Log](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-json.png)
+![View event details in the Activity Log](./media/quick-audit-notify-action-subscription/activity-log-json.png)
 
 ## Create an Activity Log alert
 
@@ -59,19 +59,19 @@ Click on the **JSON** tab to view the full event details. This includes the deta
 
 2. In the summary section that appears, click **Add activity log alert**.
 
-    ![Create a network security group in the portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
+    ![Create a network security group in the portal](./media/quick-audit-notify-action-subscription/activity-log-summary.png)
 
 3. In the section that appears, give the Activity Log alert a name and description.
 
 4. Under **Criteria** ensure that **Event category** is set to **Administrative**, **Resource type** is set to **Network security groups**, **Operation name** is set to **Create or Update Network Security Group**, **Status** is set to **Succeeded** and all other criteria fields are either blank or set to **All**. The criteria define the rules used to determine whether the alert should be activated when a new event appears in the Activity Log.
 
-    ![Create a network security group in the portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-criteria.png)
+    ![Create a network security group in the portal](./media/quick-audit-notify-action-subscription/activity-log-alert-criteria.png)
 
 5. Under **Alert via** select **New** action group and provide a **name** and **short name** for the action group. The action group defines the set of actions taken when the alert is activated (when the criteria match a new event).
 
 6. Under **Actions** add 1 or more actions by providing a **Name** for the action, the **Action type** (for example, email, SMS, or webhook), and **Details** for that particular action type (for example, a webhook URL, email address, or SMS number).
 
-    ![Create a network security group in the portal](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
+    ![Create a network security group in the portal](./media/quick-audit-notify-action-subscription/activity-log-alert-actions.png)
 
 7. Click **Ok** to save the Activity Log alert.
 
@@ -93,4 +93,4 @@ When no longer needed, delete the resource group and network security group. To 
 In this quick start, you performed an operation to generate an Activity Log event and then created an Activity Log alert to become notified when this operation occurs again in the future. You then tested the alert by performing that operation again. Azure makes available Activity Log events from the past 90 days. If you need to retain events longer than 90 days, try archiving your Activity Log data alongside your other monitoring data.
 
 > [!div class="nextstepaction"]
-> [Archive monitoring data](./monitor-tutorial-archive-monitoring-data.md)
+> [Archive monitoring data](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)

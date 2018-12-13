@@ -397,5 +397,5 @@ An alert on a Resource Manager template is most often useful when creating an al
 
 ## Next Steps
 * [Read more about Alerts](alerts-overview.md)
-* [Add Diagnostic Settings](../../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) to your Resource Manager template
+* [Add Diagnostic Settings](../../azure-monitor/platform/diagnostic-logs-stream-template.md) to your Resource Manager template
 

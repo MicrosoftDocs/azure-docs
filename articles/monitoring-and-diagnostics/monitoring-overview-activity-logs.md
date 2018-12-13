@@ -31,7 +31,7 @@ You can retrieve events from your Activity Log using the Azure portal, CLI, Powe
 
 
 ## Categories in the Activity Log
-The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](monitoring-activity-log-schema.md). These include:
+The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](../azure-monitor/platform/activity-log-schema.md). These include:
 * **Administrative** - This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
 * **Service Health** - This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 * **Resource Health** - This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
@@ -42,7 +42,7 @@ The Activity Log contains several categories of data. For full details on the sc
 * **Policy** - This category does not contain any events; it is reserved for future use. 
 
 ## Event schema per category
-[See this article to understand the Activity Log event schema per category.](monitoring-activity-log-schema.md)
+[See this article to understand the Activity Log event schema per category.](../azure-monitor/platform/activity-log-schema.md)
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
@@ -54,7 +54,7 @@ Here are some of the things you can do with the Activity Log:
 * [Create an alert on an Activity Log event.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
+* [Save it to a **Storage Account** for archival or manual inspection](../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
 ## Query the Activity Log in the Azure portal
