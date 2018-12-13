@@ -17,7 +17,15 @@ ms.author: jgao
 ---
 # Provide post-deployment configurations by using extensions
 
-Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. For vm extension specific information, see [Virtual machine extensions and features for Windows](../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. For the virtual machine extension specific information, see [Virtual machine extensions and features for Windows](../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+
+These are the existing extensions:
+
+- [Microsoft.Compute/virtualMachines/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
+- [Microsoft.Compute virtualMachineScaleSets/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
+- [Microsoft.HDInsight clusters/extensions](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters/extensions)
+- [Microsoft.Sql servers/databases/extensions](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) 
+- [Microsoft.Web/sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
 
 To find out the available extensions, browse to the [template reference](https://docs.microsoft.com/azure/templates/). In **Filter by title**, enter **extension**.
 
