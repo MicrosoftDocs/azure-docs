@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
 ---
 
@@ -16,7 +16,7 @@ ms.author: azfuncdf
 
 [Durable Functions](durable-functions-overview.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Durable timers should be used in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript).
 
-You create a durable timer by calling the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) method in [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). The method returns a task that resumes on a specified date and time.
+You create a durable timer by calling the [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) method of [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) in .NET, or the `createTimer` method of `DurableOrchestrationContext` in JavaScript. The method returns a task that resumes on a specified date and time.
 
 ## Timer limitations
 
@@ -24,13 +24,13 @@ When you create a timer that expires at 4:30 pm, the underlying Durable Task Fra
 
 > [!NOTE]
 > * Durable timers cannot last longer than 7 days due to limitations in Azure Storage. We are working on a [feature request to extend timers beyond 7 days](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Always use [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) instead of `DateTime.UtcNow` as shown in the examples below when computing a relative deadline of a durable timer.
+> * Always use [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) instead of `DateTime.UtcNow` in .NET and `currentUtcDateTime` instead of `Date.now` or `Date.UTC` in JavaScript as shown in the examples below when computing a relative deadline of a durable timer.
 
 ## Usage for delay
 
 The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for ten days.
 
-#### C#
+### C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -46,7 +46,7 @@ public static async Task Run(
 }
 ```
 
-#### JavaScript
+### JavaScript (Functions 2.x only)
 
 ```js
 const df = require("durable-functions");
@@ -63,13 +63,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md). 
+> Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md).
 
 ## Usage for timeout
 
 This example illustrates how to use durable timers to implement timeouts.
 
-#### C#
+### C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -100,7 +100,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### JavaScript
+### JavaScript (Functions 2.x only)
 
 ```js
 const df = require("durable-functions");
@@ -137,4 +137,3 @@ For a more in-depth example of how to implement timeouts in orchestrator functio
 
 > [!div class="nextstepaction"]
 > [Learn how to raise and handle external events](durable-functions-external-events.md)
-

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ---
-﻿You can easily [automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
+﻿You can easily [automatically scale](../articles/azure-monitor/platform/autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
 
 ## Horizontal or vertical scaling
 
@@ -29,7 +29,7 @@ You can enable autoscale when you create the scale set using [Azure PowerShell](
  
 ### Metrics
 
-The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
+The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/azure-monitor/platform/autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
 
 ![Metric criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -43,7 +43,7 @@ If your application needs to scale based on metrics that are not available throu
  
 ### Notifications
 
-You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
+You can [set up triggers](../articles/azure-monitor/platform/autoscale-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
 
 ## Manually scale VMs in a scale set
 

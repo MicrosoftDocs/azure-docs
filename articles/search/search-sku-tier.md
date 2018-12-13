@@ -1,5 +1,5 @@
 ---
-title: Choose a pricing tier or SKU for Azure Search service | Microsoft Docs
+title: Choose a pricing tier or SKU for Azure Search service - Azure Search
 description: 'Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacity levels.'
 services: search
 author: HeidiSteen
@@ -9,6 +9,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Choose a pricing tier for Azure Search

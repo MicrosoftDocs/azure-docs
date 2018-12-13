@@ -1,10 +1,9 @@
 ---
-title: Shaper cognitive search skill (Azure Search) | Microsoft Docs
+title: Shaper cognitive search skill - Azure Search
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-
 
 ms.service: search
 ms.devlang: NA
@@ -12,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 #	Shaper cognitive skill

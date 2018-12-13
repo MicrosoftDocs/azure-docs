@@ -28,7 +28,7 @@ Switching between the two license models incurs **no downtime**, does not restar
 
 
 ## Register existing SQL VM with new resource provider
-The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your existing VM with the new SQL VM resource provider. 
+The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your existing VM with the new SQL VM resource provider. To utilize the SQL VM resource provider, you must also install the SQL IaaS extension. Doing so will allow you to register a VM that was deployed with a VHD. For more information, see [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md). 
 
   >[!IMPORTANT]
   > If you drop your SQL VM resource, you will go back to the hard coded license setting of the image. 

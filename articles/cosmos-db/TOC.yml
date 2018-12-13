@@ -79,7 +79,7 @@
         href: consistency-levels.md
       - name: Choosing the right consistency level
         href: consistency-levels-choosing.md
-      - name: Consistency levels and Cosmos DB APIs
+      - name: Consistency levels and Azure Cosmos DB APIs
         href: consistency-levels-across-apis.md
       - name: Consistency, availability and performance tradeoffs
         href: consistency-levels-tradeoffs.md
@@ -318,7 +318,7 @@
               href: tutorial-develop-mongodb-nodejs-part3.md
             - name: Part 4 - Create an account
               href: tutorial-develop-mongodb-nodejs-part4.md
-            - name: Part 5 - Connect to Cosmos DB
+            - name: Part 5 - Connect to Azure Cosmos DB
               href: tutorial-develop-mongodb-nodejs-part5.md
             - name: Part 6 - Perform CRUD operations
               href: tutorial-develop-mongodb-nodejs-part6.md
@@ -540,7 +540,7 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-    - name: Visualize Cosmos DB data
+    - name: Visualize Azure Cosmos DB data
       items:
       - name: Use Power BI 
         href: powerbi-visualize.md
