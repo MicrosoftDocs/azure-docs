@@ -13,7 +13,7 @@ ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 
 ---
-# Tutorial: Build a Node.js console app with JavaScript SDK to manage Azure Cosmos DB SQL API data
+# Tutorial: Build a Node.js console app with the JavaScript SDK to manage Azure Cosmos DB SQL API data
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -90,7 +90,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    config.primaryKey = "~your primary key here~";
    ``` 
 
-1. Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.primaryKey``` properties. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's Data Migration tool rather than defining the data here.
+1. Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.primaryKey``` properties. If you already have data you'd like to store in your database, you can use the Data Migration tool in Azure Cosmos DB rather than defining the data here.
 
    ```nodejs
    var config = {}
@@ -164,7 +164,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    };
    ```
 
-   JavaScript SDK uses the generic terms, container and item. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. 
+   JavaScript SDK uses the generic terms *container* and *item*. A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
 
 1. Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
@@ -442,7 +442,7 @@ A container can be created by using either the `createIfNotExists` or create fun
 
 ## <a id="CreateItem"></a>Create an item
 
-An item can be created by using the create function of the **Items** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into Azure Cosmos DB.
+An item can be created by using the create function of the **Items** class. When you're using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into Azure Cosmos DB.
 
 1. Copy and paste the **createFamilyItem** function underneath the **readContainer** function. The **createFamilyItem** function creates the items containing the JSON data saved in the ```config``` object. We'll check to make sure an item with the same id does not already exist before creating it.
 
@@ -872,7 +872,7 @@ You should see the output of your get started app. The output should match the e
 
 If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). 
 
-To run the getting started solution that contains all the code in this article, you will need the following steps: 
+To run the getting started solution that contains all the code in this article, you will need: 
 
 * An [Azure Cosmos DB account][create-account]. 
 * The [Getting Started](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) solution available on GitHub. 
