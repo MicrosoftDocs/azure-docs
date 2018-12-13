@@ -29,7 +29,7 @@ ms.author: dox
 ## Release notes
 
 ### <a name="0.10.0-preview"/>0.10.0-preview
-* Add support for Azure Storage Table endpoint on the Table and Entity CRUD + Query functionalities. [!NOTE] Some of legacy Azure Storage Table functionalities are not yet supported such as Client side encryption.
+* Add support for core CRUD, batch and query operations against Azure Storage Table endpoints. [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client side encryption.
 
 ### <a name="0.9.1-preview"/>0.9.1-preview
 * Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md). [!NOTE] Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
