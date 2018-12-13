@@ -48,8 +48,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 ## Prerequisites
 
-- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
-
+- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md). 
+ 
 - Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
@@ -74,6 +74,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     ```
 
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
+
+    Note that during installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the Extension Host is configured. The configuration of the Extension Host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 ## New features
 
