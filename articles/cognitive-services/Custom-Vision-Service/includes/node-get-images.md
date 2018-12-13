@@ -8,4 +8,4 @@
 
 ## Get the sample images
 
-This example uses the images from the **samples/vision/images** directory of the [Cognitive Services Node.js SDK Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/samples/customvision/images) repo on GitHub. Clone or download this repository to your development environment.
+This example uses the images from the **Samples/customvision/images** directory of the [Cognitive Services Node.js SDK Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/customvision/images) repo on GitHub. Clone or download this repository to your development environment.
