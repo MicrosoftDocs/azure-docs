@@ -1,6 +1,6 @@
 ---
 title: Build ASP.NET app with Windows container (Preview) - Azure App Service | Microsoft Docs
-description: Learn how to deploy a custom Windows container into Azure App Service.
+description: Learn how to deploy a custom Windows container into Azure App Service and deploy custom software in the container.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
