@@ -102,64 +102,54 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | | |
    | --- | ---|
    | **Environment name** | Choose a unique name for the Azure Time Series Insights Preview environment. |
-   | **Subscription** | Enter your subscription where you want to create the Azure Time Series Insights Preview environment. It is a best practice to use the same subscription as the rest of your IoT resources created by the device simulator. |
-   | **Resource Group** | A resource group is a container for Azure resources. Choose an existing resource group, or create a new one, for the Azure Time Series Insights Preview environment resource. It is a best practice to use the same resource group as the rest of your IoT resources created by the device simulator. |
-   | **Location** | Choose a data center region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to keep the Azure Time Series Insights Preview environment in the same region as other IoT resources. |
-   | **Tier** |  Select `PAYG` which stands for pay-as-you-go. This is the SKU for Azure Time Series Insights Preview product. |
-   | **Property ID** | Uniquely identifies your time series. Note that this field is immutable and cannot be changed later. For this tutorial set the field to `iothub-connection-device-id`. To learn more about Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
-   | **Storage Account Name** | Enter a global unique name for a new storage account to be created. |
+   | **Subscription** | Enter your subscription where you want to create the Azure Time Series Insights Preview environment. It's a best practice to use the same subscription as the rest of your IoT resources created by the device simulator. |
+   | **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group, or create a new one, for the Azure Time Series Insights Preview environment resource. It's a best practice to use the same resource group as the rest of your IoT resources created by the device simulator. |
+   | **Location** | Choose a datacenter region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to keep the Azure Time Series Insights Preview environment in the same region as other IoT resources. |
+   | **Tier** |  Select **PAYG**, which stands for pay-as-you-go. This is the SKU for the Azure Time Series Insights Preview product. |
+   | **Property ID** | Enter something that uniquely identifies your time series. Note that this field is immutable and cannot be changed later. For this tutorial, use **iothub-connection-device-id**. To learn more about the Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
+   | **Storage account name** | Enter a globally unique name for a new storage account to be created. |
 
-   After filling in the fields above, click **Next: Event Source**.
+   After filling in the fields, select **Next: Event Source**.
 
-   ![Click Next: Event Source][10]
+   ![Page for creating a Time Series Insights environment][10]
 
-1. On the page, fill the fields as follows:
+1. On the page for the event source, fill in the fields as follows:
 
    | | |
    | --- | --- |
-   | **Create an Event Source?** | Enter `Yes`|
-   | **Name** | Requires a unique value, which is used to name the event source.|
-   | **Source Type** | Enter `IoT Hub` |
-   | **Select a Hub?** | Enter `Select Existing` |
-   | **Subscription** | Enter the subscription that you used for device simulator. |
-   | **IoT Hub name** | Enter the IoT hub name that you created for device simulator. |
-   | **IoT Hub access policy** | Enter `iothubowner` |
-   | **Iot Hub consumer group** | You need a unique consumer group for an Azure Time Series Insights Preview. |
-   | **Timestamp** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, do not fill the field. This simulator uses the incoming timestamp from IoT Hub which Time Series Insights defaults to.|
+   | **Create an event source?** | Enter **Yes**.|
+   | **Name** | Enter a unique value that's used to name the event source.|
+   | **Source type** | Enter **IoT Hub**. |
+   | **Select a hub?** | Enter **Select Existing**. |
+   | **Subscription** | Enter the subscription that you used for the device simulator. |
+   | **IoT Hub name** | Enter the IoT hub name that you created for the device simulator. |
+   | **IoT Hub access policy** | Enter **iothubowner**. |
+   | **Iot Hub consumer group** | You need a unique consumer group for Azure Time Series Insights Preview. Select **New**, enter a unique name, and then select **Add**. |
+   | **Timestamp property** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, don't fill in the field. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to.|
 
-   To create a unique consumer group:
+   After filling in the fields, select **Review + create**.
 
-   1. Click **New** next to the **IoT Hub consumer group** field:
+   ![Page for setting up an event source][13]
 
-      ![Click Next: Event Source][11]
+1. Review all fields on the review page and select **Create**.
 
-   1. Give the consumer group a unique name and click **Add**:
-
-      ![Click Add][12]
-
-   After filling out the fields above, click **Review + create**.
-
-      ![Review and create][13]
-
-1. Review all fields in the review page and click on **Create**.
-
-   ![Create][14]
+   ![Review + Create page, with Create button][14]
 
 1. You can see the status of your deployment.
 
-   ![Deployment complete][15]
+   ![Notification that deployment is complete][15]
 
-1. You should receive access to your time series environment if you own the tenant. To make sure that you have access:
+1. You should receive access to your Azure Time Series Insights Preview environment if you own the tenant. To make sure that you have access:
 
-   * Navigate to your newly created Azure Time Series Insights Preview environment. You can do so by searching for your resource group. Then, click on your time series environment:
+   a. Go to your newly created Azure Time Series Insights Preview environment. You can do so by searching for your resource group. Then, select your time series environment:
 
       ![Deployment complete][16]
 
-   * On the Azure Time Series Insights Preview page, navigate to **Data Access Policies**.
+   b. On the Azure Time Series Insights Preview page, navigate to **Data Access Policies**.
 
      ![Data access policies][17]
 
-   * Verify that your credentials are listed.
+   c. Verify that your credentials are listed.
 
      ![Verify your credentials][18]
 
