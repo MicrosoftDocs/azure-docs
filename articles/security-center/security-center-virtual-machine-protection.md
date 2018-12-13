@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: rkarlin
 
 ---
@@ -32,25 +32,22 @@ For a complete list of Compute and App services recommendations, see [Recommenda
 To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
 ![Security Center dashboard][1]
 
-## Monitor Compute and App services
-Under **Compute**, there are four tabs:
+## Monitor compute and app services
+Under **Compute & apps**, there are the following tabs:
 
 - **Overview**: monitoring and recommendations identified by Security Center.
 - **VMs and computers**: list of your VMs, computers, and current security state of each.
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
 - **App services (Preview)**: list of your App service environments and current security state of each.
-To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
+- **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
+- **VM scale sets (Preview)**: list of your scale sets and recommendations for each.
+- **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
+
+To continue, select **Compute & apps** under **Resource security hygeine**.
 
 ![Compute][2]
 
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
-
-### Monitoring recommendations
-This section shows the total number of VMs and computers that were initialized for automatic provisioning and their current statuses. In this example there is one recommendation, **Monitoring agent health issues**. Select this recommendation.
-
-![Monitor agent health issues][3]
-
-**Monitoring agent health issues** opens. VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide.md) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
 
 ### Unmonitored VMs and computers <a name="unmonitored-vms-and-computers"></a>
 A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the SCOM agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
@@ -109,15 +106,11 @@ There are four types of icons represented in this list:
 
 ![VMs identified from the workspace][11] VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with SCOM direct agent, and have no resource ID.
 
-The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the Filter option to select which options you will see on this screen.
+The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the filters to search the list by **Resource type** and by **Severity**.
 
-![Filter][12]
-
-In the previous example, one VM has a critical recommendation regarding endpoint protection. Select the VM to get more information about it:
-
-![Critical recommendation][13]
-
+To drill down into the security recommendations for each VM, click on the VM.
 Here you see the security details for the VM or computer. At the bottom you can see the recommended action and the severity of each issue.
+![Cloud services][12]
 
 ### Cloud services
 For cloud services, a recommendation is created when the operating system version is out of date as shown in the following screenshot:
@@ -261,7 +254,7 @@ To learn more about Security Center, see the following:
 [9]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png
 [10]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png
 [11]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png
-[12]: ./media/security-center-virtual-machine-recommendations/filter.png
+[12]: ./media/security-center-virtual-machine-recommendations/recommendation-list.png
 [13]: ./media/security-center-virtual-machine-recommendations/vm-detail.png
 [14]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png
 [15]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new3.png

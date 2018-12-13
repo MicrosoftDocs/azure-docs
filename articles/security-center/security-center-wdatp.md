@@ -53,7 +53,22 @@ This feature supports detection on Windows Server 2012 R2 and Windows Server 201
 
 Only servers in subscriptions for the standard service tier are supported.
 
-## Onboarding instructions
+## Onboarding servers to Security Center 
+
+To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the ATP Server onboarding.
+
+In the onboarding blade - 
+
+1.	Select or create workspace to which to store the data
+If you can’t see all your workspace, it may be due to the lack of permissions , to set the permissions go follow these instructions.
+2.	You need to have a workspace that is set to the standard tier , select Upgrade to set the workspace's pricing tier to Standard and start your free 30-day trial
+Azure Security Center Standard will be applied $15/node/month. Pricing details>
+	
+3.	Select Add Servers to view instructions on how to install the Microsoft Monitoring Agent. Learn more>
+
+4.	After onboarding, you can monitor the machines under Compute and apps>
+
+## Enable Azure Threat Protection integration
 
 To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
 
