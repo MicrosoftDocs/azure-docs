@@ -14,13 +14,13 @@ ms.date: 11/07/2018
 ms.author: azfuncdf
 
 ---
-# Create your first durable function in C#
+# Create your first durable function in C\#
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 In this article, you learn how to use the Visual Studio 2017 tools for Azure Functions to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017.
 
-![Running durable function in cloud](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ The Azure Functions project template in Visual Studio creates a project that can
 
 3. Use the settings specified in the table that follows the image.
 
-    ![New function dialog in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png) 
+    ![New function dialog in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -72,7 +72,7 @@ Visual Studio creates an empty function app project.  It contains the basic conf
 
 A new durable function will be added to the app.  Open the new file to view the contents.  This durable function is a simple function chaining example.  
 
-* The `RunOrchestrator` method is associated with the orchestrator function.  This function will start, create a list, and add the result of three functions calls to the list.  When the three function calls are completed, it will return the list.  The function it is calling is the `SayHello` method (default it will be called "<NameOfFile>_Hello").
+* The `RunOrchestrator` method is associated with the orchestrator function.  This function will start, create a list, and add the result of three functions calls to the list.  When the three function calls are completed, it will return the list.  The function it is calling is the `SayHello` method (default it will be called `<NameOfFile>_Hello`).
 * The `SayHello` function will return a hello.
 * The `HttpStart` method describes the function that will start instances of the orchestration.  It is associated with an [HTTP trigger](../functions-bindings-http-webhook.md) that will start a new instance of the orchestrator and return back a check status response.
 
@@ -88,7 +88,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local runtime](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar and execute the request. The following shows the response in the browser to the local GET request returned by the function:
 
     ![Function localhost response in the browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

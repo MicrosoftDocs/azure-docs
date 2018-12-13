@@ -40,7 +40,7 @@ The following table includes links to Azure Resource Manager templates for the W
 | [Web app with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Deploys an Azure web app on Windows with Azure Database for PostgreSQL. |
 | [Web app with a SQL database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Deploys an Azure web app and a SQL database at the Basic service level. |
 | [Web app with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Deploys an Azure web app with an Azure Blob storage connection string. You can then use Blob storage from the web app. |
-| [Web app with a Redis cache](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Deploys an Azure web app with a Redis cache. |
+| [Web app with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Deploys an Azure web app with an Azure Cache for Redis. |
 |**App Service Environment for PowerApps**||
 | [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
 | [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Creates an App Service environment v2 in your virtual network with a private internal load balancer address. |

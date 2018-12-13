@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Only allow a certain VM platform image
+title: Sample - Only allow a certain VM platform image
 description: This sample policy requires that virtual machines use a specific version of UbuntuServer.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Only allow a certain VM platform image
 

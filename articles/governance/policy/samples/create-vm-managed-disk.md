@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Audit VM not using managed disk 
+title: Sample - Audit VM not using managed disk 
 description: This json sample audits when a virtual machine is created that does not use managed disks.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Audit when VM does not use managed disk
 

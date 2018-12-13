@@ -1,12 +1,14 @@
 ---
-title: Azure Disk Encryption for  Linux IaaS VMs | Microsoft Docs
+title: Enable Azure Disk Encryption for Linux IaaS VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/19/2018
+ms.date: 12/12/2018
+
+ms.custom: seodec18
 
 ---
 
@@ -148,13 +150,13 @@ A batch file example for Linux scale set data disk encryption can be found [here
 
 ### Register for disk encryption preview using Azure CLI
 
-The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [az feature register](/cli/azure/feature#az_feature_register). You only need to perform the following steps the first time that you use the disk encryption preview feature:
+The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [az feature register](/cli/azure/feature#az-feature-register). You only need to perform the following steps the first time that you use the disk encryption preview feature:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az_feature_show). When the `State` reports *Registered*, re-register the *Microsoft.Compute* provider with [az provider register](/cli/azure/provider#az_provider_register):
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [az feature show](/cli/azure/feature#az-feature-show). When the `State` reports *Registered*, re-register the *Microsoft.Compute* provider with [az provider register](/cli/azure/provider#az-provider-register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -199,7 +201,8 @@ Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-###  Encrypt virtual machine scale sets with Azure PowerShell
+### Encrypt virtual machine scale sets with Azure PowerShell
+
 Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.
 
 -  **Encrypt a running virtual machine scale set**:
@@ -237,7 +240,17 @@ Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/
     Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
     ```
 
+### Azure Resource Manager templates for Linux virtual machine scale sets
 
+To encrypt or decrypt Linux virtual machine scale sets, use the Azure Resource Manager templates and instructions below:
+
+- [Enable encryption on a Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+- [Deploy a VM scale set of Linux VMs with a jumpbox and enable encryption on the Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+- [Disable encryption on a Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+     1. Click **Deploy to Azure**.
+     2. Fill in the required fields then agree to the terms and conditions.
+     3. Click **Purchase** to deploy the template.
 
 ## <a name="bkmk_EFA"> </a>Use EncryptFormatAll feature for data disks on Linux IaaS VMs
 The **EncryptFormatAll** parameter reduces the time for Linux data disks to be encrypted. Partitions meeting certain criteria will be formatted (with its current file system). Then they'll be remounted back to where it was before command execution. If you wish to exclude a data disk that meets the criteria, you can unmount it before running the command.

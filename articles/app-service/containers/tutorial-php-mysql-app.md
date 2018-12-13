@@ -1,6 +1,6 @@
 ---
-title: Build a PHP and MySQL web app in Azure App Service on Linux | Microsoft Docs 
-description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure.
+title: Build PHP web app with MySQL on Linux - Azure App Service | Microsoft Docs 
+description: Learn how to get a PHP app working in Azure App Service on Linux, with connection to a MySQL database in Azure.
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Build a PHP and MySQL web app in Azure App Service on Linux
 
@@ -39,7 +40,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](http://php.net/downloads.php)
+* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
@@ -188,7 +189,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
+In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -344,7 +345,7 @@ The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-You can use the PHP [getenv](http://php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
+You can use the PHP [getenv](https://php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
 
 ```php
 'mysql' => [

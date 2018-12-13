@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB performance tips for Java | Microsoft Docs
+title: Azure Cosmos DB performance tips for Java
 description: Learn client configuration options to improve Azure Cosmos DB database performance
 keywords: how to improve database performance
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: java

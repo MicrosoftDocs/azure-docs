@@ -44,11 +44,7 @@ Note the following **important** points about on-demand HDInsight linked service
 * The on-demand HDInsight cluster is created under your Azure subscription. You are able to see the cluster in your Azure portal when the cluster is up and running. 
 * The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your linked service definition are used to log in to the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
-* You can't use a Script Action with the Azure HDInsight on-demand linked service. If you have to install other dependencies, for example, consider using Azure Automation to run a PowerShell script that does the following:  
-  a. Create the HDInsight cluster.  
-  b. Run a Script Action to install other dependencies, for example.  
-  c. Run the Data Factory pipeline.  
-  d. Delete the cluster.  
+* Script Action is now supported with the Azure HDInsight on-demand linked service.  
 
 > [!IMPORTANT]
 > It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.

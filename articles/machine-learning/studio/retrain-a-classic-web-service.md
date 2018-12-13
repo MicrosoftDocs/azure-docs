@@ -4,9 +4,9 @@ description: Learn how to programmatically retrain a model and update the web se
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ---
-# Retrain a Classic web service
+# Retrain a Classic Azure Machine Learning Studio web service
 The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the web service, you must add a new endpoint to the web service. 
 
 ## Prerequisites

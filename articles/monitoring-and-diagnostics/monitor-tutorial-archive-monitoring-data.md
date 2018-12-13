@@ -193,4 +193,4 @@ In this tutorial, you learned how to set up monitoring data from your Azure envi
 To get more out of your data and derive additional insights, also  send your data into Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Get started with Log Analytics](../log-analytics/log-analytics-queries.md)
+> [Get started with Log Analytics](../azure-monitor/log-query/log-query-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Authentication and authorization in Azure App Service | Microsoft Docs
+title: Authentication and authorization - Azure App Service | Microsoft Docs
 description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
+ms.custom: seodec18
 
 ---
 # Authentication and authorization in Azure App Service

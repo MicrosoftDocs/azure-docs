@@ -6,16 +6,13 @@ documentationcenter: ''
 author: richrundmsft
 manager: jochan
 editor: ''
-
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: 
 ---
 
 # Azure Key Vault Analytics solution in Log Analytics
@@ -149,4 +146,4 @@ Data collected before the change is not visible in the new solution. You can con
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed Azure Key Vault data.
+* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Azure Key Vault data.

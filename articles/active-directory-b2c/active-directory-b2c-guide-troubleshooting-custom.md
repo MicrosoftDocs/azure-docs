@@ -56,7 +56,7 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
     * Web App/Web API: No
     * Native client: No
 
-* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](http://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
+* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](https://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
 
 * In **Development mode**, use **Application Insights** to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure Multi-Factor-Authentication.  
 

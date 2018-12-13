@@ -1,5 +1,6 @@
 ---
-title: ONNX and Azure Machine Learning | Create and deploy models
+title: Create & deploy interoperable ONNX models
+titleSuffix: Azure Machine Learning service
 description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 
 # ONNX and Azure Machine Learning: Create and deploy interoperable AI models
@@ -180,24 +182,12 @@ Here is an example for deploying an ONNX model:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Deploy your ONNX model with Azure Machine Learning to:
-   + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
+4. To deploy your model, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 
 ## Examples
  
-The following notebooks demonstrate how to create ONNX models and deploy them with Azure Machine Learning: 
-+ [onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-convert-aml-deploy-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-The following notebooks demonstrate how to deploy existing ONNX models with Azure Machine Learning: 
-+ [onnx/onnx-inference-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-expression-recognition-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-Get these notebooks:
+See [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) for example notebooks that create and deploy ONNX models.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
