@@ -81,7 +81,7 @@ If you want to re-publish without adding Application Insights to the code, be aw
 4. Reinstate any edits you performed on the .config file.
 
 
-## Troubleshooting
+## <a name="troubleshoot"></a>Troubleshooting
 
 ### Can't connect? No telemetry?
 
