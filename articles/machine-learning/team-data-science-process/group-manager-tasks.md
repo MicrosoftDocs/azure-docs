@@ -292,7 +292,7 @@ Finally, change to the **GitRepos\GroupCommon\GroupUtilities** directory and run
 > [!NOTE] 
 > If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
 >
->  `git config --global user.name <your name>`
+>  `git config --global user.name <your name>`  
 >  `git config --global user.email <your email address>`
 >
 > If you are committing to multiple Git repositories, use the same name and email address when you commit to each of them. Using the same name and email address proves convenient later on when you build PowerBI dashboards to track your Git activities on multiple repositories.
