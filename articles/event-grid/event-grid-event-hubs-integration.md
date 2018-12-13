@@ -21,7 +21,7 @@ This diagram depicts the workflow of the solution you build in this tutorial:
 2. When the data capture is complete, an event is generated and sent to an Azure event grid. 
 3. The event grid forwards this event data to an Azure function app.
 4. The function app uses the blob URL in the event data to retrieve the blob from the storage. 
-5. The function app migrates teh blob data to an Azure SQL data warehouse. 
+5. The function app migrates the blob data to an Azure SQL data warehouse. 
 
 In this article, you take the following steps:
 
@@ -113,7 +113,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
         5. Name of the SQL user and password. 
         6. Name for the SQL data warehouse
         7. Name of the storage account. 
-        8. Name for the funcation app. 
+        8. Name for the function app. 
     3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you are creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
     
 
@@ -144,11 +144,11 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
         5. Name of the SQL user and password. 
         6. Name for the SQL data warehouse
         7. Name of the storage account. 
-        8. Name for the funcation app. 
+        8. Name for the function app. 
     3.  Press **ENTER** in the Cloud Shell window to run the command. This process may take a while since you are creating a bunch of resources. In the result of the command, ensure that there have been no failures. 
 
 ### Close the Cloud Shell 
-Close the cloud shell by selecting the **Cloud Shell** button in the portal (or) **X** button in ther top-right corner of the Cloud Shell window. 
+Close the cloud shell by selecting the **Cloud Shell** button in the portal (or) **X** button in the top-right corner of the Cloud Shell window. 
 
 ### Verify that the resources are created
 
@@ -238,7 +238,7 @@ After publishing the function, you're ready to subscribe to the event.
 ## Run the app to generate data
 You've finished setting up your event hub, SQL data warehouse, Azure function app, and event subscription. Before running an application that generates data for event hub, you need to configure a few values.
 
-1. In the Azure portal, naviagate to your resource group as you did earlier. 
+1. In the Azure portal, navigate to your resource group as you did earlier. 
 2. Select the Event Hubs namespace.
 3. In the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
 4. Select **RootManageSharedAccessKey** in the list of policies. 
