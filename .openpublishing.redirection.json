@@ -4437,12 +4437,12 @@
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-6.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-7.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
@@ -4467,17 +4467,17 @@
         },
         {
             "source_path": "articles/app-service/app-service-release-notes.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-6.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-7.md",
-            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_url": "https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
