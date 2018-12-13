@@ -27,7 +27,7 @@ This article has answers to frequently asked questions (FAQs) about application 
 
 ## Why is my app slow?
 
-Multiple factors might contribute to slow app performance. For detailed troubleshooting steps, see [Troubleshoot slow web app performance](app-service-web-troubleshoot-performance-degradation.md).
+Multiple factors might contribute to slow app performance. For detailed troubleshooting steps, see [Troubleshoot slow web app performance](troubleshoot-performance-degradation.md).
 
 ## How do I troubleshoot a high CPU-consumption scenario?
 

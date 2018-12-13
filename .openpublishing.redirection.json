@@ -4272,12 +4272,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-availability-performance-application-issues-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-availability-performance-application-issues-faq",
+            "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-availability-performance-application-issues-faq.md",
+            "redirect_url": "/azure/app-service/faq-availability-performance-application-issues",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-configuration-and-management-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-configuration-and-management-faq",
+            "redirect_url": "/azure/app-service/faq-configuration-and-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-configuration-and-management-faq.md",
+            "redirect_url": "/azure/app-service/faq-configuration-and-management",
             "redirect_document_id": false
         },
         {
@@ -4307,7 +4317,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-deployment-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-deployment-faq",
+            "redirect_url": "/azure/app-service/faq-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-deployment-faq.md",
+            "redirect_url": "/azure/app-service/faq-deployment",
             "redirect_document_id": false
         },
         {
@@ -4357,7 +4372,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-open-source-technologies-faq.md",
-            "redirect_url": "/azure/app-service/app-service-web-open-source-technologies-faq",
+            "redirect_url": "/azure/app-service/faq-open-source-technologies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-open-source-technologies-faq.md",
+            "redirect_url": "/azure/app-service/faq-open-source-technologies",
             "redirect_document_id": false
         },
         {
@@ -4372,12 +4392,22 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-troubleshoot-http-502-http-503.md",
-            "redirect_url": "/azure/app-service/app-service-web-troubleshoot-http-502-http-503",
+            "redirect_url": "/azure/app-service/troubleshoot-http-502-http-503",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-troubleshoot-http-502-http-503.md",
+            "redirect_url": "/azure/app-service/troubleshoot-http-502-http-503",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-web-troubleshoot-performance-degradation.md",
-            "redirect_url": "/azure/app-service/app-service-web-troubleshoot-performance-degradation",
+            "redirect_url": "/azure/app-service/troubleshoot-performance-degradation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-troubleshoot-performance-degradation.md",
+            "redirect_url": "/azure/app-service/troubleshoot-performance-degradation",
             "redirect_document_id": false
         },
         {
@@ -4417,32 +4447,62 @@
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-6.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-6",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-7.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-7",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-8.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-8",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-8.md",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-2-9.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-2-9",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-9.md",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes-3-0.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-3-0",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/azure-sdk-dotnet-release-notes.md",
-            "redirect_url": "/azure/app-service/azure-sdk-dotnet-release-notes-3-0",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-release-notes.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-6.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-7.md",
+            "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/dn479282(v=azure.100)#azure-sdk-release-dates-retirement-dates-and-support-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-8.md",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-8.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-2-9.md",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-2-9.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
+            "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/7416792b00ff9256c22d65e29f22bcbdb5ce41cf/articles/app-service/azure-sdk-dotnet-release-notes-3-0.md",
             "redirect_document_id": false
         },
         {
@@ -4457,7 +4517,12 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-available-operating-system-functionality.md",
-            "redirect_url": "/azure/app-service/web-sites-available-operating-system-functionality",
+            "redirect_url": "/azure/app-service/operating-system-functionality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/web-sites-available-operating-system-functionality.md",
+            "redirect_url": "/azure/app-service/operating-system-functionality",
             "redirect_document_id": false
         },
         {
@@ -4973,6 +5038,11 @@
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-lob-application-azure-ad.md",
             "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-troubleshoot-domain-ssl-certificates.md",
+            "redirect_url": "/azure/app-service/troubleshoot-domain-ssl-certificates",
             "redirect_document_id": false
         },
         {
@@ -32112,6 +32182,56 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-roles-permissions-security.md",
+            "redirect_url":  "/azure/azure-monitor/platform/roles-permissions-security",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/archive-diagnostic-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md",
+            "redirect_url":  "/azure/azure-monitor/platform/archive-activity-log",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md",
+            "redirect_url":  "/azure/azure-monitor/platform/quick-audit-notify-action-subscription",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostic-logs-stream-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-custom-metric",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-activity-log-schema.md",
+            "redirect_url":  "/azure/azure-monitor/platform/activity-log-schema",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md",
+            "redirect_url":  "/azure/azure-monitor/platform/tutorial-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-metric-charts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/metrics-charts",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -32516,6 +32636,11 @@
             "source_path": "articles/governance/policy/how-to/getting-compliance-data.md",
             "redirect_url": "/azure/governance/policy/how-to/get-compliance-data",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
+            "redirect_document_id": false            
         }
     ]
 }

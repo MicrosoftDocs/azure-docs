@@ -86,14 +86,6 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | batchaccounts	| Yes | Yes |
 
-## Microsoft.BatchAI
-| Resource type | Resource group | Subscription |
-| ------------- | -------------- | ------------ |
-| clusters | No | No |
-| fileservers | No | No |
-| jobs | No | No |
-| workspaces | No | No |
-
 ## Microsoft.BingMaps
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |

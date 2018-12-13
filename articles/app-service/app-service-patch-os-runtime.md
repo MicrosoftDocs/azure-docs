@@ -78,7 +78,7 @@ When an older version is deprecated, the removal date is announced so that you c
 
 ## How can I query OS and runtime update status on my instances?  
 
-While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
+While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
 The following table shows how to the versions of Windows and of the language runtime that are running your apps:
 

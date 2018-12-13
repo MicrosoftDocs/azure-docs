@@ -280,34 +280,28 @@
       href: elastic-jobs-overview.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Monitoring and performance tuning
+  - name: Monitoring and tuning
     items:
-    - name: Monitoring and tuning overview
+    - name: Monitoring and performance tuning
       href: sql-database-monitor-tune-overview.md
-    - name: Intelligent performance
+    - name: Performance monitoring
       items:
-      - name: Tuning actions and recommendations
-        href: sql-database-performance.md
       - name: Query Performance Insight
         href: sql-database-query-performance.md
-      - name: Database advisor performance recommendations
-        href: sql-database-advisor.md
-    - name: Advanced monitoring
-      items:
       - name: Azure SQL Analytics monitoring
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: Diagnostic telemetry logging
         href: sql-database-metrics-diag-logging.md
-    - name: Intelligent insights into performance
-      href: sql-database-intelligent-insights.md
-    - name: Automatic tuning
-      href: sql-database-automatic-tuning.md
-    - name: Intelligent query processing
+    - name: Intelligent performance
       items:
-      - name: Intelligent query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Adaptive query processing
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Automatic tuning
+        href: sql-database-automatic-tuning.md
+      - name: Intelligent insights into performance
+        href: sql-database-intelligent-insights.md
+      - name: Tuning actions and recommendations
+        href: sql-database-performance.md
+      - name: Database advisor performance recommendations
+        href: sql-database-advisor.md
   - name: Databases features
     items:
     - name: Databases features
