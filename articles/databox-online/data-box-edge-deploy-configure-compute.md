@@ -120,9 +120,8 @@ The following procedure uses an example where the custom module takes files from
 
     `rsync --inplace <source file path> < destination file path>`
 
-     For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm). 
+    For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm). 
 
- 
     The local share is created, and you'll receive a successful creation notification. The share list might be updated, but you must wait for the share creation to be completed.
     
 1. Go to the list of shares. 
