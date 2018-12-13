@@ -163,7 +163,7 @@
           href: optimize-cost-regions.md          
         - name: Optimize your dev/test workloads 
           href: optimize-dev-test.md
-        - name: Prepay for reserved capacity
+        - name: Optimize with reserved capacity
           href: cosmos-db-reserved-capacity.md
     - name: Security
       items:

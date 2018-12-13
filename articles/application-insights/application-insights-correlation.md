@@ -46,22 +46,22 @@ You can analyze resulting telemetry running a query:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-In the result view note that all telemetry items share the root `operation_Id`. When ajax call made from the page - new unique id `qJSXU` is assigned to the dependency telemetry and pageView's id is used as `operation_ParentId`. In turn server request uses ajax's id as `operation_ParentId`, etc.
+In the result view note that all telemetry items share the root `operation_Id`. When ajax call made from the page - new unique ID `qJSXU` is assigned to the dependency telemetry and pageView's ID is used as `operation_ParentId`. In turn server request uses ajax's ID as `operation_ParentId`, etc.
 
-| itemType   | name                      | id           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
-Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So you can set `dependency.target` field appropriately. When the external service does not support monitoring - `target` is set to the host name of the service like `stock-prices-api.com`. However if that service identifies itself by returning a predefined HTTP header - `target` contains the service identity that allows Application Insights to build distributed trace by querying telemetry from that service. 
+Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So you can set `dependency.target` field appropriately. When the external service doesn't support monitoring - `target` is set to the host name of the service like `stock-prices-api.com`. However if that service identifies itself by returning a predefined HTTP header - `target` contains the service identity that allows Application Insights to build distributed trace by querying telemetry from that service. 
 
 ## Correlation headers
 
-We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
+We're working on an RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
 
-- `Request-Id` carry the globally unique id of the call
+- `Request-Id` carry the globally unique ID of the call
 - `Correlation-Context` - carry the name value pairs collection of the distributed trace properties
 
 The standard also defines two schemas of `Request-Id` generation - flat and hierarchical. With the flat schema, there is a well-known `Id` key defined for the `Correlation-Context` collection.
@@ -70,14 +70,14 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 
 ### W3C Distributed Tracing
 
-We are transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
-- `traceparent` - carries globally unique operation id and unique identifier of the call
-- `tracestate` - carries tracing system specific context.
+We're transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
+- `traceparent` - carries globally unique operation ID and unique identifier of the call
+- `tracestate` - carries tracing system-specific context.
 
 #### Enable W3C distributed tracing support for ASP.NET Classic apps
 
 This feature is available in Microsoft.ApplicationInsights.Web and Microsoft.ApplicationInsights.DependencyCollector packages starting with version 2.8.0-beta1.
-It is **off** by default, to enable it, change `ApplicationInsights.config`:
+It's **off** by default, to enable it, change `ApplicationInsights.config`:
 
 * under `RequestTrackingTelemetryModule` add `EnableW3CHeadersExtraction` element with value set to `true`
 * under `DependencyTrackingTelemetryModule` add `EnableW3CHeadersInjection` element with value set to `true`
@@ -85,7 +85,7 @@ It is **off** by default, to enable it, change `ApplicationInsights.config`:
 #### Enable W3C distributed tracing support for ASP.NET Core apps
 
 This feature is in Microsoft.ApplicationInsights.AspNetCore with version 2.5.0-beta1 and Microsoft.ApplicationInsights.DependencyCollector version 2.8.0-beta1.
-It is **off** by default, to enable it set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
+It's **off** by default, to enable it set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -112,7 +112,6 @@ For more information on the Application Insights data model, see [data model](ap
 
 See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
-
 ## Telemetry correlation in .NET
 
 Over time .NET defined number of ways to correlate telemetry and diagnostics logs. There is `System.Diagnostics.CorrelationManager` allowing to track [LogicalOperationStack and ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` and Windows ETW define the method [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` uses [Log Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF and Http wire up "current" context propagation.
@@ -131,13 +130,20 @@ Application Insights SDK starting version `2.4.0-beta1` uses DiagnosticsSource a
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in the Java SDK
-The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
+The [Application Insights Java SDK](app-insights-java-get-started.md) supports automatic correlation of telemetry beginning with version `2.0.0`. It automatically populates `operation_id` for all telemetry (traces, exceptions, custom events, etc.) issued within the scope of a request. It also takes care of propagating the correlation headers (described above) for service to service calls via HTTP if the [Java SDK agent](app-insights-java-agent.md) is configured. Note: only calls made via Apache HTTP Client are supported for the correlation feature. If you're using Spring Rest Template or Feign, both can be used with Apache HTTP Client under the hood.
 
-Currently, automatic context propagation across messaging technologies (e.g. Kafka, RabbitMQ, Azure Service Bus) is not supported. It is possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` API's, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
+Currently, automatic context propagation across messaging technologies (for example, Kafka, RabbitMQ, Azure Service Bus) isn't supported. It's possible, however to manually code such scenarios by using the `trackDependency` and `trackRequest` APIs, whereby a dependency telemetry represents a message being enqueued by a producer and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
 <a name="java-role-name"></a>
-### Role Name
-At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_roleName` by doing one of the following:
+## Role Name
+
+At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
+
+If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
+
+`spring.application.name=<name-of-app>`
+
+The Spring Boot starter will automatically assign cloudRoleName to the value you enter for the spring.application.name property.
 
 If you are using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` will set the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
 ```XML
@@ -145,7 +151,9 @@ If you are using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializ
   <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
 </ContextInitializers>
 ```
+
 Via the cloud context class:
+
 ```Java
 telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
@@ -153,6 +161,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 ## Next steps
 
 - [Write custom telemetry](app-insights-api-custom-events-metrics.md)
+- [Learn more about](app-insights-app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
