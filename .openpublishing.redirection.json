@@ -1435,7 +1435,7 @@
         {
             "source_path": "articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
@@ -32590,7 +32590,7 @@
         {
             "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
             "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
-            "redirect_document_id": true            
+            "redirect_document_id": false            
         }
     ]
 }
