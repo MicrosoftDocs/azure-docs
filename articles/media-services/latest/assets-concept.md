@@ -26,7 +26,7 @@ An Asset is mapped to a blob container in the [Azure Storage account](storage-ac
 Azure Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to [Cool or Archive storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Archive** storage is suitable for archiving source files when no longer needed (for example, after they have been encoded.)
 
 > [!NOTE]
-> Assets in the **Archive** storage tier are not available for encoding or streaming. **Archive** is only recommended for very large source files that have already been encoded, and the encoding Job's output was put in a blob container. The blobs in the container that you want to use to stream or analyze your content, must exist in a **Hot** or **Cool** storage tier.
+> The **Archive** storage tier is only recommended for very large source files that have already been encoded and the encoding Job output was put in an output blob container. The blobs in the output container that you want to associate with an Asset and use to stream or analyze your content, must exist in a **Hot** or **Cool** storage tier.
 
 In Media Services v3, the job input can be created from assets or from HTTP(s) URLs. To create an Asset that can be used as an input for your job, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
