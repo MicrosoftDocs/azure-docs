@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
 ---
@@ -25,6 +25,7 @@ Azure Storage supports both built-in and custom RBAC roles. Azure Storage offers
 
 - [Storage Blob Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [Storage Blob Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Storage Blob Data Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
 - [Storage Queue Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
 - [Storage Queue Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
@@ -40,7 +41,7 @@ Assign an RBAC role to an Azure identity to grant permissions to containers or q
 
 |Scope|Blob Data Owner|Blob Data Contributor|Blob Data Reader|Queue Data Contributor|Queue Data Reader|
 |---|---|---|---|---|---|
-|Subscrition level|Read/write access to all containers and blobs in the subscription|Read/write access to all containers and blobs in the subscription| Read access to all containers and blobs in the subscription|Read/write access to all queues in the subscription|Read access to all queues in the subscription|
+|Subscription level|Read/write access to all containers and blobs in the subscription|Read/write access to all containers and blobs in the subscription| Read access to all containers and blobs in the subscription|Read/write access to all queues in the subscription|Read access to all queues in the subscription|
 |Resource group level|Read/write access to all containers and blobs in the resource group|Read/write access to all containers and blobs in the resource group|Read access to all containers and blobs in the resource group|Read/write access to all queues in the resource group|Read access to all queues in the resource group|
 |Storage account level|Read/write access to all containers and blobs in the storage account|Read/write access to all containers and blobs in the storage account|Read access to all containers and blobs in the storage account|Read/write access to all queues in the storage account|Read access to all queues in the storage account|
 |Container/queue level|Read/write access to the specified container and its blobs|Read/write access to the specified container and its blobs|Read access to the specified container and its blobs|Read/write access to the specified queue|Read access to the specified queue|
