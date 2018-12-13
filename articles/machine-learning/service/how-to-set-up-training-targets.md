@@ -1,5 +1,5 @@
 ---
-title: Set up compute targets for model training
+title: Compute targets for model training
 titleSuffix: Azure Machine Learning service
 description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
@@ -53,7 +53,7 @@ Azure Machine Learning service has varying support across the various compute ta
 > * Azure Kubernetes
 > * Windows Data Science Virtual Machine (DSVM)
 
-## <a id="workflow"></a>Review the training workflow
+## Workflow
 
 The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
 
@@ -71,15 +71,15 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 To switch from one compute target to another, you need a [run configuration](concept-azure-machine-learning-architecture.md#run-configuration). The run configuration defines how to run the script on the compute target.
 
-## <a id="training-scripts"></a>Get the training scripts
+## Training scripts
 
 When you start a training run, it creates a snapshot of the directory that contains your training scripts and sends it to the compute target. For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
-## <a id="local"></a>Run the training locally
+## <a id="local"></a>Local computer
 
 When you train locally, you use the SDK to submit the training operation. You can train by using a user-managed or system-managed environment.
 
-### Use a user-managed environment
+### User-managed environment
 
 In a user-managed environment, make sure all of the necessary packages are available in the Python environment where you run the script. The following code snippet is an example of how to configure training for a user-managed environment:
 
@@ -96,7 +96,7 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 ```
 
   
-### Use a system-managed environment
+### System-managed environment
 
 System-managed environments rely on conda to manage the dependencies. Conda creates a file named **conda_dependencies.yml** that contains a list of dependencies. You can ask the system to build a new conda environment and run your scripts there. System-managed environments can be reused later, as long as the conda_dependencies.yml file is unchanged. 
 
@@ -116,7 +116,7 @@ run_config_system_managed.auto_prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-## <a id="amlcompute"></a>Use Azure Machine Learning Compute
+## <a id="amlcompute"></a>Azure Machine Learning Compute
 
 Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a Docker container.
 
@@ -127,7 +127,7 @@ You can use Azure Machine Learning Compute to distribute the training process ac
 
 You can create Azure Machine Learning Compute on-demand when you schedule a run, or as a persistent resource.
 
-### Use run-based creation
+### Run-based creation
 
 You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run and scales up to the number of **max_nodes** that you specify in your run config. The compute is deleted automatically after the run completes.
 
@@ -154,7 +154,7 @@ run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
 
 ```
 
-### Use a persistent compute: Basic
+### Persistent compute: Basic
 
 A persistent Azure Machine Learning Compute can be reused across jobs. The compute can be shared with other users in the workspace and is kept between jobs.
 
@@ -183,7 +183,7 @@ cpu_cluster.wait_for_completion(show_output=True)
 
 ```
 
-### Use a persistent compute: Advanced
+### Persistent compute: Advanced
 
 You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.
 
@@ -226,7 +226,7 @@ cpu_cluster.wait_for_completion(show_output=True)
 ```
 
 
-## <a id="vm"></a>Use a remote VM
+## <a id="vm"></a>Remote VM
 
 Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM, as long as it's accessible from Azure Machine Learning service. The resource can be an Azure VM, a remote server in your organization, or on-premises. Specifically, given the IP address and credentials (user name and password, or SSH key), you can use any accessible VM for remote runs.
 You can use a system-built conda environment, an existing Python environment, or a Docker container. When you execute by using a Docker container, you need to have Docker Engine running on the VM. The remote VM functionality is especially useful when you want a cloud-based development and experimentation environment that's more flexible than your local machine.
@@ -294,7 +294,7 @@ The following steps use the SDK to configure a DSVM as a training target:
 
     ```
 
-## <a id="databricks"></a>Use Azure Databricks
+## <a id="databricks"></a>Azure Databricks
 
 Azure Databricks is an Apache Spark-based environment in the Azure cloud. The environment can be used as a compute target when you train models with an Azure Machine Learning pipeline.
 
@@ -339,7 +339,7 @@ except ComputeTargetException:
     databricks_compute.wait_for_completion(True)
 ```
 
-## <a id="adla"></a>Use Azure Data Lake Analytics
+## <a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics is a big-data analytics platform in the Azure cloud. The platform can be used as a compute target when you train models with an Azure Machine Learning pipeline.
 
@@ -386,7 +386,7 @@ except ComputeTargetException:
 > [!TIP]
 > Azure Machine Learning pipelines only work with data that's stored in the default data store of the Data Lake Analytics account. If the data you need is in a non-default store, you can use a [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) operation to copy the data before you train the model.
 
-## <a id="hdinsight"></a>Use Azure HDInsight 
+## <a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight is a popular platform for big-data analytics. The platform provides Apache Spark, which can be used to train your model.
 
@@ -440,7 +440,7 @@ There are two ways to submit a training run:
 >
 > The local compute target can't be used in a pipeline.
 
-### Use the ScriptRunConfig object
+### ScriptRunConfig object
 
 The code pattern to submit a training run with the `ScriptRunConfig` object is the same for all types of compute targets:
 
@@ -457,7 +457,7 @@ run.wait_for_completion(show_output = True)
 ```
 
 
-### Use a pipeline
+### Pipeline object
 
 The code pattern to submit a training run with a `Pipeline` object is the same for all types of compute targets:
 
@@ -491,9 +491,9 @@ For more information on machine learning pipelines, see [Pipelines and Azure Mac
 
 For example Jupyter notebooks that demonstrate how to train a model by using a pipeline, see [https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
-## <a id="view-and-set-up-compute-using-the-azure-portal"></a>Access compute targets in the portal
+## Access computes in the Azure portal
 
-You can view the compute targets that are associated with your workspace in the Azure portal. You can also create compute targets and reuse existing targets from the portal.
+You can access the compute targets that are associated with your workspace in the Azure portal. 
 
 ### View compute targets
 
@@ -531,7 +531,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 Now you can submit a run against the computer targets as described earlier.
 
 
-### Reuse an existing compute target
+### Reuses existing compute targets
 
 Follow the steps described earlier to view the list of compute targets. Then use these steps to reuse a compute target:
 
@@ -561,7 +561,7 @@ Follow the steps described earlier to view the list of compute targets. Then use
 
 Now you can submit a run against these compute targets as described earlier.
 
-## Get examples
+## Notebook examples
 
 For examples, see the notebooks in the following locations:
 
