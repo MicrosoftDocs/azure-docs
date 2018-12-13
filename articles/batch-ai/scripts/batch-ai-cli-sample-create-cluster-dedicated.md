@@ -22,6 +22,8 @@ ROBOTS: NOINDEX
 
 # CLI example: Create and manage a Batch AI cluster of dedicated nodes
 
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
+
 This script demonstrates some of the commands available in the Azure CLI to create and
 manage a Batch AI cluster consisting of dedicated nodes (virtual machines).
 
