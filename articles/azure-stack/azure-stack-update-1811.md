@@ -60,7 +60,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ``` 
 
-- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the Extension Host, which simplifies network integration and increases the security posture of Azure Stack. To prepare for Extension Host, see [this article](azure-stack-extension-host-prepare.md).
+- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host, which simplifies network integration and increases the security posture of Azure Stack. To prepare for extension host, see [this article](azure-stack-extension-host-prepare.md).
 ​
     If you ignore every warning and still choose to install the 1811 update, the update will fail with the following message:   
  
@@ -70,16 +70,16 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
     Exception: The Certificate path does not exist: <certificate path here>
     ``` 
-
+ 
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
-    Note that during installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the Extension Host is configured. The configuration of the Extension Host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+    Note that during installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 ## New features
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, the Extenstion Host is enabled. The Extension Host simplifies network integration and improves the security posture of Azure Stack.
+- With this release, the extension host is enabled. The extension host simplifies network integration and improves the security posture of Azure Stack.
 
 - This release enhances the Azure Stack operator experience for [managing updates](azure-stack-updates.md) from the **Update** blade.
 
@@ -181,7 +181,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the Extension Host is configured. The configuration of the Extension Host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
