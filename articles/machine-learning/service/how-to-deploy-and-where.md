@@ -180,7 +180,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
     > [!IMPORTANT]
     > Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
-    > For provisioning_configuration() if you pick custom values for agent_count and vm_size you need to make sure agent_count multiplied by vm_size must have be greater than or equal to 12 Virtual CPUs. For ex. if you pick vm_size as "Standard_D3_v2", which has 4 VCPUs then you should pick agent_count as atleast 3
+    > For provisioning_configuration(), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
