@@ -126,6 +126,7 @@ This establishes a connection using Transport Layer Security (TLS) and reduces t
 Provision an Azure Active Directory administrator for your Azure SQL server in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)
+
     ![choose-ad](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. On **SQL Server** page, select **Active Directory admin**, and on the **Active Directory admin** page, select **Set admin**.
@@ -141,8 +142,6 @@ The process of changing the administrator may take several minutes. Then the new
 
    > [!NOTE]
    > When setting up the Azure AD admin, the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication fails.
-
-To later remove an Admin, at the top of the **Active Directory admin** page, select **Remove admin**, and then select **Save**.
 
 ## Creating database users
 
