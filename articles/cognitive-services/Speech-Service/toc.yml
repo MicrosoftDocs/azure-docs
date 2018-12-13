@@ -14,13 +14,13 @@
     items:
     - name: Recognize speech
       items:
-      - name: 'C# (.NET on Windows)'
+      - name: 'C# (.NET Framework Windows)'
         href: quickstart-csharp-dotnet-windows.md
         displayName: recognize speech, speech recognition, speech to text, stt
-      - name: 'C# (.NET Core on Windows)'
+      - name: 'C# (.NET Core Windows)'
         href: quickstart-csharp-dotnetcore-windows.md
         displayName: recognize speech, speech recognition, speech to text, stt
-      - name: 'C# (Universal Windows Platform)'
+      - name: 'C# (UWP)'
         href: quickstart-csharp-uwp.md
         displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
       - name: 'C++ (Windows)'
