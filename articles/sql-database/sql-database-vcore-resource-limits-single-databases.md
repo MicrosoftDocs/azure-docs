@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 12/12/2018
+ms.date: 12/13/2018
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -133,8 +133,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Number of replicas|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -155,8 +155,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Number of replicas|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -177,8 +177,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Target IOPS (64 KB)|10000|20000|30000|40000|50000|60000|70000|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
-|Number of replicas|3|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -199,8 +199,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Target IOPS (64 KB)|80000|90000|50000|60000|80000|100000|200000|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
-|Number of replicas|3|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 

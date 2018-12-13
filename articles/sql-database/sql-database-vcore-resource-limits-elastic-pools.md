@@ -53,7 +53,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-### General Purpose service tier:Generation 4 compute platform (part 2)
+### General Purpose service tier: Generation 4 compute platform (part 2)
 
 |Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -145,8 +145,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
-|Number of replicas|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -169,8 +169,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|100|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
-|Number of replicas|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -193,8 +193,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
-|Number of replicas|3|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -217,8 +217,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Max number DBs per pool|100|100|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
-|Number of replicas|3|3|3|3|3|3|3|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Number of replicas|4|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
