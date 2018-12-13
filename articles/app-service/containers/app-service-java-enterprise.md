@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 # Java Enterprise guide for App Service on Linux
 
-Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (JEE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](http://wildfly.org/) application server.
+Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (JEE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](https://wildfly.org/) application server.
 
 This guide provides key concepts and instructions for Java Enterprise developers using in App Service for Linux. If you've never deployed Java applications with Azure App Service for Linux, you should complete the [Java quickstart](quickstart-java.md) first. Questions about App Service for Linux that aren't specific to Java Enterprise are answered in the [Java developer's guide](app-service-linux-java.md) and the [App Service Linux FAQ](app-service-linux-faq.md).
 
@@ -111,6 +111,6 @@ By default, web sockets are enabled on App Service. To get started with WebSocke
 App Service provides tools to help you troubleshoot problems with your application.
 
 -	Turn on logging by clicking **Diagnostic Logs** in the left-hand navigation pane. Click **File System** to set your storage quota and retention period, and save your changes. You can find these logs under `/home/LogFiles/`.
--	[Use SSH to connect to the application instance](/app-service-linux-ssh-support) to view logs for running applications.
+-	[Use SSH to connect to the application instance](app-service-linux-ssh-support.md) to view logs for running applications.
 -	Check diagnostic logs in the **Diagnostic Logs** panel of the Portal, or by using the Azure CLI command:
 ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

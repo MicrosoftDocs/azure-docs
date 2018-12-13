@@ -23,11 +23,11 @@ An Azure AD identity may be a user, group, or application service principal, or 
 
 Azure Storage supports both built-in and custom RBAC roles. Azure Storage offers these built-in RBAC roles for use with Azure AD:
 
-- [Storage Blob Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [Storage Blob Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [Storage Blob Data Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
-- [Storage Queue Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [Storage Queue Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [Storage Blob Data Owner (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Use to set ownership and ACLs for Azure Data Lake Storage Gen2 (preview). For more information, see [Access control in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
+- [Storage Blob Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Use to grant read/write/delete permissions to Blob storage resources.
+- [Storage Blob Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Use to grant read-only permissions to Blob storage resources.
+- [Storage Queue Data Contributor (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Use to grant read/write/delete permissions to Azure queues.
+- [Storage Queue Data Reader (Preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview): Use to grant read-only permissions to Azure queues.
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
@@ -41,10 +41,10 @@ Assign an RBAC role to an Azure identity to grant permissions to containers or q
 
 |Scope|Blob Data Owner|Blob Data Contributor|Blob Data Reader|Queue Data Contributor|Queue Data Reader|
 |---|---|---|---|---|---|
-|Subscription level|Read/write access to all containers and blobs in the subscription|Read/write access to all containers and blobs in the subscription| Read access to all containers and blobs in the subscription|Read/write access to all queues in the subscription|Read access to all queues in the subscription|
-|Resource group level|Read/write access to all containers and blobs in the resource group|Read/write access to all containers and blobs in the resource group|Read access to all containers and blobs in the resource group|Read/write access to all queues in the resource group|Read access to all queues in the resource group|
-|Storage account level|Read/write access to all containers and blobs in the storage account|Read/write access to all containers and blobs in the storage account|Read access to all containers and blobs in the storage account|Read/write access to all queues in the storage account|Read access to all queues in the storage account|
-|Container/queue level|Read/write access to the specified container and its blobs|Read/write access to the specified container and its blobs|Read access to the specified container and its blobs|Read/write access to the specified queue|Read access to the specified queue|
+|Subscription level|Set ownership and ACLS for Data Lake Storage resources in the subscription|Read/write/delete access to all containers and blobs in the subscription| Read access to all containers and blobs in the subscription|Read/write/delete access to all queues in the subscription|Read access to all queues in the subscription|
+|Resource group level|Set ownership and ACLS for Data Lake Storage resources in the resource group|Read/write/delete access to all containers and blobs in the resource group|Read access to all containers and blobs in the resource group|Read/write/delete access to all queues in the resource group|Read access to all queues in the resource group|
+|Storage account level|Set ownership and ACLS for Data Lake Storage resources in the storage account|Read/write/delete access to all containers and blobs in the storage account|Read access to all containers and blobs in the storage account|Read/write/delete access to all queues in the storage account|Read access to all queues in the storage account|
+|File system/Container/queue level|Set ownership and ACLS for Data Lake Storage resources in the file system|Read/write/delete access to the specified container and its blobs|Read access to the specified container and its blobs|Read/write/delete access to the specified queue|Read access to the specified queue|
 
 > [!NOTE]
 > As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or a container or queue.

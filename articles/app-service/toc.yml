@@ -68,7 +68,7 @@
   - name: App Service plans
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
   - name: OS functionality
-    href: web-sites-available-operating-system-functionality.md
+    href: operating-system-functionality.md
   - name: Security
     href: app-service-security.md
     items:
@@ -212,34 +212,8 @@
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
     href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: Service Updates & Release Notes
-    items:
-    - name: Azure Updates
-      href: https://azure.microsoft.com/updates/?product=app-service
-    - name: Azure SDK for .NET 3.0
-      href: azure-sdk-dotnet-release-notes-3-0.md
-    - name: Azure SDK for .NET 2.9
-      href: azure-sdk-dotnet-release-notes-2-9.md
-    - name: Azure SDK for .NET 2.8
-      href: azure-sdk-dotnet-release-notes-2-8.md
-    - name: Azure SDK for .NET 2.7
-      href: azure-sdk-dotnet-release-notes-2-7.md
-    - name: Azure SDK for .NET 2.6
-      href: azure-sdk-dotnet-release-notes-2-6.md
-    - name: Azure SDK for .NET 2.5.1
-      href: app-service-release-notes.md
-    - name: Azure SDK for .NET 2.5
-      href: https://msdn.microsoft.com/library/azure/dn873976.aspx
-    - name: Azure SDK for .NET 2.4
-      href: https://msdn.microsoft.com/library/azure/dn794167.aspx
-    - name: Azure SDK for .NET 2.3
-      href: https://msdn.microsoft.com/library/azure/dn655054.aspx
-    - name: Azure SDK for .NET 2.2
-      href: https://msdn.microsoft.com/library/azure/dn459835.aspx
-    - name: Azure SDK for .NET 2.1
-      href: https://msdn.microsoft.com/library/azure/dn407359.aspx
-    - name: Azure SDK for .NET 2.0
-      href: https://msdn.microsoft.com/library/azure/dn169556.aspx
+  - name: Service Updates
+    href: https://azure.microsoft.com/updates/?product=app-service
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples
@@ -259,21 +233,21 @@
     - name: Troubleshoot Node.js app
       href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
     - name: Troubleshoot HTTP 502 & 503
-      href: app-service-web-troubleshoot-http-502-http-503.md
+      href: troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
-      href: app-service-web-troubleshoot-performance-degradation.md
+      href: troubleshoot-performance-degradation.md
     - name: Troubleshoot domain and certificate issues
-      href: app-service-web-troubleshoot-domain-ssl-certificates.md
+      href: troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: app-service-web-availability-performance-application-issues-faq.md
+        href: faq-availability-performance-application-issues.md
       - name: Deployment FAQ
-        href: app-service-web-deployment-faq.md
+        href: faq-deployment.md
       - name: Open source technologies FAQ
-        href: app-service-web-open-source-technologies-faq.md
+        href: faq-open-source-technologies.md
       - name: Configuration and management FAQ
-        href: app-service-web-configuration-and-management-faq.md
+        href: faq-configuration-and-management.md
   - name: IP address change
     items:
     - name: Inbound IP address

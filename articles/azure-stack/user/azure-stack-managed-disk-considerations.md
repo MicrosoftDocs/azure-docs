@@ -26,6 +26,7 @@ Managed Disks simplifies disk management for IaaS VMs by managing the [storage a
 
 > [!Note]  
 > Managed Disks on Azure Stack is available from 1808.
+  
 
 ## Cheat sheet: Managed disk differences
 
@@ -40,9 +41,12 @@ Managed Disks simplifies disk management for IaaS VMs by managing the [storage a
 |Premium disks IOPs  |Depends on disk size  |2300 IOPs per disk |
 |Premium disks throughput |Depends on disk size |145 MB/second per disk |
 |Disk size  |Azure Premium Disk: P4 (32 GiB) to P80 (32 TiB)<br>Azure Standard SSD Disk: E10 (128 GiB) to E80 (32 TiB)<br>Azure Standard HDD Disk: S4 (32 GiB) to S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
-|Disks snapshot copy|Snapshot Azure managed disks attached to a running VM supported|Not yet supported.
+|Disks snapshot copy|Snapshot Azure managed disks attached to a running VM supported|Not yet supported |
 |Disks performance analytic |Aggregate metrics and per disk metrics supported |Not yet supported |
 |Migration      |Provide tool to migrate from existing unmanaged Azure Resource Manager VMs without the need to recreate the VM  |Not yet supported |
+
+> [!Note]  
+> Managed Disks IOPs and throughput in Azure Stack is a cap number instead of a provisioned number, which may impacted by hardware and workloads running in Azure Stack.
 
 
 ## Metrics
