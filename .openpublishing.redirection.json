@@ -4362,12 +4362,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-open-source-technologies-faq.md",
-            "redirect_url": "/azure/app-service/faq-web-open-source-technologies",
+            "redirect_url": "/azure/app-service/faq-open-source-technologies",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service/app-service-web-open-source-technologies-faq.md",
-            "redirect_url": "/azure/app-service/faq-web-open-source-technologies",
+            "redirect_url": "/azure/app-service/faq-open-source-technologies",
             "redirect_document_id": false
         },
         {

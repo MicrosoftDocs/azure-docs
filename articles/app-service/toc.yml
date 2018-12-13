@@ -245,7 +245,7 @@
       - name: Deployment FAQ
         href: faq-deployment.md
       - name: Open source technologies FAQ
-        href: faq-web-open-source-technologies.md
+        href: faq-open-source-technologies.md
       - name: Configuration and management FAQ
         href: faq-configuration-and-management.md
   - name: IP address change
