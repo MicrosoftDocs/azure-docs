@@ -16,12 +16,12 @@
 
 ## Add a gateway
 
-When you add a gateway to a virtual network using the classic resource model, you modify the network configuration file directly. The values in the examples below must be present in the file in order to create a gateway. If your virtual network previously had a gateway associated to it, some of these values will already be present. Modify the file to reflect the values below.
+When you add a gateway to a virtual network using the classic resource model, you modify the network configuration file directly before creating the gateway. The values in the examples below must be present in the file in order to create a gateway. If your virtual network previously had a gateway associated to it, some of these values will already be present. Modify the file to reflect the values below.
 
 ### Download the network configuration file
 
 1. Download the network configuration file using the steps in [network configuration file](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) article. Open the file using a text editor.
-2. Add a local network site to the file. You can use any valid address prefix. You can add any valid IP address for the VPN gateway. These IP address values are not used for ExpressRoute, but are required for file validation. The site name is used later in the file. In the example, "branch1" is the name of the site. You may use a different name. Be sure to use the same value in the Gateway section of the file.
+2. Add a local network site to the file. You can use any valid address prefix. You can add any valid IP address for the VPN gateway. The address values in this section are not used for ExpressRoute operations, but are required for file validation. In the example, "branch1" is the name of the site. You may use a different name, but be sure to use the same value in the Gateway section of the file.
 
   ```
   <VirtualNetworkConfiguration>
@@ -70,6 +70,7 @@ When you add a gateway to a virtual network using the classic resource model, yo
 4. Save the file and upload it to Azure.
 
 ### Create the gateway
+
 Use the command below to create a gateway. Be sure to substitute any values for your own.
 
 ```powershell
