@@ -25,11 +25,9 @@ Azure SQL Database Managed Instance must be deployed within an Azure [virtual ne
 
   > [!Note]
   > You should [determine the size of subnet for Managed Instance](sql-database-managed-instance-determine-size-of-vnet-subnet.md) before you deploy first instance because the sunet cannot be resized once you put the resources inside.
-
-  > [!Note]
   > If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify existing virtual network for Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md). 
 
-## Create a new virtual network for a Managed Instance
+## Create a new virtual network
 
 The easiest way to create and configure virtual network is to use Azure Resource Manager deployment template.
 

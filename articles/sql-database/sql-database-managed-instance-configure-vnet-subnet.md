@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
-description: This topic describes how to configure virtual network (VNet) where you can deploy Azure SQL Database Managed Instance.
+title: Azure SQL Database Managed Instance configuring existing VNET/subnet | Microsoft Docs
+description: This topic describes how to configure an existing virtual network (VNet) and subnet where you can deploy Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -22,7 +22,7 @@ If you have a new subnet that is still not configured, you are not sure is the s
   > [!Note]
   > You can only create a Managed Instance in Resource Manager virtual networks. Azure VNets deployed using Classic deployment model are not suported. Make sure that you calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](#determine-the-size-of-subnet-for-managed-instances) section, becuase the subnet cannot be resized once you deploy the resources inside.
 
-## Validate and modify an existing virtual network for Managed Instances 
+## Validate and modify an existing virtual network 
 
 If you want to create a Managed Instance inside an existing subnet, we recommend the following PowerShell script to prepare the subnet:
 ```powershell
@@ -39,9 +39,9 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 ```
 Subnet preparation is done in three simple steps:
 
-- Validate - Selected virtual network and subnet are validated for Managed Instance networking requirements.
-- Confirm - User is shown a set of changes that need to be made to prepare subnet for Managed Instance deployment and asked for consent.
-- Prepare - Virtual network and subnet are configured properly.
+1. Validate - Selected virtual network and subnet are validated for Managed Instance networking requirements.
+2. Confirm - User is shown a set of changes that need to be made to prepare subnet for Managed Instance deployment and asked for consent.
+3. Prepare - Virtual network and subnet are configured properly.
 
 ## Next steps
 

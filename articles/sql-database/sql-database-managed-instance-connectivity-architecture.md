@@ -86,14 +86,14 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 - **Compatible user-defined route table (UDR)**: The Managed Instance subnet must have a user route table with **0.0.0.0/0 Next Hop Internet** as the mandatory UDR assigned to it. In addition, you can add a UDR that routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA). 
 - **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*. 
 - **No service endpoints**: The Managed Instance subnet must not have a service endpoint associated to it. Make sure that service endpoints option is disabled when creating the virtual network.
-- **Sufficient IP addresses**: The Managed Instance subnet must have the bare minimum of 16 IP addresses (recommended minimum is 32 IP addresses). For more information, see [Determine the size of subnet for Managed Instances](sql-database-managed-instance-determine-size-of-vnet-subnet.md). You can deploy Managed Instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) once you configure it to satisfy [Managed Instance networking requirements](#network-requirements), or create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
+- **Sufficient IP addresses**: The Managed Instance subnet must have the bare minimum of 16 IP addresses (recommended minimum is 32 IP addresses). For more information, see [Determine the size of subnet for Managed Instances](sql-database-managed-instance-determine-size-vnet-subnet.md). You can deploy Managed Instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) once you configure it to satisfy [Managed Instance networking requirements](#network-requirements), or create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > You won’t be able to deploy a new Managed Instance if the destination subnet is not compatible with all of these requirements. When a Managed Instance is created, a *Network Intent Policy* is applied on the subnet to prevent non-compliant changes to networking configuration. After the last instance is removed from the subnet, the *Network Intent Policy* is removed as well
 
 ### Mandatory inbound security rules 
 
-| NAME       |PORT                        |PROTOCOL|SOURCE           |DESTINATION|ACTION|
+| Name       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Any              |Any        |Allow |
 |mi_subnet   |Any                         |Any     |MI SUBNET        |Any        |Allow |
@@ -101,7 +101,7 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 
 ### Mandatory outbound security rules 
 
-| NAME       |PORT          |PROTOCOL|SOURCE           |DESTINATION|ACTION|
+| Name       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |Any              |Any        |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
@@ -113,7 +113,7 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
 - Learn how to [configure new VNet](sql-database-managed-instance-create-vnet-subnet.md) or [configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md) where you can deploy Managed Instances.
-- [Calculate out the size of the subnet](sql-database-managed-instance-determine-size-of-vnet-subnet.md) where you will deploy Managed Instances. 
+- [Calculate out the size of the subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) where you will deploy Managed Instances. 
 - For a quickstart see how to create Managed Instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md)
   - Using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance VNet Configuration | Microsoft Docs
-description: This topic describes how to calculate the size of subnet where the Azure SQL Database Managed Instances will be deployed.
+title: Azure SQL Database Managed Instance determine VNet/subnet size | Microsoft Docs
+description: This topic describes how to calculate the size of the subnet where the Azure SQL Database Managed Instances will be deployed.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 12/12/2018
 ---
 # Determine VNet subnet size for Azure SQL Database Managed Instance
 
@@ -25,6 +25,8 @@ By design, a Managed Instance needs a minimum of 16 IP addresses in a subnet and
 
 > [!IMPORTANT]
 > Subnet size with 16 IP addresses is the bare minimum with limited potential for the further Managed Instance scale out. Choosing subnet with the prefix /27 or below is highly recommended. 
+
+## Determine subnet size
 
 If you plan to deploy multiple Managed Instances inside the subnet and need to optimize on subnet size, use these parameters to form a calculation: 
 
@@ -41,6 +43,6 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md).
 - Learn more about [Connectivity architecture for Managed Instance](sql-database-managed-instance-connectivity-architecture.md). 
-- See how to [create VNet where you will deploy Managed Instances](D:\Data\Documents\GitHub\azure-docs-pr\articles\sql-database\sql-database-managed-instance-create-vnet-subnet.md)
+- See how to [create VNet where you will deploy Managed Instances](sql-database-managed-instance-create-vnet-subnet.md)
 - 
 - For DNS issues, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md)
