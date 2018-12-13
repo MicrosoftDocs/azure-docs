@@ -25,4 +25,4 @@ ms.author: shants
 
 ## Next steps
 
-For information on planned maintenance imapcting virtual machines, see [Handling planned maintenance notifications](maintenance-notifications.md).
+For information on planned maintenance impacting virtual machines, see [Handling planned maintenance notifications](maintenance-notifications.md).
