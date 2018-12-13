@@ -350,7 +350,7 @@ This will tell Service Fabric to use the default repository credentials which yo
 * DefaultContainerRepositoryAccountName (string)
 * DefaultContainerRepositoryPassword (string)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType(string) "SecretsStoreRef/Encrypted/PlainText"
+* DefaultContainerRepositoryPasswordType(string) --- Supported from v6.4
 
 Here is an example of what you can add inside the Hosting section in ClusterManifestTemplate.json. More information about [how to configure cluster setting](service-fabric-cluster-fabric-settings.md)
 
