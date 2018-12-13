@@ -1,6 +1,6 @@
 ---
-title: Use Visual Studio and .NET to query Azure SQL Database | Microsoft Docs
-description: Use Visual Studio to create an app that connects to an Azure SQL Database and queries it using Transact-SQL statements.
+title: Use Visual Studio and C# to query Azure SQL Database | Microsoft Docs
+description: Use Visual Studio to create a C# app that connects to an Azure SQL Database and queries it using Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,13 +19,13 @@ This quickstart demonstrates how to use the [.NET framework](https://www.microso
 
 ## Prerequisites
 
-To complete this quickstart, make sure you have the following:
+To complete this quickstart, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
+- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) to allow the public IP address of the computer you use.
   
-- An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
 ## Get SQL server connection information
 
@@ -37,17 +37,19 @@ To complete this quickstart, make sure you have the following:
    
 1. In the **New Project** dialog, select **Visual C#**, and then select **Console App (.NET Framework)**.
    
-1. Enter *sqltest* for the project name, and then select **OK**. The new project opens in **Solution Explorer**.
+1. Enter *sqltest* for the project name, and then select **OK**. The new project is created. 
+
+opens in **Solution Explorer**.
    
 1. In **Solution Explorer**, right-click **sqltest** and select **Manage NuGet Packages**. 
    
-1. On the NuGet page, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
+1. In **NuGet Package Manager**, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
    
 1. On the **System.Data.SqlClient** page, select **Install**. 
    - If prompted, select **OK** to continue with the installation. 
    - If a **License Acceptance** window appears, select **I Accept**.
    
-1. When the install completes, you can close the NuGet page. 
+1. When the install completes, you can close the NuGet pane. 
    
    > [!TIP]
    > You can also connect an Azure SQL database to Visual Studio from the Azure portal. On the SQL database **Overview** toolbar, select **Connect with** > **Visual Studio**, and then select **Open in Visual Studio**. In this case, you do not need to manually install the NuGet package. 
