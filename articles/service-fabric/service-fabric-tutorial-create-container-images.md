@@ -203,7 +203,7 @@ At tutorial completion, the container image has been stored in a private Azure C
 
 ## Next steps
 
-In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
+In this tutorial, an application was pulled from GitHub and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
 > * Clone application source from GitHub
