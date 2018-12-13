@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
 ---
-# Instrument web apps at runtime with Application Insights
+# Instrument web apps at runtime with Application Insights Status Monitor
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. You need a [Microsoft Azure](https://azure.com) subscription.
 
@@ -46,12 +46,13 @@ Here's a summary of what you get by each route:
 | Need to rebuild code |Yes | No |
 
 
+
 ## Monitor a live IIS web app
 
 If your app is hosted on an IIS server, enable Application Insights by using Status Monitor.
 
 1. On your IIS web server, sign in with administrator credentials.
-2. If Application Insights Status Monitor is not already installed, download and run the [Status Monitor installer](https://go.microsoft.com/fwlink/?LinkId=506648) (or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor).
+2. If Application Insights Status Monitor is not already installed, [download and run the installer](#download)
 3. In Status Monitor, select the installed web application or website that you want to monitor. Sign in with your Azure credentials.
 
     Configure the resource where you want to see the results in the Application Insights portal. (Normally, it's best to create a new resource. Select an existing resource if you already have [web tests][availability] or [client monitoring][client] for this app.) 
@@ -263,6 +264,11 @@ For applications already instrumented at compile time:
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="download"></a>Download Status Monitor
+
+- Download and run the [Status Monitor installer](https://go.microsoft.com/fwlink/?LinkId=506648)
+- Or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor.
 
 ## <a name="next"></a>Next steps
 
