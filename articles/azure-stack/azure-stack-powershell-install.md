@@ -37,7 +37,8 @@ To check your version, run **$PSVersionTable.PSVersion** and compare the **Major
   > [!Note]
   > PowerShell 5.0 requires a Windows machine.
 
-- **Run Powershell in an elevated command prompt**. You must run PowerShell with administrative privileges.
+- **Run Powershell in an elevated command prompt**.
+  You must run PowerShell with administrative privileges.
 
 - **PowerShell Gallery access**
   You need access to the [PowerShell Gallery](https://www.powershellgallery.com). The gallery is the central repository for PowerShell content. The **PowerShellGet** module contains cmdlets for discovering, installing, updating, and publishing PowerShell artifacts such as modules, DSC resources, role capabilities, and scripts from the PowerShell Gallery and other private repositories. If you are using PowerShell in a disconnected scenario, you must retrieve resources from a machine with a connection to the Internet and store them in a location accessible to your disconnected machine.
@@ -52,18 +53,18 @@ Validate if PSGallery is registered as a repository.
 
 Open an elevated PowerShell prompt, and run the following cmdlets:
 
-````PowerShell
-Import-Module -Name PowerShellGet -ErrorAction Stop
-Import-Module -Name PackageManagement -ErrorAction Stop
-Get-PSRepository -Name "PSGallery"
-````
+    ````PowerShell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+    Get-PSRepository -Name "PSGallery"
+    ````
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
 
-```PowerShell
-Register-PsRepository -Default
-Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
-```
+    ````PowerShell
+    Register-PsRepository -Default
+    Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+    ````
 
 ## 3. Uninstall existing versions of the Azure Stack PowerShell modules
 
@@ -72,17 +73,12 @@ Before installing the required version, make sure that you uninstall any previou
 1. To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions, and run the following cmdlets:
 
     ````PowerShell
-    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force 
-    Uninstall-Module -Name AzureRM.AzureStackStorage -Force 
-    Uninstall-Module -Name AzureStack -Force -Verbose
-    Uninstall-Module -Name AzureRM -Force -Verbose
-    Uninstall-Module -Name Azure.Storage -Force -Verbose
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-    Get-Module -Name AzureRM.* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ````
     If you hit any error like 'The module is already in use', please close the PowerShell sessions that are using the modules and rerun the above script.
 
-2. Delete all the folders that start with `Azure` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
+2. Delete all the folders that start with `Azure` or `Azs.` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
 
 ## 4. Connected: Install PowerShell for Azure Stack with Internet connectivity
 
@@ -100,8 +96,12 @@ Run the following PowerShell script to install these modules on your development
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
-    
-    To make use of these features, Execute the following and explicitly load the module versions.
+    See the [release notes](https://www.powershellgallery.com/packages/AzureStack/1.6.0) for the changes in the Azure Stack module version 1.6.0
+
+    Azure Stack 1811 update comes with new storage-related features, which can be found [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-azs-1811/articles/azure-stack/azure-stack-update-1811.md)
+
+
+    To make use of these features, Execute the following and specify the module version you to load.
 
     ```PowerShell
     # Install the Azure.Storage module version 4.5.0
@@ -112,11 +112,11 @@ Run the following PowerShell script to install these modules on your development
 
     # Load the modules explicitly specifying the versions
     Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
-    Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 
+    Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
     ```
 
 > [!Note]
-> To upgrade Azure PowerShell from the **2017-03-09-profile** to **2018-03-01-hybrid**, Please see the [Migration guide](https://github.com/bganapa/azure-powershell/blob/migration-guide/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
+> To upgrade Azure PowerShell from the **2017-03-09-profile** to **2018-03-01-hybrid**, Please see the [Migration guide](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
 
   - Azure Stack 1808 or later.
@@ -155,30 +155,32 @@ Sign in to a computer with Internet connectivity and use the following scripts t
 
   - Azure Stack 1811 or later.
 
-    ````PowerShell
+    ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
-      $Path = "<Path that is used to save the packages>"
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
-    ````
-To make use of the additional storage features(mentioned in the connected section), download and install the following packages as well.
-    ````PowerShell
-      $Path = "<Path that is used to save the packages>"
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
-    ````
-    
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+    ```
+
+    To make use of the additional storage features(mentioned in the connected section), download and install the following packages as well.
+
+    ```PowerShell
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+    ```
+
   - Azure Stack 1808 or later.
 
     ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
-      $Path = "<Path that is used to save the packages>"
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ````
 
   - Azure Stack 1807 or earlier.
