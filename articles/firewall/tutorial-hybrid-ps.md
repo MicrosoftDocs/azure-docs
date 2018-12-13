@@ -50,6 +50,9 @@ There are three key requirements for this scenario to work correctly:
 
 See the [Create Routes](#create-routes) section in this tutorial to see how these routes are created.
 
+>[!NOTE]
+>Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need to configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Declare the variables
@@ -305,9 +308,6 @@ Next, create a couple routes:
 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
-
->[!NOTE]
->Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need to configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.
 
 ```azurepowershell
 #Create a route table
