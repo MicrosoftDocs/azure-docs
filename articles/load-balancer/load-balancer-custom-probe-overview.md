@@ -31,7 +31,7 @@ The types of health probes available and the way health probes behave depends on
 
 ## <a name="types"></a>Probe types
 
-Health probes can observe any port on a backend instance, including the port on which the actual service is provided. The health probe protocol can be configured for three different types of health probes:
+The health probe type can be configured by specifying one of three different types of health probes protocols:
 
 - [TCP listeners](#tcpprobe)
 - [HTTP endpoints](#httpprobe)
@@ -44,7 +44,7 @@ The available types of health probes vary depending on the Load Balancer SKU sel
 | Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
 | Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
 
-Health probe protocol and probe port are independent.  For example, HTTP operates on port 80/tcp by convention. You can also operate it on any other available port and probe it accordingly.
+Irrespective of which probe type you choose, health probes can observe any port on a backend instance, including the port on which the actual service is provided.
 
 ### <a name="tcpprobe"></a> TCP probe
 
