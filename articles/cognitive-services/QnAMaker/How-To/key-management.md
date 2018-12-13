@@ -10,9 +10,10 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# Key Management
+# How to manage keys in QnA Maker
 
 Your QnA Maker service deals with two kinds of keys, **subscription keys** and **endpoint keys**.
 

@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Assign a custom domain to a web app | Mi
 description: Azure PowerShell Script Sample - Assign a custom domain to a web app
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -14,11 +14,12 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Assign a custom domain to a web app
+# Assign a custom domain to a web app using PowerShell
 
 This sample script creates a web app in App Service with its related resources, and then maps `www.<yourdomain>` to it. 
 
