@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
 ---
 # Deploy resources to an Azure subscription
 
 Typically, you deploy resources to a resource group in your Azure subscription. However, some resources can be deployed at the level of your Azure subscription. These resources apply across your subscription. [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md) are services that you may want to apply at the subscription level, rather than the resource group level.
 
-This article uses Azure CLI and PowerShell to deploy the templates.
+This article uses Azure CLI and PowerShell to deploy the templates. You can't use the portal to deploy the templates because the portal interface deploys to resource group, not the Azure subscription.
 
 ## Name and location for deployment
 

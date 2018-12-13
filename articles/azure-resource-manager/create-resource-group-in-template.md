@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
 ---
 # Create resource groups in Azure Resource Manager templates
@@ -19,7 +19,7 @@ To create a resource group in an Azure Resource Manager template, define a **Mic
 
 You can also deploy resources to that resource group in the same template.
 
-This article uses Azure CLI and PowerShell to deploy the templates.
+This article uses Azure CLI and PowerShell to deploy the templates. You can't use the portal to deploy the templates because the portal interface deploys to resource group, not the Azure subscription.
 
 ## Create empty resource group
 

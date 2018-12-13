@@ -54,5 +54,5 @@ You can continue to create alerts from the [Log Analytics API](../../azure-monit
 ## Next steps
 
 * Learn about the tools to [initiate extending alerts from Log Analytics into Azure](alerts-extend-tool.md).
-* Learn more about the [Azure Alerts experience](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Learn more about the [Azure Alerts experience](../../azure-monitor/platform/alerts-overview.md).
 * Learn how to create [log alerts in Azure Alerts](alerts-unified-log.md).

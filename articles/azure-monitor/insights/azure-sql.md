@@ -294,4 +294,4 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 - Use [Log Searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](../../azure-monitor/platform/dashboards.md) showing Azure SQL data.
-- [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) when specific Azure SQL events occur.
+- [Create alerts](../../azure-monitor/platform/alerts-overview.md) when specific Azure SQL events occur.

@@ -191,7 +191,7 @@ You have two options for capturing an F12 trace:
 3. Right-click in the message area of the pane, and then select **Copy all**.
 4. Paste the copied text in a file, and then save the file.
 
-To view an HAR file, you can use the [HAR viewer](http://www.softwareishard.com/har/viewer/).
+To view an HAR file, you can use the [HAR viewer](https://www.softwareishard.com/har/viewer/).
 
 ## Why do I get an error when I try to connect an App Service web app to a virtual network that is connected to ExpressRoute?
 
@@ -292,7 +292,7 @@ The quickest way to find the version of Microsoft .NET that's installed in App S
 
 ## Why isn't Autoscale working as expected?
 
-If Azure Autoscale hasn't scaled in or scaled out the web app instance as you expected, you might be running into a scenario in which we intentionally choose not to scale to avoid an infinite loop due to "flapping." This usually happens when there isn't an adequate margin between the scale-out and scale-in thresholds. To learn how to avoid "flapping" and to read about other Autoscale best practices, see [Autoscale best practices](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+If Azure Autoscale hasn't scaled in or scaled out the web app instance as you expected, you might be running into a scenario in which we intentionally choose not to scale to avoid an infinite loop due to "flapping." This usually happens when there isn't an adequate margin between the scale-out and scale-in thresholds. To learn how to avoid "flapping" and to read about other Autoscale best practices, see [Autoscale best practices](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## Why does Autoscale sometimes scale only partially?
 

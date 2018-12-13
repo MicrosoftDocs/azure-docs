@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 12/12/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -64,6 +64,8 @@ Managed Instance currently supports deployment only on the following types of su
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
@@ -81,6 +83,8 @@ In the following table are shown default regional limits for supported subscript
 | :---| :--- | :--- |:--- |:--- |
 |Pay-as-you-go|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
+|Pay-as-you-go Dev/Test|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* You can either deploy 1 BC or 4 GP instances in one subnet, so that total number of “instance units” in the subnet never exceeds 4.
