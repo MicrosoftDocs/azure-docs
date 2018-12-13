@@ -28,7 +28,7 @@ sections:
         href: /azure/sql-database/sql-database-query-performance
         html: <p>Easily monitor resource usage in your Azure SQL Database (Single Database) using built-in monitoring capabilities on the Azure portal.</p>
       - title: Azure SQL Analytics
-        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
+        href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
         html: <p>Azure SQL Analytics monitoring enables you to easily monitor a large fleet of databases and instances.</p>
       - title: Automatic tuning
         href: /azure/sql-database/sql-database-automatic-tuning
