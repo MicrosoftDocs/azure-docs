@@ -2,9 +2,9 @@
 title: Batch rendering applications
 description: Pre-installed Batch rendering applications
 services: batch
-author: mscurrell
-ms.author: markscu
-ms.date: 08/02/2018
+author: laurenhughes
+ms.author: lahugh
+ms.date: 12/11/2018
 ms.topic: conceptual
 ---
 
@@ -29,11 +29,11 @@ Some applications only support Windows, but most are supported on both Windows a
 ## Applications on Windows Server 2016 rendering nodes
 
 * Autodesk Maya I/O 2017 Update 5 (version 17.4.5459)
-* Autodesk Maya I/O 2018 Update 3 (version 18.3.0.7040)  
-* Autodesk 3ds Max I/O 2019 Update 1 (version 21.10.1314)
+* Autodesk Maya I/O 2018 Update 4 (version 18.4.0.7622)  
+* Autodesk 3ds Max I/O 2019 Update 1 (version 21.2.0.2219)
 * Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254)
-* Autodesk Arnold for Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
-* Autodesk Arnold for Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
+* Autodesk Arnold for Maya 2017 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold for Maya 2018 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2018
 * Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4)(version 1.2.926)
 * Chaos Group V-Ray for Maya (version 3.52.03)
 * Chaos Group V-Ray for 3ds Max (version 3.60.02)
