@@ -186,7 +186,7 @@ App Service apps hosted in basic, standard, or premium App Service plans
 support **autoscale**. Autoscale allows you to configure rules that monitor the
 App Service plan metrics. Rules can increase or decrease the instance count
 providing additional resources as needed. Rules can also help you save money when the application
-is over-provisioned. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+is over-provisioned. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
