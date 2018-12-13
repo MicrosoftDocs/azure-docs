@@ -20,7 +20,7 @@ ms.author: juliako;anilmur
 
 This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md).
 
-## Input Container/File Formats
+## Input container/file formats
 
 | File formats (file extensions) | Supported |
 | --- | --- | --- | --- |
@@ -75,7 +75,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Apple ProRes 4444 XQ |Yes |
 | HEVC/H.265| Main Profile|
 
-## Input Audio Codecs
+## Input audio codecs
 | Input Audio Codecs | Supported |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
@@ -92,7 +92,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Dolby® Digital (AC3) |No |
 | Dolby® Digital Plus (E-AC3) |No |
 
-## Output Formats and codecs
+## Output formats and codecs
 The following table lists the codecs and file formats that are supported for export.
 
 | File Format | Video Codec | Audio Codec |
