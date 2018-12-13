@@ -44,16 +44,19 @@ The available types of health probes vary depending on the Load Balancer SKU sel
 | Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
 | Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
 
-For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe.
+### <a name="design"></a>Design guidance
 
-If you wish to test a health probe failure or mark down an individual instance, you can use a Security Group to explicit block the health probe (destination or [source](#probesource)).
+When you design the health model for your application, you should probe a port on a backend instance, which reflects the health of that instance and the application service you're providing.  This may not always be the same as the port your application provides service on. You need to carefully consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
+
+For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe targeting a TCP, HTTP, or HTTPS listener to reflect the health of your UDP application.
+
+If you wish to test a health probe failure or mark down an individual instance, you can use a Security Group to explicit block the health probe (destination or [source](#probesource)) by blocking the probed port of your application or the [source](#source) of the health probe.
 
 When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.  
 
-[!IMPORTANT] You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.  Consider the following scenario: a set of 3rd party appliances is deployed in the backend pool of an lb resource to provide scale and redundancy for the appliances, and the health probe is configured to probe a port that the 3rd party appliance proxies or translates to other VM's behind itself.  If you probe the same port you're using to proxy requests to the other vm's behind the appliance, any probe response from a single vm behind the appliance will mark the appliance itself dead. This leads to a cascading failure where a single backend producing a single probe failure takes down the entire application scenario. You should probe the health of the appliance itself instead.
+You should not NAT or proxy a health probe through the instance which receives the health probe to another instance in your VNet as this can lead to cascading failures in your scenario.  Consider the following scenario: a set of 3rd party appliances is deployed in the backend pool of an lb resource to provide scale and redundancy for the appliances, and the health probe is configured to probe a port that the 3rd party appliance proxies or translates to other VM's behind itself.  If you probe the same port you're using to proxy requests to the other vm's behind the appliance, any probe response from a single vm behind the appliance will mark the appliance itself dead. This leads to a cascading failure where a single backend producing a single probe failure takes down the entire application scenario. You should probe the health of the appliance itself instead.
 
->[!IMPORTANT]
-> Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling TCP timestamps will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking the respective endpoint down.
+Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling [TCP timestamps](#limitations) will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking the respective endpoint down.
 
 ### <a name="tcpprobe"></a> TCP probe
 
@@ -134,6 +137,7 @@ If the guest agent responds with an HTTP 200, the load balancer sends new flows 
 
 When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
 
+<a name="health"></a>
 ## <a name="probehealth"></a>Probe health
 
 TCP, HTTP, and HTTPS health probes are considered healthy and mark the role instance as healthy when:
@@ -176,6 +180,7 @@ UDP is connectionless and there is no flow state tracked for UDP. If any backend
 
 If all probes for all instances in a backend pool fail, existing UDP flows will terminate for Basic and Standard Load Balancers.
 
+<a name="source"></a>
 ## <a name="probesource"></a>Probe source IP address
 
 Load Balancer uses a distributed probing service for its internal health model. Each host where VMs reside can be programmed to generate health probes per the customer's configuration. The health probe traffic is directly between the infrastructure component which generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change. It should not be considered a security risk because only the internal Azure platform can source a packet from this IP address. 
@@ -201,7 +206,8 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 
 ## Limitations
 
--  HTTPS probes do not support mutual authentication with a client certificate.
+- HTTPS probes do not support mutual authentication with a client certificate.
+- Health probes will fail when TCP timestamps are enabled.  This is common on security hardened VM images.
 
 ## Next steps
 
