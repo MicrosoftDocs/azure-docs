@@ -16,15 +16,12 @@ ms.date: 12/12/2018
 ms.author: juliako;anilmur
 
 ---
-# Media Encoder Standard Formats and Codecs
+# Media Encoder Standard formats and codecs
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 2](media-services-media-encoder-standard-formats.md)
-> * [Version 3](../latest/media-encoder-standard-formats.md)
+This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md).
 
-This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
+## Input container/file formats
 
-## Input container/file Formats
 | File formats (file extensions) | Supported |
 | --- | --- | --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
@@ -101,14 +98,6 @@ The following table lists the codecs and file formats that are supported for exp
 | MP4 <br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main, and Baseline Profiles) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
-## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
+## Next steps
 
-## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## See also
-[Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md)
-
-[How to encode with Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-
+[Create a transform with a custom preset](customize-encoder-presets-how-to.md)
