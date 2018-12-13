@@ -104,7 +104,7 @@ This quickstart requires:
             {
                 // Creates an instance of a speech config with specified subscription key and service region.
                 // Replace with your own subscription key and service region (e.g., "westus").
-                var config = SpeechTranslationConfig.FromSubscription("652b8b5f51ca4cceb51c926df73a01f8", "westus");
+                var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
                 // Sets source and target languages.
                 string fromLanguage = "en-US";
