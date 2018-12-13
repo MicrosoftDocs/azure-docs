@@ -60,6 +60,8 @@ The available types of health probes vary depending on the Load Balancer SKU sel
 | Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
 | Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
 
+Health probe protocol and probe port are independent.  For example, HTTP operates on port 80/tcp by convention. You can also operate it on any other available port and probe it accordingly.
+
 ### <a name="tcpprobe"></a> TCP probe
 
 TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  This is then followed by a four-way close TCP handshake.
