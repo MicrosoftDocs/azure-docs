@@ -21,6 +21,9 @@ For a complete list of supported languages, locales, and voices (neural and stan
 
 The following sections provide samples for common speech synthesis tasks.
 
+>[!IMPORTANT]
+> Currently, prosody tagging is only available for standard voices.
+
 ## Add a break
 ```xml
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
