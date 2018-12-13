@@ -33,9 +33,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Review installer.log to determine the cause of the installation failure.
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller**  
-If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008 R2 or below OS version, you may hit the issue where the sync agent will fail to install.
 
-To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
+To resolve, transfer the PDC role to another domain controller running Windows Server 2012 R2 or more recent, then install sync.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
@@ -127,7 +127,7 @@ This issue can occur if the Storage Sync Monitor process is not running or the s
 
 To resolve this issue, perform the following steps:
 
-1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade the Azure File Sync agent to version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) if not currently installed.
+1. Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Verify Firewall and Proxy settings are configured correctly:
 	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
 	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).

@@ -10,7 +10,7 @@ ms.component: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
-Metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates which is described in [a separate article](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+Metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates which is described in [a separate article](../../azure-monitor/platform/alerts-enable-template.md).
 
 You can learn more about how metric alerts work from [metric alerts overview](alerts-metric-overview.md).
 
@@ -122,6 +122,6 @@ The previous sections described how to create, view and manage metric alert rule
 
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-enable-template.md).
 - [Understand how metric alerts work](alerts-metric-overview.md).
 - [Understand the web hook schema for metric alerts](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)

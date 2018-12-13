@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/13/2018
 
 ms.custom: seodec18
 ---
@@ -206,7 +206,7 @@ The Azure platform needs access to the encryption keys or secrets in your key va
   - **Enable Key Vault for template deployment, if needed:** Enables Azure Resource Manager to get secrets from this key vault when this key vault is referenced in a template deployment.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Set key vault advanced access policies using the Azure CLI
