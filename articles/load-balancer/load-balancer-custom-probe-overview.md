@@ -33,21 +33,21 @@ The types of health probes available and the way health probes behave depends on
 
 Health probes can impact the availability and scalability of your service. You need to carefully review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
 
-When you design the health model for your application, you should probe a port on a backend instance that reflects the health of that instance __and__ the application service you are providing.  The probe port may not always be the same as the port your application provides service on.  Sometimes it can be useful for your application to generate a health probe response to not only detect your application health, but also signal directly to Load Balancer whether your instance should receive or not receive new flows.  You can manipulate the probe response to allow your application to create backpressure and throttle delivery of new flows to an instance by failing the health probe or prepare for maintainance of your application and initiate draining your scenario.  When using Standard Load Balancer, a [probe down](#probedown) signal will always allow TCP flows to continue until idle timeout or closure. 
+When you design the health model for your application, you should probe a port on a backend instance that reflects the health of that instance __and__ the application service you are providing.  The probe port may not always be the same as the port your application provides service on.  Sometimes it can be useful for your application to generate a health probe response to not only detect your application health, but also signal directly to Load Balancer whether your instance should receive or not receive new flows.  You can manipulate the probe response to allow your application to create backpressure and throttle delivery of new flows to an instance by failing the health probe or prepare for maintenance of your application and initiate draining your scenario.  When using Standard Load Balancer, a [probe down](#probedown) signal will always allow TCP flows to continue until idle timeout or closure. 
 
 For UDP load balancing, you should generate a custom health probe signal for the backend instance using either a TCP, HTTP, or HTTPS health probe targeting a TCP, HTTP, or HTTPS listener to reflect the health of your UDP application.
 
 When using [HA Ports load balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.
 
-Do not translate or proxy a health probe through the instance that receives the health probe to another instance in your VNet as this  configuration can lead to cascading failures in your scenario.  Consider the following scenario: a set of third-party appliances is deployed in the backend pool of a Load Balancer resource to provide scale and redundancy for the appliances and the health probe is configured to probe a port that the third-party appliance proxies or translates to other virtual machines behind the appliance.  If you probe the same port you are using to translate or proxy requests to the other virtual machines behind the appliance, any probe response from a single virtual machine behind the appliance will mark the appliance itself dead. This leads to a cascading failure where a single backend producing a single, intermittent probe failure takes down the entire application scenario. Probe the health of the appliance itself instead. The selection of the probe to determine the health signal is an important consideration for network virtual appliances (NVA) scenarios and you must consult your application vendor for what the appropriate health signal is for such scenarios.
+Do not translate or proxy a health probe through the instance that receives the health probe to another instance in your VNet as this  configuration can lead to cascading failures in your scenario.  Consider the following scenario: a set of third-party appliances is deployed in the backend pool of a Load Balancer resource to provide scale and redundancy for the appliances and the health probe is configured to probe a port that the third-party appliance proxies or translates to other virtual machines behind the appliance.  If you probe the same port you are using to translate or proxy requests to the other virtual machines behind the appliance, any probe response from a single virtual machine behind the appliance will mark the appliance itself dead. This leads to a cascading failure due to a single backend producing a single, intermittent probe failure which will cause Load Balancer to mark down the original destination and in turn can disable your entire application scenario. Probe the health of the appliance itself instead. The selection of the probe to determine the health signal is an important consideration for network virtual appliances (NVA) scenarios and you must consult your application vendor for what the appropriate health signal is for such scenarios.
 
 If you don't allow this IP address in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This can cause your load balanced service to fail. 
 
-For Load Balancer's health probe to mark your instance up, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.  By default, every network security group includes the [service tag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic.
+For Load Balancer's health probe to mark up your instance, you **must** allow this IP address in any Azure [Security Groups](../virtual-network/security-overview.md) and local firewall policies.  By default, every network security group includes the [service tag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic.
 
 If you wish to test a health probe failure or mark down an individual instance, you can use a Security Group to explicit block the health probe (destination port or [source IP](#probesource)) and trigger the failure of a probe.
 
-Do not configure your VNet with the Microsoft owned IP address range that contains 168.63.129.16.  Such configuration will create collide with the IP address of the health probe and can cause your scenario to fail.
+Do not configure your VNet with the Microsoft owned IP address range that contains 168.63.129.16.  Such configuration will collide with the IP address of the health probe and can cause your scenario to fail.
 
 If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  This may require source network address translating this address in the VM on a per interface basis.
 
@@ -77,7 +77,7 @@ TCP probes initiate a connection by performing a three-way open TCP handshake wi
 The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration cannot exceed 120 seconds.
 
 A TCP probe fails when:
-* The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking the probe down.
+* The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking down the probe.
 * The probe receives a TCP reset from the instance.
 
 #### Resource Manager template
@@ -105,8 +105,8 @@ HTTP / HTTPS probes can also be useful if you want to implement your own logic t
 If you use Cloud Services and have web roles that use w3wp.exe, you also achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.  The HTTP probe overrides the default guest agent probe. 
 
 An HTTP / HTTPS probe fails when:
-* Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark the health probe down immediately. 
-* Probe endpoint doesn't respond at all during the 31 second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+* Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark down the health probe immediately. 
+* Probe endpoint doesn't respond at all during the 31-second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
 * Probe endpoint closes the connection via a TCP reset.
 
 #### Resource Manager templates
@@ -137,7 +137,7 @@ An HTTP / HTTPS probe fails when:
 
 ### <a name="guestagent"></a>Guest agent probe (Classic only)
 
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   This is an option of last resort.  Always define a health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
+Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.   A guest agent probe is a last resort configuration.  Always define a health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.  
 
 A guest agent probe is a check of the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
 
@@ -195,7 +195,7 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 <a name="source"></a>
 ## <a name="probesource"></a>Probe source IP address
 
-Load Balancer uses a distributed probing service for its internal health model. Each host where VMs reside can be programmed to generate health probes per the customer's configuration. The health probe traffic is directly between the infrastructure component which generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change and is not a security risk because only the internal Azure platform component can source a packet from this IP address. 
+Load Balancer uses a distributed probing service for its internal health model. Each host where VMs reside can be programmed to generate health probes per the customer's configuration. The health probe traffic is directly between the infrastructure component that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change and is not a security risk because only the internal Azure platform component can source a packet from this IP address. 
 
 In addition to Load Balancer health probes, the following operations use this IP address:
 
