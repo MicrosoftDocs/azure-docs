@@ -8,7 +8,7 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -226,7 +226,7 @@ First you have to change sign-on method:
 
    1. On the Azure AD Connect Server, open the wizard.
    2. Select **Change User Sign in** and then select **Next**. 
-   3. In the **Connect to Azure AD **screen provide the username and password of a Global Administrator.
+   3. In the **Connect to Azure AD** screen provide the username and password of a Global Administrator.
    4. The **User Sign-in** screen, change the radio button from **Federation with AD FS** to **Pass-through Authentication**, select **Enable single sign-on** then select **Next**.
    5. In Enable Single Sign-on screen, enter the credentials of Domain Administrator account, then select Next.  
 
