@@ -1773,6 +1773,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-managed-instance-vnet-configuration.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-management-endpoint.md",
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-scheduled-events.md",
             "redirect_url": "/azure/virtual-machines/windows/scheduled-events",
             "redirect_document_id": false
@@ -30872,6 +30882,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/user/azure-stack-solution-machine-learning.md",
+            "redirect_url": "/azure/azure-stack/user/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-domains",
             "redirect_document_id": false
@@ -32029,6 +32044,71 @@
         {
             "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md",
             "redirect_url":  "/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-alert-states",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-nagios-zabbix-scom",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-smart-groups",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-rate-limiting",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/action-groups-create-resource-manager-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-create-templates",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-enable-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-metric-alerts-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-migrate-management-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/migrate-management-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-smartgroups-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-sms-alert-behavior.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-sms-behavior",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md",
+            "redirect_url":  "/azure/azure-monitor/platform/quick-alerts-classic-metric-portal",
             "redirect_document_id":  true
         },
         {

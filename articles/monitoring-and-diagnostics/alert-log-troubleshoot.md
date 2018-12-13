@@ -21,7 +21,7 @@ The term **Log Alerts** describes alerts that fire based on a custom query in [L
 
 ## Log alert didn't fire
 
-Here are some common reasons why a configured [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
+Here are some common reasons why a configured [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-log.md) state doesn't show [as *fired* when expected](../azure-monitor/platform/alerts-managing-alert-states.md). 
 
 ### Data Ingestion time for Logs
 Log alert periodically runs your query based on [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
@@ -65,7 +65,7 @@ As “Aggregate Upon” is timestamp – the data is sorted on timestamp column (as in
 - (Or) reconfigure alert rule to use alert logic based on *total breach* instead appropriately
  
 ## Log alert fired unnecessarily
-Detailed next are some common reasons why a configured [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-log.md) may be triggered when viewed in [Azure Alerts](monitoring-alerts-managing-alert-states.md), when you don't expect it to be fired.
+Detailed next are some common reasons why a configured [log alert rule in Azure Monitor](../azure-monitor/platform/alerts-log.md) may be triggered when viewed in [Azure Alerts](../azure-monitor/platform/alerts-managing-alert-states.md), when you don't expect it to be fired.
 
 ### Alert triggered by partial data
 Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Data ingestion time in Log Analytics](../azure-monitor/platform/data-ingestion-time.md).

@@ -169,7 +169,7 @@ You can get guidance for collecting metrics from Azure resources at [Collect Azu
 ### Logs to metrics
 As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in the Azure metrics database.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into the metrics database, where they are available for alerting and for analysis with Metrics explorer.
 
-The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). The list of values support is available at 
+The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). The list of values support is available at 
 [Supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## Stream data to external systems
