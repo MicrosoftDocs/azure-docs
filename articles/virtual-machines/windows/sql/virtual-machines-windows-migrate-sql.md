@@ -31,7 +31,7 @@ The primary migration methods are:
 * Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure VM from URL
 * Convert on-premises physical machine to Hyper-V VHD, upload to Azure Blob storage, and then deploy as new VM using uploaded VHD
 * Ship hard drive using Windows Import/Export Service
-* If you have an AlwaysOn deployment on-premises, use the [Add Azure Replica Wizard](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
+* If you have an AlwaysOn Availability Group deployment on-premises, use the [Add Azure Replica Wizard](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
 * Use SQL Server [transactional replication](https://msdn.microsoft.com/library/ms151176.aspx) to configure the Azure SQL Server instance as a subscriber and then disable replication, pointing users to the Azure database instance
 
 > [!TIP]

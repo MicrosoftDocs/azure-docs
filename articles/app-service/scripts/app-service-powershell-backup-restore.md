@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Restore a web app from a backup | Micros
 description: Azure PowerShell Script Sample - Restore a web app from a backup
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: jpconnoc
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -14,11 +14,12 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Restore a web app from a backup
+# Restore a web app from a backup using Azure PowerShell
 
 This sample script retrieves a previously completed backup from an existing web app and restores it by overwriting its content. 
 

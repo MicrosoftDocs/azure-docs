@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Data sources in Log Analytics
@@ -66,4 +63,4 @@ All data collected by Log Analytics is stored in the workspace as records.  Reco
 ## Next steps
 * Learn about [solutions](../../azure-monitor/insights/solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
 * Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Configure [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
+* Configure [alerts](../../azure-monitor/platform/alerts-overview.md) to proactively notify you of critical data collected from data sources and solutions.

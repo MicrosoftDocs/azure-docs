@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk? (Preview)
@@ -54,7 +54,7 @@ A.  Data Box Disks are available in US, Canada, Australia, and all the countries
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
-A. If you encounter any issues with Data Box Disks, please contact [Data Box Disk Support](mailto:expresspodsupport@microsoft.com).
+A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## Configure and connect
  

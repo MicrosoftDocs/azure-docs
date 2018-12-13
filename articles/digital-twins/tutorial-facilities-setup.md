@@ -161,6 +161,9 @@ The **provisionSample.yaml** file contains the following nodes:
 
 Save and close the provisionSample.yaml file. In the next tutorial, you'll add more information to this file, and then provision your Azure Digital Twins sample building.
 
+> [!TIP]
+> You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
+
 
 ## Clean up resources
 

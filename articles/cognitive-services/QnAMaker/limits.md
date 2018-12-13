@@ -1,7 +1,7 @@
 ---
 title: Limits and boundaries - QnA Maker 
 titleSuffix: Azure Cognitive Services
-description: Comprehensive list of limits across QnA Maker.
+description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish. 
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,9 +10,10 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# QnA Maker Limits
+# QnA Maker knowledge base limits and boundaries
 Comprehensive list of limits across QnA Maker.
 
 ## Knowledge Bases

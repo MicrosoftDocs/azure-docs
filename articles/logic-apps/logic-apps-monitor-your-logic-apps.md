@@ -204,7 +204,7 @@ diagnostic data with other Azure services, for example:
 
 You can then get real-time monitoring by using telemetry and analytics from other services, 
 like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -224,7 +224,7 @@ Then select the options for where you want to send diagnostic data:
 ## Set up alerts for your logic app
 
 To monitor specific metrics or exceeded thresholds for your logic app, 
-set up [alerts in Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
+set up [alerts in Azure](../azure-monitor/platform/alerts-overview.md). 
 Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 To set up alerts without 

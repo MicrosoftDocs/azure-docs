@@ -1,6 +1,6 @@
 ---
-title: Java language support for Azure App Service on Linux | Microsoft Docs
-description: Developer's guide to deploying Java apps with Azure App Service on Linux.
+title: Java developer's guide for App Service on Linux - Azure | Microsoft Docs
+description: Learn how to configure Java apps running in Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,8 +10,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
+ms.custom: seodec18
 
 ---
 
@@ -49,7 +50,7 @@ Then stream logs to your console using `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-For more information, see [Streaming logs with the Azure CLI](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface).
+For more information, see [Streaming logs with the Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
 
 ### App logging
 

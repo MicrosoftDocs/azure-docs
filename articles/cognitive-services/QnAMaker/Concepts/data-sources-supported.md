@@ -39,7 +39,7 @@ This is the most common type of FAQ page, in which the answers immediately follo
 
 Below is an example of a plain FAQ page:
 
-![Plain FAQ page](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Plain FAQ page example for a knowledge base](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### FAQ pages with links 
@@ -48,7 +48,7 @@ In this type of FAQ page, questions are aggregated together and are linked to an
 
 Below is an example of an FAQ page with links in sections that are on the same page:
 
- ![Section Link FAQ page](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Section Link FAQ page example for a knowledge base](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### FAQ pages with a Topics homepage
@@ -57,7 +57,7 @@ This type of FAQ has a home page with the Topics where each Topic is a link to i
 
 Below is an example of an FAQ page where a topics homepage has links to FAQ sections in different pages. 
 
- ![Deep link FAQ page](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Deep link FAQ page example for a knowledge base](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## PDF/ DOC files
@@ -72,7 +72,7 @@ A manual is typically guidance material that accompanies a product. It helps the
 
 Below is an example of a manual with an index page, and hierarchical content
 
- ![Product Manual example](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Product Manual example for a knowledge base](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
@@ -101,7 +101,7 @@ Answer2
 
 Below is an example of a structured QnA word document:
 
- ![Structured QnA document](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Structured QnA document example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## Structured *TXT*, *TSV* and *XLS* Files
 
@@ -116,7 +116,7 @@ Any additional columns in the source file are ignored.
 
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
- ![Structured QnA excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## Structured data format through import
 

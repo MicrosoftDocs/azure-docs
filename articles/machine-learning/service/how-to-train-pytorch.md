@@ -1,5 +1,6 @@
 ---
-title: Train PyTorch models with Azure Machine Learning
+title: Train models with PyTorch
+titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of PyTorch models with the PyTorch estimator
 services: machine-learning
 ms.service: machine-learning
@@ -9,9 +10,11 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
-# How to train PyTorch models
+# Train PyTorch models with Azure Machine Learning service
 
 For deep neural network (DNN) training using PyTorch, Azure Machine Learning provides a custom `PyTorch` class of the `Estimator`. The Azure SDK's `PyTorch` estimator enables you to easily submit PyTorch training jobs for both single-node and distributed runs on Azure compute.
 
