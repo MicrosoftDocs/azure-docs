@@ -1,5 +1,5 @@
 ---
-title: How to write stored procedures, triggers and user-defined functions in Azure Cosmos DB
+title: How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 author: markjbrown
 
