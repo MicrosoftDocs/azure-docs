@@ -50,6 +50,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 - Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
+- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker).
+
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
@@ -104,6 +106,8 @@ This update includes the following improvements for Azure Stack:
 - Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
+
+- Extended data at rest encryption protection to include also all the infrastructure data stored on local volumes (i.e. not on cluster shared volumes). For more information, see [this article](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker)
 
 ## Fixed issues
 
