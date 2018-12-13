@@ -12,7 +12,7 @@ ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
 
-# Tutorial: Build a Node.js web app using JavaScript SDK to manage SQL API account in Azure Cosmos DB 
+# Tutorial: Build a Node.js web app using the JavaScript SDK to manage a SQL API account in Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -90,7 +90,7 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
 
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
 
-1. Open the terminal, install the **async** module via npm.
+1. Open the terminal, and install the **async** module via npm.
 
    ```bash
    npm install async --save
@@ -106,11 +106,11 @@ The **package.json** file is one of the files created in the root of the project
 Now that you have completed the initial setup and configuration, next you will write code that is required by the todo application to communicate with Azure Cosmos DB.
 
 ### Create the model
-1. At the root of your project directory, create a new directory named **models**  
+1. At the root of your project directory, create a new directory named **models**.  
 
-2. In the **models** directory, create a new file named **taskDao.js**. This file contains code required to create the database, container and defines methods to read, update, create, and find tasks in Azure Cosmos DB. 
+2. In the **models** directory, create a new file named **taskDao.js**. This file contains code required to create the database and container. It also defines methods to read, update, create, and find tasks in Azure Cosmos DB. 
 
-3. Copy the following code into the **taskDao.js** file
+3. Copy the following code into the **taskDao.js** file:
 
    ```nodejs
    // @ts-check
@@ -435,7 +435,7 @@ The second form contains two input fields and a button that allows you to create
 
 Now that you have built the application, you can run it locally by using the following steps:  
 
-1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh the [http://localhost:3000](http://localhost:3000) browser page. The page should now look as shown in the following screenshot:
+1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the [http://localhost:3000](http://localhost:3000) browser page. The page should now look as shown in the following screenshot:
    
     ![Screenshot of the MyTodo List application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
