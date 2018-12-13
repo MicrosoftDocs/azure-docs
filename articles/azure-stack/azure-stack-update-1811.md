@@ -147,8 +147,10 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
 ## Changes
+- A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
-A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
+<!-- 3083238 IS -->
+- Security enhancements now include encryption of Azure Stack internal identity system. This results in an increase in the backup size of the identity role. Refer to [infrastructure backup documentaton](azure-stack-backup-reference.md#storage-location-sizing) for updated sizing guidance for the external storage location. This will result in a longer time to complete the backup due to the larger data transfer. This change impacts integrated systems. 
 
 ## Common Vulnerabilities and Exposures
 
