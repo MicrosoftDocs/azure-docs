@@ -38,6 +38,8 @@
   - name: Encoding content
     href: encoding-concept.md
     items:
+    - name: Media Encoder standard formats
+      href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities
