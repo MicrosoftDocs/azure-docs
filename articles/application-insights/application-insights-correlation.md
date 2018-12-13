@@ -55,11 +55,11 @@ In the result view note that all telemetry items share the root `operation_Id`. 
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
-Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So you can set `dependency.target` field appropriately. When the external service does not support monitoring - `target` is set to the host name of the service like `stock-prices-api.com`. However if that service identifies itself by returning a predefined HTTP header - `target` contains the service identity that allows Application Insights to build distributed trace by querying telemetry from that service. 
+Now when the call `GET /api/stock/value` made to an external service you want to know the identity of that server. So you can set `dependency.target` field appropriately. When the external service doesn't support monitoring - `target` is set to the host name of the service like `stock-prices-api.com`. However if that service identifies itself by returning a predefined HTTP header - `target` contains the service identity that allows Application Insights to build distributed trace by querying telemetry from that service. 
 
 ## Correlation headers
 
-We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
+We're working on an RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
 
 - `Request-Id` carry the globally unique ID of the call
 - `Correlation-Context` - carry the name value pairs collection of the distributed trace properties
@@ -70,7 +70,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 
 ### W3C Distributed Tracing
 
-We are transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
+We're transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
 - `traceparent` - carries globally unique operation ID and unique identifier of the call
 - `tracestate` - carries tracing system-specific context.
 
