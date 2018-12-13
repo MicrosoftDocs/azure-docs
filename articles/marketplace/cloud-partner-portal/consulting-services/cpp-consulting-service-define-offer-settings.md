@@ -27,7 +27,7 @@ On the **New Offer** screen, the first step is to create the offer identity. The
 
 This identifier is a unique name you create when you first submit the offer. It must consist only of lowercase alphanumeric characters, dashes, or underscores. The **Offer ID** will be visible in the URL and impacts search engine results. For example, *yourcompanyname_exampleservice*
 
-As shown in the example, the **offer ID** gets appended to your <publisher ID> to create a unique identifier. This is exposed as a permanent link that can be booked and is indexed by the search engines.
+As shown in the example, the **offer ID** gets appended to your publisher ID to create a unique identifier. This is exposed as a permanent link that can be booked and is indexed by the search engines.
 
 *After an offer is live, its identifier can't be updated*
 
