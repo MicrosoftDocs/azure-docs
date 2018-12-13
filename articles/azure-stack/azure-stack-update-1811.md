@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 12/13/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,11 +30,11 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.x.xx**.
+The Azure Stack 1811 update build number is **1.1811.0.87**.
 
 ## Hotfixes
 
-Azure Stack releases hotfixes on a regular basis.
+Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating Azure Stack to 1811.
 
 > [!TIP]  
 > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack hotfixes:
@@ -43,14 +43,16 @@ Azure Stack releases hotfixes on a regular basis.
 
 ### Azure Stack hotfixes
 
-- **1809**: [KB 4481548 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
+- **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
 
 ## Prerequisites
 
 - Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-- Install the [latest Azure Stack Hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
+- Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker).
+
+- Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating to 1811.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
@@ -65,7 +67,7 @@ Azure Stack releases hotfixes on a regular basis.
     The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
     ``` 
  
-- In addition to various quality improvements, the [1809 Hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
+- In addition to various quality improvements, the [1809 hotfix](#azure-stack-hotfixes) includes a check for properly imported extension host certificates. You may receive the following Warning in the Alerts blade if you have not performed the required steps: 
  
     ```shell
     Missing SSL certificates. SSL certificates for Extension Host not detected. The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update fails.
@@ -83,13 +85,15 @@ This update includes the following improvements for Azure Stack:
 
 - Added support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
-- Added support for Service Principals using a client secret with Active Directory Federated Services (AD FS). For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)
+- Support for Service Principals using a client secret with Active Directory Federated Services (AD FS). [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)
+
+- Added support for Service Principals using a client secret with Active Directory Federated Services (AD FS). For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)
 
 - This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
 - This release adds Azure Stack integrated systems support for configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
-- Added new privileged endpoint commands to update and remove service principles for ADFS. For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+- Added new privileged endpoint commands to update and remove service principles for ADFS. For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 - Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
 
@@ -104,6 +108,8 @@ This update includes the following improvements for Azure Stack:
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
 
 - Managed Disks is now enabled by default when creating virtual machines using Azure Stack portal.
+
+- Extended data at rest encryption protection to include also all the infrastructure data stored on local volumes (i.e. not on cluster shared volumes). For more information, see [this article](https://docs.microsoft.com/azure/azure-stack/azure-stack-security-bitlocker)
 
 ## Fixed issues
 
@@ -129,7 +135,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack Hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a *First* or *Last* name specified.   
@@ -173,7 +179,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of this update, both Azure Stack portals (Administrator and User) will be unavailable when the Extension Host is configured. The configuration of the Extension Host does take serveral hours. During that time you can check the status of an update or resume a failed update installation using Azure Stack Admin PowerShell or the privileged endpoint.
+- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the Extension Host is configured. The configuration of the Extension Host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
