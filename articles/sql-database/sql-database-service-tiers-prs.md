@@ -15,13 +15,13 @@ ms.date: 12/13/2018
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
 
-In February 2018, Microsoft announced that the Premium RS service tier in Azure SQL Database would not be released for general availability and would no longer be supported after January 31, 2019. This end of support data have been extended to June 30, 2019. This article explains your options for migrating a from the Premium RS service tier to another service tier. After June 30, 2019, Microsoft will automatically migrate your Premium RS databases to a generally available service tier that most closely matches the performance requirements of your Premium RS database.
+In February 2018, Microsoft announced that the Premium RS service tier in Azure SQL Database would not be released for general availability and would no longer be supported after January 31, 2019. This end of support deadline has been extended to June 30, 2019. This article explains your options for migrating from the Premium RS service tier to another service tier. After June 30, 2019, Microsoft will automatically migrate your Premium RS databases to a generally available service tier that most closely matches the performance requirements of your Premium RS database.
 
 The following are the migration destinations and pricing options that may be suitable for Premium RS customers:
 
 - vCore service tiers
 
-  **General purpose** and **business critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These service tiers are generally available. The vCore purchasing model also offers the **Hyperscale** service tier (in public preview) as a new service tier that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
+  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These two service tiers are in general availablity. The vCore-based purchasing model also offers the **Hyperscale** service tier (in public preview) that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
 - Dev/Test pricing
 
   [Dev/test pricing](https://azure.microsoft.com/pricing/dev-test/) provides savings up to 55% versus license-included rates with your Visual Studio subscription.
@@ -35,7 +35,7 @@ Review the guidance in this article along with our pricing and documentation to 
 
 ## Migrate compute-intensive workloads and save
 
-For your compute-intensive Premium RS workloads, we recommend migrating to our generally available vCore-based General Purpose service tier and save more with license-included rates using the Azure Hybrid Benefit for SQL Server and reserved capacity offers. If you would rather remain on a DTU-based purchasing option, you can migrate your compute-intensive Premium RS databases to a Standard service tier and still save versus the Premium RS general availability pricing (if it had gone into general availability).
+For your compute-intensive Premium RS workloads, we recommend migrating to our generally available vCore-based General Purpose service tier and save more versus license-included rates using the Azure Hybrid Benefit for SQL Server and reserved capacity offers. If you would rather remain on a DTU-based purchasing option, you can migrate your compute-intensive Premium RS databases to a Standard service tier and still save versus the Premium RS general availability pricing (if it had gone into general availability).
 
 > [!WARNING]
 > Migrating your Premium RS workloads to DTU-based Premium service tiers may increase monthly costs versus current Premium RS pricing. We recommend considering the Hyperscale or Business Critical tiers with Azure Hybrid Benefit and reserved capacity pricing to maintain similar or lower costs than Premium RS.
@@ -47,13 +47,12 @@ For your compute-intensive Premium RS workloads, we recommend migrating to our g
 |Premium RS 1|General Purpose 1 vCore (Gen 4)|Standard 3|
 |Premium RS 2|General Purpose 2 vCores (Gen 4)|Standard 4|
 |Premium RS 4|General Purpose 4 vCores (Gen4)|Standard 6|
-|Premium RS 6|General Purpose 8 vCores (Gen4)|Standard 7|
+|Premium RS 6|General Purpose 6 vCores (Gen4)|Standard 7|
 
 ### Premium RS pools
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS pool 125 DTU|General Purpose 1 vCore (Gen 4)|Standard pool 100 eDTUs|
 |Premium RS pool 125 DTU|General Purpose 1 vCore (Gen 4)|Standard pool 100 eDTUs|
 |Premium RS pool 250 DTU|General Purpose 2 vCores (Gen 4)|Standard pool 250 eDTUs|
 |Premium RS pool 500 DTU|General Purpose 4 vCores (Gen4)|Standard pool 500 eDTUs|
@@ -68,7 +67,7 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 |Premium RS 1|(Preview) Hyperscale 1 vCore (Gen 4) or Business Critical 1 vCore (Gen 4)|Premium 1|
 |Premium RS 2|(Preview) Hyperscale 2 vCores (Gen 4) or Business Critical 2 vCores (Gen 4|Premium 2|
 |Premium RS 4|(Preview) Hyperscale 4 vCores (Gen 4) or Business Critical 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Preview) Hyperscale 8 vCores (Gen 4) or Business Critical 8 vCores (Gen4)|Premium 6|
+|Premium RS 6|(Preview) Hyperscale 6 vCores (Gen 4) or Business Critical 6 vCores (Gen4)|Premium 6|
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
@@ -81,7 +80,7 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 
 Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). You can combine the hybrid benefit with [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
 
-If you have any questions or concerns regarding this change or if you require migration assistance, please send an email to premium-rs@microsoft.com with your subscription ID, the server name, the database name and a description of the issue.
+If you have any questions or concerns regarding this change or if you require migration assistance, contact Microsoft.
 
 ## Migration from a Premium RS service tier to a service tier in either the DTU or the vCore model
 
