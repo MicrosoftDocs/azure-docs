@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Translate speech, Java (Windows, Linux) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows and Linux users.
+description: In this quickstart, you'll create a simple Java application to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows and Linux users.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -167,7 +167,7 @@ Press F11, or select **Run** > **Debug**.
 
 The speech input from your microphone will be transcribed into German and logged in the console window. Press "Enter" to stop capturing speech.
 
-![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-translate-output.png)
+![Screenshot of console output after successful recognition](media/sdk/qs-translate-java-jre-output.png)
 
 ## Next steps
 

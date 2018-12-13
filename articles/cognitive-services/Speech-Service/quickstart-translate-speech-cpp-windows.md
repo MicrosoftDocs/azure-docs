@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Translate speech, C++ (Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Windows Desktop by using the Speech Service SDK
+description: In this quickstart, you'll create a simple C++ application to capture user speech, translate it to another language, and output the text to the command line. This guide is designed for Windows users.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun

@@ -144,7 +144,7 @@ This quickstart requires:
 
 1. A console window appears, prompting you to say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service, translated, and transcribed to text, which appears in the same window.
 
-    ![Screenshot of console output after successful translation](media/sdk/qs-csharp-dotnetcore-windows-output.png "Console output after successful translation")
+    ![Screenshot of console output after successful translation](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Console output after successful translation")
 
 
 ## Next steps

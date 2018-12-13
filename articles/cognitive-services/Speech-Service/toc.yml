@@ -47,6 +47,8 @@
         href: quickstart-translate-speech-dotnetcore-windows.md
       - name: 'C# (.NET Framework on Windows)'
         href: quickstart-translate-speech-dotnetframework-windows.md
+      - name: 'C# (UWP)'
+        href: quickstart-translate-speech-uwp.md
       - name: 'C++ (Windows)'
         href: quickstart-translate-speech-cpp-windows.md
       - name: 'Java (Windows, Linux)'
