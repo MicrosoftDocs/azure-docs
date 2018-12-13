@@ -32042,6 +32042,71 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-alert-states",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-nagios-zabbix-scom",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-smart-groups",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-rate-limiting",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/action-groups-create-resource-manager-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-create-templates",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-enable-template",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-metric-alerts-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-logs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-migrate-management-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/migrate-management-alerts",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-smartgroups-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-sms-alert-behavior.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-sms-behavior",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md",
+            "redirect_url":  "/azure/azure-monitor/platform/quick-alerts-classic-metric-portal",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

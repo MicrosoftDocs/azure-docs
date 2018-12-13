@@ -11,7 +11,7 @@ ms.component: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
-This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Resource Manager template specified for metric alert will not work for resource type: Microsoft.OperationalInsights/workspaces; as support for metrics from Log Analytics is in preview. Users interested in using the preview functionality with resource template, can contact [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)
@@ -21,7 +21,7 @@ The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
 2. Edit and use the corresponding parameters file as a JSON to customize the alert
-3. Deploy the template using [any deployment method](../azure-resource-manager/resource-group-template-deploy.md).
+3. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
 
 
 ## Resource Manager template for a simple metric alert
@@ -1366,5 +1366,5 @@ az group deployment create \
 ```
 
 ## Next steps
-* Read more about [alerts in Azure](monitoring-overview-alerts.md)
-* Learn how to [create an action group with Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)
+* Read more about [alerts in Azure](alerts-overview.md)
+* Learn how to [create an action group with Resource Manager templates](action-groups-create-resource-manager-template.md)
