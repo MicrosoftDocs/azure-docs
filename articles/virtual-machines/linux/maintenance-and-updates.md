@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/17/2018
+ms.date: 12/13/2018
 ms.author: shants
 
 ---
@@ -25,4 +25,4 @@ ms.author: shants
 
 ## Next steps
 
-For information on planned maintenance imapcting virtual machines, see [Handling planned maintenance notifications](maintenance-notifications.md). 
+For information on planned maintenance imapcting virtual machines, see [Handling planned maintenance notifications](maintenance-notifications.md).
