@@ -320,6 +320,17 @@ This code sample shows how to send audio in chunks. Only the first chunk should 
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
 
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
