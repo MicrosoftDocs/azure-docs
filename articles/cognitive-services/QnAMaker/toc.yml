@@ -83,7 +83,7 @@
     items:
     - name: Create and publish a knowledge base
       href: Quickstarts/create-publish-knowledge-base.md
-    - name: Create a knowledge base
+    - name: Create a knowledge base with chit chat
       href: How-to/chit-chat-knowledge-base.md
     - name: Migrate a knowledge base from Preview
       href: Tutorials/migrate-knowledge-base.md
@@ -115,7 +115,7 @@
       href: How-To/upgrade-qnamaker-service.md
     - name: Create a business continuity plan for QnA Maker
       href: How-To/business-continuity-plan.md      
-    - name: Troubleshoot and update QnAMaker runtime
+    - name: Manage and update QnA Maker runtime
       href: How-To/troubleshooting-runtime.md
   - name: Use REST API
     items:

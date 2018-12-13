@@ -16,6 +16,9 @@ ms.author: tulasim
 You can choose to upgrade individual components of the QnA Maker stack after the initial creation. See the details of the dependent components and SKU selection [here](https://aka.ms/qnamaker-docs-capacity).
 
 ## Upgrade QnA Maker Management SKU
+
+When you need to have more questions and answers in your knowledge base, beyond your current tier, your QnA Maker service pricing tier. 
+
 To upgrade the QnA Maker management SKU:
 1. Go to your QnA Maker resource in the Azure portal, and select **Pricing tier**.
 
@@ -26,6 +29,9 @@ To upgrade the QnA Maker management SKU:
     ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## Upgrade App service
+
+When you knowledge base needs to serve more requests from your client app, upgrade your app service.
+
 You can [scale up](https://docs.microsoft.com/azure/app-service/web-sites-scale) or scale down the App service.
 
 1. Go to the App service resource in the Azure portal, and select **scale up** or **scale down** options as required.
