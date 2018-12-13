@@ -72,6 +72,15 @@ Public IP address cannot be retained.
 ### Can I retain private IP address during failover?
 Yes, you can retain private IP address. Refer [article](site-recovery-retain-ip-azure-vm-failover.md)to retain private IP address under different conditions.
  
+### What does Latest(lowest RPO) recovery points means?
+This option first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM before failing over to it. This option provides the lowest RPO (Recovery Point Objective), because the VM created after failover will have all the data replicated to Site Recovery when the failover was triggered.
+
+### Does Latest (lowest RPO) recovery points have impact on Failover RTO?
+Yes, as Site Recovery will process all the pending data before Failing over, this option will have higher RTO as compared to others.
+
+### What does Latest processed option in recovery points mean?
+This option fails over all VMs in the plan to the latest recovery point processed by Site Recovery. To see the latest recovery point for a specific VM, check Latest Recovery Points in the VM settings. This option provides a low RTO (Recovery Time Objective), because no time is spent processing unprocessed data.
+
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.
 * [Set up](azure-to-azure-tutorial-enable-replication.md) Azure to Azure replication.
