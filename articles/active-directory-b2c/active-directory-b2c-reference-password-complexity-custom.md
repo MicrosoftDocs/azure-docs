@@ -43,33 +43,37 @@ Complete the steps in [Get started with custom policies in Active Directory B2C]
 4. [Predicates](predicates.md) have method types of `IsLengthRange` or `MatchesRegex`. The `MatchesRegex` type is used to match a regular expression. The `IsLengthRange` type takes a minimum and maximum string length. Add a **Predicates** element to the **BuildingBlocks** element if it doesn't exist with the following **Predicate** elements:
 
     ```XML
-    <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
-      <Parameters>
-        <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
-      </Parameters>
-    </Predicate>
-    <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
-      <Parameters>
-        <Parameter Id="Minimum">8</Parameter>
-        <Parameter Id="Maximum">16</Parameter>
-      </Parameters>
-    </Predicate>
+    <Predicates>
+      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
+        <Parameters>
+          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
+        <Parameters>
+          <Parameter Id="Minimum">8</Parameter>
+          <Parameter Id="Maximum">16</Parameter>
+        </Parameters>
+      </Predicate>
+    </Predicates>
     ```
 
 5. Each **InputValidation** element is constructed by using the defined **Predicate** elements. This element allows you to perform boolean aggregations that are similar to `and` and `or`. Add an **InputValidations** element to the **BuildingBlocks** element if it doesn't exist with the following **InputValidation** element:
 
     ```XML
-    <InputValidation Id="PasswordValidation">
-      <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-        <PredicateReference Id="Length" />
-      </PredicateReferences>
-      <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-        <PredicateReference Id="Lowercase" />
-        <PredicateReference Id="Uppercase" />
-        <PredicateReference Id="Number" />
-        <PredicateReference Id="Symbol" />
-      </PredicateReferences>
-    </InputValidation>
+    <InputValidations>
+      <InputValidation Id="PasswordValidation">
+        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
+          <PredicateReference Id="Length" />
+        </PredicateReferences>
+        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </InputValidation>
+    </InputValidations>
     ```
 
 6. Make sure that the **PolicyProfile** technical profile contains the following elements:
