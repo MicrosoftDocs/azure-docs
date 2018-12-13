@@ -8,15 +8,13 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in C++ on Windows by using the Speech SDK
+# Quickstart: Translate speech with the Speech SDK for C++
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this quickstart, you'll create a simple C++ application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 ## Prerequisites
 
@@ -49,7 +47,7 @@ This quickstart requires:
     	// <TranslationWithMicrophone>
     	// Creates an instance of a speech translation config with specified subscription key and service region.
     	// Replace with your own subscription key and service region (e.g., "westus").
-    	auto config = SpeechTranslationConfig::FromSubscription("KEY", "REGION");
+    	auto config = SpeechTranslationConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
     	// Sets source and target languages
     	// Replace with the languages of your choice.
@@ -128,7 +126,7 @@ This quickstart requires:
 
 1. A console window appears, prompting you to say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service, translated and transcribed to text, which appears in the same window.
 
-   ![Screenshot of console output after successful recognition](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Screenshot of console output after successful translation](media/sdk/qs-cpp-windows-output.png)
 
 ## Next steps
 
