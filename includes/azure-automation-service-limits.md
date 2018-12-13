@@ -10,7 +10,7 @@ ms.author: gwallace
 ms.custom: "include file"
 ---
 
-### Process automation
+#### Process automation
 
 | Resource | Maximum Limit |Notes|
 | --- | --- |---|
@@ -33,7 +33,7 @@ ms.custom: "include file"
 
 **<sup>1</sup>** A sandbox is a shared environment that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox.
 
-### Change Tracking and Inventory
+#### Change Tracking and Inventory
 
 The following table shows the tracked item limits per machine for Change Tracking.
 
