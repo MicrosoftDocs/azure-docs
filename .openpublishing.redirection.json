@@ -32636,6 +32636,11 @@
             "source_path": "articles/governance/policy/how-to/getting-compliance-data.md",
             "redirect_url": "/azure/governance/policy/how-to/get-compliance-data",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
+            "redirect_document_id": false            
         }
     ]
 }
