@@ -43,13 +43,12 @@ To complete this tutorial, you must have:
 ## Deploy the infrastructure
 In this step, you deploy the required infrastructure with a [Resource Manager template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). When you deploy the template, the following resources are created:
 
-* Deploy the following infrastructure:
-  * Event hub with the Capture feature enabled.
-  * Storage account for the captured files. 
-  * App service plan for hosting the function app
-  * Function app for processing the event
-  * SQL Server for hosting the data warehouse
-  * SQL Data Warehouse for storing the migrated data
+* Event hub with the Capture feature enabled.
+* Storage account for the captured files. 
+* App service plan for hosting the function app
+* Function app for processing the event
+* SQL Server for hosting the data warehouse
+* SQL Data Warehouse for storing the migrated data
 
 ### Launch Azure Cloud Shell in Azure portal
 
@@ -78,24 +77,23 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
         az group create -l eastus -n <Name for the resource group>
         ```
     1. Specify a name for the **resource group**
-    2. Press ENTER. 
+    2. Press **ENTER**. 
 
-
-    Here is an example:
+        Here is an example:
     
-    ```azurecli
-    user@Azure:~$ az group create -l eastus -n ehubegridgrp
-    {
-      "id": "/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/ehubegridgrp",
-      "location": "eastus",
-      "managedBy": null,
-      "name": "ehubegridgrp",
-      "properties": {
-        "provisioningState": "Succeeded"
-      },
-      "tags": null
-    }
-    ```
+        ```azurecli
+        user@Azure:~$ az group create -l eastus -n ehubegridgrp
+        {
+          "id": "/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/ehubegridgrp",
+          "location": "eastus",
+          "managedBy": null,
+          "name": "ehubegridgrp",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "tags": null
+        }
+        ```
 2. Deploy all the resources mentioned in the previous section (event hub, storage account, functions app, SQL data warehouse) by running the following CLI command: 
     1. Copy and paste the command into the Cloud Shell window. Alternatively, you may want to copy/paste into an editor of your choice, set values, and then copy the command to the Cloud Shell. 
 
