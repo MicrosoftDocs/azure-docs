@@ -51,7 +51,7 @@ HDInsight clusters may go unused for long periods of time. To help save on resou
 
 When you delete a cluster, the associated storage account and external metadata are not removed. The cluster can later be re-created using the same storage accounts and meta-stores.
 
-Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters. For more information, see the article [Create on-demand Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
+Azure Data Factory can be used to schedule creation of on-demand HDInsight clusters. For more information, see the article [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).
 
 ## Decouple storage from compute
 
@@ -69,7 +69,7 @@ Compute clusters are created close to storage account resources in an Azure regi
 
 ## Use external metadata stores
 
-There are two main metastores that work with HDInsight clusters: Hive and Oozie. The Hive metastore is the central schema repository that can be used by data processing engines including Hadoop, Spark, LLAP, Presto, and Pig. The Oozie metastore stores details about scheduling and the status of in progress and completed Hadoop jobs.
+There are two main metastores that work with HDInsight clusters: Apache Hive and Apache Oozie. The Hive metastore is the central schema repository that can be used by data processing engines including Hadoop, Apache Spark, LLAP, Presto, and Apache Pig. The Oozie metastore stores details about scheduling and the status of in progress and completed Hadoop jobs.
 
 HDInsight uses Azure SQL Database for Hive and Oozie metastores. There are two ways to set up a metastore in HDInsight clusters:
 
