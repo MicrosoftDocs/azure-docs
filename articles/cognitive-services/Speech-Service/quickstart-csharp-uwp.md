@@ -68,13 +68,10 @@ This quickstart requires:
 
     ![Screenshot of speech recognition user interface](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/csharp-uwp` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 

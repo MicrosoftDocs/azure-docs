@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: wolfma
 ---
 
@@ -56,13 +56,10 @@ To complete this project, you'll need:
 
     ![Screenshot of console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-The code is available in the `quickstart/csharp-dotnet-windows` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 

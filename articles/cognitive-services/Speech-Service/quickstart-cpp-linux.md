@@ -5,11 +5,10 @@ description: Learn how to recognize speech in C++ on Linux by using the Speech S
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: wolfma
 ---
 
@@ -125,13 +124,10 @@ Download and install the SDK as follows:
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/cpp-linux` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Explore C++ samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 

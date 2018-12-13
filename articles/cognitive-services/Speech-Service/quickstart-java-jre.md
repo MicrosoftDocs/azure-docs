@@ -69,9 +69,6 @@ The next 15 seconds of speech input from your microphone will be recognized and 
 
 ![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/java-jre` folder.
-
 ## Next steps
 
 Additional samples, such as how to read speech from an audio file, are available on GitHub.
