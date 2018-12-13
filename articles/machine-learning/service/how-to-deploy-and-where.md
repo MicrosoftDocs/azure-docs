@@ -307,9 +307,9 @@ You can easily retrieve the necessary container registry credentials in two ways
 
   1. Save the values for **login server**, **username**, and **password**. 
 
-+ **With a python script**:
++ **With a Python script**:
 
-  1. Use the following python script after the code you ran above to create a container:
+  1. Use the following Python script after the code you ran above to create a container:
 
      ```python
      # Getting your container details
