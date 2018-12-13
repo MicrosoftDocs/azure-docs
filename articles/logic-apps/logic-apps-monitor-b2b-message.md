@@ -27,7 +27,7 @@ such as Azure Storage and Azure Event Hubs.
 
 > [!NOTE]
 > This page might still have references to Microsoft Operations Management Suite (OMS), 
-> which is [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> which is [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > but replaces those steps with Azure Log Analytics where possible. 
 
 ## Prerequisites
@@ -39,7 +39,7 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 * After you meet the previous requirements, you also need a Log Analytics workspace, 
 which you use for monitoring and tracking B2B communication through Log Analytics. 
 If you don't have a Log Analytics workspace, learn 
-[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 * An integration account that's linked to your logic app. Learn 
 [how to create an integration account with a link to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
@@ -156,7 +156,7 @@ diagnostic data with other Azure services, for example:
 You can then get real-time monitoring by using telemetry 
 and analytics from other services, like 
 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

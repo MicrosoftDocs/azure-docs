@@ -43,7 +43,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Open [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md), or [install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* Open [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md), or [install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## Delete the resource group and all the resources
 

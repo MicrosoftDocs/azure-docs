@@ -1,5 +1,5 @@
 ---
-title: How to configure Twitter authentication for your App Services application
+title: Configure Twitter authentication - Azure App Service
 description: Learn how to configure Twitter authentication for your App Services application.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
+ms.custom: seodec18
 
 ---
 # How to configure your App Service application to use Twitter login
@@ -60,6 +61,6 @@ You are now ready to use Twitter for authentication in your app.
 
 <!-- URLs. -->
 
-[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Twitter Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

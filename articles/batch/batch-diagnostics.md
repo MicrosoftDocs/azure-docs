@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: 
 
@@ -21,7 +21,7 @@ ms.custom:
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
  
-This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value. 
 
 ## Batch metrics
 
@@ -49,11 +49,17 @@ To view all Batch account metrics:
 
 To retrieve metrics programmatically, use the Azure Monitor APIs. For example, see [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## Batch metric reliability
+
+Metrics are intended to be used for trending and data analysis. Metric delivery is not guaranteed and is subject to out-of-order delivery, data loss, and/or duplication. Using single events to alert or trigger functions is not recommended. See the [Batch metric alerts](#batch-metric-alerts) section for more details on how to set thresholds for alerting.
+
+Metrics emitted in the last 3 minutes may still be aggregating. During this time frame, the metric values may be underreported.
+
 ## Batch metric alerts
 
-Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). 
+Optionally, configure near real-time *metric alerts* that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) you choose when the alert is "Activated" (when the threshold is crossed and the alert condition is met) as well as when it is "Resolved" (when the threshold is crossed again and the condition is no longer met). Alerting based on single data points is not recommended as metrics are subject to out-of-order delivery, data loss, and/or duplication. Alerting should make use of thresholds to account for these inconsistencies.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools.
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools. It is recommended to set a period of 10 or more minutes where alerts trigger if the average low priority core count falls below the threshold value for the entire period. It is not recommended to alert on a 1-5 minute period as metrics may still be aggregating.
 
 To configure a metric alert in the portal:
 
@@ -61,7 +67,7 @@ To configure a metric alert in the portal:
 2. Under **Monitoring**, click **Alert rules** > **Add metric alert**.
 3. Select a metric, an alert condition (such as when a metric exceeds a particular value during a period), and one or more notifications.
 
-You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+You can also configure a near real-time alert using the [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Alerts Overview](../azure-monitor/platform/alerts-overview.md)
 
 ## Batch diagnostics
 

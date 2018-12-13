@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -15,45 +15,35 @@ services: azure-migrate
 
 The Azure Migrate Collector is a lightweight appliance that can be used to discover an on-premises vCenter environment for the purposes of assessment with the [Azure Migrate](migrate-overview.md) service, before migration to Azure.  
 
-## Discovery methods
+## Discovery method
 
-There are two options for the Collector appliance, one-time discovery, or continuous discovery.
+Previously, there were two options for the collector appliance, one-time discovery, and continuous discovery. The one-time discovery model is now deprecated as it relied on vCenter Server statistics settings for performance data collection (required statistics settings to be set to level 3) and also collected average counters (instead of peak) which resulted in under-sizing. The continuous discovery model ensures granular data collection and results in accurate sizing due to collection of peak counters. Below is how it works:
 
-### One-time discovery
+The collector appliance is continuously connected to the Azure Migrate project and continuously collects performance data of VMs.
 
-The Collector appliance communicates on a one-time basis with vCenter Server to gather metadata about the VMs. Using this method:
-
-- The appliance isn't continuously connected to the Azure Migrate project.
-- Changes in the on-premises environment aren't reflected in Azure Migrate after discovery finishes. To reflect any changes, you need to discover the same environment in the same project again.
-- When collecting performance data for a VM, the appliance relies on the historical performance data stored in vCenter Server. It collects performance history for the past month.
-- For historical performance-data collection, you need to set the statistics settings in vCenter Server to level three. After setting the level to three, you need to wait for at least a day for vCenter to gather performance counters. We therefore recommend that you run the discovery after at least a day. If you want to assess the environment based on 1 week's or 1 month's performance data, you need to wait accordingly.
-- In this discovery method, Azure Migrate collects average counters for each metric (rather than peak counters) which may result in under-sizing. We recommend that you use the continuous discovery option to get more accurate sizing results.
-
-### Continuous discovery
-
-The Collector appliance is continuously connected to the Azure Migrate project and continuously collects performance data of VMs.
-
-- The Collector continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds.
+- The collector continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds.
 - The appliance rolls up the 20-second samples, and creates a single data point every 15 minutes.
 - To create the data point the appliance selects the peak value from the 20-second samples, and sends it to Azure.
 - This model doesn't depend on the vCenter Server statistics settings to collect performance data.
 - You can stop continuous profiling at anytime from the Collector.
 
-Note that the appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+**Instant gratification:** With the continuous discovery appliance, once the discovery is complete (it takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
+
+The appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 
 - Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
 
 - Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
 
 > [!NOTE]
-> Continuous discovery functionality is in preview. We recommend you to use this method as this method collects granular performance data and results in accurate right-sizing.
+> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
 ## Deploying the Collector
 
 You deploy the Collector appliance using an OVF template:
 
 - You download the OVF template from an Azure Migrate project in the Azure portal. You import the downloaded file to vCenter Server, to set up the Collector appliance VM.
-- From the OVF, VMware sets up a VM with 4 cores, 8 GB RAM, and one disk of 80 GB. The operating system is Windows Server 2012 R2 (64 bit).
+- From the OVF, VMware sets up a VM with 8 cores, 16 GB RAM, and one disk of 80 GB. The operating system is Windows Server 2016 (64 bit).
 - When you run the Collector, a number of prerequisite checks run to make sure that the Collector can connect to Azure Migrate.
 
 - [Learn more](tutorial-assessment-vmware.md#create-the-collector-vm) about creating the Collector.
@@ -63,6 +53,10 @@ You deploy the Collector appliance using an OVF template:
 
 The Collector must pass a few prerequisite checks to ensure it can connect to the Azure Migrate service over the internet, and upload discovered data.
 
+- **Verify Azure cloud**: The Collector needs to know the Azure cloud to which you are planning to migrate.
+    - Select Azure Government if you are planning to migrate to Azure Government cloud.
+    - Select Azure Global if you are planning to migrate to commercial Azure cloud.
+    - Based on the cloud specified here, the appliance will send discovered metadata to the respective end points.
 - **Check internet connection**: The Collector can connect to the internet directly, or via a proxy.
     - The prerequisite check verifies connectivity to [required and optional URLs](#connect-to-urls).
     - If you have a direct connection to the internet, no specific action is required, other than making sure that the Collector can reach the required URLs.
@@ -112,7 +106,8 @@ The connectivity check is validated by connecting to a list of URLs.
 
 **URL** | **Details**  | **Prerequisite check**
 --- | --- | ---
-*.portal.azure.com | Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
+*.portal.azure.com | Applicable to Azure Global. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
+*.portal.azure.us | Applicable only to Azure Government. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs optional.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually.
 
 
@@ -206,7 +201,7 @@ After the appliance is set up, you can run discovery. Here's how that works:
 
 ### Collected metadata
 
-The collector appliance discovers the following static metadata for VMs:
+The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
 
 - VM display name (on vCenter Server)
 - VM’s inventory path (the host/folder on vCenter Server)
@@ -219,26 +214,18 @@ The collector appliance discovers the following static metadata for VMs:
 
 #### Performance counters
 
-- **One-time discovery**: When counters are collected for a one-time discovery, note the following:
+ The collector appliance collects the following performance counters for each VM from the ESXi host at an interval of 20 seconds. These counters are vCenter counters and although the terminology says average, the 20-second samples are real time counters. The performance data for the VMs starts becoming available in the portal two hours after you have kicked off the discovery. It is strongly recommended to wait for at least a day before creating performance-based assessments to get accurate right-sizing recommendations. If you are looking for instant gratification, you can create assessments with sizing criterion as *as on-premises* which will not consider the performance data for right-sizing.
 
-    - It can take up to 15 minutes to collect and send configuration metadata to the project.
-    - After configuration data is collected, it can take up to an hour for performance data to be available in the portal.
-    - After the metadata is available in the portal, the list of VMs appears, and you can start creating groups for assessment.
-- **Continuous discovery**: For continuous discovery, note the following:
-    - Configuration data for the VM is available an hour after you start discovery
-    - Performance data starts becoming available after 2 hours.
-    - After you start discovery, wait for at least a day for the appliance to profile the environment, before you create assessments.
-
-**Counter** | **Level** | **Per-device level** | **Impact on assessment**
---- | --- | --- | ---
-cpu.usage.average | 1 | NA | Recommended VM size and cost  
-mem.usage.average | 1 | NA | Recommended VM size and cost  
-virtualDisk.read.average | 2 | 2 | Calculates disk size, storage cost, VM size
-virtualDisk.write.average | 2 | 2  | Calculates disk size, storage cost, VM size
-virtualDisk.numberReadAveraged.average | 1 | 3 |  Calculates disk size, storage cost, VM size
-virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calculates disk size, storage cost, VM size
-net.received.average | 2 | 3 |  Calculates VM size                          |
-net.transmitted.average | 2 | 3 | Calculates VM size     
+**Counter** |  **Impact on assessment**
+--- | ---
+cpu.usage.average | Recommended VM size and cost  
+mem.usage.average | Recommended VM size and cost  
+virtualDisk.read.average | Calculates disk size, storage cost, VM size
+virtualDisk.write.average | Calculates disk size, storage cost, VM size
+virtualDisk.numberReadAveraged.average | Calculates disk size, storage cost, VM size
+virtualDisk.numberWriteAveraged.average | Calculates disk size, storage cost, VM size
+net.received.average | Calculates VM size                          
+net.transmitted.average | Calculates VM size     
 
 ## Next steps
 

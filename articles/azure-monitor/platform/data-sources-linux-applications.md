@@ -1,21 +1,18 @@
 ---
 title: Collect Linux application performance in Log Analytics | Microsoft Docs
-description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
+description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collect performance counters for Linux applications in Log Analytics 
@@ -166,4 +163,4 @@ Once you configure the Log Analytics agent for Linux to send data to Log Analyti
 
 ## Next steps
 * [Collect performance counters](data-sources-performance-counters.md) from Linux agents.
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
