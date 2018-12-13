@@ -22963,12 +22963,12 @@
         },
         {
             "source_path": "articles/security-center/security-center-compliance-rest-api.md",
-            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/compliances"
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/compliances",
             "redirect_document_id": false
         },
          {
             "source_path": "articles/security-center/security-center-review-policy-compliance.md",
-            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/tasks"
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/tasks",
             "redirect_document_id": false
         },
         {
