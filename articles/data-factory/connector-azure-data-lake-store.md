@@ -1,6 +1,6 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen1 using Data Factory | Microsoft Docs
-description: Learn how to copy data from supported source data stores to Azure Data Lake Store,or from Data Lake Store to supported sink stores, by using Data Factory.
+title: Copy data to or from Azure Data Lake Storage Gen1 by using Data Factory | Microsoft Docs
+description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, by using Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -66,12 +66,12 @@ To use service principal authentication, register an application entity in Azure
 >[!IMPORTANT]
 > Make sure you grant the service principal proper permission in Data Lake Store:
 >- **As source**: In **Data explorer** > **Access**, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account level access control (IAM).
->- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store. Associate them in the Data Lake Store linked service as the following example.
+>- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. Associate them in the Data Lake Store linked service as the following example.
 
 >[!NOTE]
 >To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
->- **ADF UI** to test connection and navigating folders during authoring.
+>- **Data Factory UI** to test connection and navigating folders during authoring.
 
 The following properties are supported:
 
@@ -109,7 +109,7 @@ The following properties are supported:
 
 ### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from your Data Lake Store.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this service identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
 
 To use managed identities for Azure resources authentication:
 
@@ -119,12 +119,12 @@ To use managed identities for Azure resources authentication:
 >[!IMPORTANT]
 > Make sure you grant the data factory service identity proper permission in Data Lake Store:
 >- **As source**: In **Data explorer** > **Access**, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account level access control (IAM).
->- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect Data Lake Store's region. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of your Data Lake Store. Associate them in the Data Lake Store linked service as the following example.
+>- **As sink**: In **Data explorer** > **Access**, grant at least **Write + Execute** permission to create child items in the folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. If you use Azure integration runtime to copy (both source and sink are in the cloud), in IAM, grant at least the **Reader** role in order to let Data Factory detect the region for Data Lake Store. If you want to avoid this IAM role, explicitly [create an Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) with the location of Data Lake Store. Associate them in the Data Lake Store linked service as the following example.
 
 >[!NOTE]
 >To list folders starting from the root, you must set the permission of the service principal being granted to **at root level with "Execute" permission**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
->- **ADF UI** to test connection and navigating folders during authoring.
+>- **Data Factory UI** to test connection and navigating folders during authoring.
 
 In Azure Data Factory, you don't need to specify any properties besides the general Data Lake Store information in the linked service.
 
@@ -156,7 +156,7 @@ To copy data to and from Azure Data Lake Store, set the `type` property of the d
 |:--- |:--- |:--- |
 
 | type | The type property of the dataset must be set to: **AzureDataLakeStoreFile** |Yes |
-| folderPath | Path to the folder in the Data Lake Store. Wildcard filter is not supported. If not specified, it points to the root. Example: rootfolder/subfolder/ |No |
+| folderPath | Path to the folder in Data Lake Store. Wildcard filter is not supported. If not specified, it points to the root. Example: rootfolder/subfolder/ |No |
 | fileName | **Name or wildcard filter** for the file(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", e.g. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; if you copy from tabular source using table name instead of query, the name pattern is "*[table name].[format].[compression if configured]*", e.g. "MyTable.csv". |No |
 | format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
@@ -204,7 +204,7 @@ To copy data from Data Lake Store, set the source type in Copy Activity to **Azu
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The `type` property of the Copy Activity source must be set to: **AzureDataLakeStoreSource**. |Yes |
-| recursive | Indicates whether the data is read recursively from the sub-folders or only from the specified folder. Note that when `recursive` is set to true and the sink is a file-based store, an empty folder or sub-folder isn't copied or created at the sink. Allowed values are: **true** (default), and **false**. | No |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when `recursive` is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are: **true** (default) and **false**. | No |
 
 **Example:**
 
@@ -245,7 +245,7 @@ To copy data to Data Lake Store, set the sink type in Copy Activity to **AzureDa
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The `type` property of the Copy Activity sink must be set to: **AzureDataLakeStoreSink**. |Yes |
-| copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: all files from the source folder are in the first level of the target folder. The target files have auto-generated names. <br/><b>- MergeFiles</b>: merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name is the specified name. Otherwise, the file name is auto-generated. | No |
+| copyBehavior | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: all files from the source folder are in the first level of the target folder. The target files have auto-generated names. <br/><b>- MergeFiles</b>: merges all files from the source folder to one file. If the file/blob name is specified, the merged file name is the specified name. Otherwise, the file name is auto-generated. | No |
 
 **Example:**
 
