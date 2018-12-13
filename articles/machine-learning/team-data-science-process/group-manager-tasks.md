@@ -22,7 +22,8 @@ The **Group Manager** is the manager of the entire data science unit in an enter
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] We outline the steps needed to set up a TDSP group environment using Azure DevOps Services in the instructions that follow. We specify how to accomplish these tasks with Azure DevOps Services because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the group manager generally do not change. But the way to complete these tasks is going to be different.
+> [!NOTE] 
+> We outline the steps needed to set up a TDSP group environment using Azure DevOps Services in the instructions that follow. We specify how to accomplish these tasks with Azure DevOps Services because that is how we implement TDSP at Microsoft. If another code hosting platform is used for your group, the tasks that need to be completed by the group manager generally do not change. But the way to complete these tasks is going to be different.
 
 1. Set up **Azure DevOps Services** for the group.
 2. Create a **group project** on Azure DevOps Services (for Azure DevOps Services users)
@@ -88,7 +89,8 @@ Fill in the information for the Azure DevOps Services that you want to create in
 
 ![4](./media/group-manager-tasks/fill-in-account-information.png)
 
->[AZURE.NOTE] If you see the following pop-up window after you click **Create new account**, then you need to click **Change details** to display all the fields itemized.
+> [!NOTE] 
+> If you see the following pop-up window after you click **Create new account**, then you need to click **Change details** to display all the fields itemized.
 
 ![5](./media/group-manager-tasks/create-account-2.png)
 
@@ -107,11 +109,11 @@ To create the **GroupUtilities** (R2) repository under Azure DevOps Services:
 
 - To open the **Create a new repository** wizard, click **New repository** on the **Version Control** tab of your project.
 
-![7](./media/group-manager-tasks/create-grouputilities-repo-1.png)
+  ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png)
 
 - Select *Git* as the **Type**, and enter *GroupUtilities* as the **Name**, and then click **Create**.
 
-![8](./media/group-manager-tasks/create-grouputilities-repo-2.png)
+  ![8](./media/group-manager-tasks/create-grouputilities-repo-2.png)
 
 Now you should see two Git repositories **GroupProjectTemplate** and **GroupUtilities** in the left column of the **Version Control** page:
 
@@ -133,20 +135,20 @@ To rename the default **GroupCommon** repository as *GroupProjectTemplate* (refe
 
 - Click **Collaborate on code** on the **GroupCommon** project page. This takes you to the default Git repository page of the project **GroupCommon**. Currently, this Git repository is empty.
 
-![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
+  ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
 
 - Click **GroupCommon** on the top left corner (highlighted with a red box in the following figure) on the Git repository page of **GroupCommon** and select **Manage repositories** (highlighted with a green box in the following figure). This  procedure brings up the **CONTROL PANEL**.
 - Select the **Version Control** tab of your project.
 
-![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
+  ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
 - Click the **...** to the right of the **GroupCommon** repository on the left panel, and select **Rename repository**.
 
-![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
+  ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
 
 - In the **Rename the GroupCommon repository** wizard that pops up, enter *GroupProjectTemplate* in the **Repository name** box, and then click **Rename**.
 
-![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
+  ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
 
 
@@ -194,7 +196,7 @@ In this step, you clone the GroupProjectTemplate repository (R1) and GroupUtilit
 - Click **CODE**.
 - Choose the **GroupProjectTemplate** and **GroupUtilities** repositories. Copy and save each of the URLs (HTTPS for Windows; SSH for Linux) from the **Clone URL** element, in turn, for use in the following scripts:
 
-![15](./media/group-manager-tasks/find_https_ssh_2.PNG)
+  ![15](./media/group-manager-tasks/find_https_ssh_2.PNG)
 
 - Change into the **GitRepos\GroupCommon** directory on your Windows or Linux DSVM and run one of the following sets of commands to clone R1 and R2 into that directory.
 
@@ -214,7 +216,8 @@ Here are the Windows and Linux scripts:
 
 ![17](./media/group-manager-tasks/clone-two-empty-group-reo-linux-2.PNG)
 
->[AZURE.NOTE] Expect to receive warning messages that LR1 and LR2 are empty.
+> [!NOTE] 
+> Expect to receive warning messages that LR1 and LR2 are empty.
 
 - Using our abbreviated repository names, this is what these scripts have achieved:
 	- R1 - cloned into -> LR1
@@ -286,12 +289,13 @@ Finally, change to the **GitRepos\GroupCommon\GroupUtilities** directory and run
 	git commit -m"push from DSVM"
 	git push
 
->[AZURE.NOTE] If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
+> [!NOTE] 
+> If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
 
 	git config --global user.name <your name>
 	git config --global user.email <your email address>
 
->If you are committing to multiple Git repositories, use the same name and email address when you commit to each of them. Using the same name and email address proves convenient later on when you build PowerBI dashboards to track your Git activities on multiple repositories.
+> If you are committing to multiple Git repositories, use the same name and email address when you commit to each of them. Using the same name and email address proves convenient later on when you build PowerBI dashboards to track your Git activities on multiple repositories.
 
 
 - Using our abbreviated repository names, this is what these scripts have achieved:
