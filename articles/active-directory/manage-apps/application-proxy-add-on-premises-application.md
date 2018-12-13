@@ -176,7 +176,8 @@ Now that you've prepared your environment and installed a connector, you're read
     | Field | Description |
     | :---- | :---------- |
     | **Backend Application Timeout** | Set this value to **Long** only if your application is slow to authenticate and connect. |
-    | **Use HTTP-Only Cookie** | Set this value to **Yes** to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header. |
+    | **Use HTTP-Only Cookie** | Set this value to **Yes** to have Application Proxy cookies include the HTTPOnly flag in the HTTP response header. If using Remote Desktop Services, set this to **No**.|
+    | **Use Secure Cookie**| Set this value to **Yes** to ensure cookies are only transmitted over a secure channel such as an encrypted HTTPS request.
     | **Translate URLs in Headers** | Keep this value as **Yes** unless your application required the original host header in the authentication request. |
     | **Translate URLs in Application Body** | Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications, and don't use custom domains. For more information, see [Link translation with Application Proxy](application-proxy-configure-hard-coded-link-translation.md). |
    
