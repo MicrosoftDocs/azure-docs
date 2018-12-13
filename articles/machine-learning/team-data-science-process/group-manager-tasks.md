@@ -173,15 +173,15 @@ The seeding procedure uses the directories on your local DSVM as intermediate st
 In this step, you clone the Team Data Science Process (TDSP) ProjectTemplate repository (G1) and Utilities (G2) from the TDSP GitHub repositories to folders in your local DSVM as LG1 and LG2:
 
 - Create a directory to serve as the root directory to host all your clones of the repositories.
-	-  In the Windows DSVM, create a directory *C:\GitRepos\TDSPCommon*.
-	-  In the Linux DSVM, create a directory *GitRepos\TDSPCommon* in your home directory.
+  -  In the Windows DSVM, create a directory *C:\GitRepos\TDSPCommon*.
+  -  In the Linux DSVM, create a directory *GitRepos\TDSPCommon* in your home directory.
 
 - Run the following set of commands from the *GitRepos\TDSPCommon* directory.
 
-	`git clone https://github.com/Azure/Azure-TDSP-ProjectTemplate`<br>
-	`git clone https://github.com/Azure/Azure-TDSP-Utilities`
+  `git clone https://github.com/Azure/Azure-TDSP-ProjectTemplate`<br>
+  `git clone https://github.com/Azure/Azure-TDSP-Utilities`
 
-![14](./media/group-manager-tasks/two-folder-cloned-from-TDSP-windows.PNG)
+  ![14](./media/group-manager-tasks/two-folder-cloned-from-TDSP-windows.PNG)
 
 - Using our abbreviated repository names, this is what these scripts have achieved:
 	- G1 - cloned into -> LG1
@@ -291,10 +291,10 @@ Finally, change to the **GitRepos\GroupCommon\GroupUtilities** directory and run
 
 > [!NOTE] 
 > If this is the first time you commit to a Git repository, you need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
-
-	git config --global user.name <your name>
-	git config --global user.email <your email address>
-
+>
+>  `git config --global user.name <your name>`
+>  `git config --global user.email <your email address>`
+>
 > If you are committing to multiple Git repositories, use the same name and email address when you commit to each of them. Using the same name and email address proves convenient later on when you build PowerBI dashboards to track your Git activities on multiple repositories.
 
 
