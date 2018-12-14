@@ -13,11 +13,11 @@ manager: carmonm
 
 # Understand the Linux agent check results in Update Management
 
-There may be many reasons your Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There may be many reasons your Azure machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article, please see the [offline instructions](#offline) to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. Please see the [offline instructions](#offline) to troubleshoot a Non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -49,12 +49,12 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 ### OMS agent
 
-This checks ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+This check ensures that the OMS Agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### OMS Agent status
 
-This check ensures that the OMS Agent for Linux is running. If the agent is not running you can run the following command to attempt to restart it. For additional information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
+This check ensures that the OMS Agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux Hybrid Runbook worker troubleshooting](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -66,7 +66,7 @@ This check determines if the agent is reporting to multiple workspaces. Multi-ho
 
 ### Hybrid Runbook Worker
 
-This checks to ensure the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
+This check verifies if the OMS Agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work.
 
 ### Hybrid Runbook Worker status
 
