@@ -48,13 +48,4 @@ To create a Bing Custom Search instance:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Call your custom search](./search-your-custom-view.md)
-
-
-Continue to work with the custom search instance you've just created by following instructions in these how-to guides:
-
-- [Configure your custom search experience](./define-your-custom-view.md)
-- [Share your custom search](./share-your-custom-search.md)
-- [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+> [Quickstart: Call your Bing Custom Search endpoint](./call-endpoint-csharp.md)

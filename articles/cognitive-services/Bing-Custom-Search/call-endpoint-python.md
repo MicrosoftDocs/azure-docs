@@ -56,8 +56,4 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web page](./tutorials/custom-search-web-page.md)
-
-- [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)

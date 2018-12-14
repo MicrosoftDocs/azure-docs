@@ -72,15 +72,15 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 4. Create a function named `prettify()` to format the JSON response from the Bing Custom Search API.
 
-```java
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-```
+    ```java
+        // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+        public static String prettify(String json_text) {
+            JsonParser parser = new JsonParser();
+            JsonObject json = parser.parse(json_text).getAsJsonObject();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(json);
+        }
+    ```
 
 ## Send and receive a search request 
 
@@ -128,8 +128,4 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web page](./tutorials/custom-search-web-page.md)
-
-- [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)
