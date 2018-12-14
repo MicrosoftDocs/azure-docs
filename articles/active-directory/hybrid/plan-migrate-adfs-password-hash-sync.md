@@ -26,7 +26,7 @@ The following document provides guidance on moving from AD FS to password hash s
 The following prerequisites are required before you can migrate.
 ### Update Azure AD Connect
 
-As a minimum to successfully perform the steps to migrate to pass-through authentication, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594.) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
+As a minimum to successfully perform the steps to migrate to pass-through authentication, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
 
 > [!IMPORTANT]
 > Outdated documentation, tools and blogs indicate that user conversion is a required step when converting domains from Federated to Managed. Note that converting users is not required anymore and Microsoft is working on updating documentation and tools to reflect this.
@@ -79,7 +79,7 @@ In the User Sign In section, verify that Federation is Enabled and that Seamless
    
    3. In the Review Your Solution screen, take note of the Password Synchronization status.</br> 
 
-   If Password Hash Synchronization is currently set to Disabled, you will need to follow the steps in this guide to enable it. If Password Hash Synchronization is currently set to Enabled, you can safely skip the section [Step 1 – Enable Password Hash Synchronization](#_Step_1_–) in this guide.
+   If Password Hash Synchronization is currently set to Disabled, you will need to follow the steps in this guide to enable it. If Password Hash Synchronization is currently set to Enabled, you can safely skip the section [Step 1 – Enable Password Hash Synchronization](#step-1--enable-password-hash-synchronization) in this guide.
    4. In the Review Your Solution screen, scroll down to Active Directory Federation Services (AD FS).</br>
  
    If you see that the AD FS configuration is in this section then you can   safely assume AD FS was originally configured through Azure AD Connect and hence the conversion of your domain(s) from federated to managed can be driven through the Azure AD Connect "Change user sign-in" option, this process is detailed in the section **Option A - Switch from Federation to Password Hash Synchronization by using Azure AD Connect**.
@@ -129,10 +129,9 @@ Before converting from Federated to Managed, you should look closely at how you 
 | If| Then |
 |-|-|
 | You are going to retain AD FS for those other applications.| You will be using both AD FS and Azure AD and will need to consider the end-user experience as a result. Users may need to authenticate twice in some scenarios, once to Azure AD (where they will get SSO onwards to other applications like Office 365) and again for any applications still bound to AD FS as a relying party trust. |
-| AD FS is heavily customized and reliant on specific customization settings in the onload.js file that cannot be duplicated in Azure AD 
-(for example, you have changed the sign-in experience so that users only enter a SamAccountName format for their username as opposed to a UPN, or have a heavily branded the sign-in experience)| You will need to verify that your current customization requirements can be met by Azure AD before proceeding. Refer to the AD FS Branding and AD FS Customization sections for further information and guidance.|
+| AD FS is heavily customized and reliant on specific customization settings in the onload.js file that cannot be duplicated in Azure AD (for example, you have changed the sign-in experience so that users only enter a SamAccountName format for their username as opposed to a UPN, or have a heavily branded the sign-in experience)| You will need to verify that your current customization requirements can be met by Azure AD before proceeding. Refer to the AD FS Branding and AD FS Customization sections for further information and guidance.|
 | You are blocking legacy authentication clients via AD FS.| Consider replacing the controls to block legacy authentication clients currently present on AD FS with a combination of [Conditional Access controls for Legacy Authentication](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) and [Exchange Online Client Access Rules](http://aka.ms/EXOCAR).|
-| You require users to perform MFA against an on-premises MFA server solution when authenticating to AD FS.| You won't be able to inject an MFA challenge via the on-premises MFA solution into the authentication flow for a managed domain, however you can use the Azure MFA service to do so going forward once the domain is converted. If users are not using Azure MFA today, then this will involve a one-time end-user registration step that you will have to prepare for and communicate to your end users. |
+| You require users to perform MFA against an on-premises MFA server solution when authenticating to AD FS.| You won't be able to inject an MFA challenge via the on-premises MFA solution into the authentication flow for a managed domain, however you can use the Azure MFA service to do so going forward once the domain is converted. If users are not using Azure MFA today, then this will involve a one-time end-user registration step that you will have to prepare for and communicate to your end users.|
 | You use Access Control Policies (AuthZ rules) today in AD FS to control access to Office 365.| Consider replacing these with the equivalent Azure AD [Conditional Access Policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) and [Exchange Online Client Access Rules](http://aka.ms/EXOCAR).|
 
 ### Considerations for common AD FS customizations
@@ -171,7 +170,7 @@ While similar customizations are available, some visual changes should be expect
 While the domain conversion process itself is relatively quick, Azure AD might still send some authentication requests to your AD FS servers for a period of up to 4 hours after the domain conversion has finished. During this four hour window, and depending on various service side caches, these authentications might not be accepted by Azure AD and users will receive an error as they will be able to authenticate successfully against AD FS still, but Azure AD will no longer accept a user’s issued token as that federation trust is now removed.
 
 > [!NOTE]
-> This will only impact users who access the services via a browser during this post conversion window until the service side cache is cleared. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) should not be impacted as Exchange Online keeps a cache of their credentials for a period of time that is used to re-authenticate the user silently without needing to go back to AD FS. Credentials stored on the device for these clients are used to re-authenticate themselves silently once this cached is cleared and hence users should not receive any password prompts as a result of the domain conversion process. Conversely, for Modern Authentication clients (Office 2013/2016, IOS, and Android Apps) these use a valid Refresh Token to obtain new access tokens for continued access to resources instead of going back to AD FS,and hence are immune to any password prompts as a result of the domain conversion process and will continue to function without any extra configuration required.
+> This will only impact users who access the services via a browser during this post conversion window until the service side cache is cleared. Legacy clients (Exchange ActiveSync, Outlook 2010/2013) should not be impacted as Exchange Online keeps a cache of their credentials for a period of time that is used to re-authenticate the user silently without needing to go back to AD FS. Credentials stored on the device for these clients are used to re-authenticate themselves silently once this cached is cleared and hence users should not receive any password prompts as a result of the domain conversion process. Conversely, for Modern Authentication clients (Office 2013/2016, IOS, and Android Apps) these use a valid Refresh Token to obtain new access tokens for continued access to resources instead of going back to AD FS, and hence are immune to any password prompts as a result of the domain conversion process and will continue to function without any extra configuration required.
 
 > [!IMPORTANT]
 > Don’t shut down your AD FS environment or remove the Office 365 relying party trust until you have verified all users are successfully authenticating using cloud authentication.
@@ -295,7 +294,7 @@ Use this method when your AD FS was initially configured using Azure AD Connect.
    7. Open the Azure AD portal, select Azure Active Directory, and then select Azure AD Connect.
    8. Verify that that Federation is Disabled while Seamless single sign-on and Password Sync are Enabled.  
   ![Picture 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
-   9. Go to [Testing and Next Steps](#_Next_Steps_and).
+   9. Go to [Testing and Next Steps](#testing-and-next-steps).
    
    > [!IMPORTANT]
    > Skip the section Option B - Switch from Federation to Password Hash Synchronization using Azure AD Connect and PowerShell as the steps in that section do not apply.  
@@ -349,11 +348,14 @@ The conversion is performed using the Azure AD PowerShell Module.
 
    1. Open PowerShell and login to Azure AD using a Global Administrator account.  
    2. To convert the first domain, run the following command:  
+   
    ``` PowerShell
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
    ```
+   
    3. Open the Azure AD portal, select Azure Active Directory, and then select Azure AD Connect.
    4. Verify that the domain has been converted to Managed by running the following command:
+   
    ``` PowerShell
    Get-MsolDomain -DomainName <domainname>
    ```
@@ -389,14 +391,14 @@ Then, the user will get redirected and signed into the Access Panel successfully
 > [!NOTE]
 > Seamless Single Sign-On works on Office 365 services that supports domain hint (for example, myapps.microsoft.com/contoso.com). The Office 365 portal (portal.office.com) currently doesn’t support domain hint and therefore it is expected that users will need to type their UPN. Once a UPN is entered, Seamless single sign on can retrieve the Kerberos ticket on behalf of the user and log them in without typing a password. 
 
-> [!NOTE]
+> [!TIP]
 > Consider deploying [Azure AD Hybrid Join on Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) for an improved single sign-on experience.
 
 ### Removal of the relying party trust
 
 Once you have validated that all users and clients are successfully authenticating via Azure AD, it can be considered safe to remove the Office 365 relying party trust.
 
-If AD FS is not being used for other purposes (other Relying Party Trusts have been configured), it is safe to decommission ADFS now.
+If AD FS is not being used for other purposes (other Relying Party Trusts have been configured), it is safe to decommission AD FS now.
 
 ### Rollback
 
