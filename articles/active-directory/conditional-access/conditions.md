@@ -154,7 +154,7 @@ Common use cases for this condition are policies with the following requirements
 
 - **[Require a managed device](require-managed-devices.md)** for mobile and desktop applications that download  data to a device. At the same time, allow browser access from any device. This scenario prevents saving and syncing documents to an unmanaged device. With this method, you can reduce the probability for data loss if the device is lost or stolen.
 
-- **[Require a managed device](require-managed-devices.md)** apps using ActiveSync to access Exchange Online.
+- **[Require a managed device](require-managed-devices.md)** for apps using ActiveSync to access Exchange Online.
 
 - **[Block legacy authentication](block-legacy-authentication.md)** to Azure AD (other clients)
 
