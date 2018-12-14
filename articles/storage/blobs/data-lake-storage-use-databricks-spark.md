@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: dineshm
+#Customer intent: As an analytics customer, I want to connect my Databricks cluster to my data from Azure Storage so that I can easily run Spark queries against it.
 ---
 
 # Tutorial: Access Data Lake Storage Gen2 Preview data with Azure Databricks using Spark
