@@ -19,11 +19,11 @@ Azure Monitor’s built-in roles are designed to help limit access to resources 
 People assigned the Monitoring Reader role can view all monitoring data in a subscription but cannot modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to be able to:
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
-* View alert rules defined in [Azure Alerts](../azure-monitor/platform/alerts-overview.md)
-* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md), or [cross-platform CLI](../azure-monitor/platform/cli-samples.md).
+* View alert rules defined in [Azure Alerts](../../azure-monitor/platform/alerts-overview.md)
+* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md), or [cross-platform CLI](../../azure-monitor/platform/cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
-* View the [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.
-* View the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.
+* View the [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.
+* View the [log profile](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
 * Access Application Insights data and view data in AI Analytics.
@@ -43,9 +43,9 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
 * Publish monitoring dashboards as a shared dashboard.
-* Set [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.*
-* Set the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
-* Set alert rules activity and settings via [Azure Alerts](../azure-monitor/platform/alerts-overview.md).
+* Set [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.*
+* Set the [log profile](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
+* Set alert rules activity and settings via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.
 * Enable or disable Log Analytics intelligence packs.
@@ -60,7 +60,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 > 
 
 ## Monitoring permissions and custom RBAC roles
-If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
+If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
 
 | Operation | Description |
 | --- | --- |
@@ -114,7 +114,7 @@ All three of these data types can be stored in a storage account or streamed to 
 
 * Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (for example, a third-party SIEM) access to non-monitoring data.
 * Use a single, dedicated Service Bus or Event Hub namespace across all diagnostic settings for the same reason as above.
-* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../role-based-access-control/overview.md#scope) on your monitoring roles to limit access to only that resource group.
+* Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../../role-based-access-control/overview.md#scope) on your monitoring roles to limit access to only that resource group.
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user only needs access to monitoring data. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.
 
 ### Limiting access to monitoring-related storage accounts
@@ -173,13 +173,13 @@ Azure Monitor needs access to your Azure resources to provide the services you e
 ### Secured Storage Accounts 
 
 Monitoring data is often written to a storage account. You may want to make sure that the data copied to a Storage Account cannot be accessed by unauthorized users. For additional security, you can lock down network access to only allow your authorized resources and trusted Microsoft services access to a storage account by restricting a storage account to use "selected networks".
-![Azure Storage Settings Dialog](./media/monitoring-roles-permissions-security/secured-storage-example.png)
+![Azure Storage Settings Dialog](./media/roles-permissions-security/secured-storage-example.png)
 Azure Monitor is considered one of these "trusted Microsoft services" If you allow trusted Microsoft services to access your Secured Storage, Azure monitor will have access to your secured Storage Account; enabling writing Azure Monitor diagnostic logs, activity log, and metrics to your Storage Account under these protected conditions. This will also enable Log Analytics to read logs from secured storage.   
 
 
-For more information, see [Network security and Azure Storage](../storage/common/storage-network-security.md)
+For more information, see [Network security and Azure Storage](../../storage/common/storage-network-security.md)
 
 ## Next steps
-* [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)
-* [Read the overview of monitoring in Azure](../azure-monitor/overview.md)
+* [Read about RBAC and permissions in Resource Manager](../../role-based-access-control/overview.md)
+* [Read the overview of monitoring in Azure](../../azure-monitor/overview.md)
 
