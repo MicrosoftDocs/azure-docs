@@ -136,7 +136,7 @@
   - name: Visualize data
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
-    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+    href: platform/partners.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -218,7 +218,7 @@
         - name: Enable diagnostic settings with Resource Manager templates
           href: platform/diagnostic-logs-stream-template.md
         - name: Prepare for JSON Lines diagnostic logs format
-          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-append-blobs.md
         - name: VM guest to metrics store
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
         - name: VM scale set guest to metrics store
@@ -650,7 +650,7 @@
       - name: Export application data
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Send data to Grafana
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+      href: platform/grafana-plugin.md
   - name: Analyze data
     items:
     - name: Create metrics charts in Metrics Explorer
@@ -797,7 +797,7 @@
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-get-started.md
       - name: Understand Autoscale settings
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: Best practices
@@ -805,7 +805,7 @@
       - name: Common metrics
         href: platform/autoscale-common-metrics.md
       - name: Common patterns
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-scale-patterns.md
       - name: Autoscale using a custom metric
         href: platform/autoscale-custom-metric.md
       - name: Autoscale VM scale sets using Resource Manager templates
@@ -831,7 +831,7 @@
   - name: Manage usage and cost
     items:
     - name: Usage and estimated costs
-      href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/usage-estimated-costs.md
     - name: Application data volume and retention
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Application enterprise plan details
@@ -865,7 +865,7 @@
     - name: API
       items:  
       - name: Walkthrough using REST API
-        href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
+        href: platform/rest-api-walkthrough.md
       - name: Alert API
         href: platform/api-alerts.md
     - name: Applications
@@ -951,7 +951,7 @@
   - name: Metrics
     items:
     - name: Supported metrics
-      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-supported.md
     - name: Supported metrics for newer alerts
       href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
   - name: Schemas

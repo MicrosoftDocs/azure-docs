@@ -40,6 +40,9 @@ Navigate to your function in the Azure portal and click on **Manage** and find t
 
 After copying the master key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
 
+> [!CAUTION]  
+> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
+
 ## Call the function
 
 Open Postman and follow these steps:
