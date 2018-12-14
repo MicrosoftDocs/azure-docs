@@ -98,7 +98,7 @@ The Map Control API is a convenient client library that allows you to easily int
          margin: 0;
       }
 
-      #map {
+      #myMap {
          width: 100%;
          height: 100%;
       }
