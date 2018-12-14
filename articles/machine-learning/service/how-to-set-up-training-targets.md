@@ -248,9 +248,8 @@ The following steps use the SDK to configure a DSVM as a training target:
                                                        ssh_port=22,
                                                        username='<username>',
                                                        password="<password>")
-    
-    # If you use SSH instead of a password, use this code:
 
+    # If you use SSH instead of a password, use this code:
     #                                                  ssh_port=22,
     #                                                  username='<username>',
     #                                                  password=None,
@@ -259,8 +258,8 @@ The following steps use the SDK to configure a DSVM as a training target:
 
     # Attach the compute
     compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
-    compute.wait_for_completion(show_output=True)
 
+    compute.wait_for_completion(show_output=True)
     ```
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
