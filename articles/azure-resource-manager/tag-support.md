@@ -64,18 +64,6 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | batchAccounts | Yes | 
 
-## Batch AI
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| clusters | Yes | 
-| jobs | Yes | 
-| fileservers | Yes | 
-| workspaces | Yes | 
-| workspaces/clusters | No | 
-| workspaces/fileservers | No | 
-| workspaces/experiments | No | 
-| workspaces/experiments/jobs | No | 
-
 ## Bing Maps
 | Resource type | Supports tags |
 | ------------- | ----------- |

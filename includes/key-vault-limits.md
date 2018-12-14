@@ -19,7 +19,8 @@ Key transactions (Max transactions allowed in 10 seconds, per vault per region<s
 |
 
 > [!NOTE]
-> If you look at the table below, you see that for software-backed keys, we allow 2000 transactions per 10 seconds, and for HSM, 1000 transactions per 10 seconds. The ratio of software-backed transactions for 3072 keys to 2048 keys is 500/2000 or 0.4. This means that if a customer does 500 3072 key transactions in 10 seconds, they reach their max limit and can't do any other key operations. 
+> If you look at the table below, you see that for software-backed keys we allow 2000 transactions per 10 seconds, and for HSM backed keys we allow 1000 transactions      per 10 seconds. 
+  The ratio of software-backed transactions for 3072 keys to 2048 keys is 500/2000 or 0.4. This means that if a customer does 500 3072 key transactions in 10 seconds, they reach their max limit and can't do any other key operations. 
    
 |Key type  | Software key |HSM-key  |
 |---------|---------|---------|

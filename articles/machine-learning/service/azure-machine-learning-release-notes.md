@@ -19,7 +19,7 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ## 2018-12-04: General Availability
 
-zure Machine Learning service is now generally available.
+Azure Machine Learning service is now generally available.
 
 ### Azure Machine Learning Compute
 With this release, we are announcing a new managed compute experience through [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute can be used for Training and Batch inferencing, is single- to multi-node compute, and does the cluster management and job scheduling for the user. It autoscales by default, has support for both CPU and GPU resources and also allows using Low-Priority VMs for reduced cost. It replaces Batch AI compute for Azure Machine Learning.
@@ -61,7 +61,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
   * Random Split no longer fails if the original Dataflow doesn’t have a name  
 
 + **More information**
-  * [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py)
+  * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
 ### Docs and notebooks
 + ML Pipelines
