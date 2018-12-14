@@ -24,7 +24,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 # Create a device simulation
 
-In this section, you'll create three simulated devices that will send data to an IoT hub.
+In this section, you create three simulated devices that will send data to an IoT hub.
 
 1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). The page displays several prebuilt examples. Sign in by using your Azure account. Then, select **Device Simulation**.
 
@@ -37,13 +37,13 @@ In this section, you'll create three simulated devices that will send data to an
    | Parameter | Description |
    | --- | --- |
    | **Solution name** |	Enter a unique value for creation of a new resource group. The listed Azure resources are created and assigned to the resource group. |
-   | **Subscription** |	Specify the same subscription used for creation of your Time Series Insights environment |
+   | **Subscription** |	Specify the same subscription used for creation of your Time Series Insights environment. |
    | **Region** |	Specify the same region used for creation of your Time Series Insights environment. |
    | **Deploy optional Azure Resources**	| Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
 
-   After entering the required parameters, select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
+   Then select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
 
-   ![Create device simulation solution page][2]
+   ![Create Device Simulation solution page][2]
 
 1. In your solution accelerator dashboard, select the **Launch** button:
 
@@ -59,13 +59,13 @@ In this section, you'll create three simulated devices that will send data to an
 
     |||
     | --- | --- |
-    | **Name** | Enter a unique name for a simulator |
-    | **Description** | Enter a definition |
-    | **Simulation duration** | Set to **Run indefinitely** |
-    | **Device model** | **Name**: Enter **Chiller** </br>**Amount**: Enter **3** |
-    | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub** |
+    | **Name** | Enter a unique name for a simulator. |
+    | **Description** | Enter a definition. |
+    | **Simulation duration** | Set to **Run indefinitely**. |
+    | **Device model** | **Name**: Enter **Chiller**. </br>**Amount**: Enter **3**. |
+    | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-    After filling the required parameters, select **Start simulation**.
+    Then select **Start simulation**.
 
 1. In the device simulation dashboard, see **Active devices** and **Messages per second**.
 
@@ -109,7 +109,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Property ID** | Enter something that uniquely identifies your time series. Note that this field is immutable and cannot be changed later. For this tutorial, use **iothub-connection-device-id**. To learn more about the Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
    | **Storage account name** | Enter a globally unique name for a new storage account to be created. |
 
-   After filling in the fields, select **Next: Event Source**.
+   Then select **Next: Event Source**.
 
    ![Page for creating a Time Series Insights environment][10]
 
@@ -120,14 +120,14 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Create an event source?** | Enter **Yes**.|
    | **Name** | Enter a unique value that's used to name the event source.|
    | **Source type** | Enter **IoT Hub**. |
-   | **Select a hub?** | Enter **Select Existing**. |
+   | **Select a hub?** | Enter **Select existing**. |
    | **Subscription** | Enter the subscription that you used for the device simulator. |
    | **IoT Hub name** | Enter the IoT hub name that you created for the device simulator. |
    | **IoT Hub access policy** | Enter **iothubowner**. |
    | **Iot Hub consumer group** | You need a unique consumer group for Azure Time Series Insights Preview. Select **New**, enter a unique name, and then select **Add**. |
    | **Timestamp property** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, don't fill in the field. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to.|
 
-   After filling in the fields, select **Review + create**.
+   Then select **Review + create**.
 
    ![Page for setting up an event source][13]
 
@@ -153,7 +153,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
      ![Listed credentials][18]
 
-   If your credentials aren't listed, you have to give yourself permission to access the environment. To learn more about setting permissions, read [Grant Data Access](./time-series-insights-data-access.md).
+   If your credentials aren't listed, you have to give yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
 ## Analyze data in your environment
 
@@ -169,7 +169,7 @@ In this section, you perform basic analytics on your time series data by using t
 
 1. In the time series shown, select the first instance. Then, select **Show Avg pressure**.
 
-   ![Show average pressure][21]
+   ![Selected instance with menu command to show average pressure][21]
 
    A time series chart should appear on the right:
 
@@ -177,7 +177,7 @@ In this section, you perform basic analytics on your time series data by using t
 
 1. Repeat step 3 with the other two time series. You can then view all time series, as shown in this chart:
 
-   ![All time series chart][23]
+   ![Chart for all time series][23]
 
 1. Modify the time range to see time series trends over the last hour. 
 
@@ -205,7 +205,7 @@ In this section, you apply a model to structure your data. To complete the model
 
    ![The Add button for types][28]
 
-1. Define three variables: pressure, temperature, and humidity in a type. Enter the following information:
+1. Define three variables for the type: pressure, temperature, and humidity. Enter the following information:
 
    | | |
    | --- | ---|
@@ -217,10 +217,10 @@ In this section, you apply a model to structure your data. To complete the model
       | | |
       | --- | ---|
       | **Name** | Enter **Avg Pressure**. |
-      | **Value** | Select **pressure (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights starts receiving events. |
+      | **Value** | Select **pressure (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
       | **Aggregation Operation** | Select **AVG**. |
 
-      ![Selections for adding a variable][29]
+      ![Selections for defining pressure][29]
 
       Select  **+ Add Variable** to add the next variable.
 
@@ -229,7 +229,7 @@ In this section, you apply a model to structure your data. To complete the model
       | | |
       | --- | ---|
       | **Name** | Enter **Avg Temperature**. |
-      | **Value** | Select **temperature (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights starts receiving events. |
+      | **Value** | Select **temperature (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
       | **Aggregation Operation** | Select **AVG**.|
 
       ![Selections for defining temperature][30]
@@ -239,7 +239,7 @@ In this section, you apply a model to structure your data. To complete the model
       | | |
       | --- | ---|
       | **Name** | Enter **Max Humidity**. |
-      | **Value** | Select **humidity (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights starts receiving events. |
+      | **Value** | Select **humidity (Double)**. Note that this field might take a few minutes to be populated after Azure Time Series Insights Preview starts receiving events. |
       | **Aggregation Operation** | Select **MAX**.|
 
       ![Selections for defining temperature][31]
