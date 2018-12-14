@@ -52,8 +52,9 @@ In order to build and deploy your module image, you need Docker to build the mod
 
 - [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-> [!TIP]
-> You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
+
+    > [!TIP]
+    > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
 Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
@@ -149,8 +150,8 @@ In your development machine, you can start an IoT Edge simulator instead of inst
      - Open the file `program.cs` and add a breakpoint.
      - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
-       > [!NOTE]
-       > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
+        > [!NOTE]
+        > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
 
    - **Node.js**
      - In the Visual Studio Code integrated terminal, change the directory to the ***&lt;your module name&gt;*** folder, and then run the following command to install Node packages
