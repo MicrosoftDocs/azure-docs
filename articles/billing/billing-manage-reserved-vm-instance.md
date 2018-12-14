@@ -1,5 +1,5 @@
 ---
-title: Manage resrvations for Azure | Microsoft Docs
+title: Manage reservations for Azure | Microsoft Docs
 description: Learn how you can change subscription scope and manage access for Azure reservations. 
 services: billing
 documentationcenter: ''
