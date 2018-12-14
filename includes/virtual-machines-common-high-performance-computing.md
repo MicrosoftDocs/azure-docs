@@ -81,7 +81,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### AI and deep learning
 
-* [Batch AI](../articles/batch-ai/overview.md) training for deep learning models
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Deep Learning VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -157,13 +156,12 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 ### Data and analytics
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
 ### AI and machine learning
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### Networking
@@ -192,7 +190,7 @@ Examples of customers that have solved business problems with Azure HPC solution
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+* [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 

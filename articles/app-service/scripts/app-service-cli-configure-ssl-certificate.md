@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Bind a custom SSL certificate to a web ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: erikre
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,13 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 
-# Bind a custom SSL certificate to a web app
+# Bind a custom SSL certificate to a web app using CLI
 
 This sample script creates a web app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you need:
 
@@ -30,7 +32,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

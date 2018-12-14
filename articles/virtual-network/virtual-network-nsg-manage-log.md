@@ -84,7 +84,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-If you only want to log data for one category or the other, rather than both, add the `-Categories` option to the previous command, followed by *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+If you only want to log data for one category or the other, rather than both, add the `-Categories` option to the previous command, followed by *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
@@ -117,18 +117,18 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-If you don't have an existing workspace, you can create one using the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
+If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
 
-If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
 ## Log destinations
 
 Diagnostics data can be:
-- [Written to an Azure Storage account](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
+- [Written to an Azure Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
 - [Streamed to an Event hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
-- [Written to Azure Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Written to Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## Log categories
 
@@ -136,7 +136,7 @@ JSON-formatted data is written for the following log categories:
 
 ### Event
 
-The event log contains information about which NSG rules are applied to VMs, based on MAC address. The following example data is logged for each event:
+The event log contains information about which NSG rules are applied to VMs, based on MAC address. The following data is logged for each event. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -150,16 +150,16 @@ The event log contains information about which NSG rules are applied to VMs, bas
 		"subnetPrefix":"192.168.1.0/24",
 		"macAddress":"00-0D-3A-92-6A-7C",
 		"primaryIPv4Address":"192.168.1.4",
-		"ruleName":"[SECURITY RULE NAME]",
-		"direction":"In",
-		"priority":1000,
-		"type":"allow",
+		"ruleName":"[SECURITY-RULE-NAME]",
+		"direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+		"priority":[PRIORITY-SPECIFIED-IN-RULE],
+		"type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
 		"conditions":{
-			"protocols":"6",
-			"destinationPortRange":"[PORT RANGE]",
-			"sourcePortRange":"0-65535",
-			"sourceIP":"0.0.0.0/0",
-			"destinationIP":"0.0.0.0/0"
+			"protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+			"destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+			"sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+			"sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+			"destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
 			}
 		}
 }
@@ -167,7 +167,7 @@ The event log contains information about which NSG rules are applied to VMs, bas
 
 ### Rule counter
 
-The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied:
+The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -181,9 +181,9 @@ The rule counter log contains information about each rule applied to resources. 
 		"subnetPrefix":"192.168.1.0/24",
 		"macAddress":"00-0D-3A-92-6A-7C",
 		"primaryIPv4Address":"192.168.1.4",
-		"ruleName":"[SECURITY RULE NAME]",
-		"direction":"In",
-		"type":"allow",
+		"ruleName":"[SECURITY-RULE-NAME]",
+		"direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+		"type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
 		"matchedConnections":125
 		}
 }
@@ -195,7 +195,7 @@ The rule counter log contains information about each rule applied to resources. 
 ## View and analyze logs
 
 To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you send diagnostics data to:
-- **Log Analytics**: You can use the [network security group analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Log Analytics**: You can use the [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
 - **Azure Storage account**: Data is written to a PT1H.json file. You can find the:
     - Event log in the following path: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

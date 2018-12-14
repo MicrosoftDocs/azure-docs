@@ -18,7 +18,7 @@ This tutorial introduces entities, and shows how to use the "Disqualifying entit
 
 ## Video
 
-[![Tutorial 3 Preview](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+[![Tutorial 3 Preview](https://aka.ms/cl-tutorial-03-preview)](https://aka.ms/blis-tutorial-03)
 
 ## Requirements
 

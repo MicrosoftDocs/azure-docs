@@ -70,47 +70,47 @@ If you are a **Member user**, Enable Backup process will seamlessly acquire acce
    For a **Guest user**, you must provide permissions to the backup service to access the key vault for backups to work. You can      provide these permissions by following the [steps mentioned in the following section](#provide-permissions-to-backup)
 
    ![Encrypted VMs message](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
- 
+
     Now that you have defined all settings for the vault, select **Enable Backup** at the bottom of the page. **Enable Backup** deploys     the policy to the vault and the VMs.
-  
+
 1. The next phase in preparation is installing the VM Agent or making sure the VM Agent is installed. To do the same, follow the steps in [Prepare your environment for backup](backup-azure-arm-vms-prepare.md).
 
 ### Trigger a backup job
 Follow the steps in [Backup Azure VMs to a Recovery Services vault](backup-azure-arm-vms.md) to trigger a backup job.
 
 ### Continue backups of already backed-up VMs with encryption enabled  
-If you have VMs already being backed up in a Recovery Services vault that are enabled for encryption later, you must give permissions to Backup to access the key vault for backups to continue. You can provide these permissions by following the [steps in the following section](#provide-permissions-to-azure-backup). Or you can follow the PowerShell steps in the "Enable backup" section of the [PowerShell documentation](backup-azure-vms-automation.md). 
+If you have VMs already being backed up in a Recovery Services vault that are enabled for encryption later, you must give permissions to Backup to access the key vault for backups to continue. You can provide these permissions by following the [steps in the following section](#provide-permissions-to-azure-backup). Or you can follow the PowerShell steps in the "Enable backup" section of the [PowerShell documentation](backup-azure-vms-automation.md).
 
-## Provide permissions to Backup
+## <a name="provide-permissions-to-azure-backup"></a>Provide permissions to Backup
 Use the following steps to provide relevant permissions to Backup to access the key vault and perform backup of encrypted VMs.
 1. Select **All services**, and search for **Key vaults**.
 
     ![Key vaults](./media/backup-azure-vms-encryption/search-key-vault.png)
-    
+
 1. From the list of key vaults, select the key vault associated with the encrypted VM that needs to be backed up.
 
      ![Key vault selection](./media/backup-azure-vms-encryption/select-key-vault.png)
-     
+
 1. Select **Access policies**, and then select **Add new**.
 
     ![Add new](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-    
-1. Select **Select principal**, and then type **Backup Management Service** in the search box. 
+
+1. Select **Select principal**, and then type **Backup Management Service** in the search box.
 
     ![Backup service search](./media/backup-azure-vms-encryption/search-backup-service.png)
-    
+
 1. Select **Backup Management Service**, and then select **Select**.
 
     ![Backup service selection](./media/backup-azure-vms-encryption/select-backup-service.png)
-    
+
 1. Under **Configure from template (optional)**, select **Azure Backup**. The required permissions are prefilled for **Key permissions** and **Secret permissions**. If your VM is encrypted by using **BEK only**, permissions only for secrets are required, so you must remove the selection for **Key permissions**.
 
     ![Azure backup selection](./media/backup-azure-vms-encryption/select-backup-template.png)
-    
-1. Select **OK**. Notice that **Backup Management Service** gets added in **Access policies**. 
+
+1. Select **OK**. Notice that **Backup Management Service** gets added in **Access policies**.
 
     ![Access policies](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
-    
+
 1. Select **Save** to give the required permissions to Backup.
 
     ![Backup access policy](./media/backup-azure-vms-encryption/save-access-policy.png)
@@ -126,7 +126,7 @@ To restore an encrypted VM, first restore disks by following the steps in the "R
 ## Troubleshooting errors
 | Operation | Error details | Resolution |
 | --- | --- | --- |
-|Backup | Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. | Backup should be provided these permissions by following the [steps in the previous section](#provide-permissions-to-azure-backup). Or you can follow the PowerShell steps in the "Enable protection" section of the PowerShell documentation at [Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines](backup-azure-vms-automation.md#back-up-azure-vms). |  
+|Backup | Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. | Backup should be provided these permissions by following the [steps in the previous section](#provide-permissions-to-azure-backup). Or you can follow the PowerShell steps in the "Enable protection" section of the article, [Use PowerShell to back up and restore virtual machines](backup-azure-vms-automation.md#enable-protection). |  
 | Restore |You can't restore this encrypted VM because the key vault associated with this VM doesn't exist. |Create a key vault by using [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md). See [Restore a key vault key and a secret by using Azure Backup](backup-azure-restore-key-secret.md) to restore a key and a secret if they aren't present. |
 | Restore |You can't restore this encrypted VM because the key and the secret associated with this VM don't exist. |See [Restore a key vault key and a secret by using Azure Backup](backup-azure-restore-key-secret.md) to restore a key and a secret if they aren't present. |
 | Restore |Backup doesn't have the authorization to access resources in your subscription. |As mentioned previously, restore disks first by following the steps in the "Restore backed-up disks" section in [Choose a VM restore configuration](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). After that, use PowerShell to [create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

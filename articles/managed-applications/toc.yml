@@ -7,13 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create managed application
-    href: managed-apps-quickstart-cli.md
+  - name: Publish application definition
+    href: publish-managed-app-definition-quickstart.md
+  - name: Deploy service catalog app
+    href: deploy-service-catalog-quickstart.md
 - name: Tutorials
   items:
-  - name: Create managed application files
+  - name: Create definition files
     href: publish-service-catalog-app.md
-  - name: Create marketplace application 
+  - name: Publish marketplace application 
     href: publish-marketplace-app.md 
 - name: Samples
   items:
@@ -25,14 +27,22 @@
     href: sample-projects.md
 - name: How-to guides
   items:
-  - name: Define user interface
-    href: create-uidefinition-overview.md
-  - name: Update managed resources
-    href: update-managed-resources.md
-  - name: Use portal to publish
-    href: publish-portal.md
-  - name: Use secret from Key Vault
-    href: key-vault-access.md
+  - name: Publishers
+    items:
+    - name: Create portal interface
+      href: create-uidefinition-overview.md
+    - name: Test portal interface
+      href: test-createuidefinition.md
+    - name: Update managed resources
+      href: update-managed-resources.md
+    - name: Use portal to publish application definition
+      href: publish-portal.md
+    - name: Use secret from Key Vault
+      href: key-vault-access.md
+  - name: Consumers
+    items:
+    - name: Monitor managed application
+      href: monitor-managed-application-portal.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -74,8 +84,6 @@
         href: microsoft-compute-usernametextbox.md
     - name: Network
       items:
-      - name: AvailabilityZoneDropDown
-        href: microsoft-network-availabilityzonedropdown.md
       - name: PublicIPAddressCombo
         href: microsoft-network-publicipaddresscombo.md
       - name: VirtualNetworkCombo

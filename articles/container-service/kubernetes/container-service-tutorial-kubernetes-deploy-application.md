@@ -1,20 +1,23 @@
 ---
-title: Azure Container Service tutorial - Deploy Application
+title: (DEPRECATED) Azure Container Service tutorial - Deploy Application
 description: Azure Container Service tutorial - Deploy Application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Run applications in Kubernetes
+# (DEPRECATED) Run applications in Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Run applications in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
@@ -82,7 +85,7 @@ service "azure-vote-front" created
 
 A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) is created which exposes the application to the internet. This process can take a few minutes. 
 
-To monitor progress, use the [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) command with the `--watch` argument.
+To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

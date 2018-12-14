@@ -1,5 +1,5 @@
 ---
-title: High density hosting on Azure App Service using per-app scaling | Microsoft Docs
+title: High density hosting using per-app scaling - Azure App Service | Microsoft Docs
 description: High density hosting on Azure App Service
 author: btardif
 manager: erikre
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
+ms.custom: seodec18
 
 ---
 # High density hosting on Azure App Service using per-app scaling
@@ -31,9 +32,9 @@ can be scaled to 10 instances, but an app can be set to use only five.
 
 ## Per app scaling using PowerShell
 
-Create a plan with per-app scaling 
-by passing in the ```-perSiteScaling $true``` attribute to the 
-```New-AzureRmAppServicePlan``` commandlet
+Create a plan with per-app scaling
+by passing in the ```-PerSiteScaling $true``` parameter to the
+```New-AzureRmAppServicePlan``` cmdlet.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -42,23 +43,14 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-To update an existing App Service plan with per-app scaling: 
-
-- get the target plan ```Get-AzureRmAppServicePlan```
-- modifying the property locally ```$newASP.PerSiteScaling = $true```
-- posting your changes back to azure ```Set-AzureRmAppServicePlan``` 
+Enable per-app scaling with an existing App Service Plan
+by passing in the `-PerSiteScaling $true` parameter to the
+```Set-AzureRmAppServicePlan``` cmdlet.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 At the app level, configure the number of instances the app can use in the App Service plan.
@@ -93,7 +85,7 @@ to use to 5 `"properties": { "numberOfWorkers": "5" }`.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters":{
         "appServicePlanName": { "type": "string" },
@@ -148,13 +140,13 @@ Follow these steps to configure
 high density hosting for your apps:
 
 1. Configure the App Service Environment and choose a worker pool that is dedicated to the high density hosting scenario.
-1. Create a single App Service plan, and scale it to use all the available
+2. Create a single App Service plan, and scale it to use all the available
    capacity on the worker pool.
-1. Set the `PerSiteScaling` flag to true on the App Service plan.
-1. New apps are created and assigned to that App Service plan with the
+3. Set the `PerSiteScaling` flag to true on the App Service plan.
+4. New apps are created and assigned to that App Service plan with the
    **numberOfWorkers** property set to **1**. Using this configuration yields the 
    highest density possible on this worker pool.
-1. The number of workers can be configured independently per app to grant
+5. The number of workers can be configured independently per app to grant
    additional resources as needed. For example:
     - A high-use app can set **numberOfWorkers** to **3** to have more 
       processing capacity for that app. 

@@ -4,7 +4,7 @@ description: Media Services REST API overview
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 10/29/2018
 ms.author: juliako;johndeu
 
 ---

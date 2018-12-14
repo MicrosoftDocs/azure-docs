@@ -1,25 +1,25 @@
 ---
-title: Migrate Azure VMs between Azure regions using Azure Site Recovery | Microsoft Docs
-description: Use Azure Site Recovery to migrate Azure IaaS VMs from one Azure region to another.
+title: Move Azure IaaS VMs to another Azure region using the Azure Site Recovery service | Microsoft Docs
+description: Use Azure Site Recovery to move Azure IaaS VMs from one Azure region to another.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
 
-# Migrate Azure VMs to another region
+# Move Azure VMs to another region
 
-In addition to using the [Azure Site Recovery](site-recovery-overview.md) service to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR), you can also use Site Recovery to manage migration of Azure VMs to a secondary region. To migrate Azure VMs, you enable replication for them, and fail them over from the primary region to the secondary region of your choice.
+In addition to using the [Azure Site Recovery](site-recovery-overview.md) service to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR), you can also use Site Recovery to manage move Azure VMs to a secondary region. To move Azure VMs, you enable replication for them, and fail them over from the primary region to the secondary region of your choice.
 
-This tutorial shows you how to migrate Azure VMs to another region. In this tutorial, you learn how to:
+This tutorial shows you how to move Azure VMs to another region. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Recovery services vault
 > * Enable replication for a VM
-> * Run a failover to migrate the VM
+> * Run a failover to move the VM
 
 This tutorial presumes you already have an Azure subscription. If you don't, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -29,7 +29,7 @@ This tutorial presumes you already have an Azure subscription. If you don't, cre
 
 ## Prerequisites
 
-- Make sure you have Azure VMs in the Azure region from which you want to migrate.
+- Make sure you have Azure VMs in the Azure region from which you want to move.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
 
@@ -61,12 +61,12 @@ If you have just created your free Azure account then you are the administrator 
 
 ### Verify VM outbound access
 
-1. Make sure you're not using an authentication proxy to control network connectivity for VMs you want to migrate. 
-2. For the purposes of this tutorial we assume that the VMs you want to migrate can access the internet, and are not using a firewall proxy to control outbound access. If you are, check the requirements [here](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Make sure you're not using an authentication proxy to control network connectivity for VMs you want to move. 
+2. For the purposes of this tutorial we assume that the VMs you want to move can access the internet, and are not using a firewall proxy to control outbound access. If you are, check the requirements [here](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
 ### Verify VM certificates
 
-Check that all the latest root certificates are present on the Azure VMs you want to migrate. If the latest root certificates aren't, the VM can't be registered to Site
+Check that all the latest root certificates are present on the Azure VMs you want move. If the latest root certificates aren't, the VM can't be registered to Site
 Recovery, due to security constraints.
 
 - For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate update processes for your organization.
@@ -110,7 +110,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 
 
 1. In the Azure portal, click **Virtual machines**.
-2. Select the VM you want to migrate. Then click **OK**.
+2. Select the VM you want to move. Then click **OK**.
 3. In **Settings**, click **Disaster recovery**.
 4. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
 5. For this tutorial, accept the other default settings.
@@ -133,7 +133,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 
 ## Next steps
 
-In this tutorial you migrated an Azure VM to a different Azure region. Now you can configure disaster recovery for the migrated VM.
+In this tutorial you moved an Azure VM to a different Azure region. Now you can configure disaster recovery for the moved VM.
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)

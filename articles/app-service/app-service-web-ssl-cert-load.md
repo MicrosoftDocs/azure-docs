@@ -1,6 +1,6 @@
 ---
-title: Use an uploaded SSL certificate in your application code in Azure App Service | Microsoft Docs
-description: 
+title: Use client SSL certificate in application code - Azure App Service | Microsoft Docs
+description: Learn how to use client certificates to connect to remote resources that require them.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Use an SSL certificate in your application code in Azure App Service
@@ -47,7 +49,7 @@ All your uploaded and imported SSL certificates for this web app are shown here 
 
 In the left navigation, click **Application settings**.
 
-Add an app setting called `WEBSITE_LOAD_CERTIFICATES` and set its value to the thumbprint of the certificate. To make multiple certificates accessible, use comma-separated thumbprint values. To make all certificates accessible, set the value to `*`. 
+Add an app setting called `WEBSITE_LOAD_CERTIFICATES` and set its value to the thumbprint of the certificate. To make multiple certificates accessible, use comma-separated thumbprint values. To make all certificates accessible, set the value to `*`. Take note that this will place the certificate into the `CurrentUser\My` store.
 
 ![Configure app setting](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

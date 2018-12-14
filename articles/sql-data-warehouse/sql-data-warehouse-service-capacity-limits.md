@@ -3,11 +3,11 @@ title: Capacity limits - Azure SQL Data Warehouse | Microsoft Docs
 description: Maximum values allowed for various components of Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: sachinpMSFT
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ---
@@ -30,7 +30,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 |:--- |:--- |:--- |
 | Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: 240TB for rowstore and unlimited storage for columnstore tables |
 | Table |Max size |60 TB compressed on disk |
-| Table |Tables per database |10,000 |
+| Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type](sql-data-warehouse-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
 | Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see [Row-Overflow Data Exceeding 8-KB](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -64,7 +64,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 | SELECT |Columns per JOIN |1024 columns<br/><br/>You can never have more than 1024 columns in the JOIN. There is no guarantee that you can always have 1024. If the JOIN plan requires a temporary table with more columns than the JOIN result, the 1024 limit applies to the temporary table. |
 | SELECT |Bytes per GROUP BY columns. |8060<br/><br/>The columns in the GROUP BY clause can have a maximum of 8060 bytes. |
 | SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
-| Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/>SQL Data Warehouse limits the number of identifiers that can be contained in a single expression of a query. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached][Internal error: An expression services limit has been reached]. |
+| Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/>SQL Data Warehouse limits the number of identifiers that can be contained in a single expression of a query. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | String literals | Number of string literals in a statement | 20,000 <br/><br/>SQL Data Warehouse limits the number of string constants in a single expression of a query. Exceeding this number results in SQL Server error 8632.|
 
 ## Metadata

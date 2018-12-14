@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Define how a simulated device responds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
-[!INCLUDE [iot-accelerators-device-schema](../../includes/iot-accelerators-device-schema.md)]
+[!INCLUDE [iot-accelerators-device-behavior](../../includes/iot-accelerators-device-behavior.md)]
 
 ## Next steps
 
@@ -36,7 +36,7 @@ This article described how to define the behavior of your own custom simulated d
 > * Define how a simulated device responds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
-Now that you've learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-test.md).
+Now that you've learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 For more developer information about the Remote Monitoring solution, see:
 

@@ -1,5 +1,5 @@
 ---
-title: Best Practices for Azure App Service
+title: Best Practices - Azure App Service
 description: Learn best practices and troubleshooting for Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
+ms.custom: seodec18
 
 ---
 # Best Practices for Azure App Service
-This article summarizes best practices for using [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
+This article summarizes best practices for using [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
 ## <a name="colocation"></a>Colocation
 When Azure resources composing a solution such as a web app and a database are located in different regions, it can have the following effects:

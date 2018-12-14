@@ -1,8 +1,8 @@
 ---
 title: Set up Device Provisioning using an Azure Resource Manager template | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -13,13 +13,13 @@ ms.custom: mvc
 
 # Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-You can use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses [Azure CLI 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby, or other programming languages to perform these steps and deploy your template. 
+You can use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## Sign in to Azure and create a resource group

@@ -1,31 +1,27 @@
 ---
-title: Release notes for Azure HDInsight | Microsoft Docs
+title: Release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
+ms.reviewer: jasonh
+author: hrasheed-msft
 
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
-ms.author: nitinme
+ms.author: hrasheed
 
 ---
 # Release notes for Azure HDInsight
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Hadoop and Spark analytics on Azure. With the [plus 50 percent price cut on HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), customers moving to the cloud are reaping more savings than ever.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. With the [plus 50 percent price cut on HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), customers moving to the cloud are reaping more savings than ever.
 
 ## New features
 
@@ -33,15 +29,15 @@ The new updates and capabilities fall in to the following categories:
 
 1.  ***Update Hadoop and other open-source projects*** – In addition to 1000+ bug fixes across 20+ open-source projects, this update contains a new version of **Spark (2.3)** and **Kafka (1.0)**.
 
-    a.  [**New features in Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    a.  [**New features in Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**New features in Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**New features in Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we are providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
 
 3.  ***Support for Azure Data Lake Storage Gen2*** – HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as the Primary or Secondary store for their HDInsight clusters.
 
-4.  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) support for Azure Blob Storage, ADLS Gen1, Cosmos DB, and Azure DB.
+4.  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) support for Azure Blob Storage, ADLS Gen1, Cosmos DB, and Azure DB.
 
 ## Component versions
 
@@ -1330,9 +1326,9 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
     -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
 
-        >[!NOTE]
-        >Only when Ranger is SSL enabled. 
-    
+        > [!NOTE]  
+        > Only when Ranger is SSL enabled. 
+     
     This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
     
     `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
@@ -1353,7 +1349,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
             
             SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
+    >[!NOTE]  
     >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
 
 -   **RangerUI: Escape of policy condition text entered in the policy form**
@@ -1420,6 +1416,6 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 ## ​Upgrading
 
-All of these features are available in HDInsight 3.6. To get the latest version of Spark, Kafka and R Server (Machine Learning Services), please choose the Spark, Kafka, ML Services version when you [create a HDInsight 3.6 cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). To get support for ADLS, you can choose the ADLS storage type as an option. Existing clusters will not be upgraded to these versions automatically.
+All of these features are available in HDInsight 3.6. To get the latest version of Spark, Kafka and R Server (Machine Learning Services), please choose the Spark, Kafka, ML Services version when you [create a HDInsight 3.6 cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). To get support for ADLS, you can choose the ADLS storage type as an option. Existing clusters will not be upgraded to these versions automatically.
 
-All new clusters created after June 2018 will automatically get the 1000+ bug fixes across all the open-source projects. Please follow [this](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-upgrade-cluster) guide for best practices around upgrading to a newer HDInsight version.
+All new clusters created after June 2018 will automatically get the 1000+ bug fixes across all the open-source projects. Please follow [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster) guide for best practices around upgrading to a newer HDInsight version.

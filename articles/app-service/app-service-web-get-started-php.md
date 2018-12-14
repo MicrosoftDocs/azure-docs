@@ -1,5 +1,5 @@
 ---
-title: Create a PHP web app in Azure | Microsoft Docs
+title: Create PHP web app - Azure App Service | Microsoft Docs
 description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -13,9 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Create a PHP web app in Azure
 
@@ -36,11 +38,11 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* <a href="http://php.net/manual/install.php" target="_blank">Install PHP</a>
+* <a href="https://php.net/manual/install.php" target="_blank">Install PHP</a>
 
 ## Download the sample locally
 
-In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -49,7 +51,7 @@ cd php-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `php` command to launch the built-in PHP web server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `php` command to launch the built-in PHP web server.
 
 ```bash
 php -S localhost:8080

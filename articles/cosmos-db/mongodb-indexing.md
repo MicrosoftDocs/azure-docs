@@ -1,10 +1,8 @@
 ---
-title: Indexing in Azure Cosmos DB MongoDB API | Microsoft Docs
+title: Indexing in Azure Cosmos DB MongoDB API
 description: Presents an overview of the indexing capabilities in Azure Cosmos DB MongoDB API.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -39,7 +37,7 @@ Compound indexes hold references to multiple fields of a document. Logically, th
 >[!important] 
 > Currently, unique indexes can be created only when the collection is empty (contains no documents). 
 
-The following command creates a unique index on the field “student_id”:
+The following command creates a unique index on the field "student_id":
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 
@@ -97,5 +95,5 @@ The preceding command will cause the deletion of any documents in ```db.coll``` 
 Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the --noIndexRestore flag in the command line).
 
 ## Next steps
-* [How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
+* [How does Azure Cosmos DB index data?](../cosmos-db/index-policy.md)
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)

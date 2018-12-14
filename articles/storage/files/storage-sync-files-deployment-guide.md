@@ -2,19 +2,12 @@
 title: Deploy Azure File Sync | Microsoft Docs
 description: Learn how to deploy Azure File Sync, from start to finish.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Deploy Azure File Sync
@@ -27,7 +20,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
     - [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a step-by-step description of how to create a storage account.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
+* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Ensure PowerShell 5.1 is installed on your Windows Server. If you are using Windows Server 2012 R2, ensure that you are running at least PowerShell 5.1.\*. You can safely skip this check on Windows Server 2016 as PowerShell 5.1 is the default version out-of-box. On Windows Server 2012 R2, you can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```PowerShell
@@ -203,7 +196,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
 Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
+    -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
@@ -222,7 +215,7 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 Registering your Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. A server can only be registered to one Storage Sync Service and can sync with other servers and Azure file shares associated with the same Storage Sync Service.
 
 > [!Note]
-> Server registration uses your Azure credentials to create a trust relationship between the Storage Sync Service and your Windows Server, however subsequently the server creates and uses it's own identity that is valid as long as the server stays registered and the current Shared Access Signature token (Storage SAS) is valid. A new SAS token cannot be issued to the server once the server is unregistered, thus removing the server's ability to access your Azure file shares, stopping any sync.
+> Server registration uses your Azure credentials to create a trust relationship between the Storage Sync Service and your Windows Server, however subsequently the server creates and uses its own identity that is valid as long as the server stays registered and the current Shared Access Signature token (Storage SAS) is valid. A new SAS token cannot be issued to the server once the server is unregistered, thus removing the server's ability to access your Azure file shares, stopping any sync.
 
 # [Portal](#tab/portal)
 The Server Registration UI should open automatically after installation of the Azure File Sync agent. If it doesn't, you can open it manually from its file location: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. When the Server Registration UI opens, select **Sign-in** to begin.
@@ -245,7 +238,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## Create a sync group and a cloud endpoint
-A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
+A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
 
 A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that will not sync to other endpoints. Do not use or delete it!
 
@@ -305,7 +298,7 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountResourceId $storageAccount.Id `
     -StorageAccountShareName $fileShare.Name
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Copy data from Couchbase using Azure Data Factory | Microsoft Docs
+title: Copy data from Couchbase using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from Couchbase to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Couchbase using Azure Data Factory
+# Copy data from Couchbase using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Couchbase. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -70,7 +70,13 @@ The following properties are supported for Couchbase linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Couchbase dataset.
 
-To copy data from Couchbase, set the type property of the dataset to **CouchbaseTable**. There is no additional type-specific property in this type of dataset.
+To copy data from Couchbase, set the type property of the dataset to **CouchbaseTable**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **CouchbaseTable** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
+
 
 **Example**
 
@@ -82,7 +88,8 @@ To copy data from Couchbase, set the type property of the dataset to **Couchbase
         "linkedServiceName": {
             "referenceName": "<Couchbase linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -98,7 +105,7 @@ To copy data from Couchbase, set the source type in the copy activity to **Couch
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **CouchbaseSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

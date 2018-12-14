@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service Quickstart - Deploy DC/OS Cluster
+title: (DEPRECATED) Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
 services: container-service
 author: iainfoulds
@@ -12,13 +12,15 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Deploy a DC/OS cluster
+# (DEPRECATED) Deploy a DC/OS cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Log in to Azure 
 
@@ -74,7 +76,7 @@ If the SSH tunnel was successfully created, the DC/OS portal is returned.
 
 ## Install DC/OS CLI
 
-The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
+The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
 
 If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 

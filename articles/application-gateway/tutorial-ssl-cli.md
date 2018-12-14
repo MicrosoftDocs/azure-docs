@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires you to run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a self-signed certificate
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -84,7 +84,7 @@ az network public-ip create \
 
 ## Create the application gateway
 
-You can use [az network application-gateway create](/cli/azure/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
 The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
 
@@ -150,15 +150,17 @@ az vmss extension set \
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show).
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
 ```
+
+Copy the public IP address, and then paste it into the address bar of your browser. For this example, the URL is: **https://52.170.203.149**.
 
 ![Secure warning](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -175,14 +177,6 @@ az group delete --name myResourceGroupAG --location eastus
 ```
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Create a virtual machine scale set with the default backend pool
 
 > [!div class="nextstepaction"]
 > [Create an application gateway that hosts multiple web sites](./tutorial-multiple-sites-cli.md)

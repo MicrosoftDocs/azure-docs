@@ -1,14 +1,15 @@
 ---
-title: Physical server to Azure replication architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when replicating on-premises physical servers to Azure with the Azure Site Recovery service
+title: Architecture for physical server disaster recovery to Azure using Azure Site Recovery | Microsoft Docs
+description: This article provides an overview of components and architecture used during disaster recovery of on-premises physical servers to Azure with the Azure Site Recovery service.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
-# Physical server to Azure replication architecture
+# Physical server to Azure disaster recovery architecture
 
 This article describes the architecture and processes used when you replicate, fail over, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -39,7 +40,7 @@ The following table and graphic provide a high-level view of the components used
     - The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
-4. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+4. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 
 **Physical to Azure replication process**

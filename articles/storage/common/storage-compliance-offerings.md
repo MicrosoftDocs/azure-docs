@@ -2,19 +2,12 @@
 title: Azure Storage compliance offerings | Microsoft Docs
 description: Summary of compliance offerings on Azure Storage
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-
-ms.assetid:
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/27/2018
 ms.author: fryu
+ms.component: common
 ---
 
 # Azure Storage compliance offerings
@@ -59,7 +52,7 @@ You can find below compliance offerings on Azure Storage to ensure your service 
 * [FFIEC](https://www.microsoft.com/en-us/trustcenter/compliance/FFIEC)
 * [FISC (Japan)](https://www.microsoft.com/en-us/trustcenter/compliance/fisc)
 * [GLBA](https://aka.ms/AzureCompliance)
-* [GxP](http://www.microsoft.com/en-us/TrustCenter/Compliance/FDA)
+* [GxP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FDA)
 * [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/compliance/hipaa)
 * [HITRUST](https://www.microsoft.com/en-us/trustcenter/Compliance/HITRUST)
 * [MARS-E](https://www.microsoft.com/en-us/trustcenter/compliance/mars-e)
@@ -73,7 +66,7 @@ You can find below compliance offerings on Azure Storage to ensure your service 
 
 ## Regional
 
-* [BIR 2012 (Netherlands)](http://www.microsoft.com/en-us/TrustCenter/Compliance/bir-2012)
+* [BIR 2012 (Netherlands)](https://www.microsoft.com/en-us/TrustCenter/Compliance/bir-2012)
 * [C5 (Germany)](https://www.microsoft.com/en-us/TrustCenter/Compliance/C5)
 * [CCSL/IRAP (Australia)](https://www.microsoft.com/en-us/trustcenter/compliance/ccsl)
 * [CS Gold Mark (Japan)](https://www.microsoft.com/en-us/trustcenter/compliance/cloud-security-mark)

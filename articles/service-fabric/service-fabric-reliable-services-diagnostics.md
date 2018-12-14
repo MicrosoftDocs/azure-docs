@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
 
 ---
@@ -24,7 +24,7 @@ The Azure Service Fabric Stateful Reliable Services StatefulServiceBase class em
 The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services." Events from this event source appear in the
 [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567),
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567),
 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
@@ -117,7 +117,10 @@ The Reliable Services runtime emits the following events under the `Service Fabr
 
  Counter name | Description |
 | --- | --- |
-| Item Count | The number of keys in the store.|
+| Item Count | The number of items in the store.|
+| Disk Size | The total disk size, in bytes, of checkpoint files for the store.|
+| Checkpoint File Write Bytes/sec | The number of bytes written per second for the most recent checkpoint file.|
+| Copy Disk Transfer Bytes/sec | The number of disk bytes read (on the primary replica) or written (on a secondary replica) per second during a store copy.|
 
 ## Next steps
 [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

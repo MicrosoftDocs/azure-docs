@@ -2,14 +2,16 @@
 title: Performance counters for shard map manager
 description: ShardMapManager class and data dependent routing performance counters
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang:
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 03/31/2018
 ---
 # Performance counters for shard map manager
 You can capture the performance of a [shard map manager](sql-database-elastic-scale-shard-map-management.md), especially when using [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
@@ -23,7 +25,7 @@ Counters are used to track the performance of [data dependent routing](sql-datab
 * To create a performance counter instance and update the counters, the user must be a member of either the **Administrators** or **Performance Monitor Users** group. 
 
 ## Create performance category and counters
-To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagmentFactory class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
+To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

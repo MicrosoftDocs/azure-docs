@@ -1,23 +1,18 @@
 ---
-title: Install and use Giraph on HDInsight (Hadoop) - Azure | Microsoft Docs
+title: Install and use Giraph on HDInsight (Hadoop) - Azure 
 description: Learn how to install Giraph on Linux-based HDInsight clusters using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
+ms.author: hrasheed
 
 ---
-# Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
+# Install Apache Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
 
 Learn how to install Apache Giraph on an HDInsight cluster. The script action feature of HDInsight allows you to customize your cluster by running a bash script. Scripts can be used to customize clusters during and after cluster creation.
 
@@ -34,7 +29,7 @@ Learn how to install Apache Giraph on an HDInsight cluster. The script action fe
 
 * Calculating the page rank of webpages.
 
-> [!WARNING]
+> [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported - Microsoft Support helps to isolate and resolve issues related to these components.
 >
 > Custom components, such as Giraph, receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft Support may be able to resolving the issue. If not, you must consult open source communities where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
@@ -59,7 +54,7 @@ This section provides instructions on how to use the sample script while creatin
 > [!NOTE]
 > A script action can be applied using any of the following methods:
 > * Azure PowerShell
-> * The Azure CLI
+> * The Azure Classic CLI
 > * The HDInsight .NET SDK
 > * Azure Resource Manager templates
 > 
@@ -73,13 +68,13 @@ This section provides instructions on how to use the sample script while creatin
 
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-   * **HEAD**: Check this entry
+   * **HEAD**: Check this entry.
 
-   * **WORKER**: Leave this entry unchecked
+   * **WORKER**: Leave this entry unchecked.
 
-   * **ZOOKEEPER**: Leave this entry unchecked
+   * **ZOOKEEPER**: Leave this entry unchecked.
 
-   * **PARAMETERS**: Leave this field blank
+   * **PARAMETERS**: Leave this field blank.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** section to save the optional configuration information.
 
@@ -173,4 +168,4 @@ Once the cluster has been created, use the following steps to run the SimpleShor
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md).
 
-* [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).
+* [Install Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).

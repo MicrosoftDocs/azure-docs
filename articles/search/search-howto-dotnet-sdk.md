@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Search from a .NET Application | Microsoft Docs
-description: How to use Azure Search from a .NET Application
+title: How to use Azure Search from a .NET Application - Azure Search
+description: Learn how to use Azure Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,7 +9,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-
+ms.custom: seodec2018
 ---
 # How to use Azure Search from a .NET Application
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
@@ -583,6 +583,5 @@ This step completes the tutorial, but don't stop here. **Next steps** provides a
 
 ## Next steps
 * Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
-* Deepen your knowledge through [videos and other samples and tutorials](search-video-demo-tutorial-list.md).
 * Review [naming conventions](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects.
 * Review [supported data types](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) in Azure Search.

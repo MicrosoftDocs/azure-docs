@@ -1,5 +1,5 @@
-﻿---
-title: Create and use an internal load balancer with an Azure App Service Environment
+---
+title: Create internal load balancer with App Service Environment - Azure
 description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create and use an internal load balancer with an App Service Environment #
 
@@ -51,19 +52,19 @@ There are some things that you can't do when you use an ILB ASE:
 
 To create an ILB ASE:
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **App Service Environment**.
+1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
-1. Select your subscription.
+2. Select your subscription.
 
-1. Select or create a resource group.
+3. Select or create a resource group.
 
-1. Select or create a VNet.
+4. Select or create a VNet.
 
-1. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-1. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
+6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
-1. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
+7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
 	* net	
 
@@ -169,7 +170,7 @@ To upload your own certificates and test access:
 
 	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
-1. Use a browser on that VM and go to http://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
+1. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
 
 1. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
 
@@ -204,7 +205,7 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 
 In the multitenant App Service and in an External ASE, there's single sign-on between the Azure portal and the Kudu console. For the ILB ASE, however, you need to use your publishing credentials to sign into the Kudu console.
 
-Internet-based CI systems, such as GitHub and Visual Studio Team Services, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Visual Studio Team Services, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from VSTS git and deploy to ILB ASE. 
+Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE. 
 If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the subdomain *contoso.net* and an app named *mytest*, use *mytest.contoso.net* for FTP and *mytest.scm.contoso.net* for web deployment.
@@ -240,10 +241,10 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

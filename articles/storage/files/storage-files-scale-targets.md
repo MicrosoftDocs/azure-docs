@@ -2,17 +2,12 @@
 title: Azure Files scalability and performance targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 7/19/2018
 ms.author: wgries
+ms.component: files
 ---
 
 # Azure Files scalability and performance targets
@@ -46,6 +41,7 @@ For Azure File Sync, performance is critical in two stages:
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
+
 | System configuration |  |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |

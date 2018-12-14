@@ -1,17 +1,18 @@
 ---
-title: Test your LUIS app - Azure | Microsoft Docs
-description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
-services: cognitive-services
+title: Test your LUIS app
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities.
 author: diberry
-manager: cjgronlund
+manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 03/14/2018
+ms.topic: conceptual
+ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Testing in LUIS
+# Testing example utterances in LUIS
 
 Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities. 
 
@@ -20,6 +21,7 @@ You can [test](luis-interactive-test.md) LUIS interactively, one utterance at a 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## What is a score in testing?
 See [Prediction score](luis-concept-prediction-score.md) concepts to learn more about prediction scores.
 

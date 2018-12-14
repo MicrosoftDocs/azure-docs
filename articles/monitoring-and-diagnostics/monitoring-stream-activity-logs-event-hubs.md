@@ -33,10 +33,10 @@ To update the Activity Log log profile to include streaming, the user who's maki
 ### Via the Azure portal
 1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
    
-   ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Select the **Export** button at the top of the log.
+   ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Select the **Export to Event Hub** button at the top of the log.
    
-   ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing through your Activity Log in the portal.
 3. In the section that appears, select **All regions**. Do not select particular regions.
@@ -93,7 +93,7 @@ If a log profile already exists, you first need to remove the existing log profi
 The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called *records*.
 
 ## Next steps
-* [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
+* [Archive the Activity Log to a storage account](../azure-monitor/platform/archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md)
+* [Set up an alert based on an Activity Log event](../azure-monitor/platform/alerts-log-webhook.md)
 

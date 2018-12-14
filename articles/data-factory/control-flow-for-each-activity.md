@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
 
 ---
@@ -71,6 +71,7 @@ Property | Description | Allowed values | Required
 name | Name of the for-each activity. | String | Yes
 type | Must be set to **ForEach** | String | Yes
 isSequential | Specifies whether the loop should be executed sequentially or in parallel.  Maximum of 20 loop iterations can be executed at once in parallel). For example, if you have a ForEach activity iterating over a copy activity with 10 different source and sink datasets with **isSequential** set to False, all copies are executed at once. Default is False. <br/><br/> If "isSequential" is set to False, ensure that there is a correct configuration to run multiple executables. Otherwise, this property should be used with caution to avoid incurring write conflicts. For more information, see [Parallel execution](#parallel-execution) section. | Boolean | No. Default is False.
+batchCount | Batch count to be used for controlling the number of parallel execution (when isSequential is set to false). | Integer (maximum 50) | No. Default is 20.
 Items | An expression that returns a JSON Array to be iterated over. | Expression (which returns a JSON Array) | Yes
 Activities | The activities to be executed. | List of Activities | Yes
 
@@ -567,6 +568,17 @@ Expression for gathering the output of all the iterations of a ForEach is `@acti
 ]
 
 ```
+
+## Limitations and workarounds
+
+Here are some limitations of the ForEach activity and suggested workarounds.
+
+| Limitation | Workaround |
+|---|---|
+| You can't nest a ForEach loop inside another ForEach loop (or an Until loop). | Design a two-level pipeline where the outer pipeline with the outer ForEach loop iterates over an inner pipeline with the nested loop. |
+| The ForEach activity has a maximum `batchCount` of 50 for parallel processing, and a maximum of 100,000 items. | Design a two-level pipeline where the outer pipeline with the ForEach activity iterates over an inner pipeline. |
+| | |
+
 ## Next steps
 See other control flow activities supported by Data Factory: 
 

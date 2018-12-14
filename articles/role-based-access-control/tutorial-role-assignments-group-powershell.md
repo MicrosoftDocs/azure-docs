@@ -121,7 +121,7 @@ To grant access for the group, you use the [New-AzureRmRoleAssignment](/powershe
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) command.
+1. Get the ID of your subscription using the [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) command.
 
     ```azurepowershell
     Get-AzureRmSubscription

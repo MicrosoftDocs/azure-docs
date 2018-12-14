@@ -2,13 +2,12 @@
 title: Azure VPN Gateway FAQ | Microsoft Docs
 description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
 services: vpn-gateway
-author: cherylmc
+author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
-ms.author: cherylmc
-
+ms.author: yushwang
 ---
 # VPN Gateway FAQ
 
@@ -118,11 +117,11 @@ Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You need to configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
-### Why are certain ports opened on my VPN gateway?
+### <a name="gatewayports"></a>Why are certain ports opened on my virtual network gateway?
 
 They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
 
-A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+A virtual network gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
 ### More information about gateway types, requirements, and throughput
 

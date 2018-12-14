@@ -1,20 +1,19 @@
-﻿---
+---
 title: Delegating offers in Azure Stack | Microsoft Docs
 description: Learn how to put other people in charge of creating offers and signing up users for you.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
-ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: alfredop
 
 ---
@@ -22,11 +21,13 @@ ms.reviewer: alfredop
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-As the Azure Stack operator, you often want to put other people in charge of creating offers and signing up users. For example, if you're a service provider, you might want resellers to sign up customers and manage them on your behalf. Or, if you're part of a central IT group in an enterprise, you might want to delegate user sign up to other IT staff.
+As the Azure Stack operator, you often want to put other people in charge of signing up users and creating subscriptions. For example, if you're a service provider, you might want resellers to sign up customers and manage them on your behalf. Or, if you're part of a central IT group in an enterprise, you might want to delegate user sign up to other IT staff.
 
-Delegation makes it easier to reach and manage more users that you can do by yourself. The following illustration shows one level of delegation, but Azure Stack supports more than one level. Delegated providers (DPs) can delegate to other providers, up to five levels.
+Delegation makes it easier to reach and manage more users that you can do by yourself, as shown in the following illustration. 
 
 ![Levels of delegation](media/azure-stack-delegated-provider/image1.png)
+
+With delegation, the delegated provider manages an offer (delegated offer) and end customers obtain subscriptions under that offer without involvement from the system administrator. 
 
 ## Understand delegation roles and steps
 
@@ -35,9 +36,9 @@ Delegation makes it easier to reach and manage more users that you can do by you
 The following roles are part of delegation:
 
 * The *Azure Stack operator* manages the Azure Stack
-  infrastructure and creates an offer template. The operator delegates others to provide offers to their users.
+  infrastructure and creates an offer template. The operator delegates others to provide offers to their tenant.
 
-* The delegated Azure Stack operators are called *delegated providers*. They can belong to other organizations, such as other Azure Active Directory (Azure AD) users.
+* The delegated Azure Stack operators are users with *Owner* or *Contributor* rights in the subscriptions called *delegated providers*. They can belong to other organizations, such as other Azure Active Directory (Azure AD) tenants.
 
 * *Users* sign up for the offers and use them for managing their workloads, creating VMs, storing data, and so on.
 
@@ -45,9 +46,9 @@ The following roles are part of delegation:
 
 There are two basic steps to setting up delegation:
 
-1. *Create a delegated provider* by subscribing a user to an offer based on a plan that only has the subscriptions service. Users who subscribe to this offer can then extend offers and sign up users for the offers.
+1. *Create a Delegated Provider Subscription* by subscribing a user to an offer containing only the subscriptions service. Users who subscribe to this offer can then extend the delegated offers to other users by signing them up for those offers.
 
-1. *Delegate an offer to the delegated provider*. This offer is a template for what the delegated provider can offer. The delegated provider can now take the offer and offer it to other users.
+2. *Delegate an offer to the delegated provider*. This offer enables the delegated provider to create subscriptions or to extend the offer to their users. The delegated provider can now take the offer and offer it to other users.
 
 The next graphic shows the steps for setting up delegation.
 
@@ -55,7 +56,7 @@ The next graphic shows the steps for setting up delegation.
 
 **Delegated provider requirements**
 
-To act as a delegated provider, a user needs to establish a relationship with the main provider by creating a subscription. This subscription identifies the delegated provider as having the right to present offers on behalf of the main provider.
+To act as a delegated provider, a user needs to establish a relationship with the main provider by creating a subscription. This subscription identifies the delegated provider as having the right to present the delegated offers on behalf of the main provider.
 
 After this relationship is established, the Azure Stack operator can delegate an offer to the delegated provider. The delegated provider can take the offer, rename it (but not change its substance), and offer it to its customers.
 
@@ -110,7 +111,7 @@ The next step is to create the plan and offer that you're going to delegate, and
 
 Sign in to the user portal as the delegated provider and then create a new offer by using the delegated offer as a template.
 
-1. Select **New** > **Tenant Offers + Plans** > **Offer**.
+1. Select **+ Create a resource** > **Tenant Offers + Plans** > **Offer**.
 
     ![Create a new offer](media/azure-stack-delegated-provider/image5.png)
 
@@ -119,17 +120,17 @@ Sign in to the user portal as the delegated provider and then create a new offer
    ![Assign a name](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >It’s important to understand that unlike an Azure Stack operator, a delegated provider doesn’t construct an offer from base plans and add-on plans. Delegated providers can only choose offers that are delegated to them, they can't make changes to those offers.
+   >It’s important to understand that delegated providers can only choose offers that are delegated to them. They can't make changes to those offers. Only an Azure Stack operator can change these offers, for example, changing their plans and quotas,. A delegated provider doesn’t construct an offer from base plans and add-on plans. 
 
-1. Make the offer public by selecting **Browse**, and then **Offers**. Select the offer, and then select **Change State**.
+3. The delegated provider can make these offers public through their own portal URL. To make the offer public, select **Browse**, and then **Offers**. Select the offer, and then select **Change State**.
 
-1. The delegated provider exposes these offers through their own portal URL. These offers are visible only through the delegated portal. To find and change this URL:
+4. The public delegated offers are now visible only through the delegated portal. To find and change this URL:
 
-    a.  Select **Browse** > **More services** > **Subscriptions**. Then select the delegated provider subscription. For example, **DPSubscription** > **Properties**.
+    a.  Select **Browse** > **All services**, and then under the **GENERAL** category, select **Subscriptions**. Select the Delegated Provider Subscription. For example, **DPSubscription** > **Properties**.
 
     b.  Copy the portal URL to a separate location, such as Notepad.
 
-    ![Select the delegated provider subscription](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![Select the Delegated Provider Subscription](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    You've finished creating a delegated offer as a delegated provider. Sign out as the delegated provider and close the browser window you're using.
 
@@ -146,14 +147,14 @@ Sign in to the user portal as the delegated provider and then create a new offer
 
 The process of delegating an offer is finished. Now a user can sign up for this offer by getting a subscription for it.
 
-## Multiple-tier delegation
+## Move subscriptions between delegated providers
 
-Multiple-tier delegation enables a delegated provider to delegate the offer to other entities. For example, to create deeper reseller channels where:
+If needed, a subscription can be moved between new or existing delegated provider subscriptions that belong to the same Directory tenant. This is by using the PowerShell cmdlet [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
 
-* The provider who's managing Azure Stack delegates an offer to a distributor.
-* The distributor delegates to a reseller.
+This is useful when:
+- You onboard a new team member that will take on the delegated provider role and you want to assign to this team member user-subscriptions that were previously created in the Default Provider Subscription.
+- You have multiple delegated providers subscriptions in the same Directory-tenant (Azure Active Directory) and need to move user-subscriptions between them. This could be the case where a team member moves between teams and their subscription needs to be allocated to the new team.
 
-To create multiple tiers of offer delegation, the delegated provider delegates the offer to the next provider. The process is the same for the delegated provider as it was for the Azure Stack operator. For more information, see [Azure Stack operator creates the delegated offer](#cloud-operator-creates-the-delegated-offer).
 
 ## Next steps
 

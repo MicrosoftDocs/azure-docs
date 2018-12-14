@@ -3,7 +3,7 @@ title: Usage reporting infrastructure for Cloud Service Providers for Azure Stac
 description: Azure Stack includes the infrastructure needed to track usage for tenants serviced by a Cloud Service Provider (CSP) as it occurs and forwards it to Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,11 +13,11 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
 
 ---
-## Usage reporting infrastructure for Cloud Service Providers
+# Usage reporting infrastructure for Cloud Service Providers
 
 Azure Stack includes the infrastructure needed to track usage as it occurs and forwards it to Azure. In Azure, Azure Commerce processes the usage data and charges usage to the appropriate Azure subscriptions. This happens in the same way as usage tracking is monitored in the global Azure cloud.
 
@@ -61,5 +61,5 @@ The following terms and concepts are used for usage and billing in Azure Stack:
 
 ## Next steps
 
- - To learn more about the CSP program, see [Cloud Solution Provider program](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - To learn more about the CSP program, see [Cloud Solution Provider program](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).

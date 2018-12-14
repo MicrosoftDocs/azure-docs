@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
@@ -101,7 +101,7 @@ If Chaos is not already running in the cluster, it starts Chaos with the passed 
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 | --wait-time-between-faults | Wait time (in seconds) between consecutive faults within a single iteration.  Default\: 20. <br><br> The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. The recommendation is to start with a value between 1 and 5 and exercise caution while moving up. |
 | --wait-time-between-iterations | Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.  Default\: 30. |
-| --warning-as-error | Sets the health policy to treat warning as errors. |
+| --warning-as-error | Indicates whether warnings are treated with the same severity as errors. |
 
 ### Global Arguments
 
@@ -133,6 +133,7 @@ Stops Chaos from executing new faults. In-flight faults will continue to execute
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.

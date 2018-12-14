@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Monitor a web app with web server logs | Micro
 description: Azure CLI Script Sample - Monitor a web app with web server logs
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Monitor a web app with web server logs
+# Monitor a web app with web server logs using Azure CLI
 
 This sample script creates a resource group, app service plan, and web app, and configures the web app to enable web server logs. It then downloads the log files for review.
 
@@ -27,7 +28,7 @@ This sample script creates a resource group, app service plan, and web app, and 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: danlep
 ---
 
@@ -36,7 +36,7 @@ Your applications and services can issue direct REST API calls or use one or mor
 | API | API reference | Download | Tutorial | Code samples | More Info |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/A |- |- | [Supported Versions](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Release Notes](http://aka.ms/batch-net-dataplane-changelog) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Release Notes](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Tutorial](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Tutorial](batch-nodejs-get-started.md) |- | [Readme](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Readme][api_sample_java] | [Readme](https://github.com/Azure/azure-batch-sdk-for-java)|
@@ -57,7 +57,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 These command-line tools provide the same functionality as the Batch service and Batch Management APIs: 
 
 * [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/overview) module enable you to manage Batch resources with PowerShell.
-* [Azure CLI 2.0](/cli/azure): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
+* [Azure CLI](/cli/azure): The Azure CLI is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
 
 ## Other tools for application development
 
@@ -80,7 +80,7 @@ Here are some additional tools that may be helpful for building and debugging yo
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[api_java]: /java/api/overview/azure/batch/clientlibrary:
+[api_java]: /java/api/overview/azure/batch
 [api_java_mgmt]: /java/api/overview/azure/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22

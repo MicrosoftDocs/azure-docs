@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create a web app and deploy files with FTP | Mi
 description: Azure CLI Script Sample - Create a web app and deploy files with FTP
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -14,10 +14,11 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/12/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Create a web app and deploy files with FTP
+# Create a web app and deploy files with FTP using Azure CLI
 
 This sample script creates a web app in App Service with its related resources, and then deploys a static HTML page using FTP. For FTP upload, the script uses [cURL](https://en.wikipedia.org/wiki/CURL) as an example. You can use whatever FTP tool to upload your files.
 
@@ -25,7 +26,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

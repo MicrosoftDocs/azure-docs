@@ -7,7 +7,8 @@ manager: douge
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
@@ -57,7 +58,7 @@ To programmatically access blobs in cloud service projects, you need to add the 
 
 ## Create a container in code
 > [!NOTE]
-> Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code in the following example assumes that you are using async programming methods.
+> Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous. See [Asynchronous programming with Async and Await](https://msdn.microsoft.com/library/hh191443.aspx) for more information. The code in the following example assumes that you are using async programming methods.
 > 
 > 
 

@@ -54,6 +54,6 @@ If you want to assign an individual image to a subteam, click the ellipsis in th
 
 ## Switch between subteams to review assigned content ##
 
-If you are a member of one or more subteams, you can switch between those subteams from the Review Tools Dashboard. To see all of the current pending reviews belonging to a subteam, select Choose Subteam from the Image tab.
+If you are a member of one or more subteams, you can switch between those subteams from the Review tool dashboard. To see all of the current pending reviews belonging to a subteam, select Choose Subteam from the Image tab.
 
 ![Switch between subteams](images/3-review-image-subteam-2.png)

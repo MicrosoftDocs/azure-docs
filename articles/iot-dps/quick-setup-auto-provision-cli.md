@@ -1,8 +1,8 @@
 ---
-title: Set up Device Provisioning using Azure CLI | Microsoft Docs
+title: Set up a Device Provisioning Service using Azure CLI | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using Azure CLI
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: quickstart
 ms.service: iot-dps
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Set up the IoT Hub Device Provisioning Service with Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This QuickStart details using the Azure CLI to create an IoT hub and an  IoT Hub Device Provisioning Service and to link the two services together. 
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This QuickStart details using the Azure CLI to create an IoT hub and an IoT Hub Device Provisioning Service and to link the two services together. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -42,7 +42,7 @@ az group create --name my-sample-resource-group --location westus
 
 ## Create an IoT hub
 
-Create an IoT IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. 
+Create an IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command.
 
 The following example creates an IoT hub named *my-sample-hub* in the *westus* location.  
 
@@ -67,7 +67,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## Get the connection string for the IoT hub
 
-You need your IoT hub's connection string to link it with the device provisioning service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string and use its output to set a variable that you will use when you link the two resources. 
+You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string and use its output to set a variable that you will use when you link the two resources. 
 
 The following example sets the *hubConnectionString* variable to the value of the connection string for the primary key of the hub's *iothubowner* policy. You can specify a different policy with the `--policy-name` parameter. The command uses the Azure CLI [query](/cli/azure/query-azure-cli) and [output](/cli/azure/format-output-azure-cli#tsv-output-format) options to extract the connection string from the command output.
 
@@ -89,7 +89,7 @@ echo $hubConnectionString
 
 Link the IoT hub and your provisioning service with the [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create) command. 
 
-The following example links an IoT hub named *my-sample-hub* in the *westus* location and a device provisioning service named *my-sample-dps*. It uses the connection string for *my-sample-hub* stored in the *hubConnectionString* variable in the previous step.
+The following example links an IoT hub named *my-sample-hub* in the *westus* location and a Device Provisioning service named *my-sample-dps*. It uses the connection string for *my-sample-hub* stored in the *hubConnectionString* variable in the previous step.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

@@ -8,57 +8,54 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
 # Language customization in Azure Active Directory B2C
 
-Language customization in Azure Active Directory B2C (Azure AD B2C) allows your policy to accommodate different languages to suit your customer needs.  Microsoft provides the translations for [36 languages](#supported-languages), but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages.  
+Language customization in Azure Active Directory B2C (Azure AD B2C) allows your user flow to accommodate different languages to suit your customer needs.  Microsoft provides the translations for [36 languages](#supported-languages), but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages.  
 
 ## How language customization works
-You use language customization to select which languages your user journey is available in. After the feature is enabled, you can provide the query string parameter, `ui_locales`, from your application. When you call into Azure AD B2C, your page is translated to the locale that you have indicated. This type of configuration gives you complete control over the languages in your user journey and ignores the language settings of the customer's browser. 
+You use language customization to select which languages your user flow is available in. After the feature is enabled, you can provide the query string parameter, `ui_locales`, from your application. When you call into Azure AD B2C, your page is translated to the locale that you have indicated. This type of configuration gives you complete control over the languages in your user flow and ignores the language settings of the customer's browser. 
 
-You might not need that level of control over what languages your customer sees. If you don't provide a `ui_locales` parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user journey is translated to by adding it as a supported language. If a customer's browser is set to show a language that you don't want to support, then the language that you selected as a default in supported cultures is shown instead.
+You might not need that level of control over what languages your customer sees. If you don't provide a `ui_locales` parameter, the customer's experience is dictated by their browser's settings.  You can still control which languages your user flow is translated to by adding it as a supported language. If a customer's browser is set to show a language that you don't want to support, then the language that you selected as a default in supported cultures is shown instead.
 
-- **ui-locales specified language**: After you enable language customization, your user journey is translated to the language that's specified here.
-- **Browser-requested language**: If no `ui_locales` parameter was specified, your user journey is translated to the browser-requested language, *if the language is supported*.
-- **Policy default language**: If the browser doesn't specify a language, or it specifies one that is not supported, the user journey is translated to the policy default language.
+- **ui-locales specified language**: After you enable language customization, your user flow is translated to the language that's specified here.
+- **Browser-requested language**: If no `ui_locales` parameter was specified, your user flow is translated to the browser-requested language, *if the language is supported*.
+- **Policy default language**: If the browser doesn't specify a language, or it specifies one that is not supported, the user flow is translated to the user flow default language.
 
 >[!NOTE]
 >If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
 >
 
 ## Support requested languages for ui_locales 
-Policies that were created before the general availability of language customization need to enable this feature first. Policies that were created after have language customization enabled by default. 
+Policies that were created before the general availability of language customization need to enable this feature first. Policies and user flows that were created after have language customization enabled by default. 
 
-When you enable language customization on a policy, you can control the language of the user journey by adding the `ui_locales` parameter.
-1. [Go to the B2C features page on the Azure portal](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings).
-2. Browse to a policy that you want to enable for translations.
-3. Select **Language customization**.  
+When you enable language customization on a user flow, you can control the language of the user flow by adding the `ui_locales` parameter.
+1. In your Azure AD B2C tenant, select **User flows**.
+2. Click the user flow that you want to enable for translations.
+3. Select **Languages**.  
 4. Select **Enable language customization**.
-5. Read the information in the dialog box, and select **Yes**.
 
-## Select which languages in your user journey are enabled 
-Enable a set of languages for your user journey to be translated to when requested by the browser without the `ui_locales` parameter.
-1. Ensure that your policy has language customization enabled from previous instructions.
-2. From the **Edit policy** page, select **Language customization**.
-3. Select a language that you want to support.
-4. In the properties pane, change **Enabled** to **Yes**.  
-5. Select **Save** at the top of the properties pane.
+## Select which languages in your user flow are enabled 
+Enable a set of languages for your user flow to be translated to when requested by the browser without the `ui_locales` parameter.
+1. Ensure that your user flow has language customization enabled from previous instructions.
+2. On the **Languages** page for the user flow, select a language that you want to support.
+3. In the properties pane, change **Enabled** to **Yes**.  
+4. Select **Save** at the top of the properties pane.
 
 >[!NOTE]
 >If a `ui_locales` parameter is not provided, the page is translated to the customer's browser language only if it is enabled.
 >
 
 ## Customize your strings
-Language customization enables you to customize any string in your user journey.
-1. Ensure that your policy has language customization enabled from the previous instructions.
-2. From the **Edit policy** page, select **Language customization**.
-3. Select the language that you want to customize.
-4. Select the page that you want to edit.
-5. Select **Download defaults** (or **Download overrides** if you have previously edited this language). 
+Language customization enables you to customize any string in your user flow.
+1. Ensure that your user flow has language customization enabled from the previous instructions.
+2. On the **Languages** page for the user flow, select the language that you want to customize.
+3. Under **Page-level-resources files**, select the page that you want to edit.
+4. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
 
 These steps give you a JSON file that you can use to start editing your strings.
 
@@ -124,12 +121,13 @@ If you want to provide a set list of values for responses, you need to create a 
 
 ### Upload your changes
 1. After you complete the changes to your JSON file, go back to your B2C tenant.
-2. From the **Edit policy** page, select **Language customization**.
-3. Select the language that you want to translate to.
-4. Select the page where you want to provide translations.
-5. Select the folder icon, and select the JSON file to upload.
+2. Select **User flows** and click the user flow that you want to enable for translations.
+3. Select **Languages**.
+4. Select the language that you want to translate to.
+5. Select the page where you want to provide translations.
+6. Select the folder icon, and select the JSON file to upload.
  
-The changes are saved to your policy automatically.
+The changes are saved to your user flow automatically.
 
 ## Customize the page UI by using language customization
 
@@ -147,15 +145,16 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## Add custom languages
 
-You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the policy.  Language and locale codes are limited to those in the ISO 639-1 standard. 
+You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow.  Language and locale codes are limited to those in the ISO 639-1 standard. 
 
-1. From the **Edit policy** page, select **Language customization**.
-2. Select **Add custom language** from the top of the page.
-3. In the context pane that opens, identify which language you're providing translations for by entering a valid locale code.
-4. For each page, you can download a set of overrides for English and work on the translations.
-5. After you're done with the JSON files, you can upload them for each page.
-6. Select **Enable**, and your policy can now show this language for your users.
-7. Save the language.
+1. In your Azure AD B2C tenant, select **User flows**.
+2. Click the user flow where you want to add custom languages, and then click **Languages**.
+3. Select **Add custom language** from the top of the page.
+4. In the context pane that opens, identify which language you're providing translations for by entering a valid locale code.
+5. For each page, you can download a set of overrides for English and work on the translations.
+6. After you're done with the JSON files, you can upload them for each page.
+7. Select **Enable**, and your user flow can now show this language for your users.
+8. Save the language.
 
 >[!IMPORTANT]
 >You need to either enable the custom languages or upload overrides for it before you can save.
@@ -166,7 +165,7 @@ You can also add languages that Microsoft currently does not provide translation
 ### Page UI customization labels as overrides
 When you enable language customization, your previous edits for labels using page UI customization are persisted in a JSON file for English (en). You can continue to change your labels and other strings by uploading language resources in language customization.
 ### Up-to-date translations
-Microsoft is committed to providing the most up-to-date translations for your use. Microsoft continuously improves translations and keeps them in compliance for you. Microsoft will identify bugs and changes in global terminology and make updates that will work seamlessly in your user journey.
+Microsoft is committed to providing the most up-to-date translations for your use. Microsoft continuously improves translations and keeps them in compliance for you. Microsoft will identify bugs and changes in global terminology and make updates that will work seamlessly in your user flow.
 ### Support for right-to-left languages
 Microsoft currently doesn't provide support for right-to-left languages. You can accomplish this by using custom locales and using CSS to change the way the strings are displayed.  If you need this feature, please vote for it on [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### Social identity provider translations

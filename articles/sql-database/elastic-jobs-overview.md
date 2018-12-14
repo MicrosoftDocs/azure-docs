@@ -2,12 +2,16 @@
 title: Azure SQL Elastic Database Jobs | Microsoft Docs
 description: 'Use Elastic Database Jobs to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
+ms.reviewer: 
+manager: craigg
+ms.date: 07/26/2018
 ---
 # Manage groups of databases with Elastic Database Jobs
 
@@ -117,7 +121,7 @@ The following examples show how different target group definitions are dynamical
 
 ![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**Example 5** and *Example 6* show advanced scenarios where Azure SQL Servers, elastic pools, and databases, can be combined using include and exclude rules.<br>
+**Example 5** and **Example 6** show advanced scenarios where Azure SQL Servers, elastic pools, and databases, can be combined using include and exclude rules.<br>
 **Example 7** shows that the shards in a shard map can also be evaluated at job run time.
 
 ### Job
@@ -200,7 +204,7 @@ It is worth noting a couple of differences between SQL Server Agent (available o
 
 |  |Elastic Jobs  |SQL Server Agent |
 |---------|---------|---------|
-|Scope     |  Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
+|Scope     |  Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
 |Supported APIs and Tools     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 

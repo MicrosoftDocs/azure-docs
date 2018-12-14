@@ -3,8 +3,8 @@ title: Get pre-approved through the Microsoft Azure Certified program | Microsof
 description: Learn about the Microsoft Azure Certified partner program and how to get to sell your virtual machine image, solution template, developer service, or data service on the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 tags: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: mbaldwin
+ms.author: hascipio
 
 ---
 # Get pre-approved via the Microsoft Azure Certified program
@@ -30,7 +30,7 @@ This article provides instructions on how to become Microsoft Azure Certified so
 3. If you are working with a Partner Account Manager or a DX Partner Manager, please ask them to nominate your solution for the Azure Certified program OR go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage, fill out the application form and enter the email of your Partner Account Manager or DX Partner Manager in the Microsoft Sponsor Contact field.
 
 > [!IMPORTANT]
-> **"Sell-from" countries** - in order to sell your services on the Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
+> **"Sell-from" countries** - in order to sell your services on the Microsoft Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the [Azure Marketplace participation policies](https://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 ## Next step

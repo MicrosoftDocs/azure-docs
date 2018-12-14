@@ -1,11 +1,13 @@
 ﻿---
-title: Create an Azure Time Series Insights single-page web app
+title: Create an Azure Time Series Insights single-page web app | Microsoft Docs
 description: Learn how to create a single-page web application that queries and renders data from a TSI environment.
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
+ms.author: anshan
+manager: cshankar
+ms.custom: seodec18
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 

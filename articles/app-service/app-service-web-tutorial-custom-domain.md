@@ -1,5 +1,5 @@
 ﻿---
-title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
+title: Map existing custom DNS name - Azure App Service | Microsoft Docs 
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
@@ -17,6 +17,8 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Tutorial: Map an existing custom DNS name to Azure Web Apps
 
@@ -33,8 +35,6 @@ In this tutorial, you learn how to:
 > * Redirect the default URL to a custom directory
 > * Automate domain mapping with scripts
 
-To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -49,7 +49,7 @@ To complete this tutorial:
 
 ## Prepare the app
 
-To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the App Service app is in the supported pricing tier.
+To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, **Premium** or **Consumption** for Azure Functions). In this step, you make sure that the App Service app is in the supported pricing tier.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -299,6 +299,10 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 - The browser client has cached the old IP address of your domain. Clear the cache and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
+## Migrate an active domain
+
+To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## Redirect to a custom directory
 

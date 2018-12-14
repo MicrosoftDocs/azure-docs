@@ -3,9 +3,9 @@ title: Configuration Management - Microsoft Threat Modeling Tool - Azure | Micro
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -207,7 +207,7 @@ Please note that Request Validation feature is not supported, and is not part of
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IE8 Security Part V: Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type](http://en.wikipedia.org/wiki/Mime_type) |
+| **References**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type](http://en.wikipedia.org/wiki/Mime_type) |
 | **Steps** | The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. For each page that could contain user controllable content, you must use the HTTP Header X-Content-Type-Options:nosniff. To enable the required header globally for all pages in the application, you can do one of the following|
 
 ### Example
@@ -506,7 +506,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/sb_bl) |
+| **References**              | [Enabling Secure Boot and bit-locker Device Encryption on Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Steps** | UEFI Secure Boot restricts the system to only allow execution of binaries signed by a specified authority. This feature prevents unknown code from being executed on the platform and potentially weakening the security posture of it. Enable UEFI Secure Boot and restrict the list of certificate authorities that are trusted for signing code. Sign all code that is deployed on the device using one of the trusted authorities. |
 
 ## <a id="partition-iot"></a>Encrypt OS and additional partitions of IoT Device with bit-locker
@@ -605,7 +605,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | <p>Not placing a limit on the use of system resources could result in resource exhaustion and ultimately a denial of service.</p><ul><li>**EXPLANATION:** Windows Communication Foundation (WCF) offers the ability to throttle service requests. Allowing too many client requests can flood a system and exhaust its resources. On the other hand, allowing only a small number of requests to a service can prevent legitimate users from using the service. Each service should be individually tuned to and configured to allow the appropriate amount of resources.</li><li>**RECOMMENDATIONS** Enable WCF's service throttling feature and set limits appropriate for your application.</li></ul>|
 
 ### Example
@@ -628,7 +628,7 @@ The following is an example configuration with throttling enabled:
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Steps** | Metadata can help attackers learn about the system and plan a form of attack. WCF services can be configured to expose metadata. Metadata gives detailed service description information and should not be broadcast in production environments. The `HttpGetEnabled` / `HttpsGetEnabled` properties of the ServiceMetaData class defines whether a service will expose the metadata | 
 
 ### Example

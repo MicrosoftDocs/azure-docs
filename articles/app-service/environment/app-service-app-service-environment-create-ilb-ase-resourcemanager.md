@@ -1,5 +1,5 @@
 ---
-title: How To Create an ILB ASE Using Azure Resource Manager Templates | Microsoft Docs
+title: Create ILB ASE Using Azure Resource Manager Templates - App Service | Microsoft Docs
 description: Learn how to create an internal load balancer ASE using Azure Resource Manager templates.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # How To Create an ILB ASE Using Azure Resource Manager Templates
@@ -90,7 +91,7 @@ The parameters in the *azuredeploy.parameters.json* file are listed below:
 An abbreviated example of *azuredeploy.parameters.json* is shown below:
 
     {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
          "contentVersion": "1.0.0.0",
          "parameters": {
               "appServiceEnvironmentName": {
@@ -121,7 +122,7 @@ Once the *azuredeploy.parameters.json* file has been filled in, the default SSL 
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-After the Azure Resource Manager template is submitted it will take roughly forty minutes minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
+After the Azure Resource Manager template is submitted it will take roughly forty minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
 
 Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default SSL certificate.  The default SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example *https://mycustomapp.internal-contoso.com* would use the default SSL certificate for **.internal-contoso.com*.
 
@@ -134,6 +135,6 @@ To get started with App Service Environments, see [Introduction to App Service E
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
 

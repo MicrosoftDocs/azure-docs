@@ -12,7 +12,7 @@ manager: peterpr
 
 # Create a new device template version
 
-Microsoft Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
+Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
 
 A device template has a version number when you create it. By default, the version number is 1.0.0. If you edit a device template, and if that change could impact live connected devices, Azure IoT Central prompts you to create a new device template version.
 
@@ -56,7 +56,7 @@ You can create multiple versions of the device template. Over time, you will hav
 1. Choose **Migrate Device**.
 1. Select the version number you want to migrate the device to and choose **Migrate**.
 
-![How to migrate a device](media\howto-version-devicetemplate\pick-version.png)
+![How to migrate a device](media/howto-version-devicetemplate/pick-version.png)
 
 ## Next steps
 

@@ -22,7 +22,7 @@ ms.author: jeedes
 The objective of this tutorial is to show you how to automatically provision and de-provision user accounts from Azure Active Directory (Azure AD) to G Suite.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ This section guides you through the process of connecting your Azure AD to the u
 > [!NOTE]
 > Another viable option for automating user provisioning to G Suite is to use [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS provisions your on-premises Active Directory identities to G Suite. In contrast, the solution in this tutorial provisions your Azure Active Directory (cloud) users and email-enabled groups to G Suite. 
 
-1. Sign in to the [Google Apps Admin console](http://admin.google.com/) with your administrator account, and then select **Security**. If you don't see the link, it might be hidden under the **More Controls** menu at the bottom of the screen.
+1. Sign in to the [Google Apps Admin console](https://admin.google.com/) with your administrator account, and then select **Security**. If you don't see the link, it might be hidden under the **More Controls** menu at the bottom of the screen.
    
     ![Select security.][10]
 
@@ -107,7 +107,7 @@ This section guides you through the process of connecting your Azure AD to the u
 
 1. Now that you have verified all your domains with Azure AD, you must verify them again with Google Apps. For each domain that isn't already registered with Google, take the following steps:
    
-    a. In the [Google Apps Admin Console](http://admin.google.com/), select **Domains**.
+    a. In the [Google Apps Admin Console](https://admin.google.com/), select **Domains**.
      
      ![Select Domains][20]
 
@@ -126,7 +126,7 @@ This section guides you through the process of connecting your Azure AD to the u
      > [!WARNING]
      > If you change the primary domain for your G Suite tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under [Step 2: Enable single sign-on](#step-two-enable-single-sign-on).
        
-1. In the [Google Apps Admin console](http://admin.google.com/), select **Admin Roles**.
+1. In the [Google Apps Admin console](https://admin.google.com/), select **Admin Roles**.
    
      ![Select Google Apps][26]
 
@@ -169,7 +169,7 @@ This section guides you through the process of connecting your Azure AD to the u
 
 This process starts the initial synchronization of any users or groups that are assigned to G Suite in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes while the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. These logs describe all actions that are performed by the provisioning service  on your app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

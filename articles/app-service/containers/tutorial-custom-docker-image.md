@@ -1,5 +1,5 @@
 ---
-title: Use a custom Docker image for Web App for Containers - Azure | Microsoft Docs
+title: Use a custom Docker image for Web App for Containers - Azure App Service | Microsoft Docs
 description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
@@ -17,6 +17,7 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Use a custom Docker image for Web App for Containers
 
@@ -287,7 +288,7 @@ SSH enables secure communication between a container and a client. In order for 
     > [!NOTE]
     > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with the publishing credentials.
 
-* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -554,4 +555,4 @@ The command reveals output similar to the following JSON string, showing that th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-docker-python-postgresql-app.md)
+> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-python-postgresql-app.md)

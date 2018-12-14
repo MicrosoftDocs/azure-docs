@@ -35,7 +35,7 @@ For more information about adding users and permissions, see [Add owners and use
 ### Create a formula from a base
 The following steps guide you through the process of creating a formula from a custom image, Marketplace image, or another formula.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 
@@ -83,7 +83,7 @@ The following steps guide you through the process of creating a formula based on
 > 
 > 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
@@ -100,7 +100,7 @@ The following steps guide you through the process of creating a formula based on
 ## Modify a formula
 To modify a formula, follow these steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab's blade, select **Formulas (reusable bases)**.
@@ -112,7 +112,7 @@ To modify a formula, follow these steps:
 ## Delete a formula
 To delete a formula, follow these steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab **Settings** blade, select **Formulas**.

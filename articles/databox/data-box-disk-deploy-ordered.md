@@ -2,24 +2,18 @@
 title: Tutorial to order Microsoft Azure Data Box Disk | Microsoft Docs
 description: Use this tutorial to learn how to sign up and order an Azure Data Box Disk to import data into Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order an Azure Data Box Disk (Preview)
 
-Azure Data Box Disk is a cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to solid-state disks (SSDs) supplied by Microsoft and ship the disks back. This data is then uploaded to Azure. 
+Azure Data Box Disk is a hybrid cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to solid-state disks (SSDs) supplied by Microsoft and ship the disks back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box Disk. In this tutorial, you learn about:
 
@@ -33,9 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 > [!IMPORTANT]
 > - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
-> - During preview, Data Box Disk can be shipped to customers in US and European Union. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).
+> - During preview, Data Box Disk can be shipped to customers in US, West and North Europe, Canada, and Australia. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).
 
-## Sign up 
+## Sign up
 
 Data Box Disk is in preview and you need to sign up for the service. Perform the following steps to sign up for Data Box service:
 
@@ -65,7 +59,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |Destination Azure region|Select the Azure region where you want to transfer data.|
 
   
-5.  Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes. 
+5.  Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes.
 
      ![Select Data Box Disk option](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -75,9 +69,10 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |---|---|
     |Name|Provide a friendly name to track the order.<br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number. |
     |Resource group| Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together. |
-    |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all US and West and North Europe regions are supported. |
+    |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all regions in US, West and North Europe, Canada, and Australia are supported. |
     |Storage account(s)|Based on the specified Azure region, select from the filtered list of an existing storage account. <br>You can also create a new General purpose v1 or General purpose v2 account. |
     |Estimated data size in TB| Enter an estimate in TB. <br>Based on the data size, Microsoft sends you an appropriate number of 8 TB SSDs (7 TB usable capacity). <br>The maximum usable capacity of 5 disks is up to 35 TB. |
+    |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br> Provide a 12 to 32 character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
 
 13. Click **Next**. 
 

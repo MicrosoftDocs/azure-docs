@@ -25,7 +25,7 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance (Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ### Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 
@@ -232,7 +232,7 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
 ### Create an output dataset
 This output dataset is a dummy dataset that drives the schedule of the pipeline. Notice that the frequency is set to Hour and interval is set to 1. Therefore, the pipeline runs once an hour within the pipeline start and end times. 
 
-1. Create an OuputDataset.json file with the following content: 
+1. Create an OutputDataset.json file with the following content: 
     
     ```json
     {

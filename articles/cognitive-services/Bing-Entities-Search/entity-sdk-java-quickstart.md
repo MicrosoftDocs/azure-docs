@@ -1,24 +1,26 @@
 ---
-title: Bing Entity Search SDK Java quickstart | Microsoft Docs
+title: "Quickstart: Bing Entity Search SDK, Java"
+titlesuffix: Azure Cognitive Services
 description: Set up the Bing Entity Search SDK console application.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
 ---
-# Bing Entity Search SDK Java quickstart
+# Quickstart: Bing Entity Search SDK with Java
 
 The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
 
 The [source code for Java Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) is available on Git Hub. 
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
   <dependencies>

@@ -74,9 +74,9 @@
 #### [Client and server versioning](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service Environment
-#### [Create a web app in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [How To Create an ILB ASE Using Azure Resource Manager Templates](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Using an Internal Load Balancer](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Create a web app in an App Service Environment](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Create and use an internal load balancer](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Create an ASE by using a template](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Deploy
 ### [Cloud sync deployment](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -119,11 +119,11 @@
 
 ## Secure
 ### Authenticate with identity providers
-#### [Azure Active Directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Facebook authentication](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Google authentication](../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Microsoft Account authentication](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Twitter authentication](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Active Directory authentication](../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Facebook authentication](../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Google authentication](../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Microsoft Account authentication](../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Twitter authentication](../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
 #### [Configure TLS Mutual Authentication ](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -146,7 +146,7 @@
 ## Integrate
 ### [How to send email using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Export to PowerApps and Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Use Managed Service Identity](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Use Managed Identity](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Troubleshoot
 ### General troubleshooting for Mobile Apps
@@ -173,7 +173,7 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Samples
 ### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

@@ -102,7 +102,7 @@ This step may already be complete on your tenant, but it's good to double-check 
 2. Select **Azure Active Directory** > **Azure AD Connect**
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
-If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### Determine which authentication methods your users can use
 
@@ -115,7 +115,7 @@ There are two factors that affect which authentication methods are available wit
 
 When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
 
-You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
+You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#verification-methods) in Azure.
 
 ### Register users for MFA
 
@@ -209,15 +209,31 @@ Look for the self-signed certificate created by the installer in the cert store,
 
 Open PowerShell command prompt and run the following commands:
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 These commands print all the certificates associating your tenant with your instance of the NPS extension in your PowerShell session. Look for your certificate by exporting your client cert as a "Base-64 encoded X.509(.cer)" file without the private key, and compare it with the list from PowerShell.
 
+The following command will create a file named "npscertificate" on your "C:" drive in format .cer.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+Once you run this command, go to your C drive, locate the file and double click on it. Go to details and scroll down to "thumbprint", compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
+
 Valid-From and Valid-Until timestamps, which are in human-readable form, can be used to filter out obvious misfits if the command returns more than one cert.
+
+-------------------------------------------------------------
+
+### Why cant I sign in?
+
+Check that your password hasn't expired. The NPS Extension does not support changing passwords as part of the sign-in workflow. Please contact your organization's IT Staff for further assistance.
 
 -------------------------------------------------------------
 

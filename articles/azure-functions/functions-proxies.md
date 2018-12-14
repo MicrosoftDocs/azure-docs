@@ -2,17 +2,13 @@
 title: Work with proxies in Azure Functions | Microsoft Docs
 description: Overview of how to use Azure Functions Proxies
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 
@@ -149,7 +145,7 @@ Each proxy has a friendly name, such as *proxy1* in the preceding example. The c
 > [!NOTE] 
 > The *route* property in Azure Functions Proxies does not honor the *routePrefix* property of the Function App host configuration. If you want to include a prefix such as `/api`, it must be included in the *route* property.
 
-### <a name="disableProxies"></a>Disable individual proxies
+### <a name="disableProxies"></a> Disable individual proxies
 
 You can disable individual proxies by adding `"disabled": true` to the proxy in the `proxies.json` file. This will cause any requests meeting the matchCondidtion to return 404.
 ```json
@@ -166,6 +162,22 @@ You can disable individual proxies by adding `"disabled": true` to the proxy in 
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Application Settings
+
+The proxy behavior can be controlled by several app settings. They are all outlined in the [Functions App Settings reference](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Reserved Characters (string formatting)
+
+Proxies read all strings without interpretation, with the exception of curly braces and slashes
+
+|Character|Escaped Character|Example|
+|-|-|-|
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>Define a requestOverrides object
 

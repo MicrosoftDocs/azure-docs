@@ -3,8 +3,8 @@ title: Non-technical prerequisites for creating an offer for the Azure Marketpla
 description: Understand the requirements for creating and deploying an offer to the Azure Marketplace for others to purchase.
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mbaldwin
+ms.author: hascipio
 
 ---
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -66,7 +66,7 @@ This is the subscription that you will use to create your VM images and hand ove
 
 ## "Sell-from" countries
 > [!WARNING]
-> In order to sell your services on the Azure Marketplace, you must make sure that your registered entity is from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
+> In order to sell your services on the Azure Marketplace, you must make sure that your registered entity is from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the [Azure Marketplace participation policies](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 

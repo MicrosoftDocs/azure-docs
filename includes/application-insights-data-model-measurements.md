@@ -1,3 +1,10 @@
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+---
 Collection of custom measurements. Use this collection to report named measurement associated with the telemetry item. Typical use cases are:
 - the size of Dependency Telemetry payload
 - the number of queue items processed by Request Telemetry

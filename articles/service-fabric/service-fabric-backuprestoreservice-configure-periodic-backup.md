@@ -106,6 +106,7 @@ A backup policy consists of the following configurations:
             ```
 
         2. _Protecting file share using user name and password_, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -121,6 +122,17 @@ A backup policy consists of the following configurations:
 > [!NOTE]
 > Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
 >
+
+* **Retention Policy**: Specifies the policy to retain backups in the configured storage. Only Basic Retention Policy is supported.
+    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained irrespective of the `RetentionDuration`. Below example illustrates the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
@@ -151,23 +163,23 @@ Assume that these applications' data backup requirements are as follows
 
 To address these data backup requirements, backup policies BP_1 to BP_5 are created and backup is enabled as follows.
 1. MyApp_A
-    1. Create backup policy, _BP_1_, with frequency-based backup schedule where frequency is set to 24 Hrs. and backup storage configured to use storage location _BackupStore1_. Enable this policy for Application _MyApp_A_ using [Enable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. This action enables data backup using backup policy _BP_1_ for all partitions of _Reliable Stateful services_ and _Reliable Actors_ belonging to application _MyApp_A_.
+    1. Create backup policy, _BP_1_, with frequency-based backup schedule where frequency is set to 24 Hrs. and backup storage configured to use storage location _BackupStore1_. Enable this policy for Application _MyApp_A_ using [Enable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup) API. This action enables data backup using backup policy _BP_1_ for all partitions of _Reliable Stateful services_ and _Reliable Actors_ belonging to application _MyApp_A_.
 
-    2. Create backup policy, _BP_2_, with frequency-based backup schedule where frequency is set to 1 Hrs. and backup storage configured to use storage location _BackupStore1_. Enable this policy for service _SvcA3_ using [Enable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API. This action overrides propagated policy _BP_1_ by explicitly enabled backup policy _BP_2_ for all partitions of service _SvcA3_ leading to data backup using backup policy _BP_2_ for these partitions.
+    2. Create backup policy, _BP_2_, with frequency-based backup schedule where frequency is set to 1 Hrs. and backup storage configured to use storage location _BackupStore1_. Enable this policy for service _SvcA3_ using [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. This action overrides propagated policy _BP_1_ by explicitly enabled backup policy _BP_2_ for all partitions of service _SvcA3_ leading to data backup using backup policy _BP_2_ for these partitions.
 
-    3. Create backup policy, _BP_3_, with frequency-based backup schedule where frequency is set to 24 Hrs. and backup storage configured to use storage location _BackupStore2_. Enable this policy for partition _SvcA1_P2_ using [Enable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. This action overrides propagated policy _BP_1_ by explicitly enabled backup policy _BP_3_ for partition _SvcA1_P2_.
+    3. Create backup policy, _BP_3_, with frequency-based backup schedule where frequency is set to 24 Hrs. and backup storage configured to use storage location _BackupStore2_. Enable this policy for partition _SvcA1_P2_ using [Enable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. This action overrides propagated policy _BP_1_ by explicitly enabled backup policy _BP_3_ for partition _SvcA1_P2_.
 
 2. MyApp_B
-    1. Create backup policy, _BP_4_, with time-based backup schedule where schedule frequency type is set to weekly, run days is set to Sunday, and run times is set to 8:00 AM. Backup storage configured to use storage location _BackupStore1_. Enable this policy for service _SvcB1_ using [Enable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup) API. This action enables data backup using backup policy _BP_4_ for all partitions of service _SvcB1_.
+    1. Create backup policy, _BP_4_, with time-based backup schedule where schedule frequency type is set to weekly, run days is set to Sunday, and run times is set to 8:00 AM. Backup storage configured to use storage location _BackupStore1_. Enable this policy for service _SvcB1_ using [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup) API. This action enables data backup using backup policy _BP_4_ for all partitions of service _SvcB1_.
 
-    2. Create backup policy, _BP_5_, with time-based backup schedule where schedule frequency type is set to daily and run times is set to 8:00 AM. Backup storage configured to use storage location _BackupStore1_. Enable this policy for partition _SvcB2_P1_ using [Enable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. This action enables data backup using backup policy _BP_5_ for partition _SvcB2_P1_.
+    2. Create backup policy, _BP_5_, with time-based backup schedule where schedule frequency type is set to daily and run times is set to 8:00 AM. Backup storage configured to use storage location _BackupStore1_. Enable this policy for partition _SvcB2_P1_ using [Enable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup) API. This action enables data backup using backup policy _BP_5_ for partition _SvcB2_P1_.
 
 Following diagram depicts explicitly enabled backup policies and propagated backup policies.
 
 ![Service Fabric Application Hierarchy][0]
 
 ## Disable backup
-Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _application_ can only be disabled at the same _application_ using [Disable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _service_ can be disabled at the same _service_ using [Disable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _partition_ can be disabled at the same _partition_ using [Disable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
+Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _application_ can only be disabled at the same _application_ using [Disable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _service_ can be disabled at the same _service_ using [Disable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _partition_ can be disabled at the same _partition_ using [Disable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
 
 * Disabling backup policy for an _application_ stops all periodic data backups happening as a result of propagation of the backup policy to Reliable Stateful service partitions or Reliable Actor partitions.
 
@@ -175,22 +187,29 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
 
 * Disabling backup policy for a _partition_ stops all periodic data backup happening due to the backup policy at the partition.
 
+* While disabling backup for an entity(application/service/partition), `CleanBackup` can be set to _true_ to delete all the backups in configured storage.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
+
 ## Suspend & resume backup
 Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
 
-* When suspension is applied at an _Application_ using [Suspend Application Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, then all the services and partitions under this application are suspended for periodic backup of data.
+* When suspension is applied at an _Application_ using [Suspend Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, then all the services and partitions under this application are suspended for periodic backup of data.
 
-* When suspension is applied at a _Service_ using [Suspend Service Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, then all the partitions under this service are suspended for periodic backup of data.
+* When suspension is applied at a _Service_ using [Suspend Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, then all the partitions under this service are suspended for periodic backup of data.
 
-* When suspension is applied at a _Partition_ using [Suspend Partition Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, then it suspends partitions under this service are suspended for periodic backup of data.
+* When suspension is applied at a _Partition_ using [Suspend Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, then it suspends partitions under this service are suspended for periodic backup of data.
 
 Once the need for suspension is over, then the periodic data backup can be restored using respective resume backup API. Periodic backup must be resumed at same _application_, _service_, or _partition_ where it was suspended.
 
-* If suspension was applied at an _Application_, then it should be resumed using [Resume Application Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
+* If suspension was applied at an _Application_, then it should be resumed using [Resume Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
 
-* If suspension was applied at a _Service_, then it should be resumed using [Resume Service Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* If suspension was applied at a _Service_, then it should be resumed using [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* If suspension was applied at a _Partition_, then it should be resumed using [Resume Partition Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+* If suspension was applied at a _Partition_, then it should be resumed using [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ## Auto restore on data loss
 The service partition may lose data due to unexpected failures. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped.
@@ -198,7 +217,7 @@ The service partition may lose data due to unexpected failures. For example, the
 When Service Fabric detects that the partition is in data loss, it invokes `OnDataLossAsync` interface method on the partition and expects partition to take the required action to come out of data loss. In this situation, if the effective backup policy at the partition has `AutoRestoreOnDataLoss` flag set to `true` then the restore gets triggered automatically using latest available backup for this partition.
 
 ## Get backup configuration
-Separate APIs are made available to get backup configuration information at an _application_, _service_, and _partition_ scope. [Get Application Backup Configuration Info](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), and [Get Partition Backup Configuration Info](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) are these APIs respectively. Mainly, these APIs return the applicable backup policy, scope at which the backup policy is applied and backup suspension details. Following is brief description about returned results of these APIs.
+Separate APIs are made available to get backup configuration information at an _application_, _service_, and _partition_ scope. [Get Application Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), and [Get Partition Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) are these APIs respectively. Mainly, these APIs return the applicable backup policy, scope at which the backup policy is applied and backup suspension details. Following is brief description about returned results of these APIs.
 
 - Application backup configuration info: provides the details of backup policy applied at application and all the over-ridden policies at services and partitions belonging to the application. It also includes the suspension information for the application and it services, and partitions.
 
@@ -214,11 +233,11 @@ These APIs also support pagination of the results, when _MaxResults_ parameter i
 
 Following is the brief information about supported variants.
 
-- [Get Application Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Returns a list of backups available for every partition belonging to given Service Fabric application.
+- [Get Application Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Returns a list of backups available for every partition belonging to given Service Fabric application.
 
-- [Get Service Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist): Returns a list of backups available for every partition belonging to given Service Fabric service.
+- [Get Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): Returns a list of backups available for every partition belonging to given Service Fabric service.
  
-- [Get Partition Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Returns a list of backups available for the specified partition.
+- [Get Partition Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Returns a list of backups available for the specified partition.
 
 ## Next steps
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

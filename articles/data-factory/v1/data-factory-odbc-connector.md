@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 
 robots: noindex
@@ -91,7 +91,7 @@ The following table provides description for JSON elements specific to ODBC link
 }
 ```
 ### Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).  
+You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).  
 
 ```json
 {
@@ -353,33 +353,6 @@ To learn about mapping columns in source dataset to columns in sink dataset, see
 
 ## Repeatable read from relational sources
 When copying data from relational data stores, keep repeatability in mind to avoid unintended outcomes. In Azure Data Factory, you can rerun a slice manually. You can also configure retry policy for a dataset so that a slice is rerun when a failure occurs. When a slice is rerun in either way, you need to make sure that the same data is read no matter how many times a slice is run. See [Repeatable read from relational sources](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## GE Historian store
-You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Install Data Management Gateway on an on-premises machine and register the gateway with the portal. The gateway installed on your on-premises computer uses the ODBC driver for GE Historian to connect to the GE Historian data store. Therefore, install the driver if it is not already installed on the gateway machine. See [Enabling connectivity](#enabling-connectivity) section for details.
-
-Before you use the GE Historian store in a Data Factory solution, verify whether the gateway can connect to the data store using instructions in the next section.
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source data stores in a copy operation.  
 
 ## Troubleshoot connectivity issues
 To troubleshoot connection issues, use the **Diagnostics** tab of **Data Management Gateway Configuration Manager**.

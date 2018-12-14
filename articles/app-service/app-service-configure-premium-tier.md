@@ -1,5 +1,5 @@
 ---
-title: Configure PremiumV2 tier for Azure App Service | Microsoft Docs
+title: Configure PremiumV2 tier - Azure App Service | Microsoft Docs
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new PremiumV2 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 services: app-service
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 
@@ -52,7 +53,7 @@ Select **Production**, then select **P1V2**, **P2V2**, or **P3V2**, then click *
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> If you don't see **P1V2**, **P2V2**, and **P3V2** as options, or if the options are greyed out, then **PremiumV2** likely isn't available in the underlying App Service deployment that contains the App Service plan. See see [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
+> If you don't see **P1V2**, **P2V2**, and **P3V2** as options, or if the options are greyed out, then **PremiumV2** likely isn't available in the underlying App Service deployment that contains the App Service plan. See [Scale up from an unsupported resource group and region combination](#unsupported) for more details.
 
 ## Scale up an existing app to PremiumV2 tier
 

@@ -22,7 +22,7 @@ ms.author: gokuma
 
 # Data exploration and visualization tools on the Data Science Virtual Machine
 
-A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that faciliate this key step. 
+A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that facilitate this key step. 
 
 ## Apache Drill
 |    |           |

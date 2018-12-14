@@ -1,5 +1,5 @@
 ---
-title: Push Docker image to private Azure registry
+title: Push Docker image to private Azure container registry
 description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
 services: container-registry
 author: stevelas
@@ -9,7 +9,7 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
+ms.custom: "seodec18, H1Hack27Feb2017"
 ---
 
 # Push your first image to a private Docker container registry using the Docker CLI
@@ -31,7 +31,7 @@ There are [several ways to authenticate](container-registry-authentication.md) t
 az acr login --name myregistry
 ```
 
-You can also log in with [docker login](https://docs.docker.com/engine/reference/commandline/login/). The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have [assigned a service principal](container-registry-authentication.md#service-principal) to your registry for an automation scenario.
+You can also log in with [docker login](https://docs.docker.com/engine/reference/commandline/login/). The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have [assigned a service principal](container-registry-authentication.md#service-principal) to your registry for an automation scenario.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword

@@ -12,10 +12,10 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
 
 ---
 # Quickstart: Deploy a .NET reliable services application to Service Fabric
@@ -42,7 +42,7 @@ To complete this quickstart:
 
 1. [Install Visual Studio 2017](https://www.visualstudio.com/) with the **Azure development** and **ASP.NET and web development** workloads.
 2. [Install Git](https://git-scm.com/)
-3. [Install the Microsoft Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
+3. [Install the Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Run the following command to enable Visual Studio to deploy to the local Service Fabric cluster:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
@@ -136,7 +136,7 @@ To deploy the application to Azure, you need a Service Fabric cluster which runs
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for node-to-node as well as client-to-node security.
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **How to connect to a secure Party cluster?** link and copy the certificate password. The certificate, certificate password, and the **Connection endpoint** value are used in following steps.
+Sign in and [join a Windows cluster](https://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **How to connect to a secure Party cluster?** link and copy the certificate password. The certificate, certificate password, and the **Connection endpoint** value are used in following steps.
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

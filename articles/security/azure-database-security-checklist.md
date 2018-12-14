@@ -1,5 +1,4 @@
-﻿---
-
+---
 title: Azure database security checklist| Microsoft Docs
 description: This article provides a set of checklist for Azure database security.
 services: security
@@ -16,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-
 ---
 
 # Azure database security checklist
@@ -44,8 +42,8 @@ We recommend that you read the [Azure Database Security Best Practices](https://
 |Checklist Category| Description|
 | ------------ | -------- |
 |**Protect Data**||
-| <br> Encryption in Motion/Transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), for data encryption when data is moving to the networks.</li><li>Database requires secure communication from clients based on the [TDS(Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protocol over TLS (Transport Layer Security).</li></ul> |
-|<br>Encryption at rest| <ul><li>[Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), when inactive data is stored physically in any digital form.</li></ul>|
+| <br> Encryption in Motion/Transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), for data encryption when data is moving to the networks.</li><li>Database requires secure communication from clients based on the [TDS(Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protocol over TLS (Transport Layer Security).</li></ul> |
+|<br>Encryption at rest| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), when inactive data is stored physically in any digital form.</li></ul>|
 |**Control Access**||  
 |<br> Database Access | <ul><li>[Authentication](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory Authentication) AD authentication uses identities managed by Azure Active Directory.</li><li>[Authorization](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) grant users the least privileges necessary.</li></ul> |
 |<br>Application Access| <ul><li>[Row level Security](https://msdn.microsoft.com/library/dn765131) (Using Security Policy, at the same time restricting row-level access  based on a user's identity,role, or execution context).</li><li>[Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (Using Permission & Policy, limits sensitive data exposure by masking it to non-privileged users)</li></ul>|
@@ -59,7 +57,7 @@ Azure Database is a robust database platform, with a full range of security feat
 ## Next steps
 You can improve the protection of your database against malicious users or unauthorized access with just a few simple steps. In this tutorial you learn to:
 
-- Set up [firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for your sever and or database.
+- Set up [firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for your server and or database.
 - Protect your data with [encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Enable [SQL Database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 

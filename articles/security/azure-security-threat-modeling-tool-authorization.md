@@ -3,9 +3,9 @@ title: Authorization - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -346,7 +346,7 @@ The `<behaviorExtensions/>` element of the WCF configuration file below instruct
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Steps** | <p>This service does not use an authorization control. When a client calls a particular WCF service, WCF provides various authorization schemes that verify that the caller has permission to execute the service method on the server. If authorization controls are not enabled for WCF services, an authenticated user can achieve privilege escalation.</p>|
 
 ### Example

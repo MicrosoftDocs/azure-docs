@@ -20,7 +20,7 @@ After deployment, many organizations want to know how or if self-service passwor
 
 ![Reporting][Reporting]
 
-The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
+The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
 > [!NOTE]
 > You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
@@ -37,7 +37,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 ## Power BI content pack
 
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
+If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../reports-monitoring/howto-power-bi-content-pack.md). With the content pack, you can create your own dashboards and share them with others in your organization.
 
 ## How to view password management reports in the Azure portal
 

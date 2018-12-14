@@ -7,22 +7,21 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
 ---
 
-# Quickstart: create a Linux server virtual machine by using PowerShell in Azure Stack
+# Quickstart: Create a Linux server virtual machine by using PowerShell in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine.  This article also gives you the steps to:
+You can create an Ubuntu Server 16.04 LTS virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine.  This article also gives you the steps to:
 
 * Connect to the virtual machine with a remote client.
 * Install the NGINX web server and view the default home page.
@@ -34,7 +33,9 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack Po
 
    The Azure Stack marketplace doesn't contain a Linux image by default. Get the Azure Stack operator to provide the **Ubuntu Server 16.04 LTS** image you need. The operator can use the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) article.
 
-* Azure Stack requires a specific version of Azure PowerShell to create and manage resources. If you don't have PowerShell configured for Azure Stack, sign in to the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) and follow the steps to [install](azure-stack-powershell-install.md) and [configure](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install](azure-stack-powershell-install.md) PowerShell.
+
+* With the Azure Stack PowerShell set up, you will need to connect to your Azure Stack environment. For instruction, see [Connect to Azure Stack with PowerShell as a user](azure-stack-powershell-configure-user.md).
 
 * A public SSH key with the name id_rsa.pub saved in the .ssh directory of your Windows user profile. For detailed information about creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
@@ -42,7 +43,7 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack Po
 
 A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Values are assigned for all the variables in this document, you can use these values or assign new values.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -56,7 +57,7 @@ New-AzureRmResourceGroup `
 
 Create a storage account and then create a storage container for the Ubuntu Server 16.04 LTS image.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -390,7 +391,7 @@ From a client system with SSH installed, use the following command to connect to
 ssh <Public IP Address>
 ```
 
-When prompted, enter azureuser as the login user. If you used a passphrase when you created the SSH keys, you'll have to provide the passphrase.
+When prompted, sign in as **azureuser**. If you used a passphrase when you created the SSH keys, you'll have to provide the passphrase.
 
 ## Install the NGINX web server
 

@@ -40,4 +40,4 @@ Select one of these topics to get started.
 | [Sign-in experience](multi-factor-authentication-end-user-signin.md) |Shows what you can expect from signing in using the various methods such as phone or app. |
 | [Changing your settings](multi-factor-authentication-end-user-manage-settings.md) |Shows you how you can change your settings such as phone number or preferred enrollment method. |
 | [Help with app passwords](multi-factor-authentication-end-user-app-passwords.md) |Find information on creating and using app passwords. |
-| [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Use the mobile app](microsoft-authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |

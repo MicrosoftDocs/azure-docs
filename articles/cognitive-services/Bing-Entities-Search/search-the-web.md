@@ -1,13 +1,14 @@
 ---
-title: What is Bing Entity Search? | Microsoft Docs
+title: What is Bing Entity Search?
+titlesuffix: Azure Cognitive Services
 description: Learn how to use the Bing Entity Search API to search the web for entities and places.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
 ---

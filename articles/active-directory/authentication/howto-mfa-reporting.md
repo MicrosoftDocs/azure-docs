@@ -47,7 +47,7 @@ The sign-ins report can provide you with information about the usage of managed 
 - How many users are unable to complete the MFA challenge?
 - What are the common MFA issues end users are running into?
 
-This data is available through the [Azure portal](https://portal.azure.com) and the [reporting API](../active-directory-reporting-api-getting-started-azure-portal.md).
+This data is available through the [Azure portal](https://portal.azure.com) and the [reporting API](../reports-monitoring/concept-reporting-api.md).
 
 ![Cloud](./media/howto-mfa-reporting/sign-in-report.png)
 

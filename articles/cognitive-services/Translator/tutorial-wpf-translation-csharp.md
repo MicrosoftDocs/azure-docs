@@ -1,16 +1,15 @@
 ---
-title: "Tutorial: Write a WPF application for Translator Text using C# | Microsoft Docs"
-titleSuffix: "Microsoft Cognitive Services"
+title: "Tutorial: Create a WPF application in C# - Translator Text API"
+titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll learn how to use the Translator Text API to translate text, get a localized list of supported languages, and more, by building a WPF application using C#.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
 
 # Tutorial: Write a WPF application for Translator Text using C&#35;
@@ -662,9 +661,9 @@ Next, pass text to the `Translate` API in a serialized JSON array in the body of
 The HTTP header named `X-ClientTraceId` is optional. The value should be a GUID. The client-supplied trace ID is useful to trace requests when things don't work as expected. However, to be useful, the value of X-ClientTraceID must be recorded by the client. A client trace ID and the date of requests can help Microsoft diagnose issues that may occur.
 
 > [!NOTE]
-> This tutorial focuses on the Microsoft Translator service, so the `DetectLanguage()` and `CorrectSpelling()` methods aren't covered in detail. The Text Analytics and Bing Spell Check services provide responses in JSON rather than XML, and Text Analytics requires that the request be formatted as JSON as well. These characteristics account for most code differences from the methods discussed here.
+> This tutorial focuses on the Microsoft Translator service, so the `DetectLanguage()` and `CorrectSpelling()` methods aren't covered in detail.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Text API reference](http://docs.microsofttranslator.com/text-translate.html)
+> [Microsoft Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

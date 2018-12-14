@@ -1,20 +1,15 @@
 ---
 title: Examples & common scenarios - Azure Logic Apps | Microsoft Docs
-description: Learn more about logic apps with examples, scenarios, tutorials, and walkthroughs
+description: Examples, scenarios, tutorials, and walkthroughs for Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter:
-
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.author: LADocs; jehollan
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
@@ -89,7 +84,7 @@ you can also extend logic apps.
 * [Set up long-running actions for workflow runs](../logic-apps/logic-apps-create-api-app.md)
 * [Respond to external events and actions with webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Call, trigger, or nest workflows with synchronous responses to HTTP requests](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](http://aka.ms/logicappsdemo)
+* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](https://aka.ms/logicappsdemo)
 * [Video: Respond to Twilio SMS webhooks and send a text response](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Control flow, error handling, and logging capabilities
@@ -114,7 +109,7 @@ and [switch statements](../logic-apps/logic-apps-control-flow-switch-statement.m
 ## Deploy and manage logic apps
 
 You can fully develop and deploy logic apps with Visual Studio, 
-Visual Studio Team Services, or any other source control and automated build tools. 
+Azure DevOps, or any other source control and automated build tools. 
 To support deployment for workflows and dependent connections in a resource template, 
 logic apps use Azure resource deployment templates. 
 Visual Studio tools automatically generate these templates, 
@@ -127,7 +122,7 @@ which you can check in to source control for versioning.
 ## Content types, conversions, and transformations within a run
 
 You can access, convert, and transform multiple content types by using the many functions 
-in the Azure Logic Apps [workflow definition language](http://aka.ms/logicappsdocs). 
+in the Azure Logic Apps [workflow definition language](https://aka.ms/logicappsdocs). 
 For example, you can convert between a string, JSON, and XML with 
 the `@json()` and `@xml()` workflow expressions. 
 The Logic Apps engine preserves content types to support 
@@ -136,7 +131,7 @@ content transfer in a lossless manner between services.
 * [How workflow expressions work in logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Handle non-JSON content types](../logic-apps/logic-apps-content-type.md), 
 like `application/xml`, `application/octet-stream`, and `multipart/formdata`
-* [Workflow Definition Language schema for Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Workflow Definition Language schema for Azure Logic Apps](https://aka.ms/logicappsdocs)
 
 ## Other integrations and capabilities
 

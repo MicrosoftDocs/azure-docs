@@ -1,25 +1,17 @@
 ---
-title: Replicate a multitier Dynamics AX deployment by using Azure Site Recovery | Microsoft Docs
-description: This article describes how to replicate and protect Dynamics AX by using Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
+title: Set up disaster recovery for a multitier Dynamics AX deployment by using Azure Site Recovery | Microsoft Docs
+description: This article describes how to set up disaster recovery for Dynamics AX with Azure Site Recovery
 author: asgang
 manager: rochakm
-editor: ''
-
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
 
 ---
-# Replicate a multitier Dynamics AX application by using Azure Site Recovery
+# Set up disaster recovery for a multitier Dynamics AX application 
 
-## Overview
+
 
 
  Dynamics AX is one of the most popular ERP solutions used by enterprises to standardize processes across locations, manage resources, and simplify compliance. Because the application is critical to an organization, in the event of a disaster, the application should be up and running in minimum time.
@@ -95,7 +87,7 @@ You can select the VM in the replicated items to configure the network settings,
 
 * If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** text box.
 
-    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### 5. Create a recovery plan

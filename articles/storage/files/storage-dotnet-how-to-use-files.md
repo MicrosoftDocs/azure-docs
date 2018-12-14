@@ -2,19 +2,13 @@
 title: Develop for Azure Files with .NET | Microsoft Docs
 description: Learn how to develop .NET applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-
-ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
+ms.component: files
 ---
 
 # Develop for Azure Files with .NET
@@ -474,10 +468,10 @@ See these links for more information about Azure Files.
 
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+* [File Service REST API reference](https://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### Blog posts
 * [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Introducing Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Persisting connections to Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

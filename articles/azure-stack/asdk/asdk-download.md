@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -25,7 +25,7 @@ After ensuring that your development kit host computer meets the basic requireme
 1. Before you start the download, make sure that your computer meets the following prerequisites:
 
   - The computer must have at least 60 GB of free disk space available on four separate, identical logical hard drives in addition to the operating system disk.
-  - [.NET Framework 4.6 (or a later version)](https://aka.ms/r6mkiy) must be installed.
+  - [.NET Framework 4.6 (or a later version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) must be installed.
 
 2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try) where you can download the Azure Stack Development Kit, provide your details, and then click **Submit**.
 3. Download and run the [Deployment Checker for Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) prerequisite checker script. This standalone script goes through the pre-requisites checks done by the setup for Azure Stack Development Kit. It provides a way to confirm you are meeting the hardware and software requirements, before downloading the larger package for Azure Stack Development Kit.
@@ -39,7 +39,7 @@ After ensuring that your development kit host computer meets the basic requireme
 2. Review and accept the displayed license agreement from the **License Agreement** page of the Self-Extractor Wizard and then click **Next**.
 3. Review the privacy statement information displayed on the **Important Notice** page of the Self-Extractor Wizard and then click **Next**.
 4. Select the location for Azure Stack setup files to be extracted to on the **Select Destination Location** page of the Self-Extractor Wizard and then click **Next**. The default location is *current folder*\Azure Stack Development Kit. 
-5. Review the destination location summary on the **Ready to Extract** page of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (approximately 25GB) and ThirdPartyLicenses.rtf files. This process takes some time to complete.
+5. Review the destination location summary on the **Ready to Extract** page of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (approximately 28GB) and ThirdPartyLicenses.rtf files. This process takes some time to complete.
 6. Copy or move the CloudBuilder.vhdx file to the root of the C:\ drive (C:\CloudBuilder.vhdx) on the ASDK host computer.
 
 > [!NOTE]

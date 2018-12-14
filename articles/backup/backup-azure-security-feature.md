@@ -75,6 +75,10 @@ Checks have been added to make sure only valid users can perform various operati
 ### Authentication to perform critical operations
 As part of adding an extra layer of authentication for critical operations, you are prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
 
+> [!NOTE]
+
+> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS. 
+
 To receive this PIN:
 
 1. Sign in to the Azure portal.
@@ -104,6 +108,6 @@ The security features mentioned in this article provide defense mechanisms again
 
 ## Next steps
 * [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
-* [Download the latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
+* [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
 * [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to help protect workloads and guard your backup data against attacks.
 * [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.

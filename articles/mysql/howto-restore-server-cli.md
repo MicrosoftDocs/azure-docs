@@ -25,7 +25,7 @@ To complete this how-to guide, you need:
  
 
 > [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Set backup configuration
 
@@ -65,6 +65,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 The `az mysql server restore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the source server exists.  |
@@ -102,6 +103,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 The `az mysql server georestore` command requies the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

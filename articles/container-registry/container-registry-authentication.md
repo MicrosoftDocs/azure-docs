@@ -32,7 +32,7 @@ When you log in with `az acr login`, the CLI uses the token created when you exe
 
 ## Service principal
 
-You can assign a [service principal](../active-directory/develop/active-directory-application-objects.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
+You can assign a [service principal](../active-directory/develop/app-objects-and-service-principals.md) to your registry, and your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
 The available roles are:
 
@@ -44,7 +44,7 @@ Service principals enable headless connectivity to a registry in both push and p
 
   * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
-  * *Contributor*: Continuous integration and deployment solutions like Visual Studio Team Services (VSTS) or Jenkins that build container images and push them to a registry.
+  * *Contributor*: Continuous integration and deployment solutions like Azure Pipelines or Jenkins that build container images and push them to a registry.
 
 > [!TIP]
 > You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) command.

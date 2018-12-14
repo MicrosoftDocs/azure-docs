@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -48,13 +48,14 @@ The way you control access to resources using RBAC is to create role assignments
 
 ### Security principal
 
-A *security principal* is an object that represents a user, group, or service principal that is requesting access to Azure resources.
+A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources.
 
 ![Security principal for a role assignment](./media/overview/rbac-security-principal.png)
 
-- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
+- Managed identity - An identity in Azure Active Directory that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
 ### Role definition
 
@@ -77,20 +78,19 @@ Azure has introduced data operations (currently in preview) that enable you to g
 
 *Scope* is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: subscription, resource group, or resource. Scopes are structured in a parent-child relationship where every child will have only one parent.
+In Azure, you can specify a scope at multiple levels: [management group](../azure-resource-manager/management-groups-overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
 
 ![Scope for a role assignment](./media/overview/rbac-scope.png)
 
-Access that you assign at a parent scope is inherited at the child scope. For example:
+When you grant access at a parent scope, those permissions are inherited to the child scopes. For example:
 
+- If you assign the [Owner](built-in-roles.md#owner) role to a user at the management group scope, that user can manage everything in all subscriptions in the management group.
 - If you assign the [Reader](built-in-roles.md#reader) role to a group at the subscription scope, the members of that group can view every resource group and resource in the subscription.
 - If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
-Azure also includes a scope above subscriptions called [management groups](../azure-resource-manager/management-groups-overview.md), which is in preview. Management groups are a way to manage multiple subscriptions. When you specify scope for RBAC, you can either specify a management group or specify a subscription, resource group, or resource hierarchy.
+### Role assignments
 
-### Role assignment
-
-A *role assignment* is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
+A *role assignment* is the process of attaching a role definition to a user, group, service principal, or managed identity at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
 The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
 
@@ -98,8 +98,33 @@ The following diagram shows an example of a role assignment. In this example, th
 
 You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to 2000 role assignments in each subscription. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
+## Deny assignments
+
+Previously, RBAC was an allow-only model with no deny, but now RBAC supports deny assignments in a limited way. Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, service principal, or managed identity at a particular scope for the purpose of denying access. A role assignment defines a set of actions that are *allowed*, while a deny assignment defines a set of actions that are *not allowed*. In other words, deny assignments block users from performing specified actions even if a role assignment grants them access. Deny assignments take precedence over role assignments. Currently, deny assignments are **read-only** and can only be set by Azure. For more information, see [Understand deny assignments](deny-assignments.md) and [View deny assignments using the Azure portal](deny-assignments-portal.md).
+
+## How RBAC determines if a user has access to a resource
+
+The following are the high-level steps that RBAC uses to determine if you have access to a resource on the management plane. This is helpful to understand if you are trying to troubleshoot an access issue.
+
+1. A user (or service principal) acquires a token for Azure Resource Manager.
+
+    The token includes the user's group memberships (including transitive group memberships).
+
+1. The user makes a REST API call to Azure Resource Manager with the token attached.
+
+1. Azure Resource Manager retrieves all the role assignments and deny assignments that apply to the resource upon which the action is being taken.
+
+1. Azure Resource Manager narrows the role assignments that apply to this user or their group and determines what roles the user has for this resource.
+
+1. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource.
+
+1. If the user doesn’t have a role with the action at the requested scope, access is not granted. Otherwise, Azure Resource Manager checks if a deny assignment applies.
+
+1. If a deny assignment applies, access is blocked. Otherwise access is granted.
+
 ## Next steps
 
 - [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
 - [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
 - [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
+- [Enterprise Cloud Adoption: Resource access management in Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

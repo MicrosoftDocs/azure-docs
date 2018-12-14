@@ -1,3 +1,10 @@
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: genemi
+---
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).

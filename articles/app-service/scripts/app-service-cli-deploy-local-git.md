@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository | Microsoft Docs
+title: Azure CLI Script Sample - Create app and deploy code from local Git repo | Microsoft Docs
 description: Azure CLI Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Create a web app and deploy code from a local Git repository
+# Create a web app and deploy code from a local Git repository using Azure CLI
 
 This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
 
@@ -28,7 +29,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

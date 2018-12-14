@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: backup
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: raynew
+---
 ## Defining a backup policy
 A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
 

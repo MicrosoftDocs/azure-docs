@@ -1,21 +1,19 @@
 ---
-title: Using the Mongoose framework with Azure Cosmos DB | Microsoft Docs
-description: Learn how to connect a Node.js Mongoose app to Azure Cosmos DB
-services: cosmos-db
-author: romitgirdhar
-manager: kfile
+title: Connect a Node.js Mongoose application to Azure Cosmos DB
+description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB. 
+author: SnehaGunda
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: rogirdh
-
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
 ---
-# Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
+# Connect a Node.js Mongoose application to Azure Cosmos DB
 
-This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
+This tutorial demonstrates how to use the [Mongoose Framework](https://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -46,7 +44,11 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
 1. Add a new file to the folder and name it ```index.js```.
 1. Install the necessary packages using one of the ```npm install``` options:
-    * Mongoose: ```npm install mongoose --save```
+    * Mongoose: ```npm install mongoose@5 --save```
+
+    > [!Note]
+    > The Mongoose example connection below is based on Mongoose 5+, which has changed since earlier versions.
+    
     * Dotenv (if you'd like to load your secrets from an .env file): ```npm install dotenv --save```
 
     >[!Note]
@@ -61,19 +63,21 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
 
     ```JavaScript
-    COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
-    COSMOSDB_DBNAME={Your DB Name Here}
+    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-user
+    COSMOSDB_PASSWORD=cosmos-secret
     ```
 
 1. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
-
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
-    console.log("Connected to DB");
-    });
+    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+      auth: {
+        user: process.env.COSMODDB_USER,
+        password: process.env.COSMOSDB_PASSWORD
+      }
+    })
+    .then(() => console.log('Connection to CosmosDB successful'))
+    .catch((err) => console.error(err));
     ```
     >[!Note]
     > Here, the environment variables are loaded using process.env.{variableName} using the 'dotenv' npm package.
@@ -86,7 +90,7 @@ For every model you create, Mongoose creates a new MongoDB collection underneath
 
 This walkthrough covers both models. We'll first cover the walkthrough on storing one type of data per collection. This is the defacto behavior for Mongoose.
 
-Mongoose also has a concept called [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
+Mongoose also has a concept called [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
 
 You can store the various data models in the same collection and then use a filter clause at query time to pull down only the data needed.
 
@@ -186,7 +190,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 ### Using Mongoose discriminators to store data in a single collection
 
-In this method, we use [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
+In this method, we use [Mongoose Discriminators](https://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
 
 Here, we create a base object model, define a differentiating key and add 'Family' and 'VacationDestinations' as an extension to the base model.
 

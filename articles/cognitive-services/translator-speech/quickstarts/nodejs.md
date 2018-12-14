@@ -1,19 +1,23 @@
 ---
-title: Node.js Quickstart for Azure Cognitive Services, Microsoft Translator Speech API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Speech API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Translator Speech API Node.js"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
 ---
-# Quickstart for Microsoft Translator Speech API with Node.js 
+# Quickstart: Translator Speech API with Node.js 
 <a name="HOLTop"></a>
 
-This article shows you how to use the Microsoft Translator Speech API to translate words spoken in a .wav file.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+This article shows you how to use the Translator Speech API to translate words spoken in a .wav file.
 
 ## Prerequisites
 
@@ -21,7 +25,7 @@ You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
 You need to install the [Websocket package](https://www.npmjs.com/package/websocket) for Node.js.
 
-You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -59,7 +63,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 
@@ -163,4 +167,4 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 ## See also 
 
 [Translator Speech overview](../overview.md)
-[API Reference](http://docs.microsofttranslator.com/speech-translate.html)
+[API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

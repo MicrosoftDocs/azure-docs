@@ -42,7 +42,7 @@ Depending on application regulation, parental consent might need to be granted b
 
 The following is an example of a user flow for gathering parental consent:
 
-1. An [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
+1. An [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
 2. The application processes the JSON token and shows a screen to the minor, notifying him or her that parental consent is required and requesting the consent of a parent online. 
 
@@ -52,7 +52,7 @@ The following is an example of a user flow for gathering parental consent:
 
 5. When either the minor or the adult revokes consent, the Azure AD Graph API can be used to change **consentProvidedForMinor** to **denied**. Alternatively, the application may choose to delete a minor whose consent has been revoked. It is optionally possible to customize the user flow so that the authenticated minor (or parent that is using the minor’s account) can revoke consent. Azure AD B2C records **consentProvidedForMinor** as **denied**.
 
-For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md). When you address extended attributes by using the Azure AD Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md). When you address extended attributes by using the Azure AD Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## Gather date of birth and country data
 
@@ -102,7 +102,7 @@ The following steps describe how you can manage terms of use:
 You can capture terms of use acceptance under the following scenarios:
 
 - A new user is signing up. The terms of use are displayed, and the acceptance result is stored.
-- A user is signing in who has previously accepted the latest or active terms of agreement. The terms of use are not displayed.
+- A user is signing in who has previously accepted the latest or active terms of use. The terms of use are not displayed.
 - A user is signing in who has not already accepted the latest or active terms of use. The terms of use are displayed, and the acceptance result is stored.
 - A user is signing in who has already accepted an older version of the terms of use, which are now updated to the latest version. The terms of use are displayed, and the acceptance result is stored.
 

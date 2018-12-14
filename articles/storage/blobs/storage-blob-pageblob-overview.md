@@ -67,7 +67,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### Writing pages to a page blob
-To write pages,  use the [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) method.  This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.  The following code example shows how to call **WritePages** for a blob:
+To write pages,  use the [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) method.  This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.  The following code example shows how to call **WritePages** for a blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -112,8 +112,6 @@ foreach (PageRange range in pageRanges)
 
 #### Leasing a page blob
 The Lease Blob operation establishes and manages a lock on a blob for write and delete operations. This operation is useful in scenarios where a page blob is being accessed from multiple clients to ensure only one client can write to the blob at a time. Azure Disks, for example,  leverages this leasing mechanism to ensure the disk is only managed by a single VM. The lock duration can be 15 to 60 seconds, or can be infinite. See the documentation [here](/rest/api/storageservices/lease-blob) for more details.
-
-> Use the following link to get [code samples](/resources/samples/?service=storage&term=blob&sort=0 ) for many other application scenarios. 
 
 In addition to rich REST APIs, Page blobs also provide shared access, durability, and enhanced security. We will cover those benefits in more detail in the next paragraphs. 
 

@@ -1,13 +1,14 @@
 ---
-title: Register a new Azure IoT Edge device (VS Code) | Microsoft Docs 
-description: Use Visual Studio Code to create a new IoT Edge device in your Azure IoT hub
+title: Register a new device from Visual Studio Code - Azure IoT Edge | Microsoft Docs 
+description: Use Visual Studio Code to create a new IoT Edge device in your Azure IoT hub and retrieve the connection string
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Register a new Azure IoT Edge device from Visual Studio Code
@@ -30,9 +31,9 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 2. At the bottom of the Explorer, expand the **Azure IoT Hub Devices** section. 
 
-   ![Expand Azure IoT Hub Devices](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices section](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
+3. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, click on or hover over the header. 
 
 4. Choose **Select IoT Hub**.
 
@@ -46,7 +47,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 1. In the VS Code Explorer, expand the **Azure IoT Hub Devices** section. 
 
-2. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, hover over the header. 
+2. Click on the **...** in the **Azure IoT Hub Devices** section header. If you don't see the ellipsis, click on or hover over the header. 
 
 3. Select **Create IoT Edge Device**. 
 
@@ -58,7 +59,7 @@ In the output screen, you see the result of the command. The device info is prin
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub Devices** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that they can be expanded to show the modules deployed to each device. 
 
-   ![View devices in VS Code](./media/how-to-register-device-vscode/view-devices.png)
+   ![View all IoT Edge devices in your IoT hub](./media/how-to-register-device-vscode/view-devices.png)
 
 ## Retrieve the connection string
 

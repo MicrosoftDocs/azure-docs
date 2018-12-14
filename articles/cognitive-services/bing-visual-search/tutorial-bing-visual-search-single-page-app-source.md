@@ -1,19 +1,30 @@
 ---
-title: Bing Visual Search single-page Web app (source code) | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: "Tutorial: Build a single-page Web app (source code) - Bing Visual Search"
+titleSuffix: Azure Cognitive Services
 description: Source code for tutorial showing how to use the Bing Visual Search API in a single-page Web application.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
 ---
 # Tutorial: Visual Search Single-page Web app
 
 This is the complete source code discussed in the [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app.md) tutorial for Bing Visual Search. To run the app, copy the source code into Notepad or another text editor and save it as `bing-visual-search.html`. Then open the saved file in Microsoft Edge or another popular browser.
+## Prerequisites
+For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
 
 ```html
 <!DOCTYPE html>
@@ -68,7 +79,8 @@ h3 a:link {color: #087 !important;}
 
 // cookie names for data we store
 // YOUR API KEY DOES NOT GO IN THIS CODE; don't paste it in.
-API_KEY_COOKIE   = "bing-search-api-key";
+IS_API_KEY_COOKIE   = "bing-imagesearch-api-key";
+VS_API_KEY_COOKIE   = "bing-visualsearch-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
 
 // Bing Search API endpoint
@@ -104,19 +116,34 @@ try {
 }
 
 // get stored API subscription key, or prompt if it's not found
-function getSubscriptionKey() {
-    var key = retrieveValue(API_KEY_COOKIE);
-    while (key.length !== 32) {
-        key = prompt("Enter Bing Image Search API subscription key:", "").trim();
+function getSubscriptionKey(API_name) {
+    if (API_name == 'image_search'){
+        var key = retrieveValue(IS_API_KEY_COOKIE);
+        var message = "Enter Bing Image Search API subscription key:"
+        while (key.length !== 32) {
+            key = prompt(message, "").trim();
+        }
+        // always set the cookie in order to update the expiration date
+        storeValue(IS_API_KEY_COOKIE, key);
+    } else if (API_name == 'visual_search') {
+        var key = retrieveValue(VS_API_KEY_COOKIE);
+        var message = "Enter Bing Visual Search API subscription key:"
+        while (key.length !== 32) {
+            key = prompt(message, "").trim();
+        }
+        // always set the cookie in order to update the expiration date
+        storeValue(VS_API_KEY_COOKIE, key);
     }
-    // always set the cookie in order to update the expiration date
-    storeValue(API_KEY_COOKIE, key);
     return key;
 }
 
 // invalidate stored API subscription key so user will be prompted again
-function invalidateSubscriptionKey() {
-    storeValue(API_KEY_COOKIE, "");
+function invalidateSubscriptionKey(API_name) {
+    if(API_name == 'image_search') {
+        storeValue(IS_API_KEY_COOKIE, "");
+    } else if (API_name == 'visual_search'){
+        storeValue(VS_API_KEY_COOKIE, "");
+    }
 }
 
 // escape text for use in HTML
@@ -262,7 +289,7 @@ function handleBingResponse() {
     // Any other HTTP response is an error
     else {
         // 401 is unauthorized; force re-prompt for API key for next request
-        if (this.status === 401) invalidateSubscriptionKey();
+        if (this.status === 401) invalidateSubscriptionKey('image_search');
 
         // some error responses don't have a top-level errors object
         var errors = jsobj.errors || [jsobj];
@@ -400,7 +427,7 @@ function doNextSearchPage() {
     stack.push(parseInt(bing.offset.value, 10));
     bing.stack.value = JSON.stringify(stack);
     bing.offset.value = bing.nextoffset.value;
-    return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
+    return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey('image_search'));
 }
 
 // go to the previous page (used by previous page link)
@@ -414,7 +441,7 @@ function doPrevSearchPage() {
         var count = parseInt(bing.count.value, 10);
         bing.stack.value = JSON.stringify(stack);
         bing.offset.value = offset;
-        return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey());
+        return bingImageSearch(query, bingSearchOptions(bing), getSubscriptionKey('image_search'));
     }
     alert("You're already at the beginning!");
     return false;
@@ -423,11 +450,15 @@ function doPrevSearchPage() {
 function newBingImageSearch(form) {
     form.offset.value = "0";
     form.stack.value = "[]";
-    return bingImageSearch(form.query.value, bingSearchOptions(form), getSubscriptionKey());
+    return bingImageSearch(form.query.value, bingSearchOptions(form), getSubscriptionKey('image_search'));
 }
 function handleVisualSearchResponse(){
     if(this.status !== 200){
         console.log(this.responseText);
+        // 401 is unauthorized; force re-prompt for Visual Search API key for next request
+        if(this.status == 401){
+            invalidateSubscriptionKey('visual_search');
+        }
         return;
     }
     let json = this.responseText;
@@ -479,7 +510,7 @@ function bingVisualSearch(insightsToken){
     catch (e) {
         renderErrorMessage("Error performing visual search: " + e.message);
     }
-    request.setRequestHeader("Ocp-Apim-Subscription-Key", getSubscriptionKey());
+    request.setRequestHeader("Ocp-Apim-Subscription-Key", getSubscriptionKey('visual_search'));
     request.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + boundary);
     request.addEventListener("load", handleVisualSearchResponse);
     request.send(requestBody);

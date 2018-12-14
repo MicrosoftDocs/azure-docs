@@ -41,7 +41,7 @@ Gateway is required even if the PostgreSQL database is hosted in an Azure IaaS V
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
+For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises PostgreSQL data store by using different tools/APIs. 

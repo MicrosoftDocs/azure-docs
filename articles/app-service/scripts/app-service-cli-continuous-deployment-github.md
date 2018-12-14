@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app with continuous deployment from GitHub
+title: Azure CLI Script Sample - Create app with continuous deployment from GitHub | Microsoft Docs
+description: Azure CLI Script Sample - Create a web app and deploy continuously from GitHub
 services: app-service\web
 documentationcenter: 
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -17,9 +17,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Create a web app with continuous deployment from GitHub
+# Create a web app with continuous deployment from GitHub using CLI
 
 This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](app-service-cli-deploy-github.md). For this sample, you need:
 
@@ -30,7 +31,7 @@ This sample script creates a web app in App Service with its related resources, 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

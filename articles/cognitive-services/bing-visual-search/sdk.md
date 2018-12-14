@@ -1,14 +1,14 @@
 ---
-title: Bing Visual Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: Bing Visual Search SDK
+titleSuffix: Azure Cognitive Services
 description: Bing Visual Search SDK for applications that search the web.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 4/19/2018
 ms.author: scottwhi
 ---
@@ -28,3 +28,18 @@ Bing Visual Search provides the following client SDKs that you can use to exerci
     * [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) for definitions and dependencies
 
 SDK samples for each language include a ReadMe file with prerequisites for using the SDK along with steps for installing and running the samples.
+
+For these samples, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure Portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
+
+### SDK tools
+SDK tools to explore capabilities of Bing Visual Search can be found in this Git Repo: [Bing Visual Search tools](https://github.com/Azure-Samples/bing-visualsearch-tools)
+
+

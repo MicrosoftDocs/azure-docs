@@ -23,7 +23,7 @@ ms.author: v-ant
 The objective of this tutorial is to demonstrate the steps to be performed in Zendesk and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Zendesk. 
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## Prerequisites
 
@@ -73,6 +73,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ### Important tips for assigning users to Zendesk
 
+*    Zendesk roles are automatically and dynamically populated in the Azure portal UI today. Before assigning Zendesk roles to users, ensure that an initial sync is completed against Zendesk to retrieve the latest roles in your Zendesk tenant.
+
+*    It is recommended that a single Azure AD user is assigned to Zendesk to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
+  
 *	It is recommended that a single Azure AD user is assigned to Zendesk to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 *	When assigning a user to Zendesk, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
@@ -140,7 +144,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for Zendesk, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -157,7 +161,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zendesk.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Connector Limitations
 * Zendesk supports usage of groups for Users with Agent roles only. For more information, please refer to [Zendesk's documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
@@ -169,7 +173,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
+* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zendesk-tutorial/tutorial_general_01.png

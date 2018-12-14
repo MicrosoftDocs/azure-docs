@@ -2,14 +2,14 @@
 title: Azure Quick Start - Back up a VM with Azure CLI
 description: Learn how to back up your virtual machines with the Azure CLI
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 8/3/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -20,7 +20,7 @@ This quick start enables backup on an existing Azure VM. If you need to create a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## Create a recovery services vault

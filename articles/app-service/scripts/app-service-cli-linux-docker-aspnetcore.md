@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container | Microsoft Docs
+title: Azure CLI Script Sample - Create ASP.NET Core app from Docker Hub | Microsoft Docs
 description: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -15,11 +15,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
-# Create an ASP.NET Core web app in a Docker container
+# Create an ASP.NET Core web app in a Docker container using Azure CLI
 
 This sample script creates a resource group, a Linux App Service plan, and a web app. It then deploys an ASP.NET Core application using a Docker Container.
 
@@ -27,7 +28,7 @@ This sample script creates a resource group, a Linux App Service plan, and a web
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 

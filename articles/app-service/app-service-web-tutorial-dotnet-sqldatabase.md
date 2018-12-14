@@ -1,5 +1,5 @@
 ---
-title: Build an ASP.NET app in Azure with SQL Database | Microsoft Docs 
+title: Build ASP.NET app with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to deploy a C# ASP.NET app with a SQL Server database to Azure.
 services: app-service\web
 documentationcenter: ''
@@ -15,7 +15,9 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
+ms.custom: seodec18
+
 ---
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database
@@ -419,4 +421,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to easily improve the security of your connection Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Access SQL Database securely using managed service identity](app-service-web-tutorial-connect-msi.md)
+> [Access SQL Database securely using managed identities for Azure resources](app-service-web-tutorial-connect-msi.md)

@@ -36,7 +36,7 @@ Also install the [Service Fabric CLI](service-fabric-cli.md).
 Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator.  If Yeoman isn't already installed, see [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) for instructions on setting up Yeoman. Run the following command to install the Service Fabric Yeoman template generator for Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## Basic concepts

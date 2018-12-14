@@ -3,11 +3,11 @@ title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell | Micr
 description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/01/2018
+ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -26,24 +26,24 @@ This tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-
 >
 >
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
+Sign in to your Azure subscription using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount
 ```
 
-To see which subscription you are using, run [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+To see which subscription you're using, run [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-If you need to use a different subscription than the default, run [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+If you need to use a different subscription than the default, run [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -55,10 +55,10 @@ Define variables for use in the scripts in this quickstart.
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
+# Set an admin name and password for your database
+# The sign-in information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
@@ -77,7 +77,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## Create a logical server
 
-Create an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md) using the [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -97,7 +97,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database and SQL Data Warehouse communicate over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL server unless your IT department opens port 1433.
+> SQL Database and SQL Data Warehouse communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your Azure SQL server unless your IT department opens port 1433.
 >
 
 
@@ -117,15 +117,15 @@ New-AzureRmSqlDatabase `
 
 Required Parameters are:
 
-* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you are requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-and-concurrency-limits.md).
-* **DatabaseName**: The name of the SQL Data Warehouse that you are creating.
-* **ServerName**: The name of the server that you are using for creation.
-* **ResourceGroupName**: Resource group you are using. To find available resource groups in your subscription use Get-AzureResource.
+* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-and-concurrency-limits.md).
+* **DatabaseName**: The name of the SQL Data Warehouse that you're creating.
+* **ServerName**: The name of the server that you're using for creation.
+* **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.
 * **Edition**: Must be "DataWarehouse" to create a SQL Data Warehouse.
 
 Optional Parameters are:
 
-- **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation cannot be changed on a database.
+- **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation can't be changed on a database.
 - **MaxSizeBytes**: The default max size of a database is 10 GB.
 
 For more information on the parameter options, see [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
@@ -136,7 +136,7 @@ For more information on the parameter options, see [New-AzureRmSqlDatabase](/pow
 Other quickstart tutorials in this collection build upon this quickstart. 
 
 > [!TIP]
-> If you plan to continue on to work with subsequent quickstart tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+> If you plan to continue on to work with later quickstart tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 >
 
 ```powershell
@@ -145,6 +145,6 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-You have now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 > [!div class="nextstepaction"]
 >[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)

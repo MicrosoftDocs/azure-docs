@@ -120,7 +120,7 @@ If the Microsoft Azure Active Directory PowerShell Module is not already present
 
 To use the NPS extension, on-premises users must be synced with Azure Active Directory and enabled for MFA. This guide assumes that on-premises users are synced with Azure Active Directory via Azure AD Connect. Instructions for enabling users for MFA are provided below.
 
-For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md). 
+For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### Azure Active Directory GUID ID 
 
@@ -436,7 +436,7 @@ A related event from the Azure Multi-Factor Authentication log is shown here:
 
 To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx). 
 
-The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](http://www.deepsoftware.com/iasviewer) is shown here: 
+The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](https://www.deepsoftware.com/iasviewer) is shown here: 
 
 ![Shareware application](./media/howto-mfa-nps-extension-vpn/image49.png)
 
@@ -451,5 +451,5 @@ For more information, see [Integrate your existing NPS infrastructure with Azure
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing a basic V
 services: media-services
 documentationcenter: java
 author: juliako
-manager: cfowler
+manager: femila
 editor: johndeu
 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/26/2017
+ms.date: 09/18/2018
 ms.author: juliako
 
 ---
@@ -39,7 +39,7 @@ For example, if your build tool is `gradle`, add the following dependency to you
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->Starting with `azure-media` package version `0.9.8`, the SDK added support for Azure Active Directory (AAD) authentication and removed support for  Azure Access Control Service (ACS) authentication. The ACS services will be deprecated on June 22, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible. For details on migration,  read the article [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+>Starting with `azure-media` package version `0.9.8`, the SDK added support for Azure Active Directory (AAD) authentication and removed support for  Azure Access Control Service (ACS) authentication. We recommend that you migrate to the Azure AD authentication model as soon as possible. For details on migration,  read the article [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >You can find the source code of the Azure Media Services Java SDK in our [GitHub repository](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Make sure to switch to the 0.9 branch, and not the master branch. 
@@ -114,7 +114,7 @@ The code also relies on a locally stored video file. You must edit the code to p
         // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
-        private static String preferedEncoder = "Media Encoder Standard";
+        private static String preferredEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
@@ -212,7 +212,7 @@ The code also relies on a locally stored video file. You must edit the code to p
 
             // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 
             // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;

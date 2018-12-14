@@ -3,7 +3,8 @@ title: include file
 description: include file 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include

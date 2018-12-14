@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service tutorial - Manage DC/OS
+title: (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
 description: Azure Container Service tutorial - Manage DC/OS
 services: container-service
 author: iainfoulds
@@ -12,7 +12,9 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Azure Container Service tutorial - Manage DC/OS
+# (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
 
@@ -26,7 +28,7 @@ DC/OS provides a distributed platform for running modern and containerized appli
 > * Basic DC/OS management
 > * Delete the DC/OS cluster
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Create DC/OS cluster
 
@@ -68,7 +70,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## Install DC/OS CLI
 
-Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
+Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
 ```azurecli
 az acs dcos install-cli
@@ -234,7 +236,7 @@ Browsing to this address returns the default NGINX site.
 
 ## Scale DC/OS cluster
 
-In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale](/cli/azure/acs#az-acs-scale) command. 
 
 To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#az-acs-show) command.
 
