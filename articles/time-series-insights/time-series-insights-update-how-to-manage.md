@@ -45,8 +45,6 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
    ![Create an Azure Time Series Insights instance.][1]
 
-   Click **PAYG (Preview)**.
-
 1. Input a Time Series ID
 
     >[!NOTE]
