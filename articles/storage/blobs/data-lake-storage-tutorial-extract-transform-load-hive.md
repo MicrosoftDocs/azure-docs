@@ -69,8 +69,9 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
 
     Replace *FILE_NAME* with the name of the .zip file. Replace *SSH_USER_NAME* with the SSH login for the HDInsight cluster. Replace *CLUSTER_NAME* with the name of the HDInsight cluster.
 
-   > [!NOTE]
-   > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
+If you use a password to authenticate your SSH login, you're prompted for the password. 
+
+If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
 
 2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
 
@@ -99,9 +100,9 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
     hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/
     ```
 
-## Transform data using a Hive query
+## Transform the data
 
-There are many ways to run a Hive job on an HDInsight cluster. In this section, you use Beeline to run a Hive job. For information on other methods of running a Hive job, see [Use Hive on HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md).
+In this section, you use Beeline to run a Hive job.
 
 As part of the Hive job, you import the data from the .csv file into a Hive table named **Delays**.
 
@@ -207,7 +208,11 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
 
 ## Create a SQL database table
 
-You need the server name from your SQL database. To find the server name in the [Azure portal](https://portal.azure.com), select **SQL Databases**, and then filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
+You need the server name from your SQL database for this operation. To find your server name:
+
+1. Go to the [Azure portal](https://portal.azure.com)
+2. Select **SQL Databases**. 
+3. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
 
 ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
