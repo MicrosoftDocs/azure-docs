@@ -64,11 +64,11 @@ When you are optimizing your application to get higher IOPS and Throughput, it w
 
 Following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data which can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
 
-1.	[Update the Storage type](../articles/virtual-machines/windows/convert-disk-storage)
-2.	[Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm)
-3.	[Create a Managed Disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd?toc=%2fpowershell%2fmodule%2ftoc.json)
-4.	[Create a Managed Disk from a Snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot?toc=%2fpowershell%2fmodule%2ftoc.json)
-5.	[Convert unmanaged disks to Managed Disks](../azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
+1.	[Update the Storage type](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.	[Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.	[Create a Managed Disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.	[Create a Managed Disk from a Snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.	[Convert unmanaged disks to Managed Disks](../azure/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## Gather Application Performance Requirements
 
