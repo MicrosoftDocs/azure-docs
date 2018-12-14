@@ -23,10 +23,10 @@ You can create one or more Azure Cosmos databases under your account. A database
 
 | **Azure Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos database | Database | Keyspace | Database | NA | NA |
+|Azure Cosmos database | Database | Keyspace | Database | Database | NA |
 
 > [!NOTE]
-> With Gremlin and Table APIs accounts, when you create your first graph or table a default database is automatically created within your Azure Cosmos account.
+> With Table APIs accounts, when you create your first table a default database is automatically created within your Azure Cosmos account.
 
 ### Operations on an Azure Cosmos database
 
@@ -66,7 +66,7 @@ An Azure Cosmos container is specialized into API-specific entities as follows:
 
 | **Azure Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Container | Table | Collection | Graph | Table |
+|Azure Cosmos container | Collection | Table | Collection | Graph | Table |
 
 ### Properties of an Azure Cosmos container
 
@@ -102,7 +102,7 @@ Depending on the choice of the API, an Azure Cosmos item can represent either a 
 
 | **Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Item | Row | Document | Node or Edge | Item |
+|Azure Cosmos item | Document | Row | Document | Node or Edge | Item |
 
 ### Properties of an item
 

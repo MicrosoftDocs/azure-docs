@@ -44,7 +44,7 @@ Some of the things you can do with the activity log include:
 - Create an [alert on an Activity Log event](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 - [Stream it to an Event Hub](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 - Analyze it in PowerBI using the [PowerBI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Save it to a storage account](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
+- [Save it to a storage account](../articles/azure-monitor/platform/archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
 
 You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
 
@@ -52,7 +52,7 @@ You can also access activity log data by using [Azure PowerShell](https://docs.m
 
 Some of the things you can do with diagnostics logs include:
 
-- [Save them to a storage account](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using Resource Diagnostic Settings.
+- [Save them to a storage account](../articles/azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using Resource Diagnostic Settings.
 - [Stream them to Event Hubs](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 - Analyze them with [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 

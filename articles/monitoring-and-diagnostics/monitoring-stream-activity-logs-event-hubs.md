@@ -93,7 +93,7 @@ If a log profile already exists, you first need to remove the existing log profi
 The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called *records*.
 
 ## Next steps
-* [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
+* [Archive the Activity Log to a storage account](../azure-monitor/platform/archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
 * [Set up an alert based on an Activity Log event](../azure-monitor/platform/alerts-log-webhook.md)
 
