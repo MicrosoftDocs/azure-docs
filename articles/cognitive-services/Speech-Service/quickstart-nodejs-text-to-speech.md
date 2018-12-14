@@ -132,7 +132,7 @@ function saveAudio(accessToken) {
             'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
             'Content-Type': 'application/ssml+xml'
         },
-        body: '<speak version=\'1.0\' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang=\'en-US\'>\n<voice  name=\'Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)\'>' + text + '</voice> </speak>'
+        body: '<speak version=\'1.0\' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang=\'en-US\'>\n<voice  name=\'Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)\'>' + text + '</voice> </speak>'
     };
     // This function makes the request to convert speech to text.
     // The speech is returned as the response.
