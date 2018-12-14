@@ -38,7 +38,7 @@ After provisioning is complete, you can modify your access policies and other en
 
 The following steps describe how to create an Azure Time Series Insights Preview environment:
 
-1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, and designate which subscription group and which resource group to use. Then, select a supported location for the environment to be hosted in.
+1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, and choose which subscription group and which resource group to use. Then, select a supported location for the environment to be hosted in.
 
 1. Enter a Time Series ID.
 
@@ -55,7 +55,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
    * Time Series Insights supports [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) and [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) as options. Although you can add only a single event source at environment creation time, you can add another event source later. It’s best to create a unique consumer group to ensure that all events are visible to your Azure Time Series Insights Preview instance. You can select an existing consumer group or create a new consumer group when adding the event source.
 
-   * You should also designate the appropriate Timestamp property. By default, Azure Time Series Insights uses the message enqueued time for each event source.
+   * You should also choose the appropriate Timestamp property. By default, Azure Time Series Insights uses the message enqueued time for each event source.
 
      > [!TIP]
      > The message enqueued time might not be the best configured setting to use in batch event or historical data uploading scenarios. Make sure to verify your decision to use or not use a Timestamp property in such cases.
@@ -70,7 +70,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 You can manage your Azure Time Series Insights Preview environment by using the Azure portal. Here are the major differences in managing a PAYG Azure Time Series Insights Preview environment, as opposed to an S1 or S2 environment, by using the Azure portal:
 
-* The Azure portal's **Overview** blade remains unchanged in Azure Time Series Insights, except in the following ways:
+* The Azure portal's **Overview** blade is unchanged in Azure Time Series Insights, except in the following ways:
   * Capacity is removed, because this concept is not relevant to PAYG environments.
   * The Time Series ID property has been added. It determines how your data is partitioned.
   * Reference data sets are removed.
