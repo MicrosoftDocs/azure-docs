@@ -399,110 +399,111 @@ First, we need to create a **Family** class that will represent objects stored w
 1.  Navigate back to **Program.cs** and add the **AddItemsToContainer** method under your **CreateContainer** method.
     The code checks to make sure an item with the same id does not already exist before creating it. We will insert two items, one each for the Andersen Family and the Wakefield Family.
 
-        ```csharp
-        /*
-            Add Family items to the container
-        */
-        private async Task AddItemsToContainer()
-        {
-            // Create a family object for the Andersen family
-            Family andersenFamily = new Family
-            {
-                Id = "Andersen.1",
-                LastName = "Andersen",
-                Parents = new Parent[]
-                {
-                    new Parent { FirstName = "Thomas" },
-                    new Parent { FirstName = "Mary Kay" }
-                },
-                Children = new Child[]
-                {
-                    new Child
-                    {
-                        FirstName = "Henriette Thaulow",
-                        Gender = "female",
-                        Grade = 5,
-                        Pets = new Pet[]
-                        {
-                            new Pet { GivenName = "Fluffy" }
-                        }
-                    }
-                },
-                Address = new Address { State = "WA", County = "King", City = "Seattle" },
-                IsRegistered = true
-            };
+    ```csharp
+     /*
+         Add Family items to the container
+     */
+     private async Task AddItemsToContainer()
+     {
+         // Create a family object for the Andersen family
+         Family andersenFamily = new Family
+         {
+             Id = "Andersen.1",
+             LastName = "Andersen",
+             Parents = new Parent[]
+             {
+                 new Parent { FirstName = "Thomas" },
+                 new Parent { FirstName = "Mary Kay" }
+             },
+             Children = new Child[]
+             {
+                 new Child
+                 {
+                     FirstName = "Henriette Thaulow",
+                     Gender = "female",
+                     Grade = 5,
+                     Pets = new Pet[]
+                     {
+                         new Pet { GivenName = "Fluffy" }
+                     }
+                 }
+             },
+             Address = new Address { State = "WA", County = "King", City = "Seattle" },
+             IsRegistered = true
+         };
 
-            // Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check the StatusCode property off the response object.
-            CosmosItemResponse<Family> andersenFamilyResponse = await this.container.Items.ReadItemAsync<Family>(andersenFamily.LastName, andersenFamily.Id);
+         // Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check the StatusCode property off the response object.
+         CosmosItemResponse<Family> andersenFamilyResponse = await this.container.Items.ReadItemAsync<Family>(andersenFamily.LastName, andersenFamily.Id);
 
-            if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
-            {
-                // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
-                andersenFamilyResponse = await this.container.Items.CreateItemAsync<Family>(andersenFamily.LastName, andersenFamily);
+         if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+         {
+             // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
+             andersenFamilyResponse = await this.container.Items.CreateItemAsync<Family>(andersenFamily.LastName, andersenFamily);
 
-                // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse.
-                //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
-                Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
-            }
-            else
-            {
-                Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
-            }
+             // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse.
+             //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+             Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+         }
+         else
+         {
+             Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
+         }
 
-            // Create a family object for the Wakefield family
-            Family wakefieldFamily = new Family
-            {
-                Id = "Wakefield.7",
-                LastName = "Wakefield",
-                Parents = new Parent[]
-                {
-                    new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
-                    new Parent { FamilyName = "Miller", FirstName = "Ben" }
-                },
-                Children = new Child[]
-                {
-                    new Child
-                    {
-                        FamilyName = "Merriam",
-                        FirstName = "Jesse",
-                        Gender = "female",
-                        Grade = 8,
-                        Pets = new Pet[]
-                        {
-                            new Pet { GivenName = "Goofy" },
-                            new Pet { GivenName = "Shadow" }
-                        }
-                    },
-                    new Child
-                    {
-                        FamilyName = "Miller",
-                        FirstName = "Lisa",
-                        Gender = "female",
-                        Grade = 1
-                    }
-                },
-                Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-                IsRegistered = false
-            };
+         // Create a family object for the Wakefield family
+         Family wakefieldFamily = new Family
+         {
+             Id = "Wakefield.7",
+             LastName = "Wakefield",
+             Parents = new Parent[]
+             {
+                 new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+                 new Parent { FamilyName = "Miller", FirstName = "Ben" }
+             },
+             Children = new Child[]
+             {
+                 new Child
+                 {
+                     FamilyName = "Merriam",
+                     FirstName = "Jesse",
+                     Gender = "female",
+                     Grade = 8,
+                     Pets = new Pet[]
+                     {
+                         new Pet { GivenName = "Goofy" },
+                         new Pet { GivenName = "Shadow" }
+                     }
+                 },
+                 new Child
+                 {
+                     FamilyName = "Miller",
+                     FirstName = "Lisa",
+                     Gender = "female",
+                     Grade = 1
+                 }
+             },
+             Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+             IsRegistered = false
+         };
 
-            // Read the item to see if it exists
-            CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.ReadItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily.Id);
+         // Read the item to see if it exists
+         CosmosItemResponse<Family> wakefieldFamilyResponse = await this.container.Items.ReadItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily.Id);
 
-            if (wakefieldFamilyResponse.StatusCode == HttpStatusCode.NotFound)
-            {
-                // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
-                wakefieldFamilyResponse = await this.container.Items.CreateItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily);
+         if (wakefieldFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+         {
+             // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
+             wakefieldFamilyResponse = await this.container.Items.CreateItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily);
 
-                // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse.
-                //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
-                Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
-            }
-            else
-            {
-                Console.WriteLine("Item in database with id: {0} already exists\n", wakefieldFamilyResponse.Resource.Id);
-            }
-        }
-        ```
+             // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse.
+             //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+             Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
+         }
+         else
+         {
+             Console.WriteLine("Item in database with id: {0} already exists\n", wakefieldFamilyResponse.Resource.Id);
+         }
+     }
+    
+    ```
 
 1.  Add a call to `AddItemsToContainer` in the `GetStartedDemoAsync` method.
 
