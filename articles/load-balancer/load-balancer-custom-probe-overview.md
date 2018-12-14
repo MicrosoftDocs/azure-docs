@@ -202,7 +202,7 @@ Do not configure your VNet with the Microsoft owned IP address range that contai
 
 If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  You may need to source network address translate this address in the VM on a per interface basis.
 
-Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling [TCP timestamps](#limitations) will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.  TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
+Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling TCP timestamps will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.  TCP timestamps are routinely enabled by default on security hardened VM images and must be disabled.
 
 ## Monitoring
 
