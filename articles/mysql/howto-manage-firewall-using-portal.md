@@ -1,13 +1,13 @@
 ---
 title: Create and manage MySQL firewall rules in Azure Database for MySQL
 description: Create and manage Azure Database for MySQL firewall rules using the Azure portal
-services: mysql
+
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Create and manage Azure Database for MySQL firewall rules by using the Azure portal

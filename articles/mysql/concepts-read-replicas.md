@@ -1,10 +1,10 @@
 ---
 title: Read replicas in Azure Database for MySQL.
 description: This article describes read replicas for Azure Database for MySQL.
-services: mysql
+
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/13/2018

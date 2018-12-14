@@ -1,13 +1,13 @@
 ---
 title: Supported versions in Azure Database for MySQL
 description: Describes the supported versions in Azure Database for MySQL.
-services: mysql
+
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/10/2018
 ---
 # Supported Azure Database for MySQL server versions

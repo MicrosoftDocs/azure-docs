@@ -1,7 +1,7 @@
 ---
 title: Query Store in Azure Database for PostgreSQL
 description: This article describes the Query Store feature in Azure Database for PostgreSQL.
-services: postgresql
+
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

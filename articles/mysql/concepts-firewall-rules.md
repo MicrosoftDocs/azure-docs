@@ -1,13 +1,13 @@
 ---
 title: Azure Database for MySQL server firewall rules
 description: Describes firewall rules for your Azure Database for MySQL server.
-services: mysql
+
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 

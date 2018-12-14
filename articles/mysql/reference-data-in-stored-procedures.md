@@ -1,13 +1,13 @@
 ---
 title: Azure Database for MySQL Data-in Replication Stored Procedures
 description: This article introduces all stored procedures used for Data-in Replication.
-services: mysql
+
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ---
 
