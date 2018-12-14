@@ -68,7 +68,7 @@ Following control plane operations on Managed Disks may involve movement of the 
 2.	[Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps.md)
 3.	[Create a Managed Disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
 4.	[Create a Managed Disk from a Snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.	[Convert unmanaged disks to Managed Disks](../azure/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+5.	[Convert unmanaged disks to Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## Gather Application Performance Requirements
 
