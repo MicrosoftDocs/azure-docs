@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # System performance counters in Application Insights
 
-Windows provides a wide variety of [performance counters](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own. [Application Insights](app-insights-overview.md) can show these performance counters if your application is running under IIS on an on-premises host or virtual machine to which you have administrative access. The charts indicate the resources available to your live application, and can help to identify unbalanced load between server instances.
+Windows provides a wide variety of [performance counters](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own performance counters. As long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access.
 
 ## View counters
 
@@ -40,7 +40,7 @@ To see all your most useful charts in one place, create a [dashboard](app-insigh
 
 ## Add counters
 
-If the performance counter you want isn't shown in the list of metrics, that's because the Application Insights SDK isn't collecting it in your web server. You can configure it to do so.
+If the performance counter you want isn't included in the list of metrics, you can add it.
 
 1. Find out what counters are available in your server by using this PowerShell command on the local server:
    
@@ -49,7 +49,7 @@ If the performance counter you want isn't shown in the list of metrics, that's b
     (See [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
 2. Open ApplicationInsights.config.
    
-   * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then re-deploy it to your servers.
+   * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then redeploy it to your servers.
    * If you used Status Monitor to instrument a web app at runtime, find ApplicationInsights.config in the root directory of the app in IIS. Update it there in each server instance.
 3. Edit the performance collector directive:
    
@@ -64,7 +64,7 @@ If the performance counter you want isn't shown in the list of metrics, that's b
 
 ```
 
-You can capture both standard counters and those you have implemented yourself. `\Objects\Processes` is an example of a standard counter, available on all Windows systems. `\Sales(photo)\# Items Sold` is an example of a custom counter that might be implemented in a web service. 
+You can capture both standard counters and those you've implemented yourself. `\Objects\Processes` is an example of a standard counter that is available on all Windows systems. `\Sales(photo)\# Items Sold` is an example of a custom counter that might be implemented in a web service. 
 
 The format is `\Category(instance)\Counter"`, or for categories that don't have instances, just `\Category\Counter`.
 
@@ -99,7 +99,7 @@ The **performanceCounters** schema exposes the `category`, `counter` name, and `
 
 ![Performance counters in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
-('Instance' here refers to the performance counter instance,  not the role or server machine instance. The performance counter instance name typically segments counters such as processor time by the name of the process or application.)
+('Instance' here refers to the performance counter instance,  not the role, or server machine instance. The performance counter instance name typically segments counters such as processor time by the name of the process or application.)
 
 To get a chart of available memory over the recent period: 
 
@@ -120,7 +120,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 Performance counters are supported only if the application is targeting the full .NET Framework. There is no ability to collect Performance counters for .Net Core applications.
 
 ## Alerts
-Like other metrics, you can [set an alert](app-insights-alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts blade and click Add Alert.
+Like other metrics, you can [set an alert](app-insights-alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
 * [Dependency tracking](app-insights-asp-net-dependencies.md)
