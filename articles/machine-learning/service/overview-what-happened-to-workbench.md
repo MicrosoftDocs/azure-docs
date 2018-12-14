@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # What's happening to Machine Learning Workbench in Azure Machine Learning service?
 
-The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
+The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
 
 In this article, you learn about what changed and how it affects your pre-existing work with the Azure Machine Learning Workbench and its APIs.
 
@@ -86,7 +86,7 @@ The images that you created in your old image registry must be re-created in the
 
 The models you deployed as web services by using your Machine Learning Model Management account will work as long as Azure Container Service is supported. Those web services will work even after support ends for Machine Learning Model Management accounts. However, when support for the old CLI ends, so does your ability to manage those web services.
 
-In the newer version, models are deployed as web services to Azure Container Instances or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models using the new SDK or CLI. 
+In the newer version, models are deployed as web services to Azure Container Instances or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md). Without having to change any of your scoring files, dependencies, and schemas, you can redeploy your models by using the new SDK or CLI. 
 
 ## What about the old SDK and CLI?
 
@@ -103,7 +103,7 @@ In this latest release, Azure Machine Learning for Visual Studio Code has been e
 
 ## What about domain packages?
 
-The domain packages for [computer vision, text analytics, and forecasting](../desktop-workbench/reference-python-package-overview.md) can't be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with latest Azure Machine Learning Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>. To learn how to migrate pre-existing models built by using the computer vision, text analytics, and forecasting packages, contact [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
+The domain packages for [computer vision, text analytics, and forecasting](../desktop-workbench/reference-python-package-overview.md) can't be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with the latest Azure Machine Learning Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>. To learn how to migrate pre-existing models built by using the computer vision, text analytics, and forecasting packages, contact [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
 
 ## Next steps
 

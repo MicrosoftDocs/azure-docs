@@ -16,8 +16,8 @@ ms.custom: seodec18
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
 
-In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. This quickstart uses cloud resources and requires no installation. To configure your own Jupyter Notebooks server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).
-
+In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. This quickstart uses cloud resources and requires no installation. To configure your own Jupyter Notebooks server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+ 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
 In this quickstart, you take the following actions:
@@ -106,7 +106,7 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You also can keep the resource group but delete a single workspace. Display the workspace properties, and select **Delete**.
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
 ## Next steps
 

@@ -90,7 +90,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## Explore data
 
-Utilize the data flow object created in the previous tutorial. Open and run the data flow and review the results:
+Use the data flow object created in the previous tutorial. Open and run the data flow and review the results:
 
 
 ```python
@@ -604,7 +604,7 @@ You now have the necessary packages and data ready for autotraining your model.
 
 ## Automatically train a model
 
-To automatically train a model:
+To automatically train a model, take the following steps:
 1. Define settings for the experiment run.
 1. Submit the experiment for model tuning.
 
@@ -618,7 +618,7 @@ Define the experiment parameter and model settings for autogeneration and tuning
 |**iteration_timeout_minutes**|10|Time limit in minutes for each iteration.|
 |**iterations**|30|Number of iterations. In each iteration, the model trains with the data with a specific pipeline.|
 |**primary_metric**| spearman_correlation | Metric that you want to optimize.|
-|**preprocess**| True | By using **True**, the experiment can perform preprocessing on the input.|
+|**preprocess**| True | By using **True**, the experiment can preprocess the input.|
 |**verbosity**| logging.INFO | Controls the level of logging.|
 |**n_cross_validationss**|5|Number of cross-validation splits.|
 
