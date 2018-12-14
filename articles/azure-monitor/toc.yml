@@ -126,7 +126,7 @@
     - name: Smart groups
       href: platform/alerts-smartgroups-overview.md  
     - name: Autoscale
-      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: platform/autoscale-overview.md
     - name: Metric alerts
       href: platform/alerts-metric-overview.md
     - name: Log alerts
@@ -150,7 +150,7 @@
     - name: Manage access
       items:
       - name: Roles permissions and security
-        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/roles-permissions-security.md
       - name: Workspaces
         href: platform/manage-access.md
       - name: Applications
@@ -216,7 +216,7 @@
         - name: Troubleshooting
           href: platform/diagnostics-extension-troubleshooting.md
         - name: Enable diagnostic settings with Resource Manager templates
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-stream-template.md
         - name: Prepare for JSON Lines diagnostic logs format
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: VM guest to metrics store
@@ -440,9 +440,9 @@
     - name: Route data
       items:
       - name: Archive activity log
-        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-activity-log.md
       - name: Archive diagnostic logs
-        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
         href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Stream activity log to Event Hubs
@@ -654,7 +654,7 @@
   - name: Analyze data
     items:
     - name: Create metrics charts in Metrics Explorer
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-charts.md
     - name: View events in activity log
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: View service notifications
@@ -807,7 +807,7 @@
       - name: Common patterns
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Autoscale using a custom metric
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-custom-metric.md
       - name: Autoscale VM scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Automatically scale machines in a VM scale set
@@ -957,9 +957,9 @@
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
-      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/tutorial-dashboards.md
     - name: Activity log event schema
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
       href: platform/diagnostics-extension-schema.md
       items:

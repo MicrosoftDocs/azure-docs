@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 12/13/2018
 ms.author: pareshmu
 ---
 # ExpressRoute partners and peering locations
@@ -37,16 +37,16 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | **Geopolitical region** | **Zone** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- | --- |
-| **Australia Government** |Zone 1 | Australia Central, Australia Central 2 |Canberra, Canberra2 |
-| **Europe** |Zone 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport(Wales), Paris |
-| **North America** |Zone 1 |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
-| **Asia** |Zone 2 |East Asia, Southeast Asia |Hong Kong, Kuala Lumpur, Singapore, Singapore2 |
-| **Australia** |Zone 2 |Australia Southeast, Australia East |Melbourne, Sydney | 
-| **India** |Zone 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japan** |Zone 2 |Japan West, Japan East |Osaka, Tokyo |
-| **South Korea** |Zone 2 |Korea Central, Korea South |Busan, Seoul|
-| **South Africa** |Zone 3 |[South Africa West+, South Africa North+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cape Town, Johannesburg |
-| **South America** |Zone 3 |Brazil South |Sao Paulo |
+| **Australia Government** | 1 | Australia Central, Australia Central 2 |Canberra, Canberra2 |
+| **Europe** | 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Dublin, London, Marseille, Newport(Wales), Paris |
+| **North America** | 1 |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Quebec City, Toronto |
+| **Asia** | 2 |East Asia, Southeast Asia |Hong Kong, Kuala Lumpur, Singapore, Singapore2 |
+| **Australia** | 2 |Australia Southeast, Australia East |Melbourne, Sydney | 
+| **India** | 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japan** | 2 |Japan West, Japan East |Osaka, Tokyo |
+| **South Korea** | 2 |Korea Central, Korea South |Busan, Seoul|
+| **South Africa** | 3 |[South Africa West+, South Africa North+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cape Town, Johannesburg |
+| **South America** | 3 |Brazil South |Sao Paulo |
 
  **+** denotes coming soon
 
@@ -57,8 +57,8 @@ The table below provides information on regions and geopolitical boundaries for 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
 | **US Government cloud** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **China East** |China East, China East2 |Shanghai |
-| **China North** |China North, China North2 |Beijing |
+| **China East** |China East, China East2 |Shanghai, Shanghai2 |
+| **China North** |China North, China North2 |Beijing, Beijing2 |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
@@ -133,7 +133,9 @@ The following table shows connectivity locations and the service providers for e
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Beijing** |China Telecom |
+| **Beijing2** | GDS |
 | **Shanghai** |China Telecom |
+| **Shanghai2** | GDS |
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
