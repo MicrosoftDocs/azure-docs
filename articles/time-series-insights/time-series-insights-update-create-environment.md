@@ -41,7 +41,7 @@ In this section, you create three simulated devices that will send data to an Io
    | **Region** |	Specify the same region used for creation of your Time Series Insights environment. |
    | **Deploy optional Azure Resources**	| Leave IoT Hub selected, because the simulated devices will use it to connect and stream data. |
 
-   Then select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
+   Then, select **Create solution**. Wait 10-15 minutes for your solution to be deployed.
 
    ![Create Device Simulation solution page][2]
 
@@ -65,7 +65,7 @@ In this section, you create three simulated devices that will send data to an Io
     | **Device model** | **Name**: Enter **Chiller**. </br>**Amount**: Enter **3**. |
     | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-    Then select **Start simulation**.
+    Then, select **Start simulation**.
 
 1. In the device simulation dashboard, see **Active devices** and **Messages per second**.
 
@@ -106,10 +106,10 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group, or create a new one, for the Azure Time Series Insights Preview environment resource. It's a best practice to use the same resource group as the rest of your IoT resources created by the device simulator. |
    | **Location** | Choose a datacenter region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to keep the Azure Time Series Insights Preview environment in the same region as other IoT resources. |
    | **Tier** |  Select **PAYG**, which stands for pay-as-you-go. This is the SKU for the Azure Time Series Insights Preview product. |
-   | **Property ID** | Enter something that uniquely identifies your time series. Note that this field is immutable and cannot be changed later. For this tutorial, use **iothub-connection-device-id**. To learn more about the Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
+   | **Property ID** | Enter something that uniquely identifies your time series. Note that this field is immutable and can't be changed later. For this tutorial, use **iothub-connection-device-id**. To learn more about the Time Series ID, read [How to choose a Time Series ID](./time-series-insights-update-how-to-id.md). |
    | **Storage account name** | Enter a globally unique name for a new storage account to be created. |
 
-   Then select **Next: Event Source**.
+   Then, select **Next: Event Source**.
 
    ![Page for creating a Time Series Insights environment][10]
 
@@ -127,7 +127,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Iot Hub consumer group** | You need a unique consumer group for Azure Time Series Insights Preview. Select **New**, enter a unique name, and then select **Add**. |
    | **Timestamp property** | This field is used to identify the timestamp property in your incoming telemetry data. For this tutorial, don't fill in the field. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to.|
 
-   Then select **Review + create**.
+   Then, select **Review + create**.
 
    ![Page for setting up an event source][13]
 
@@ -244,7 +244,7 @@ In this section, you apply a model to structure your data. To complete the model
 
       ![Selections for defining temperature][31]
 
-   Then select **Create**.
+   Then, select **Create**.
 
 1. You can see your type added:
 
@@ -263,7 +263,7 @@ In this section, you apply a model to structure your data. To complete the model
    | **Level 2** | Enter **City**. |
    | **Level 3** | Enter **Building**. |
 
-   Then select **Create**.
+   Then, select **Create**.
 
    ![Hierarchy fields with Create button][34]
 
@@ -286,7 +286,7 @@ In this section, you apply a model to structure your data. To complete the model
    | **City** | Enter **Seattle**. |
    | **Building** | Enter **Space Needle**. |
 
-    Then select **Save**.
+    Then, select **Save**.
 
    ![Instance fields with Save button][37]
 
