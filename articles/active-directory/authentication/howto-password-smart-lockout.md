@@ -21,7 +21,9 @@ Smart lockout assists in locking out bad actors who are trying to guess your use
 By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
 
 Smart lockout tracks the last three bad password hashes to avoid reincrementing the lockout counter. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout.
-   * Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
+
+ > [!NOTE]
+ > Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
 
 Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Basic or higher licenses for your users.
 
