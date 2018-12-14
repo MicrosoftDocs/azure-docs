@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container | Microsoft Docs
+title: Azure CLI Script Sample - Create ASP.NET Core app from Docker Hub | Microsoft Docs
 description: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container
 services: appservice
 documentationcenter: appservice

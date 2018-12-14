@@ -82,7 +82,7 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 
 **Custom metrics** are metrics that you define in addition to the standard metric that are automatically available. Custom metrics must be created against a single resource in the same region as that resource. You can create custom metrics using the following methods:
     - [Define custom metrics in your application](../../application-insights/app-insights-api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
-    - Publish custom metrics from your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../../monitoring-and-diagnostics/azure-diagnostics.md).
+    - Publish custom metrics from your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../../azure-monitor/platform/diagnostics-extension-overview.md).
     - Publish custom metrics from your Linux virtual machines using [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
     - Write custom metrics from an Azure service using the custom metrics API.
     
@@ -91,9 +91,9 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 ### What can you do with metrics?
 Tasks that you can perform with metrics include the following:
 
-- Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to analyze collected metrics and plot them on a chart. Track the performance of a resource (such as a VM, website, or logic app) by pinning charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
+- Use [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) to analyze collected metrics and plot them on a chart. Track the performance of a resource (such as a VM, website, or logic app) by pinning charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric crosses a threshold.
-- Use [Autoscale](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) to increase or decrease resources based on a metric crossing a threshold.
+- Use [Autoscale](../../azure-monitor/platform/autoscale-overview.md) to increase or decrease resources based on a metric crossing a threshold.
 - Route metrics to Log Analytics to analyze metric data together with log data and to store metric values for longer than 93 days. 
 - Stream metrics to an [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
 - [Archive](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
@@ -104,7 +104,7 @@ Tasks that you can perform with metrics include the following:
 ### Viewing metrics
 Metrics in Azure are collected in the Azure Monitor metrics database. This is a time series database optimized for quick retrieval and stores metric values for 93 days. Copy metrics to Log Analytics for long term analysis and trending.
 
-Metric data is used in a variety of ways as described above. Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Metric data is used in a variety of ways as described above. Use [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 
@@ -169,7 +169,7 @@ You can get guidance for collecting metrics from Azure resources at [Collect Azu
 ### Logs to metrics
 As described above, metrics are more responsive than logs, so you can create alerts with lower latency and at a lower cost. Log Analytics collects a significant amount of numeric data that would be suitable for metrics but isn't stored in the Azure metrics database.  A common example is performance data collected from agents and management solutions. Some of these values can be copied into the metrics database, where they are available for alerting and for analysis with Metrics explorer.
 
-The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). The list of values support is available at 
+The explanation of this feature is available at [Create Metric Alerts for Logs in Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). The list of values support is available at 
 [Supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## Stream data to external systems

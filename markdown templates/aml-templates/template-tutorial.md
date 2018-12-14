@@ -37,8 +37,7 @@ In this tutorial, you use X to do Y or you learn how to:
 
 To complete this tutorial, you need:
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* An experimentation account and Azure Machine Learning Workbench installed as described in this [quickstart](quickstart-installation.md)
-* The project and prepared Iris data from [Tutorial part 1](tutorial-classifying-iris-part-1.md)
+* An Azure Machine Learning service workspace. Learn how to get create a workspace in the [Get started](quickstart-get-started.md#create-a-workspace) quickstart.
 * A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn how to install Docker here: https://docs.docker.com/engine/installation/.
 
 
