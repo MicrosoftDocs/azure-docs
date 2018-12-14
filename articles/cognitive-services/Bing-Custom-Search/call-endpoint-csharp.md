@@ -23,6 +23,11 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 - Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
 - Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+- The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
+    - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
+        - Microsoft.Rest.ClientRuntime
+        - Microsoft.Rest.ClientRuntime.Azure
+        - Newtonsoft.Json
 
 [!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -66,7 +71,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     ```csharp
     var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
     var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
-    var searchTerm = args.Length > 0 ? args[0]:"microsoft" 
+    var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
 4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
@@ -107,7 +112,9 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
         Console.WriteLine("snippet: " + webPage.snippet);
         Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
         Console.WriteLine();
-    }            
+    }
+    Console.WriteLine("Any key to exit...");
+    Console.ReadKey();
     ```
 
 ## Next steps
