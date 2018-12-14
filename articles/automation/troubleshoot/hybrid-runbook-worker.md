@@ -16,7 +16,7 @@ This article provides information on troubleshooting issues with Hybrid Runbook 
 
 ## General
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it is the OMS Agent for Linux.
+The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it's the OMS Agent for Linux.
 
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
@@ -28,7 +28,7 @@ Runbook execution fails and you receive the following error:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Your runbook is suspended shortly after attempting to execute it three times. There are conditions, which may interrupt the runbook from completing successfully and the related error message does not include any additional information indicating why.
+Your runbook is suspended shortly after attempting to execute it three times. There are conditions, which may interrupt the runbook from completing successfully and the related error message doesn't include any additional information indicating why.
 
 #### Cause
 
@@ -46,9 +46,9 @@ The following are potential possible causes:
 
 Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention caused by runbooks during execution, the computer becomes over utilized and cause runbook job delays or timeouts.
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention which is caused by runbooks during execution, the computer becomes over utilized and cause runbook job delays or timeouts.
 
-Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there is memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
+Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there's memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
 Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm you have correctly configured authentication for your runbooks.
 
@@ -58,7 +58,7 @@ The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicat
 
 ### <a name="oms-agent-not-running"></a>Scenario: The OMS Agent for Linux is not running
 
-If the OMS Agent for Linux is not running, this prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions are not enabled, none of the following processes are running.
+If the OMS Agent for Linux isn't running, this prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions aren't enabled, none of the following processes are running.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -66,15 +66,15 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They are all located in the `/var/opt/microsoft/omsagent/state/automationworker/` directory.
+The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the `/var/opt/microsoft/omsagent/state/automationworker/` directory.
 
-* **oms.conf** - This is the worker manager process, this is started directly from DSC.
+* **oms.conf** - This process is the worker manager process, this is started directly from DSC.
 
-* **worker.conf** - This process is the Auto Registered Hybrid worker process, it is started by the worker manager. This process is used by Update Management and is transparent to the user. This process is not present if the Update Management solution is not enabled on the machine.
+* **worker.conf** - This process is the Auto Registered Hybrid worker process, it's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
 
-* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that is uses a different configuration. This process is not present if the Azure Automation solution is not enabled, and the DIY Linux Hybrid Worker is not registered.
+* **diy/worker.conf** - This process is the DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that is uses a different configuration. This process isn't present if the Azure Automation solution isn't enabled, and the DIY Linux Hybrid Worker isn't registered.
 
-If the OMS Agent for Linux is not running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+If the OMS Agent for Linux isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>Scenario: The specified class does not exist
 
@@ -92,11 +92,11 @@ The Windows Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to c
 
 #### Issue
 
-The `healthservice` service is not running on the Hybrid Runbook Worker machine.
+The `healthservice` service isn't running on the Hybrid Runbook Worker machine.
 
 #### Cause
 
-If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation.
+If the Microsoft Monitoring Agent Windows service isn't running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation.
 
 #### Resolution
 
@@ -150,7 +150,7 @@ Start-Service -Name HealthService
 
 ## Next steps
 
-If you did not see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
