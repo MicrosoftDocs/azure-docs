@@ -251,5 +251,5 @@ When no longer needed, delete the resource group and all related resources. To d
 ## Next steps
 
 [!div class="nextstepaction"] 
-> [Extract, transform, and load data using Apache Hive on Azure HDInsight](tutorial-extract-transform-load-hive.md)
+> [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
 
