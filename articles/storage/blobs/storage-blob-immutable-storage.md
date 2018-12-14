@@ -91,7 +91,7 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 ## Getting started
 
-The most recent releases of the [Azure portal](http://portal.azure.com) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) as well as the preview version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) support immutable storage for Azure Blob storage.
+The most recent releases of the [Azure portal](http://portal.azure.com) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) as well as the preview version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) support immutable storage for Azure Blob storage.
 
 ### Azure portal
 
@@ -134,11 +134,12 @@ The feature is included in the following command groups:
 
 ### PowerShell
 
-Azure PowerShell `Az` version 1.0 supports immutable storage.  To enable the feature, follow these steps:
+The Az.Storage preview module supports immutable storage.  To enable the feature, follow these steps:
 
 1. Ensure that you have the latest version of PowerShellGet installed: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Remove any previous installation of Azure PowerShell.
 3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
+4. Install the preview version of the Azure PowerShell Storage module: `Install-Module Az.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`
 
 The [Sample PowerShell code](#sample-powershell-code) section later in this article illustrates the feature usage.
 

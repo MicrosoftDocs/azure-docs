@@ -79,7 +79,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 3. Install the modules
     
     ```PowerShell
-        Install-Module -Name Az.StorageSync -AllowClobber -Force
+        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### Usage  
