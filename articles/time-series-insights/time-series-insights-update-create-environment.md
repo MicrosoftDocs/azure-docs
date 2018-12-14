@@ -334,9 +334,9 @@ In this section, you apply a model to structure your data. To complete the model
 
 1. You can also select a region and then right-click to see event details:
 
-   ![View, filter, and zoom][43]
+   ![Selected range with Explore Events command on a shortcut menu][43]
 
-   ![View, filter, and zoom][44]
+   ![Detailed list of events][44]
 
 ## Next steps
 
@@ -347,11 +347,11 @@ In this tutorial, you learned how to:
 * Connect the Azure Time Series Insights Preview environment to an event hub.
 * Run a wind farm simulation to stream data to the Azure Time Series Insights Preview environment.
 * Perform a basic analysis of the data.
-* Define a Time Series Model type and hierarchy and associate them with your instances.
+* Define a Time Series Model type and hierarchy, and associate them with your instances.
 
 Now that you know how to create your own Azure Time Series Insights Preview environment, learn more about the key concepts in Azure Time Series Insights.
 
-Read about Azure Time Series Insights storage configuration:
+Read about the Azure Time Series Insights storage configuration:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
