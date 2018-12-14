@@ -90,7 +90,7 @@ A P2S configuration requires quite a few specific steps. The following articles 
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-* [Configure OpenVPN](vpn-gateway/vpn-gateway-howto-openvpn.md)
+* [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 
