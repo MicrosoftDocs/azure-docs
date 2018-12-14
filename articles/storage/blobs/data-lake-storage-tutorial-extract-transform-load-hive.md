@@ -310,7 +310,7 @@ In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTE
 
 ## Clean up resources
 
-All resources used in this tutorial are pre-existing, so there is no associated clean up.
+All resources used in this tutorial are pre-existing, so there is no associated cleanup.
 
 ## Next steps
 
