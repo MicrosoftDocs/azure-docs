@@ -7,7 +7,8 @@ services: firewall
 ms.topic: overview
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.author: victorhCustomer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
+ms.author: victorh
+Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 # What is Azure Firewall?
 
