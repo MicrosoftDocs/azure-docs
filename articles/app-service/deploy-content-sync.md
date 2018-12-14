@@ -67,4 +67,4 @@ In the left menu, click **Deployment Center** > **Disconnect**.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy from local Git repo](app-service-deploy-local-git.md)
+> [Deploy from local Git repo](deploy-local-git.md)

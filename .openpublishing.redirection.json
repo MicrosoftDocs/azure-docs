@@ -4232,7 +4232,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-continuous-deployment.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-continuous-deployment.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -4242,27 +4247,57 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-complex-application-predictably.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-complex-application-predictably",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-complex-application-predictably.md",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-ftp.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-ftp",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-ftp.md",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-zip.md",
+            "redirect_url": "/azure/app-service/deploy-zip",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-local-git.md",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deployment-credentials.md",
-            "redirect_url": "/azure/app-service/app-service-deployment-credentials",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deployment-credentials.md",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
             "redirect_document_id": false
         },
         {
@@ -4862,7 +4897,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-deployment-readme.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
@@ -4972,7 +5007,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-agile-software-development.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5017,7 +5052,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-test-in-production-controlled-test-flight.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5057,7 +5092,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-deploy.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
