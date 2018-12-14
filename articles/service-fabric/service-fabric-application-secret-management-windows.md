@@ -17,8 +17,8 @@ ms.date: 03/21/2018
 ms.author: vturecek
 
 ---
-# Setup an encryption certificate and encrypt secrets on Windows clusters
-This article shows how to set up an encryption certificate and use it to encrypt secrets on Windows clusters. For Linux clusters see [Setup an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
+# Set up an encryption certificate and encrypt secrets on Windows clusters
+This article shows how to set up an encryption certificate and use it to encrypt secrets on Windows clusters. For Linux clusters see [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
 
 [Azure Key Vault][key-vault-get-started] is used here as a safe storage location for certificates and as a way to get certificates installed on Service Fabric clusters in Azure. If you are not deploying to Azure, you do not need to use Key Vault to manage secrets in Service Fabric applications. However, *using* secrets in an application is cloud platform-agnostic to allow applications to be deployed to a cluster hosted anywhere. 
 
