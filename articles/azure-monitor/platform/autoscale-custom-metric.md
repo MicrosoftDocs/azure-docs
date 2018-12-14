@@ -41,8 +41,8 @@ Congratulations. You now succesfully created your scale setting to auto scale yo
 <!--Reference-->
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
 [2]: https://portal.azure.com
-[3]: ./media/monitoring-autoscale-scale-by-custom-metric/azure-monitor-launch.png
-[4]: ./media/monitoring-autoscale-scale-by-custom-metric/discover-autoscale-azure-monitor.png
-[5]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-setting-new-web-app.png
-[6]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-by-custom-metric.png
-[7]: ./media/monitoring-autoscale-scale-by-custom-metric/autoscale-setting-custom-metrics-ai.png
+[3]: ./media/autoscale-custom-metric/azure-monitor-launch.png
+[4]: ./media/autoscale-custom-metric/discover-autoscale-azure-monitor.png
+[5]: ./media/autoscale-custom-metric/scale-setting-new-web-app.png
+[6]: ./media/autoscale-custom-metric/scale-by-custom-metric.png
+[7]: ./media/autoscale-custom-metric/autoscale-setting-custom-metrics-ai.png

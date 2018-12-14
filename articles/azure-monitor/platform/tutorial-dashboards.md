@@ -11,7 +11,7 @@ ms.component: logs
 ---
 # Supported services, schemas, and categories for Azure Diagnostic Logs
 
-[Azure Monitor diagnostic logs](monitoring-overview-of-diagnostic-logs.md) are logs emitted by Azure services that describe the operation of those services or resources. All diagnostic logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) are logs emitted by Azure services that describe the operation of those services or resources. All diagnostic logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
 A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. This article describes the top-level schema for diagnostic logs and links to the schemata for each service.
 
@@ -41,35 +41,35 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
-| Azure Active Directory | [Overview](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign Ins schema](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign Ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| API Management | [API Management Diagnostic Logs](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
-| Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
-| Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL diagnostic logs](../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| API Management | [API Management Diagnostic Logs](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Application Gateways |[Diagnostics Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
+| Azure Automation |[Log analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure Batch |[Azure Batch diagnostic logging](../../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL diagnostic logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Cognitive Services | Schema not available. |
-| Content Delivery Network | [Azure Diagnostic Logs for CDN](../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
-| Data Factory | [Monitor Data Factories using Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
-| Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Content Delivery Network | [Azure Diagnostic Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
+| CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/logging.md) |
+| Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
+| Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Event Hubs |[Azure Event Hubs diagnostic logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
-| IoT Hub | [IoT Hub Operations](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
-| Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS Protection | [Manage Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md) |
+| IoT Hub | [IoT Hub Operations](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Key Vault |[Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
+| Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Network Security Groups |[Log analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
+| DDOS Protection | [Manage Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
 | PowerBI Dedicated | [Diagnostic logging for PowerBI Embedded in Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Recovery Services | [Data Model for Azure Backup](../backup/backup-azure-reports-data-model.md)|
-| Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
-| Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL Database diagnostic logging](../sql-database/sql-database-metrics-diag-logging.md) |
-| Stream Analytics |[Job diagnostic logs](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Recovery Services | [Data Model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
+| Search |[Enabling and using Search Traffic Analytics](../../search/search-traffic-analytics.md) |
+| Service Bus |[Azure Service Bus diagnostic logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| SQL Database | [Azure SQL Database diagnostic logging](../../sql-database/sql-database-metrics-diag-logging.md) |
+| Stream Analytics |[Job diagnostic logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | Schema not available. |
 | Virtual Networks | Schema not available. |
 | Virtual Network Gateways | Schema not available. |
@@ -199,7 +199,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 ## Next Steps
 
-* [Learn more about diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
-* [Stream resource diagnostic logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Learn more about diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Stream resource diagnostic logs to **Event Hubs**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze logs from Azure storage with Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
