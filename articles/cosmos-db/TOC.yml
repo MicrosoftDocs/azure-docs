@@ -79,7 +79,7 @@
         href: consistency-levels.md
       - name: Choosing the right consistency level
         href: consistency-levels-choosing.md
-      - name: Consistency levels and Azure Cosmos DB APIs
+      - name: Consistency levels and Cosmos DB APIs
         href: consistency-levels-across-apis.md
       - name: Consistency, availability and performance tradeoffs
         href: consistency-levels-tradeoffs.md
@@ -143,6 +143,12 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
+    - name: Server-side programming
+      items:
+        - name: Stored procedures, triggers, & UDFs
+          href: stored-procedures-triggers-udfs.md
+        - name: JavaScript query API
+          href: javascript-query-api.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Pricing model
@@ -163,7 +169,7 @@
           href: optimize-cost-regions.md          
         - name: Optimize your dev/test workloads 
           href: optimize-dev-test.md
-        - name: Prepay for reserved capacity
+        - name: Optimize with reserved capacity
           href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
@@ -177,8 +183,6 @@
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
-        - name: Key vault support
-          href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and restore
@@ -250,8 +254,14 @@
         items:
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name : Stored procedures, triggers, and UDFs
-          href: programming.md
+        - name : Server-side programming
+          items:
+          - name: Write stored procedures, triggers, & UDFs
+            href: how-to-write-stored-procedures-triggers-udfs.md
+          - name: Write stored procedures & triggers with JavaScript query API
+            href: how-to-write-javascript-query-api.md
+          - name: Use stored procedures, triggers, & UDFs
+            href: how-to-use-stored-procedures-triggers-udfs.md  
         - name: Data types
           items:
           - name: DateTime
@@ -308,7 +318,7 @@
               href: tutorial-develop-mongodb-nodejs-part3.md
             - name: Part 4 - Create an account
               href: tutorial-develop-mongodb-nodejs-part4.md
-            - name: Part 5 - Connect to Azure Cosmos DB
+            - name: Part 5 - Connect to Cosmos DB
               href: tutorial-develop-mongodb-nodejs-part5.md
             - name: Part 6 - Perform CRUD operations
               href: tutorial-develop-mongodb-nodejs-part6.md
@@ -478,6 +488,8 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
+      - name: Secure with Key Vault
+        href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
@@ -528,7 +540,7 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-    - name: Visualize Azure Cosmos DB data
+    - name: Visualize Cosmos DB data
       items:
       - name: Use Power BI 
         href: powerbi-visualize.md

@@ -52,7 +52,7 @@ To send data from the Azure Active Directory log into an Event Hubs namespace, y
 
 ## Azure subscription monitoring data
 
-Azure subscription monitoring data is available in the [Azure activity log](./monitoring-overview-activity-logs.md). This contains the create, update, and delete operations from Resource Manager, the changes in [Azure service health](../service-health/service-health-overview.md) that may impact resources in your subscription, the [resource health](../service-health/resource-health-overview.md) state transitions, and several other types of subscription-level events. [This article details all categories of events that appear in the Azure activity log](./monitoring-activity-log-schema.md).
+Azure subscription monitoring data is available in the [Azure activity log](./monitoring-overview-activity-logs.md). This contains the create, update, and delete operations from Resource Manager, the changes in [Azure service health](../service-health/service-health-overview.md) that may impact resources in your subscription, the [resource health](../service-health/resource-health-overview.md) state transitions, and several other types of subscription-level events. [This article details all categories of events that appear in the Azure activity log](./../azure-monitor/platform/activity-log-schema.md).
 
 ### Activity log data
 
@@ -111,7 +111,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 * **Syslog server** - If you want to stream Azure Monitor data directly to a syslog server, you can check out [this GitHub repo](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## Next Steps
-* [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
+* [Archive the Activity Log to a storage account](../azure-monitor/platform/archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
 * [Set up an alert based on an Activity Log event](../azure-monitor/platform/alerts-log-webhook.md)
 
