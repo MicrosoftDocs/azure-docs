@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Bing Custom Search?
+    - name: What is the Bing Custom Search API?
       href: overview.md  
     - name: Bing Search API overview
       href: ../Bing-Web-Search/bing-api-comparison.md
@@ -47,9 +47,9 @@
       href: hosted-ui.md
     - name: Share your custom search instance
       href: share-your-custom-search.md
-    - name: Get images from your instance
+    - name: Get images from your search instance
       href: get-images-from-instance.md
-    - name: Get videos from your instance
+    - name: Get videos from your search instance
       href: get-videos-from-instance.md
     - name: Configure a custom autosuggest experience
       href: define-custom-suggestions.md
