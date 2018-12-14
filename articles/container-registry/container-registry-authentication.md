@@ -16,7 +16,7 @@ ms.custom: H1Hack27Feb2017
 
 There are several ways to authenticate with an Azure container registry, each of which is applicable to one or more registry usage scenarios.
 
-You can log in to a registry directly via [individual login](#individual-login-with-azure-ad), and your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
+You can log in to a registry directly via [individual login](#individual-login-with-azure-ad), or your applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal).
 
 Azure Container Registry does not support unauthenticated Docker operations or anonymous access. For public images, you can use [Docker Hub](https://docs.docker.com/docker-hub/).
 
@@ -34,7 +34,7 @@ When you log in with `az acr login`, the CLI uses the token created when you exe
 
 In addition to signing in with an individual identity, for cross-service scenarios you can use `az login` to sign in with a service principal or an Azure managed identity. 
 
-* For more information about signing in see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli). 
+* For more information about sign in options, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli). 
 * For more about using a service principal with an Azure container registry, see the next section and [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
 ## Service principal
@@ -51,11 +51,11 @@ The available roles include:
 
 For a complete list of roles, see [ACR roles and permissions](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 
-Service principals enable headless connectivity to a registry in both push and pull scenarios like the following:
+Service principals enable headless connectivity to a registry in both pull and push scenarios like the following:
 
-  * *AcrPull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
+  * *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
-  * *AcrPush*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
+  * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
 
 To create a service principal app ID and password to authenticate with an Azure container registry, or use an existing service principal, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md). 
 
