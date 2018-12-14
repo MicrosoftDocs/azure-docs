@@ -1,0 +1,13 @@
+- name: Microsoft Healthcare APIs Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Microsoft Healthcare APIs?
+    href: documentation-overview-what-is-microsoft-healthcare-apis.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy Open Source FHIR Server
+    -items:
+      - name: PowerShell 
+        href: documentation-fhir-quickstart-oss-powershell.md
