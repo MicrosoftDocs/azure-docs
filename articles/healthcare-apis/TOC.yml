@@ -8,6 +8,6 @@
   expanded: true
   items:
   - name: Deploy Open Source FHIR Server
-    -items:
+    - items:
       - name: PowerShell 
         href: documentation-fhir-quickstart-oss-powershell.md

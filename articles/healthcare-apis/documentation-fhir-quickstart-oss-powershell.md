@@ -8,7 +8,6 @@ ms.topic: quickstart
 ms.date: 02/11/2019.
 ms.author: mihansen
 ---
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 # Quickstart: Deploy Open Source FHIR Server using PowerShell
 
@@ -20,9 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Azure Subscription
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.us) and open the Cloud Shell (PowerSell)
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## Clone required repositories and import PowerShell Modules
 
