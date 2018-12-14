@@ -1,6 +1,6 @@
 ---
 title: Provide post-deployment configurations by using extensions | Microsoft Docs
-description: Learn how to use extensions to provide post-deployment configurations.
+description: Learn how to use Azure Resource Manager template extensions to provide post-deployment configurations.
 services: azure-resource-manager
 documentationcenter: na
 author: mumian
@@ -11,15 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2018
+ms.date: 12/14/2018
 ms.author: jgao
 
 ---
 # Provide post-deployment configurations by using extensions
 
-Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. For the virtual machine extension specific information, see [Virtual machine extensions and features for Windows](../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
 
-These are the existing extensions:
+## Extensions
+
+The existing extensions are:
 
 - [Microsoft.Compute/virtualMachines/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
 - [Microsoft.Compute virtualMachineScaleSets/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
