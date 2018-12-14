@@ -81,7 +81,7 @@ Service plans:
 
 Software plans:
 
-- [Understand Azure reservation discount and usage for Red Hat](articles/billing/billing-understand-rhel-reservation-charges.md)
+- [Understand Azure reservation discount and usage for Red Hat](billing-understand-rhel-reservation-charges.md)
 - [Understand Azure reservation discount and usage for SUSE](billing-understand-suse-reservation-charges.md)
 
 ## When the reservation term expires
