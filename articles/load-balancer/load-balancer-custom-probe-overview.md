@@ -82,7 +82,7 @@ If you use Cloud Services and have web roles that use w3wp.exe, you also achieve
 
 An HTTP / HTTPS probe fails when:
 * Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark down the health probe immediately. 
-* Probe endpoint doesn't respond at all during the 31-second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
+* Probe endpoint doesn't respond at all during the 31-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
 * Probe endpoint closes the connection via a TCP reset.
 
 #### Resource Manager templates
@@ -155,7 +155,7 @@ If a backend instance's health probe fails, established TCP connections to this 
 
 If all probes for all instances in a backend pool fail, no new flows will be sent to the backend pool. Standard Load Balancer will permit established TCP flows to continue.  Basic Load Balancer will terminate all existing TCP flows to the backend pool.
  
-Because the flow is always between the client and the VM's guest OS (Load Balancer is pass-through and does not terminate connections), a pool with all probes down will cause a frontend to not respond to TCP connection open attempts (SYN) as there is no healthy backend instance to receive the flow and respond with an SYN-ACK.
+Load Balancer is a pass through service (does not terminate TCP connections) and the flow is always between the client and the VM's guest OS and application. A pool with all probes down will cause a frontend to not respond to TCP connection open attempts (SYN) as there is no healthy backend instance to receive the flow and respond with an SYN-ACK.
 
 ### UDP datagrams
 
@@ -168,7 +168,7 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 <a name="source"></a>
 ## <a name="probesource"></a>Probe source IP address
 
-Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  When you bring your own IP addresses to Azure's Virtual Network, this health probe source IP address is guaranteed to be unique as it is globally reserved for Microsoft.  This address is the same in all regions and does not change and is not a security risk because only the internal Azure platform component can source a packet from this IP address. 
+Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  You can use  IP address space inside of a VNet that is not RFC1918 space.  Using a globally reserved, Microsoft owned IP address reduces the chance of an IP address conflict with the IP address space you use inside the VNet.  This IP address is the same in all regions and does not change and is not a security risk because only the internal Azure platform component can source a packet from this IP address. 
 
 The AzureLoadBalancer service tag identifies this source IP address in your [network security groups](../virtual-network/security-overview.md) and permits health probe traffic by default.
 
@@ -180,7 +180,7 @@ In addition to Load Balancer health probes, the following operations use this IP
 
 ## <a name="design"></a> Design guidance
 
-Health probes are used to make your service resilient and allow it to scale. A misconfiguration or bad design pattern can impact the availability and scalability of your service. You need to carefully review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
+Health probes are used to make your service resilient and allow it to scale. A misconfiguration or bad design pattern can impact the availability and scalability of your service. Review this entire document and consider what the impact to your scenario is when this probe response is marked down or marked up, and how it impacts the availability of your application scenario.
 
 When you design the health model for your application, you should probe a port on a backend instance that reflects the health of that instance __and__ the application service you are providing.  The application port and the probe port are not required to be the same.  In some scenarios, it may be desirable for the probe port to be different than the port your application provides service on.  
 
