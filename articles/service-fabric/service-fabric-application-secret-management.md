@@ -20,15 +20,15 @@ ms.author: vturecek
 # Manage encrypted secrets in Service Fabric applications
 This guide walks you through the steps of managing secrets in a Service Fabric application. Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text.
 
-Using encrypted encrypted secrets in a Service Fabric application involves three steps:
-* Setup an encryption certificate and encrypt secrets.
+Using encrypted secrets in a Service Fabric application involves three steps:
+* Set up an encryption certificate and encrypt secrets.
 * Specify encrypted secrets in an application.
 * Decrypt encrypted secrets from service code.
 
 ## Setup an encryption certificate and encrypt secrets
 Setting up an encryption certificate and using it to encrypt secrets varies between Windows and Linux.
-* [Setup an encryption certificate and encrypt secrets on Windows clusters.][secret-management-windows-specific-link]
-* [Setup an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
+* [Set up an encryption certificate and encrypt secrets on Windows clusters.][secret-management-windows-specific-link]
+* [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
 
 ## Specify encrypted secrets in an application
 The previous step describes how to encrypt a secret with a certificate and produce a base-64 encoded string for use in an application. This base-64 encoded string can be specified as an encrypted [parameter][parameters-link] in a service's Settings.xml or as an encrypted [environment variable][environment-variables-link] in a service's ServiceManifest.xml.
