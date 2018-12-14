@@ -98,7 +98,6 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-
     Execute the following and specify the module version you to load.
 
     ```PowerShell
