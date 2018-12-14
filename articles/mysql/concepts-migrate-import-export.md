@@ -1,11 +1,8 @@
 ---
 title: Import and export in Azure Database for MySQL
 description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
-
 author: ajlam
 ms.author: andrela
-
-
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018

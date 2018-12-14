@@ -1,11 +1,8 @@
 ---
 title: Azure CLI script - Change server configurations
 description: This sample CLI script lists all available server configurations and updates the value of innodb_lock_wait_timeout.
-
 author: ajlam
 ms.author: andrela
-
-
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

@@ -1,11 +1,8 @@
 ---
 title: Configure SSL connectivity to securely connect to Azure Database for MySQL
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
-
 author: ajlam
 ms.author: andrela
-
-
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018

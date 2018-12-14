@@ -1,11 +1,8 @@
 ---
 title: Access server logs in Azure Database for MySQL by using Azure CLI
 description: This article describes how to access the server logs in Azure Database for MySQL by using the Azure CLI command-line utility.
-
 author: rachel-msft
 ms.author: raagyema
-
-
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual

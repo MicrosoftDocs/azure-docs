@@ -1,11 +1,8 @@
 ---
 title: How To Use sys_schema for Performance Tuning and Database Maintenance in Azure Database for MySQL
 description: This article describes how to use sys_schema to find performance issues and maintain database in Azure Database for MySQL.
-
 author: ajlam
 ms.author: andrela
-
-
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/01/2018

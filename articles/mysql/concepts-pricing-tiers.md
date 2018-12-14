@@ -1,11 +1,8 @@
 ---
 title: Pricing tiers for Azure Database for MySQL
 description: This article describes the pricing tiers for Azure Database for MySQL.
-
 author: jan-eng
 ms.author: janeng
-
-
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/11/2018

@@ -1,11 +1,8 @@
 ---
 title: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal | Microsoft Docs
 description: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal
-
 author: mbolz
 ms.author: mbolz
-
-
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018

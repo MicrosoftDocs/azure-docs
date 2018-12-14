@@ -1,11 +1,8 @@
 ---
 title: Azure CLI script - Restore an Azure Database for MySQL server
 description: This sample Azure CLI script shows how to restore an Azure Database for MySQL server and its databases to a previous point in time.
-
 author: ajlam
 ms.author: andrela
-
-
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

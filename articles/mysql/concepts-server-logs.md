@@ -1,11 +1,8 @@
 ---
 title: Server logs for Azure Database for MySQL
 description: Describes the logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
-
 author: rachel-msft
 ms.author: raagyema
-
-
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/03/2018

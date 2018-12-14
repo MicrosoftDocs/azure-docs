@@ -1,11 +1,8 @@
 ---
 title: Azure CLI samples for Azure Database for MySQL
 description: This article lists the Azure CLI code samples available for interacting with Azure Database for MySQL.
-
 author: jasonwhowell
 ms.author: jasonh
-
-
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

@@ -1,11 +1,8 @@
 ---
 title: Azure CLI script - Download server logs in Azure Database for MySQL
 description: This sample Azure CLI script shows how to enable and download the server logs of an Azure Database for MySQL server.
-
 author: ajlam
 ms.author: andrela
-
-
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
