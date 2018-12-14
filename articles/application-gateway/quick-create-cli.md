@@ -11,26 +11,24 @@ ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 12/12/2018
+ms.date: 12/13/2018
 ms.author: victorh
 ms.custom: mvc
 
 ---
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
 
-With Azure Application Gateway, you can direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool.
-
-This quickstart shows you how to use the Azure CLI to quickly create the application gateway with two virtual machines in its backend pool. You then test it to make sure it's working correctly.
+This quickstart shows you how to use the Azure CLI to quickly create an application gateway with two virtual machines in its backend pool. You then test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by: assigning listeners to ports, creating rules, and adding resources to a backend pool.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, run Azure CLI version 2.0.4 or later. To find the version, run `az --version`. For information about installing or upgrading, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, run Azure CLI version 2.0.4 or later. To find the version, run **az --version**. For information about installing or upgrading, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-In Azure, all resources are allocated in a resource management group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). 
+In Azure, you allocated related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -68,9 +66,9 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Create two virtual machines
 
-Install NGINX on the virtual machines to verify that the application gateway was successfully created. You can use a cloud-init configuration file to install NGINX and run a "Hello World" Node.js app on a Linux virtual machine. 
+Install the NGINX web server on the virtual machines to verify the application gateway was successfully created. You can use a cloud-init configuration file to install NGINX and run a "Hello World" Node.js app on a Linux virtual machine. 
 
-In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the file:
+In your current shell, copy and paste the following configuration into the shell and create a file named cloud-init.txt:
 
 ```yaml
 #cloud-config
@@ -136,7 +134,7 @@ done
 
 ## Create the application gateway
 
-Create an application gateway by using [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). When you create an application gateway with the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The private IP addresses of the network interfaces are added as servers in the backend pool of the application gateway.
+Create an application gateway by using [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). When you create an application gateway with the Azure CLI, you specify configuration information, such as capacity, SKU, and HTTP settings. The private IP addresses of the network interfaces are added as servers in the backend pool of the application gateway.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -154,17 +152,17 @@ az network application-gateway create \
   --servers "$address1" "$address2"
 ```
 
-It may take up to 30 minutes for the application gateway to be created. After the application gateway is created, you can see the following features:
+It can take up to 30 minutes for the application gateway to be created. After it's created, you can see the following settings:
 
-- *appGatewayBackendPool* - An application gateway must have at least one backend address pool.
-- *appGatewayBackendHttpSettings* - Specifies that port 80 and an HTTP protocol is used for communication.
-- *appGatewayHttpListener* - The default listener associated with *appGatewayBackendPool*.
-- *appGatewayFrontendIP* - Assigns *myAGPublicIPAddress* to *appGatewayHttpListener*.
-- *rule1* - The default routing rule that is associated with *appGatewayHttpListener*.
+- **appGatewayBackendPool**: An application gateway must have at least one backend address pool.
+- **appGatewayBackendHttpSettings**: Specifies that port 80 and an HTTP protocol are used for communication.
+- **appGatewayHttpListener**: The default listener associated with **appGatewayBackendPool**.
+- **appGatewayFrontendIP**: Assigns *myAGPublicIPAddress* to **appGatewayHttpListener**.
+- *rule1*: The default routing rule that's associated with **appGatewayHttpListener**.
 
 ## Test the application gateway
 
-Although it's not required to create the application gateway, you installed NGINX in this quickstart to verify whether the application gateway was successfully created. To get the public IP address of the application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy and paste the public IP address into the address bar of your browser.
+Although the NGINX web server isn't required to create the application gateway, you installed it in this quickstart to verify whether the application gateway was successfully created. To get the public IP address of the new application gateway, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy and paste the public IP address into the address bar of your browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -176,11 +174,11 @@ az network public-ip show \
 
 ![Test application gateway](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-When you refresh the browser, you should see the name of the other VM appear.
+When you refresh the browser, you should see the name of the second VM.
 
 ## Clean up resources
 
-When the resources that were created with the application gateway are no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, application gateway, and all related resources.
+When you no longer need the resources that you created with the application gateway, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
