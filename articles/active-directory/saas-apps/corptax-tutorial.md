@@ -103,13 +103,13 @@ To configure Azure AD single sign-on with CorpTax, perform the following steps:
     In the **Sign-on URL** text box, type a URL:
     `https://asp.corptax.com`
 
-8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** icon to download **Federation Metadata XML** and save it on your computer.
+8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
 ### Configure CorpTax Single Sign-On
 
-To configure single sign-on on **CorpTax** side, you need to send the copied **Federation Metadata XML** to [CorpTax support team](mailto:bgraves@corptax.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **CorpTax** side, you need to send the downloaded **Federation Metadata XML** to [CorpTax support team](mailto:bgraves@corptax.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
