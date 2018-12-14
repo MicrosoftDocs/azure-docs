@@ -115,7 +115,7 @@ This update includes the following improvements for Azure Stack:
 
 - **Azure Stack PowerShell** has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For steps on updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-- Managed Disks is now enabled by default when creating virtual machines using the 	Azure Stack portal.
+- Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. Please see the known issues section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - Extended data at rest encryption protection to include all the infrastructure data stored on local volumes (not on cluster shared volumes). For more information, see [this article](azure-stack-security-bitlocker.md)
 
@@ -155,6 +155,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
 ## Changes
+
 - A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
 <!-- 3083238 IS -->
