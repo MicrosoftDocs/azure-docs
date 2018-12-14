@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Quickstart: Call your Bing Custom Search endpoint using Python
 
-Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in Python, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py)
+Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in Python, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
 ## Prerequisites
 
@@ -51,42 +51,6 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     ```python
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```
-
-## Full application code
-
-To run this example, follow these steps:
-
-1. Create a folder for your code.  
-  
-2. From an administrator command prompt or terminal, navigate to the folder you just created.  
-  
-3. Install the **requests** python module:  
-  
-    <pre>
-    pip install pipenv
-    pipenv install requests
-    </pre>  
-      
-4. Create a file named BingCustomSearch.py in the folder you created and copy the following code into it. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscriptioin key and configuration ID.  
-  
-    ``` Python
-    import json
-    import requests
-    
-    subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
-    customConfigId = "YOUR-CUSTOM-CONFIG-ID"
-    searchTerm = "microsoft"
-    
-    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
-    r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
-    print(r.text)
-    ```  
- 
-5. Run the code using the following command.  
-  
-    ```
-    python BingCustomSearch.py
     ```
 
 ## Next steps
