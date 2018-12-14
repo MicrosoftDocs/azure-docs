@@ -63,13 +63,11 @@ if (!subscriptionKey) {
 let text = readline.question('What would you like to convert to speech? ');
 ```
 
-The `subscription_key` is your unique key from the Azure portal. `text` prompts the user to enter text that will be converted to speech. This input is a string literal, so characters don't need to be escaped.
-
 ## Get an access token
 
 The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This sample exchanges your Speech Service subscription key for an access token using the `issueToken` endpoint.
 
-This function takes two arguments, your Speech Services subscription key, and a callback function. After the function has obtained an access token, it passes the value to the callback function. In the next section, we'll create the function to call the text-to-speech API and save the synthesized speech response. Why is this important now? Because this is our callback function, which requires the access token.
+This function takes two arguments, your Speech Services subscription key, and a callback function. After the function has obtained an access token, it passes the value to the callback function. In the next section, we'll create the function to call the text-to-speech API and save the synthesized speech response.
 
 This sample assumes that your Speech Service subscription is in the West US region. If you're using a different region, update the value for `uri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
