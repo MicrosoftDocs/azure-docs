@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 # Tutorial: Prepare to deploy Azure Data Box Edge (preview)
 
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy your Azure Data Box Edge. This tutorial describes how to prepare the Azure portal to deploy a Data Box Edge resource. 
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy your Azure Data Box Edge resource. This tutorial describes how to prepare the Azure portal to deploy a Data Box Edge resource. 
 
 You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Get started
 
-To deploy your Data Box Edge, refer to the following tutorials in the prescribed sequence.
+To deploy your Data Box Edge resource, refer to the following tutorials in the prescribed sequence.
 
 | **#** | **In this step** | **Use these documents** |
 | --- | --- | --- | 
@@ -70,7 +70,7 @@ Before you begin, make sure that:
 
 * The network in your datacenter is configured per the networking requirements for your Data Box Edge device. For more information, see [Data Box Edge System Requirements](data-box-gateway-system-requirements.md).
 
-* Your Data Box Edge has dedicated 20-Mbps Internet bandwidth (or more) available at all times. This bandwidth shouldn't be shared with any other applications. If you're using network throttling, then for throttling to work, we recommend that you use 32-Mbps Internet bandwidth or more.
+* Your Data Box Edge resource has dedicated 20-Mbps Internet bandwidth (or more) available at all times. This bandwidth shouldn't be shared with any other applications. If you're using network throttling, then for throttling to work, we recommend that you use 32-Mbps Internet bandwidth or more.
 
 ## Create a new resource
 
