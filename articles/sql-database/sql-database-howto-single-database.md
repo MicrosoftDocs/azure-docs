@@ -15,12 +15,12 @@ ms.date: 12/14/2018
 ---
 # How to use Managed Instance
 
-In this section you can find various guides, scripts and explanation that can help you to manage and configure your Azure SQL Database - Single Database.
+In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database - Single Database.
 
 ## Migrate
 
 - [Migrate to SQL Database](sql-database-cloud-migrate.md) – Learn about the recommended migration process and tools for migration to Managed Instance.
-- [Manage SQL database after migration](sql-database-manage-after-migration.md) is a set of advices that can help you make your database in optimal state.
+- Learn how to [manage SQL database after migration](sql-database-manage-after-migration.md).
 
 ## Configure features
 
@@ -28,9 +28,10 @@ In this section you can find various guides, scripts and explanation that can he
 - [Configure threat detection](sql-database-threat-detection.md) to let Azure SQL Database identify suspicious activities such as SQL Injection or access from suspicious locations.
 - [Configure dynamic data masking](sql-database-dynamic-data-masking-get-started-portal.md) to protect your sensitive data.
 - [Configure backup retention](sql-database-long-term-backup-retention-configure.md) for a database to keep your backups on Azure Blob Storage. As an alternative there is [Configure backup retention using Azure vault (deprecated)](sql-database-long-term-backup-retention-configure-vault.md) approach.
-- [Configure geo-replication](sql-database-geo-replication-portal.md)  to keep a replica of your database in another region. You should also [configure security for geo-replicas](sql-database-geo-replication-security-config.md).
+- [Configure geo-replication](sql-database-geo-replication-portal.md) to keep a replica of your database in another region.
+- [Configure security for geo-replicas](sql-database-geo-replication-security-config.md).
 
-## monitor and tune your database
+## Monitor and tune your database
 
 - [Enable automatic tuning](sql-database-automatic-tuning-enable.md) to let Azure SQL Database optimize performance of your workload.
 - [Enable e-mail notifications for automatic tuning](sql-database-automatic-tuning-email-notifications.md) to get information about tuning recommendations.
@@ -55,7 +56,7 @@ In this section you can find various guides, scripts and explanation that can he
 
 - [Upgrade elastic database client library](sql-database-elastic-scale-upgrade-client-library.md).
 - [Create sharded app](sql-database-elastic-scale-get-started.md).
-- [Query horizontally-sharded data](sql-database-elastic-query-getting-started.md).
+- [Query horizontally sharded data](sql-database-elastic-query-getting-started.md).
 - Run [Multi-shard queries](sql-database-elastic-scale-multishard-querying.md).
 - [Move sharded data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configure security](sql-database-elastic-scale-split-merge-security-configuration.md) in database shards.
