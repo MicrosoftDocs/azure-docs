@@ -78,7 +78,7 @@ To enable diagnostic logging in the Azure portal, do the following steps:
     * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
     * **Log DataPlaneRequests**: Select this option to log back-end requests from the underlying Azure Cosmos DB distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
     * **Log MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving MongoDB API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
-    * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+    * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../azure-monitor/platform/metrics-supported.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
 
 3. Select **Save**.
 
