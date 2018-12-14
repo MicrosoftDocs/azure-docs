@@ -617,6 +617,12 @@ To get the resource ID for a database in a different resource group, use:
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
+To get the resource ID of a subscription-level resource when deploying at the subscription scope, use:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+```
+
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
 ```json
