@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: ganesr
 ms.custom: seodec18
 
@@ -97,7 +97,7 @@ If your prefixes and AS number are not assigned to you in the preceding registri
 A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Do not advertise the same public IP route to the public Internet and over ExpressRoute. We strongly recommend you advertise a more specific route over ExpressRoute and a more general route to the Internet for [NAT](expressroute-nat.md). Besides the public route for NAT, you can also advertise over ExpressRoute the Public IP addresses used by the servers in your on-premises network that communicate with Office 365 endpoints within Microsoft. 
+> Do not advertise the same public IP route to the public Internet and over ExpressRoute. To reduce the risk of incorrect configuration causing asymmetric routing, we strongly recommend that the [NAT IP addresses](expressroute-nat.md) advertised to Microsoft over ExpressRoute be from a range that is not advertised to the internet at all. If this is not possible to achieve, it is essential to ensure you advertise a more specific range over ExpressRoute than the one on the Internet connection. Besides the public route for NAT, you can also advertise over ExpressRoute the Public IP addresses used by the servers in your on-premises network that communicate with Office 365 endpoints within Microsoft. 
 > 
 > 
 

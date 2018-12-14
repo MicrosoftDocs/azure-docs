@@ -16,10 +16,10 @@ ms.author: hrasheed
 
 HDInsight has full access to data in the Azure Storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > For a solution using Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) document.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight must have full access to the default storage for the cluster.
 
 ## Requirements
@@ -30,9 +30,9 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
   * Visual Studio must be version 2013, 2015, or 2017
   * Python must be version 2.7 or higher
 
-* A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
+* A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Apache Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * The example files from [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). This repository contains the following items:
@@ -62,7 +62,7 @@ The difference between the two forms is important for one key scenario: revocati
 
 4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all applications that use the previous key to fail authentication. Update all components to the new key.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
 
 We recommend that you always use stored access policies. When using stored policies, you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
@@ -173,7 +173,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely log in to the cluster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
    >
    > * Must be at least 10 characters in length
@@ -204,7 +204,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 
     Click **OK** when the changes have been completed.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > You must restart several services before the change takes effect.
 
 6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Confirm Restart All__.
@@ -295,8 +295,8 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

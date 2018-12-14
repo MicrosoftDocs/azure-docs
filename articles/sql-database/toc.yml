@@ -114,7 +114,7 @@
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Single databases
     items:
-    - name: Single database
+    - name: Single database overview
       href: sql-database-single-index.yml
     - name: Create and manage
       href: sql-database-single-databases-manage.md
@@ -148,7 +148,7 @@
       href: sql-database-single-database-scale.md
   - name: Managed instances
     items:
-    - name: Managed instances
+    - name: Managed instances overview
       href: sql-database-managed-instance-index.yml
     - name: Managed instance overview
       href: sql-database-managed-instance.md
@@ -162,7 +162,7 @@
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Platform as a Service
     items:
-    - name: Platform as a Service
+    - name: Platform as a Service overview
       href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
@@ -194,7 +194,7 @@
         href: sql-database-disaster-recovery-drills.md
   - name: Security   
     items:
-    - name: Security
+    - name: Security overview
       href: sql-database-security-index.yml
     - name: Security overview
       href: sql-database-security-overview.md
@@ -248,7 +248,7 @@
         href: transparent-data-encryption-byok-azure-sql.md
   - name: Scalability
     items:
-    - name: Scalability
+    - name: Scalability overview
       href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
@@ -282,6 +282,8 @@
     href: sql-database-features.md
   - name: Monitoring and tuning
     items:
+    - name: Monitoring and tuning overview
+      href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance tuning
       href: sql-database-monitor-tune-overview.md
     - name: Performance monitoring
