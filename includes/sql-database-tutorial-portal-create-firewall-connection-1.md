@@ -19,66 +19,68 @@ Follow these steps to create a blank SQL database.
 
 1. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
+1. On the **New** page, select **Databases** in the **Azure Marketplace** section, and then click **SQL Database** in the **Featured** section.
+
    ![create empty-database](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-1. Fill out the SQL Database form with the following information, as shown on the preceding image:
+   1. Fill out the SQL Database form with the following information, as shown on the preceding image:
 
-   | Setting       | Suggested value | Description |
-   | ------------ | ------------------ | ------------------------------------------------- |
-   | **Database name** | *myDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
-   | **Subscription** | *mySubscriptionId*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
-   | **Select source** | Blank database | Specifies that a blank database should be created. |
+      | Setting       | Suggested value | Description |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Database name** | *myDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
+      | **Subscription** | *mySubscriptionId*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
+      | **Resource group** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+      | **Select source** | Blank database | Specifies that a blank database should be created. |
 
-1. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information:
+   1. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information:
 
-   | Setting       | Suggested value | Description |
-   | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
-   | **Server admin login** | Any valid name | For valid login names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Any valid password | Your password must have at least 8 characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+      | Setting       | Suggested value | Description |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+      | **Server admin login** | Any valid name | For valid login names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers).|
+      | **Password** | Any valid password | Your password must have at least 8 characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+      | **Location** | Any valid location | For information about regions, see [Azure regions](https://azure.microsoft.com/regions/). |
 
-   ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
+      ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
-1. Click **Select**.
+      Click **Select**.
 
-1. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the DTUs and storage that is available to you for each service tier.
+   1. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the DTUs and storage that is available to you for each service tier.
 
-1. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
+      After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.
 
-1. Select a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](/sql/t-sql/statements/collations)
+   1. Enter a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](/sql/t-sql/statements/collations)
 
-1. Click **Create** to provision the database. Provisioning can take about a minute and a half to complete.
+1. Now that you've completed the **SQL Database** form, click **Create** to provision the database. This step may take about a minute and a half to complete.
 
 1. On the toolbar, click **Notifications** to monitor the deployment process.
 
-     ![notification](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
+     ![notification](../articles/sql-database/media/sql-database-design-first-database/notification.png)
 
 ## Create a server-level firewall rule
 
 The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. Follow these steps to create a [SQL Database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address. This enables external connectivity through the SQL Database firewall for your IP address only.
 
 > [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your administrator opens port 1433.
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *myDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as *myserver.database.windows.net*) and provides options for further configuration.
 
 1. Copy the fully qualified server name for use to connect to your server and its databases in later steps.
 
-   ![server name](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)
+   ![server name](../articles/sql-database/media/sql-database-design-first-database/server-name.png)
 
 1. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens.
 
-   ![server firewall rule](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![server firewall rule](../articles/sql-database/media/sql-database-design-first-database/server-firewall-rule.png)
 
-1. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+   1. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+   1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-1. Click **OK** and then close the **Firewall settings** page.
+   1. Click **OK** and then close the **Firewall settings** page.
 
-You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice. Be sure to connect from this IP address using the server admin account created previously.
+Your IP address can now pass through the firewall. You can now connect to the SQL database server and its databases using SQL Server Management Studio or another tool of your choice. Be sure to use the server admin account you created previously.
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.

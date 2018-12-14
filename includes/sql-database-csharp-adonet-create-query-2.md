@@ -28,7 +28,7 @@ This C# program is logically one .cs file. Here the program is physically divide
 
 1. Create a C# project in Visual Studio.
     - The project type should be a *console* application, from something like the following hierarchy:
-    **Templates** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+    **Templates** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
 
 1. In the file *Program.cs*, erase the small starter lines of code.
 
@@ -43,9 +43,7 @@ This C# program is logically one .cs file. Here the program is physically divide
 
 1. Verify that the assembly *System.Data.dll* is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
 
-1. To build the program in Visual Studio, click the **Build** menu.
-
-1. To run the program from Visual Studio, click the **Start** button. The report output is displayed in a cmd.exe window.
+1. To build and run the program from Visual Studio, click the **Start** button. The report output is displayed in a program window.
 
 > [!NOTE]
 > You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in *tempdb*. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any references to foreign keys are not enforced for temporary tables.
@@ -100,7 +98,7 @@ namespace csharp_db_test
 
 <a name="cs_2_return"/>
 
-### Methods that return T-SQL source code
+### Methods that return T-SQL statements
 
 #### Entity Relationship Diagram (ERD)
 
@@ -278,7 +276,7 @@ static void Submit_Tsql_NonQuery(
 
 This section captures the output that the program sent to the console. Only the GUID values vary between test runs.
 
-```output
+```Output
 =================================
 T-SQL to 2 - Create-Tables...
 -1 = rows affected.
