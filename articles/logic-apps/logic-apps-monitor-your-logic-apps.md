@@ -269,7 +269,7 @@ for example, the status, start time, end time, and so on.
 To programmatically set up monitoring, tracking, and logging, 
 you can use these details with the 
 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 
-and the [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+and the [REST API for Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 For example, the `ActionCompleted` event has the 
 `clientTrackingId` and `trackedProperties` properties 

@@ -67,7 +67,7 @@ from azureml.core.model import Model
 
 model = Model.register(model_path = "model.pkl",
                        model_name = "Mymodel",
-                       tags = ["0.1"],
+                       tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
@@ -180,7 +180,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
     > [!IMPORTANT]
     > Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
-    > For provisioning_configuration(), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
+    > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
