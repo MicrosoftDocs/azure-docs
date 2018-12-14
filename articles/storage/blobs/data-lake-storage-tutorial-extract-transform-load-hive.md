@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive on HDInsight - Azure'
-description: Learn how to extract data from a raw CSV dataset, transform it using Hive on HDInsight, and then load the transformed data into Azure SQL database by using Sqoop.
+title: 'Tutorial: Perform extract, transform, load (ETL) operations using Hive on Azure HDInsight'
+description: In this tutorial, you learn how to extract data from a raw CSV dataset, transform it by using Hive on Azure HDInsight, and then load the transformed data into Azure SQL Database by using Sqoop.
 services: storage
 author: jamesbak
 ms.component: data-lake-storage-gen2
@@ -8,24 +8,23 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jamesbak
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight
+<!-- After the customer intent statement is defined, review the H1 heading and introduction to make any necessary changes. -->
+In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster, and then transform the data by using Apache Hive on Azure HDInsight. After the data is transformed, you load that data into an Azure SQL database by using Apache Sqoop. This article, uses publicly available flight data.
 
-In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster, and then transform the data using Apache Hive on Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using Apache Sqoop. This article, uses publicly available flight data.
-
-This tutorial covers the following tasks:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Download the sample flight data
 > * Upload data to an HDInsight cluster
 > * Transform the data using Hive
-> * Create a table in Azure SQL database
-> * Use Sqoop to export data to Azure SQL database
+> * Load data to an Azure SQL database using Sqoop
 
 The following illustration shows a typical ETL application flow.
 
-![ETL operation using Apache Hive on Azure HDInsight](./media/data-lake-storage-tutorial-extract-transform-load-hive/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
+![ETL operation by using Apache Hive on Azure HDInsight](./media/data-lake-storage-tutorial-extract-transform-load-hive/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -44,7 +43,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Download the flight data
 
-1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
 2. On the page, select the following values:
 
@@ -53,13 +52,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   Clear all other fields
+   
+3. Clear all other fields
 
-3. Select **Download**. You get a .zip file with the data fields you selected.
+4. Select **Download**. You get a .zip file with the data fields you selected.
 
-## Upload data to an HDInsight cluster
+## Extract and upload the data
 
-There are many ways to upload data to the storage associated with an HDInsight cluster. In this section, you use `scp` to upload data. To learn about other ways to upload data, see [Use Distcp to copy data between an existing storage account and a new storage account with Data Lake Storage Gen2 enabled](data-lake-storage-use-distcp.md).
+In this section, you use `scp` to upload data to your HDInsight cluster.
 
 1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
 
@@ -207,15 +207,11 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
 
 ## Create a SQL database table
 
-This section assumes that you have already created an Azure SQL database. If you don't already have a SQL database, use the information in [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-get-started.md) to create one.
-
-If you already have a SQL database, you must get the server name. To find the server, name in the [Azure portal](https://portal.azure.com), select **SQL Databases**, and then filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
+You need the server name from your SQL database. To find the server name in the [Azure portal](https://portal.azure.com), select **SQL Databases**, and then filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
 
 ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
-> [!NOTE]
-> There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
-
+There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
 1. To install FreeTDS, use the following command from an SSH connection to the cluster:
 
@@ -223,7 +219,7 @@ If you already have a SQL database, you must get the server name. To find the se
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
+2. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
     ```bash
     TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -p 1433 -D <DATABASE_NAME>
@@ -241,7 +237,7 @@ If you already have a SQL database, you must get the server name. To find the se
     1>
     ```
 
-4. At the `1>` prompt, enter the following lines:
+3. At the `1>` prompt, enter the following lines:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
@@ -268,10 +264,9 @@ If you already have a SQL database, you must get the server name. To find the se
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Enter `exit` at the `1>` prompt to exit the tsql utility.
+4. Enter `exit` at the `1>` prompt to exit the tsql utility.
 
-
-## Export data to SQL database using Sqoop
+## Export and load the data
 
 In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in Azure SQL database. 
 
@@ -305,9 +300,9 @@ In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTE
     GO
     ```
 
-    You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city. 
+    You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city.
 
-    Type `exit` to exit the tsql utility.
+    Enter `exit` to exit the tsql utility.
 
 ## Next steps
 
@@ -319,25 +314,3 @@ To learn more ways to work with data in HDInsight, see the following articles:
 * [Develop Python streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 * [Use Oozie with HDInsight][hdinsight-use-oozie]
 * [Use Sqoop with HDInsight][hdinsight-use-sqoop]
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-
-[hdinsight-use-oozie]: ../../hdinsight/hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]:../../hdinsight/hadoop/hdinsight-use-hive.md
-[hdinsight-provision]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-storage]: ../../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[hdinsight-upload-data]: ../../hdinsight/hdinsight-upload-data.md
-[hdinsight-get-started]: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]:../../hdinsight/hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-use-pig]:../../hdinsight/hadoop/hdinsight-use-pig.md
-[hdinsight-develop-streaming]:../../hdinsight/hadoop/apache-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]:../../hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-
-[hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
