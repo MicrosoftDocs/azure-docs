@@ -49,7 +49,7 @@ This section registers your sample application to Azure Active Directory (Azure 
 
 Build the occupancy application by following these steps.
 
-1. Open a command prompt. Go to the folder where your digital-twins-samples-csharp-master.zip files were extracted.
+1. Open a command prompt. Go to the folder where your `digital-twins-samples-csharp-master.zip` files were extracted.
 1. Run `cd occupancy-quickstart/src`.
 1. Run `dotnet restore`.
 1. Edit **appSettings.json** to update the following variables:
