@@ -58,11 +58,11 @@ You can also enable the Auto-inflate feature and modify its settings by using th
 1. On the **Event Hubs Namespace** page, select **Disabled** under **Auto-inflate throughput units**.  
 
     ![Select throughput units on the Event Hubs namespace page](./media/event-hubs-auto-inflate/select-throughput-units.png)
-2. In the **Scale Settings** page, select the checkbox for **Enable** (if the auto-scale feature wasn't enabled).
+2. In the **Scale Settings** page, select the checkbox for **Enable** (if the autoscale feature wasn't enabled).
 
     ![Select Enable](./media/event-hubs-auto-inflate/scale-settings.png)
 3. Enter the **maximum** number of throughput units or use the scrollbar to set the value. 
-4. (optional) Update the **minumum** number of througput units at the top of this page. 
+4. (optional) Update the **minimum** number of throughput units at the top of this page. 
 
 
 > [!NOTE]
