@@ -87,7 +87,7 @@ You have now configured a native client application that can access your App Ser
 [5]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-endpoints.png
 [6]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-endpoints-fedmetadataxml.png
 [7]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-auth.png
-[8]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-webapp-auth-config.png
+[8]: ./media/configure-authentication-provider-aad/app-service-webapp-auth-config.png
 
 
 
