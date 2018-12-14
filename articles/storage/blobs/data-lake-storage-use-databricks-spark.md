@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: dineshm
-#Customer intent: As an analytics customer, I want to connect my Databricks cluster to my data from Azure Storage so that I can easily run Spark queries against it.
+#Customer intent: As an analytics user, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
 # Tutorial: Access Data Lake Storage Gen2 Preview data with Azure Databricks using Spark
 
-In this tutorial, you learn how to run Spark queries from an Azure Databricks cluster against data stored in an Azure storage account with Azure Data Lake Storage Gen2 Preview enabled.
+In this tutorial, you learn how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 (Preview) enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
