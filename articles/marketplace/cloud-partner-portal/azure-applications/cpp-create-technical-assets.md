@@ -49,12 +49,12 @@ Review the following Azure application documentation, which provides Quickstarts
 
 Designing, building, and testing these assets take time and requires technical knowledge of both the Azure platform and the technologies used to build the offer.
 
-Your engineering team should have knowledge on the following Microsoft technologies:
+Your engineering team should have knowledge about the following Microsoft technologies:
 
 - Basic understanding of [Azure Services](https://azure.microsoft.com/services/)
 - How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
 - Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
-- Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/),
+- Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
 - Working knowledge of [JSON](https://www.json.org/)
 
 ## Suggested tools
@@ -64,7 +64,7 @@ Choose one or both of the following scripting environments to help manage your A
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
 
-In addition, we recommend adding the following tools to your development environment:
+We recommend adding the following tools to your development environment:
 
 - [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) with the following extensions:
