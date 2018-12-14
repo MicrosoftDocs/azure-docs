@@ -5,10 +5,12 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: "include"
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: "include file"
 ---
+
+#### Process automation
 
 | Resource | Maximum Limit |Notes|
 | --- | --- |---|
@@ -30,3 +32,16 @@ ms.custom: "include file"
 | Max days that job data is retained|30 days|
 
 **<sup>1</sup>** A sandbox is a shared environment that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox.
+
+#### Change Tracking and Inventory
+
+The following table shows the tracked item limits per machine for Change Tracking.
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|File|500||
+|Registry|250||
+|Windows software|250|Does not include software updates|
+|Linux packages|1250||
+|Services|250||
+|Daemon|250||
