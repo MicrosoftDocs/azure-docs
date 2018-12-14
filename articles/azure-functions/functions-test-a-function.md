@@ -353,6 +353,6 @@ Next, set a breakpoint in your test and press **F5**.
 ## Next steps
 
 Now that you've learned how to write automated tests for your functions, continue with these resources:
-
+- [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md)
 - [Azure Functions error handling](./functions-bindings-error-pages.md)
 - [Azure Function Event Grid Trigger Local Debugging](./functions-debug-event-grid-trigger-local.md)
