@@ -1330,12 +1330,12 @@
         {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-develop-csharp-function.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
@@ -1360,32 +1360,32 @@
         {
             "source_path": "articles/iot-edge/how-to-develop-python-module.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-develop-node-module.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-develop-java-module.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-develop-c-module.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-develop-multiple-modules-vscode.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-debug-multiple-modules-vscode.md",
             "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/tutorial-simulate-device-linux.md",
