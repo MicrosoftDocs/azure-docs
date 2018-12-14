@@ -17,8 +17,8 @@ ms.date: 12/11/2018
 ms.author: shsha
 
 ---
-# Setup an encryption certificate and encrypt secrets on Linux clusters
-This article shows how to set up an encryption certificate and use it to encrypt secrets on Linux clusters. For Windows clusters, see [Setup an encryption certificate and encrypt secrets on Windows clusters][secret-management-windows-specific-link].
+# Set up an encryption certificate and encrypt secrets on Linux clusters
+This article shows how to set up an encryption certificate and use it to encrypt secrets on Linux clusters. For Windows clusters, see [Set up an encryption certificate and encrypt secrets on Windows clusters][secret-management-windows-specific-link].
 
 ## Obtain a data encipherment certificate
 A data encipherment certificate is used strictly for encryption and decryption of [parameters][parameters-link] in a service's Settings.xml and [environment variables][environment-variables-link] in a service's ServiceManifest.xml. It is not used for authentication or signing of cipher text. The certificate must meet the following requirements:
