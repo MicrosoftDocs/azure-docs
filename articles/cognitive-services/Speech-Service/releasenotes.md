@@ -17,7 +17,42 @@ ms.custom: seodec18
 
 ## Speech Service SDK 1.2.0
 
-* TODO
+**New Features**
+
+* Python
+  * The Beta version of Python support (3.5 and above) is available with this release. For more details [see here](quickstart-python.md).
+* Javascript
+  * The JSpeech SDK for Javascript has been open-sourced. The source code is available on [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * We now support Node.js, more info can be found [here](quickstart-js-node.md).
+  * The length restriction for audio sessions has been removed, reconnection will happen automatically under the cover.
+* Connection Object
+  * From the Recognizer you can access a Connection object. This object allows you to explicitly initiate the service connection and subscribe to connect and disconnect events.
+* Support for Ubuntu 18.04.
+* Android
+  * Enabled ProGuard support during apk generation.
+
+**Improvements**
+
+* Improvements in the internal thread usage, reducing the number of threads, locks, mutexes, ...
+* Improved error reporting / information. In several cases error messages have not been propagated all the way out.
+* Updated dependencies in JavaScript to use up-to-date modules.
+
+**Bug fixes**
+
+* If an async operation wasn't awaited in the main thread, it was possible the recognizer could be disposed before the async task was completed.
+* Fixed memory leaks due to a type mismatch in RecognizeAsync.
+* In some cases exceptions were being leaked.
+* Fixing memory leak in translation event arguments.
+* Fixed a locking issue on reconnect in long running sessions.
+* Java: Fixed a problem resulting in a (seemingly random) crash of the Java VM.
+* Objective-C: Fixed enum mapping; RecognizedIntent was returned instead of RecognizingIntent.
+* Javascript: Set default output format to 'simple' in SpeechConfig.
+* Javascript: Removing inconsistency between properties on the config object in Javascript and other languages.
+
+**Samples**
+
+* Updated and fixed several samples (for example output voices for translation, etc).
+* Added Node.JS samples in the [sample repository](https://aka.ms/csspeech/samples).
 
 ## Speech Service SDK 1.1.0
 
