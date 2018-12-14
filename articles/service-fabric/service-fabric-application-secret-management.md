@@ -25,7 +25,7 @@ Using encrypted secrets in a Service Fabric application involves three steps:
 * Specify encrypted secrets in an application.
 * Decrypt encrypted secrets from service code.
 
-## Setup an encryption certificate and encrypt secrets
+## Set up an encryption certificate and encrypt secrets
 Setting up an encryption certificate and using it to encrypt secrets varies between Windows and Linux.
 * [Set up an encryption certificate and encrypt secrets on Windows clusters.][secret-management-windows-specific-link]
 * [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]
