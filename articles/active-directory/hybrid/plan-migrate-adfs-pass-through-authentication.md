@@ -26,7 +26,7 @@ The following document provides guidance on moving from AD FS to pass-through au
 The following prerequisites are required before you can migrate.
 ### Update Azure AD Connect
 
-As a minimum to successfully perform the steps to migrate to pass-through authentication, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594.) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
+As a minimum to successfully perform the steps to migrate to pass-through authentication, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
 
 > [!IMPORTANT]
 > Outdated documentation, tools and blogs indicate that user conversion is a required step when converting domains from Federated to Managed. **Converting users** is not required anymore and Microsoft is working on updating documentation and tools to reflect this.
@@ -315,10 +315,12 @@ Not all domains need the be converted at the same time, you might choose to star
 The conversion is performed using the Azure AD PowerShell Module.
 
    1. Open **PowerShell** and login to Azure AD using a **Global Administrator** account.
-   2. ‎To convert the first domain, run the following command:
-      ``` PowerShell
-      ‎Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
-      ```
+   2. To convert the first domain, run the following command:
+ 
+ ``` PowerShell
+ Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
+ ```
+ 
    3. Open the **Azure AD portal**, select **Azure Active Directory**, and then select **Azure AD Connect**.  
    4. Once you have converted all your federated domains, verify that that **Federation is Disabled** while **Seamless single sign-on** and **Pass-through authentication** are **Enabled**.</br>
    ![picture](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
@@ -352,7 +354,7 @@ Once you type the password, you should get redirected to the Office 365 portal.
 
 > [!NOTE]
 > Seamless Single Sign-On works on Office 365 services that supports domain hint (for example, myapps.microsoft.com/contoso.com). The Office 365 portal (portal.office.com) currently doesn’t support domain hint and therefore it is expected that users will need to type their UPN. Once a UPN is entered, Seamless single sign on can retrieve the Kerberos ticket on behalf of the user and log them in without typing a password.
-> [!NOTE]
+> [!TIP]
 > Consider deploying [Azure AD Hybrid Join on Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) for an improved single sign-on experience.
 
 ### Removal of the relying party trust
