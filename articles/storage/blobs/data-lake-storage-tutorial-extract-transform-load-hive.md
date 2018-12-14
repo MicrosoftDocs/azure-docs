@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jamesbak
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As a analytics user, I want to perform an ETL operation so that I may work with my data in my preferred environment.
 ---
 
-# Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight
-<!-- After the customer intent statement is defined, review the H1 heading and introduction to make any necessary changes. -->
-In this tutorial, you take a raw CSV data file, import it into an HDInsight cluster, and then transform the data by using Apache Hive on Azure HDInsight. After the data is transformed, you load that data into an Azure SQL database by using Apache Sqoop. This article, uses publicly available flight data.
+# Tutorial: Extract, transform, load data using Apache Hive on Azure HDInsight
+
+In this tutorial, you perform an ETL (extract, transform, and load data) operation. You take a raw CSV data file, import it into an HDInsight cluster, transform it with Apache Hive, and load it into an Azure SQL database with Apache Sqoop.
 
 In this tutorial, you learn how to:
 
@@ -21,10 +21,6 @@ In this tutorial, you learn how to:
 > * Upload data to an HDInsight cluster
 > * Transform the data using Hive
 > * Load data to an Azure SQL database using Sqoop
-
-The following illustration shows a typical ETL application flow.
-
-![ETL operation by using Apache Hive on Azure HDInsight](./media/data-lake-storage-tutorial-extract-transform-load-hive/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -52,7 +48,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
-   
+
 3. Clear all other fields
 
 4. Select **Download**. You get a .zip file with the data fields you selected.
@@ -211,8 +207,11 @@ As part of the Hive job, you import the data from the .csv file into a Hive tabl
 You need the server name from your SQL database for this operation. To find your server name:
 
 1. Go to the [Azure portal](https://portal.azure.com)
-2. Select **SQL Databases**. 
-3. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
+2. Select **SQL Databases**.
+
+![Select SQL Databases](./media/data-lake-storage-tutorial-extract-transform-load-hive/azure-sql-db.png "Select SQL Databases")
+
+1. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
 
 ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
@@ -273,7 +272,7 @@ There are many ways to connect to SQL Database and create a table. The following
 
 ## Export and load the data
 
-In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in Azure SQL database. 
+In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in Azure SQL database.
 
 1. Use the following command to verify that Sqoop can see your SQL database:
 
@@ -309,13 +308,13 @@ In the previous sections, you copied the transformed data at `abfs://<FILE_SYSTE
 
     Enter `exit` to exit the tsql utility.
 
+## Clean up resources
+
+All resources used in this tutorial are pre-existing, so there is no associated clean up.
+
 ## Next steps
 
-To learn more ways to work with data in HDInsight, see the following articles:
+To learn more ways to work with data in HDInsight, see the following article:
 
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Pig with HDInsight][hdinsight-use-pig]
-* [Develop Java MapReduce programs for Hadoop on HDInsight][hdinsight-develop-mapreduce]
-* [Develop Python streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
-* [Use Oozie with HDInsight][hdinsight-use-oozie]
-* [Use Sqoop with HDInsight][hdinsight-use-sqoop]
+> [!div class="nextstepaction"]
+> [Extract, transform, and load data by using Azure Databricks](./data-lake-storage-use-hdi-cluster.md)
