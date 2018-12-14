@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
@@ -13,11 +13,11 @@ manager: carmonm
 
 # Understand the Linux agent check results in Update Management
 
-There may be many reasons your Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
+There may be many reasons your Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 ## Start the troubleshooter
 
-By clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal, you launch the **Troubleshoot Update Agent** page. This page shows you problems with the agent and a link to this article to assist you in troubleshooting your issues.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article, please see the [offline instructions](#offline) to troubleshoot a Non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -108,7 +108,7 @@ This check verifies that your machine has access to the endpoints needed by the 
 
 This check verifies that your machine has access to the endpoints needed by the Log Analytics agent.
 
-## Troubleshoot offline
+## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
 You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The python script, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) can be found in Script Center. An example of the output of this script is shown in the following example:
 
