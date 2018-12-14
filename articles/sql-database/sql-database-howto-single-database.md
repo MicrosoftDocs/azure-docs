@@ -61,9 +61,9 @@ In this section you can find various guides, scripts, and explanations that can 
 - [Move sharded data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Configure security](sql-database-elastic-scale-split-merge-security-configuration.md) in database shards.
 - [Add a shard](sql-database-elastic-scale-add-a-shard.md) to the current set od database shards.
-- [Fix shard map problems](sql-database-elastic-database-recovery-manager.md)
-- [Migrate sharded DB](sql-database-elastic-convert-to-use-elastic-tools.md)
-- [Create counters](sql-database-elastic-database-perf-counters.md)
+- [Fix shard map problems](sql-database-elastic-database-recovery-manager.md).
+- [Migrate sharded DB](sql-database-elastic-convert-to-use-elastic-tools.md).
+- [Create counters](sql-database-elastic-database-perf-counters.md).
 - [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) to query sharded data.
 - [Use Dapper framework](sql-database-elastic-scale-working-with-dapper.md) to query sharded data.
 
