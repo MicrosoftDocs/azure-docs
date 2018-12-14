@@ -1,5 +1,5 @@
 ---
-title: Monitor usage and statistics in an Azure Search service | Microsoft Docs
+title: Monitor usage and statistics for an search service - Azure Search
 description: Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,9 +10,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
-# Monitoring an Azure Search service
+# Monitor an Azure Search service in Azure portal
 
 Azure Search offers various resources for tracking usage and performance of search services. It gives you access to metrics, logs, index statistics, and extended monitoring capabilities on Power BI. This article describes how to enable the different monitoring strategies and how to interpret the resulting data.
 

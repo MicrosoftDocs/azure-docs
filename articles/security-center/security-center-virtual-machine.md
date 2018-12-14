@@ -54,7 +54,7 @@ A security policy defines the set of controls which are recommended for resource
 ![Security policy](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
 
 > [!NOTE]
-> To learn more about each **Prevention policy** available, see [Set security policies](security-center-azure-policy.md) article.
+> To learn more about each **Prevention policy** available, see [Set security policies](tutorial-security-policy.md) article.
 > 
 > 
 
@@ -81,7 +81,7 @@ After setting a security policy, Security Center analyzes the security state of 
 > 
 
 ## Monitor security health
-After you enable [security policies](security-center-azure-policy.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources, along with any issues in the **Resource security health** blade. When you click **Virtual machines** in the **Resource security** health tile, the **Virtual machines** blade will open with recommendations for your VMs. 
+After you enable [security policies](tutorial-security-policy.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources, along with any issues in the **Resource security health** blade. When you click **Virtual machines** in the **Resource security** health tile, the **Virtual machines** blade will open with recommendations for your VMs. 
 
 ![Security health](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -95,7 +95,7 @@ Select a security alert to learn more about the event(s) that triggered the aler
 ## See also
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 

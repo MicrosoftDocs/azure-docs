@@ -128,7 +128,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Import the following code in the About.cshtml.cs file:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -136,7 +136,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
 
 4. Your code in the AboutModel class should like this:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -216,7 +216,7 @@ Azure Key Vault provides a way to securely store credentials and other secrets, 
 
 1. Make a note of the `PrincipalId` when you publish the application to Azure. The output of the command in step 1 should be in the following format:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

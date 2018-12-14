@@ -1,5 +1,5 @@
 ﻿---
-title: Named Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
+title: Named Entity Recognition cognitive search skill - Azure Search
 description: Extract named entities for person, location and organization from text in an Azure Search cognitive search pipeline.
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 #	 Named Entity Recognition cognitive skill
@@ -24,7 +25,7 @@ The **Named Entity Recognition** skill extracts named entities from text. Availa
 >
 > The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
 . Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).</li>
-> <li> Named entity recognition skill is considered "deprecated" and will not be officially supported starting Feburary 15, 2019. Follow recommendations listed in <a href="cognitive-search-skill-deprecated.md">Deprecated Cognitive Seach Skills</a> page to migrate to a supported skill</li>
+> <li> Named entity recognition skill is considered "deprecated" and will not be officially supported starting Feburary 15, 2019. Follow recommendations listed in <a href="cognitive-search-skill-deprecated.md">Deprecated Cognitive Search Skills</a> page to migrate to a supported skill</li>
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill

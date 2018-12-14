@@ -8,7 +8,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: danimir 
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
@@ -276,7 +276,7 @@ Read about how to [change diagnostics settings by using the Azure Monitor REST A
 
 ### Resource Manager template
 
-Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md).
+Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md).
 
 ## Stream into Azure SQL Analytics
 

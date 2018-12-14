@@ -72,7 +72,7 @@ To learn more about recommendations that apply to other Azure resource types, se
 To learn more about Security Center, see the following:
 
 * [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 
