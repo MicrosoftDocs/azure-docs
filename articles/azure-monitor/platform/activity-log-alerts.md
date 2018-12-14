@@ -55,7 +55,7 @@ To learn more about action groups, see [Create and manage action groups in the A
 
 
 ## Next steps
-- Get an [overview of alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+- Get an [overview of alerts](../../azure-monitor/platform/alerts-overview.md).
 - Learn about [create and modify activity log alerts](../../azure-monitor/platform/alerts-activity-log.md).
 - Review the [activity log alert webhook schema](activity-log-alerts-webhook.md).
 - Learn about [service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
