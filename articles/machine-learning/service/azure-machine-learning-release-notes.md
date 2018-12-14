@@ -17,6 +17,10 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-12-17: Azure Machine Learning SDK for Python v1.0.4
+
+This release largely contains minor bugfixes.
+
 ## 2018-12-04: General Availability
 
 Azure Machine Learning service is now generally available.
