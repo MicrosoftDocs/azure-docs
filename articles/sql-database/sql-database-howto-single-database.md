@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure SQL Database - Sigleton | Microsoft Docs
+title: How to configure Azure SQL Database - Singleton | Microsoft Docs
 description: Learn how to configure and manage Azure SQL Database - Single Database.
 services: sql-database
 ms.service: sql-database
