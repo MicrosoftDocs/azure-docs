@@ -18,7 +18,7 @@ ms.author: shsha
 
 ---
 # Setup an encryption certificate and encrypt secrets on Linux clusters
-This article shows how to set up an encryption certificate and use it to encrypt secrets on Linux clusters. For Windows clusters see [Setup an encryption certificate and encrypt secrets on Windows clusters][secret-management-windows-specific-link].
+This article shows how to set up an encryption certificate and use it to encrypt secrets on Linux clusters. For Windows clusters, see [Setup an encryption certificate and encrypt secrets on Windows clusters][secret-management-windows-specific-link].
 
 ## Obtain a data encipherment certificate
 A data encipherment certificate is used strictly for encryption and decryption of [parameters][parameters-link] in a service's Settings.xml and [environment variables][environment-variables-link] in a service's ServiceManifest.xml. It is not used for authentication or signing of cipher text. The certificate must meet the following requirements:
@@ -34,10 +34,10 @@ A data encipherment certificate is used strictly for encryption and decryption o
   ```
 
 ## Install the certificate in your cluster
-The certificate must be installed on each node in the cluster under `/var/lib/sfcerts`. The user account under which the service is running (sfuser by default) **should have read access** to the installed certificate (i.e. `/var/lib/sfcerts/TestCert.pem` for the current example).
+The certificate must be installed on each node in the cluster under `/var/lib/sfcerts`. The user account under which the service is running (sfuser by default) **should have read access** to the installed certificate (that is, `/var/lib/sfcerts/TestCert.pem` for the current example).
 
 ## Encrypt secrets
-The following snippet can be used to encrypt a secret. This snippet only encrypts the value; it does **not** sign the cipher text. You must use the same encipherment certificate that is installed in your cluster to produce ciphertext for secret values.
+The following snippet can be used to encrypt a secret. This snippet only encrypts the value; it does **not** sign the cipher text. **You must use** the same encipherment certificate that is installed in your cluster to produce ciphertext for secret values.
 
 ```console
 user@linux:$ echo "Hello World!" > plaintext.txt
