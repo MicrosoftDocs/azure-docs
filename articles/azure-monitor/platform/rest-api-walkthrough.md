@@ -19,7 +19,7 @@ Besides working with various metric data points, the Monitor API also makes it p
 ## Authenticating Azure Monitor requests
 The first step is to authenticate the request.
 
-All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). It is also possible to [create a service principal via the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). It is also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -48,7 +48,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -591,12 +591,12 @@ There are alternative approaches to retrieving the resource ID, including using 
 ### Azure Resource Explorer
 To find the resource ID for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Navigate to the desired resource and then look at the ID shown, as in the following screenshot:
 
-![Alt "Azure Resource Explorer"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
+![Alt "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
 ### Azure portal
 The resource ID can also be obtained from the Azure portal. To do so, navigate to the desired resource and then select Properties. The Resource ID is displayed in the Properties section, as seen in the following screenshot:
 
-![Alt "Resource ID displayed in the Properties blade in the Azure portal"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
+![Alt "Resource ID displayed in the Properties blade in the Azure portal"](./media/rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### Azure PowerShell
 The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Logic App, execute the Get-AzureLogicApp cmdlet, as in the following example:
@@ -688,7 +688,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## Next steps
-* Review the [Overview of Monitoring](../azure-monitor/overview.md).
-* View the [Supported metrics with Azure Monitor](monitoring-supported-metrics.md).
+* Review the [Overview of Monitoring](../../azure-monitor/overview.md).
+* View the [Supported metrics with Azure Monitor](metrics-supported.md).
 * Review the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Review the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).

@@ -114,16 +114,16 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 
 <!--Reference-->
 [1]:https://portal.azure.com
-[2]: ./media/monitoring-autoscale-get-started/azure-monitor-launch.png
-[3]: ./media/monitoring-autoscale-get-started/discover-autoscale-azure-monitor.png
+[2]: ./media/autoscale-get-started/azure-monitor-launch.png
+[3]: ./media/autoscale-get-started/discover-autoscale-azure-monitor.png
 [4]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
-[5]: ./media/monitoring-autoscale-get-started/scale-setting-new-web-app.png
-[6]: ./media/monitoring-autoscale-get-started/create-scale-setting-web-app.png
-[7]: ./media/monitoring-autoscale-get-started/scale-in-recommendation.png
-[8]: ./media/monitoring-autoscale-get-started/scale-based-on-cpu.png
-[9]: ./media/monitoring-autoscale-get-started/scale-condition-schedule.png
-[10]: ./media/monitoring-autoscale-get-started/scale-condition-dates.png
-[11]: ./media/monitoring-autoscale-get-started/scale-history.png
-[12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
-[13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
-[14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+[5]: ./media/autoscale-get-started/scale-setting-new-web-app.png
+[6]: ./media/autoscale-get-started/create-scale-setting-web-app.png
+[7]: ./media/autoscale-get-started/scale-in-recommendation.png
+[8]: ./media/autoscale-get-started/scale-based-on-cpu.png
+[9]: ./media/autoscale-get-started/scale-condition-schedule.png
+[10]: ./media/autoscale-get-started/scale-condition-dates.png
+[11]: ./media/autoscale-get-started/scale-history.png
+[12]: ./media/autoscale-get-started/scale-definition-json.png
+[13]: ./media/autoscale-get-started/disable-autoscale.png
+[14]: ./media/autoscale-get-started/set-manualscale.png

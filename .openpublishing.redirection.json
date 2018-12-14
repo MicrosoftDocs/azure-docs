@@ -32272,6 +32272,46 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-supported-metrics.md",
+            "redirect_url":  "/azure/azure-monitor/platform/metrics-supported",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md",
+            "redirect_url":  "/azure/azure-monitor/platform/rest-api-walkthrough",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-autoscale-get-started.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-get-started",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-send-to-grafana.md",
+            "redirect_url":  "/azure/azure-monitor/platform/grafana-plugin",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/usage-estimated-costs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-common-scale-patterns",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-partners.md",
+            "redirect_url":  "/azure/azure-monitor/platform/partners",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostic-logs-append-blobs",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
