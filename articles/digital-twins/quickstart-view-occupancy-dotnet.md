@@ -21,7 +21,7 @@ This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/d
 
 The following video summarizes quickstart setup:
 
-> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
+>[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## Prerequisites
 
@@ -29,8 +29,7 @@ The following video summarizes quickstart setup:
 
 1. The two console applications you run in this quickstart are written by using C#. Install the [.NET Core SDK version 2.1.403 or above](https://www.microsoft.com/net/download) on your development machine. If you have the .NET Core SDK installed, verify the current version of C# on your development machine. Run `dotnet --version` in a command prompt.
 
-1. Download the [sample C# project](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Extract the digital-twins-samples-csharp-master.zip archive. 
-
+1. Download the [sample C# project](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Extract the digital-twins-samples-csharp-master.zip archive.
 
 ## Create a Digital Twins instance
 
@@ -40,16 +39,15 @@ Create a new instance of Digital Twins in the [portal](https://portal.azure.com)
 
 ## Set permissions for your app
 
-This section registers your sample application to Azure Active Directory (Azure AD) so that it can access your Digital Twins instance. If you already have an Azure AD app registration, reuse it for your sample. Make sure that it's configured as described in this section. 
+This section registers your sample application to Azure Active Directory (Azure AD) so that it can access your Digital Twins instance. If you already have an Azure AD app registration, reuse it for your sample. Make sure that it's configured as described in this section.
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
-
 
 ## Build application
 
 Build the occupancy application by following these steps.
 
-1. Open a command prompt. Go to the folder where your `digital-twins-samples-csharp-master.zip` files were extracted.
+1. Open a command prompt. Go to the folder where your **digital-twins-samples-csharp-master.zip** files were extracted.
 1. Run `cd occupancy-quickstart/src`.
 1. Run `dotnet restore`.
 1. Edit **appSettings.json** to update the following variables:
@@ -60,23 +58,22 @@ Build the occupancy application by following these steps.
 ## Provision graph
 
 This step provisions your Digital Twins spatial graph with:
- 
+
 - Several spaces.
 - One device.
-- Two sensors. 
-- A custom function. 
+- Two sensors.
+- A custom function.
 - One role assignment.
- 
-The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file. 
+
+The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file.
 
 1. Run `dotnet run ProvisionSample`.
     >[!NOTE]
     >The Device Login Azure CLI tool is used to authenticate the user to Azure AD. The user must enter a given code to authenticate by using [the Microsoft login](https://microsoft.com/devicelogin) page. After code is entered, follow the steps to authenticate. The user must authenticate when the tool is running.
-    
-    >[!TIP]
-    > When you run this step, make sure your variables were copied properly if the following error message appears: 
-    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
+    >[!TIP]
+    > When you run this step, make sure your variables were copied properly if the following error message appears:
+    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 1. The provisioning step might take a few minutes. It also provisions an IoT Hub within your Digital Twins instance. It loops through until the IoT Hub shows Status=`Running`.
 
@@ -113,7 +110,7 @@ The sensor sample simulates random data values for two sensors. They're motion a
 
 1. Open the command prompt you used to run the previous provisioning step.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
-1. Look at this command prompt and the sensor data command prompt side by side. 
+1. Look at this command prompt and the sensor data command prompt side by side.
 
     One command prompt sends simulated motion and carbon dioxide data to Digital Twins every five seconds. The other command reads the graph in real time to find out available rooms with fresh air based on random simulated data. It displays one of these conditions in near real time based on the sensor data that was sent last:
     - Available rooms with fresh air.
@@ -142,26 +139,25 @@ Or for convenience, browse to [Digital Twins Swagger](https://docs.westcentralus
 
 ## Clean up resources
 
-The tutorials go into detail about how to: 
+The tutorials go into detail about how to:
 
-- Build an application for facility managers to increase occupant productivity. 
+- Build an application for facility managers to increase occupant productivity.
 - Operate the building more efficiently.
 
 To continue to the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, delete all the resources created by this quickstart.
 
 1. Delete the folder that was created when you downloaded the sample repository.
 1. From the menu on the left in the [Azure portal](http://portal.azure.com), select **All resources**. Then select your Digital Twins resource. At the top of the **All resources** pane, select **Delete**.
-   
+
     > [!TIP]
     > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
-
 
 ## Next steps
 
 This quickstart used a simple scenario to show how to find rooms with good working conditions. For in-depth analysis of this scenario, see this tutorial:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
