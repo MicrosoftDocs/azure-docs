@@ -77,12 +77,14 @@
   items:
   - name: Create templates
     items:
-    - name: Create resource groups by using templates
+    - name: Create resource groups
       href: create-resource-group-in-template.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
       href: resource-group-linked-templates.md
+    - name: Manage secrets
+      href: resource-manager-keyvault-parameter.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
     - name: Use template extensions
@@ -93,37 +95,33 @@
       href: deploy-to-subscription.md
   - name: Deploy templates
     items:
-    - name: Azure PowerShell
-      items:
-      - name: Deploy template
-        href: resource-group-template-deploy.md
-      - name: Deploy private template with SAS token
-        href: resource-manager-powershell-sas-token.md
-      - name: Export template and redeploy
-        href: resource-manager-export-template-powershell.md
-    - name: Azure CLI
-      items:
-      - name: Deploy template
-        href: resource-group-template-deploy-cli.md
-      - name: Deploy private template with SAS token
-        href: resource-manager-cli-sas-token.md
-      - name: Export template and redeploy
-        href: resource-manager-export-template-cli.md
-    - name: Azure portal
-      items:
-      - name: Deploy resources
-        href: resource-group-template-deploy-portal.md
-      - name: Export template
-        href: resource-manager-export-template.md
-    - name: REST API
+    - name: Deploy by using the portal
+      href: resource-group-template-deploy-portal.md
+    - name: Deploy by using Azure CLI
+      href: resource-group-template-deploy-cli.md
+    - name: Deploy by using Azure PowerShell
+      href: resource-group-template-deploy.md
+    - name: Deploy by using REST API
       href: resource-group-template-deploy-rest.md
-    - name: Multiple resource groups or subscriptions
+    - name: Export templates
+      items:
+      - name: Using the portal
+        href: resource-manager-export-template.md
+      - name: Using Azure CLI
+        href: resource-manager-export-template-cli.md
+      - name: Using Azure PowerShell
+        href: resource-manager-export-template-powershell.md
+    - name: Secure templates with SAS token
+      items:
+      - name: Using Azure CLI
+        href: resource-manager-cli-sas-token.md
+      - name: Using PowerShell
+        href: resource-manager-powershell-sas-token.md
+    - name: Deploy to multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
     - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-    - name: Pass secure values during deployment
-      href: resource-manager-keyvault-parameter.md
   - name: Manage templates
     items:
     - name: Azure PowerShell
