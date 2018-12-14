@@ -123,7 +123,7 @@ Actions that should be taken by the OEM Partner are:
 
 -   Prepare a customer summary for deployment
 
--   [Check updates to make sure the solution software is updated to the latest version](.\azure-stack-updates.md)
+-   [Check updates to make sure the solution software is updated to the latest version](azure-stack-updates.md)
 
 There are several steps that are required or optional depending on the installation type.
 

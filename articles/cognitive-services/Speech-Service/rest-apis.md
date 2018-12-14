@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -317,9 +317,20 @@ Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition late
 This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -419,20 +430,10 @@ This is a typical response for `detailed` recognition.
 
 ## Text-to-speech API
 
-These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
+The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-The Speech Service supports 24-KHz audio output, along with the 16-Khz outputs that were supported by Bing Speech. Four 24-KHz output formats and two 24-KHz voices are supported.
-
-### Voices
-
-| Locale | Language   | Gender | Mapping |
-|--------|------------|--------|---------|
-| en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
-| en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
-
-A full list of available voices, see [supported languages](language-support.md#text-to-speech).
+* For a complete list of voices, see [language support](language-support.md#text-to-speech).
+* For information about regional availability, see [regions](regions.md#text-to-speech).
 
 ### Request headers
 
@@ -447,7 +448,7 @@ This table lists required and optional headers for speech-to-text requests.
 
 ### Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Service supports 24-KHz and 16-KHz audio outputs.
 
 |||
 |-|-|

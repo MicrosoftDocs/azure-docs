@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: rolyon
 
 ---
@@ -309,6 +309,8 @@ Conditional access policies take effect immediately. When this happens, the admi
 ## B2B guests (Preview)
 
 Most organizations have a process in place for their employees to consent to their organization's Terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using conditional access and Terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the Terms of use. This support is currently in preview.
+
+Terms of use will only be displayed when the user has a guest account in Azure AD. SharePoint Online currently has an [ad-hoc external sharing recipient experience](/sharepoint/what-s-new-in-sharing-in-targeted-release) to share a document or a folder that does not require the user to have a guest account. In this case, a Terms of use is not displayed.
 
 ![All guest users](./media/active-directory-tou/b2b-guests.png)
 
