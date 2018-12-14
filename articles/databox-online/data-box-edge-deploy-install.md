@@ -108,8 +108,6 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
 The following procedures explain how to cable your Edge device for power and network.
 
-## Before cabling your device 
-
 Before you start cabling your device, you need the following:
 
 - Your Edge physical device, unpacked, and rack mounted.
