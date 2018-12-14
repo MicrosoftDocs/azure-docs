@@ -28,7 +28,7 @@ Runbook execution fails and you receive the following error:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Your runbook is suspended shortly after attempting to execute it three times. There are conditions, which may interrupt the runbook from completing successfully and the related error message doesn't include any additional information indicating why.
+Your runbook is suspended shortly after attempting to execute it three times. There are conditions, which may interrupt the runbook from completing successfully and the related error message doesn't include any additional information that indicates why.
 
 #### Cause
 
@@ -46,7 +46,7 @@ The following are potential possible causes:
 
 Verify the computer has outbound access to *.azure-automation.net on port 443.
 
-Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention which is caused by runbooks during execution, the computer becomes over utilized and cause runbook job delays or timeouts.
+Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before designating it to host this feature. Otherwise, depending on the resource utilization of other background processes and contention during runbook execution can cause the computer becomes over utilized and cause runbook job delays or timeouts.
 
 Confirm the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. If there's memory or CPU pressure, this may indicate the need to upgrade or add additional processors, or increase memory to address the resource bottleneck and resolve the error. Alternatively, select a different compute resource that can support the minimum requirements and scale when workload demands indicate an increase is necessary.
 
@@ -68,7 +68,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the `/var/opt/microsoft/omsagent/state/automationworker/` directory.
 
-* **oms.conf** - This process is the worker manager process, this is started directly from DSC.
+* **oms.conf** - This process is the worker manager process, this process is started directly from DSC.
 
 * **worker.conf** - This process is the Auto Registered Hybrid worker process, it's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
 
@@ -96,7 +96,7 @@ The `healthservice` service isn't running on the Hybrid Runbook Worker machine.
 
 #### Cause
 
-If the Microsoft Monitoring Agent Windows service isn't running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation.
+If the Microsoft Monitoring Agent Windows service isn't running, this scenario prevents the Hybrid Runbook Worker from communicating with Azure Automation.
 
 #### Resolution
 
@@ -106,25 +106,25 @@ Verify the agent is running by entering the following command in PowerShell: `Ge
 
 #### Issue
 
-In the **Application and Services Logs\Operations Manager** event log, you see event 4502  and EventMessage containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
+In the **Application and Services Logs\Operations Manager** event log, you see event 4502  and EventMessage that contains **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication. The article KB3126513 has additional troubleshooting information for connectivity issues.*
 
 #### Cause
 
-This can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443.
+This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue that affects onboarding of the role to Azure Automation or issue while under normal operations.
 
-[Runbook output and messages](../automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
+[Runbook output and messages](../automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs that run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
 
-### <a name="corrupt-cache"></a> Hybrid Runbook worker not reporting
+### <a name="corrupt-cache"></a> Hybrid Runbook Worker not reporting
 
 #### Issue
 
-Your Hybrid Runbook Worker machine is running but you do not see heartbeat data for the machine in the workspace.
+Your Hybrid Runbook Worker machine is running but you don't see heartbeat data for the machine in the workspace.
 
-The following is an example query to show the machines in a workspace and their last heartbeat.
+The following example query shows the machines in a workspace and their last heartbeat:
 
 ```loganalytics
 // Last heartbeat of each computer
@@ -134,11 +134,11 @@ Heartbeat
 
 #### Cause
 
-This can be caused by a corrupt cache on the Hybrid Runbook Worker.
+This issue can be caused by a corrupt cache on the Hybrid Runbook Worker.
 
 #### Resolution
 
-To resolve this issue, log in to the Hybrid Runbook Worker and run the following script. This stops the Microsoft Monitoring Agent, removes its cache and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
+To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Microsoft Monitoring Agent, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
 
 ```powershell
 Stop-Service -Name HealthService
