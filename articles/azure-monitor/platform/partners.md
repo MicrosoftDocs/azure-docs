@@ -192,29 +192,29 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [turbonomic-anchor]: #turbonomic "Turbonomic"
 
 <!--Icon references-->
-[alertlogic-logo]: ./media/partner-logos/alertlogic.png
-[appdynamics-logo]: ./media/partner-logos/appdynamics.png
-[atlassian-logo]: ./media/partner-logos/atlassian.png
-[circonus-logo]: ./media/partner-logos/circonus.png
-[cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
-[cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
-[datadog-logo]: ./media/partner-logos/datadog.png
-[dynatrace-logo]: ./media/partner-logos/dynatrace.png
-[elastic-logo]: ./media/partner-logos/elastic.png
-[newrelic-logo]: ./media/partner-logos/newrelic.png
-[grafana-logo]: ./media/partner-logos/grafana.png
-[influxdata-logo]: ./media/partner-logos/influxdata.png
-[logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
-[moogsoft-logo]: ./media/partner-logos/moogsoft.png
-[opsgenie-logo]: ./media/partner-logos/opsgenie.png
-[pagerduty-logo]: ./media/partner-logos/pagerduty.png
-[qradar-logo]: ./media/partner-logos/qradar.png
-[sciencelogic-logo]: ./media/partner-logos/sciencelogic.png
-[signalfx-logo]: ./media/partner-logos/signalfx.png
-[signl4-logo]: ./media/partner-logos/signl4.png
-[splunk-logo]: ./media/partner-logos/splunk.png
-[sumologic-logo]: ./media/partner-logos/sumologic.png
-[turbonomic-logo]: ./media/partner-logos/turbonomic.png
+[alertlogic-logo]: ./media/partners/alertlogic.png
+[appdynamics-logo]: ./media/partners/appdynamics.png
+[atlassian-logo]: ./media/partners/atlassian.png
+[circonus-logo]: ./media/partners/circonus.png
+[cloudhealth-logo]: ./media/partners/cloudhealth.png
+[cloudmonix-logo]: ./media/partners/cloudmonix.png
+[datadog-logo]: ./media/partners/datadog.png
+[dynatrace-logo]: ./media/partners/dynatrace.png
+[elastic-logo]: ./media/partners/elastic.png
+[newrelic-logo]: ./media/partners/newrelic.png
+[grafana-logo]: ./media/partners/grafana.png
+[influxdata-logo]: ./media/partners/influxdata.png
+[logicmonitor-logo]: ./media/partners/logicmonitor.png
+[moogsoft-logo]: ./media/partners/moogsoft.png
+[opsgenie-logo]: ./media/partners/opsgenie.png
+[pagerduty-logo]: ./media/partners/pagerduty.png
+[qradar-logo]: ./media/partners/qradar.png
+[sciencelogic-logo]: ./media/partners/sciencelogic.png
+[signalfx-logo]: ./media/partners/signalfx.png
+[signl4-logo]: ./media/partners/signl4.png
+[splunk-logo]: ./media/partners/splunk.png
+[sumologic-logo]: ./media/partners/sumologic.png
+[turbonomic-logo]: ./media/partners/turbonomic.png
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic documentation."
