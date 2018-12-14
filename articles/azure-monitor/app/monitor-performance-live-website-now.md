@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. You need a [Microsoft Azure](https://azure.com) subscription.
 
-Status Monitor is used to instrument a DOTNET application hosted in IIS either on-premises or in a VM.
+Status Monitor is used to instrument a .NET application hosted in IIS either on-premises or in a VM.
 
 - If your app is deployed into Azure app services, follow [these instructions](app-insights-azure-web-apps.md).
 - If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
