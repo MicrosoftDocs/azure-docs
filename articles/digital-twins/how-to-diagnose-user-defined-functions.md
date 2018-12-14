@@ -37,7 +37,7 @@ After sending telemetry, open up Azure Log Analytics to query for logs using the
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | Query value | Replace with |
@@ -48,7 +48,7 @@ If you log your user-defined function, those logs will appear in your Azure Log 
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).

@@ -14,9 +14,9 @@ ms.component: ""
 
 > [!NOTE]
 > This article describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.  Refer to the following articles for related information.
-> - [Manage cost by controlling data volume and retention in Log Analytics](../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period.
-> - [Analyze data usage in Log Analytics](../azure-monitor/platform/data-usage.md) describes how to analyze and alert on your data usage.
-> - [Manage pricing and data volume in Application Insights](../application-insights/app-insights-pricing.md) describes how to analyze data usage in Application Insights.
+> - [Manage cost by controlling data volume and retention in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Analyze data usage in Log Analytics](../../azure-monitor/platform/data-usage.md) describes how to analyze and alert on your data usage.
+> - [Manage pricing and data volume in Application Insights](../../application-insights/app-insights-pricing.md) describes how to analyze data usage in Application Insights.
 
 In the Monitor hub of the Azure portal, the **Usage and estimated costs** page explains the usage of core monitoring features such as [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/), and [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). For customers on the pricing plans available before April 2018, this also includes Log Analytics usage purchased through the Insights and Analytics offer.
 
@@ -24,15 +24,15 @@ On this page, users can view their resource usage for the past 31 days, aggregat
 
 This example shows monitoring usage and an estimate of the resulting costs:
 
-![Usage and estimated costs portal screenshot](./media/monitoring-usage-and-estimated-costs/001.png)
+![Usage and estimated costs portal screenshot](./media/usage-estimated-costs/001.png)
 
 Select the link in the monthly usage column to open a chart that shows usage trends over the last 31-day period:
 
-![Included per node bar chart screenshot](./media/monitoring-usage-and-estimated-costs/002.png)
+![Included per node bar chart screenshot](./media/usage-estimated-costs/002.png)
 
 Here’s another similar usage and cost summary. This example shows a subscription in the new April 2018 consumption-based pricing model. Note the lack of any node-based billing. Data ingestion and retention for Log Analytics and Application Insights are now reported on a new common meter.
 
-![Usage and estimated costs portal screenshot - April 2018 pricing](./media/monitoring-usage-and-estimated-costs/003.png)
+![Usage and estimated costs portal screenshot - April 2018 pricing](./media/usage-estimated-costs/003.png)
 
 ## New pricing model
 
@@ -45,11 +45,11 @@ The new pricing model will have different impacts on each customer based on thei
 
 To see an estimate of your costs for the subscriptions that you chose on the **Usage and estimated costs** page, select the blue banner near the top of the page. It’s best to do this one subscription at a time, because that's the level at which the new pricing model can be adopted.
 
-![Monitor usage and estimated costs in new pricing model screenshot](./media/monitoring-usage-and-estimated-costs/004.png)
+![Monitor usage and estimated costs in new pricing model screenshot](./media/usage-estimated-costs/004.png)
 
 The new page shows a similar version of the prior page with a green banner:
 
-![Monitor usage and estimated costs in current pricing model screenshot](./media/monitoring-usage-and-estimated-costs/005.png)
+![Monitor usage and estimated costs in current pricing model screenshot](./media/usage-estimated-costs/005.png)
 
 The page also shows a different set of meters that correspond to the new pricing model. This list is an example:
 
@@ -96,11 +96,11 @@ The cost estimation shows the effects of these changes.
 
 If you’ve decided to adopt the new pricing model for a subscription, select the **Pricing model selection** option at the top of the **Usage and estimated costs** page:
 
-![Monitor usage and estimated costs in new pricing model screenshot](./media/monitoring-usage-and-estimated-costs/006.png)
+![Monitor usage and estimated costs in new pricing model screenshot](./media/usage-estimated-costs/006.png)
 
 The **Pricing model selection** page will open. It shows a list of each of the subscriptions that you viewed on the prior page:
 
-![Pricing model selection screenshot](./media/monitoring-usage-and-estimated-costs/007.png)
+![Pricing model selection screenshot](./media/usage-estimated-costs/007.png)
 
 To move a subscription to the new pricing model, just select the box and then select **Save**. You can move back to the older pricing model in the same way. Keep in mind that subscription owner or contributor permissions are required to change the pricing model.
 

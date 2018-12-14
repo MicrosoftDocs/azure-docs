@@ -119,11 +119,11 @@
 
 ## Secure
 ### Authenticate with identity providers
-#### [Azure Active Directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Facebook authentication](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Google authentication](../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Microsoft Account authentication](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Twitter authentication](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Active Directory authentication](../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Facebook authentication](../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Google authentication](../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Microsoft Account authentication](../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Twitter authentication](../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
 #### [Configure TLS Mutual Authentication ](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
