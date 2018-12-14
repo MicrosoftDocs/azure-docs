@@ -53,18 +53,18 @@ Validate if PSGallery is registered as a repository.
 
 Open an elevated PowerShell prompt, and run the following cmdlets:
 
-    ````PowerShell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-    Get-PSRepository -Name "PSGallery"
-    ````
+```PowerShell  
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop
+Get-PSRepository -Name "PSGallery"
+```
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
 
-    ````PowerShell
-    Register-PsRepository -Default
-    Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
-    ````
+```PowerShell  
+Register-PsRepository -Default
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+```
 
 ## 3. Uninstall existing versions of the Azure Stack PowerShell modules
 
@@ -72,10 +72,10 @@ Before installing the required version, make sure that you uninstall any previou
 
 1. To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions, and run the following cmdlets:
 
-    ````PowerShell
+    ```PowerShell
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
-    ````
+    ```
     If you hit any error like 'The module is already in use', please close the PowerShell sessions that are using the modules and rerun the above script.
 
 2. Delete all the folders that start with `Azure` or `Azs.` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
@@ -171,28 +171,28 @@ Sign in to a computer with Internet connectivity and use the following scripts t
 
   - Azure Stack 1808 or later.
 
-    ````PowerShell
+    ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
-    ````
+    ```
 
   - Azure Stack 1807 or earlier.
 
     > [!Note]
     To upgrade from the 1.2.11 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
-    ````PowerShell
+    ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
-    ````
+    ```
 
 2. Copy the downloaded packages to a USB device.
 
