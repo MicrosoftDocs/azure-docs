@@ -43,9 +43,9 @@
         displayName: recognize speech, speech recognition, speech to text, stt, xcode
     - name: Translate speech
       items:
-      - name: 'C# (.NET Core on Windows)'
+      - name: 'C# (.NET Core Windows)'
         href: quickstart-translate-speech-dotnetcore-windows.md
-      - name: 'C# (.NET Framework on Windows)'
+      - name: 'C# (.NET Framework Windows)'
         href: quickstart-translate-speech-dotnetframework-windows.md
       - name: 'C# (UWP)'
         href: quickstart-translate-speech-uwp.md
