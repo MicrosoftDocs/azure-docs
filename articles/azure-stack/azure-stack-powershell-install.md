@@ -53,18 +53,18 @@ Validate if PSGallery is registered as a repository.
 
 Open an elevated PowerShell prompt, and run the following cmdlets:
 
-    ```PowerShell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-    Get-PSRepository -Name "PSGallery"
-    ```
+```PowerShell
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop
+Get-PSRepository -Name "PSGallery"
+```
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
 
-    ```PowerShell
-    Register-PsRepository -Default
-    Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
-    ```
+```PowerShell
+Register-PsRepository -Default
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+```
 
 ## 3. Uninstall existing versions of the Azure Stack PowerShell modules
 
@@ -86,7 +86,8 @@ Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Sta
 
 Run the following PowerShell script to install these modules on your development workstation:
 
-  - Azure Stack 1811 or later.
+- Azure Stack 1811 or later.
+
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRm.BootStrapper
@@ -116,7 +117,7 @@ Run the following PowerShell script to install these modules on your development
 > To upgrade Azure PowerShell from the **2017-03-09-profile** to **2018-03-01-hybrid**, Please see the [Migration guide](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
 
-  - Azure Stack 1808 or later.
+- Azure Stack 1808 or later.
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
