@@ -67,7 +67,7 @@ from azureml.core.model import Model
 
 model = Model.register(model_path = "model.pkl",
                        model_name = "Mymodel",
-                       tags = ["0.1"],
+                       tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```

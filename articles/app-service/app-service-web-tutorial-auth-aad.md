@@ -211,7 +211,7 @@ Navigate to `http://<back_end_app_name>.azurewebsites.net` to see the items adde
 
 In this step, you enable authentication and authorization for the two apps. You also configure the front-end app to generate an access token that you can use to make authenticated calls to the back-end app.
 
-You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](app-service-mobile-how-to-configure-active-directory-authentication.md).
+You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](configure-authentication-provider-aad.md).
 
 ### Enable authentication and authorization for back-end app
 

@@ -133,15 +133,15 @@
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
-        href: app-service-mobile-how-to-configure-active-directory-authentication.md
+        href: configure-authentication-provider-aad.md
       - name: Authenticate with Facebook
-        href: app-service-mobile-how-to-configure-facebook-authentication.md
+        href: configure-authentication-provider-facebook.md
       - name: Authenticate with Google
-        href: app-service-mobile-how-to-configure-google-authentication.md
+        href: configure-authentication-provider-google.md
       - name: Authenticate with Microsoft account
-        href: app-service-mobile-how-to-configure-microsoft-authentication.md
+        href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
-        href: app-service-mobile-how-to-configure-twitter-authentication.md
+        href: configure-authentication-provider-twitter.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict IPs
