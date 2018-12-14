@@ -91,9 +91,9 @@ There are three fundamental sources of metrics collected by Azure Monitor. All o
 ### What can you do with metrics?
 Tasks that you can perform with metrics include the following:
 
-- Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to analyze collected metrics and plot them on a chart. Track the performance of a resource (such as a VM, website, or logic app) by pinning charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
+- Use [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) to analyze collected metrics and plot them on a chart. Track the performance of a resource (such as a VM, website, or logic app) by pinning charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric crosses a threshold.
-- Use [Autoscale](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) to increase or decrease resources based on a metric crossing a threshold.
+- Use [Autoscale](../../azure-monitor/platform/autoscale-overview.md) to increase or decrease resources based on a metric crossing a threshold.
 - Route metrics to Log Analytics to analyze metric data together with log data and to store metric values for longer than 93 days. 
 - Stream metrics to an [Event Hub](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) to route them to [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or to external systems.
 - [Archive](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes.
@@ -104,7 +104,7 @@ Tasks that you can perform with metrics include the following:
 ### Viewing metrics
 Metrics in Azure are collected in the Azure Monitor metrics database. This is a time series database optimized for quick retrieval and stores metric values for 93 days. Copy metrics to Log Analytics for long term analysis and trending.
 
-Metric data is used in a variety of ways as described above. Use [Metrics explorer](../../monitoring-and-diagnostics/monitoring-metric-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Metric data is used in a variety of ways as described above. Use [Metrics explorer](../../azure-monitor/platform/metrics-charts.md) to directly analyze the data in your metric store and chart the values of multiple metrics over time. You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics by using the [Azure monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Metrics Explorer](media/data-collection/metrics-explorer.png)
 

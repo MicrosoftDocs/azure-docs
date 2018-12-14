@@ -23,11 +23,11 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 1. Open the Azure portal
 2. Navigate to the new **Monitor** tab, and then select **Metrics**.
 
-   ![Metrics Image](./media/monitoring-metric-charts/0001.png)
+   ![Metrics Image](./media/metrics-charts/0001.png)
 
 3. The **metric selector** will automatically be open for you. Choose a resource from the list to view its associated metrics. Only resources with metrics are shown in the list.
 
-   ![Metrics Image](./media/monitoring-metric-charts/0002.png)
+   ![Metrics Image](./media/metrics-charts/0002.png)
 
    > [!NOTE]
    >If you have more than one Azure subscription, Metrics Explorer pulls out the resources across all subscriptions that are selected in the Portal Settings -> Filter by subscriptions list. To change it, click on the Portal settings gear icon on top of the screen and select which subscriptions you want to use.
@@ -36,15 +36,15 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 
    For example, each Azure Storage has metrics for subservices “Blobs”, “Files”, “Queues” and “Tables”, which are all parts of the storage account. However, the metric “Queue Message Count” is naturally applicable to the subservice “Queue” and not to any other storage account subservices.
 
-   ![Metrics Image](./media/monitoring-metric-charts/0003.png)
+   ![Metrics Image](./media/metrics-charts/0003.png)
 
 5. Select a metric from the list. If you know a partial name of the metric you want, you can start typing it in to see a filtered list of available metrics:
 
-   ![Metrics Image](./media/monitoring-metric-charts/0004.png)
+   ![Metrics Image](./media/metrics-charts/0004.png)
 
 6. After selecting a metric, the chart will render with the default aggregation for the selected metric. At this point you can just click away from the **metrics selector** to close it. You can also optionally switch the chart to a different aggregation. For some metrics, switching aggregation allows you to choose which value you want to see on the chart. For example, you can switch between the average, minimum and maximum values. 
 
-7. By clicking on the Add Metric icon ![metric icon](./media/monitoring-metric-charts/icon001.png) and repeating steps 3-6 you can add more metrics on the same chart.
+7. By clicking on the Add Metric icon ![metric icon](./media/metrics-charts/icon001.png) and repeating steps 3-6 you can add more metrics on the same chart.
 
    > [!NOTE]
    > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
@@ -55,19 +55,19 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 ### To add a filter
 
-1. Click on the Add Filter icon ![filter icon](./media/monitoring-metric-charts/icon002.png) above the chart
+1. Click on the Add Filter icon ![filter icon](./media/metrics-charts/icon002.png) above the chart
 
 2. Select which dimension (property) you want to filter
 
-   ![metric image](./media/monitoring-metric-charts/0006.png)
+   ![metric image](./media/metrics-charts/0006.png)
 
 3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
 
-   ![metric image](./media/monitoring-metric-charts/0007.png)
+   ![metric image](./media/metrics-charts/0007.png)
 
 4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
-   ![metric image](./media/monitoring-metric-charts/0008.png)
+   ![metric image](./media/metrics-charts/0008.png)
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
@@ -77,18 +77,18 @@ You can split a metric by dimension to visualize how different segments of the m
 
 ### To segment a chart
 
-1. Click on the Add Grouping icon  ![metric image](./media/monitoring-metric-charts/icon003.png) above the chart.
+1. Click on the Add Grouping icon  ![metric image](./media/metrics-charts/icon003.png) above the chart.
  
    > [!NOTE]
    > You can have multiple filters but only one grouping on any single chart.
 
 2. Choose a dimension on which you want to segment your chart: 
 
-   ![metric image](./media/monitoring-metric-charts/0010.png)
+   ![metric image](./media/metrics-charts/0010.png)
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![metric image](./media/monitoring-metric-charts/0012.png)
+   ![metric image](./media/metrics-charts/0012.png)
 
 3. Click away from the **Grouping Selector** to close it.
 
@@ -105,7 +105,7 @@ Another example is a fluctuation in the available memory, where the value will t
 
 To control the y-axis range, use the “…” chart menu, and select **Edit chart** to access advanced chart settings. Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
 
-![metric image](./media/monitoring-metric-charts/0014-manually-set-granularity.png)
+![metric image](./media/metrics-charts/0014-manually-set-granularity.png)
 
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
@@ -118,7 +118,7 @@ To pin a configured chart to a dashboard:
 
 After configuring your chart, click on the **Chart Actions** menu in the right top corner of the chart, and click **Pin to dashboard**.
 
-![metric image](./media/monitoring-metric-charts/0013.png)
+![metric image](./media/metrics-charts/0013.png)
 
 ## Next steps
 
