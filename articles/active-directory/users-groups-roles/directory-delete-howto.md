@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2018
 ms.author: curtand
 
 ms.reviewer: elkuzmen
@@ -18,6 +18,7 @@ ms.custom: it-pro
 
 ---
 # Delete an Azure Active Directory tenant
+
 When a tenant is deleted, all resources that are contained in the tenant are also deleted. You must prepare the tenant by minimizing its associated resources before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD tenant from the portal.
 
 ## Prepare the tenant for deletion
