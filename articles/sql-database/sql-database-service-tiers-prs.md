@@ -27,7 +27,7 @@ The following are the migration destinations and pricing options that may be sui
   [Dev/test pricing](https://azure.microsoft.com/pricing/dev-test/) provides savings up to 55% versus license-included rates with your Visual Studio subscription.
 - Azure Hybrid Benefit and reserved capacity pricing
 
-  [Azure Hybrid Benefit and reserved capacity pricing](https://azure.microsoft.com/pricing/details/sql-database/) provide savings up to 80% versus license-included rates. For more information on these options, see [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) and [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md).
+  [Azure Hybrid Benefit and reserved capacity pricing](https://azure.microsoft.com/pricing/details/sql-database/) provide savings up to 80% versus license-included rates. For more information on these options, see [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) and [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md).
 
 ## Act now to migrate your Premium RS databases to alternative SQL Database service tiers
 
@@ -78,9 +78,9 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 
 ## Take advantage of our new offers
 
-Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). You can combine the hybrid benefit with [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
+Our service tiers in the vCore-based purchasing model are eligible for special offers that can save you up to 80% versus license-included pricing. Use your SQL Server Standard or Enterprise edition licenses with active Software Assurance to save up to 55% versus license-included pricing with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). You can combine the hybrid benefit with [Azure SQL Database reserved capacity](sql-database-reserved-capacity.md) pricing and save up to 80% when you commit upfront to a one or three-year term.  Activate both benefits today from Azure portal.
 
-If you have any questions or concerns regarding this change or if you require migration assistance, contact Microsoft.
+If you have any questions or concerns regarding this change or if you require migration assistance, contact [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Migration from a Premium RS service tier to a service tier in either the DTU or the vCore model
 
