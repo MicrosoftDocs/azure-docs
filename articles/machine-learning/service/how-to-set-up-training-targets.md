@@ -22,9 +22,7 @@ A compute target is a resource where you run your training script, or you host y
 There are three broad categories of compute targets that Azure Machine Learning supports:
 
 * __Local__: Your local machine, or a cloud-based virtual machine (VM) that you use as a development and experimentation environment. 
-
 * __Managed compute__: Azure Machine Learning Compute is a compute offering that's managed by the Azure Machine Learning service. The offering allows you to easily create a single or multi-node compute for training, testing, and batch inferencing.
-
 * __Attached compute__: You can also bring your own Azure cloud compute and attach it to Azure Machine Learning. Read more about supported compute types and how to use them in the following sections.
 
 
@@ -32,7 +30,7 @@ There are three broad categories of compute targets that Azure Machine Learning 
 
 Azure Machine Learning service has varying support across the various compute targets. A typical model development lifecycle starts with development and experimentation on a small amount of data. At this stage, we recommend you use a local environment like your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, use Azure Machine Learning Compute to create a single or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios can vary as described in the following table:
 
-|Compute target| GPU acceleration | Automated hyperparameter tuning | Automated machine learning | Pipeline friendly|
+|Compute target| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -42,7 +40,8 @@ Azure Machine Learning service has varying support across the various compute ta
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 > [!IMPORTANT]
-> <a id="pipeline-only"></a>__*__ _Azure Databricks and Azure Data Lake Analytics can only be used in a pipeline._ For more information on pipelines, see [Pipelines in Azure Machine Learning](concept-ml-pipelines.md).
+> <a id="pipeline-only"></a>__*__ _Azure Databricks and Azure Data Lake Analytics can only be used in a pipeline._<br/>
+> For more information on pipelines, see [Pipelines in Azure Machine Learning](concept-ml-pipelines.md).
 >
 > Azure Machine Learning Compute must be created from within a workspace. You can't attach existing instances to a workspace.
 >
@@ -249,16 +248,17 @@ The following steps use the SDK to configure a DSVM as a training target:
                                                        ssh_port=22,
                                                        username='<username>',
                                                        password="<password>")
+    
     # If you use SSH instead of a password, use this code:
+
     #                                                  ssh_port=22,
-    #                                                   username='<username>',
-    #                                                   password=None,
-    #                                                   private_key_file="path-to-file",
-    #                                                   private_key_passphrase="passphrase")
+    #                                                  username='<username>',
+    #                                                  password=None,
+    #                                                  private_key_file="path-to-file",
+    #                                                  private_key_passphrase="passphrase")
 
     # Attach the compute
     compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
-
     compute.wait_for_completion(show_output=True)
 
     ```
@@ -531,7 +531,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 Now you can submit a run against the computer targets as described earlier.
 
 
-### Reuses existing compute targets
+### Reuse existing compute targets
 
 Follow the steps described earlier to view the list of compute targets. Then use these steps to reuse a compute target:
 
@@ -566,7 +566,6 @@ Now you can submit a run against these compute targets as described earlier.
 For examples, see the notebooks in the following locations:
 
 * [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
