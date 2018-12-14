@@ -1,10 +1,10 @@
 ---
 title: Server Logs in Azure Database for PostgreSQL
 description: This article describes how Azure Database for PostgreSQL generates query and error logs, and how log retention is configured.
-services: postgresql
+
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018

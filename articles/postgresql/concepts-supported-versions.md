@@ -1,13 +1,13 @@
 ---
 title: Supported versions in Azure Database for PostgreSQL
 description: Describes the supported versions in Azure Database for PostgreSQL.
-services: postgresql
+
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2018
 ---
 # Supported PostgreSQL database versions

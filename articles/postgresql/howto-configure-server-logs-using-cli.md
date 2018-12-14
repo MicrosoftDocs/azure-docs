@@ -1,14 +1,14 @@
 ---
 title: Configure and access server logs for PostgreSQL by using Azure CLI
 description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL by using the Azure CLI command line.
-services: postgresql
+
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Configure and access server logs by using Azure CLI

@@ -1,13 +1,13 @@
 ---
 title: How To Restore a Server in Azure Database for PostgreSQL
 description: This article describes how to restore a server in Azure Database for PostgreSQL using the Azure portal.
-services: postgresql
+
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ---
 

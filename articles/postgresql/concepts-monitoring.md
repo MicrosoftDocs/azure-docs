@@ -1,10 +1,10 @@
 ---
 title: Monitor and Tune in Azure Database for PostgreSQL
 description: This article describes monitoring and tuning features in Azure Database for PostgreSQL.
-services: postgresql
+
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018

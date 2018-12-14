@@ -2,13 +2,13 @@
 title: Handling of transient connectivity errors for Azure Database for PostgreSQL | Microsoft Docs
 description: Learn how to handle  transient connectivity errors for Azure Database for PostgreSQL.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
-services: postgresql
+
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonh
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
 ---
 
