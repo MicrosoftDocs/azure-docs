@@ -15,9 +15,11 @@ ms.author: tomfitz
 ---
 # Create resource groups and resources for an Azure subscription
 
-Typically, you deploy resources to a resource group in your Azure subscription. However, you can use the subscription-level deployments to create resource groups and resources that apply across your subscription. To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md) are services that you may want to apply at the subscription level, rather than the resource group level.
+Typically, you deploy resources to a resource group in your Azure subscription. However, you can use the subscription-level deployments to create resource groups and resources that apply across your subscription.
 
-You can also create a resource group and deploy resources to that resource group in the same template.
+To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template.
+
+[Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md) are services that you may want to apply at the subscription level, rather than the resource group level.
 
 This article shows how to create resource groups, and how to create resources that apply across a subscription. It uses Azure CLI and PowerShell to deploy the templates. You can't use the portal to deploy the templates because the portal interface deploys to resource group, not the Azure subscription.
 
@@ -31,7 +33,7 @@ For the Azure CLI deployment command, use [az deployment create](/cli/azure/depl
 
 For the PowerShell deployment command, use [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment).
 
-## Name and location for deployment
+## Name and location
 
 When deploying to your subscription, you must provide a location for the deployment. You can also provide a name for the deployment. If you don't specify a name for the deployment, the name of the template is used as the deployment name. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
 
@@ -45,7 +47,7 @@ For subscription level deployments, there are some important considerations when
 * The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * The [reference()](resource-group-template-functions-resource.md#reference) and [list()](resource-group-template-functions-resource.md#list) functions are supported.
 
-## Create empty resource group
+## Create resource group
 
 The following example creates an empty resource group.
 
