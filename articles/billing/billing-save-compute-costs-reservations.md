@@ -1,6 +1,6 @@
 ﻿---
-title: What are Azure Reservations? | Microsoft Docs
-description: Learn about Azure Reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB and other resource costs.
+title: What are reservations for Azure? | Microsoft Docs
+description: Learn about Azure reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB and other resource costs.
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
@@ -16,9 +16,9 @@ ms.date: 11/06/2018
 ms.author: cwatson
 
 ---
-# What are Azure Reservations?
+# What are reservations for Azure?
 
-Azure Reservations helps you save money by pre-paying for one-year or three-years of virtual machine, SQL Database compute capacity, Azure Cosmos DB throughput, or other Azure resources. Pre-paying allows you to get a discount on the resources you use. Reservations can significantly reduce your virtual machine, SQL database compute, Azure Cosmos DB, or other resource costs up to 72% on pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources.
+Azure reservations helps you save money by pre-paying for one-year or three-years of virtual machine, SQL Database compute capacity, Azure Cosmos DB throughput, or other Azure resources. Pre-paying allows you to get a discount on the resources you use. Reservations can significantly reduce your virtual machine, SQL database compute, Azure Cosmos DB, or other resource costs up to 72% on pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources.
 
 You can buy a reservation in the [Azure portal](https://aka.ms/reservations). For more information, see the following articles:
 
@@ -75,13 +75,13 @@ To better understand how Reservations affects your billing, see the following ar
 
 Service plans:
 
--  [Understand Azure Reserved VM Instances discount](billing-understand-vm-reservation-charges.md)
+- [Understand Azure Reserved VM Instances discount](billing-understand-vm-reservation-charges.md)
 - [Understand Azure reservation discount](billing-understand-vm-reservation-charges.md)
 - [Understand Azure Cosmos DB reservation discount](billing-understand-cosmosdb-reservation-charges.md)
 
 Software plans:
 
-- Understand Azure reservation discount and usage for Red Hat
+- [Understand Azure reservation discount and usage for Red Hat](articles/billing/billing-understand-rhel-reservation-charges.md)
 - [Understand Azure reservation discount and usage for SUSE](billing-understand-suse-reservation-charges.md)
 
 ## When the reservation term expires
@@ -101,7 +101,7 @@ Service plans:
 Software plans:
 
 - SUSE Linux Enterprise software plan: The discount coverage depends on the vCPUs of the VMs where you run the SUSE software. For more information, see [Understand how the SUSE Linux Enterprise software plan discount is applied](billing-understand-suse-reservation-charges.md).
-- Red Hat Enterprise Linux plan: The discount coverage depends on the vCPUs of the VMs where you run the Red Hat software. For more information, see Understand how the Red Hat Enterprise Linux plan discount is applied.
+- Red Hat Enterprise Linux plan: The discount coverage depends on the vCPUs of the VMs where you run the Red Hat software. For more information, see [Understand how the Red Hat Enterprise Linux plan discount is applied](billing-understand-rhel-reservation-charges.md)).
 
 ## Next steps
 
@@ -109,12 +109,12 @@ Start saving on your virtual machines by buying a [Reserved VM Instance](../virt
 
 To learn more about Azure Reservations, see the following articles:
 
-- [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
-- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
