@@ -63,7 +63,10 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     If you do not have the extension host requirements met, the `Test-AzureStack` output displays the following message: 
 
     ```shell
-    To proceed with installation of the 1811 update, you will need to import the SSL certificates required for Extension Host, which simplifies network integration and increases the security posture of Azure Stack. Refer to this link to prepare for Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare
+    To proceed with installation of the 1811 update, you will need to import the SSL certificates <br /> 
+    required for Extension Host, which simplifies network integration and increases the security <br />
+    posture of Azure Stack. Refer to this link to prepare for Extension Host: <br />
+    https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare
     ```
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
@@ -71,8 +74,10 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     If you ignore every warning and still choose to install the 1811 update, the update will fail with the following message:   
  
     ```shell
-    The required SSL certificates for the Extension Host have not been found. The Azure Stack update will halt.
-    Refer to this link to prepare for Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare, then resume the update.
+    The required SSL certificates for the Extension Host have not been found. <br />
+    The Azure Stack update will halt. Refer to this link to prepare for Extension Host: <br />
+    https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare, <br />
+    then resume the update.
 
     Exception: The Certificate path does not exist: <certificate path here>
     ``` 
