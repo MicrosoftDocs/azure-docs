@@ -43,6 +43,19 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
+  - name: Template structure
+    href: resource-group-authoring-templates.md
+    items:
+    - name: Parameters
+      href: resource-manager-templates-parameters.md
+    - name: Variables
+      href: resource-manager-templates-variables.md
+    - name: Functions
+      href: resource-group-authoring-templates.md#functions
+    - name: Resources
+      href: resource-manager-templates-resources.md
+    - name: Outputs
+      href: resource-manager-templates-outputs.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
   - name: Management groups
@@ -64,32 +77,21 @@
   items:
   - name: Create templates
     items:
-    - name: Template sections
-      href: resource-group-authoring-templates.md
-      items:
-      - name: Parameters
-        href: resource-manager-templates-parameters.md
-      - name: Variables
-        href: resource-manager-templates-variables.md
-      - name: Functions
-        href: resource-group-authoring-templates.md#functions
-      - name: Resources
-        href: resource-manager-templates-resources.md
-      - name: Outputs
-        href: resource-manager-templates-outputs.md
-    - name: Linked and nested templates
-      href: resource-group-linked-templates.md
-    - name: Resource dependencies
+    - name: Create resource groups by using templates
+      href: create-resource-group-in-template.md
+    - name: Define resource dependencies
       href: resource-group-define-dependencies.md
+    - name: Modularize templates
+      href: resource-group-linked-templates.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
-    - name: Create resource group in template
-      href: create-resource-group-in-template.md
-    - name: Create resources in subscription
-      href: deploy-to-subscription.md
-    - name: Update resource
+    - name: Use template extensions
+      href: resource-manager-use-extensions.md
+    - name: Update resources
       href: /azure/architecture/building-blocks/extending-templates/update-resource
-  - name: Deploy
+    - name: Create resources at the subscription level
+      href: deploy-to-subscription.md
+  - name: Deploy templates
     items:
     - name: Azure PowerShell
       items:
@@ -122,7 +124,7 @@
       maintainContext: true
     - name: Pass secure values during deployment
       href: resource-manager-keyvault-parameter.md
-  - name: Manage
+  - name: Manage templates
     items:
     - name: Azure PowerShell
       href: powershell-azure-resource-manager.md
@@ -145,13 +147,13 @@
       href: resource-manager-api-authentication.md
     - name: Lock resources
       href: resource-group-lock-resources.md
-  - name: Audit
+  - name: Audit deployments
     items:
     - name: View activity logs
       href: resource-group-audit.md
     - name: View deployment operations
       href: resource-manager-deployment-operations.md
-  - name: Troubleshoot
+  - name: Troubleshoot deployments
     items:
     - name: Troubleshoot deployment errors
       href: resource-manager-common-deployment-errors.md
