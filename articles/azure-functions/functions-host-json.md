@@ -91,7 +91,7 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls the [sampling feature in Application Insights](../articles/azure-functions/functions-monitoring.md#configure-sampling).
+Controls the [sampling feature in Application Insights](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
