@@ -20,7 +20,6 @@ In this quickstart, you'll create a simple .NET Framework application that captu
 
 This quickstart requires:
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
