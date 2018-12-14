@@ -34,10 +34,10 @@ When you add a gateway to a virtual network using the classic resource model, yo
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
   ```
-3. Navigate to the VirtualNetworkSites and modify the fields. 
+3. Navigate to the VirtualNetworkSites and modify the fields.
 
-  * If you need a gateway subnet, you can add one at this time. The name must be "GatewaySubnet".
-  * Verify the  Gateway section of the file exists. If it doesn't, add it. This is required to associate the virtual network with the local network site (which represents the network to which you are connecting). 
+  * Verify that the Gateway Subnet exists for your virtual network. If it does not, you can add one at this time. The name must be "GatewaySubnet".
+  * Verify the  Gateway section of the file exists. If it doesn't, add it. This is required to associate the virtual network with the local network site (which represents the network to which you are connecting).
   * Verify that the connection type = Dedicated. This is required for ExpressRoute connections.
 
   ```
@@ -71,7 +71,7 @@ When you add a gateway to a virtual network using the classic resource model, yo
 
 ### Create the gateway
 
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+Use the command below to create a gateway. Substitute any values for your own.
 
 ```powershell
 New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
