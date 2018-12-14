@@ -61,9 +61,13 @@ There are other issues with large virtual machine scale sets currently, like the
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
-The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support three node clusters.
+The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support a cluster as long as it has a single node.
 
-These minimums exist because the Service Fabric cluster runs a set of stateful system services, including the naming service and the failover manager. These services, which track what services have been deployed to the cluster and where they're currently hosted, depend on strong consistency. That strong consistency, in turn, depends on the ability to acquire a *quorum* for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service.
+We require a production cluster to have a minimum size because of the following two reasons:
+1. We always place one replica of a service per node, so cluster size is the upper limit for the number of replicas a service (actually a partition) can have.
+2. Since a cluster upgrade will bring down at least one node, we want to have a buffer of at least one node, therefore, we want a production cluster to have at least two nodes in addition to the bare minimum.  
+
+We want the cluster to be available in the face of simultaneous failure of two nodes. Even when no user services are running, a Service Fabric cluster runs a set of stateful system services, including the naming service and the failover manager, this is like the control plane of Kubernetes. So, for a Service Fabric cluster to be available, these system services must be available. These system services, which track what services have been deployed to the cluster and where they're currently hosted, depend on strong consistency. That strong consistency, in turn, depends on the ability to acquire a *quorum* for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service. Therefore if we want to be resilient against simultaneous loss of two nodes (thus simultaneous loss of two replicas of a system service), we must have ClusterSize - QuorumSize >= 2, which forces the minimum size to be five.  
 
 With that background, let's examine some possible cluster configurations:
 
@@ -71,9 +75,13 @@ With that background, let's examine some possible cluster configurations:
 
 **Two nodes**: a quorum for a service deployed across two nodes (N = 2) is 2 (2/2 + 1 = 2). When a single replica is lost, it is impossible to create a quorum. Since performing a service upgrade requires temporarily taking down a replica, this is not a useful configuration.
 
-**Three nodes**: with three nodes (N=3), the requirement to create a quorum is still two nodes (3/2 + 1 = 2). This means that you can lose an individual node and still maintain quorum.
+**Three nodes**: with three nodes (N=3), the requirement to create a quorum is still two nodes (3/2 + 1 = 2). This means that you can lose an individual node and still maintain quorum, but simultaneous failure of two nodes will drive the system services into quorum loss and will cause the cluster to become unavailable.
 
-The three node cluster configuration is supported for dev/test because you can safely perform upgrades and survive individual node failures, as long as they don't happen simultaneously. For production workloads, you must be resilient to such a simultaneous failure, so five nodes are required.
+**Four nodes**: with four nodes (N=4), the requirement to create a quorum is three nodes (4/2 + 1 = 3). This means that you can lose an individual node and still maintain quorum, but simultaneous failure of two nodes will drive the system services into quorum loss and will cause the cluster to become unavailable.
+
+**Five nodes**: with five nodes (N=5), the requirement to create a quorum is still three nodes (5/2 + 1 = 3). This means that you can lose two nodes at the same time and still maintain quorum for the system services.
+
+For production workloads, you must be resilient to simultaneous failure of at least two nodes (for example, one due to cluster upgrade, one due to other reasons), so five nodes are required.
 
 ### Can I turn off my cluster at night/weekends to save costs?
 
