@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 02/11/2019.
 ms.author: mihansen
 ---
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 # Quickstart: Deploy Open Source FHIR Server using PowerShell
 
@@ -88,5 +88,3 @@ Remove-AzureRmResourceGroup -Name $rg.ResourceGroupName
 ## Next steps
 
 Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](documentation-fhir-tutorials-authentication.md)
