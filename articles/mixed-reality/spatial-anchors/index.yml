@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Spatial Anchors Documentation
+metadata:
+  document_id: 8ba93ac8-1984-48d5-8944-329e6653e39d
+  title: Azure Spatial Anchors Documentation - Tutorials, API Reference
+  meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
+  services: spatial-anchors
+  author: craigktreasure
+  manager: aliemami
+  ms.service: spatial-anchors
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/13/2018
+  ms.author: crtreasu
+abstract:
+  description: Spatial Anchors is a cross-platform developer service that makes it easy for you to create Mixed Reality experiences.​
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create your first application using Azure Spatial Anchors:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_android.svg
+      text: Android
+      href: spatial-anchors-get-started-android.md
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_windows.svg
+      text: HoloLens
+      href: spatial-anchors-get-started-hololens.md
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_ios.svg
+      text: iOS
+      href: spatial-anchors-get-started-ios.md
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_android.svg
+      text: Unity Android
+      href: spatial-anchors-get-started-unity-android.md
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_windows.svg
+      text: Unity HoloLens
+      href: spatial-anchors-get-started-unity-android.md
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_ios.svg
+      text: Unity iOS
+      href: spatial-anchors-get-started-unity-android.md
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to setup, manage, build, and deploy an app using Azure Spatial Anchors.
+  - type: list
+    style: ordered
+    items:
+    - html: Create a Azure Spatial Anchors resource.
+    - html: Create a HoloLens, iOS, Android, or Unity application that uses Azure Spatial Anchors.
