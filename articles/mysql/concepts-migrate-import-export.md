@@ -5,7 +5,7 @@ description: This article explains common ways to import and export databases in
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018

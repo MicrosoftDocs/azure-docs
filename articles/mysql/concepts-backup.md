@@ -5,7 +5,7 @@ description: Learn about automatic backups and restoring your Azure Database for
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018

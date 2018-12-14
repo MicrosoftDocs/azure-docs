@@ -5,7 +5,7 @@ description: This article describes how to access the server logs in Azure Datab
 author: rachel-msft
 ms.author: raagyema
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual

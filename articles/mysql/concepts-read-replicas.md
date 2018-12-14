@@ -4,7 +4,7 @@ description: This article describes read replicas for Azure Database for MySQL.
 
 author: ajlam
 ms.author: andrela
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/13/2018

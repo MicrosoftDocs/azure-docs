@@ -5,7 +5,7 @@ description: This article steps you through using the Azure portal to quickly cr
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart

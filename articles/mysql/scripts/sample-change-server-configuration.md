@@ -5,7 +5,7 @@ description: This sample CLI script lists all available server configurations an
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

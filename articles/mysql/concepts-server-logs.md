@@ -5,7 +5,7 @@ description: Describes the logs available in Azure Database for MySQL, and the a
 author: rachel-msft
 ms.author: raagyema
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/03/2018

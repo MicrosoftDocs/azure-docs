@@ -4,7 +4,7 @@ description: This article describes how you can restart an Azure Database for My
 
 author: ajlam
 ms.author: andrela
-ms.reviewer: jasonh
+
 
 ms.service: mysql
 ms.topic: conceptual

@@ -5,7 +5,7 @@ description: This quickstart provides several Ruby code samples you can use to c
 author: jasonwhowell
 ms.author: jasonh
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby

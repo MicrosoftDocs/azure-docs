@@ -5,7 +5,7 @@ description: This article describes how to configure and access metric alerts fo
 author: rachel-msft
 ms.author: raagyema
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018

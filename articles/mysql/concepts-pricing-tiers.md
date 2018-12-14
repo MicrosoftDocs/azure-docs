@@ -5,7 +5,7 @@ description: This article describes the pricing tiers for Azure Database for MyS
 author: jan-eng
 ms.author: janeng
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/11/2018

@@ -6,7 +6,7 @@ keywords: mysql connection,connection string,connectivity issues,transient error
 author: jan-eng
 ms.author: janeng
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/09/2018

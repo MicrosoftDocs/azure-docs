@@ -4,7 +4,7 @@ description: Information for configuring Azure Database for MySQL and associated
 
 author: JasonMAnderson
 ms.author: janders
-ms.reviewer: jasonh
+
 
 ms.service: mysql
 ms.topic: conceptual

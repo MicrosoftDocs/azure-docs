@@ -5,7 +5,7 @@ description: This article explains two common ways to back up and restore databa
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2018

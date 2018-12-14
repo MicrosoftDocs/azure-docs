@@ -5,7 +5,7 @@ description: This article describes how to use EXPLAIN to troubleshoot query per
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018

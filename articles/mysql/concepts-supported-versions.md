@@ -5,7 +5,7 @@ description: Describes the supported versions in Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/10/2018

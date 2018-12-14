@@ -5,7 +5,7 @@ description: This article describes how to create and manage Azure Database for 
 author: mbolz
 ms.author: mbolz
 manager: jhubbard
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual

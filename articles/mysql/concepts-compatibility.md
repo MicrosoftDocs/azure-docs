@@ -4,7 +4,7 @@ description: This article describes the MySQL drivers and management tools that 
 
 author: ajlam
 ms.author: andrela
-ms.reviewer: jasonh
+
 
 ms.service: mysql
 ms.topic: conceptual

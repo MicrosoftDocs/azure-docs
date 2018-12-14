@@ -5,7 +5,7 @@ description: This sample Azure CLI script shows how to enable and download the s
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

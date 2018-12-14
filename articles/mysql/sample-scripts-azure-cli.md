@@ -5,7 +5,7 @@ description: This article lists the Azure CLI code samples available for interac
 author: jasonwhowell
 ms.author: jasonh
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

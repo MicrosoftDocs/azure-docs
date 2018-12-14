@@ -5,7 +5,7 @@ description: This sample CLI script restores Azure Database for MySQL server to 
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample

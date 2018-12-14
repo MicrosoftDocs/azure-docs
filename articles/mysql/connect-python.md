@@ -5,7 +5,7 @@ description: This quickstart provides several Python code samples you can use to
 author: jasonwhowell
 ms.author: jasonh
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: python

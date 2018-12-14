@@ -5,7 +5,7 @@ description: This article describes the metrics for monitoring and alerting for 
 author: rachel-msft
 ms.author: raagyema
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018

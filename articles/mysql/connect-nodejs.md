@@ -5,7 +5,7 @@ description: This quickstart provides several Node.js code samples you can use t
 author: jasonwhowell
 ms.author: jasonh
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs

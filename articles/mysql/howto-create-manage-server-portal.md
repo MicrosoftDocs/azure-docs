@@ -4,7 +4,7 @@ description: This article describes how you can quickly create a new Azure Datab
 
 author: ajlam
 ms.author: andrela
-ms.reviewer: jasonh
+
 
 ms.service: mysql
 ms.topic: conceptual

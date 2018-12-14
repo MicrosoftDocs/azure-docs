@@ -5,7 +5,7 @@ description: Create and manage Azure Database for MySQL VNet service endpoints a
 author: mbolz
 ms.author: mbolz
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/22/2018

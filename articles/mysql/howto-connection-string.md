@@ -4,7 +4,7 @@ description: This document lists the currently supported connection strings for 
 
 author: ajlam
 ms.author: andrela
-ms.reviewer: jasonh
+
 
 ms.service: mysql
 ms.topic: conceptual

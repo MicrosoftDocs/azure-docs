@@ -5,7 +5,7 @@ description: This article lists each library or driver that client programs can 
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018

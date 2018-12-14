@@ -5,7 +5,7 @@ description: This topic provides information of high availability when using Azu
 author: jasonwhowell
 ms.author: jasonh
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018

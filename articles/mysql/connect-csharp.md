@@ -5,7 +5,7 @@ description: This quickstart provides a C# (.NET) code sample you can use to con
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp

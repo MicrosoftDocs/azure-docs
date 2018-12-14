@@ -5,7 +5,7 @@ description: This quickstart provides several PHP code samples you can use to co
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart

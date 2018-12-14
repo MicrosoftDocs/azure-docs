@@ -5,7 +5,7 @@ description: This quickstart provides a Java code sample you can use to connect 
 author: jasonwhowell
 ms.author: jasonh
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart

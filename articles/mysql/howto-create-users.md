@@ -4,7 +4,7 @@ description: This article describes how you can create new user accounts to inte
 
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jasonh
+
 
 ms.service: mysql
 ms.topic: conceptual

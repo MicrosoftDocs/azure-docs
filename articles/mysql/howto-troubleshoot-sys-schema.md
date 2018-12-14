@@ -5,7 +5,7 @@ description: This article describes how to use sys_schema to find performance is
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/01/2018

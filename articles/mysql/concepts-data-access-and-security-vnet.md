@@ -5,7 +5,7 @@ description: 'Describes how VNet service endpoints work for your Azure Database 
 author: mbolz
 ms.author: mbolz
 manager: jhubbard
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018

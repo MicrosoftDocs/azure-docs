@@ -5,7 +5,7 @@ description: This article describes how to perform a minimal-downtime migration 
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/07/2018

@@ -5,7 +5,7 @@ description: This article describes how to configure MySQL server parameters in 
 author: ajlam
 ms.author: andrela
 
-ms.reviewer: jasonh
+
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/06/2018
