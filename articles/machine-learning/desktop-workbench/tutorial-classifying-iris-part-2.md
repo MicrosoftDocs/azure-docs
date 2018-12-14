@@ -11,7 +11,7 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/15/2018
+ms.date: 03/15/2018
 
 ROBOTS: NOINDEX
 ---

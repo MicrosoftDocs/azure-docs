@@ -91,7 +91,23 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Controls the [sampling feature in Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|isEnabled|true|Enables or disables sampling.| 
+|maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
 
 ## cosmosDb
 
@@ -99,7 +115,7 @@ Configuration setting can be found in [Cosmos DB triggers and bindings](function
 
 ## durableTask
 
-Configuration setting can be found in [bindings for Durable Functions](durable-functions-bindings.md#host-json).
+Configuration setting can be found in [bindings for Durable Functions](durable/durable-functions-bindings.md#host-json).
 
 ## eventHub
 

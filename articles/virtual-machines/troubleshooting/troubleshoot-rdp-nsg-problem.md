@@ -48,7 +48,7 @@ To enable the RDP port in an NSG, follow these steps:
     **Destinations**: Any </br>
     **Action**: Allow </br>
 
-In you specify the source IP address, this setting allows traffic only from a specific IP address or range of IP addresses to connect to the VM. Make sure that the computer you are using to start the RDP session is within the range.
+If you specify the source IP address, this setting allows traffic only from a specific IP address or range of IP addresses to connect to the VM. Make sure that the computer you are using to start the RDP session is within the range.
 
 For more information about NSGs, see [network security group](../../virtual-network/security-overview.md).
 

@@ -1,13 +1,11 @@
 ---
-title: Azure Standard Load Balancer and Availability Zones | Microsoft Docs
+title: Azure Standard Load Balancer and Availability Zones
+titlesuffix: Azure Load Balancer
 description: Standard Load Balancer and Availability Zones
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

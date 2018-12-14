@@ -38,6 +38,8 @@
   - name: Encoding content
     href: encoding-concept.md
     items:
+    - name: Media Encoder standard formats
+      href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities
@@ -69,7 +71,9 @@
   - name: Streaming live events
     href: live-streaming-overview.md
     items:
-    - name: Types comparison
+    - name: Using a cloud DVR
+      href: live-event-cloud-dvr.md
+    - name: Feature comparison
       href: live-event-types-comparison.md
     - name: States and billing
       href: live-event-states-billing.md
@@ -137,7 +141,7 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
-  - name: Event schemas
+  - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
     items:

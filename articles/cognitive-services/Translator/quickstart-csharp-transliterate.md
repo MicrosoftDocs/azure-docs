@@ -12,7 +12,7 @@ ms.date: 11/21/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Transliterate text with the Translator Text REST API (C#)
+# Quickstart: Use the Translator Text API to transliterate text using C#
 
 In this quickstart, you'll learn how to transliterate (convert) text from one script to another using .NET Core (C#) and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
 
@@ -23,7 +23,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for the Speech Service
+* An Azure subscription key for Translator Text
 
 ## Create a .NET Core project
 

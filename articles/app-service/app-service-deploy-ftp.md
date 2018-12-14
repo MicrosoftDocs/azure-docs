@@ -1,5 +1,5 @@
 ---
-title: Deploy your app to Azure App Service using FTP/S | Microsoft Docs 
+title: Deploy content using FTP/S - Azure App Service | Microsoft Docs 
 description: Learn how to deploy your app to Azure App Service using FTP or FTPS.
 services: app-service
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
+ms.custom: seodec18
 
 ---
 
@@ -29,7 +30,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-To open the FTP dashboard, click **Continuous Delivery (Preview)** > **FTP** > **Dashboard**.
+To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
 
 ![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -44,8 +45,8 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 ## Deploy files to Azure
 
 1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use the connection information you gathered to connect to your app.
-3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
-4. Browse to your app's URL to verify the app is running properly. 
+2. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
+3. Browse to your app's URL to verify the app is running properly. 
 
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
@@ -93,7 +94,7 @@ A runtime application issue typically results in the right set of files deployed
 To determine a deployment or runtime issue, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 ### I'm not able to FTP and publish my code. How can I resolve the issue?
-Check that you've entered the correct hostname and [credentials](#step-1--set-deployment-credentials). Check also that the following FTP ports on your machine are not blocked by a firewall:
+Check that you've entered the correct hostname and [credentials](#open-ftp-dashboard). Check also that the following FTP ports on your machine are not blocked by a firewall:
 
 - FTP control connection port: 21
 - FTP data connection port: 989, 10001-10300
@@ -106,6 +107,6 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
-## More Resources
+## More resources
 
 * [Azure App Service Deployment Credentials](app-service-deployment-credentials.md)

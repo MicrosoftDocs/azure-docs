@@ -1,5 +1,5 @@
 ---
-title: Move data to SQL Server on an Azure virtual machine| Microsoft Docs
+title: Move data to a SQL Server virtual machine - Team Data Science Process
 description: Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to SQL Server on an Azure virtual machine
 

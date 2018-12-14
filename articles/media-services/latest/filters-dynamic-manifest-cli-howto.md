@@ -1,6 +1,6 @@
 ---
-title: Scaling Media Reserved Units - Azure | Microsoft Docs
-description: This topic is an overview of scaling Media Processing with Azure Media Services.
+title: Use CLI to create filters with Azure Media Services| Microsoft Docs
+description: This topic shows how to use CLI to create filters with Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
+ms.custom: seodec18
 
 ---
 # Creating filters with CLI 
