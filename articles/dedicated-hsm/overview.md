@@ -19,9 +19,9 @@ ms.author: barclayn
 ---
 # What is Azure Dedicated HSM?
 
-Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure. Dedicated HSM meets the most stringent security requirements. It is the ideal solution for customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of the HSM appliance. 
+Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure. Dedicated HSM meets the most stringent security requirements. It's the ideal solution for customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of the HSM appliance. 
 
- HSM devices are deployed globally across several Azure regions. They can be easily provisioned as a pair of devices and configured for high availability. HSM devices can also be provisioned across regions to assure against regional level failover. Microsoft has delivered the Dedicated HSM service using the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) appliance from Gemalto. This device offers the highest levels of performance and cryptographic integration options. 
+ HSM devices are deployed globally across several Azure regions. They can be easily provisioned as a pair of devices and configured for high availability. HSM devices can also be provisioned across regions to assure against regional-level failover. Microsoft delivers the Dedicated HSM service by using the [SafeNet Luna Network HSM 7 (Model A790)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) appliance from Gemalto. This device offers the highest levels of performance and cryptographic integration options. 
 
 After they're provisioned, HSM devices are connected directly to a customer’s virtual network. They can also be accessed by on-premises application and management tools when you configure point-to-site or site-to-site VPN connectivity. Customers get the software and documentation to configure and manage HSM devices from Gemalto’s support portal.
 
@@ -53,7 +53,7 @@ Microsoft recognized a specific need for a unique set of customers and is the on
 
 ## Is Azure Dedicated HSM right for you?
 
-Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it is expected that the bulk of Azure customers will not fit the profile of use for this service. Many will find the Azure Key Vault service to be more appropriate and more cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
+Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many will find the Azure Key Vault service to be more appropriate and more cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
 
 ### Best fit
 
@@ -69,7 +69,7 @@ Microsoft cloud services that support encryption with customer-managed keys (suc
 
 ### It depends
 
-Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement, which is often mandated and for which Dedicated HSM is currently the only option.  If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Dedicated HSM. The decision is based on assessing a mix of requirements. Examples include:
+Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement, which is often mandated and for which Dedicated HSM is currently the only option.  If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Dedicated HSM. You need to assess your requirements before making a decision. Examples include:
 
 - New code running in a customer’s Azure virtual machine
 - SQL Server TDE in an Azure virtual machine
