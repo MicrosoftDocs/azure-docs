@@ -5,7 +5,7 @@ description: This article describes how to restore a server in Azure Database fo
 author: rachel-msft
 ms.author: raagyema
 
-ms.reviewer: jasonh
+
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018

@@ -1,11 +1,8 @@
 ---
-title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using Azure CLI | Microsoft Docs
+title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using Azure CLI
 description: This article describes how to create and manage Azure Database for PostgreSQL VNet service endpoints and rules using Azure CLI command line.
-
 author: mbolz
 ms.author: mbolz
-manager: jhubbard
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual

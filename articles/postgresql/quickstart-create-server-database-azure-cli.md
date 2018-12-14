@@ -1,11 +1,8 @@
 ---
 title: Quickstart - Create an Azure Database for PostgreSQL using the Azure CLI
 description: Quickstart guide to create and manage Azure Database for PostgreSQL server using Azure CLI (command line interface).
-
 author: rachel-msft
 ms.author: raagyema
-
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart

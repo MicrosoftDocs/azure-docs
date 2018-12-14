@@ -3,7 +3,6 @@ title: Optimize query stats collection in Azure Database for PostgreSQL server q
 description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL server.
 author: dianaputnam
 ms.author: dianas
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018

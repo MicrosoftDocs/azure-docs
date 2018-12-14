@@ -1,11 +1,8 @@
 ---
 title: Connect Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL
 description: Learn about connecting Azure Kubernetes Service with Azure Database for PostgreSQL
-
 author: rachel-msft
 ms.author: raagyema
-
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: conceptual

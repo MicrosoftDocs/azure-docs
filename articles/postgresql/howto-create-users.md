@@ -3,7 +3,6 @@ title: Create users in Azure Database for PostgreSQL server
 description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL server.
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018

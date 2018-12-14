@@ -1,11 +1,8 @@
 ---
 title: Connect to Azure Database for PostgreSQL using PHP
 description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL.
-
 author: rachel-msft
 ms.author: raagyema
-
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php

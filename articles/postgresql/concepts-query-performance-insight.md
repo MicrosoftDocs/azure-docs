@@ -1,7 +1,6 @@
 ---
 title: Query Performance Insight in Azure Database for PostgreSQL
 description: This article describes the Query Performance Insight feature in Azure Database for PostgreSQL.
-
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

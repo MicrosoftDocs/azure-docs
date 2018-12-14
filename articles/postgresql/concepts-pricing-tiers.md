@@ -1,11 +1,8 @@
 ---
 title: Pricing tiers for Azure Database for PostgreSQL
 description: This article describes the pricing tiers for Azure Database for PostgreSQL.
-
 author: jan-eng
 ms.author: janeng
-
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/10/2018

@@ -1,11 +1,8 @@
 ---
-title: 'Azure Database for PostgreSQL Server vnet services endpoint overview | Microsoft Docs'
-description: 'Describes how vnet service endpoints work for your Azure Database for PostgreSQL server.'
-
+title: Azure Database for PostgreSQL Server vnet services endpoint overview
+description: Learn how VNET service endpoints work for your Azure Database for PostgreSQL server.
 author: mbolz
 ms.author: mbolz
-manager: jhubbard
-ms.reviewer: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018

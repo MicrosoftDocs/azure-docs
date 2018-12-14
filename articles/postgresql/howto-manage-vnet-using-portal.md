@@ -1,10 +1,8 @@
 ---
-title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal | Microsoft Docs
+title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal
 description: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal
-
 author: mbolz
 ms.author: mbolz
-ms.reviewer: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/23/2018
