@@ -39,11 +39,12 @@ ms.custom: seodec18
 
 **Bug fixes**
 
-* If an async operation wasn't awaited in the main thread, it was possible the recognizer could be disposed before the async task was completed.
 * Fixed memory leaks due to a type mismatch in RecognizeAsync.
 * In some cases exceptions were being leaked.
 * Fixing memory leak in translation event arguments.
 * Fixed a locking issue on reconnect in long running sessions.
+* Fixed an issue which could lead to missing final result for failed translations.
+* C#: If an async operation wasn't awaited in the main thread, it was possible the recognizer could be disposed before the async task was completed.
 * Java: Fixed a problem resulting in a (seemingly random) crash of the Java VM.
 * Objective-C: Fixed enum mapping; RecognizedIntent was returned instead of RecognizingIntent.
 * Javascript: Set default output format to 'simple' in SpeechConfig.
