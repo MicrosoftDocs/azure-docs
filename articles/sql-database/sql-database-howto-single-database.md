@@ -13,7 +13,7 @@ ms.reviewer: carlr
 manager: craigg
 ms.date: 12/14/2018
 ---
-# How to use Managed Instance
+# How to use Single Database
 
 In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database - Single Database.
 
