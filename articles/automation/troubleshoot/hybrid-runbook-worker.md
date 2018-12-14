@@ -118,6 +118,36 @@ Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System
 
 [Runbook output and messages](../automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
 
+### <a name="corrupt-cache"></a> Hybrid Runbook worker not reporting
+
+#### Issue
+
+Your Hybrid Runbook Worker machine is running but you do not see heartbeat data for the machine in the workspace.
+
+The following is an example query to show the machines in a workspace and their last heartbeat.
+
+```loganalytics
+// Last heartbeat of each computer
+Heartbeat 
+| summarize arg_max(TimeGenerated, *) by Computer
+```
+
+#### Cause
+
+This can be caused by a corrupt cache on the Hybrid Runbook Worker.
+
+#### Resolution
+
+To resolve this issue, log in to the Hybrid Runbook Worker and run the following script. This stops the Microsoft Monitoring Agent, removes its cache and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
+
+```powershell
+Stop-Service -Name HealthService
+
+Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State' -Recurse
+
+Start-Service -Name HealthService
+```
+
 ## Next steps
 
 If you did not see your problem or are unable to solve your issue, visit one of the following channels for more support:
