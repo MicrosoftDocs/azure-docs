@@ -102,12 +102,12 @@ To add additional modules to your solution, run the command **Azure IoT Edge: Ad
 
 The default module code that comes with the solution is located at the following location:
 
-- Azure Function (C#): **modules** > ***&lt;your module name&gt;*** > ***&lt;your module name&gt;*.cs**
-- C#: **modules** > ***&lt;your module name&gt;*** > **Program.cs**
-- Python: **modules** > ***&lt;your module name&gt;*** > **main.py**
-- Node.js: **modules** > ***&lt;your module name&gt;*** > **app.js**
-- Java: **modules > ***&lt;your module name&gt;*** > src > main > java > com > edgemodulemodules > App.java**
-- C: **modules** > ***&lt;your module name&gt;*** > **main.c**
+- Azure Function (C#): **modules > *&lt;your module name&gt;* > *&lt;your module name&gt;*.cs**
+- C#: **modules > *&lt;your module name&gt;* > Program.cs**
+- Python: **modules > *&lt;your module name&gt;* > main.py**
+- Node.js: **modules > *&lt;your module name&gt;* > app.js**
+- Java: **modules > *&lt;your module name&gt;* > src > main > java > com > edgemodulemodules > App.java**
+- C: **modules > *&lt;your module name&gt;* > main.c**
 
 The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub.
 
@@ -135,7 +135,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
    ![Simulator module status](media/how-to-develop-csharp-module/simulator-status.png)
 
    The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without the IoT Edge security daemon and provides environment settings for your native module app or module containers. The **input** container exposes REST APIs to help bridge messages to the target input channel on your module.
-1. In the command palette, run the command **Azure IoT Edge: Set Module Credentials to User Settings** to set the module's environment settings to the values of `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` from the [Visual Studio Code user settings](https://code.visualstudio.com/docs/getstarted/settings). You can find these environment settings in the file **.vscode** > **launch.json**.
+1. In the command palette, run the command **Azure IoT Edge: Set Module Credentials to User Settings** to set the module's environment settings to the values of `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` from the [Visual Studio Code user settings](https://code.visualstudio.com/docs/getstarted/settings). You can find these environment settings in the file **.vscode > launch.json**.
 
 ### Debug module in launch mode
 
@@ -147,7 +147,8 @@ In your development machine, you can start an IoT Edge simulator instead of inst
        dotnet build
        ```
      - Open the file `program.cs` and add a breakpoint.
-     - Navigate to the Visual Studio Code Debug view by selecting **View** > **Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
+     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
+
        > [!NOTE]
        > If your .Net Core `TargetFramework` is not consistent with your program path in `launch.json`, you'll need to manually update the program path in `launch.json` to match the `TargetFramework` in your .csproj file so that Visual Studio Code can successfully launch this program.
 
@@ -158,10 +159,10 @@ In your development machine, you can start an IoT Edge simulator instead of inst
        npm install
        ```
      - Open the file `app.js` and add a breakpoint.
-     - Navigate to the Visual Studio Code Debug view by selecting **View** > **Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
+     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Node.js)** from the dropdown.
    - **Java**
      - Open the file `App.java` and add a breakpoint.
-     - Navigate to the Visual Studio Code Debug view by selecting **View** > **Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
+     - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (Java)** from the dropdown.
 1. Click **Start Debugging** or press **F5** to start the debug session.
 1. In the Visual Studio Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command shown in previous steps when you set up IoT Edge simulator.
 
