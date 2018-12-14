@@ -20,7 +20,7 @@ Knowing how to diagnose any issues that arise within your Azure Digital Twins in
 
 ### Enable log analytics for your instance
 
-Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md), through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), or through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
@@ -37,7 +37,7 @@ After sending telemetry, open up Azure Log Analytics to query for logs using the
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | Query value | Replace with |
@@ -48,7 +48,7 @@ If you log your user-defined function, those logs will appear in your Azure Log 
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).

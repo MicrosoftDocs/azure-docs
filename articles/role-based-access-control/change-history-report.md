@@ -112,7 +112,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Here are the basic steps to get started:
 
-1. [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Configure the Activity Log Analytics solution](../azure-monitor/platform/collect-activity-logs.md#configuration) for your workspace.
 

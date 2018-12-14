@@ -1,5 +1,6 @@
 ---
-title: "Azure Machine Learning service tutorials in Jupyter notebooks"
+title: Example Jupyter notebooks
+titleSuffix: Azure Machine Learning service
 description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service in Python. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
+ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
@@ -111,9 +113,10 @@ While you can use any of the above options, you can also install the environment
       + Configures the widget
       + Starts a jupyter notebook
       
-      The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. 
+   >[!NOTE]
+   > The script takes the conda environment name as an optional parameter. The default conda environment name is `azure_automl`. The exact command depends on the operating system. This is useful if you are creating a new environment or upgrading to a new version. For example you can use 'automl_setup.cmd azure_automl_sandbox' to create an evironment name azure_automl_sandbox. 
       
-      Once the script has completed, you will see a Jupyter notebook home page in your browser.
+1. Once the script has completed, you will see a Jupyter notebook home page in your browser.
 
 1. Navigate to the path where you saved the notebooks. 
 

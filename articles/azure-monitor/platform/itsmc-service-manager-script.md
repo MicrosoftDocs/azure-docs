@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.component: 
 ---
 
 # Create Service Manager Web app using the automated script

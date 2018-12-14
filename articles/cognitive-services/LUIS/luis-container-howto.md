@@ -1,10 +1,11 @@
 ---
-title: How to install and run docker containers - Language Understanding (LUIS) 
-titleSuffix: Azure Cognitive Services
+title: Docker containers 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

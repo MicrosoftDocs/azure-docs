@@ -1,5 +1,5 @@
 ---
-title: Indexers in Azure Search | Microsoft Docs
+title: Indexers for crawling data sources during indexing - Azure Search
 description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
@@ -9,6 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Indexers in Azure Search
@@ -41,7 +42,8 @@ Indexers crawl data stores on Azure.
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md) 
+    * Please note that Azure Table Storage is not supported for [cognitive search](cognitive-search-concept-intro.md)
 
 
 ## Basic configuration steps

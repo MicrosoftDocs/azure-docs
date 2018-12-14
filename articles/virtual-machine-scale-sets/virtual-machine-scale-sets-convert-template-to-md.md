@@ -124,7 +124,7 @@ There is no explicit property in the scale set configuration for whether to use 
 
 ## Data disks
 
-With the changes above, the scale set uses managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is currently the only supported option), and "diskSizeGB" (the size of the disk in gigabytes; must be greater than 0 and less than 1024) as in the following example: 
+With the changes above, the scale set uses managed disks for the OS disk, but what about data disks? To add data disks, add the "dataDisks" property under "storageProfile" at the same level as "osDisk". The value of the property is a JSON list of objects, each of which has properties "lun" (which must be unique per data disk on a VM), "createOption" ("empty" is currently the only supported option), and "diskSizeGB" (the size of the disk in gigabytes; must be greater than 0 and less than 1024) as in the following example:
 
 ```
 "dataDisks": [
@@ -142,7 +142,7 @@ To learn more about using data disks with scale sets, see [this article](./virtu
 
 
 ## Next steps
-For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates GitHub repo](https://github.com/Azure/azure-quickstart-templates).
 
 For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

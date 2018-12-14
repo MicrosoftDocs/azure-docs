@@ -128,7 +128,7 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 | ------- | -------- |
 | Azure Service Bus | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure Managed Cache | [Migrate to Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Migrate to the Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
