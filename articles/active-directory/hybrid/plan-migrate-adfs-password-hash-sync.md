@@ -26,7 +26,7 @@ The following document provides guidance on moving from AD FS to password hash s
 The following prerequisites are required before you can migrate.
 ### Update Azure AD Connect
 
-As a minimum to successfully perform the steps to migrate to pass-through authentication, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594.) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
+As a minimum to successfully perform the steps to migrate to pass-through authentication, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
 
 > [!IMPORTANT]
 > Outdated documentation, tools and blogs indicate that user conversion is a required step when converting domains from Federated to Managed. Note that converting users is not required anymore and Microsoft is working on updating documentation and tools to reflect this.
@@ -348,11 +348,14 @@ The conversion is performed using the Azure AD PowerShell Module.
 
    1. Open PowerShell and login to Azure AD using a Global Administrator account.  
    2. To convert the first domain, run the following command:  
+   
    ``` PowerShell
    Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
    ```
+   
    3. Open the Azure AD portal, select Azure Active Directory, and then select Azure AD Connect.
    4. Verify that the domain has been converted to Managed by running the following command:
+   
    ``` PowerShell
    Get-MsolDomain -DomainName <domainname>
    ```
