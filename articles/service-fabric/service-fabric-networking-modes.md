@@ -31,7 +31,7 @@ When a container service restarts or moves to another node in the cluster, the I
 
 ## Set up Open networking mode
 
-1. Set up the Azure Resource Manager template. In the **fabricSettings** section, enable the DNS Service and the IP Provider: 
+1. Set up the Azure Resource Manager template. In the **fabricSettings** section of the Cluster resource, enable the DNS Service and the IP Provider: 
 
     ```json
     "fabricSettings": [
@@ -73,8 +73,10 @@ When a container service restarts or moves to another node in the cluster, the I
                 }
             ],
     ```
+    
+2. Set up the network profile section of the Virtual Machine Scale Set resource. This allows multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node for a Windows/Linux Service Fabric cluster. You can have five service instances listening on the port on each node. To have the five IPs be accessible from the Azure Load Balancer, enroll the five IPs in the Azure Load Balancer Backend Address Pool as shown below.  You will also neeed to add the variables to the top of your template in the variables section.
 
-2. Set up the network profile section to allow multiple IP addresses to be configured on each node of the cluster. The following example sets up five IP addresses per node for a Windows/Linux Service Fabric cluster. You can have five service instances listening on the port on each node. To have the five IPs be accessible from the Azure Load Balancer, enroll the five IPs in the Azure Load Balancer Backend Address Pool as shown below.
+    Add this section to Variables:
 
     ```json
     "variables": {
@@ -93,6 +95,11 @@ When a container service restarts or moves to another node in the cluster, the I
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Add this section to the Virtual Machine Scale Set resource:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {
