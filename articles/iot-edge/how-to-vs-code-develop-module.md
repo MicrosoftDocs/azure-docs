@@ -136,7 +136,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 
 ### Set up IoT Edge simulator for single module app
 
-1. To set up and start the simulator, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module** from the Visual Studio Code command palette. When prompted, use the value **input1** from the default module code (or the equivalent value from your code) as the input name for your application. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
+To set up and start the simulator, run the command **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module** from the Visual Studio Code command palette. When prompted, use the value **input1** from the default module code (or the equivalent value from your code) as the input name for your application. The command triggers the **iotedgehubdev** CLI and then starts the IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
 
    ![Set up IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -145,8 +145,6 @@ In your development machine, you can start an IoT Edge simulator instead of inst
    ![Simulator module status](media/how-to-develop-csharp-module/simulator-status.png)
 
    The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without the IoT Edge security daemon and provides environment settings for your native module app or module containers. The **input** container exposes REST APIs to help bridge messages to the target input channel on your module.
-
-1. In the command palette, run the command **Azure IoT Edge: Set Module Credentials to User Settings** to set the module's environment settings to the values of `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` from the [Visual Studio Code user settings](https://code.visualstudio.com/docs/getstarted/settings). You can find these environment settings in the file **.vscode > launch.json**.
 
 ### Debug module in launch mode
 
@@ -197,7 +195,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 
 1. To stop your debugging session, select the Stop button or press **Shift + F5**, and then run **Azure IoT Edge: Stop IoT Edge Simulator** in the command palette to stop the simulator and clean up.
 
-## Build module container for debugging and debug in attach mode (C#, Node.js, Java, Azure Functions)
+## Build module container for debugging and debug in attach mode with IoT Edge Simulator (C#, Node.js, Java, Azure Functions)
 
 Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages are piped to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
@@ -239,7 +237,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 >
 > For modules written in C#, including Azure Functions, this example is based on the debug version of `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
 
-## Build, deploy, and debug a module (Python, C)
+## Build, deploy, and debug a module with IoT Edge runtime (Python, C)
 
 In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
@@ -247,7 +245,7 @@ Currently, debugging support for Python and C modules is available only in Linux
 
 ### Build and deploy your module
 
-1. [TODO: @xshi: Why are we telling them to open this file? Does this somehow relate to step #4?] In Visual Studio Code, open the `deployment.debug.template.json` file, which contains the debug version of your module images with the proper `createOptions` values.
+1. In Visual Studio Code, open the `deployment.debug.template.json` file, which contains the debug version of your module images with the proper `createOptions` values set.
 
 1. If you're developing your module in Python, follow these steps before proceeding:
    - Open the file `main.py` and add this code after the import section:
