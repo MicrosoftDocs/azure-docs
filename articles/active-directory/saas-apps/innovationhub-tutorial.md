@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/12/2018
+ms.date: 12/14/2018
 ms.author: jeedes
 
 ---
@@ -102,17 +102,17 @@ To configure Azure AD single sign-on with Innoverse, perform the following steps
     ![Innoverse Domain and URLs single sign-on information](common/idp_intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<domainname>.innohb.com`
+    `https://<domainname>.innover.se`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<domainname>.innohb.com/auth/saml2/login`
+    `https://<domainname>.innover.se/auth/saml2/login`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![Innoverse Domain and URLs single sign-on information](common/metadata_upload_additional_signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<domainname>.innohb.com/auth/saml2/login`
+    `https://<domainname>.innover.se/auth/saml2/login`
     
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Innoverse Client support team](mailto:support@readify.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
