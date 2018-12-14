@@ -48,7 +48,7 @@ Irrespective of which probe type you choose, health probes can observe any port 
 
 ### <a name="tcpprobe"></a> TCP probe
 
-TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port and close with a four-way close TCP handshake.
+TCP probes initiate a connection by performing a three-way open TCP handshake with the defined port.  The TCP probe terminate a connection with a four-way close TCP handshake.
 
 The minimum probe interval is 5 seconds and the minimum number of unhealthy responses is 2.  The total duration cannot exceed 120 seconds.
 
@@ -76,13 +76,13 @@ A TCP probe fails when:
 
 HTTP and HTTPS probes establish a TCP connection and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  These health probes attempt to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration cannot exceed 120 seconds.
 
-HTTP / HTTPS probes can also be useful if you want to implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
+HTTP / HTTPS probes can also be useful if you want to express health probe.  implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
 If you use Cloud Services and have web roles that use w3wp.exe, you also achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.
 
 An HTTP / HTTPS probe fails when:
 * Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500). This will mark down the health probe immediately. 
-* Probe endpoint doesn't respond at all during the 31-second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running (that is, before SuccessFailCount probes are sent).
+* Probe endpoint doesn't respond at all during the 31-second timeout period. Depending on the timeout value that is set, multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
 * Probe endpoint closes the connection via a TCP reset.
 
 #### Resource Manager templates
@@ -202,7 +202,7 @@ Do not configure your VNet with the Microsoft owned IP address range that contai
 
 If you have multiple interfaces on your VM, you need to insure you respond to the probe on the interface you received it on.  You may need to source network address translate this address in the VM on a per interface basis.
 
-Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling [TCP timestamps](#limitations) will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.
+Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling [TCP timestamps](#limitations) will cause health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack, which results in Load Balancer marking down the respective endpoint.  This is common on security hardened VM images and must be disabled.
 
 ## Monitoring
 
@@ -213,7 +213,7 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Limitations
 
 - HTTPS probes do not support mutual authentication with a client certificate.
-- Health probes will fail when TCP timestamps are enabled.  This is common on security hardened VM images.
+- Health probes will fail when TCP timestamps are enabled.
 
 ## Next steps
 
