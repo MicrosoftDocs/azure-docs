@@ -74,9 +74,19 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 ## <a name="useputty"></a>Create a tunnel using PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. Use the following steps to create an SSH tunnel using PuTTY:
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you are not familiar with PuTTY, see the [PuTTY documentation](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
 
-1. Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see the [PuTTY documentation (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+### Create or load a session
+
+1. Open PuTTY and ensure **Session** is selected on the left menu. If you have already saved a session, select the session name from the **Saved Sessions** list and click **Load**.
+
+1. If you don't already have a saved session, enter your connection information:
+    * **Host Name (or IP address)** - The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**
+    * **Port** - 22
+    * **Connection Type** - SSH
+1. Click **Save**
+
+    ![create SSH session](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 2. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
 
@@ -84,7 +94,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
    
    * **Source port** - The port on the client that you wish to forward. For example, **9876**.
 
-   * **Destination** - The SSH address for the Linux-based HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.
+   * **Destination** - The SSH address for the HDInsight cluster. For example, **mycluster-ssh.azurehdinsight.net**.
 
    * **Dynamic** - Enables dynamic SOCKS proxy routing.
      
