@@ -105,7 +105,7 @@ Other optional destinations for diagnostic logs:
 
     ![Batch diagnostics](media/batch-diagnostics/diagnostics-portal.png)
 
-Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Other options to enable log collection include: use Azure Monitor in the portal to configure diagnostic settings, use a [Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md), or use Azure PowerShell or the Azure CLI. see [Collect and consume log data from your Azure resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### Access diagnostics logs in storage
@@ -129,7 +129,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Each PT1H.json blob file contains JSON-formatted events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since diagnostic log events are broken into individual blobs per hour. (All times are in UTC.)
 
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 To access the logs in your storage account programmatically, use the Storage APIs. 
 

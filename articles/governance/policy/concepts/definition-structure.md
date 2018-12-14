@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -244,6 +244,7 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
+  - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
 - `identity.type`
   - Returns the type of [Managed Identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
