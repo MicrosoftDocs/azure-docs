@@ -1,4 +1,4 @@
----
+a---
 title: Tutorial on preparing Azure portal to deploy Data Box Edge | Microsoft Docs
 description: The first tutorial about deploying Azure Data Box Edge involves preparing the Azure portal.
 services: databox
@@ -11,7 +11,7 @@ ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Prepare to deploy Azure Data Box Edge (preview)
+# Tutorial: Prepare to deploy a Azure Data Box Edge resource (preview)
 
 
 This is the first tutorial in the series of deployment tutorials that are required to completely deploy your Azure Data Box Edge resource. This tutorial describes how to prepare the Azure portal to deploy a Data Box Edge resource. 
@@ -36,11 +36,11 @@ To deploy your Data Box Edge resource, refer to the following tutorials in the p
 
 | **#** | **In this step** | **Use these documents** |
 | --- | --- | --- | 
-| 1. |**[Prepare the Azure portal for Data Box Edge](data-box-edge-deploy-prep.md)** |Create and configure your Data Box Edge resource before you install a Data Box Edge physical device. |
-| 2. |**[Install Data Box Edge](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Data Box Edge physical device.  |
-| 3. |**[Connect, set up, and activate Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
-| 4. |**[Transfer data with Data Box Edge](data-box-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
-| 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure Edge modules on the device to transform the data as it moves to Azure. |
+| 1. |**[Prepare the Azure portal for Data Box Edge resource](data-box-edge-deploy-prep.md)** |Create and configure your Data Box Edge resource before you install a Data Box Edge physical device. |
+| 2. |**[Install the Data Box Edge device](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Data Box Edge physical device.  |
+| 3. |**[Connect, set up, and activate the Data Box Edge device](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
+| 4. |**[Transfer data with the Data Box Edge device](data-box-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
+| 5. |**[Transform data with the Data Box Edge device](data-box-edge-deploy-configure-compute.md)** |Configure Edge modules on the device to transform the data as it moves to Azure. |
 
 You can now begin to set up the Azure portal.
 
