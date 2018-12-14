@@ -35,7 +35,7 @@ In Azure Active Directory, select **User Settings**. Under **External users**, s
 > [!NOTE]
 > The **External collaboration settings** are also available from the **Organizational relationships** page. In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
 
-![External collaboration settings](/media/delegate-invitations/control-who-to-invite.png)
+![External collaboration settings](./media/delegate-invitations/control-who-to-invite.png)
 
 With Azure AD B2B collaboration, a tenant admin can set the following invitation policies:
 

@@ -36,8 +36,8 @@ To add B2B collaboration users to the directory, follow these steps:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-> [!NOTE]
-> The **New guest user** option is also available on the **Organizational relationships** page. In Azure Active Directory, under **Manage**, select **Organizational relationships**.
+   > [!NOTE]
+   > The **New guest user** option is also available on the **Organizational relationships** page. In **Azure Active Directory**, under **Manage**, select **Organizational relationships**.
 
 5. Under **User name**, enter the email address of the external user. Optionally, include a welcome message. For example:
 
