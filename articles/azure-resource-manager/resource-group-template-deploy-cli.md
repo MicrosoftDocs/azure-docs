@@ -149,7 +149,7 @@ The arrayContent.json format is:
 
 ### Parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files are not supported.
+Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files are not supported with Azure CLI.
 
 The parameter file must be in the following format:
 
