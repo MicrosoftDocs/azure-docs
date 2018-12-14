@@ -27,12 +27,12 @@ ms.author: danoble
   <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
-  
+
 The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 At this time the Data Explorer in the emulator only fully supports SQL API collections and MongoDB collections. Table, Graph, and Cassandra containers are not fully supported.
 
-This article covers the following tasks: 
+This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Installing the emulator
@@ -50,7 +50,7 @@ The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cos
 
 While emulation of the Azure Cosmos DB service is faithful, the emulator's implementation is different than the service. For example, the emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are unavailable.
 
-## Differences between the emulator and the service 
+## Differences between the emulator and the service
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
 
 * Currently Data Explorer in the emulator supports SQL API collections and MongoDB collections only. Table, Graph, and Cassandra APIs are not yet supported.
@@ -67,8 +67,8 @@ The Azure Cosmos DB Emulator has the following hardware and software requirement
 * Software requirements
   * Windows Server 2012 R2, Windows Server 2016, or Windows 10
 *	Minimum Hardware requirements
-  *	2-GB RAM
-  *	10-GB available hard disk space
+  * 2-GB RAM
+  * 10-GB available hard disk space
 
 ## Installation
 You can download and install the Azure Cosmos DB Emulator from the [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) or you can run the emulator on Docker for Windows. For instructions on using the emulator on Docker for Windows, see [Running on Docker](#running-on-docker).
@@ -109,7 +109,7 @@ As with Azure Cosmos DB in the cloud, every request that you make against the Az
 > [!NOTE]
 > The master key supported by the Azure Cosmos DB Emulator is intended for use only with the emulator. You cannot use your production Azure Cosmos DB account and key with the Azure Cosmos DB Emulator.
 
-> [!NOTE] 
+> [!NOTE]
 > If you have started the emulator with the /Key option, then use the generated key instead of "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
 As with the Azure Cosmos DB service, the Azure Cosmos DB Emulator supports only secure communication via SSL.
@@ -125,7 +125,7 @@ Once you have the Azure Cosmos DB Emulator running on your desktop, you can use 
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:8081"), 
+        new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduction.md), use the following connection string:
@@ -134,7 +134,7 @@ If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduct
 
 You can use existing tools like [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the Azure Cosmos DB Emulator. You can also migrate data between the Azure Cosmos DB Emulator and the Azure Cosmos DB service using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-> [!NOTE] 
+> [!NOTE]
 > If you have started the emulator with the /Key option, then use the generated key instead of "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
 Using the Azure Cosmos DB Emulator, by default, you can create up to 25 single partition collections or 1 partitioned collection. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
@@ -294,8 +294,8 @@ By default, you can create up to 25 single partition collections, or 1 partition
 
 If you attempt to create a collection after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
 
-    Sorry, we are currently experiencing high demand in this region, 
-    and cannot fulfill your request at this time. We work continuously 
+    Sorry, we are currently experiencing high demand in this region,
+    and cannot fulfill your request at this time. We work continuously
     to bring more and more capacity online, and encourage you to try again.
     Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
@@ -375,20 +375,20 @@ Once you have [Docker for Windows](https://www.docker.com/docker-windows) instal
 Next, pull the emulator image from Docker Hub by running the following command from your favorite shell.
 
 ```
-docker pull microsoft/azure-cosmosdb-emulator 
+docker pull microsoft/azure-cosmosdb-emulator
 ```
 To start the image, run the following commands.
 
 From the command-line:
-```cmd 
+```cmd
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 From PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 The response looks similar to the following:
@@ -403,12 +403,12 @@ cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
-``` 
+```
 
 Now use the endpoint and master key-in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
 From the command-line:
-```cmd 
+```cmd
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 ```
@@ -435,7 +435,7 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 - If the Azure Cosmos DB Emulator crashes, collect dump files from c:\Users\user_name\AppData\Local\CrashDumps folder, compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 - If you experience crashes in CosmosDB.StartupEntryPoint.exe, run the following command from an admin command prompt:
-`lodctr /R` 
+`lodctr /R`
 
 - If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
