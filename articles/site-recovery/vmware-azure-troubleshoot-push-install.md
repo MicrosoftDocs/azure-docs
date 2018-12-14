@@ -32,7 +32,7 @@ When you enable replication, Azure Site Recovery tries to push install mobility 
     * To disable Remote User Access control, under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: LocalAccountTokenFilterPolicy. Set the value to 1. To execute this step, run the following command from command prompt:
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * For Linux (**error 95108**), you must choose the root account for successful installation of mobility agent. Additionally, SFTP services should be running. To enable SFTP subsystem and password authentication in the sshd_config file,
+  * For Linux (**error 95108**), you must choose the root account for successful installation of mobility agent. Additionally, SFTP services should be running. To enable SFTP subsystem and password authentication in the sshd_config file:
     1. Sign in as root.
     2. Go to /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
     3. Uncomment the line, and change the value to yes.
