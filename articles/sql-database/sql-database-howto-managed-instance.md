@@ -3,8 +3,8 @@ title: How to configure Azure SQL Database Managed Instance | Microsoft Docs
 description: Learn how to configure and manage Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
-ms.custom: data sync
+ms.subservice: managed-instance
+ms.custom: 
 ms.devlang: 
 ms.topic: howto
 author: jovanpop-msft
@@ -40,4 +40,4 @@ In this section you can find various guides, scripts, and explanation that can h
 - [Configure threat detection](sql-database-managed-instance-threat-detection.md) – [threat detection](sql-database-threat-detection-overview.md) is a built-in Azure SQL Database feature that detects various potential attacks such as SQL Injection or access from suspicious locations. In this guide you can learn how to enable and configure [threat detection](sql-database-threat-detection-overview.md) for Managed Instance.
 
 ## Next steps
-- Learn more about [Managed Instance](sql-database-managed-instance-index)
+- Learn more about [How-to guides in Single Database](sql-database-howto-single-database.md)
