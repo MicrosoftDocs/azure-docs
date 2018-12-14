@@ -398,7 +398,7 @@ To learn more about how to interpret health data, see [Azure resource health ove
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
 [lnk-AM-metrics]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md
-[lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
+[lnk-AM-schemas]: ../azure-monitor/platform/tutorial-dashboards.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
 [lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

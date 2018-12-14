@@ -11,23 +11,23 @@ ms.component: logs
 ---
 # Archive Azure Diagnostic Logs
 
-In this article, we show how you can use the Azure portal, PowerShell Cmdlets, CLI, or REST API to archive your [Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md) in a storage account. This option is useful if you would like to retain your diagnostic logs with an optional retention policy for audit, static analysis, or backup. The storage account does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+In this article, we show how you can use the Azure portal, PowerShell Cmdlets, CLI, or REST API to archive your [Azure diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) in a storage account. This option is useful if you would like to retain your diagnostic logs with an optional retention policy for audit, static analysis, or backup. The storage account does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
 ## Prerequisites
 
-Before you begin, you need to [create a storage account](../storage/common/storage-quickstart-create-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location.
+Before you begin, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location.
 
 > [!NOTE]
 >  You cannot currently archive data to a storage account that behind a secured virtual network.
 
 ## Diagnostic settings
 
-To archive your diagnostic logs using any of the methods below, you set a **diagnostic setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs and metric data sent to a destination (storage account, Event Hubs namespace, or Log Analytics). It also defines the retention policy (number of days to retain) for events of each log category and metric data stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account. 
+To archive your diagnostic logs using any of the methods below, you set a **diagnostic setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs and metric data sent to a destination (storage account, Event Hubs namespace, or Log Analytics). It also defines the retention policy (number of days to retain) for events of each log category and metric data stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy will be deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account. 
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -40,21 +40,21 @@ To archive your diagnostic logs using any of the methods below, you set a **diag
 
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
 
-    ![Monitoring section of Azure Monitor](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+    ![Monitoring section of Azure Monitor](media/archive-diagnostic-logs/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
 3. If no settings exist on the resource you have selected, you are prompted to create a setting. Click "Turn on diagnostics."
 
-   ![Add diagnostic setting - no existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
+   ![Add diagnostic setting - no existing settings](media/archive-diagnostic-logs/diagnostic-settings-none.png)
 
    If there are existing settings on the resource, you will see a list of settings already configured on this resource. Click "Add diagnostic setting."
 
-   ![Add diagnostic setting - existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
+   ![Add diagnostic setting - existing settings](media/archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
 3. Give your setting a name and check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days stores the logs indefinitely.
 
-   ![Add diagnostic setting - existing settings](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
+   ![Add diagnostic setting - existing settings](media/archive-diagnostic-logs/diagnostic-settings-configure.png)
 
 4. Click **Save**.
 
@@ -155,7 +155,7 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 
 ## Next steps
 
-* [Download blobs for analysis](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Stream diagnostic logs to an Event Hubs namespace](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Archive Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Read more about diagnostic logs](monitoring-overview-of-diagnostic-logs.md)
+* [Download blobs for analysis](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
+* [Stream diagnostic logs to an Event Hubs namespace](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
+* [Read more about diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
