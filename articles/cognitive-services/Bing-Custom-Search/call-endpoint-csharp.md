@@ -113,7 +113,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
         Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
         Console.WriteLine();
     }
-    Console.WriteLine("Any key to exit...");
+    Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
     ```
 
