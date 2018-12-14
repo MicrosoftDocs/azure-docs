@@ -103,15 +103,14 @@ To understand and view the application of your Azure reservations in billing usa
 
 To learn more about Azure reservations, see the following articles:
 
-* [What are Azure reservations?](../billing/billing-save-compute-costs-reservations.md)  
+* [What are reservations for Azure](../billing/billing-save-compute-costs-reservations.md)  
 * [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)  
-* [Manage Azure reservations](../billing/billing-manage-reserved-vm-instance.md)  
+* [Manage reservations for Azure](../billing/billing-manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription](../billing/billing-understand-reserved-instance-usage.md)  
-* [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)  
+* [Understand reservation usage for your Enterprise enrollment](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

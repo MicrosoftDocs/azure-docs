@@ -57,6 +57,8 @@
         href: billing-understand-cosmosdb-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
+      - name: Red Hat Linux software plans
+        href: billing-understand-rhel-reservation-charges.md
       - name: SUSE Linux software plans
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
