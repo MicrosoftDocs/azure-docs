@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Learn to perform extract, load, and transfer operations using Azure Databricks'
-description: Learn to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse.
+description: In this tutorial, you learn how to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse.
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,27 +8,30 @@ ms.author: jamesbak
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.component: data-lake-storage-gen2
+#Customer intent: As a analytics user, I want to perform an ETL operation so that I may work with my data in my preferred environment.
 ---
 
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from an Azure Storage account with Azure Data Lake Storage Gen2 enabled, to Azure SQL Data Warehouse, using Azure Databricks.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from an Azure Storage account with Azure Data Lake Storage Gen2 enabled, to Azure SQL Data Warehouse, by using Azure Databricks.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 The following illustration shows the application flow:
 
 ![Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse](./media/data-lake-storage-handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Storage Gen2 and SQL Data Warehouse")
 
-This tutorial covers the following tasks:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Databricks workspace
-> * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage Gen2 capable account
-> * Upload data to Azure Data Lake Storage Gen2
-> * Create a notebook in Azure Databricks
-> * Extract data from Data Lake Storage Gen2
-> * Transform data in Azure Databricks
-> * Load data into Azure SQL Data Warehouse
+> * Create an Azure Databricks workspace.
+> * Create a Spark cluster in Azure Databricks.
+> * Create an Azure Data Lake Storage Gen2 capable account.
+> * Upload data to Azure Data Lake Storage Gen2.
+> * Create a notebook in Azure Databricks.
+> * Extract data from Data Lake Storage Gen2.
+> * Transform data in Azure Databricks.
+> * Load data into Azure SQL Data Warehouse.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -40,13 +43,13 @@ To complete this tutorial:
 * Create a database master key for the Azure SQL Data Warehouse. Follow the instructions at [Create a Database Master Key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 * [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md)
 
-## Sign in to the Azure Portal
+Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure portal.
+In this section, you create an Azure Databricks workspace by using the Azure portal.
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
@@ -63,16 +66,18 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
-    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Location**     | Select **West US 2**.        |
+    |**Pricing Tier**     |  Select **Standard**.     |
 
     Select **Pin to dashboard** and then select **Create**.
 
-3. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+3. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. Watch the progress bar displayed near the top of the screen for progress.
 
     ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
+
+In order to perform the operations in this tutorial, you will need a Spark cluster.
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then select **Launch Workspace**.
 
@@ -87,14 +92,16 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Fill in values for the following fields, and accept the default values for the other fields:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.2** runtime.
-    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * For this article, create a cluster with **5.1** runtime.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster isn't being used.
 
-    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+    Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-## Create storage account file system
+## Create file system
 
-In this section, you create a notebook in Azure Databricks workspace and then run code snippets to configure the storage account.
+In order to be able to store data in your Data Lake Storage Gen2 storage account, you need to create a file system.
+
+First, you create a notebook in Azure Databricks workspace and then run code snippets to create the file system in your storage account.
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
 
@@ -128,26 +135,23 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 Now the file system is created for the storage account.
 
-## Upload data to the storage account
+## Upload sample data
 
-The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. 
+The next step is to upload a sample data file to the storage account to later transform in Azure Databricks.
 
-> [!NOTE]
-> If you do not already have an Azure Data Lake Storage Gen2 capable account, follow the [quickstart to create one](./data-lake-storage-quickstart-create-account.md).
+Upload the sample data that you downloaded into your storage account. The method you use to upload data into your storage account differs depending on whether you have the hierarchical namespace enabled.
 
-1. Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
-
-2. Next, you upload the sample data into your storage account. The method you use to upload data into your storage account differs depending on whether you have the hierarchical namespace enabled.
-
-    If the hierarchical namespace is enabled on your Azure Storage account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview via preview at this time. To use AzCopy, paste in the following code into a command window:
+You can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview via preview at this time. To use AzCopy, paste in the following code into a command window:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
     set ACCOUNT_KEY=<ACCOUNT_KEY>
     azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
     ```
-    
-## Extract data from Azure Storage
+
+## Extract the data
+
+In order to work with the sample data in Databricks, you will need to extract the data from your storage account.
 
 Return to your DataBricks Notebook and enter the following code in a new cell:
 
@@ -187,7 +191,7 @@ Return to your DataBricks Notebook and enter the following code in a new cell:
 
 You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Databricks.
 
-## Transform data in Azure Databricks
+## Transform the data
 
 The raw sample data **small_radio_json.json** captures the audience for a radio station and has a variety of columns. In this section, you transform the data to only retrieve specific columns in from the dataset.
 
@@ -264,9 +268,9 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 
 ## Load data into Azure SQL Data Warehouse
 
-In this section, you upload the transformed data into Azure SQL Data Warehouse. Using the Azure SQL Data Warehouse connector for Azure Databricks, you can directly upload a dataframe as a table in SQL data warehouse.
+In this section, you upload the transformed data into Azure SQL Data Warehouse. You use the Azure SQL Data Warehouse connector for Azure Databricks to directly upload a dataframe as a table in a SQL data warehouse.
 
-As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage as a temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
+The SQL date warehouse connector uses Azure Blob Storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
 
 1. Provide the configuration to access the Azure Storage account from Azure Databricks.
 
@@ -282,7 +286,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
-3. Run the following snippet to store Azure Blob storage access keys in the configuration. This ensures that you do not have to keep the access key in the notebook in plain text.
+3. Run the following snippet to store Azure Blob storage access keys in the configuration. This action ensures that you don't have to keep the access key in the notebook in plain text.
 
     ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
@@ -303,7 +307,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
     val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
     ```
 
-5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
+5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in a SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
 
     ```scala
     spark.conf.set(
@@ -330,27 +334,15 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 ## Clean up resources
 
-After you have finished running the tutorial, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
+After you've finished running the tutorial, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
 ![Stop a Databricks cluster](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
+If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops if it has been inactive for the specified time.
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create an Azure Databricks workspace
-> * Create a Spark cluster in Azure Databricks
-> * Create an Azure Data Lake Storage Gen2 capable account
-> * Upload data to Azure Data Lake Storage Gen2
-> * Create a notebook in Azure Databricks
-> * Extract data from Data Lake Storage Gen2
-> * Transform data in Azure Databricks
-> * Load data into Azure SQL Data Warehouse
 
 Advance to the next tutorial to learn about streaming real-time data into Azure Databricks using Azure Event Hubs.
 
 > [!div class="nextstepaction"]
->[Stream data into Azure Databricks using Event Hubs](../../azure-databricks/databricks-stream-from-eventhubs.md)
+>[Stream data into Azure Databricks by using Event Hubs](../../azure-databricks/databricks-stream-from-eventhubs.md)
