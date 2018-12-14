@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Cable the device
 
 > [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
+> The Data Box Edge solution is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The prerequisites for installing a physical device as follows:
 
 Before you begin, make sure that:
 
-* You've completed all the steps in [Prepare the portal for Data Box Edge](data-box-edge-deploy-prep.md).
+* You've completed all the steps in [Prepare to deploy a Azure Data Box Edge resource (preview)](data-box-edge-deploy-prep.md).
     * You've created a Data Box Edge resource to deploy your device.
     * You've generated the activation key to activate your device with the Data Box Edge resource.
 
