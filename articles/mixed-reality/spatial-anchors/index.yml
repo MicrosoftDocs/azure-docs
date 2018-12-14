@@ -27,27 +27,27 @@ sections:
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_android.svg
       text: Android
-      href: spatial-anchors-get-started-android.md
+      href: get-started-android.md
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_windows.svg
       text: HoloLens
-      href: spatial-anchors-get-started-hololens.md
+      href: get-started-hololens.md
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_ios.svg
       text: iOS
-      href: spatial-anchors-get-started-ios.md
+      href: get-started-ios.md
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_android.svg
       text: Unity Android
-      href: spatial-anchors-get-started-unity-android.md
+      href: get-started-unity-android.md
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_windows.svg
       text: Unity HoloLens
-      href: spatial-anchors-get-started-unity-android.md
+      href: get-started-unity-android.md
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_ios.svg
       text: Unity iOS
-      href: spatial-anchors-get-started-unity-android.md
+      href: get-started-unity-android.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

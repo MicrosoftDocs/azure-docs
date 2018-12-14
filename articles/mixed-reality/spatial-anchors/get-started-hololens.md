@@ -14,7 +14,7 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create a HoloLens app with Spatial Anchors
 
-[Spatial Anchors](spatial-anchors-overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences.​ This quickstart shows how to create a HoloLens app using spatial anchors. When you're finished,
 you'll have an HoloLens app that can save and recall a spatial anchor.
 

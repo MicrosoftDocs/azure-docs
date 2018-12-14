@@ -3,69 +3,21 @@
 - name: Overview
   items:
   - name: About Spatial Anchors
-    href: spatial-anchors-overview.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create Android app
-    href: spatial-anchors-get-started-android.md
+    href: get-started-android.md
   - name: Create HoloLens app
-    href: spatial-anchors-get-started-hololens.md
+    href: get-started-hololens.md
   - name: Create iOS app
-    href: spatial-anchors-get-started-ios.md
+    href: get-started-ios.md
   - name: Create Unity app
     items:
     - name: Android
-      href: spatial-anchors-get-started-unity-android.md
+      href: get-started-unity-android.md
     - name: HoloLens
-      href: spatial-anchors-get-started-unity-hololens.md
+      href: get-started-unity-hololens.md
     - name: iOS
-      href: spatial-anchors-get-started-unity-ios.md
-- name: Tutorials
-  items:
-  - name: Creating and finding anchors
-  - name: Sharing anchors
-  - name: Curating and locating anchors nearby
-- name: Samples
-  items:
-  - name: Platforms
-  - items:
-    - name: Android
-    - name: HoloLens
-    - name: iOS
-  - name: Scavenger Hunt
-- name: Concepts
-  items:
-  - name: How Spatial Anchors works
-  - name: Authenticating with Spatial Anchors
-  - name: Managing permissions
-  - name: Curating an environment
-  - name: UX guidelines
-  - name: Locating users/identifying the environment
-  - name: What data does Spatial Anchors store?
-  - name: Calling Spatial Anchors service-to-service APIs
-- name: How-To guides
-  items:
-  - name: Registering your app
-  - name: Authenticating from your app service
-  - name: Authenticating from your client app
-  - name: Authenticating users with AAD
-  - name: Persist an anchor
-- name: Reference
-  items:
-  - name: Objective-C
-  - name: Swift
-  - name: C# - Unity
-  - name: C++ - Universal Windows Platform
-  - name: Java
-- name: Resources
-  items:
-  - name: Pricing Calculator
-  - name: Quota
-  - name: Admin APIs
-  - name: Regional availability
-  - name: Service update and release notes
-  - name: Known Issues
-  - name: Stack Overflow
-  - name: Troubleshooting
-  - name: FAQ
+      href: get-started-unity-ios.md

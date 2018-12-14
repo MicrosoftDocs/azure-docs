@@ -14,7 +14,7 @@ ms.service: spatial-anchors
 ---
 # Quickstart: Create an Android app with Spatial Anchors
 
-[Spatial Anchors](spatial-anchors-overview.md) is a cross-platform developer service that makes it easy for you to create
+[Spatial Anchors](overview.md) is a cross-platform developer service that makes it easy for you to create
 Mixed Reality experiences.​ This quickstart shows how to create an Android app using spatial anchors. When you're finished,
 you'll have an ARCore Android app that can save and recall a spatial anchor.
 

@@ -21,19 +21,19 @@ ms.service: spatial-anchors
 Create your first app with Spatial Anchors.
 
 > [!div class="nextstepaction"]
-> [Android](spatial-anchors-get-started-android.md)
+> [Android](get-started-android.md)
 
 > [!div class="nextstepaction"]
-> [HoloLens](spatial-anchors-get-started-hololens.md)
+> [HoloLens](get-started-hololens.md)
 
 > [!div class="nextstepaction"]
-> [iOS](spatial-anchors-get-started-ios.md)
+> [iOS](get-started-ios.md)
 
 > [!div class="nextstepaction"]
-> [Unity Android](spatial-anchors-get-started-unity-android.md)
+> [Unity Android](get-started-unity-android.md)
 
 > [!div class="nextstepaction"]
-> [Unity HoloLens](spatial-anchors-get-started-unity-hololens.md)
+> [Unity HoloLens](get-started-unity-hololens.md)
 
 > [!div class="nextstepaction"]
-> [Unity iOS](spatial-anchors-get-started-unity-ios.md)
+> [Unity iOS](get-started-unity-ios.md)
