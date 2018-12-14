@@ -55,8 +55,8 @@ You have a web front end and a API tier that communicates with the backend.
 ![Scale based on custom metric][5]
 
 <!--Reference-->
-[1]: ./monitoring-autoscale-get-started.md
-[2]: ./media/monitoring-autoscale-common-scale-patterns/scale-based-on-cpu.png
-[3]: ./media/monitoring-autoscale-common-scale-patterns/weekday-weekend-scale.png
-[4]: ./media/monitoring-autoscale-common-scale-patterns/holidays-scale.png
-[5]: ./media/monitoring-autoscale-common-scale-patterns/custom-metric-scale.png
+[1]: ./autoscale-get-started.md
+[2]: ./media/autoscale-common-scale-patterns/scale-based-on-cpu.png
+[3]: ./media/autoscale-common-scale-patterns/weekday-weekend-scale.png
+[4]: ./media/autoscale-common-scale-patterns/holidays-scale.png
+[5]: ./media/autoscale-common-scale-patterns/custom-metric-scale.png

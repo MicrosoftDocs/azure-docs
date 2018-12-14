@@ -18,7 +18,7 @@ IoT Central provides the flexibility to customize your applications to fit your 
 
 ## Changing language
 
-IoT Central is supported in 18 languages. You can switch your preferred language by using the **language picker** on the top navigation bar. Once you've changed your language, we'll remember *your* selection and apply it across all your applications. Note that customization within the application such dashboard images won't be localized. 
+IoT Central is supported in 17 languages. You can switch your preferred language by using the **language picker** on the top navigation bar. Once you've changed your language, we'll remember *your* selection and apply it across all your applications. Note that customization within the application such dashboard images won't be localized. 
 
 ![IoT Central Language Picker](media/howto-manage-profile/language-picker.png)
 
