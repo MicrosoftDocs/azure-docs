@@ -54,7 +54,7 @@ For information about how you as a tenant administrator can link to your organiz
 
 ## Terms of use
 
-You can present terms of use to the guest user during the initial redemption process by using the [Azure AD Terms of use feature](../governance/active-directory-tou). In Azure Active Directory, you can access this feature under **Security** > **Conditional Access** or under **Manage** > **Organizational relationships**.
+You can present terms of use to the guest user during the initial redemption process by using the [Azure AD Terms of use feature](../governance/active-directory-tou.md). In Azure Active Directory, you can access this feature under **Security** > **Conditional Access** or under **Manage** > **Organizational relationships**.
 
 ![Screenshot showing new terms of use](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

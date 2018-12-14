@@ -19,7 +19,7 @@ ms.reviewer: sasubram
 With guest users, you have auditing capabilities similar to with member users. 
 
 ## Access reviews
-Use access reviews to periodically verify whether guest users still need access to your resources. Use the **Access reviews** feature in the Azure Active Directory portal by going to either **Security** > **Conditional Access** or **Manage** > **Organizational Relationships**. For details about conducting access reviews, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews).
+Use access reviews to periodically verify whether guest users still need access to your resources. Use the **Access reviews** feature in the Azure Active Directory portal by going to either **Security** > **Conditional Access** or **Manage** > **Organizational Relationships**. For details about conducting access reviews, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews.md).
 
 ## Audit logs
 
