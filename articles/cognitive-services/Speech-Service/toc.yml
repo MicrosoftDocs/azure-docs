@@ -20,7 +20,7 @@
       displayName: recognize speech, speech recognition, speech to text, stt
     - name: 'Using C# (Universal Windows Platform)'
       href: quickstart-csharp-uwp.md
-      displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
+      displayName: 'recognize speech, speech recognition, speech to text, stt, C#, UWP'
     - name: 'Using C++ (Windows)'
       href: quickstart-cpp-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
