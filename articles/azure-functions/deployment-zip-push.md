@@ -81,7 +81,7 @@ This command deploys project files from the downloaded .zip file to your functio
 
 When you're using Azure CLI on your local computer, `<zip_file_path>` is the path to the .zip file on your computer. You can also run Azure CLI in [Azure Cloud Shell](../cloud-shell/overview.md). When you use Cloud Shell, you must first upload your deployment .zip file to the Azure Files account that's associated with your Cloud Shell. In that case, `<zip_file_path>` is the storage location that your Cloud Shell account uses. For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
-[!INCLUDE [app-service-deploy-zip-push-rest](../../includes/deploy-zip-push-rest.md)]
+[!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
 ## Run functions from the deployment package
 
@@ -89,7 +89,7 @@ You can also choose to run your functions directly from the deployment package f
 
 Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_PACKAGE` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
 
-[!INCLUDE [app-service-deploy-zip-push-custom](../../includes/deploy-zip-push-custom.md)]
+[!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
 ## Next steps
 
