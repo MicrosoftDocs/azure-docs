@@ -64,12 +64,12 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Perform ETL operations</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Create on-demand clusters</a>
-    - html: Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Run interactive queries</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualize data</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
-    - html: Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Structured streaming with Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Use with Storm on HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Use Kafka Producer and Consumer APIs</a>
-    - html: HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Create HBase clusters in a VNET</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Use Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connect to Spark</a>
+    - html: Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Perform ETL operations</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Create on-demand clusters</a>
+    - html: Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Run interactive queries</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualize data</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Machine learning</a>
+    - html: Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Structured streaming with Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Use with Storm on HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Use Kafka Producer and Consumer APIs</a>
+    - html: Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Create HBase clusters in a VNET</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Use Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Connect to Spark</a>
     - html: Interactive Query &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Connect with Power BI using Direct Query</a>
-    - html: Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Create Storm topology in Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Deploy Storm topologies on HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Write from Storm to Data Lake Store</a>
+    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Create Storm topology in Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Deploy Storm topologies on HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Write from Storm to Data Lake Store</a>
     - html: ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Use R Tools for Visual Studio</a>
 - title: Reference
   items:
