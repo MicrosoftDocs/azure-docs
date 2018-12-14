@@ -36,13 +36,6 @@ You can scale in and scale out in Virtual Machine Scale Sets by a recurring sche
     vmss_name: myVMSS
     name: autoscalesetting
   tasks: 
-    - name: Get scaleset info
-      azure_rm_virtualmachine_scaleset_facts:
-        resource_group: "{{ resource_group }}"
-        name: "{{ vmss_name }}"
-        format: curated
-      register: output_scaleset
-
     - name: Create auto scaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
@@ -82,84 +75,81 @@ You can scale in and scale out in Virtual Machine Scale Sets based on performanc
 ---
 - hosts: localhost
   vars:
-    subscription_id: "your subscription id"
     resource_group: myResourceGroup
     vmss_name: myVMSS
     name: autoscalesetting
-  tasks: 
-    - name: Get scaleset info
-      azure_rm_virtualmachine_scaleset_facts:
-        resource_group: "{{ resource_group }}"
-        name: "{{ vmss_name }}"
-        format: curated
-      register: output_scaleset
+  tasks:
+  - name: Get facts of the resource group
+    azure_rm_resourcegroup_facts:
+      name: "{{ resource_group }}"
+    register: rg
+
+  - name: Get VMSS resource uri
+    set_fact:
+      vmss_id: "{{ rg.ansible_facts.azure_resourcegroups[0].id }}/providers/Microsoft.Compute/virtualMachineScaleSets/{{ vmss_name }}"
     
-    - name: Get VMSS resource uri
-      set_fact:
-         vmss_id: "/subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/virtualMachineScaleSets/{{ vmss_name }}"
-    
-    - name: Create auto scaling
-      azure_rm_autoscale:
-         resource_group: "{{ resource_group }}"
-         name: "{{ name }}"
-         target: "{{ vmss_id }}"
-         enabled: true
-         profiles:
-         - count: '1'
-           max_count: '1'
-           min_count: '1'
-           name: 'This scale condition is executed when none of the other scale condition(s) match'
-           recurrence_days:
-             - Monday
-           recurrence_frequency: Week
-           recurrence_hours:
-             - 18
-           recurrence_mins:
-             - 0
-           recurrence_timezone: Pacific Standard Time
-         - count: '1'
-           min_count: '1'
-           max_count: '4'
-           name: Auto created scale condition
-           recurrence_days:
-             - Monday
-           recurrence_frequency: Week
-           recurrence_hours:
-             - 18
-           recurrence_mins:
-             - 0
-           recurrence_timezone: Pacific Standard Time
-           rules:
-             - cooldown: 5
-               direction: Increase
-               metric_name: Percentage CPU
-               metric_resource_uri: "{{ vmss_id }}"
-               operator: GreaterThan
-               statistic: Average
-               threshold: 70
-               time_aggregation: Average
-               time_grain: 1
-               time_window: 10
-               type: ChangeCount
-               value: '1'
-             - cooldown: 5
-               direction: Decrease
-               metric_name: Percentage CPU
-               metric_resource_uri: "{{ vmss_id }}"
-               operator: LessThan
-               statistic: Average
-               threshold: 30
-               time_aggregation: Average
-               time_grain: 1
-               time_window: 10
-               type: ChangeCount
-               value: '1'
+  - name: Create auto scaling
+    azure_rm_autoscale:
+      resource_group: "{{ resource_group }}"
+      name: "{{ name }}"
+      target: "{{ vmss_id }}"
+      enabled: true
+      profiles:
+      - count: '1'
+        max_count: '1'
+        min_count: '1'
+        name: 'This scale condition is executed when none of the other scale condition(s) match'
+        recurrence_days:
+          - Monday
+        recurrence_frequency: Week
+        recurrence_hours:
+          - 18
+        recurrence_mins:
+          - 0
+        recurrence_timezone: Pacific Standard Time
+      - count: '1'
+        min_count: '1'
+        max_count: '4'
+        name: Auto created scale condition
+        recurrence_days:
+          - Monday
+        recurrence_frequency: Week
+        recurrence_hours:
+          - 18
+        recurrence_mins:
+          - 0
+        recurrence_timezone: Pacific Standard Time
+        rules:
+          - cooldown: 5
+            direction: Increase
+            metric_name: Percentage CPU
+            metric_resource_uri: "{{ vmss_id }}"
+            operator: GreaterThan
+            statistic: Average
+            threshold: 70
+            time_aggregation: Average
+            time_grain: 1
+            time_window: 10
+            type: ChangeCount
+            value: '1'
+          - cooldown: 5
+            direction: Decrease
+            metric_name: Percentage CPU
+            metric_resource_uri: "{{ vmss_id }}"
+            operator: LessThan
+            statistic: Average
+            threshold: 30
+            time_aggregation: Average
+            time_grain: 1
+            time_window: 10
+            type: ChangeCount
+            value: '1'
 ```
 
-Save this playbook as *vmss-auto-scale-metric.yml*. To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Save this playbook as *vmss-auto-scale-metrics.yml*. To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 ```bash
-ansible-playbook vmss-auto-scale-metric.yml
+ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
 ## Get information for existing autoscale settings
@@ -168,17 +158,17 @@ You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* mo
 ```yml
 - hosts: localhost
   vars:
-    resource_group: "your resource group name"
+    resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Delete auto scaling
+    - name: Retrieve auto scale settings information
       azure_rm_autoscale_facts:
-         resource_group: "{{ resource_group }}"
-         name: "{{ name }}"
+        resource_group: "{{ resource_group }}"
+        name: "{{ name }}"
       register: autoscale_query
     
     - debug:
-         var: autoscale_query.autoscales[0]
+        var: autoscale_query.autoscales[0]
 ```
 
 ## Disable the autoscale settings
@@ -187,7 +177,7 @@ You can disable the autoscale setting by changing `enabled: true` to `enabled: f
 ```yml
 - hosts: localhost
   vars:
-    resource_group: "your resource group name"
+    resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
     - name: Delete auto scaling
