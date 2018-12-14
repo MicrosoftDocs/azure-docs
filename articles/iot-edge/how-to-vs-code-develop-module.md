@@ -55,7 +55,7 @@ In order to build and deploy your module image, you need Docker to build the mod
 > [!TIP]
 > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command command in your terminal.
+Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -122,7 +122,7 @@ If you're developing in C#, Node.js, or Java, your module requires use of a **Mo
 In your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
 
 1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
-1. You can see the IoT Edge Simulator has been successfully set-up by reading the progress detail in the integrated terminal.
+1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 
 ### Set up IoT Edge simulator for single module app
 
@@ -195,7 +195,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 
-1. You can see the IoT Edge Simulator has been successfully set-up by reading the progress detail in the integrated terminal.
+1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
 
 ### Build and run container for debugging and debug in attach mode
 
