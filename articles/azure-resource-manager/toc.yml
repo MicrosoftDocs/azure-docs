@@ -104,6 +104,7 @@
     - name: Deploy by using REST API
       href: resource-group-template-deploy-rest.md
     - name: Export templates
+      items:
       - name: Using the portal
         href: resource-manager-export-template.md
       - name: Using Azure CLI
