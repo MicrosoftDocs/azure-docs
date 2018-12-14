@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -427,7 +427,9 @@ In accordance to SAP installation manuals, Oracle-related files should not be in
 
 ### Storage configuration
 
-The filesystems of ext4, or xfs or Oracle ASMOnly are supported for Oracle database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+The filesystems of ext4, or xfs or Oracle ASM are supported for Oracle database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+
+For Oracle Linux UEK kernels, the minimum of UEK version 4 is required to support [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 It is highly recommended to use [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). It also is highly recommended using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
 
