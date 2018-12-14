@@ -57,6 +57,8 @@ Following are some common access concerns that conditional access can help you w
 These questions and the related answers represent common access scenarios for Azure AD conditional access. 
 Conditional access is a capability of Azure Active Directory that enables you to handle access scenarios using a policy-based approach.
 
+  
+
 
 > [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
