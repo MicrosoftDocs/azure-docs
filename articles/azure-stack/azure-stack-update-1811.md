@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2018
+ms.date: 12/15/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -58,7 +58,13 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
-    ``` 
+    ```
+
+    If you do not have the extension host requirements met, the `Test-AzureStack` output displays the following message: 
+
+    ```shell
+    To proceed with installation of the 1811 update, you will need to import the SSL certificates required for Extension Host, which simplifies network integration and increases the security posture of Azure Stack. Refer to this link to prepare for Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare
+    ```
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
 
@@ -73,7 +79,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
  
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
-    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
 ## New features
 
@@ -99,7 +105,7 @@ This update includes the following improvements for Azure Stack:
 
 - Added a new region properties blade that displays registration details of the environment. You can access this information by clicking the **Region Management** tile on the default dashboard in the administrator portal and then selecting **Properties**.
 
-- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. For more information see, [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
+- Added a new privileged endpoint command to update the BMC credential with user name and password, used to communicate with the physical machines. For more information, see [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
 
 - Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
 
@@ -109,7 +115,7 @@ This update includes the following improvements for Azure Stack:
 
 - **Azure Stack PowerShell** has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For steps on updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-- Managed Disks is now enabled by default when creating virtual machines using the 	Azure Stack portal.
+- Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. Please see the known issues section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - Extended data at rest encryption protection to include all the infrastructure data stored on local volumes (not on cluster shared volumes). For more information, see [this article](azure-stack-security-bitlocker.md)
 
@@ -149,6 +155,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
 ## Changes
+
 - A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
 
 <!-- 3083238 IS -->
