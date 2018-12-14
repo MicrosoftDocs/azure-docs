@@ -77,12 +77,14 @@
   items:
   - name: Create templates
     items:
-    - name: Create resource groups by using templates
+    - name: Create resource groups
       href: create-resource-group-in-template.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
       href: resource-group-linked-templates.md
+    - name: Manage secrets
+      href: resource-manager-keyvault-parameter.md
     - name: Create multiple instances
       href: resource-group-create-multiple.md
     - name: Use template extensions
@@ -119,8 +121,6 @@
     - name: Continuous integration with Azure DevOps Services
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-    - name: Pass secure values during deployment
-      href: resource-manager-keyvault-parameter.md
   - name: Manage templates
     items:
     - name: Azure PowerShell
