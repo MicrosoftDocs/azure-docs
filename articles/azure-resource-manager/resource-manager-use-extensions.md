@@ -1,5 +1,5 @@
 ---
-title: Provide post-deployment configurations by using extensions | Microsoft Docs
+title: Provide post-deployment configurations by using extensions - Azure | Microsoft Docs
 description: Learn how to use Azure Resource Manager template extensions to provide post-deployment configurations.
 services: azure-resource-manager
 documentationcenter: na
