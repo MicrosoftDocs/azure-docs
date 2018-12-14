@@ -101,7 +101,7 @@ Service plans:
 Software plans:
 
 - SUSE Linux Enterprise software plan: The discount coverage depends on the vCPUs of the VMs where you run the SUSE software. For more information, see [Understand how the SUSE Linux Enterprise software plan discount is applied](billing-understand-suse-reservation-charges.md).
-- Red Hat Enterprise Linux plan: The discount coverage depends on the vCPUs of the VMs where you run the Red Hat software. For more information, see [Understand how the Red Hat Enterprise Linux plan discount is applied](billing-understand-rhel-reservation-charges.md)).
+- Red Hat Enterprise Linux plan: The discount coverage depends on the vCPUs of the VMs where you run the Red Hat software. For more information, see [Understand how the Red Hat Enterprise Linux plan discount is applied](billing-understand-rhel-reservation-charges.md).
 
 ## Next steps
 
