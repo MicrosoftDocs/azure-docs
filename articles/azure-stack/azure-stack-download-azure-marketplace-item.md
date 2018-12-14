@@ -140,7 +140,7 @@ There are two parts to this scenario:
 
 ### Import the download and publish to Azure Stack Marketplace (1811 and higher)
 
-1. The files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment. The marketplace syndication tool must also be available to your Azure Stack environment.
+1. You must move the files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) locally so that they are available to your Azure Stack environment. The marketplace syndication tool must also be available to your Azure Stack environment, because you need to use the tool to perform the import operation.
 
    The following image shows a folder structure example. `D:\downloadfolder` contains all the downloaded marketplace items. Each sub-folder is a marketplace item (for example, `microsoft.custom-script-linux-arm-2.0.3`), named by the product ID. Inside each sub-folder is the marketplace item's downloaded content.
 
