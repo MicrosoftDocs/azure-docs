@@ -24,7 +24,7 @@ If the version of SSIS you use is earlier than 2012, before redeploying your SSI
 In this article, you learn how to:
 > [!div class="checklist"]
 > * Assess source SSIS projects/packages.
-> * Migrate SSIS projects/packages.
+> * Migrate SSIS projects/packages to Azure.
 
 ## Prerequisites
 To complete these steps, you need:
@@ -33,8 +33,8 @@ To complete these steps, you need:
 - An instance of your target database server to host SSISDB.
  
   If you don’t already have one:
-    -	For Azure SQL Database, you can create a logical server [here](https://ms.portal.azure.com/#create/Microsoft.SQLServer).
-    -	For Azure SQL Database Managed Instance, follow the detail in the article [Create an Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+    - For Azure SQL Database, create an Azure SQL Database server (without a database) using the Azure portal by navigating to the SQL Server (logical server only) [form](https://ms.portal.azure.com/#create/Microsoft.SQLServer).
+    - For Azure SQL Database Managed Instance, follow the detail in the article [Create an Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 
 - SSIS must be provisioned in Azure Data Factory (ADF) containing Azure-SSIS Integration Runtime (IR) with the destination SSISDB hosted by the instance of Azure SQL Database server (as described in the article [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)) or Azure SQL Database Managed Instance (as described in the article [Create the Azure-SSIS integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)). 
 
