@@ -91,7 +91,7 @@ Use the following procedure:
     You can enable, disable, edit, or delete a rule. [Learn more](#view-and-manage-activity-log-alert-rules-in-azure-portal) about managing activity log rules.
 
 
-Alternatively, a simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure portal](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button; then follow steps 4 onwards as stated in tutorial above.
+Alternatively, a simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button; then follow steps 4 onwards as stated in tutorial above.
     
  ![ add alert from activity log](media/alerts-activity-log/add-activity-log.png)
     

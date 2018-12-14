@@ -13,11 +13,11 @@ ms.component: activitylog
 
 The **Azure Activity Log** is a subscription log that provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since the Administrative category reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
 
-![Activity Logs vs other types of logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
+![Activity Logs vs other types of logs ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Figure 1: Activity Logs vs other types of logs
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane").
+The Activity Log differs from [Diagnostic Logs](diagnostic-logs-overview.md). Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane").
 
 > [!WARNING]
 > The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log can be browsed in a separate section of the portal.
@@ -27,11 +27,11 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
-> [The newer alerts](../azure-monitor/platform/alerts-overview.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](../azure-monitor/platform/alerts-activity-log.md).
+> [The newer alerts](../../azure-monitor/platform/alerts-overview.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](../../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## Categories in the Activity Log
-The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](../azure-monitor/platform/activity-log-schema.md). These include:
+The Activity Log contains several categories of data. For full details on the schemata of these categories, [see this article](../../azure-monitor/platform/activity-log-schema.md). These include:
 * **Administrative** - This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
 * **Service Health** - This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 * **Resource Health** - This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
@@ -42,19 +42,19 @@ The Activity Log contains several categories of data. For full details on the sc
 * **Policy** - This category does not contain any events; it is reserved for future use. 
 
 ## Event schema per category
-[See this article to understand the Activity Log event schema per category.](../azure-monitor/platform/activity-log-schema.md)
+[See this article to understand the Activity Log event schema per category.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## What you can do with the Activity Log
 Here are some of the things you can do with the Activity Log:
 
-![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure Activity log](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
 
 
 * Query and view it in the **Azure portal**.
-* [Create an alert on an Activity Log event.](../azure-monitor/platform/activity-log-alerts.md)
-* [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* [Create an alert on an Activity Log event.](../../azure-monitor/platform/activity-log-alerts.md)
+* [Stream it to an **Event Hub**](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Save it to a **Storage Account** for archival or manual inspection](../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
+* [Save it to a **Storage Account** for archival or manual inspection](../../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
 ## Query the Activity Log in the Azure portal
@@ -77,7 +77,7 @@ In the Azure portal, you can filter your Activity Log by these fields:
 
 Once you have defined a set of filters, you can pin a query to your Azure dashboard to always keep an eye on specific events.
 
-For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
+For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
@@ -96,7 +96,7 @@ You can use a storage account or event hub namespace that is not in the same sub
 >  You cannot currently archive data to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -107,17 +107,17 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
 1. Navigate to **Activity Log** using the menu on the left side of the portal.
 
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+    ![Navigate to Activity Log in portal](./media/activity-logs-overview/activity-logs-portal-navigate-v2.png)
 2. Click the **Export to Event Hub** button at the top of the blade.
 
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
+    ![Export button in portal](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. In the blade that appears, you can select:  
   * regions for which you would like to export events
   * the Storage Account to which you would like to save events
   * the number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
   * the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
-     ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+     ![Export Activity Log blade](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
@@ -177,5 +177,5 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../azure-resource-manager/resource-group-audit.md)
-* [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+* [Learn more about the Activity Log (formerly Audit Logs)](../../azure-resource-manager/resource-group-audit.md)
+* [Stream the Azure Activity Log to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
