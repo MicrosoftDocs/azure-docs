@@ -17,7 +17,7 @@ Customer intent: As a developer, I want to migrate the data from my existing Mon
 
 # Tutorial: Migrate your data to an Azure Cosmos DB MongoDB API account
 
-This tutorial provides instructions on how to migrate data stored in MongoDB to an Azure Cosmos DB MongoDB API account. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
+As developer you may have applications that use NoSQL document data. You can use MongoDB API account in Azure cosmos DB, to store and access this document data. You can also migrate data from your existing applications to MongoDB API. This tutorial provides instructions on how to migrate data stored in MongoDB to an Azure Cosmos DB MongoDB API account. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
 
 In this tutorial, you will:
 
@@ -175,7 +175,11 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. Use the following steps to delete the resource group:
+
+1. Navigate to the resource group where you created the Azure Cosmos DB account.
+
+1. Select **Delete resource group**, confirm the name of the resource group to delete and select **Delete**.
 
 ## Next steps
 
