@@ -316,9 +316,11 @@ The conversion is performed using the Azure AD PowerShell Module.
 
    1. Open **PowerShell** and login to Azure AD using a **Global Administrator** account.
    2. To convert the first domain, run the following command:
-      ``` PowerShell
-      Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
-      ```
+ 
+ ``` PowerShell
+ Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
+ ```
+ 
    3. Open the **Azure AD portal**, select **Azure Active Directory**, and then select **Azure AD Connect**.  
    4. Once you have converted all your federated domains, verify that that **Federation is Disabled** while **Seamless single sign-on** and **Pass-through authentication** are **Enabled**.</br>
    ![picture](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
