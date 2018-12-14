@@ -83,7 +83,8 @@ To migrate SSIS projects/packages to Azure SQL Database server or Azure SQL Data
 
     c. Select Browse to specify the destination folder in SSISDB, and then select Next.
 
-    **Note**: The **Next** button is enabled only after you've selected **Connect**.
+    > [!NOTE]
+    > The **Next** button is enabled only after you've selected **Connect**. 
 
 10.	On the **Validate** page, view any errors/warnings, and then if necessary, modify your packages accordingly.
 
@@ -93,7 +94,8 @@ To migrate SSIS projects/packages to Azure SQL Database server or Azure SQL Data
 
 12.	On the **Review** page, review your deployment settings.
 
-    **Note**: You can change your settings by selecting Previous or by selecting any of the step links in the left pane.
+    > [!NOTE]
+    > You can change your settings by selecting Previous or by selecting any of the step links in the left pane.
 
 13.	Select **Deploy** to start the deployment process.
 
