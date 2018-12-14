@@ -88,7 +88,7 @@ Within your Cognitive Services resource, You can use the Endpoint URL and keys i
 
 ![Resources screen](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Authenticate requests to Azure Cognitive Services](authentication.md)
