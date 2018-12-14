@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 12/13/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ---
@@ -32,23 +32,30 @@ When you log in with `az acr login`, the CLI uses the token created when you exe
 
 ### Other CLI login options
 
-In addition to signing in with an individual identity, for cross-service scenarios you can use `az login` to sign in with a service principal or an Azure managed identity. For more information, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli). For more about using a service principal with an Azure container registry, see the next section and [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
+In addition to signing in with an individual identity, for cross-service scenarios you can use `az login` to sign in with a service principal or an Azure managed identity. 
+
+* For more information about signing in see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli). 
+* For more about using a service principal with an Azure container registry, see the next section and [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
 ## Service principal
 
 If you assign a [service principal](../active-directory/develop/app-objects-and-service-principals.md) to your registry, your application or service can use it for headless authentication. Service principals allow [role-based access](../role-based-access-control/role-assignments-portal.md) to a registry, and you can assign multiple service principals to a registry. Multiple service principals allow you to define different access for different applications.
 
-The available roles are:
+The available roles include:
 
-  * **Reader**: pull
-  * **Contributor**: pull and push
-  * **Owner**: pull, push, and assign roles to other users
+* **AcrPull**: pull
+
+* **AcrPush**: pull and push
+
+* **Owner**: pull, push, and assign roles to other users
+
+For a complete list of roles, see [ACR roles and permissions](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 
 Service principals enable headless connectivity to a registry in both push and pull scenarios like the following:
 
-  * *Reader*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
+  * *AcrPull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
-  * *Contributor*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
+  * *AcrPush*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
 
 To create a service principal app ID and password to authenticate with an Azure container registry, or use an existing service principal, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md). 
 
