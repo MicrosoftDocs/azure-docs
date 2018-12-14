@@ -314,6 +314,8 @@
       href: sql-database-temporal-tables.md
 - name: How-to guides
   items:
+  - name: Overview
+    href: sql-database-howto.md
   - name: Single database 
     items: 
     - name: Overview
