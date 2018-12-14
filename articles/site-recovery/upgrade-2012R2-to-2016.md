@@ -17,7 +17,7 @@ This article shows you how to upgrade Windows Server 2012 R2 hosts & SCVMM 2012 
 Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy. The service ensures that your VM workloads remain available when expected and unexpected outages occur.
 
 > [!IMPORTANT]
-> While upgrading Windows Server 2012 R2 hosts that are already configured for replication with Azure SIte Recovery, it is mandatory to follow the steps mentioned in this document. Any alternate path chosen for upgrade can result in unsupported states and can result in break in replication or ability to perform failover.
+> When you upgrade Windows Server 2012 R2 hosts that are already configured for replication with Azure Site Recovery, you must follow the steps mentioned in this document. Any alternate path chosen for upgrade can result in unsupported states and can result in a break in replication or ability to perform failover.
 
 
 In this article, you learn how to upgrade the following configurations in your environment:
