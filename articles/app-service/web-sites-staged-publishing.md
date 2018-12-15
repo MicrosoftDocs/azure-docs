@@ -183,7 +183,7 @@ When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions
 
 ## Monitor swap progress
 
-Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the [Azure portal](https://portal.azure.com).
+Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../azure-monitor/platform/activity-logs-overview.md) in the [Azure portal](https://portal.azure.com).
 
 In your app page of the portal, in the left-hand navigation, select **Activity log**.
 

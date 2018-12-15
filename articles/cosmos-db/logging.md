@@ -455,7 +455,7 @@ The following table describes the content of each log entry.
 
 ## Next steps
 
-- To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles.
+- To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../azure-monitor/platform/diagnostic-logs-overview.md) articles.
 - Read these articles to learn about event hubs:
    - [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
