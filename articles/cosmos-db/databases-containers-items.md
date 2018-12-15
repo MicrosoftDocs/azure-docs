@@ -23,10 +23,10 @@ You can create one or more Azure Cosmos databases under your account. A database
 
 | **Azure Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos database | Database | Keyspace | Database | NA | NA |
+|Azure Cosmos database | Database | Keyspace | Database | Database | NA |
 
 > [!NOTE]
-> With Gremlin and Table APIs accounts, when you create your first graph or table a default database is automatically created within your Azure Cosmos account.
+> With Table APIs accounts, when you create your first table a default database is automatically created within your Azure Cosmos account.
 
 ### Operations on an Azure Cosmos database
 
@@ -50,7 +50,7 @@ When creating an Azure Cosmos container, you configure throughput in one of the 
 
 * **Shared provisioned throughput** mode: These containers share the provisioned throughput with other containers in the same database (excluding those containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared” containers. To learn more, see [how to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
-An Azure Cosmos container can scale elastically, whether you create containers with either “shared” or “dedicated” provisioned throughput modes, that is, they can have unlimited storage and provisioned throughput.  
+An Azure Cosmos container can scale elastically, whether you create containers with either “shared” or “dedicated” provisioned throughput modes.
 
 An Azure Cosmos container is a schema-agnostic container of items. Items within a container can have arbitrary schemas. For example, an item representing a person, an item representing an automobile can be placed in the same container. By default, all items that you add to a container get automatically indexed without requiring any explicit index or schema management. You can customize the indexing behavior by configuring the indexing policy on a container. 
 
@@ -66,7 +66,7 @@ An Azure Cosmos container is specialized into API-specific entities as follows:
 
 | **Azure Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Container | Table | Collection | Graph | Table |
+|Azure Cosmos container | Collection | Table | Collection | Graph | Table |
 
 ### Properties of an Azure Cosmos container
 
@@ -102,7 +102,7 @@ Depending on the choice of the API, an Azure Cosmos item can represent either a 
 
 | **Cosmos entity** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Item | Row | Document | Node or Edge | Item |
+|Azure Cosmos item | Document | Row | Document | Node or Edge | Item |
 
 ### Properties of an item
 

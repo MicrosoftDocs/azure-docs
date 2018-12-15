@@ -1,12 +1,12 @@
 ---
 title: Data Science Virtual Machine Tools overview - Azure | Microsoft Docs
-description: Data Science Virtual machine overview of tools.
+description: Learn about the tools and utilities that are pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning

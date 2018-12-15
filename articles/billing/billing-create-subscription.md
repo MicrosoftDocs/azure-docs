@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 11/28/2018
 ms.author: cwatson
 
 ---
 # Create an additional subscription in the Azure portal
 
-You can create additional subscriptions for your Azure account. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for billing and security, or to isolate data for compliance reasons.
+You can create additional subscriptions for your account in Azure. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for billing and security, or to isolate data for compliance reasons.
 
 If you want to create Azure subscriptions under your organization's Enterprise Agreement, you must have the Account Owner role for your organization.
 
@@ -34,6 +34,8 @@ If you don't already have an Azure subscription, create a [free account](https:/
 
 1. Select **Add**.
 
+   ![Screenshot that shows the Add button in Subscriptions view](./media/billing-create-subscription/subscription-add.png)
+
 You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure Enterprise subscriptions](../azure-resource-manager/programmatically-create-subscription.md).
 
 ## Next steps
@@ -43,6 +45,6 @@ You can also create additional subscriptions programmatically. For more informat
 - [Create management groups for resource organization and management](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Cancel your subscription for Azure](billing-how-to-cancel-azure-subscription.md)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -139,6 +139,6 @@ To check on the status of your payment, [create a support ticket](https://portal
 - [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs)
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

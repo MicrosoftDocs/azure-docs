@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting common indexer issues in Azure Search | Microsoft Docs
-description: Fix common problems with indexers in Azure Search
+title: Troubleshoot common search indexer issues - Azure Search
+description: Fix errors and common problems with indexers in Azure Search, including data source connection, firewall, and missing documents.
 author: mgottein
 manager: cgronlun
 services: search
@@ -9,6 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: magottei
+ms.custom: seodec2018
 ---
 
 # Troubleshooting common indexer issues in Azure Search
@@ -36,13 +37,13 @@ You can verify that the firewall is enabled in the [portal](https://docs.microso
 
 `nslookup <service name>.search.windows.net`
 
-Exceptions don't work for [Cognitive Search](#cognitive-search-concept-intro.md). The only workaround is to disable the firewall.
+Exceptions don't work for [Cognitive Search](cognitive-search-concept-intro.md). The only workaround is to disable the firewall.
 
 ### Cosmos DB
 
 #### Indexing isn't enabled
 
-Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB.]](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal)
+Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
 
 ## Document Processing Errors
 
@@ -50,7 +51,8 @@ Azure Search has an implicit dependency on Cosmos DB indexing. If you turn off a
 
 The blob indexer [documents which document formats are explicitly supported.](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Sometimes, a blob storage container contains unsupported documents. Other times there may be problematic documents. You can avoid stopping your indexer on these documents by [changing configuration options](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
 
-```PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+```
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
 Content-Type: application/json
 api-key: [admin key]
 

@@ -15,9 +15,6 @@ ms.custom: mvc
 
 You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP and port to a private IP and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
-> [!NOTE]
-> DNAT doesn’t work for port 80 and 22. We are working to fix this in the near future. Meanwhile, use any other port as the destination port in NAT rules. Port 80 or 22 can still be used as the translated port. For example, you can map public ip:81 to private ip:80.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

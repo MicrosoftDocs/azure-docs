@@ -8,7 +8,7 @@ keywords: azure backup server; protect workloads; back up workloads
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
+ms.author: adigan
 ---
 
 # Install and upgrade Azure Backup Server

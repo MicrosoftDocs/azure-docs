@@ -25,16 +25,16 @@ These logs differ from the [Activity Log](monitoring-overview-activity-logs.md).
 
 These logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
 
-Not all services support the diagnostic logs described here. [This article contains a section listing which services support diagnostic logs](./monitoring-diagnostic-logs-schema.md).
+Not all services support the diagnostic logs described here. [This article contains a section listing which services support diagnostic logs](./../azure-monitor/platform/tutorial-dashboards.md).
 
 ## What you can do with diagnostic logs
 Here are some of the things you can do with diagnostic logs:
 
 ![Logical placement of Diagnostic Logs](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
+* Save them to a [**Storage Account**](../azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Analyze them with [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Log Analytics with no need to first write the data to storage.  
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
@@ -42,7 +42,7 @@ You can use a storage account or Event Hubs namespace that is not in the same su
 >  You cannot currently archive network flow logs to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -57,7 +57,7 @@ Resource diagnostic logs are configured using resource diagnostic settings. Tena
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
-These settings are easily configured via the diagnostic settings in the portal, via Azure PowerShell and CLI commands, or via the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
+These settings are easily configured from the diagnostic settings in the portal, with Azure PowerShell and CLI commands, or using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -68,7 +68,7 @@ These settings are easily configured via the diagnostic settings in the portal, 
 
 ## How to enable collection of diagnostic logs
 
-Collection of diagnostic logs can be enabled [as part of creating a resource in a Resource Manager template](./monitoring-enable-diagnostic-logs-using-template.md) or after a resource is created from that resource's page in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
+Collection of diagnostic logs can be enabled [as part of creating a resource in a Resource Manager template](./../azure-monitor/platform/diagnostic-logs-stream-template.md) or after a resource is created from that resource's page in the portal. You can also enable collection at any point using Azure PowerShell or CLI commands, or using the Azure Monitor REST API.
 
 > [!TIP]
 > These instructions may not apply directly to every resource. See the schema links at the bottom of this page to understand special steps that may apply to certain resource types.
@@ -223,10 +223,10 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 
 ## Supported services, categories, and schemas for diagnostic logs
 
-[See this article](monitoring-diagnostic-logs-schema.md) for a complete list of supported services and the log categories and schemas used by those services.
+[See this article](../azure-monitor/platform/tutorial-dashboards.md) for a complete list of supported services and the log categories and schemas used by those services.
 
 ## Next steps
 
 * [Stream resource diagnostic logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze logs from Azure storage with Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analyze logs from Azure storage with Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

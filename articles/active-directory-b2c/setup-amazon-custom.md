@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users from an Amazon account by
 ## Prerequisites
 
 - Complete the steps in [Get started with custom policies](active-directory-b2c-get-started-custom.md).
-- If you don't already have an Amazon account, create one at [http://www.amazon.com/](https://www.amazon.com/).
+- If you don't already have an Amazon account, create one at [https://www.amazon.com/](https://www.amazon.com/).
 
 ## Register the application
 

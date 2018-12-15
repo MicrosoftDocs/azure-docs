@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 09/24/2018
 ---
 
-Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
 
 The portal's workspace dashboard is supported on Edge, Chrome, and Firefox browsers only.
 
