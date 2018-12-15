@@ -18,7 +18,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 * Create an Azure Time Series Insights Preview environment.
 * Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
-* Run a wind farm simulation to stream data into the Azure Time Series Insights Preview environment.
+* Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy, and associate it with your instances.
 
@@ -330,11 +330,7 @@ In this section, you apply a model to structure your data. To complete the model
 
    ![Selected range with Zoom command on a shortcut menu][41]
 
-   ![Graph with zoomed event][42]
-
 1. You can also select a region and then right-click to see event details:
-
-   ![Selected range with Explore Events command on a shortcut menu][43]
 
    ![Detailed list of events][44]
 
@@ -345,7 +341,7 @@ In this tutorial, you learned how to:
 * Create and use a device simulation accelerator.
 * Create an Azure Time Series Insights Preview PAYG environment.
 * Connect the Azure Time Series Insights Preview environment to an event hub.
-* Run a wind farm simulation to stream data to the Azure Time Series Insights Preview environment.
+* Run a solution accelerator sample to stream data to the Azure Time Series Insights Preview environment.
 * Perform a basic analysis of the data.
 * Define a Time Series Model type and hierarchy, and associate them with your instances.
 
@@ -367,8 +363,8 @@ Learn more about Time Series Models:
 [3]: media/v2-update-provision/device-three-launch.png
 [4]: media/v2-update-provision/device-four-iot-sim-page.png
 [5]: media/v2-update-provision/device-five-params.png
-[6]: media/v2-update-provision/device-six-listings.png
-[7]: media/v2-update-provision/device-seven-dashboard.png
+[6]: media/v2-update-provision/device-seven-dashboard.png
+[7]: media/v2-update-provision/device-six-listings.png
 [8]: media/v2-update-provision/device-eight-portal.png
 
 [9]: media/v2-update-provision/payg-one-azure.png
