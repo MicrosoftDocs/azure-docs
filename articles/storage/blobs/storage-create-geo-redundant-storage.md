@@ -139,7 +139,7 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 # [Java-V10] (#tab/java-v10)
 
-This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that runs the sample. Follow either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
 
 ### Linux example
 
@@ -188,13 +188,18 @@ You can run the application by opening a terminal or command prompt scoped to th
 The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
 # [Java V10 SDK] (#tab/java-v10)
+
 This sample creates a test file in your default directory, **AppData\Local\Temp**, for Windows users. Then it prompts you to take the following steps:
 
 1. Enter commands to upload the test file to Azure Blob storage.
 2. List the blobs in the container.
-3. Download the uploaded file with a new name so you can compare the old and new files. 
+3. Download the uploaded file with a new name so you can compare the old and new files.
+4. Close the sample, which will also clean up any resources the sample created.
 
-If you want to run the sample using Maven at the command line, open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory. Then enter `mvn compile exec:java`.
+To run the sample, use Maven at the command line.
+
+1. open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory.
+2. Enter `mvn compile exec:java`.
 
 This example shows your output if you run the application on Windows.
 
@@ -224,6 +229,7 @@ Cleaning up the sample and exiting!
 ```
 
 You control the sample, so enter commands to have it run the code. Inputs are case sensitive.
+
 ---
 
 ## Understand the sample code
@@ -336,12 +342,12 @@ With Java, defining callback handlers is unnecessary if the **LocationMode** pro
 
 # [Java V10 SDK] (#tab/java-v10)
 
-With the Java V10 SDK, defining callback handlers remains unnecessary and the SDK now has some fundamental differences from the V7 SDK. Instead of LocationMode, we have a secondary **Pipeline**. You may define a secondary pipeline through the **RequestRetryOptions** and, if defined, allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
+With the Java V10 SDK, defining callback handlers remains unnecessary and the SDK now has some fundamental differences from the V7 SDK. Instead of LocationMode, we have a secondary **Pipeline**. You may define a secondary pipeline through the **RequestRetryOptions** and, if defined, will allow the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
 PipelineOptions myOptions = new PipelineOptions();
-myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, "exampleragrs-secondary.blob.core.windows.net"));
+myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, "exampleragrsaccount-secondary.blob.core.windows.net"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```

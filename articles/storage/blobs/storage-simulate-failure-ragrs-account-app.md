@@ -67,9 +67,15 @@ The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-### Start and pause the application
+### Interrupting the application
+
+#### For .Net, Python, and Java v7
 
 Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+
+#### For Java v10
+
+Since you control the sample, you do not need to interrupt it in order to test failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
@@ -90,13 +96,21 @@ Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment o
          }
 ```
 
+#### .Net, Python, and Java v7
+
 To resume the application, press **any key**.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
+#### Java v10
+
+Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is following the secondary pipeline as opposed to the primary pipeline.
+
 ### Simulate primary endpoint restoration
+
+#### .Net, Python, and Java v7
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
 
@@ -110,13 +124,27 @@ When complete, press **any key** to resume the application. The application cont
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
+#### Java v10
 
-## Simulate a failure with an invalid static route 
+With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
+
+Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function. Select **File** and **Save** to save the changes.
+
+When complete, enter **G** to test the download. The application will report that it is now using the primary pipeline again.
+
+## Simulate a failure with an invalid static route
+
 You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route. 
 
 ### Start and pause the application
 
-Run the application in your IDE or text editor. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application. 
+#### .Net, Python, and Java v7
+
+Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application. 
+
+#### Java v10
+
+Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is following the secondary pipeline as opposed to the primary pipeline.
 
 ### Simulate failure
 
@@ -139,17 +167,17 @@ To add a static route for a destination host, type the following command on a Wi
   route add <destination_ip> <gateway_ip>
 
 ---
- 
+
 Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address. To resume the application, press **any key**.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
 
 ### Simulate primary endpoint restoration
 
-To simulate the primary endpoint functioning again, delete the static route of the primary endpoint from the routing table. This allows all requests to the primary endpoint to be routed through the default gateway. 
+To simulate the primary endpoint functioning again, delete the static route of the primary endpoint from the routing table. This allows all requests to the primary endpoint to be routed through the default gateway.
 
-To delete the static route of a destination host, the storage account, type the following command on a Windows command prompt or linux terminal. 
- 
+To delete the static route of a destination host, the storage account, type the following command on a Windows command prompt or linux terminal.
+
 # [Linux](#tab/linux)
 
 route del <destination_ip> gw <gateway_ip>
@@ -160,19 +188,19 @@ route delete <destination_ip>
 
 ---
 
+#### .Net, Python, and Java v7
+
 Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
+#### Java v10
+
+Enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
 ## Next steps
 
-In part two of the series, you learned about simulating a failure to test read access geo-redundant storage, such as how to:
-
-> [!div class="checklist"]
-> * Run and pause the application
-> * Simulate a failure with [fiddler](#simulate-a-failure-with-fiddler) or [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) 
-> * Simulate primary endpoint restoration
+In part two of the series, you learned about simulating a failure to test read access geo-redundant storage:
 
 Read the following article to learn more about how RA-GRS storage works (and its associated risks).
 
