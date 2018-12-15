@@ -377,11 +377,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
             "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
@@ -455,11 +450,6 @@
         {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
             "redirect_document_id": false
         },
         {
@@ -1338,13 +1328,63 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-csharp-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-python-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-node-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-java-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-c-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-multiple-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-debug-multiple-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
             "redirect_document_id": false
         },
         {
@@ -1865,6 +1905,11 @@
         {
             "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
             "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/create-resource-group-in-template.md",
+            "redirect_url": "/azure/azure-resource-manager/deploy-to-subscription",
             "redirect_document_id": false
         },
         {
