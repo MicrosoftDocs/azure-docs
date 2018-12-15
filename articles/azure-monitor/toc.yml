@@ -70,11 +70,11 @@
     - name: Data sources
       href: platform/data-sources.md
     - name: Azure data sources
-      href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-sources-reference.md
     - name: Activity log
-      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-logs-overview.md
     - name: Diagnostic logs
-      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json 
+      href: platform/diagnostic-logs-overview.md 
     - name: Log data ingestion time
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
@@ -444,13 +444,13 @@
       - name: Archive diagnostic logs
         href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
-        href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostic-logs-stream-log-store.md
       - name: Stream activity log to Event Hubs
         href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: Logs and metrics to Event Hub
         href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: Diagnostic logs to Event Hub
-        href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
         href: platform/app-insights-connector.md
       - name: Export application data
