@@ -206,7 +206,7 @@ For agentless monitoring of Azure resources, the resources need to have Azure di
 | Web Sites               |     | Yes |
 | Web Server farms        |     | Yes |
 
-For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/tutorial-dashboards.md).
 

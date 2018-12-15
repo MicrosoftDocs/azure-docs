@@ -131,7 +131,7 @@ Java applications running in App Service for Linux have the same set of [securit
 
 ### Authenticate users
 
-Set up app authentication in the Azure Portal with the  **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider.  For more information, see [Configure your App Service app to use Azure Active Directory login](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) and the related articles for other identity providers.
+Set up app authentication in the Azure Portal with the  **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider.  For more information, see [Configure your App Service app to use Azure Active Directory login](/azure/app-service/configure-authentication-provider-aad) and the related articles for other identity providers.
 
 If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) article.
 

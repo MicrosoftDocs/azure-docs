@@ -150,7 +150,7 @@ When using an API key, the users of your connector are prompted to provide the k
 ### Azure Active Directory (Azure AD)
 When using Azure AD, you need two Azure AD application registrations: one for the API itself, and one for the custom connector:
 
-- To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) feature.
+- To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/configure-authentication-provider-aad.md) feature.
 
 - To configure registration for the connector, follow the steps in [Adding an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

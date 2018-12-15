@@ -16,13 +16,13 @@ Enterprise Security Package (ESP) clusters provide multi-user access on Azure HD
 
 In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
->[!NOTE]
->ESP is GA in HDI 3.6 for Spark, Interactive, and Apache Hadoop. ESP for HBase and Kafka cluster types is in preview.
+>[!NOTE]  
+>ESP is GA in HDI 3.6 for Apache Spark, Interactive, and Apache Hadoop. ESP for Apache HBase and Apache Kafka cluster types is in preview.
 
 ## Enable Azure AD-DS
 
-> [!NOTE]
-> Only tenant administrators have the privileges to enable Azure AD-DS. If the cluster storage is Azure Data Lake Store (ADLS) Gen1 or Gen2, disable Multi-Factor Authentication (MFA) only for users who will need to access the cluster. If the cluster storage is Azure Blob Storage (WASB), do not disable MFA.
+> [!NOTE]  
+> Only tenant administrators have the privileges to enable Azure AD-DS. If the cluster storage is Azure Data Lake Storage (ADLS) Gen1 or Gen2, disable Multi-Factor Authentication (MFA) only for users who will need to access the cluster. If the cluster storage is Azure Blob Storage (WASB), do not disable MFA.
 
 Enabling AzureAD-DS is a prerequisite before you can create a HDInsight cluster with ESP. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -60,7 +60,7 @@ Once the managed identity is created and given the correct role, the AAD-DS admi
 
 ## Networking considerations
 
-> [!NOTE]
+> [!NOTE]  
 > Azure AD-DS must be deployed in an Azure Resource Manager (ARM) based vNET. Classic virtual networks are not supported for Azure AD-DS. Please refer to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) for more details.
 
 After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs). Configure your Azure AD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
@@ -108,5 +108,5 @@ The managed identity you created can be chosen in from the user-assigned managed
 
 
 ## Next steps
-* For configuring Hive policies and running Hive queries, see [Configure Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).
-* For using SSH to connect to HDInsight clusters with ESP, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* For configuring Hive policies and running Hive queries, see [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).
+* For using SSH to connect to HDInsight clusters with ESP, see [Use SSH with Linux-based Apache Hadoop on HDInsight from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

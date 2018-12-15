@@ -5,15 +5,12 @@ metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
   title: Azure MySQL Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Database for MySQL is a relational database service in the Microsoft cloud built for developers based on the open source MySQL database engine.
-
-  author: czeumault
-  manager: carolz
+  services: mysql
+  author: ajlam
+  ms.author: andrela
   ms.service: mysql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/13/2017
-  ms.author: carolz
+  ms.date: 12/13/2018
 abstract:
   description: Azure Database for MySQL is a relational database service based on the open source MySQL Server engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples.
 sections:
