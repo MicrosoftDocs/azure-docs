@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Use Mongoose to connect to Azure Cosmos DB (Part 5 of Create a MongoDB app with Angular and Azure Cosmos DB)"
-description: Part 5 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
+title: "Tutorial: Build a Node.js application to manage the data stored in MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB"
+description: This tutorial describes the steps required to build a Node.js application by using Angular, Express to manage the data stored in MongoDB API account. In this part,you use Mongoose to connect to Azure Cosmos DB.
 author: johnpapa
 
 ms.service: cosmos-db
@@ -12,9 +12,9 @@ ms.author: jopapa
 Customer intent: As a developer, I want to build a Node.js application so that I can manage the data stored in MongoDB API account of Azure Cosmos DB.
 ---
 
-# Tutorial: Use Mongoose to connect to Azure Cosmos DB (Part 5 of Create a MongoDB app with Angular and Azure Cosmos DB)
+# Tutorial: Build a Node.js application to manage the data stored in MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB 
 
-This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to an [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account. This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
+As developer you may have applications that use NoSQL document data. You can use MongoDB API account in Azure cosmos DB, to store and access this document data. You can build a Node.js application to manage the data stored in MongoDB API account of Azure Cosmos DB. This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to an [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account. This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
 In this part of the tutorial, you will:
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Use Mongoose to connect
 
-Next you install Mongoose and use it to connect to Azure Cosmos account. Run the following steps to install and connect to Azure Cosmos DB. 
+Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. You can use Mongoose to connect to your Azure Cosmos DB account. Run the following steps to install Mongoose and connect to Azure Cosmos DB:
 
 1. Install the mongoose npm module, which is an API that's used to talk to MongoDB.
 
@@ -95,7 +95,7 @@ Next you install Mongoose and use it to connect to Azure Cosmos account. Run the
 
 ## Get the connection string
 
-To connect to your Azure Cosmos account, get the port number, Azure Cosmos account name, and key values from Azure portal and run the following steps: 
+For your application to connect to Azure Cosmos DB, you should update the configuration settings of the application. Navigate to Azure portal and , get the port number, Azure Cosmos account name, and primary key values from of your Azure Cosmos account and run the following steps: 
 
 1. In the **environment.js** file, change the value of `port` to 10255. 
 
@@ -115,11 +115,11 @@ To connect to your Azure Cosmos account, get the port number, Azure Cosmos accou
 
 1. Copy the primary key into the **environment.js** file as the `key` value.
 
-    Your app now has all the information it needs to connect to Azure Cosmos DB. This information can also be retrieved in the portal. For more information, see [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection). The username in the portal equates to the `dbName` in **environments.js** file. 
+    Your app now has all the information it needs to connect to Azure Cosmos DB. 
 
 ## Create a Hero model
 
-In this section you will create a Hero model that defines the schema of the data you want to store in Azure Cosmos DB.
+Next you should define the schema of the data you want to store in Azure Cosmos DB. To do so, you should define a models file. Use the following steps to create a "Hero" model that defines the schema of the data:
 
 1. In the Explorer pane, under the **server** folder, create a file named **hero.model.js**.
 
@@ -154,7 +154,7 @@ In this section you will create a Hero model that defines the schema of the data
 
 ## Create a Hero service
 
-In this section you will create a Hero service that queries the data from Azure Cosmos DB.
+After you create the hero mode, you should define a service to read the data and perform list, create, delete, update operations. Use the following steps to create a Hero service that queries the data from Azure Cosmos DB:
 
 1. In the Explorer pane, under the **server** folder, create a file named **hero.service.js**.
 
@@ -190,9 +190,9 @@ In this section you will create a Hero service that queries the data from Azure 
    };
    ```
 
-## Add the Hero service
+## Configure routes for your service
 
-Run the following steps to add the Hero service that sets up and defines your routes:
+Next, you will setup routes to handle the URLs for get, create, read, or delete requests. These routing methods specify a callback function also called as "handler functions". These functions are called when the application receives a request to the specified endpoint and HTTP method. Run the following steps to add the Hero service and to define your routes:
 
 1. In Visual Studio Code, in the **routes.js** file, comment out the `res.send` function that sends the sample hero data. Add a line to call the `heroService.getHeroes` function instead.
 
@@ -233,7 +233,11 @@ There are no heroes stored yet in the app. In the next part of this tutorial, we
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. Use the following steps to delete the resource group:
+
+ 1. Navigate to the resource group where you created the Azure Cosmos DB account.
+
+ 1. Select **Delete resource group**, confirm the name of the resource group to delete and select **Delete**.
 
 ## Next steps
 
