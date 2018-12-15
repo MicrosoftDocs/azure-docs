@@ -71,6 +71,8 @@
   - name: Streaming live events
     href: live-streaming-overview.md
     items:
+    - name: Recommended live encoders
+      href: recommended-on-prem-live-encoders.md
     - name: Using a cloud DVR
       href: live-event-cloud-dvr.md
     - name: Feature comparison
