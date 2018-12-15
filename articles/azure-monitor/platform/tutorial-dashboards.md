@@ -11,7 +11,7 @@ ms.component: logs
 ---
 # Supported services, schemas, and categories for Azure Diagnostic Logs
 
-[Azure Monitor diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) are logs emitted by Azure services that describe the operation of those services or resources. All diagnostic logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All diagnostic logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
 A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. This article describes the top-level schema for diagnostic logs and links to the schemata for each service.
 
@@ -199,7 +199,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 ## Next Steps
 
-* [Learn more about diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream resource diagnostic logs to **Event Hubs**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Learn more about diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream resource diagnostic logs to **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

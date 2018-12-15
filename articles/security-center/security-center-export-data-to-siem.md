@@ -22,7 +22,7 @@ ms.author: barclayn
 
 This document details the procedure to export Azure Security Center security data to a SIEM.
 
-Processed events produced by Azure Security Center are published to the Azure [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), one of the log types available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. This is done by streaming that data to an Event Hub where it can then be pulled into a partner tool.
+Processed events produced by Azure Security Center are published to the Azure [Activity log](../azure-monitor/platform/activity-logs-overview.md), one of the log types available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. This is done by streaming that data to an Event Hub where it can then be pulled into a partner tool.
 
 This pipe uses the [Azure Monitoring single pipeline](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) for getting access to the monitoring data from your Azure environment. This enables you to easily set up SIEMs and monitoring tools to consume the data.
 

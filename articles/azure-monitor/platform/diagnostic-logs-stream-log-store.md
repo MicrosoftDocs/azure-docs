@@ -11,7 +11,7 @@ ms.component: logs
 ---
 # Stream Azure Diagnostic Logs to Log Analytics
 
-**[Azure diagnostic logs](monitoring-overview-of-diagnostic-logs.md)** can be streamed in near real time to Azure Log Analytics using the portal, PowerShell cmdlets or Azure CLI.
+**[Azure diagnostic logs](diagnostic-logs-overview.md)** can be streamed in near real time to Azure Log Analytics using the portal, PowerShell cmdlets or Azure CLI.
 
 ## What you can do with diagnostics logs in Log Analytics
 
@@ -38,28 +38,28 @@ The Log Analytics workspace does not have to be in the same subscription as the 
 ## Stream diagnostic logs using the portal
 1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
 
-    ![Monitoring section of Azure Monitor](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
+    ![Monitoring section of Azure Monitor](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
 3. If no settings exist on the resource you have selected, you are prompted to create a setting. Click "Turn on diagnostics."
 
-   ![Add diagnostic setting - no existing settings](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
+   ![Add diagnostic setting - no existing settings](media/diagnostic-logs-stream-log-store/diagnostic-settings-none.png)
 
    If there are existing settings on the resource, you will see a list of settings already configured on this resource. Click "Add diagnostic setting."
 
-   ![Add diagnostic setting - existing settings](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
+   ![Add diagnostic setting - existing settings](media/diagnostic-logs-stream-log-store/diagnostic-settings-multiple.png)
 
 3. Give your setting a name and check the box for **Send to Log Analytics**, then select a Log Analytics workspace.
 
-   ![Add diagnostic setting - existing settings](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
+   ![Add diagnostic setting - existing settings](media/diagnostic-logs-stream-log-store/diagnostic-settings-configure.png)
 
 4. Click **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource, and diagnostic logs are streamed to that workspace as soon as new event data is generated. Note that there may be up to fifteen minutes between when an event is emitted and when it appears in Log Analytics.
 
 ### Via PowerShell Cmdlets
-To enable streaming via the [Azure PowerShell Cmdlets](insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
+To enable streaming via the [Azure PowerShell Cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
@@ -69,7 +69,7 @@ Note that the workspaceID property takes the full Azure resource ID of the works
 
 ### Via Azure CLI
 
-To enable streaming via the [Azure CLI](../azure-monitor/platform/cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+To enable streaming via the [Azure CLI](../../azure-monitor/platform/cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -90,8 +90,8 @@ The `--resource-group` argument is only required if `--workspace` is not an obje
 
 ## How do I query the data in Log Analytics?
 
-In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
+In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
 
 ## Next steps
 
-* [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
+* [Read more about Azure Diagnostic Logs](diagnostic-logs-overview.md)
