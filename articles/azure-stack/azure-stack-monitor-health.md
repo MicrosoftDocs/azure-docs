@@ -73,7 +73,7 @@ You can click a specific alert to view the alert details. The alert details show
 
 ## Repair alerts
 
-You can select **Repair** in the alert.
+You can select **Repair** in some alerts.
 
 When selected, the **Repair** action performs steps specific to the alert to attempt to resolve the issue. Once selected the status of the **Repair** action is available as a portal notification.
 
