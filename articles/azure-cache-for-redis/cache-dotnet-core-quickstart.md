@@ -207,7 +207,7 @@ In *Program.cs*, add the following code for the `Main` procedure of the `Program
 
 Save *Program.cs*.
 
-Azure Cache for Rediss have a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+Azure Cache for Redis have a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 Cache items can be stored and retrieved by using the `StringSet` and `StringGet` methods.
 
