@@ -87,3 +87,9 @@ Get-RdsTenant <tenantname> <hostpoolname>
 Get-RdsRegistrationInfo <tenantname> <hostpoolname> | Select-Object -ExpandProperty Token 
 Get-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group"
 ```
+## Next steps
+
+Now that you've made a host pool, it's time to populate it with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage app groups tutorial](./manage-app-groups.md)
