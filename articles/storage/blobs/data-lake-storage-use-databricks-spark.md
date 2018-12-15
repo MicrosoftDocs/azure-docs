@@ -13,14 +13,16 @@ ms.author: dineshm
 
 # Tutorial: Access Data Lake Storage Gen2 Preview data with Azure Databricks using Spark
 
-In this tutorial, you learn how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 (Preview) enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
+This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 (Preview) enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a Databricks cluster
 > * Ingest unstructured data into a storage account
 > * Running analytics on your data in Blob storage
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -30,34 +32,34 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 2. Select **Download** and save the results to your machine.
 3. Make a note of the file name and the path of the download; you need this information in a later step.
 
-In order to complete this tutorial, you will require a storage account with analytic capabilities. Accordingly, we recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one. After you have created it, navigate to the storage account to retrieve configuration settings.
+To complete this tutorial, you need a storage account with analytic capabilities. We recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one. After you have created it, navigate to the storage account to retrieve configuration settings.
 
-1. Under **Settings**, click  **Access keys**.
-2. Click the **Copy** button next to **key1** to copy the key value.
+1. Under **Settings**, select  **Access keys**.
+2. Select the **Copy** button next to **key1** to copy the key value.
 
 Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
 
 ## Create a Databricks cluster
 
-The next step is to create a databricks cluster to create a data workspace.
+The next step is to create a Databricks cluster to create a data workspace.
 
-1. From the [Azure portal](https://portal.azure.com) select **Create a resource**.
+1. From the [Azure portal](https://portal.azure.com), select **Create a resource**.
 2. Enter **Azure Databricks** in the search field.
 3. Select **Create** on the Azure Databricks blade.
 4. Name your Databricks service **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
 5. Select **Launch Workspace** to open the workspace in a new browser window.
-6. Select **Clusters** in the left-hand nav bar.
+6. Select **Clusters** in the left navigation bar.
 7. Select **Create Cluster**.
-8. Enter a **myFlightDataCluster** in the *Cluster name* field.
-9. Select **Standard_D8s_v3** in the *Worker Type* field.
-10. Change the **Min Workers** value to *4*.
-11. Select **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
-12. When the process completes, select **Azure Databricks** on the top left of the nav bar.
+8. Enter a **myFlightDataCluster** in the **Cluster name** field.
+9. Select **Standard_D8s_v3** in the **Worker Type** field.
+10. Change the **Min Workers** value to **4**.
+11. Select **Create Cluster** at the top of the page. (This process may take up to 5 minutes to finish.)
+12. When the process finishes, select **Azure Databricks** on the top left of the navigation bar.
 13. Select **Notebook** under the **New** section on the bottom half of the page.
-14. Enter a name of your choice in the **Name** field and select **Python** as the language.
+14. Enter a name of your choice in the **Name** field, and select **Python** as the language.
 15. All other fields can be left as default values.
 16. Select **Create**.
-17. Paste the following code into the **Cmd 1** cell. Remember to replace the placeholders shown in brackets in the sample with your own values:
+17. Paste the following code into the **Cmd 1** cell. Replace the placeholders shown in brackets in the sample with your own values:
 
     ```scala
     %python%
@@ -78,7 +80,7 @@ The next step is to create a databricks cluster to create a data workspace.
 
 ### Copy source data into the storage account
 
-The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands. Make sure you replace the placeholders `<DOWNLOAD_FILE_PATH>`,  , and `<ACCOUNT_KEY>` with the corresponding values you set aside in a previous step.
+The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands. Make sure you replace the placeholders `<DOWNLOAD_FILE_PATH>`,  `<ACCOUNT_NAME>`, and `<ACCOUNT_KEY>` with the corresponding values you set aside in a previous step.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -90,12 +92,12 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 Reopen Databricks in your browser and execute the following steps:
 
-1. Select **Azure Databricks** on the top left of the nav bar.
+1. Select **Azure Databricks** on the top left of the navigation bar.
 2. Select **Notebook** under the **New** section on the bottom half of the page.
 3. Enter **CSV2Parquet** in the **Name** field.
 4. All other fields can be left as default values.
 5. Select **Create**.
-6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor).
+6. Paste the following code into the **Cmd 1** cell. (This code auto-saves in the editor.)
 
     ```python
     # Use the previously established DBFS mount point to read the data
@@ -108,7 +110,7 @@ Reopen Databricks in your browser and execute the following steps:
 
 ## Explore data
 
-Return to the Databricks workspace and click on the **Recent** icon in the left navigation bar.
+Return to the Databricks workspace and select the **Recent** icon in the left navigation bar.
 
 1. Select the **Flight Data Analytics** notebook.
 2. Press **Ctrl + Alt + N** to create a new cell.
@@ -244,7 +246,7 @@ display(output)
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and select **Delete**.
+When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and select **Delete**.
 
 ## Next steps
 
