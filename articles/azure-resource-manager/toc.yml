@@ -77,8 +77,8 @@
   items:
   - name: Create templates
     items:
-    - name: Create resource groups
-      href: create-resource-group-in-template.md
+    - name: Create resource groups and resources at subscription
+      href: deploy-to-subscription.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
@@ -91,8 +91,6 @@
       href: resource-manager-use-extensions.md
     - name: Update resources
       href: /azure/architecture/building-blocks/extending-templates/update-resource
-    - name: Create resources at the subscription level
-      href: deploy-to-subscription.md
   - name: Deploy templates
     items:
     - name: Deploy by using the portal
