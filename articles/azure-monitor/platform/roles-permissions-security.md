@@ -22,8 +22,8 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * View alert rules defined in [Azure Alerts](../../azure-monitor/platform/alerts-overview.md)
 * Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md), or [cross-platform CLI](../../azure-monitor/platform/cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
-* View the [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.
-* View the [log profile](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.
+* View the [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) for a resource.
+* View the [log profile](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
 * Access Application Insights data and view data in AI Analytics.
@@ -43,8 +43,8 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
 * Publish monitoring dashboards as a shared dashboard.
-* Set [diagnostic settings](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.*
-* Set the [log profile](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
+* Set [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) for a resource.*
+* Set the [log profile](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) for a subscription.*
 * Set alert rules activity and settings via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.

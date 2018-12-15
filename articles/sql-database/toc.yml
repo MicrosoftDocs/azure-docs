@@ -100,6 +100,8 @@
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
+    - name: Migrate from Premium RS service tier
+      href: sql-database-service-tiers-prs.md
   - name: Compute & storage
     items:
     - name: Overview
@@ -316,8 +318,12 @@
       href: sql-database-temporal-tables.md
 - name: How-to guides
   items:
+  - name: Overview
+    href: sql-database-howto.md
   - name: Single database 
     items: 
+    - name: Overview
+      href: sql-database-howto-single-database.md
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
@@ -394,6 +400,8 @@
         href: elastic-jobs-migrate.md
   - name: Managed instance
     items:
+    - name: Overview
+      href: sql-database-howto-managed-instance.md
     - name: Migrate to Managed instance
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance

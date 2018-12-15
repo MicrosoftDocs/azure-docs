@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/14/2018
 
 ms.author: mimart
 author: msmimart
@@ -16,7 +16,14 @@ ms.reviewer: sasubram
 ---
 
 # Auditing and reporting a B2B collaboration user
-With guest users, you have auditing capabilities similar to with member users. Here's an example of the invitation and redemption history of invitee Sam Oogle:
+With guest users, you have auditing capabilities similar to with member users. 
+
+## Access reviews
+You can use access reviews to periodically verify whether guest users still need access to your resources. The **Access reviews** feature is available in **Azure Active Directory** under **Manage** > **Organizational Relationships**. (You can also search for "access reviews" from **All services** in the Azure portal.) To learn how to use access reviews, see [Manage guest access with Azure AD access reviews](../governance/manage-guest-access-with-access-reviews.md).
+
+## Audit logs
+
+The Azure AD audit logs provide records of system and user activities, including activities initiated by guest users. To access audit logs, in **Azure Active Directory**, under **Monitoring**, select **Audit logs**. Here's an example of the invitation and redemption history of invitee Sam Oogle:
 
 ![audit log](./media/auditing-and-reporting/audit-log.png)
 

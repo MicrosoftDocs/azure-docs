@@ -40,6 +40,8 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Select the **PAYG** button under the **SKU** menu. Supply an environment name, and choose which subscription group and which resource group to use. Then, select a supported location for the environment to be hosted in.
 
+   ![Create an Azure Time Series Insights instance.][1]
+
 1. Enter a Time Series ID.
 
     >[!NOTE]
@@ -49,7 +51,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
 
 1. Create an Azure storage account by selecting a storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose v1 account. It will be created in the same region as the Azure Time Series Insights Preview environment that you previously selected.
 
-    ![The Basics tab for creating an Azure Time Series Insights instance][1]
+    ![Create an Azure storage account for your instance][5]
 
 1. Optionally, you can add an event source.
 
@@ -92,7 +94,8 @@ Read [Add an event hub source](./time-series-insights-how-to-add-an-event-source
 Read [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 <!-- Images -->
-[1]: media/v2-update-manage/manage_one.png
-[2]: media/v2-update-manage/manage_two.png
-[3]: media/v2-update-manage/manage_three.png
-[4]: media/v2-update-manage/manage_four.png
+[1]: media/v2-update-manage/manage_one.PNG
+[2]: media/v2-update-manage/manage_two.PNG
+[3]: media/v2-update-manage/manage_three.PNG
+[4]: media/v2-update-manage/manage_four.PNG
+[5]: media/v2-update-manage/manage_five.PNG
