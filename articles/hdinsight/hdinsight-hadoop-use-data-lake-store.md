@@ -151,12 +151,18 @@ $clusterName = '<clustername>'
 $resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
-$generateSelfSignedCert = $false
 $addNewCertKeyCredential = $true
 $certFilePath = 'C:\localfolder\adls.pfx'
+$KeyVaultName = "my-key-vault-name"
+$KeyVaultSecretName = "my-key-vault-secret-name"
 $certPassword = Read-Host "Enter Certificate Password"
+# certSource
+# 0 - create self signed cert
+# 1 - read cert from file path
+# 2 - read cert from key vault
+$certSource = 0
 
-if($generateSelfSignedCert)
+if($certSource -eq 0)
 {
     Write-Host "Generating new SelfSigned certificate"
     
@@ -164,13 +170,25 @@ if($generateSelfSignedCert)
     $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
     $certString = [System.Convert]::ToBase64String($certBytes)
 }
-else
+elsif($certSource -eq 1)
 {
 
     Write-Host "Reading the cert file from path $certFilePath"
 
     $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($certFilePath, $certPassword)
     $certString = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certFilePath))
+}
+elsif($certSource -eq 2)
+{
+    $cert = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName)
+
+    $certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
+
+    $certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2-ArgumentList $certValue,$null,"Exportable, PersistKeySet"
+
+    $certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword.SecretValueText);
+
+    $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
 Login-AzureRmAccount
