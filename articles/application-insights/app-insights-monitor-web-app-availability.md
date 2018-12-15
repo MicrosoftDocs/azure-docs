@@ -202,8 +202,8 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 
 ![Create experience](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-[!NOTE]
-     With the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), the alert rule severity and notification preferences with [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications. 
+> [!NOTE]
+>  With the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), the alert rule severity and notification preferences with [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications.
 
 1. After saving the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
 ![Edit after save](./media/app-insights-monitor-web-app-availability/9editalert.png)
