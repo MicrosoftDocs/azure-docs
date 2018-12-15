@@ -125,6 +125,8 @@ This update includes the following improvements for Azure Stack:
 
 - Extended data at rest encryption protection to include all the infrastructure data stored on local volumes (not on cluster shared volumes). For more information, see [this article](azure-stack-security-bitlocker.md)
 
+- This release introduces alert "Repair" actions for the Azure Stack operator.  Some alerts in 1811 provide a "Repair" button in the alert which can be selected to resolve the issue.  For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+
 ## Fixed issues
 
 <!-- TBD - IS ASDK --> 
