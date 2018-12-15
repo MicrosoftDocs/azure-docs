@@ -1,6 +1,6 @@
 ---
-title: Functions Azure Log Analytics | Microsoft Docs
-description: This article describes how to use functions to call a query from another query in Log Analytics.
+title: Functions in Azure Monitor log queries | Microsoft Docs
+description: This article describes how to use functions to call a query from another log query in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren

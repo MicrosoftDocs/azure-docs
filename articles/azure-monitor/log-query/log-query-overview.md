@@ -1,6 +1,6 @@
 ---
-title: Analyze Log Analytics data in Azure Monitor | Microsoft Docs
-description: You require a log search to retrieve any data from Log Analytics.  This article describes how new log searches are used in Log Analytics and provides concepts that you need to understand before creating one.
+title: Analyze log data in Azure Monitor | Microsoft Docs
+description: You require a log query to retrieve log data from Azure Monitor.  This article describes how new log queries are used in Azure Monitor and provides concepts that you need to understand before creating one.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,18 +14,18 @@ ms.date: 10/18/2018
 ms.author: bwren
 ---
 
-# Analyze Log Analytics data in Azure Monitor
+# Analyze log data in Azure Monitor
 
 Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/azure/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/azure/kusto/query) to retrieve and analyze data.
 
 > [!NOTE]
-> Log Analytics was previously treated as its own service in Azure. It is now considered a part of Azure Monitor and focuses on storage and analysis of log data using its query language. Features that were considered part of Log Analytics, such as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of issues, have not changed but are now considered part of Azure Monitor.
+> Log Analytics was previously treated as its own service in Azure. It is now considered the log feature of Azure Monitor and focuses on storage and analysis of log data using its query language. Features that were considered part of Log Analytics, such as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of issues, have not changed but are now considered part of Azure Monitor.
 
 
 
 ## Log queries
 
-You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](../../azure-monitor/log-query/portals.md), [configuring an alert rule](../../azure-monitor/platform/alerts-metric.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
+You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](portals.md), [configuring an alert rule](alerts-metric.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
 
 
 
@@ -34,12 +34,12 @@ You require a log query to retrieve any data from Log Analytics.  Whether you're
 The different ways that you will use queries in Log Analytics include the following:
 
 - **Portals.** You can perform interactive analysis of log data in the [Azure portal](../../azure-monitor/log-query/portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
-- **Alert rules.** [Alert rules](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
+- **Alert rules.** [Alert rules](../../azure-monitor/platform/alerts-overview.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard](../../azure-monitor/platform/dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../../azure-monitor/platform/view-designer.md).  Log queries provide the data used by [tiles](../../azure-monitor/platform/view-designer-tiles.md) and [visualization parts](../../azure-monitor/platform/view-designer-parts.md) in each view.  
 - **Export.**  When you import data from Log Analytics workspace into Excel or [Power BI](../../azure-monitor/platform/powerbi.md), you create a log query to define the data to export.
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
-- **Log Analytics API.**  The [Log Analytics log search API](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
+- **Log Analytics API.**  The [Log Analytics log search API](../../azure-monitor/platform/alerts-overview.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
 
 ![Log searches](media/log-query-overview/queries-overview.png)
 

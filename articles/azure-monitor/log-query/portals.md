@@ -1,6 +1,6 @@
 ---
-title: Viewing and analyzing data in Azure Log Analytics | Microsoft Docs
-description: This article describes the portals that you can use in Azure Log Analytics to create and edit log searches.
+title: Viewing and analyzing Azure Monitor log data with Log Analytics | Microsoft Docs
+description: This article describes using Log Analytics in the Azure portal to create and edit log queries in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,13 +14,13 @@ ms.date: 09/17/2018
 ms.author: bwren
 ---
 
-# Viewing and analyzing data in Log Analytics
+# Viewing and analyzing log data in Azure Monitor
 There are two options available in the Azure portal for analyzing data stored in Log analytics and for creating queries for ad hoc analysis. The queries that you create using these portals can be used for other features such as alerts and dashboards.
 
-## Log Analytics page
-Open the Log Analytics page from **Logs** in the Log Analytics menu. This is a new experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with the Log Analytics page in the Azure portal](../../azure-monitor/log-query/get-started-portal.md).
+## Log Analytics
+Open Log Analytics page from **Logs** in the **Azure Monitor** menu. This is the primary experience for working with log data and creating queries. You can get an introduction to this portal and inspect its features at [Get started with Log Analytics in the Azure portal](get-started-portal.md).
 
-The Log Analytics page provides the following improvements over the [Log search (classic)](#log-search-classic) experience.
+Log Analytics provides the following improvements over the [Log search (classic)](#log-search-classic) experience.
 
 * Multiple tabs – create separate tabs to work with multiple queries.
 * Rich visualizations – variety of charting options.
@@ -33,12 +33,12 @@ The Log Analytics page provides the following improvements over the [Log search 
 * Column selection – sort and group columns in the query results.
 
 > [!NOTE]
-> The Log Analytics page has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with this new page.
+> Log Analytics has the same functionality as the Advanced Analytics portal which is an external tool outside of the Azure portal. The Advanced Analytics portal is still available, but links and other references to it in the Azure portal are being replaced with this new page.
 
 ![Advanced Analytics portal](media/portals/advanced-analytics-portal.png)
 
 ### Resource logs
-The new Log Analytics experience integrates with various Azure resources such as Virtual Machines. This means that you can open the Log Analytics page directly through the resource's monitoring menu without switching to Azure Monitor or Log Analytics and losing the resource context. **Logs** has not yet been enabled for all Azure resources, but it will start appearing in the portal menu for different resources types.
+Log Analytics integrates with various Azure resources such as Virtual Machines. This means that you can open Log Analytics directly through the resource's monitoring menu without switching to Azure Monitor or Log Analytics and losing the resource context. **Logs** has not yet been enabled for all Azure resources, but it will start appearing in the portal menu for different resources types.
 
 When opening Log Analytics from a specific resource, it's automatically scoped to log records of that resource only.   If you want to write a query that includes other records, then you would need to open it from the Log Analytics or Azure Monitor menu.
 
