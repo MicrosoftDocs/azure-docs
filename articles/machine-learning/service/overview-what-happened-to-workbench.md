@@ -64,9 +64,7 @@ The portal's workspace dashboard is supported on Edge, Chrome and Firefox browse
 
 Your pre-existing data preparation files are not portable to the latest release since we don't have Workbench anymore. However, you can still prepare your data for modeling.  
 
-With any size data sets, you can use the  <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a> to quickly prepare your data prior to modeling. 
-
-It provides intelligent transforms, summary statistics, and is cross environment compatible.  
+With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](http://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
 
 You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
 
