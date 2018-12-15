@@ -45,6 +45,7 @@ You'll also need to install some additional, language-specific tools in order to
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+
 - Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
 - Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
@@ -123,7 +124,7 @@ The module and the deployment.template.json file are set up so that you can buil
 
 When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
-## Launch and debug module code without container (C#, Node.js, Java)
+## Debug a module without a container (C#, Node.js, Java)
 
 If you're developing in C#, Node.js, or Java, your module requires use of a **ModuleClient** object in the default module code so that it can start, run, and route messages. You'll also use the default input channel **input1** to take action when the module receives messages.
 
@@ -195,7 +196,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
 
 1. To stop your debugging session, select the Stop button or press **Shift + F5**, and then run **Azure IoT Edge: Stop IoT Edge Simulator** in the command palette to stop the simulator and clean up.
 
-## Build module container for debugging and debug in attach mode with IoT Edge Simulator (C#, Node.js, Java, Azure Functions)
+## Debug in attach mode with IoT Edge Simulator (C#, Node.js, Java, Azure Functions)
 
 Your default solution contains two modules, one is a simulated temperature sensor module and the other is the pipe module. The simulated temperature sensor sends messages to the pipe module and then the messages are piped to the IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
@@ -237,7 +238,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 >
 > For modules written in C#, including Azure Functions, this example is based on the debug version of `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
 
-## Build, deploy, and debug a module with IoT Edge runtime (Python, C)
+## Debug a module with IoT Edge runtime (Python, C)
 
 In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
