@@ -294,7 +294,7 @@ To configure protection for a SQL database:
 
     ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On availability group to view the list of databases. The following image is an example of a standalone instance and an Always On availability group.
+    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On Availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On Availability group to view the list of databases. The following image is an example of a standalone instance and an Always On Availability group.
 
       ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -308,7 +308,7 @@ To configure protection for a SQL database:
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
 
-      Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+      Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
       ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -343,9 +343,7 @@ To configure protection for a SQL database:
 
 ## Auto-protect SQL Server in Azure VM  
 
-Auto-protection is a capability that lets you automatically protect all the existing databases as well as the future databases that you would add in a standalone SQL Server instance or a SQL Server Always On availability group.
-
-In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy so defined will only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
+Auto-protection allows you to automatically protect all existing databases and databases that you would add in future to a standalone SQL Server instance or a SQL Server Always On Availability group. Turning **ON** auto-protection and choosing a backup policy will apply for newly protected databases, the existing protected databases will continue to use previous policy.
 
 ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -475,7 +473,7 @@ You can also select a specific full or differential backup to restore to a speci
     - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. The effect of this option is to overwrite the original database.
 
     > [!Important]
-    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. In this case, only the **Alternate Location** option is enabled.
+    > If the selected database belongs to an Always On Availability group, SQL Server doesn't allow the database to be overwritten. In this case, only the **Alternate Location** option is enabled.
     >
 
     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)

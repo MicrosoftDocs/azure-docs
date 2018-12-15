@@ -276,11 +276,11 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 ## How do authentication and authorization work in App Service?
 
 For detailed documentation for authentication and authorization in App Service, see docs for various identify provider sign-ins:
-* [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Google](app-service-mobile-how-to-configure-google-authentication.md)
-* [Microsoft Account](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Azure Active Directory](configure-authentication-provider-aad.md)
+* [Facebook](configure-authentication-provider-facebook.md)
+* [Google](configure-authentication-provider-google.md)
+* [Microsoft Account](configure-authentication-provider-microsoft.md)
+* [Twitter](configure-authentication-provider-twitter.md)
 
 ## How do I redirect the default *.azurewebsites.net domain to my Azure web app's custom domain?
 

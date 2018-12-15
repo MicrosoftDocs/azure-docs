@@ -41,7 +41,7 @@ The first step is to use the Azure portal to create an Event Hubs namespace with
 To use the EventProcessorHost, you must have an Azure Storage account. The state information such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create an Azure Storage account by following the instructions in [this article](../storage/common/storage-quickstart-create-account.md).
 
 ## Clone the Git repository
-Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/) from Github. 
+Download or clone the [sample](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/) from GitHub. 
 
 ## Install the EventProcessorHost
 Install the EventProcessorHost for Event Hubs module. 

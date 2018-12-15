@@ -34,7 +34,7 @@ These core languages are supported across Azure Cognitive Services:
 
 > [!NOTE]
 > ¹ Text Analytics is not supported. <br/>
-> ² LUIS, Speech Service: Speech-to-Text, and Video Indexer: Speech-to-Text are not supported.
+> ² LUIS and Video Indexer: Speech-to-Text are not supported.
 
 ## Additional language availability by service
 
