@@ -56,6 +56,9 @@ While a user's account is suspended, all the related directory information is pr
 
     ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
+>[!Note]
+>Previously when a recently deleted user was restored, the DirSync status of the user account was erroneously set to "False", irrespective of the value when the user was deleted. This has now been fixed and the previous value of the DirSync status is restored correctly when the deleted user is restored.
+
 ## Permanently delete a user
 You can permanently delete a user from your directory without waiting the 30 days for automatic deletion. A permanently deleted user can't be restored by you, another administrator, nor by Microsoft customer support.
 
