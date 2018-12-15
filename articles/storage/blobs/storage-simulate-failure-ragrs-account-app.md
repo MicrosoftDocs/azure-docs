@@ -69,7 +69,7 @@ The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file
 
 ### Start and pause the application
 
-Run the application in your IDE or text editor. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
 
 ### Simulate failure
 

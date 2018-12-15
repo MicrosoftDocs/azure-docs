@@ -14,33 +14,32 @@ ms.component: blobs
 
 # Tutorial: Make your application data highly available with Azure storage
 
-This tutorial is part one of a series, which shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to secondary endpoint when a failure is simulated.
+This tutorial is part one of a series, which shows you how to make your application data highly available in Azure. When you're finished, you have a console application that uploads and retrieves a blob to a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. RA-GRS works by replicating transactions from the primary to the secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to. The application switches to the secondary endpoint when a failure is simulated.
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Create a storage account
-> * Download the sample
 > * Set the connection string
 > * Run the console application
 
 ## Prerequisites
 
 To complete this tutorial:
- 
+
 # [.NET] (#tab/dotnet)
+
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **Azure development**
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
- 
-# [Python] (#tab/python) 
+# [Python] (#tab/python)
 
 * Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
-* (Optional) Download and install [Fiddler](https://www.telerik.com/download/fiddler)
 
 # [Java V7 SDK ] (#tab/java-v7)
 
@@ -54,15 +53,13 @@ To complete this tutorial:
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
-A storage account provides a unique namespace to store and access your Azure storage data objects.
+A storage account provides a unique namespace to store and access your Azure Storage data objects.
 
 Follow these steps to create a read-access geo-redundant storage account:
 
@@ -94,7 +91,8 @@ Follow these steps to create a read-access geo-redundant storage account:
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
-# [Python] (#tab/python) 
+
+# [Python] (#tab/python)
 
 [Download the sample project](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) and extract (unzip) the storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Python application.
 
@@ -112,7 +110,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 
 # [Java V10 SDK] (#tab/java-v10)
 
-[Download the sample project](LINKHERE) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
+[Download the sample project](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
 ```bash
 git clone LINKHERE
@@ -120,18 +118,42 @@ git clone LINKHERE
 
 ---
 
+# [.Net, Python, or Java V7] (#tab/.Net, Python, or Java-v7)
 
 ## Set the connection string
 
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
+In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
 
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until to reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
 
-# [Linux] (#tab/linux) 
+### Linux
+
+```
 export storageconnectionstring=\<yourconnectionstring\> 
+```
+### Windows
 
-# [Windows] (#tab/windows) 
+```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# [Java-V10] (#tab/java-v10)
+
+This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that runs the sample. Follow either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.
+
+### Linux example
+
+```
+export AZURE_STORAGE_ACCOUNT="<youraccountname>"
+export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
+```
+
+### Windows example
+
+```
+setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
+setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
+```
 
 ---
 
@@ -139,9 +161,9 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 # [.NET] (#tab/dotnet)
 
-In Visual Studio, press **F5** or select **Start** to start debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit to [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual studio automatically restores missing NuGet packages if configured, visit [Installing and reinstalling packages with package restore](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
-A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -149,7 +171,7 @@ In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file i
 
 # [Python] (#tab/python)
 
-To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or a **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+To run the application on a terminal or command prompt, go to the **circuitbreaker.py** directory, then enter `python circuitbreaker.py`. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
 
 ![Console app running](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -166,11 +188,42 @@ You can run the application by opening a terminal or command prompt scoped to th
 The Storage object retry function is set to use a linear retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. The **LocationMode** property of your **BlobRequestOptions** is set to **PRIMARY\_THEN\_SECONDARY**. This allows the application to automatically switch to the secondary location if it fails to reach the primary location when attempting to download **HelloWorld.png**.
 
 # [Java V10 SDK] (#tab/java-v10)
+This sample creates a test file in your default directory, **AppData\Local\Temp**, for Windows users. Then it prompts you to take the following steps:
 
-You can run the application by opening a terminal or command prompt scoped to the downloaded application folder. From there, enter `mvn compile exec:java` to run the application. The application then uploads the **HelloWorld.png** image from the directory to your storage account and checks to ensure that the image has replicated to the secondary RA-GRS endpoint. Once the check is complete, the application will begin downloading the image repeatedly, while reporting back the endpoint it is downloading from.
+1. Enter commands to upload the test file to Azure Blob storage.
+2. List the blobs in the container.
+3. Download the uploaded file with a new name so you can compare the old and new files. 
 
-The Storage object retry function is set to use a fixed retry policy. The retry function determines whether to retry a request and specifies the number of seconds to wait between each retry. On retry it will utilize the secondary pipeline which we specify in our **RequestRetryOptions**.
+If you want to run the sample using Maven at the command line, open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory. Then enter `mvn compile exec:java`.
 
+This example shows your output if you run the application on Windows.
+
+```
+Created quickstart container
+Enter a command
+(P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
+# Enter a command :
+P
+Uploading the sample file into the container: https://<storageaccount>.blob.core.windows.net/quickstart
+# Enter a command :
+L
+Listing blobs in the container: https://<storageaccount>.blob.core.windows.net/quickstart
+Blob name: SampleBlob.txt
+# Enter a command :
+G
+Get the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+The blob was downloaded to C:\Users\<useraccount>\AppData\Local\Temp\downloadedFile13097087873115855761.txt
+# Enter a command :
+D
+Delete the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+
+# Enter a command :
+>> Blob deleted: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+E
+Cleaning up the sample and exiting!
+```
+
+You control the sample, so enter commands to have it run the code. Inputs are case sensitive.
 ---
 
 ## Understand the sample code
@@ -286,16 +339,11 @@ With Java, defining callback handlers is unnecessary if the **LocationMode** pro
 With the Java V10 SDK, defining callback handlers remains unnecessary and the SDK now has some fundamental differences from the V7 SDK. Instead of LocationMode, we have a secondary **Pipeline**. You may define a secondary pipeline through the **RequestRetryOptions** and, if defined, allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
 
 ```java
-    HttpPipeline secondLine = StorageURL.createPipeline(creds, new PipelineOptions());
-
-    RequestRetryOptions myRequestOptions = new RequestRetryOptions(RetryPolicyType.FIXED, 100, 100, null, null, secondLine.toString());
-
-    PipelineOptions myPipelineOptions = new PipelineOptions();
-
-    myPipelineOptions.requestRetryOptions = myRequestOptions;
-
-    // We are using a pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
-    final ServiceURL serviceURL = new ServiceURL(new URL("http://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myPipelineOptions);
+// We create pipeline options here so that they can be easily used between different pipelines
+PipelineOptions myOptions = new PipelineOptions();
+myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, "exampleragrs-secondary.blob.core.windows.net"));
+// We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
+final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
 ---
 
