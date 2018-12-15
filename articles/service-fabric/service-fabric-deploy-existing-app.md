@@ -65,7 +65,7 @@ The process of manually packaging a guest executable is based on the following g
 4. Edit the application manifest file.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
 -->
 
 ### Create the package directory structure
@@ -164,7 +164,9 @@ In the preceding example, the SetupEntryPoint runs a batch file called `LaunchCo
 </EntryPoint>
 ```
 
-The `EntryPoint` element in the service manifest file is used to specify how to launch the service. The `ExeHost` element specifies the executable (and arguments) that should be used to launch the service.
+The `EntryPoint` element in the service manifest file is used to specify how to launch the service.
+
+The `ExeHost` element specifies the executable (and arguments) that should be used to launch the service. You can optionally add the `IsExternalExecutable="true"` attribute to `ExeHost` to indicate that the program is an external executable outside of the code package. For example, `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` specifies the name of the executable that should start the service.
 * `Arguments` specifies the arguments that should be passed to the executable. It can be a list of parameters with arguments.

@@ -25,7 +25,7 @@ An ASE can be created by using the Azure portal or an Azure Resource Manager tem
 When you create an ASE in the Azure portal, you can create your VNet at the same time or choose a preexisting VNet to deploy into. When you create an ASE from a template, you must start with: 
 
 * A Resource Manager VNet.
-* A subnet in that VNet. We recommend an ASE subnet size of `/24` with 256 addresses to accomodate future growth and scaling needs. After the ASE is created, you can't change the size.
+* A subnet in that VNet. We recommend an ASE subnet size of `/24` with 256 addresses to accommodate future growth and scaling needs. After the ASE is created, you can't change the size.
 * The resource ID from your VNet. You can get this information from the Azure portal under your virtual network properties.
 * The subscription you want to deploy into.
 * The location you want to deploy into.

@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 
@@ -98,7 +98,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
       > [!IMPORTANT]
       > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
       > 
-      > The name of the data factory may be registered as a DNS name in the future and hence become publically visible.                
+      > The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.                
       > 
       > 
 3. On the dashboard, you see the following tile with status: **Deploying data factory**. 

@@ -6,15 +6,14 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 12/03/2018
 ms.author: mabrigg
+ms.reviewer: wfayed
 
 ---
 
@@ -22,24 +21,26 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems*
 
-As an Azure Stack operator, you can apply Microsoft or OEM update packages for Azure Stack by using the Update tile in the administrator portal. You must download the update package, import the package files to Azure Stack, and then install the update package. 
+You can use the **Update** tile in the administration portal to apply Microsoft or OEM update packages for Azure Stack. You must download the update package, import the package files to Azure Stack, and then install the update package.
 
 ## Download the update package
 
 When a Microsoft or OEM update package for Azure Stack is available, download the package to a location that's reachable from Azure Stack, and review the package contents. An update package typically consists of the following files:
 
-- A self-extracting *PackageName*.exe file. This file contains the payload for the update, for example the latest cumulative update for Windows Server.   
-- Corresponding *PackageName*.bin files. These files provide compression for the payload that's associated with the *PackageName*.exe file. 
-- A Metadata.xml file. This file contains essential information about the update, for example the publisher, name, prerequisite, size, and support path URL.
+- A self-extracting `<PackageName>.exe` file. This file contains the payload for the update, for example the latest cumulative update for Windows Server.
+
+- Corresponding `<PackageName>.bin` files. These files provide compression for the payload that's associated with the *PackageName*.exe file.
+
+- A `Metadata.xml` file. This file contains essential information about the update, for example the publisher, name, prerequisite, size, and support path URL.
 
 ## Import and install updates
 
 The following procedure shows how to import and install update packages in the administrator portal.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both user workloads and portal operations.
 
-1. In the administrator portal, select **More services**. Then, under the **Data + Storage** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
+1. In the administrator portal, select **All services**. Then, under the **DATA + STORAGE** category, select **Storage accounts**. (Or, in the filter box, start typing **storage accounts**, and select it.)
 
     ![Shows where to find storage accounts in the portal](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
@@ -62,7 +63,7 @@ The following procedure shows how to import and install update packages in the a
 6. Under **Upload blob**, click the folder icon, browse to the update package's .exe file, and then click **Open** in the file explorer window.
   
 7. Under **Upload blob**, click **Upload**. 
- 
+  
     ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. Do not import the Supplemental Notice.txt file if included.
@@ -71,6 +72,8 @@ The following procedure shows how to import and install update packages in the a
 11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.
 12. When you click the installing update package, you can view the status in the **Update run details** area. From here, you can also click **Download full logs** to download the log files.
 13. When the update completes, the Update tile shows the updated Azure Stack version.
+
+You can manually delete updates from the storage account after they have been installed on Azure Stack. Azure Stack periodically checks for older update packages and removes them from storage. It may take Azure Stack two weeks to remove the old packages.
 
 ## Next steps
 

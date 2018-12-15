@@ -4,13 +4,10 @@ description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 author: Jejiang 
-manager: kfile
-editor: 
 tags: Azure Cosmos DB
 
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang 
@@ -127,7 +124,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
-    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
+    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection.
 
     ![Partition key](./media/storage-explorer/partitionkey.png)
 
@@ -149,7 +146,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 - Click the **Delete** button to delete the selected document.
 
 #### Query for documents
-- Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
+- Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
     ![Document Filter](./media/storage-explorer/document-filter.png)
 

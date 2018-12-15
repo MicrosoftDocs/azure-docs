@@ -4,7 +4,7 @@ description: Provides the solution for a problem in which No subscriptions found
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ---
 
 # No subscriptions found error in Azure portal or Azure account center
@@ -39,7 +39,7 @@ To fix this issue:
 * Make sure that the correct Azure directory is selected by clicking your account at the top right.
 
   ![Select the directory at the top right of the Azure portal](./media/billing-no-subscriptions-found/directory-switch.png)
-* If the right Azure directory is selected but you still receive the error message, [have your account added as an Owner](billing-add-change-azure-subscription-administrator.md).
+* If the right Azure directory is selected but you still receive the error message, [assign the Owner role to your account](../role-based-access-control/role-assignments-portal.md).
 
 ### Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
 
@@ -49,6 +49,6 @@ Check whether the account that you used is the Account Administrator. To verify 
 1. Select the subscription you want to check, and then look under **Settings**.
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

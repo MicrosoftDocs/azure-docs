@@ -1,28 +1,28 @@
 ---
-title: Use Hadoop Hive with PowerShell in HDInsight - Azure 
-description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
+title: Use Apache Hive with PowerShell in HDInsight - Azure 
+description: Use PowerShell to run Hive queries in Apache Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Hive queries using PowerShell
+# Run Apache Hive queries using PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in a Hadoop on HDInsight cluster.
+This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in an Apache Hadoop on HDInsight cluster.
 
 > [!NOTE]
 > This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
 ## Prerequisites
 
-* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
+* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -55,7 +55,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
         .\hivejob.ps1
 
-    When the script runs, you are prompted to enter the cluster name and the HTTPS/Admin account credentials for the cluster. You may also be prompted to log in to your Azure subscription.
+    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to log in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 
@@ -79,7 +79,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+   > For more information about **Here-Strings**, see <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ## Troubleshooting
 

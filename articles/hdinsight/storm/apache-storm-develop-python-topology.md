@@ -2,20 +2,20 @@
 title: Apache Storm with Python comopnents - Azure HDInsight 
 description: Learn how to create an Apache Storm topology that uses Python components.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 keywords: apache storm python
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight
 
-Learn how to create an Apache Storm topology that uses Python components. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The Flux framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
+Learn how to create an [Apache Storm](http://storm.apache.org/) topology that uses Python components. Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. The [Flux](http://storm.apache.org/releases/current/flux.html) framework (introduced with Storm 0.10.0) allows you to easily create solutions that use Python components.
 
 > [!IMPORTANT]
 > The information in this document was tested using Storm on HDInsight 3.6. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -28,7 +28,7 @@ The code for this project is available at [https://github.com/Azure-Samples/hdin
 
 * Java JDK 1.8 or higher
 
-* Maven 3
+* [Apache Maven 3](https://maven.apache.org/download.cgi)
 
 * (Optional) A local Storm development environment. A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
@@ -144,5 +144,5 @@ To stop the topology, use __Ctrl + C__.
 
 See the following documents for other ways to use Python with HDInsight:
 
-* [How to use Python for streaming MapReduce jobs](../hadoop/apache-hadoop-streaming-python.md)
-* [How to use Python User Defined Functions (UDF) in Pig and Hive](../hadoop/python-udf-hdinsight.md)
+* [How to use Python for streaming Apache Hadoop MapReduce jobs](../hadoop/apache-hadoop-streaming-python.md)
+* [How to use Python User Defined Functions (UDF) in Apache Pig and Apache Hive](../hadoop/python-udf-hdinsight.md)

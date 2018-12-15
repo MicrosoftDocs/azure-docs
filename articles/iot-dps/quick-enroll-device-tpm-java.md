@@ -1,6 +1,6 @@
 ---
 title: Enroll TPM device to Azure Device Provisioning Service using Java | Microsoft Docs
-description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Java service SDK
+description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Java service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -17,7 +17,7 @@ ms.custom: mvc
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-These steps show how to enroll a simulated TPM device programmatically to the Azure IoT Hub Device Provisioning Services, using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
+These steps show how to programmatically create an individual enrollment for a simulated TPM device in the Azure IoT Hub Device Provisioning Service using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
 
 Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md), as well as [simulate a TPM device](quick-create-simulated-device.md#simulatetpm) before you proceed.
 
@@ -25,9 +25,9 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 ## Prepare the development environment 
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine. 
 
-2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is usually found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
+2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
 
   You may check if Java is successfully set up on your machine by running the following command on your command window:
 
@@ -62,7 +62,7 @@ This section shows how to add the provisioning details of your TPM device to the
 
     1. Add the `[Provisioning Connection String]` for your provisioning service, from the portal as following:
         1. Navigate to your provisioning service in the [Azure portal](https://portal.azure.com). 
-        2. Open the **Shared access policies**, and select a policy which has the *EnrollmentWrite* permission.
+        2. Open the **Shared access policies**, and select a policy that has the *EnrollmentWrite* permission.
         3. Copy the **Primary key connection string**. 
 
             ![Get the provisioning connection string from portal](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
@@ -98,7 +98,7 @@ This section shows how to add the provisioning details of your TPM device to the
             individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
             ```
 
-    4. Study the sample code. It creates, updates, queries and deletes an individual TPM device enrollment. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentSample.java_ file:
+    4. Study the sample code. It creates, updates, queries, and deletes an individual TPM device enrollment. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentSample.java_ file:
     
         ```Java
         // *********************************** Delete info of individualEnrollment ************************************
@@ -140,7 +140,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 
 1. Close the Java sample output window on your machine.
 1. Close the TPM simulator window that you may have created to simulate your TPM device.
-1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Individual Enrollments** tab. Select the *Registration ID* of the device you enrolled using this Quickstart, and click the **Delete** button at the top of the blade. 
+1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* of the device you enrolled using this Quickstart, and click the **Delete** button at the top of the blade. 
 
 ## Next steps
 In this Quickstart, you enrolled a simulated TPM device to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/03/2018
+ms.date: 09/17/2018
 ms.author: juliako
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---
 # What is Azure Government?
 
-US government agencies or their partners interested in cloud services that meet government security and compliance requirements, can be confident that [Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/) provides world-class [security, protection, and compliance services](http://www.microsoft.com/TrustCenter/Compliance/default.aspx). Azure Government delivers a dedicated cloud enabling government agencies and their partners to transform mission-critical workloads to the cloud. Azure Government services handle data that is subject to certain government regulations and requirements, such as FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. In order to provide you with the highest level of security and compliance, Azure Government uses physically isolated datacenters and networks (located in U.S. only).  
+US government agencies or their partners interested in cloud services that meet government security and compliance requirements, can be confident that [Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/) provides world-class [security, protection, and compliance services](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Azure Government delivers a dedicated cloud enabling government agencies and their partners to transform mission-critical workloads to the cloud. Azure Government services handle data that is subject to certain government regulations and requirements, such as FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. In order to provide you with the highest level of security and compliance, Azure Government uses physically isolated datacenters and networks (located in U.S. only).  
 
 Azure Government customers (US federal, state, and local government or their partners) are subject to validation of eligibility. If there is a question about eligibility for Azure Government, you should consult your account team. To sign up for trial, request your [trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial).
 
@@ -41,7 +41,7 @@ To start using Azure Government, first check out [Guidance for developers](docum
 * [Connect with the Azure CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with Visual Studio](documentation-government-get-started-connect-with-vs.md)
-* [Connect with Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
+* [Deploy with Azure DevOps Services](connect-with-azure-pipelines.md)
 * [Connect with SQL Server Management Studio](documentation-government-connect-ssms.md)
 * [Connect to Storage in Azure Government](documentation-government-get-started-connect-to-storage.md)
 

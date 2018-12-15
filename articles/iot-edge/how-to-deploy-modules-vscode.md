@@ -2,7 +2,7 @@
 title: Deploy Azure IoT Edge modules (VS Code) | Microsoft Docs 
 description: Use Visual Studio Code to deploy modules to an IoT Edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/26/2018
 ms.topic: conceptual
@@ -125,7 +125,7 @@ You deploy modules to your device by applying the deployment manifest that you c
 
 2. Right-click on the device that you want to configure with the deployment manifest. 
 
-3. Select **Create Deployment for IoT Edge Device**. 
+3. Select **Create Deployment for Single Device**. 
 
 4. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**. 
 

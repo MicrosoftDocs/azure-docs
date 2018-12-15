@@ -1,15 +1,15 @@
 ---
-title: Azure Site Recovery deployment planner for Hyper-V to Azure| Microsoft Docs
-description: This article teaches you how to run the Site Recovery deployment planner foro Hyper-V to Azure replication.
+title: Run the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure| Microsoft Docs
+description: This article describes how to run the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/27/2018
 ms.author: nisoneji
 
 ---
-# Run Azure Site Recovery deployment planner for Hyper-V to Azure
+# Run the Azure Site Recovery deployment planner for Hyper-V disaster recovery to Azure
 
 You can run the Site Recovery deployment planner command-line tool (ASRDeploymentPlanner.exe) in any of these four modes: 
 -	[Get the virtual machine (VM) list](#get-vm-list-for-profiling-hyper-v-vms)

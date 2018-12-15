@@ -1,14 +1,14 @@
 ---
-title: Quickstart tutorial for R language for Machine Learning | Microsoft Docs
+title: Quickstart tutorial for R language for Machine Learning Studio - Azure | Microsoft Docs
 description: Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution.
 keywords: quickstart,r language,r programming language,r programming tutorial
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
 ms.component: studio
@@ -17,9 +17,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-
 ---
-# Quickstart tutorial for the R programming language for Azure Machine Learning
+# Quickstart tutorial for the R programming language for Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 

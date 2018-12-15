@@ -54,7 +54,7 @@ Before configuring and enabling the provisioning service, you will need to decid
 
 This section guides you through connecting your Azure AD to Slack's user account provisioning API, and configuring the provisioning service to create, update and disable assigned user accounts in Slack based on user and group assignment in Azure AD.
 
-**Tip:** You may also choose to enabled SAML-based Single Sign-On for Slack, following the instructions provided in (Azure portal)[https://portal.azure.com]. Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+**Tip:** You may also choose to enabled SAML-based Single Sign-On for Slack, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 
 ### To configure automatic user account provisioning to Slack in Azure AD:
@@ -108,8 +108,16 @@ Optionally, you can enable the provisioning of group objects from Azure AD to Sl
 
 This result in any group objects assigned to Slack in the **Users and Groups** section being fully synchronized from Azure AD to Slack. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your Slack app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
+## Connector limitations
+
+  * When configuring Slack's **displayName** attribute, be aware of the following behaviors: 
+  * Values are not entirely unique (e.g. 2 users can have the same display name)
+  * Supports non-English characters, spaces, capitalization. 
+  * Punctuations allowed are periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**) and separators (e.g. **, / ;**).
+  * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
+  * Slack's **userName** attribute has to be under 21 characters and have a unique value. 
 
 ## Additional Resources
 

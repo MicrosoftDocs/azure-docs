@@ -12,7 +12,7 @@ ms.component: data-lake-storage-gen2
 
 # Azure Data Lake Storage Gen2 Preview hierarchical namespace
 
-A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file system performance at object storage scale and prices is the addition of a **hierarchical namespace**. This allows the collection of objects/files within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the hierarchical namespace enabled, Data Lake Storage Gen2 provides the scalability and cost-effectiveness of object storage, with file system semantics that are familiar to analytics engines and frameworks.
+A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file system performance at object storage scale and prices is the addition of a **hierarchical namespace**. This allows the collection of objects/files within an account to be organized into a hierarchy of directories and nested subdirectories in the same way that the file system on your computer is organized. With the hierarchical namespace enabled, a storage account becomes capable of providing the scalability and cost-effectiveness of object storage, with file system semantics that are familiar to analytics engines and frameworks.
 
 ## The benefits of the hierarchical namespace
 
@@ -21,7 +21,7 @@ A key mechanism that allows Azure Data Lake Storage Gen2 Preview to provide file
 
 The following benefits are associated with file systems that implement a hierarchical namespace over blob data:
 
-- **Atomic Directory Manipulation:** Object stores approximate a directory hierarchy by adopting a convention of embedding slashes (/) in the object name to denote path segments. While this convention works for organizing objects, the convention provides no assistance for actions like moving, renaming or deleting directories. Without real directories, applications must process potentially millions of individual blobs to achieve directory-level tasks. By contrast, the hierarchical namespace processes these tasks by updating a single entry (the parent directory). 
+- **Atomic directory manipulation:** Object stores approximate a directory hierarchy by adopting a convention of embedding slashes (/) in the object name to denote path segments. While this convention works for organizing objects, the convention provides no assistance for actions like moving, renaming or deleting directories. Without real directories, applications must process potentially millions of individual blobs to achieve directory-level tasks. By contrast, the hierarchical namespace processes these tasks by updating a single entry (the parent directory).
 
     This dramatic optimization is especially significant for many big data analytics frameworks. Tools like Hive, Spark, etc. often write output to temporary locations and then rename the location at the conclusion of the job. Without the hierarchical namespace, this rename can often take longer than the analytics process itself. Lower job latency equals lower total cost of ownership (TCO) for analytics workloads.
 

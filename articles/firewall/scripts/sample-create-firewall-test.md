@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell script sample - Create Azure Firewall test environment
-description: Azure PowerShell script sample - Create Azure Firewall test enviroment.
+description: Azure PowerShell script sample - Create Azure Firewall test environment.
 services: virtual-network
 author: vhorne
 ms.service: firewall
@@ -12,10 +12,6 @@ ms.author: victorh
 
 # Create an Azure Firewall test environment
 
-[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
-
-The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](../public-preview.md).
-
 This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets: an *AzureFirewallSubnet*, and *ServersSubnet*, and a *JumpboxSubnet*. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
 
 The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
@@ -24,7 +20,7 @@ A user defined route is created that points the network traffic from the Servers
 
 You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. 
 
-If you run PowerShell locally, this script requires the AzureRM PowerShell module version 6.4.0 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
+If you run PowerShell locally, this script requires the latest AzureRM PowerShell module version (6.9.0 or greater). To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
 
 You can use `PowerShellGet` if you need to upgrade, which is built into Windows 10 and Windows Server 2016.
 
@@ -32,15 +28,9 @@ You can use `PowerShellGet` if you need to upgrade, which is built into Windows 
 >Other Windows version require you to install `PowerShellGet` before you can use it. 
 >You can run `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` to determine if it is installed on your system. If the output is blank, you need to install the latest [Windows Management framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
+For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
 
 Any existing Azure PowerShell installation done with the Web Platform installer will conflict with the PowerShellGet installation and needs to be removed.
-
-Additionally, you must install the preview version of AzureRM.Network (version 6.4.0). If have an older module, run `Uninstall-Module AzureRM.Network -Force` to remove it. Then run:
-
- `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
-
-to install verion 6.4.0.
 
 Remember that if you run PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -76,10 +66,10 @@ This script uses the following commands to create a resource group, virtual netw
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Create a virtual machine. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. |
-|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| Creates a new Azure Firewall.|
-|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|Gets an Azure Firewall object.|
-|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|Creates a new Azure Firewall application rule.|
-|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|Commits changes to the Azure Firewall object.|
+|[New-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewall?view=azurermps-6.9.0)| Creates a new Azure Firewall.|
+|[Get-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermfirewall?view=azurermps-6.9.0)|Gets an Azure Firewall object.|
+|[New-AzureRmFirewallApplicationRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewallapplicationrule?view=azurermps-6.9.0)|Creates a new Azure Firewall application rule.|
+|[Set-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermfirewall?view=azurermps-6.9.0)|Commits changes to the Azure Firewall object.|
 
 
 ## Next steps

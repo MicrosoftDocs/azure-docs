@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---
@@ -25,20 +25,6 @@ ms.author: genli
 This article has answers to frequently asked questions (FAQs) about issues with open-source technologies for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-
-## My ClearDB database is down. How do I resolve this?
-
-For database-related issues, contact [ClearDB support](https://www.cleardb.com/developers/help/support). 
-
-For answers to common questions about ClearDB, see [ClearDB FAQs](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## Why wasn't my ClearDB database migrated during my subscription migration?
-
-When you perform resource migration across subscriptions, some limitations apply. A ClearDB MySQL database is a third-party service and is not migrated during an Azure subscription migration.
-
-If you don't manage the migration of your MySQL database before you migrate your Azure resources, your ClearDB MySQL database might be unavailable. To avoid this, first, manually migrate your ClearDB database, and then migrate the Azure subscription for your web app.
-
-For more information, see [FAQs for ClearDB MySQL databases with Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## How do I turn on PHP logging to troubleshoot PHP issues?
 
@@ -55,9 +41,9 @@ To turn on PHP logging:
 9. Select **Save**.
 10. Select the pencil icon next to **wp-config.php**.
 11. Change the text to the following code:
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. In the Azure portal, in the web app menu, restart your web app.
 
@@ -82,7 +68,7 @@ To change the version of the Node.js application, you can use one of the followi
 *   Modify the iisnode.yml file. Changing the Node.js version in the iisnode.yml file only sets the runtime environment that iisnode uses. Your Kudu cmd and others still use the Node.js version that is set in **App settings** in the Azure portal.
 
     To set the iisnode.yml manually, create an iisnode.yml file in your app root folder. In the file, include the following line:
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -92,7 +78,7 @@ To change the version of the Node.js application, you can use one of the followi
     2. Creates a default deployment script, if there isn’t one (deploy.cmd, .deployment files) in the web app root folder.
     3. Runs a deployment script in which it creates an iisnode.yml file if you mention the Node.js version in the package.json file > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. The iisnode.yml file has the following line of code:
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -158,7 +144,7 @@ To resolve the error:
 2. If you are using the custom Tomcat or Azure Marketplace Tomcat web server, copy this .jar file to the Tomcat lib folder.
 3. If you are enabling Java from the Azure portal (select **Java 1.8** > **Tomcat server**), copy the sqljdbc.* jar file in the folder that's parallel to your app. Then, add the following classpath setting to the web.config file:
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

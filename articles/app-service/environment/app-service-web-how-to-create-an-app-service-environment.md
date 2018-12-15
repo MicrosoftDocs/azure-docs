@@ -36,7 +36,7 @@ It is important to be aware of the things you cannot change. Those aspects you c
 * Subnet used 
 * Subnet size
 
-When picking a VNet and specifying a subnet, make sure it is large enough to accomodate any future growth. 
+When picking a VNet and specifying a subnet, make sure it is large enough to accommodate any future growth. 
 
 ### Creating an App Service Environment v1
 To create an App Service Environment v1, you can search the Azure Marketplace for ***App Service Environment v1***, or go through **Create a resource** -> **Web + Mobile** -> **App Service Environment**. To create an ASEv1:

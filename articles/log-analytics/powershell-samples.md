@@ -7,10 +7,8 @@ author: mgoedtel
 manager: carmonm
 editor: tysonn
 tags: ''
-
-ms.assetid:
+ms.assetid: 
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na

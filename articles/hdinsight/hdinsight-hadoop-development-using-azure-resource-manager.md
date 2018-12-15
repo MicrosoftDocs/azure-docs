@@ -2,31 +2,31 @@
 title: Migrate to Azure Resource Manager tools for HDInsight 
 description: How to migrate to Azure Resource Manager development tools for HDInsight clusters
 services: hdinsight
-editor: jasonwhowell
-author: jasonwhowell
+ms.reviewer: jasonh
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
 
-HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new Resource Manager-based approach. Wherever applicable, this document highlights the differences between the ASM and Resource Manager approaches for HDInsight.
+HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure Classic CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new Resource Manager-based approach. Wherever applicable, this document highlights the differences between the ASM and Resource Manager approaches for HDInsight.
 
 > [!IMPORTANT]
 > The support for ASM based PowerShell, CLI, and .NET SDK will discontinue on **January 1, 2017**.
 > 
 > 
 
-## Migrating Azure CLI to Azure Resource Manager
+## Migrating Azure Classic CLI to Azure Resource Manager
 
 > [!IMPORTANT]
-> Azure CLI 2.0 does not provide support for working with HDInsight clusters. You can still use Azure CLI 1.0 with HDInsight, however Azure CLI 1.0 is deprecated.
+> Azure CLI does not provide support for working with HDInsight clusters. You can still use Azure Classic CLI with HDInsight, however Azure Classic CLI is deprecated.
 
-The following are the basic commands for working with HDInsight through Azure CLI 1.0:
+The following are the basic commands for working with HDInsight through Azure CLassic CLI:
 
 * `azure hdinsight cluster create` - creates a new HDInsight cluster
 * `azure hdinsight cluster delete` - deletes an existing HDInsight cluster
@@ -47,11 +47,11 @@ New commands available with Azure Resource Manager are:
 ### Deprecated commands
 If you use the `azure hdinsight job` commands to submit jobs to your HDInsight cluster, these commands are not available through the Resource Manager commands. If you need to programmatically submit jobs to HDInsight from scripts, you should instead use the REST APIs provided by HDInsight. For more information on submitting jobs using REST APIs, see the following documents.
 
-* [Run MapReduce jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [Run Hive queries with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-hive-curl.md)
-* [Run Pig jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-pig-curl.md)
+* [Run Apache Hadoop MapReduce jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Run Apache Hive queries with Apache Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-hive-curl.md)
+* [Run Apache Pig jobs with Apache Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-For information on other ways to run MapReduce, Hive, and Pig interactively, see [Use MapReduce with Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md), [Use Hive with Hadoop on HDInsight](hadoop/hdinsight-use-hive.md), and [Use Pig with Hadoop on HDInsight](hadoop/hdinsight-use-pig.md).
+For information on other ways to run Apache Hadoop MapReduce, Apache Hive, and Apache Pig interactively, see [Use Apache Hadoop MapReduce with Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md), [Use Apache Hive with Apache Hadoop on HDInsight](hadoop/hdinsight-use-hive.md), and [Use Apache Pig with Apache Hadoop on HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### Examples
 **Creating a cluster**
@@ -86,7 +86,7 @@ The Azure PowerShell Resource Manager cmdlets can be installed side by side with
 
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
-* Connect-AzureRmAccount or [Select-AzureRmProfile](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/select-azurermprofile?view=azuresmps-4.0.0). See [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Connect-AzureRmAccount or [Select-AzureRmProfile](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/select-azurermprofile?view=azuresmps-4.0.0). See [Authenticating a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### Renamed cmdlets
@@ -211,9 +211,9 @@ New command:
 
 #### Other samples
 * [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Submit Hive jobs](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Submit Pig jobs](hadoop/apache-hadoop-use-pig-powershell.md)
-* [Submit Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Submit Apache Hive jobs](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Submit Apache Pig jobs](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## Migrating to the new HDInsight .NET SDK
 The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). The following ASM-based HDInsight packages are being deprecated.
@@ -227,11 +227,11 @@ This section provides pointers to more information on how to perform certain tas
 | --- | --- |
 | Create HDInsight clusters using .NET SDK |See [Create HDInsight clusters using .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Customize a cluster using Script Action with .NET SDK |See [Customize HDInsight Linux clusters using Script Action](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
+| Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
 | Authenticate applications non-interactively using Azure Active Directory with .NET SDK |See [Create non-interactive applications for HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| Submit a Hive job using .NET SDK |See [Submit Hive jobs](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| Submit a Pig job using .NET SDK |See [Submit Pig jobs](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
-| Submit a Sqoop job using .NET SDK |See [Submit Sqoop jobs](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
+| Submit an Apache Hive job using .NET SDK |See [Submit Apache Hive jobs](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| Submit an Apache Pig job using .NET SDK |See [Submit Apache Pig jobs](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
+| Submit an Apache Sqoop job using .NET SDK |See [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | List HDInsight clusters using .NET SDK |See [List HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Scale HDInsight clusters using .NET SDK |See [Scale HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | Grant/revoke access to HDInsight clusters using .NET SDK |See [Grant/revoke access to HDInsight clusters](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

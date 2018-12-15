@@ -1,212 +1,243 @@
 ---
-title: Azure Content Moderator - Moderate text using .NET | Microsoft Docs
-description: How to moderate text using Azure Content Moderator SDK for .NET
+title: "Quickstart: Analyze text content for objectionable material in C#"
+titlesuffix: Azure Cognitive Services
+description: How to analyze text content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: sajagtap
+#As a C# developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Moderate text using .NET
+# Quickstart: Analyze text content for objectionable material in C# 
 
-This article provides information and code samples to help you get started using 
-the Content Moderator SDK for .NET to:
-- Detect potential profanity in text with term-based filtering
-- Use machine-learning-based models to [classify the text](text-moderation-api.md#classification) into three categories.
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+## Prerequisites
+- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
+
+> [!NOTE]
+> This guide uses a free-tier Content Moderator subscription. For information on what is provided with each subscription tier, see the [Pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) page.
+
+## Create the Visual Studio project
+
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **TextModeration**. 
+1. If there are other projects in your solution, select this one as the single startup project.
+1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
+    - Microsoft.Azure.CognitiveServices.ContentModerator
+    - Microsoft.Rest.ClientRuntime
+    - Newtonsoft.Json
+
+## Add text moderation code
+
+Next, you'll copy and paste the code from this guide into your project to implement a basic content moderation scenario.
+
+### Include namespaces
+
+Add the following `using` statements to the top of your *Program.cs* file.
+
+```csharp
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+```
+
+### Create the Content Moderator client
+
+Add the following code to your *Program.cs* file to create a Content Moderator client provider for your subscription. Add the code alongside the **Program** class, in the same namespace. You'll need to update the **AzureRegion** and **CMSubscriptionKey** fields with the values of your region identifier and subscription key.
+
+```csharp
+// Wraps the creation and configuration of a Content Moderator client.
+public static class Clients
+{
+	// The region/location for your Content Moderator account, 
+	// for example, westus.
+	private static readonly string AzureRegion = "YOUR API REGION";
+
+	// The base URL fragment for Content Moderator calls.
+	private static readonly string AzureBaseURL =
+		$"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+	// Your Content Moderator subscription key.
+	private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+	// Returns a new Content Moderator client for your subscription.
+	public static ContentModeratorClient NewClient()
+	{
+		// Create and initialize an instance of the Content Moderator API wrapper.
+		ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+		client.Endpoint = AzureBaseURL;
+		return client;
+	}
+}
+```
+
+### Set up input and output targets
+
+Add the following static fields to the **Program** class in _Program.cs_. These specify the files for input text content and output JSON content.
+
+```csharp
+// The name of the file that contains the text to evaluate.
+private static string TextFile = "TextFile.txt";
+
+// The name of the file to contain the output from the evaluation.
+private static string OutputFile = "TextModerationOutput.txt";
+```
+
+You will need to create the *TextFile.txt* input file and update its path accordingly (relative paths are relative to the execution directory). Open _TextFile.txt_ and add the text to moderate. This quickstart uses the following sample text:
+
+```
+Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
+These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
+0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
+```
+
+### Load the input text
+
+Add the following code to the **Main** method. The **ScreenText** method is the essential operation. Its parameters specify which content moderation operations will be done. In this example, the method is configured to:
+- Detect potential profanity in the text.
+- Normalize the text and autocorrect typos.
 - Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
-- Normalize text and autocorrect typos
+- Use machine-learning-based models to classify the text into three categories.
 
-This article assumes that you are already familiar with Visual Studio and C#.
+If you want to learn more about what these operations do, follow the link in the [Next steps](#next-steps) section.
 
-## Sign up for Content Moderator services
+```csharp
+// Load the input text.
+string text = File.ReadAllText(TextFile);
+Console.WriteLine("Screening {0}", TextFile);
 
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+text = text.Replace(System.Environment.NewLine, " ");
+byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
+MemoryStream stream = new MemoryStream(byteArray);
 
-## Create your Visual Studio project
-
-1. Add a new **Console app (.NET Framework)** project to your solution.
-
-   In the sample code, name the project **TextModeration**.
-
-1. Select this project as the single startup project for the solution.
-
-1. Add a reference to the **ModeratorHelper** project assembly that you created 
-   in the [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md).
-
-### Install required packages
-
-Install the following NuGet packages:
-
-- Microsoft.Azure.CognitiveServices.ContentModerator
-- Microsoft.Rest.ClientRuntime
-- Newtonsoft.Json
-
-### Update the program's using statements
-
-Modify the program's using statements.
-
-	using Microsoft.CognitiveServices.ContentModerator;
-	using Microsoft.CognitiveServices.ContentModerator.Models;
-	using ModeratorHelper;
-	using Newtonsoft.Json;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Threading;
-
-
-### Initialize application-specific settings
-
-Add the following static fields to the **Program** class in Program.cs.
-
-    /// <summary>
-    /// The name of the file that contains the text to evaluate.
-    /// </summary>
-    /// <remarks>You will need to create an input file and update this path
-    /// accordingly. Relative paths are ralative the execution directory.</remarks>
-    private static string TextFile = "TextFile.txt";
-
-    /// <summary>
-    /// The name of the file to contain the output from the evaluation.
-    /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
-    private static string OutputFile = "TextModerationOutput.txt";
-
-We used the following text to generate the output for this quickstart:
-
-> [!NOTE]
-> The invalid social security number in the following sample text is intentional. The purpose is to convey the sample input and output format.
-
-	Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-	These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 
-	0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
-
-## Add code to load and evaluate the input text
-
-Add the following code to the **Main** method.
-
-	// Load the input text.
-	string text = File.ReadAllText(TextFile);
-	text = text.Replace(System.Environment.NewLine, " ");
-
-	// Save the moderation results to a file.
-	using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
+// Save the moderation results to a file.
+using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
+{
+	// Create a Content Moderator client and evaluate the text.
+	using (var client = Clients.NewClient())
 	{
-    	// Create a Content Moderator client and evaluate the text.
-    	using (var client = Clients.NewClient())
-    	{
-        	// Screen the input text: check for profanity, classify the text into three categories
-                // do autocorrect text, and check for personally identifying 
-                // information (PII)
-                outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
-                var screenResult =
-                	client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
-                outputWriter.WriteLine(
-                        JsonConvert.SerializeObject(screenResult, Formatting.Indented));
-    	}
-    	outputWriter.Flush();
-    	outputWriter.Close();
+		// Screen the input text: check for profanity,
+		// autocorrect text, check for personally identifying
+		// information (PII), and classify the text into three categories
+		outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
+		var screenResult =
+		client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
+		outputWriter.WriteLine(
+				JsonConvert.SerializeObject(screenResult, Formatting.Indented));
 	}
+	outputWriter.Flush();
+	outputWriter.Close();
+}
+```
 
-> [!NOTE]
-> Your Content Moderator service key has a requests per second (RPS)
-> rate limit, and if you exceed the limit, the SDK throws an exception with a 429 error code.
->
-> When using a free tier key, the rate of requests is limited to one request per second.
+## Run the program
 
-## Run the program and review the output
+The program will write JSON string data to the _TextModerationOutput.txt_ file. The sample text used in this quickstart gives the following output:
 
-The sample output for the program, as written to the log file, is:
-
-	Autocorrect typos, check for matching terms, PII, and classify.
-	{
-	"OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
-  	"NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
-  	"AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
-  	"Misrepresentation": null,
+```json
+Autocorrect typos, check for matching terms, PII, and classify.
+{
+"OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
+"NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+"AutoCorrectedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
+"Misrepresentation": null,
   	
-	"Classification": {
-    		"Category1": {
-      		"Score": 1.5113095059859916E-06
-    		},
-    		"Category2": {
-      		"Score": 0.12747249007225037
-    		},
-    		"Category3": {
-      		"Score": 0.98799997568130493
-    		},
-    		"ReviewRecommended": true
+"Classification": {
+    	"Category1": {
+      	"Score": 1.5113095059859916E-06
+    	},
+    	"Category2": {
+      	"Score": 0.12747249007225037
+    	},
+    	"Category3": {
+      	"Score": 0.98799997568130493
+    	},
+    	"ReviewRecommended": true
+  },
+  "Status": {
+    "Code": 3000,
+    "Description": "OK",
+    "Exception": null
+  },
+  "PII": {
+    	"Email": [
+      		{
+        	"Detected": "abcdef@abcd.com",
+        	"SubType": "Regular",
+        	"Text": "abcdef@abcd.com",
+        	"Index": 33
+      		}
+    		],
+    	"IPA": [
+      		{
+        	"SubType": "IPV4",
+        	"Text": "255.255.255.255",
+        	"Index": 73
+      		}
+    		],
+    	"Phone": [
+      		{
+        	"CountryCode": "US",
+        	"Text": "6657789887",
+        	"Index": 57
+      		},
+      		{
+        	"CountryCode": "US",
+        	"Text": "870 608 4000",
+        	"Index": 211
+      		},
+      		{
+        	"CountryCode": "UK",
+        	"Text": "+44 870 608 4000",
+        	"Index": 207
+      		},
+      		{
+        	"CountryCode": "UK",
+        	"Text": "0344 800 2400",
+        	"Index": 227
+      		},
+      		{
+        "CountryCode": "UK",
+        	"Text": "0800 820 3300",
+        	"Index": 244
+      		}
+    		],
+    	 "Address": [{
+     		 "Text": "1 Microsoft Way, Redmond, WA 98052",
+      		 "Index": 89
+    	        }]
   	},
-  	"Status": {
-    	"Code": 3000,
-    	"Description": "OK",
-    	"Exception": null
-  	},
-  	"PII": {
-    		"Email": [
-      			{
-        		"Detected": "abcdef@abcd.com",
-        		"SubType": "Regular",
-        		"Text": "abcdef@abcd.com",
-        		"Index": 33
-      			}
-    			],
-    		"IPA": [
-      			{
-        		"SubType": "IPV4",
-        		"Text": "255.255.255.255",
-        		"Index": 73
-      			}
-    			],
-    		"Phone": [
-      			{
-        		"CountryCode": "US",
-        		"Text": "6657789887",
-        		"Index": 57
-      			},
-      			{
-        		"CountryCode": "US",
-        		"Text": "870 608 4000",
-        		"Index": 211
-      			},
-      			{
-        		"CountryCode": "UK",
-        		"Text": "+44 870 608 4000",
-        		"Index": 207
-      			},
-      			{
-        		"CountryCode": "UK",
-        		"Text": "0344 800 2400",
-        		"Index": 227
-      			},
-      			{
-        	"	CountryCode": "UK",
-        		"Text": "0800 820 3300",
-        		"Index": 244
-      			}
-    			],
-    		 "Address": [{
-     			 "Text": "1 Microsoft Way, Redmond, WA 98052",
-      			 "Index": 89
-    		        }]
-  		},
-  	"Language": "eng",
-  	"Terms": [
-    	{
-      		"Index": 22,
-      		"OriginalIndex": 22,
-      		"ListId": 0,
-      		"Term": "crap"
-    	}
-  	],
-  	"TrackingId": "9392c53c-d11a-441d-a874-eb2b93d978d3"
-	}
+  "Language": "eng",
+  "Terms": [
+    {
+      	"Index": 22,
+      	"OriginalIndex": 22,
+      	"ListId": 0,
+      	"Term": "crap"
+    }
+  ],
+  "TrackingId": "9392c53c-d11a-441d-a874-eb2b93d978d3"
+}
+```
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+In this quickstart, you've developed a simple .NET application that uses the Content Moderator service to return relevant information about a given text sample. Next, learn more about what the different flags and classifications mean so you can decide which data you need and how your app should handle it.
+
+> [!div class="nextstepaction"]
+> [Text moderation guide](text-moderation-api.md)

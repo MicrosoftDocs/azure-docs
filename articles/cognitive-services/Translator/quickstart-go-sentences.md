@@ -1,18 +1,17 @@
 ---
-title: Translator Text get sentence lengths with Go | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Go in Cognitive Services.
+title: "Quickstart: Get sentence lengths, Go - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
-
+manager: erhopf
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Get sentence lengths with Go
+# Quickstart: Get sentence lengths with the Translator Text REST API (Go)
 
 In this quickstart, you find the lengths of sentences in text using the Translator Text API.
 

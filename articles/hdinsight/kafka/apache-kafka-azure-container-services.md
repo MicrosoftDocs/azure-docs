@@ -3,16 +3,16 @@ title: Use Azure Kubernetes Service with Kafka on HDInsight
 description: Learn how to use Kafka on HDInsight from container images hosted in Azure Kubernetes Service (AKS).
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ---
-# Use Azure Kubernetes Service with Kafka on HDInsight
+# Use Azure Kubernetes Service with Apache Kafka on HDInsight
 
-Learn how to use Azure Kubernetes Service (AKS) with Kafka on HDInsight cluster. The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
+Learn how to use Azure Kubernetes Service (AKS) with [Apache Kafka](https://kafka.apache.org/) on HDInsight cluster. The steps in this document use a Node.js application hosted in AKS to verify connectivity with Kafka. This application uses the [kafka-node](https://www.npmjs.com/package/kafka-node) package to communicate with Kafka. It uses [Socket.io](https://socket.io/) for event driven messaging between the browser client and the back-end hosted in AKS.
 
 [Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Azure Kubernetes Service manages your hosted Kubernetes environment, and makes it quick and easy to deploy containerized applications. Using an Azure Virtual Network, you can connect the two services.
 
@@ -21,7 +21,7 @@ Learn how to use Azure Kubernetes Service (AKS) with Kafka on HDInsight cluster.
 
 ## Prerequisites
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * An Azure subscription
 
 This document assumes that you are familiar with creating and using the following Azure services:
@@ -87,14 +87,14 @@ If you do not already have an AKS cluster, use one of the following documents to
 
     Leave all other fields at the default value, then select __OK__ to configure the peering.
 
-## Install Kafka on HDInsight
+## Install Apache Kafka on HDInsight
 
 When creating the Kafka on HDInsight cluster, you must join the virtual network created earlier for HDInsight. For more information on creating a Kafka cluster, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
 
 > [!IMPORTANT]
 > When creating the cluster, you must use the __Advanced settings__ to join the virtual network that you created for HDInsight.
 
-## Configure Kafka IP Advertising
+## Configure Apache Kafka IP Advertising
 
 Use the following steps to configure Kafka to advertise IP addresses instead of domain names:
 
@@ -146,7 +146,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 At this point, Kafka and Azure Kubernetes Service are in communication through the peered virtual networks. To test this connection, use the following steps:
 
-1. Create a Kafka topic that is used by the test application. For information on creating Kafka topics, see the [Create a Kafka cluster](apache-kafka-get-started.md) document.
+1. Create a Kafka topic that is used by the test application. For information on creating Kafka topics, see the [Create an Apache Kafka cluster](apache-kafka-get-started.md) document.
 
 2. Download the example application from [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test).
 
@@ -155,7 +155,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
     * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
     * `var brokerHost = '176.16.0.13:9092`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
 
-        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
+        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
 
 4. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
@@ -218,12 +218,12 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 Use the following links to learn how to use Apache Kafka on HDInsight:
 
-* [Get started with Kafka on HDInsight](apache-kafka-get-started.md)
+* [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
 
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](apache-kafka-mirroring.md)
+* [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
 
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 
-* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

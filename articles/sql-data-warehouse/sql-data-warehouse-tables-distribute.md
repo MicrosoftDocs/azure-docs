@@ -3,7 +3,7 @@ title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft
 description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
@@ -169,7 +169,7 @@ To decide if you should resolve data skew in a table, you should understand as m
 Since you cannot change the distribution column on an existing table, the typical way to resolve data skew is to re-create the table with a different distribution column.  
 
 ### Re-create the table with a new distribution column
-This example uses [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) to re-create a table with a different hash distribution column.
+This example uses [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) to re-create a table with a different hash distribution column.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
-When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
+When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
 * You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 * You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
@@ -127,15 +127,29 @@ The following table lists all the supported operators and their syntax for a sin
 | In | -in |
 | Not In | -notIn |
 
-### Using the -In and -notIn operators
+### Using the -in and -notIn operators
 
-If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
+If you want to compare the value of a user attribute against a number of different values you can use the -in or -notIn operators. Use the bracket symbols "[" and "]" to begin and end the list of values.
 
  In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### Using the -match operator 
+The **-match** operator is used for matching any regular expression. Examples:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David evaluate to true, aDa evaluates to false.
+
+```
+user.displayName -match ".*vid"
+```
+David evaluates to true, Da evaluates to false.
 
 ## Supported values
 
@@ -299,7 +313,7 @@ The “All Devices” rule is constructed using single expression using the -ne 
 device.objectid -ne null
 ```
 
-### Extension properties and custom extension properties
+## Extension properties and custom extension properties
 
 Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
@@ -318,11 +332,13 @@ An example of a rule that uses a custom extension property is:
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name.
+The custom property name can be found in the directory by querying a user's property using Graph Explorer and searching for the property name. Also, you can now select **Get custom extension properties** link in the dynamic user group rule builder to enter a unique app ID and receive the full list of custom extension properties to use when creating a dynamic membership rule. This list can also be refreshed to get any new custom extension properties for that app.
 
 ## Rules for devices
 
-You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The following device attributes can be used.
+You can also create a rule that selects device objects for membership in a group. You can't have both users and devices as group members. The **organizationalUnit** attribute is no longer listed and should not be used. This string is set by Intune in specific cases but is not recognized by Azure AD, so no devices are added to groups based on this attribute.
+
+The following device attributes can be used.
 
  Device attribute  | Values | Example
  ----- | ----- | ----------------
@@ -338,9 +354,12 @@ You can also create a rule that selects device objects for membership in a group
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
- organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains “M365Managed”)
+
+> [!Note]  
+> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps
 

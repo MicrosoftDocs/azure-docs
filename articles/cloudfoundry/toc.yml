@@ -7,6 +7,8 @@
     href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 - name: Tutorials
   items:
+  - name: Create CF on Azure
+    href: /azure/cloudfoundry/create-cloud-foundry-on-azure
   - name: Deploy CF App to Azure
     href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
   - name: CloudFoundry on Azure
@@ -25,5 +27,5 @@
     href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
   - name: Pivotal and Azure
     href: https://pivotal.io/partners/microsoft
-  - name: VSTS plugin for CF
+  - name: Azure DevOps plugin for CF
     href: https://github.com/Microsoft/vsts-cloudfoundry

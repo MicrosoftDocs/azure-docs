@@ -47,22 +47,6 @@
 - name: Worked-out examples
   href: walkthroughs.md
   items:
-  - name: Azure Machine Learning
-    href: walkthroughs-aml-with-tdsp.md
-    items:
-    - name: Sentiment classification using Keras & Scikit Learn
-      href: predict-twitter-sentiment.md
-    - name: Sentiment classification using AML text analytics package
-      href: predict-twitter-sentiment-amltextpackage.md
-    - name: US income classification
-      href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
-      maintainContext: true
-    - name: Biomedical entity recognition
-      href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      maintainContext: true
-    - name: Skin cancer image classification using AML vision package
-      href: isic-image-classification.md
-      maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
@@ -126,31 +110,34 @@
       href: plan-your-environment.md
   - name: Acquire and understand data
     items:
-    - name: Manage data logistics
+    - name: Ingest data
+      displayName: move data, manage data logistics
       items:
       - name: Overview
         href: ingest-data.md
-      - name: Blob storage
-        href: move-azure-blob.md
-      - name: Use Storage Explorer
-        href: move-data-to-azure-blob-using-azure-storage-explorer.md
-      - name: Use AzCopy
-        href: move-data-to-azure-blob-using-azcopy.md
-      - name: Use Python
-        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-        maintainContext: true
-      - name: Use SSIS
-        href: move-data-to-azure-blob-using-ssis.md
-      - name: Move to a VM
+      - name: Move to/from Blob storage
+        items:
+        - name: Overview
+          href: move-azure-blob.md
+        - name: Use Storage Explorer
+          href: move-data-to-azure-blob-using-azure-storage-explorer.md
+        - name: Use AzCopy
+          href: move-data-to-azure-blob-using-azcopy.md
+        - name: Use Python
+          href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+          maintainContext: true
+        - name: Use SSIS
+          href: move-data-to-azure-blob-using-ssis.md
+      - name: Move to SQL on a VM
         href: move-sql-server-virtual-machine.md
-      - name: Move to SQL Database
+      - name: Move to Azure SQL Database
         href: move-sql-azure.md
-      - name: Load into Hive tables
+      - name: Move to Hive tables
         href: move-hive-tables.md
-      - name: Load from on-prem SQL
-        href: move-sql-azure-adf.md
-      - name: Load fromSQL partition tables
+      - name: Move to SQL partitioned tables
         href: parallel-load-sql-partitioned-tables.md
+      - name: Move from on-prem SQL
+        href: move-sql-azure-adf.md
     - name: Explore and visualize data
       items:
       - name: Prepare data
@@ -159,11 +146,11 @@
         items:
         - name: Overview
           href: explore-data.md
-        - name: Use Pandas
+        - name: Explore Azure Blob storage
           href: explore-data-blob.md
-        - name: Use SQL VM
+        - name: Explore SQL on a VM
           href: explore-data-sql-server.md
-        - name: Use Hive tables
+        - name: Explore Hive tables
           href: explore-data-hive-tables.md
       - name: Sample data
         items:
@@ -213,13 +200,10 @@
         maintainContext: true
   - name: Deploy models in production
     href: deploy-models-in-production.md
-  - name: Use TDSP in Azure ML
-    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-    maintainContext: true
 - name: Related
   items:
-  - name: Azure Machine Learning - AML
-    href: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+  - name: Azure Machine Learning
+    href: ../service/
   - name: Microsoft Cognitive Toolkit - CNTK
     href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true
@@ -243,9 +227,9 @@
       items:
       - name: Overview
         href: cortana-analytics-playbook-vehicle-telemetry.md
-      - name: Playbook
+      - name: Playbook Deep Dive
         href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-      - name: Setup
+      - name: Power BI Setup
         href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:

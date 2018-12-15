@@ -3,9 +3,9 @@ title: Authentication - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/07/2017
+ms.author: jegeib
 
 ---
 
@@ -153,7 +153,7 @@ ms.author: rodsan
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | OnPrem, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
-| **References**              | [Security Best Practices with Contained Databases](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **References**              | [Security Best Practices with Contained Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Steps** | The absence of an enforced password policy may increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
 
 ## <a id="authn-sas-tokens"></a>Use per device authentication credentials using SaS tokens

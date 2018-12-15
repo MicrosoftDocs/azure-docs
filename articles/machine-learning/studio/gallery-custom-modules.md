@@ -1,13 +1,13 @@
 ---
-title: Azure AI Gallery custom modules | Microsoft Docs
+title: Azure AI Gallery custom modules - Azure Machine Learning Studio | Microsoft Docs
 description: Discover custom machine learning modules in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
 ms.component: studio
@@ -16,13 +16,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-
 ---
-# Discover custom machine learning modules in Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# Machine Learning Studio: Discover custom machine learning modules in Azure AI Gallery
 
-## Custom modules for Machine Learning Studio
-Azure AI Gallery offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.
 
 Currently, the Gallery offers modules on *time series analytics*, *association rules*, *clustering algorithms* (beyond k-means), and *visualizations*, and other workhorse utility modules.
 

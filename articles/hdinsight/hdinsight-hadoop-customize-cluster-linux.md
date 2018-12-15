@@ -2,14 +2,14 @@
 title: Customize HDInsight clusters using script actions - Azure 
 description: Add custom components to Linux-based HDInsight clusters using script actions. Script actions are Bash scripts  that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 
 ---
 # Customize Linux-based HDInsight clusters using script actions
@@ -63,7 +63,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
         For example URIs, see the [Example script action scripts](#example-script-action-scripts) section.
 
         > [!WARNING]
-        > HDInsight only supports __General-purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
+        > HDInsight only supports Blob in Azure Storage accounts with standard performance tier. 
 
 * Can be restricted to **run on only certain node types**, for example head nodes or worker nodes.
 
@@ -85,7 +85,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. T
 
 * Run with **root level privileges** on the cluster nodes.
 
-* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure CLI v1.0**, or **HDInsight .NET SDK**
+* Can be used through the **Azure portal**, **Azure PowerShell**, **Azure Classic CLI**, or **HDInsight .NET SDK**
 
 The cluster keeps a history of all scripts that have been ran. The history is useful when you need to find the ID of a script for promotion or demotion operations.
 
@@ -107,7 +107,7 @@ The following diagram illustrates when script action is executed during the crea
 The script runs while HDInsight is being configured. The script runs in parallel on all the specified nodes in the cluster, and runs with root privileges on the nodes.
 
 > [!NOTE]
-> You can perform operations like stopping and starting services, including Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services running before the script completes. These services are required to successfully determine the health and state of the cluster while it is being created.
+> You can perform operations like stopping and starting services, including Apache Hadoop-related services. If you stop services, you must ensure that the Ambari service and other Hadoop-related services running before the script completes. These services are required to successfully determine the health and state of the cluster while it is being created.
 
 
 During cluster creation, you can use multiple script actions at once. These scripts are invoked in the order in which they were specified.
@@ -143,7 +143,7 @@ Script action scripts can be used through the following utilities:
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI v1.0
+* Azure Classic CLI
 * HDInsight .NET SDK
 
 HDInsight provides scripts to install the following components on HDInsight clusters:
@@ -164,7 +164,7 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a script action during cluster creation from the Azure portal
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). During cluster creation, you will arrive at a __Cluster summary__ page. From the __Cluster summary__ page, select the __edit__ link for __Advanced settings__.
+1. Start creating a cluster as described at [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). During cluster creation, you will arrive at a __Cluster summary__ page. From the __Cluster summary__ page, select the __edit__ link for __Advanced settings__.
 
     ![Advanced settings link](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -288,10 +288,9 @@ Once the operation completes, you receive information similar to the following t
 
 ### Apply a script action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI 1.0](../cli-install-nodejs.md).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure Classic CLI](../cli-install-nodejs.md).
 
-> [!IMPORTANT]
-> HDInsight requires Azure CLI 1.0. Currently Azure CLI 2.0 does not provide commands for working with HDInsight.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. To switch to Azure Resource Manager mode, use the following command at the command line:
 
@@ -376,7 +375,7 @@ The following example script demonstrates using the cmdlets to promote, then dem
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### Using the Azure CLI
+### Using the Azure Classic CLI
 
 | Use the following... | To ... |
 | --- | --- |
@@ -399,11 +398,11 @@ For an example of using the .NET SDK to retrieve script history from a cluster, 
 
 ## Support for open-source software used on HDInsight clusters
 
-The Microsoft Azure HDInsight service uses an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for built-in components.
+The Microsoft Azure HDInsight service uses an ecosystem of open-source technologies formed around Apache Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of the [Azure Support FAQ website](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for built-in components.
 
 There are two types of open-source components that are available in the HDInsight service:
 
-* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, the Hive query language ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)), and the [Apache Mahout](https://mahout.apache.org/) library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
 > [!WARNING]
@@ -423,7 +422,7 @@ The HDInsight service provides several ways to use custom components. The same l
 
 You can use Ambari web UI to view information logged by script actions. If the script fails during cluster creation, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs using both these options.
 
-### Using the Ambari Web UI
+### Using the Apache Ambari Web UI
 
 1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
 
@@ -511,8 +510,8 @@ There are two exceptions:
 ## Next steps
 
 * [Develop script action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
-* [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
+* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
+* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Stages during cluster creation"

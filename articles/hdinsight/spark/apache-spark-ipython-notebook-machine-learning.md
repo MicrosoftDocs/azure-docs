@@ -3,25 +3,25 @@ title: 'Tutorial: Build a Spark machine learning application in Azure HDInsight'
 description: Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter notebook.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 
 ---
-# Tutorial: Build a Spark machine learning application in HDInsight 
+# Tutorial: Build an Apache Spark machine learning application in HDInsight 
 
-In this tutorial, you learn how to use the Jupyter notebook to build an Apache Spark machine learning application for Azure HDInsight. 
+In this tutorial, you learn how to use the [Jupyter Notebook](https://jupyter.org/) to build an [Apache Spark](https://spark.apache.org/) machine learning application for Azure HDInsight. 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) is Spark’s scalable machine learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Develop a Spark machine learning application
+> * Develop an Apache Spark machine learning application
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -77,7 +77,7 @@ In this application, you use a Spark [ML pipeline](https://spark.apache.org/docs
         return LabeledDocument((values[6]), textValue, hot)
 
     # Load the raw HVAC.csv file, parse it using the function
-    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    data = sc.textFile("/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
     documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
     training = documents.toDF()
@@ -187,7 +187,7 @@ Apache Spark clusters in HDInsight include Anaconda libraries. It also includes 
 
 In this tutorial, you learned how to:
 
-* Develop a Spark machine learning application
+* Develop an Apache Spark machine learning application
 
 Advance to the next tutorial to learn how to use IntelliJ IDEA for Spark jobs. 
 

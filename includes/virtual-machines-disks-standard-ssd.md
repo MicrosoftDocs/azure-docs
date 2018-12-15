@@ -17,7 +17,7 @@ Azure Standard Solid State Drives (SSD) Managed Disks are a cost-effective stora
 ## Standard SSD Features
 
 **Managed Disks**: Standard SSDs are only available as Managed Disks. Unmanaged Disks and Page Blobs are not supported on Standard SSD. While creating the Managed Disk, you specify the disk type as Standard SSD and indicate the size of disk you need, and Azure creates and manages the disk for you.
-Standard SSDs support all service management operations offered by Managed Disks. For example, you can create, copy or snapshot Standard SSD Managed Disks in the same way you do with Managed Disks.
+Standard SSDs support all classic deployment model operations offered by Managed Disks. For example, you can create, copy or snapshot Standard SSD Managed Disks in the same way you do with Managed Disks.
 
 **Virtual Machines**: Standard SSDs can be used with all Azure VMs, including the VM types that do not support Premium Disks. For example, if you're using an A-series VM, or N-series VM, or DS-series, or any other Azure VM series, you can use Standard SSDs with that VM. With the introduction of Standard SSD, we are enabling a broad range of workloads that previously used HDD-based disks to transition to SSD-based disks, and experience the consistent performance, higher availability, better latency, and an overall better experience that come with SSDs.
 
@@ -27,20 +27,23 @@ Standard SSDs support all service management operations offered by Managed Disks
 
 ## Scalability and performance targets
 
-The following table contains disk sizes, which are currently offered for Standard SSD.
+The following table contains disk sizes, which are currently offered for Standard SSD. Sizes denoted with an asterisk are currently in preview.
 
 |Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Throughput per disk  |
 |---------|---------|---------|---------|
 |E10     |128 GiB         |Up to 500         |Up to 60 MiB per second         |
 |E15     |256 GiB         |Up to 500         |Up to 60 MiB per second         |
 |E20     |512 GiB         |Up to 500         |Up to 60 MiB per second         |
-|E30     |1024 GiB         |Up to 500         |Up to 60 MiB per second         |
-|E40     |2048 GiB         |Up to 500         |Up to 60 MiB per second         |
-|E50     |4095 GiB         |Up to 500         |Up to 60 MiB per second         |
+|E30     |1,024 GiB       |Up to 500         |Up to 60 MiB per second         |
+|E40     |2,048 GiB       |Up to 500         |Up to 60 MiB per second         |
+|E50     |4,095 GiB       |Up to 500         |Up to 60 MiB per second         |
+|E60 *     |8,192 GiB       |Up to 1,300       |Up to 300 MiB per second        |
+|E70 *    |16,384 GiB      |Up to 2,000       |Up to 500 MiB per second        |
+|E80 *    |32,767 GiB      |Up to 2,000       |Up to 500 MiB per second        |
 
-Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
+Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table 99% of the time. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 
-Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance. It is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage.
+Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance. Premium SSD is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage.
 
 Like the Premium SSDs, Standard SSDs also use IO Unit size of 256 KiB. If the data being transferred is less than 256 KiB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KiB. For example, a 1,100 KiB I/O is counted as five I/O units.
 

@@ -1,10 +1,11 @@
 ---
-title: What is Bing Video Search? | Microsoft Docs
+title: What is Bing Video Search?
+titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Video Search API to search the web for videos.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4A76718B-E32C-419F-98DF-19E877643378
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: overview
@@ -41,7 +42,7 @@ All requests must be made from a server.
 
 If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
-To get videos from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
+To get videos from a specific domain, use the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -125,7 +126,7 @@ By default, the Video Search API returns all videos that are relevant to the que
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Filter videos by video length (for example, videos that are less than five minutes in length)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Filter videos by age (for example, videos discovered by Bing in the past week)
 
-To get videos from a specific domain, include the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator in the query string.
+To get videos from a specific domain, include the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator in the query string.
 
 > [!NOTE]
 > Depending on the query, if you use the `site:` query operator, there is the chance that the response contains adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.

@@ -1,20 +1,19 @@
 ---
-title: 'Tutorial: Apache Kafka with Storm on HDInsight - Azure '
+title: 'Tutorial: Apache Kafka with Apache Storm on HDInsight - Azure '
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
-
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.author: jasonh
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
 ---
-# Tutorial: Use Apache Storm with Kafka on HDInsight
+# Tutorial: Use Apache Storm with Apache Kafka on HDInsight
 
-This tutorial demonstrates how to use an Apache Storm topology to read and write data with Apache Kafka on HDInsight. This tutorial also demonstrates how to persist data to the HDFS-compatible storage on the Storm cluster.
+This tutorial demonstrates how to use an [Apache Storm](https://storm.apache.org/) topology to read and write data with [Apache Kafka](https://kafka.apache.org/) on HDInsight. This tutorial also demonstrates how to persist data to the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) compatible storage on the Storm cluster.
 
 In this tutorial, you learn how to:
 
@@ -33,7 +32,7 @@ In this tutorial, you learn how to:
 
 * Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](./kafka/apache-kafka-get-started.md) document.
 
-* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use the Flux framework. For more information, see the [Create a Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
+* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use the [Flux](https://storm.apache.org/releases/current/flux.html) framework. For more information, see the [Create a Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
 
 * [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
@@ -59,7 +58,7 @@ The following environment variables may be set when you install Java and the JDK
 
 ## Storm and Kafka
 
-Apache Storm provides the several components for working with Kafka. The following components are used in this tutorial:
+Apache Storm provides the several components for working with Apache Kafka. The following components are used in this tutorial:
 
 * `org.apache.storm.kafka.KafkaSpout`: This component reads data from Kafka. This component relies on the following components:
 
@@ -78,7 +77,7 @@ Apache Storm provides the several components for working with Kafka. The followi
 These components are available in the `org.apache.storm : storm-kafka` package. Use the package version that matches the Storm version. For HDInsight 3.6, the Storm version is 1.1.0.
 You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 0.10.0.0.
 
-The following XML is the dependency declaration in the `pom.xml` for a Maven project:
+The following XML is the dependency declaration in the `pom.xml` for an [Apache Maven](https://maven.apache.org/) project:
 
 ```xml
 <!-- Storm components for talking to Kafka -->
@@ -365,7 +364,7 @@ The project contains a file named `dev.properties` that is used to pass paramete
 
 | dev.properties file | Description |
 | --- | --- |
-| `kafka.zookeeper.hosts` | The Zookeeper hosts for the Kafka cluster. |
+| `kafka.zookeeper.hosts` | The [Apache ZooKeeper](https://zookeeper.apache.org/) hosts for the Kafka cluster. |
 | `kafka.broker.hosts` | The Kafka broker hosts (worker nodes). |
 | `kafka.topic` | The Kafka topic that the topologies use. |
 | `hdfs.write.dir` | The directory that the Kafka-reader topology writes to. |
@@ -380,7 +379,7 @@ The following diagram shows how communication flows between Storm and Kafka:
 ![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
-> Other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Other services on the cluster such as SSH and [Apache Ambari](https://ambari.apache.org/) can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 To create an Azure Virtual Network, and then create the Kafka and Storm clusters within it, use the following steps:
 
@@ -633,8 +632,8 @@ To remove the resource group using the Azure portal:
 
 ## Next steps
 
-In this tutorial, you learned how to use a Storm topology to write to and read from Kafka on HDInsight. You also learned how to store data to the HDFS compatible storage used by HDInsight.
+In this tutorial, you learned how to use an [Apache Storm](https://storm.apache.org/) topology to write to and read from [Apache Kafka](https://kafka.apache.org/) on HDInsight. You also learned how to store data to the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) compatible storage used by HDInsight.
 
-To learn more about using Kafka on HDInsight, see the [Use Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md) document.
+To learn more about using Kafka on HDInsight, see the [Use Apache Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md) document.
 
 For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

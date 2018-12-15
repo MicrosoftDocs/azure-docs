@@ -1,9 +1,8 @@
 ---
-title: Azure Cosmos DB Table API .NET SDK & Resources | Microsoft Docs
+title: Azure Cosmos DB Table API .NET SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 author: rnagpal
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
@@ -16,6 +15,7 @@ ms.author: rnagpal
 # Azure Cosmos DB Table .NET API: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
@@ -33,6 +33,10 @@ ms.author: rnagpal
 >
 
 ## Release notes
+
+### <a name="2.0.0"/>2.0.0
+* Added Multi-region write support
+* Fixed NuGet package dependencies on Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
 ### <a name="1.1.3"/>1.1.3
 * Fixed NuGet package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.

@@ -1,40 +1,42 @@
 ---
-title: Azure AD v2 UWP getting started | Microsoft Docs
-description: How Universal Windows Platform applications (UWP) can call an API that requires access tokens by the Azure Active Directory v2 endpoint
+title: Azure AD v2.0 UWP getting started | Microsoft Docs
+description: How Universal Windows Platform applications (UWP) can call an API that requires access tokens by the Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev 
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
 
-This guide explains how a native Universal Windows Platform (UWP) application can request an access token and then call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Azure Active Directory v2 endpoint.
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
+
+This guide explains how a native Universal Windows Platform (UWP) application can request an access token and then call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Azure Active Directory v2.0 endpoint.
 
 At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory.
 
 >[!NOTE]
 > This guide requires Visual Studio 2017 with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
 
-### How this guide works
+## How this guide works
 
 ![How this guide works graph](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-This guide creates a sample UWP application that queries Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Microsoft Authentication Library (MSAL) handles token acquisitions and renewals.
+This guide creates a sample UWP application that queries Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2.0 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Microsoft Authentication Library (MSAL) handles token acquisitions and renewals.
 
-### NuGet packages
+## NuGet packages
 
 This guide uses the following NuGet packages:
 
@@ -42,18 +44,18 @@ This guide uses the following NuGet packages:
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
-
 ## Set up your project
 
 This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft*. Then it can query Web APIs that require a token, such as Microsoft Graph API.
 
 This guide creates an application that displays a button that queries Graph API, a sign-out button, and text boxes that display the results of the calls.
 
->[!NOTE]
+> [!NOTE]
 > Do you want to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before it runs.
 
 
 ### Create your application
+
 1. In Visual Studio, select **File** > **New** > **Project**.
 2. Under **Templates**, select **Visual C#**.
 3. Select **Blank App (Universal Windows)**.
@@ -67,11 +69,14 @@ This guide creates an application that displays a button that queries Graph API,
 2. Copy and paste the following command in the **Package Manager Console** window:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
-> This command installs [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.
+> This command installs [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.0.
+
+> [!NOTE]
+> This tutorial does not use yet the latest version of MSAL.NET, but we are working on updating it.
 
 ## Initialize MSAL
 This step helps you create a class to handle interaction with MSAL, such as handling tokens.
@@ -182,10 +187,13 @@ This section shows how to use MSAL to get a token for Microsoft Graph API.
     ```
 
 ### More information
+
 #### Get a user token interactively
+
 A call to the `AcquireTokenAsync` method results in a window that prompts users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails. An example is when a user’s password is expired.
 
 #### Get a user token silently
+
 The `AcquireTokenSilentAsync` method handles token acquisitions and renewals without any user interaction. After `AcquireTokenAsync` is executed for the first time and the user is prompted for credentials, the `AcquireTokenSilentAsync` method should be used to request tokens for subsequent calls because it acquire tokens silently. MSAL will handle token cache and renewal.
 
 Eventually, the `AcquireTokenSilentAsync` method fails. Reasons for failure might be that users have either signed out or changed their password on another device. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MsalUiRequiredException` exception. Your application can handle this exception in two ways:
@@ -322,7 +330,6 @@ To enable Windows Integrated Authentication when it's used with a federated Azur
 > [!IMPORTANT]
 > Windows Integrated Authentication is not configured by default for this sample. Applications that request *Enterprise Authentication* or *Shared User Certificates* capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need Windows Integrated Authentication with a federated Azure Active Directory domain.
 
-
 ## Test your code
 
 To test your application, select F5 to run your project in Visual Studio. Your main window appears:
@@ -358,7 +365,7 @@ Optionally, copy the value in **Access Token** and paste it in https://jwt.ms to
 
 Microsoft Graph API requires the *user.read* scope to read a user's profile. This scope is added automatically by default in every application that's registered in the Application Registration Portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require additional scopes. Microsoft Graph API requires the *Calendars.Read* scope to list the user’s calendars.
 
-To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then add the *Calendars.Read* scope to the `acquireTokenSilent` call. 
+To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then add the *Calendars.Read* scope to the `acquireTokenSilent` call.
 
 > [!NOTE]
 > Users might be prompted for additional consents as you increase the number of scopes.
@@ -381,3 +388,5 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 **Cause:** This issue is a known limitation of the web authentication broker in UWP applications that run on Windows 10 desktop. It works fine on Windows 10 Mobile.
 
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

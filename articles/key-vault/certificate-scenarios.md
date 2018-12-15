@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
 
@@ -48,14 +48,14 @@ Certificates are composed of three interrelated resources linked together as a K
 
 **Step 3** - A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
--   Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
+-   Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
     -   Ex. MyDigiCertIssuer  
         -   Provider  
         -   Credentials – CA account credentials. Each CA has its own specific data.  
 
-     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](http://aka.ms/kvcertsblog).  
+     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
 
-**Step 3.1** - set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
+**Step 3.1** - set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 
 Note - This process, through step 3.1, is a onetime operation.  
 
@@ -80,7 +80,7 @@ Note - This process, through step 3.1, is a onetime operation.
       -   Renewal information - > ex. 90 days before expiry  
 
   - A certificate creation process is usually an asynchronous process and involves polling your key vault for the state of the create certificate operation.  
-[Get certificate operation](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[Get certificate operation](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Status: completed, failed with error information or, canceled  
       -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
 

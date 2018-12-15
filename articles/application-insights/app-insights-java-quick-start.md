@@ -5,6 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
+ms.reviewer: lagayhar
 ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
@@ -124,7 +125,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Server metrics graphs](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-To learn more about monitoring Java, check out the [additional App Insights Java documentation](.\app-insights-java-get-started.md).
+To learn more about monitoring Java, check out the [additional App Insights Java documentation](./app-insights-java-get-started.md).
 
 ## Clean up resources
 

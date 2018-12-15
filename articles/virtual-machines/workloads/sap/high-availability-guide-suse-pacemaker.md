@@ -100,7 +100,7 @@ sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/luns/ 
 sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-0.local:nw1-xscs-0</b>
 sudo targetcli iscsi/iqn.2006-04.ascs<b>nw1</b>.local:ascs<b>nw1</b>/tpg1/acls/ create iqn.2006-04.<b>nw1-xscs-1.local:nw1-xscs-1</b>
 
-# Create the SBD device for the database cluter of SAP System NW1
+# Create the SBD device for the database cluster of SAP System NW1
 sudo targetcli backstores/fileio create sbddb<b>nw1</b> /sbd/sbddb<b>nw1</b> 50M write_back=false
 sudo targetcli iscsi/ create iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>
 sudo targetcli iscsi/iqn.2006-04.db<b>nw1</b>.local:db<b>nw1</b>/tpg1/luns/ create /backstores/fileio/sbddb<b>nw1</b>
@@ -439,7 +439,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
-     consensus:      6000
+     consensus:      36000
      max_messages:   20</b>
      
      interface { 
@@ -524,10 +524,10 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 1. Open the All resources blade
 1. Select the virtual machine of the first cluster node
 1. Click Access control (IAM)
-1. Click Add
+1. Click Add role assignment
 1. Select the role "Linux Fence Agent Role"
 1. Enter the name of the application you created above
-1. Click OK
+1. Click Save
 
 Repeat the steps above for the second cluster node.
 

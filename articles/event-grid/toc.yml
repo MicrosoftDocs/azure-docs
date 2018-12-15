@@ -25,10 +25,12 @@
       href: custom-event-quickstart-powershell.md
     - name: Portal
       href: custom-event-quickstart-portal.md
-  - name: Send events to Queue storage
+  - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
-  - name: Send events to Event Hubs
+  - name: Event Hubs as event handler
     href: custom-event-to-eventhub.md
+  - name: Container Registry events
+    href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -91,6 +93,10 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event filtering
+    href: event-filtering.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
@@ -103,6 +109,8 @@
     href: receive-events.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
+  - name: Filter events
+    href: how-to-filter-events.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
@@ -113,6 +121,8 @@
     href: input-mappings.md
   - name: Use CloudEvents schema
     href: cloudevents-schema.md
+  - name: Manage topics with Event Domains
+    href: how-to-event-domains.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -152,6 +162,8 @@
     href: sdk-overview.md
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-event-grid
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

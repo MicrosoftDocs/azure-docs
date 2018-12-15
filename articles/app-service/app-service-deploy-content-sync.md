@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 
 ---
 # Sync content from a cloud folder to Azure App Service
-This article shows you how to sync your content to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) from Dropbox and OneDrive. 
+This article shows you how to sync your content to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) from Dropbox and OneDrive. 
 
 The on-demand content sync deployment is powered by the App Service [Kudu deployment engine](https://github.com/projectkudu/kudu/wiki). You can, work with your app code and content in a designated cloud folder, and then sync to App Service with the click of a button. Content sync uses the Kudu build server. 
 
@@ -57,7 +57,7 @@ When you want to synchronize content in your cloud folder with App Service, go b
 
 To disable content sync, navigate to your App Service app page in the [Azure portal](https://portal.azure.com).
 
-In the left menu, click **Deployment Center** > **OneDrive** or **Dropbox** > **Disconnect**.
+In the left menu, click **Deployment Center** > **Disconnect**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

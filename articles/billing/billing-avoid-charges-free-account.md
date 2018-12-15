@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: cwatson
 ---
 # Avoid getting charged for your Azure free account
 
@@ -57,6 +57,6 @@ Your free services and quantities expire at the end of 12 months. You can find o
 
 Once your free services and quantities are expired, Azure charges you pay-as-you-go rates for any services you are using. You can use the Azure portal to delete the resources for the services that you don't use. If you don’t intend to use any Azure service, you can [cancel your subscription](billing-how-to-cancel-azure-subscription.md).
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

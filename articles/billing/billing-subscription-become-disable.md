@@ -5,7 +5,7 @@ keywords: azure subscription disabled
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Why is my Azure subscription disabled and how do I reactivate it?
@@ -34,7 +34,7 @@ Azure subscriptions with credit such as Free Trial and Visual Studio Enterprise 
 > [!NOTE] 
 > If you have a Free Trial subscription and you remove the spending limit, your subscription converts to Pay-As-You-Go at the end of the Free Trial. You keep your remaining credit for the full 30 days after you created the subscription. You also have access to free services for 12 months.
 
-To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md) and [Set up billing alerts for your Microsoft Azure subscriptions](billing-set-up-alerts.md).
+To monitor and manage billing activity for Azure, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
 
 ## Your bill is past due
@@ -57,6 +57,6 @@ If you're the Account Administrator and accidentally canceled a Pay-As-You-Go su
 
 For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

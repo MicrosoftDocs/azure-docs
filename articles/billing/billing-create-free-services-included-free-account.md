@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
+ms.author: cwatson
 
 ---
 # Create services included with Azure free account
@@ -30,6 +30,6 @@ To learn about Azure service availability by region, see [Products available by 
 ## Multiple instances of services can be created within allowed limits
 You can create multiple instances of services for free as long as the sum of usage is within the usage limit. For example, you get 750 hours of a B1S Windows virtual machine free each month with your Azure free account. You can use 750 hours in any combination you want. For example, you can create 5 B1S Windows virtual machines and use them for 150 hours each. 
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

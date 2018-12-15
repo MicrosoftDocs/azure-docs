@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
 ---
@@ -317,7 +317,7 @@ Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 ### Review the results
 You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container. 
 
-![Output file from full copy](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 The file should have the data from the Azure SQL database:
 
@@ -440,7 +440,7 @@ In this step, you create a pipeline with the following activities, and run it pe
 ### Review the results
 You see the second file in the `incchgtracking` folder of the `adftutorial` container. 
 
-![Output file from incremental copy](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row. 
 

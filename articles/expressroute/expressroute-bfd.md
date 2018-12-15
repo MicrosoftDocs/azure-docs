@@ -64,7 +64,7 @@ An example PE (using Cisco IOS XE) configuration is shown below.
 
 ## BFD Timer Negotiation
 
-Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. By configuring higher values, you can force these intervals to be longer; but, not shorter.
+Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. In certain scenarios, the interval may be set at a higher value of 750 milliseconds. By configuring higher values, you can force these intervals to be longer; but, not shorter.
 
 >[!NOTE]
 >If you have configured Geo-redundant ExpressRoute private peering circuits or use Site-to-Site IPSec VPN connectivity as backup for ExpressRoute private peering; enabling BFD over the private peering would help failover quicker following an ExpressRoute connectivity failure. 
@@ -83,7 +83,7 @@ For more information or help, check out the following links:
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ResetPeering]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-reset-peering
+[ResetPeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-reset-peering
 
 
 

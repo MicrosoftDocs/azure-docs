@@ -4,10 +4,6 @@ description: This article explains how Azure enables cloud services to communica
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

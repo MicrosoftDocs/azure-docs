@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
 
@@ -39,9 +39,9 @@ In this tutorial, you perform the following steps:
 Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
 ### Azure roles
-To create data factory instances, the user account you use to sign in to Azure must be assigned a *contributor* or *owner* role or must be an *administrator* of the Azure subscription. 
+To create data factory instances, the user account you use to sign in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription. 
 
-To view the permissions you have in the subscription, go to the Azure portal. In the upper-right corner, select your user name, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
+To view the permissions you have in the subscription, go to the Azure portal. In the upper-right corner, select your user name, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use an on-premises SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table. 
@@ -108,7 +108,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. In the list of containers, select **adftutorial**.
 
-    ![Container selection](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Container selection](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
@@ -194,7 +194,7 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. Under **Option 1: Express setup**, select **Click here to launch the express setup for this computer**. 
 
-    ![Express setup link](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Express setup link](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close**. 
 
@@ -234,7 +234,7 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. Go to the tab with **SQLServerToBlobPipeline**, or select **SQLServerToBlobPipeline** in the tree view. 
 
-    ![Pipeline tab](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Pipeline tab](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Go to the **Sink** tab at the bottom of the **Properties** window, and select **+ New**. 
 

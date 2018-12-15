@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Government?
     href: documentation-government-welcome.md
-  - name: Compare Azure Goverment and global Azure
+  - name: Compare Azure Government and global Azure
     href: compare-azure-government-global-azure.md
 - name: Quickstarts
   items:
@@ -42,10 +42,10 @@
       href: documentation-government-manage-marketplace.md
 - name: How-to guides
   items: 
+  - name: Deploy with Azure Pipelines
+    href: connect-with-azure-pipelines.md
   - name: Use Visual Studio
     href: documentation-government-get-started-connect-with-vs.md
-  - name: Use Visual Studio Team Services
-    href: documentation-government-get-started-connect-with-vsts.md
   - name: Use SQL Server Management Studio
     href: documentation-government-connect-ssms.md
   - name: Use Azure Storage
@@ -56,6 +56,9 @@
     href: documentation-government-k8.md
   - name: Integrate Azure AD Authentication
     href: documentation-government-aad-auth-qs.md
+  - name: Use DISA CAP
+    href: documentation-government-ase-disa-cap.md
+        
 - name: Reference
   items:
   - name: Marketplace
@@ -84,7 +87,7 @@
       href: documentation-government-services-database.md
     - name: Data + Analytics
       href: documentation-government-services-dataandanalytics.md
-    - name: AI + Cognitive Services
+    - name: AI + Machine Learning
       href: documentation-government-services-aiandcognitiveservices.md
     - name: Internet of Things
       href: documentation-government-services-iot-hub.md

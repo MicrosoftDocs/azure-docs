@@ -5,14 +5,14 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ---
-# Phoenix Query Server REST SDK
+# Apache Phoenix Query Server REST SDK
 
-[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer on top of [HBase](apache-hbase-overview.md). Phoenix allows you to use SQL-like queries with HBase through SSH tools such as [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix also provides an HTTP server called Phoenix Query Server (PQS), a thin client that supports two transport mechanisms for client communication: JSON and Protocol Buffers. Protocol Buffers is the default mechanism, and offers more efficient communication than JSON.
+[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer on top of [Apache HBase](apache-hbase-overview.md). Phoenix allows you to use SQL-like queries with HBase through SSH tools such as [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix also provides an HTTP server called Phoenix Query Server (PQS), a thin client that supports two transport mechanisms for client communication: JSON and Protocol Buffers. Protocol Buffers is the default mechanism, and offers more efficient communication than JSON.
 
 This article describes how to use the PQS REST SDK to create tables, upsert rows individually and in bulk, and select data using SQL statements. The examples use the [Microsoft .NET driver for Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). This SDK is built on [Apache Calcite's Avatica](https://calcite.apache.org/avatica/) APIs, which exclusively use Protocol Buffers for the serialization format.
 
@@ -26,7 +26,7 @@ Microsoft .NET driver for Apache Phoenix Query Server is provided as a NuGet pac
 
 ## Instantiate new PhoenixClient object
 
-To begin using the library, instantiate a new `PhoenixClient` object, passing in `ClusterCredentials` containing the `Uri` to your cluster and the cluster's Hadoop user name and password.
+To begin using the library, instantiate a new `PhoenixClient` object, passing in `ClusterCredentials` containing the `Uri` to your cluster and the cluster's Apache Hadoop user name and password.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
@@ -534,5 +534,5 @@ FM: 5
 
 ## Next steps 
 
-* [Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
-* [Using the HBase REST SDK](apache-hbase-rest-sdk.md)
+* [Apache Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
+* [Using the Apache HBase REST SDK](apache-hbase-rest-sdk.md)

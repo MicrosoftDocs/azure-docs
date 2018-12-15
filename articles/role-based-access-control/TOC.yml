@@ -9,10 +9,12 @@
     href: rbac-and-directory-admin-roles.md
 - name: Quickstarts
   items:
-  - name: Grant access for a user
-    href: quickstart-assign-role-user-portal.md
+  - name: View roles for a user
+    href: check-access.md
 - name: Tutorials
   items:
+  - name: Grant access for a user - Portal
+    href: quickstart-assign-role-user-portal.md
   - name: Grant access for a user - PowerShell
     href: tutorial-role-assignments-user-powershell.md
   - name: Grant access for a group - PowerShell
@@ -25,6 +27,8 @@
   items:
   - name: Understand role definitions
     href: role-definitions.md
+  - name: Understand deny assignments
+    href: deny-assignments.md
   - name: Privileged Identity Management (PIM) for RBAC
     href: pim-azure-resource.md
   - name: Conditional access for Azure management
@@ -43,6 +47,12 @@
       href: role-assignments-rest.md
     - name: Template
       href: role-assignments-template.md
+  - name: Deny access
+    items:
+    - name: Portal
+      href: deny-assignments-portal.md
+    - name: REST API
+      href: deny-assignments-rest.md
   - name: Custom roles
     href: custom-roles.md
     items:
@@ -74,3 +84,7 @@
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API
     href: /rest/api/authorization/
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-active-directory

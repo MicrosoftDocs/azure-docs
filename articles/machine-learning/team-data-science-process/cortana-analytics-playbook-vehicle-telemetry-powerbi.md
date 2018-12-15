@@ -1,33 +1,28 @@
-﻿---
+---
 title: Power BI dashboard for vehicle health and driving habits - Azure | Microsoft Docs
 description: Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 services: machine-learning
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Vehicle Telemetry Analytics Solution Template Power BI dashboard setup instructions
-This menu links to the chapters in this playbook: 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 The Vehicle Telemetry Analytics Solution showcases how car dealerships, automobile manufacturers, and insurance companies are able use the capabilities of Cortana Intelligence. They can obtain real-time and predictive insights on vehicle health and driving habits to improve customer experience, research and development, and marketing campaigns. 
 These step-by-step instructions show how to configure the Power BI reports and dashboard after you deploy the solution in your subscription. 
 
+To review the summary description of this solution, see [Vehicle Telemetry Analytics Solution playbook](cortana-analytics-playbook-vehicle-telemetry.md).
+To explore this solution even further, see [Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
+
 ## Prerequisites
 * Deploy the [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) Solution. 
-* [Install Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Install Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Obtain an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/). If you don't have an Azure subscription, get started with the Azure free subscription.
 * Open a Power BI account.
 
@@ -346,7 +341,7 @@ The following steps take about 10 to 15 minutes to complete.
 
 ### Configure Power BI reports
 
-1. Open the designer file **ConnectedCarsPbiReport.pbix** by using the Power BI Desktop. If you don't already have it, install the Power BI Desktop from the [Power BI Desktop installation](http://www.microsoft.com/download/details.aspx?id=45331) website.
+1. Open the designer file **ConnectedCarsPbiReport.pbix** by using the Power BI Desktop. If you don't already have it, install the Power BI Desktop from the [Power BI Desktop installation](https://www.microsoft.com/download/details.aspx?id=45331) website.
 
 1. Select **Edit Queries**.
 

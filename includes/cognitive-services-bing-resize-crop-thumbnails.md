@@ -1,3 +1,10 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+---
 Some Bing responses include URLs to thumbnail images served by Bing. You may resize and crop the thumbnail images. 
 
 > [!NOTE]

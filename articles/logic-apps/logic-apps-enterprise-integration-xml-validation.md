@@ -1,23 +1,18 @@
 ---
-title: Validate XML - Azure Logic Apps | Microsoft Docs
-description: Validate XML with schemas for Azure Logic Apps and B2B scenarios by using the Enterprise Integration Pack
+title: Validate XML for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Validate XML with schemas for B2B solutions in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-
 ---
-# Validate XML for enterprise integration
+
+# Validate XML for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
 Often in B2B scenarios, the partners in an agreement must make sure that 
 the messages they exchange are valid before data processing can start. 

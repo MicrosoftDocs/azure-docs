@@ -1,14 +1,14 @@
 ---
-title: Import data into Machine Learning Studio | Microsoft Docs
+title: Import data into Machine Learning Studio - Azure | Microsoft Docs
 description: How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported.
 keywords: import data,data format,data types,data sources,training data
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
 ms.component: studio
@@ -17,26 +17,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-
 ---
 # Import your training data into Azure Machine Learning Studio from various data sources
-To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 
-* upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace
-* access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module 
-* use data from another Azure Machine learning **experiment** saved as a dataset
-* use data from an on-premises **SQL Server database**
+To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can use data from: 
 
-Each of these options is described in one of the topics on the menu below. These topics show you how to import data from these various data sources to use in Machine Learning Studio. 
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+* A [**local file**](import-data-from-local-file.md) - Load local data ahead of time from your hard drive to create a dataset module in your workspace
+* [**Online data sources**](import-data-from-online-sources.md) - Use the [Import Data][import-data] module to access data from one of several online sources while your experiment is running
+* [**Machine Learning Studio experiment**](import-data-from-an-experiment.md) - Use data that was saved as a dataset in Machine Learning Studio
+* [**On-premises SQL Server database**](use-data-from-an-on-premises-sql-server.md) - Use data from an on-premises SQL Server database without having to copy data manually
 
 > [!NOTE]
 > There are a number of sample datasets available in Machine Learning Studio that you can use for training data. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](use-sample-datasets.md)).
 > 
 > 
 
-This introductory topic also discusses how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported. 
+This introductory article also discusses how to get data ready for use in Machine Learning Studio and describes which data formats and data types are supported.
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 

@@ -3,7 +3,7 @@ title: Azure Stream Analytics integration with Azure Machine Learning
 description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning, using a user defined function.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
@@ -194,9 +194,9 @@ Stream Analytics uses a declarative, SQL-based query to examine the input and pr
 
 3. Enter the following query:
 
-    ```
+    ```SQL
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result 
+    SELECT text, sentiment1(text) as result 
     FROM datainput  
     )  
 

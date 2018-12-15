@@ -1,32 +1,25 @@
 ---
 title: Explore data in the Team Data Science Process | Microsoft Docs
 description: How to explore data in various storage environments.
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 6eae8772-f479-4627-bb12-64f6d1440b22
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
-ms.author: deguhath
-
+ms.date: 11/08/2018
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Explore data in the Team Data Science Process
-This document covers how to explore data in four different storage environments that are typically used in the Data Science Process:
 
-* **Azure blob container** data is explored using the [Pandas](http://pandas.pydata.org/) Python package.
-* **SQL Server** data is explored by using SQL and by using a programming language like Python.
-* **Hive table** data is explored using Hive queries.
-* **Azure Machine Learning (AML) Studio** data is explored using AML modules.
+Exploring data is a step in the [Team Data Science Process](overview.md).
 
-The following **menu** links to the topics that describe how to use these tools to explore data from various storage environments. 
+The following articles describe how to explore data in three different storage environments that are typically used in the Data Science Process:
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* Explore [Azure blob container](explore-data-blob.md) data using the [Pandas](http://pandas.pydata.org/) Python package.
+* Explore [SQL Server](explore-data-sql-server.md) data by using SQL and by using a programming language like Python.
+* Explore [Hive table](explore-data-hive-tables.md) data using Hive queries.
 
+In addition, the video, [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), describes the commonly used modules for cleaning and transforming data in Azure Machine Learning Studio.

@@ -287,7 +287,7 @@ We also touched on some powerful features of Vamp:  merging a new service varian
 
 * Learn about managing Vamp actions through the [Vamp REST API](http://vamp.io/documentation/api/api-reference/).
 
-* Build Vamp automation scripts in Node.js and run them as [Vamp workflows](http://vamp.io/documentation/tutorials/create-a-workflow/).
+* Build Vamp automation scripts in Node.js and run them as [Vamp workflows](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
 * See additional [VAMP tutorials](http://vamp.io/documentation/tutorials/).
 

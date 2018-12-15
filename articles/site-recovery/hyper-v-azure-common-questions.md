@@ -1,16 +1,16 @@
 ---
-title: 'Common questions - Hyper-V to Azure replication with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions about replicating on-premises Hyper-V VMs to Azure using Azure Site Recovery.
+title: 'Common questions - Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
 
 ---
-# Common questions - Hyper-V to Azure replication
+# Common questions - Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 
@@ -59,7 +59,7 @@ Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft
 
 ### What do I need on-premises?
 
-You need one or more VMs running on one or more standalone or clustered Hyper-V hosts. You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM). You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM).
+You need one or more VMs running on one or more standalone or clustered Hyper-V hosts. You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM).
     - If you're not running VMM, during Site Recovery deployment, you gather Hyper-V hosts and clusters into Hyper-V sites. You install the Site Recovery agents (Azure Site Recovery Provider and Recovery Services agent) on each Hyper-V host.
     - If Hyper-V hosts are located in a VMM cloud, you orchestrate replication in VMM. You install the Site Recovery Provider on the VMM server, and the Recovery Services agent on each Hyper-V host. You map between VMM logical/VM networks, and Azure VNets.
     - 
@@ -99,7 +99,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### What's the replication process?
 
-1. When initial replication is triggered, a Hyper-V VM snapshot snapshot is taken.
+1. When initial replication is triggered, a Hyper-V VM snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, until they're all copied to Azure. This might take a while, depending on the VM size, and network bandwidth. Learn how to increase network bandwidth.
 3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to secondary storage. The snapshot and log files consume disk resources while initial replication is in progress.
 4. When the initial replication finishes, the VM snapshot is deleted.
@@ -119,7 +119,7 @@ Site Recovery replicates data from on-premises to Azure storage over a public en
 
 ### Can I replicate to Azure with ExpressRoute?
 
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### Why can't I replicate over VPN?
@@ -130,7 +130,7 @@ When you replicate to Azure, replication traffic reaches the public endpoints of
 
 For replication, a Hyper-V VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](hyper-v-azure-support-matrix.md#replicated-vms) in the support matrix.
 
-###How often can I replicate to Azure?
+### How often can I replicate to Azure?
 
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
 
@@ -161,11 +161,6 @@ Site Recovery needs access to Hyper-V hosts to replicate the VMs you select. Sit
 ### What does Site Recovery install on Hyper-V VMs?
 
 Site Recovery doesn't explicitly install anything on Hyper-V VMs enabled for replication.
-- During replication, VMs communicate with Site Recovery as follows:
-    - VMs communicate with the configuration server on port HTTPS 443 for replication management.
-    - VMs send replication data to the process server on port HTTPS 9443 (can be modified).
-    - If you enable multi-VM consistency, VMs communicate with each other over port 20004.
-
 
 
 
@@ -206,7 +201,4 @@ After your on-premises infrastructure is up and running again, you can fail back
 5. After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
 
 ### Can I fail back to a different location?
-Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
-
-
-
+Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).

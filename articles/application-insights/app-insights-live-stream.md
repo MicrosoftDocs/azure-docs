@@ -1,16 +1,14 @@
-﻿---
+---
 title: Live Metrics Stream with custom metrics and diagnostics in Azure Application Insights | Microsoft Docs
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.reviewer: sdash
@@ -199,7 +197,7 @@ No data? If your application is in a protected network: Live Metrics Stream uses
 
 
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-web-track-usage.md)
+* [Monitoring usage with Application Insights](app-insights-usage-overview.md)
 * [Using Diagnostic Search](app-insights-diagnostic-search.md)
 * [Profiler](app-insights-profiler.md)
 * [Snapshot debugger](app-insights-snapshot-debugger.md)

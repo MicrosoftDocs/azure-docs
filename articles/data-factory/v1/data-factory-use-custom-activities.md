@@ -209,7 +209,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	    foreach (LinkedService ls in linkedServices)
 	        logger.Write("linkedService.Name {0}", ls.Name);
 	
-		// get the first Azure Storate linked service from linkedServices object
+		// get the first Azure Storage linked service from linkedServices object
 	    // using First method instead of Single since we are using the same
 	    // Azure Storage linked service for input and output.
 	    inputLinkedService = linkedServices.First(
@@ -355,7 +355,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	}
 	```
 
-    The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. If you havefolderPath defines using variables such as {Year}, {Month}, {Day} etc., the method returns the string as it is without replacing them with runtime values. See [Access extended properties](#access-extended-properties) section for details on accessing SliceStart, SliceEnd, etc.    
+    The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. If you have folderPath defines using variables such as {Year}, {Month}, {Day} etc., the method returns the string as it is without replacing them with runtime values. See [Access extended properties](#access-extended-properties) section for details on accessing SliceStart, SliceEnd, etc.    
 
 	```JSON
     "name": "InputDataset",
@@ -442,7 +442,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
 	
 	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 	![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Click **Deploy** on the command bar to deploy the linked service.
@@ -637,7 +637,7 @@ In this step, you create datasets to represent input and output data.
    ![Output slices](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. Verify that the output files are generated in the blob storage in the **adftutorial** container.
 
-   ![output from custom activity][image-data-factory-ouput-from-custom-activity]
+   ![output from custom activity][image-data-factory-output-from-custom-activity]
 5. If you open the output file, you should see the output similar to the following output:
 
 	```
@@ -1060,6 +1060,6 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
 
-[image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
+[image-data-factory-output-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png

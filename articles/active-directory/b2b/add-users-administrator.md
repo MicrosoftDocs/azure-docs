@@ -6,13 +6,13 @@ description: Shows how an admin can add guest users to their directory from a pa
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 11/26/2018
 
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
+ms.reviewer: mal
 
 ---
 
@@ -82,11 +82,11 @@ To add B2B collaboration users to an application as an Azure AD administrator, f
 7. Under **Add Assignment**, select **User and groups**.
 8. Do one of the following:
    - If the guest user already exists in the directory, search for the B2B user. Select the user, click **Select**, and then click **Assign** to add the user to the app.
-   - If the guest user does not already exist in the directory, select **Invite**.
+   - If the guest user does not already exist in the directory, under **Select member or invite an external user**, type the user's email address. In the message box, type an optional personal message. Under the message box, click **Invite**.
            
        ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
    
-      Under **Invite a guest**, enter the email address, type an optional personal message, and then select **Invite**. Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
+      Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
 
 9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If you want to change the role, do the following:
    - Select the guest user, and then select **Edit**. 

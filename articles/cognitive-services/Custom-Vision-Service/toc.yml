@@ -1,42 +1,48 @@
 - name: Custom Vision Service Documentation
 - name: Overview
   items:
-  - name: What is Custom Vision Service?
+  - name: What is Custom Vision?
     href: home.md
+- name: Quickstarts
+  items:
+  - name: Using the .NET SDK
+    items:
+    - name: Image classification
+      href: csharp-tutorial.md
+    - name: Object detection
+      href: csharp-tutorial-od.md
+  - name: Using the Python SDK
+    items:
+    - name: Image classification
+      href: python-tutorial.md
+    - name: Object detection
+      href: python-tutorial-od.md
+  - name: Using the Java SDK
+    items:
+    - name: Image classification
+      href: java-tutorial.md
+    - name: Object detection
+      href: java-tutorial-od.md
 - name: How-to guides
   items:
-  - name: Start using Custom Vision Service
-    items:
-    - name: Build a classifier
-      href: getting-started-build-a-classifier.md
-    - name: Test your model
-      href: test-your-model.md
-    - name: Improve your classifier
-      href: getting-started-improving-your-classifier.md
-    - name: Use the prediction API
-      href: use-prediction-api.md
-    - name: Export your model to mobile
-      href: export-your-model.md
-    - name: Use ONNX model with Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: Run TensorFlow model in Python
-      href: export-model-python.md
-    - name: Train a model using the REST API
-      href: rest-api-tutorial.md
-  - name: Build apps
-    items:
-    - name: Image Classification
-      items:
-      - name: C# tutorial
-        href: csharp-tutorial.md
-      - name: Python tutorial
-        href: python-tutorial.md
-    - name: Object Detection
-      items:
-      - name: C# tutorial
-        href: csharp-tutorial-od.md
-      - name: Python tutorial
-        href: python-tutorial-od.md
+  - name: Build a classifier
+    href: getting-started-build-a-classifier.md
+  - name: Test your model
+    href: test-your-model.md
+  - name: Improve your classifier
+    href: getting-started-improving-your-classifier.md
+  - name: Use the prediction API
+    href: use-prediction-api.md
+  - name: Export your model to mobile
+    href: export-your-model.md
+  - name: Use ONNX model with Windows ML
+    href: custom-vision-onnx-windows-ml.md
+  - name: Run TensorFlow model in Python
+    href: export-model-python.md
+  - name: Build a model using the REST API
+    href: rest-api-tutorial.md
+  - name: Export or delete account data
+    href: ./export-delete-data.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
@@ -57,17 +63,15 @@
   items:
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
-  - name: Export or delete account data
-    href: ./export-delete-data.md
+  - name: Pricing and limits
+    href: limits-and-quotas.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Limits and quotas
-    href: limits-and-quotas.md
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Release Notes
+    href: release-notes.md

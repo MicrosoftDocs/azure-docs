@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.date: 12/04/2018
 ms.author: cherylmc
 
 ---
@@ -26,14 +26,15 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
+* OpenVPN, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. OpenVPN can be used to connect from Android, iOS, Linux and Mac devices (OSX versions 10.11 and above).
+
 * Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
-If you have a mixed client environment consisting of Windows and Mac devices, configure both SSTP and IKEv2.
 
 >[!NOTE]
->IKEv2 for P2S is available for the Resource Manager deployment model only. It is not available for the classic deployment model.
+>IKEv2 and OpenVPN for P2S are available for the Resource Manager deployment model only. They are not available for the classic deployment model.
 >
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
@@ -55,6 +56,10 @@ The RADIUS server could be deployed on-premises or in your Azure VNET. During au
 The RADIUS server can also integrate with AD certificate services. This lets you use the RADIUS server and your enterprise certificate deployment for P2S certificate authentication as an alternative to the Azure certificate authentication. The advantage is that you don’t need to upload root certificates and revoked certificates to Azure.
 
 A RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPN, including multi-factor options.
+
+>[!NOTE]
+>OpenVPN protocol is not supported with RADIUS authentication.
+>
 
 ![point-to-site](./media/point-to-site-about/p2s.png "Point-to-Site")
 

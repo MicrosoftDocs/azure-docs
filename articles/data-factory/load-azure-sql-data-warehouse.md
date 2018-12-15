@@ -31,6 +31,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 > [!NOTE]
 > For more information, see [Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory](connector-azure-sql-data-warehouse.md).
+
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.

@@ -1,13 +1,13 @@
 ---
-title: What's new in Azure Machine Learning | Microsoft Docs
-description: New features that are available in Azure Machine Learning.
+title: What's new in Azure Machine Learning Studio? | Microsoft Docs
+description: New features that are available in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +15,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
-
+ms.date: 10/28/2018
 ---
-# What's New in Azure Machine Learning
+# What's New in Azure Machine Learning Studio?
 
-### The March 2017 release of Microsoft Azure Machine Learning updates provides the following feature:
+## October 2018
 
+The R language engine in the [Execute R Script](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script) module has added a new R runtime version -- Microsoft R Open (MRO) 3.4.4. MRO 3.4.4 is based on open-source CRAN R 3.4.4 and is therefore compatible with packages that works with that version of R.  Learn more about the supported R packages in the article, "[R Packages supported by Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning#bkmk_List)".
 
+## March 2017 
+This release of Microsoft Azure Machine Learning updates provides the following feature:
 
 * Dedicated Capacity for Azure Machine Learning BES Jobs
 
@@ -31,14 +33,16 @@ ms.date: 03/28/2017
 	For more information, see [Azure Batch service for Machine Learning jobs](dedicated-capacity-for-bes-jobs.md).
 
 
-### The August 2016 release of Microsoft Azure Machine Learning updates provide the following features:
+## August 2016 
+This release of Microsoft Azure Machine Learning updates provide the following features:
 * Classic Web services can now be managed in the new [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal that provides one place to manage all aspects of your Web service.    
   * Which provides web service [usage statistics](manage-new-webservice.md).
   * Simplifies testing of Azure Machine Learning Remote-Request calls using sample data.
   * Provides a new Batch Execution Service test page with sample data and job submission history.
   * Provides easier endpoint management.
 
-### The July 2016 release of Microsoft Azure Machine Learning updates provide the following features:
+## July 2016 
+This release of Microsoft Azure Machine Learning updates provide the following features:
 * Web services are now managed as Azure resources managed through [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) interfaces, allowing for the following enhancements:
   * There are new [REST APIs](https://msdn.microsoft.com/library/azure/Dn950030.aspx) to deploy and manage your Resource Manager based Web services.
   * There is a new [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal that provides one place to manage all aspects of your Web service.

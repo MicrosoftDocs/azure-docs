@@ -1,14 +1,14 @@
 ---
-title: Execute Python machine learning scripts | Microsoft Docs
-description: Outlines design principles underlying support for Python scripts in Azure Machine Learning and basic usage scenarios, capabilities, and limitations.
+title: Execute Python machine learning scripts - Azure Machine Learning Studio | Microsoft Docs
+description: Outlines design principles underlying support for Python scripts in Azure Machine Learning Studio and basic usage scenarios, capabilities, and limitations.
 keywords: python machine learning,pandas,python pandas,python scripts, execute python scripts
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
 ms.component: studio
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio
 
@@ -63,7 +62,7 @@ Figure 1. The **Execute Python Script** module.
 The [Execute Python Script][execute-python-script] module in Azure ML Studio accepts up to three inputs and produces up to two outputs (discussed in the following section), like its R analogue, the [Execute R Script][execute-r-script] module. The Python code to be executed is entered into the parameter box as a specially named entry-point function called `azureml_main`. Here are the key design principles used to implement this module:
 
 1. *Must be idiomatic for Python users.* Most Python users factor their code as functions inside modules. So putting a lot of executable statements in a top-level module is relatively rare. As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements. The objects exposed in the function are standard Python library types such as [Pandas](http://pandas.pydata.org/) data frames and [NumPy](http://www.numpy.org/) arrays.
-2. *Must have high-fidelity between local and cloud executions.* The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, data scientists can debug and qualify their code on their local Azure Machine Learning-compatible Anaconda environment. Then use an existing development environment, such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](http://aka.ms/ptvs), to run it as part of an Azure ML experiment. The `azureml_main` entry point is a vanilla Python function and so ****can be authored without Azure ML-specific code or the SDK installed.
+2. *Must have high-fidelity between local and cloud executions.* The backend used to execute the Python code is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used cross-platform scientific Python distribution. It comes with close to 200 of the most common Python packages. Therefore, data scientists can debug and qualify their code on their local Azure Machine Learning-compatible Anaconda environment. Then use an existing development environment, such as [IPython](http://ipython.org/) notebook or [Python Tools for Visual Studio](https://aka.ms/ptvs), to run it as part of an Azure ML experiment. The `azureml_main` entry point is a vanilla Python function and so ****can be authored without Azure ML-specific code or the SDK installed.
 3. *Must be seamlessly composable with other Azure Machine Learning modules.* The [Execute Python Script][execute-python-script] module accepts, as inputs and outputs, standard Azure Machine Learning datasets. The underlying framework transparently and efficiently bridges the Azure ML and Python runtimes. So Python can be used in conjunction with existing Azure ML workflows, including those that call into R and SQLite. A  result, data scientist could compose workflows that:
    * use Python and Pandas for data pre-processing and cleaning
    * feed the data to a SQL transformation, joining multiple datasets to form features

@@ -3,7 +3,7 @@ title: Bulk loading into Apache Phoenix using psql - Azure HDInsight
 description: Use the psql tool to load bulk load data into Phoenix tables.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -12,11 +12,11 @@ ms.date: 11/10/2017
 ms.author: ashishth
 
 ---
-# Bulk load data into Phoenix using psql
+# Bulk load data into Apache Phoenix using psql
 
-[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database built on [HBase](../hbase/apache-hbase-overview.md). Phoenix provides SQL-like queries over HBase. Phoenix uses JDBC drivers to enable users to create, delete, and alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, to create low-latency applications on top of HBase. Phoenix adds co-processors to support running client-supplied code in the address space of the server, executing the code co-located with the data. This minimizes client/server data transfer.  To work with data using Phoenix in HDInsight, first create tables and then load data into them.
+[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database built on [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix provides SQL-like queries over HBase. Phoenix uses JDBC drivers to enable users to create, delete, and alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, to create low-latency applications on top of HBase. Phoenix adds co-processors to support running client-supplied code in the address space of the server, executing the code co-located with the data. This minimizes client/server data transfer.  To work with data using Phoenix in HDInsight, first create tables and then load data into them.
 
-## Bulk loading with Phoenix
+## Bulk loading with Apache Phoenix
 
 There are multiple ways to get data into HBase including using client APIs, a MapReduce job with TableOutputFormat, or inputting the data manually using the HBase shell. Phoenix provides two methods for loading CSV data into Phoenix tables: a client loading tool named `psql`, and a MapReduce-based bulk load tool.
 
@@ -24,7 +24,7 @@ The `psql` tool is single-threaded and is best suited for loading megabytes or g
 
 Bulk loading with MapReduce is used for much larger data volumes, typically in production scenarios, as MapReduce uses multiple threads.
 
-Before you start loading data, verify that Phoenix is enabled and that query timeout settings are as expected.  Access your HDInsight cluster Ambari dashboard, select HBase, and then the Configuration tab.  Scroll down to verify that Apache Phoenix is set to `enabled` as shown:
+Before you start loading data, verify that Phoenix is enabled and that query timeout settings are as expected.  Access your HDInsight cluster [Apache Ambari](https://ambari.apache.org/) dashboard, select HBase, and then the Configuration tab.  Scroll down to verify that Apache Phoenix is set to `enabled` as shown:
 
 ![Apache Phoenix HDInsight Cluster Settings](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
 
@@ -70,7 +70,7 @@ Before you start loading data, verify that Phoenix is enabled and that query tim
     ```
 
     > [!NOTE] 
-    > To determine the `ZookeeperQuorum` name, locate the zookeeper quorum string in the file `/etc/hbase/conf/hbase-site.xml` with property name `hbase.zookeeper.quorum`.
+    > To determine the `ZookeeperQuorum` name, locate the [Apache ZooKeeper](https://zookeeper.apache.org/) quorum string in the file `/etc/hbase/conf/hbase-site.xml` with property name `hbase.zookeeper.quorum`.
 
 5. After the `psql` operation has completed, you should see a message in your command window:
 
@@ -138,6 +138,6 @@ For higher-throughput loading distributed over the cluster, use the MapReduce lo
 ## Next steps
 
 * [Bulk Data Loading with Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html)
-* [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Use Apache Phoenix with Linux-based Apache HBase clusters in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Salted Tables](https://phoenix.apache.org/salted.html)
 * [Phoenix Grammar](http://phoenix.apache.org/language/index.html)

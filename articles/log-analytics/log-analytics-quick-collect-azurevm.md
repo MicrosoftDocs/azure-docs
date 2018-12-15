@@ -1,6 +1,6 @@
 ---
 title: Collect data about Azure Virtual Machines | Microsoft Docs
-description: Learn how to enable the OMS Agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
+description: Learn how to enable the Log Analytics agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -10,16 +10,15 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: na
+ms.component: 
 ---
 
 # Collect data about Azure Virtual Machines
-[Azure Log Analytics](log-analytics-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
+[Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs with a few easy steps.  
  
 This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
@@ -33,7 +32,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **OMS Workspace**, such as *DefaultLAWorkspace*. 
+  * Provide a name for the new **Log Analyics workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.  
   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
@@ -41,22 +40,25 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. After providing the required information on the **OMS Workspace** pane, click **OK**.  
+3. After providing the required information on the **Log Analytics workspace** pane, click **OK**.  
 
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
 
 ## Enable the Log Analytics VM Extension
-For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+
+For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension. Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes. Before proceeding, verify the VM is running otherwise the process will fail to complete successfully.  
 
 >[!NOTE]
->The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
+>The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
 3. On the left-hand menu, under Workspace Data Sources, click **Virtual machines**.  
-4. In the list of **Virtual machines**, select a virtual machine you want to install the agent on. Notice that the **OMS connection status** for the VM indicates that it is **Not connected**.
+4. In the list of **Virtual machines**, select a virtual machine you want to install the agent on. Notice that the **Log Analytics connection status** for the VM indicates that it is **Not connected**.
 5. In the details for your virtual machine, select **Connect**. The agent is automatically installed and configured for your Log Analytics workspace. This process takes a few minutes, during which time the **Status** is **Connecting**.
-6. After you install and connect the agent, the **OMS connection status** will be updated with **This workspace**.
+6. After you install and connect the agent, the **Log Analytics connection status** will be updated with **This workspace**.
 
 ## Collect event and performance data
 Log Analytics can collect events from the Windows event logs or Linux Syslog and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Windows system log and Linux Syslog, and several common performance counters to start with.  
@@ -73,7 +75,7 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 7. Select **Windows Performance Data** to enable collection of performance counters on a Windows computer. 
 8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).
+    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
     Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.
   
@@ -88,7 +90,7 @@ Log Analytics can collect events from the Windows event logs or Linux Syslog and
 5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).
+    ![Default Windows performance counters selected](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
     Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 

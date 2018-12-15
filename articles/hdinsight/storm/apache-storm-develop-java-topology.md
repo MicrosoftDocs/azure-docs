@@ -2,20 +2,20 @@
 title: Apache Storm example Java topology - Azure HDInsight 
 description: Learn how to create Apache Storm topologies in Java by creating an example word count topology.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 keywords: apache storm,apache storm example,storm java,storm topology example
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 ---
 # Create an Apache Storm topology in Java
 
-Learn how to create a Java-based topology for Apache Storm. You create a Storm topology that implements a word-count application. You use Maven to build and package the project. Then, you learn how to define the topology using the Flux framework.
+Learn how to create a Java-based topology for [Apache Storm](http://storm.apache.org/). You create a Storm topology that implements a word-count application. You use [Apache Maven](https://maven.apache.org/) to build and package the project. Then, you learn how to define the topology using the Flux framework.
 
 After completing the steps in this document, you can deploy the topology to Apache Storm on HDInsight.
 
@@ -24,9 +24,9 @@ After completing the steps in this document, you can deploy the topology to Apac
 
 ## Prerequisites
 
-* [Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven is a project build system for Java projects.
+* [Apache Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven is a project build system for Java projects.
 
 * A text editor or IDE.
 
@@ -530,7 +530,7 @@ public class WordCountTopology {
 
 ### Configure logging
 
-Storm uses Apache Log4j to log information. If you do not configure logging, the topology emits diagnostic information. To control what is logged, create a file named `log4j2.xml` in the `resources` directory. Use the following XML as the contents of the file.
+Storm uses [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) to log information. If you do not configure logging, the topology emits diagnostic information. To control what is logged, create a file named `log4j2.xml` in the `resources` directory. Use the following XML as the contents of the file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -555,7 +555,7 @@ This XML configures a new logger for the `com.microsoft.example` class, which in
 
 The `<Root level="error">` section configures the root level of logging (everything not in `com.microsoft.example`) to only log error information.
 
-For more information on configuring logging for Log4j, see [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+For more information on configuring logging for Log4j 2, see [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
 > Storm version 0.10.0 and higher use Log4j 2.x. Older versions of storm used Log4j 1.x, which used a different format for log configuration. For information on the older configuration, see [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
@@ -584,7 +584,7 @@ There is a 5-second interval between emission of words and counts. The **WordCou
 
 ## Convert the topology to Flux
 
-Flux is a new framework available with Storm 0.10.0 and higher, which allows you to separate configuration from implementation. Your components are still defined in Java, but the topology is defined using a YAML file. You can package a default topology definition with your project, or use a standalone file when submitting the topology. When submitting the topology to Storm, you can use environment variables or configuration files to populate values in the YAML topology definition.
+[Flux](http://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) is a new framework available with Storm 0.10.0 and higher, which allows you to separate configuration from implementation. Your components are still defined in Java, but the topology is defined using a YAML file. You can package a default topology definition with your project, or use a standalone file when submitting the topology. When submitting the topology to Storm, you can use environment variables or configuration files to populate values in the YAML topology definition.
 
 The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file or you can use an external YAML file.
 
@@ -758,23 +758,23 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
 
     Once the topology starts, you should notice that the time between emitted batches has changed to reflect the value in newtopology.yaml. So you can see that you can change your configuration through a YAML file without having to recompile the topology.
 
-For more information on these and other features of the Flux framework, see [Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
+For more information on these and other features of the Flux framework, see [Flux (http://storm.apache.org/releases/current/flux.html)](http://storm.apache.org/releases/current/flux.html).
 
 ## Trident
 
-Trident is a high-level abstraction that is provided by Storm. It supports stateful processing. The primary advantage of Trident is that it can guarantee that every message that enters the topology is processed only once. Without using Trident, your topology can only guarantee that messages are processed at least once. There are also other differences, such as built-in components that can be used instead of creating bolts. In fact, bolts are replaced by less-generic components, such as filters, projections, and functions.
+[Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) is a high-level abstraction that is provided by Storm. It supports stateful processing. The primary advantage of Trident is that it can guarantee that every message that enters the topology is processed only once. Without using Trident, your topology can only guarantee that messages are processed at least once. There are also other differences, such as built-in components that can be used instead of creating bolts. In fact, bolts are replaced by less-generic components, such as filters, projections, and functions.
 
 Trident applications can be created by using Maven projects. You use the same basic steps as presented earlier in this article—only the code is different. Trident also cannot (currently) be used with the Flux framework.
 
-For more information about Trident, see the [Trident API Overview](http://storm.apache.org/documentation/Trident-API-Overview.html).
+For more information about Trident, see the [Trident API Overview](http://storm.apache.org/releases/current/Trident-API-Overview.html).
 
 ## Next Steps
 
-You have learned how to create a Storm topology by using Java. Now learn how to:
+You have learned how to create an Apache Storm topology by using Java. Now learn how to:
 
 * [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology.md)
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
-You can find more example Storm topologies by visiting [Example topologies for Storm on HDInsight](apache-storm-example-topology.md).
+You can find more example Apache Storm topologies by visiting [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md).
 

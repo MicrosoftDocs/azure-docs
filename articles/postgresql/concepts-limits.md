@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/30/2018
+ms.date: 12/03/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
@@ -25,10 +25,12 @@ The maximum number of connections per pricing tier and vCores are as follows:
 |General Purpose| 8| 480|
 |General Purpose| 16| 950|
 |General Purpose| 32| 1500|
-|Memory Optimized| 2| 150|
-|Memory Optimized| 4| 250|
-|Memory Optimized| 8| 480|
-|Memory Optimized| 16| 950|
+|General Purpose| 64| 1900|
+|Memory Optimized| 2| 300|
+|Memory Optimized| 4| 500|
+|Memory Optimized| 8| 960|
+|Memory Optimized| 16| 1900|
+|Memory Optimized| 32| 3000|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
@@ -41,10 +43,7 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 - Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
-
-### Subscription management
-- Dynamically moving servers across subscriptions and resource groups is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.

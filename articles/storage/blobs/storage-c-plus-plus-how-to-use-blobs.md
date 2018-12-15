@@ -5,7 +5,7 @@ services: storage
 author: MichaelHauss
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs

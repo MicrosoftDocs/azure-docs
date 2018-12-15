@@ -3,18 +3,18 @@ title: High availability with Apache Kafka - Azure HDInsight
 description: Learn how to ensure high availability with Apache Kafka on Azure HDInsight. Learn how to rebalance partition replicas in Kafka so that they are on different fault domains within the Azure region that contains HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ---
 # High availability of your data with Apache Kafka on HDInsight
 
-Learn how to configure partition replicas for Kafka topics to take advantage of underlying hardware rack configuration. This configuration ensures the availability of data stored in Apache Kafka on HDInsight.
+Learn how to configure partition replicas for Apache Kafka topics to take advantage of underlying hardware rack configuration. This configuration ensures the availability of data stored in Apache Kafka on HDInsight.
 
-## Fault and update domains with Kafka
+## Fault and update domains with Apache Kafka
 
 A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
 
@@ -38,16 +38,16 @@ To ensure the highest availability of your Kafka data, you should rebalance the 
 
 If you must use a region that contains only two fault domains, use a replication factor of 4 to spread the replicas evenly across the two fault domains.
 
-For an example of creating topics and setting the replication factor, see the [Start with Kafka on HDInsight](apache-kafka-get-started.md) document.
+For an example of creating topics and setting the replication factor, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
 ## How to rebalance partition replicas
 
-Use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) to rebalance selected topics. This tool must be ran from an SSH session to the head node of your Kafka cluster.
+Use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools) to rebalance selected topics. This tool must be ran from an SSH session to the head node of your Kafka cluster.
 
 For more information on connecting to HDInsight using SSH, see the
 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ## Next steps
 
-* [Scalability of Kafka on HDInsight](apache-kafka-scalability.md)
-* [Mirroring with Kafka on HDInsight](apache-kafka-mirroring.md)
+* [Scalability of Apache Kafka on HDInsight](apache-kafka-scalability.md)
+* [Mirroring with Apache Kafka on HDInsight](apache-kafka-mirroring.md)

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -34,7 +34,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
     ![](media/asdk-install/1.PNG) 
 
 3. In the Identity Provider **Type** drop-down box, select **Azure Cloud** or **AD FS**. Under **Local Administrator Password** type the local administrator password (which must match the current configured local administrator password) in the **Password** box, and then click **Next**.
-    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com or an Azure AD verified custom domain name, and global admin credentials for the specified directory. 
+    - **Azure Cloud**: Configures Azure Active Directory (Azure AD) as the identity provider. To use this option, you need an internet connection, the full name of an Azure AD directory tenant in the form of *domainname*.onmicrosoft.com or an Azure AD verified custom domain name, and global admin credentials for the specified directory. After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
     - **AD FS**: The default stamp directory service is used as the identity provider. The default account to sign in with is azurestackadmin@azurestack.local, and the password to use is the one you provided as part of setup.
 
     ![](media/asdk-install/2.PNG) 

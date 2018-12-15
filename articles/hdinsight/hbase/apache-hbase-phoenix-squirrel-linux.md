@@ -2,17 +2,17 @@
 title: Use Apache Phoenix and SQLLine with HBase in Azure HDInsight 
 description: Learn how to use Apache Phoenix in HDInsight. Also, learn how to install and set up SQLLine on your computer to connect to an HBase cluster in HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Use Apache Phoenix with Linux-based HBase clusters in HDInsight
+# Use Apache Phoenix with Linux-based Apache HBase clusters in HDInsight
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight, and how to use SQLLine. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix grammar](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
@@ -26,13 +26,13 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight
 ### Prerequisites
 Before you can use SQLLine, you must have the following items:
 
-* **An HBase cluster in HDInsight**. To create one, see [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+* **An Apache HBase cluster in HDInsight**. To create one, see [Get started with Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-When you connect to an HBase cluster, you need to connect to one of the ZooKeeper VMs. Each HDInsight cluster has three ZooKeeper VMs.
+When you connect to an HBase cluster, you need to connect to one of the [Apache ZooKeeper](https://zookeeper.apache.org/) VMs. Each HDInsight cluster has three ZooKeeper VMs.
 
 **To get the ZooKeeper host name**
 
-1. Open Ambari by browsing to **https://\<cluster name\>.azurehdinsight.net**.
+1. Open [Apache Ambari](https://ambari.apache.org/) by browsing to **https://\<cluster name\>.azurehdinsight.net**.
 2. To sign in, enter the HTTP (cluster) user name and password.
 3. In the left menu, select **ZooKeeper**. Three **ZooKeeper Server** instances are listed.
 4. Select one of the **ZooKeeper Server** instances. On the **Summary** pane, find the **Hostname**. It looks similar to *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
@@ -57,16 +57,16 @@ When you connect to an HBase cluster, you need to connect to one of the ZooKeepe
 
         !quit
 
-For more information, see the [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Phoenix grammar](http://phoenix.apache.org/language/index.html).
+For more information, see the [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Apache Phoenix grammar](http://phoenix.apache.org/language/index.html).
 
 ## Next steps
 In this article, you learned how to use Apache Phoenix in HDInsight. To learn more, see these articles:
 
 * [HDInsight HBase overview][hdinsight-hbase-overview].
-  HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
-* [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
-  With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications, so applications can communicate directly with HBase.
-* [Configure HBase replication in HDInsight](apache-hbase-replication.md). Learn how to set up HBase replication across two Azure datacenters.
+  Apache HBase is an Apache, open-source, NoSQL database built on Apache Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
+* [Provision Apache HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
+  With virtual network integration, Apache HBase clusters can be deployed to the same virtual network as your applications, so applications can communicate directly with HBase.
+* [Configure Apache HBase replication in HDInsight](apache-hbase-replication.md). Learn how to set up Apache HBase replication across two Azure datacenters.
 
 
 [azure-portal]: https://portal.azure.com

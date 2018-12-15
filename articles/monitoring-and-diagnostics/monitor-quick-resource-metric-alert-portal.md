@@ -15,7 +15,7 @@ ms.component: alerts
 
 Azure Monitor makes metrics available for many Azure resources. These metrics convey the performance and health of those resources. In many cases metric values can point to something being wrong with a resource. You can create metric alerts to monitor for abnormal behavior and be notified if it occurs. This Quickstart steps through creating a Logic App, creating a job, and visualizing the metrics for the logic app. It then goes through creating an alert, and receiving a notification for a metric for the Logic App resource.
 
-For more information on metrics and metric alerts, see  [Azure Monitor metrics overview](./monitoring-overview-metrics.md) and [Azure Monitor alerts overview](./monitoring-overview-alerts.md). 
+For more information on metrics and metric alerts, see  [Azure Monitor metrics overview](../azure-monitor/platform/data-collection.md) and [Azure Monitor alerts overview](./monitoring-overview-alerts.md). 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -40,9 +40,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
      ![Created a recurrence trigger in the logic app designer in the portal panel](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
-6. Set up you values as seen in the following diagram.
+6. Set up your values as seen in the following diagram.
 
-    ![Configure the logic app trigger in the portal panel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configure the logic app trigger in the portal panel](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. In the designer, select the **Recurrence** trigger.
 

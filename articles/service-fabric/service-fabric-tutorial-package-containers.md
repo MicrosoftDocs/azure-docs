@@ -42,18 +42,18 @@ Service fabric provides scaffolding tools to help create applications from termi
 1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. Install Yeoman template generator on your machine from NPM
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Install the Service Fabric Yeoman container generator
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
 ## Package a Docker image container with Yeoman
@@ -224,7 +224,7 @@ At this point in the tutorial, the template for a Service Package application is
 
 To deploy the application to a cluster in Azure, create your own cluster.
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric).
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](https://aka.ms/tryservicefabric).
 
 In order to perform management operations on the secure party cluster, you can use Service Fabric Explorer, CLI, or Powershell. To use Service Fabric Explorer, you will need to download the PFX file from the Party Cluster website and import the certificate into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). There is no password for the self-signed certificates from the party cluster.
 

@@ -102,7 +102,7 @@ ms.component: files
 3. **Create a credential file to store the username (the storage account name) and password (the storage account key) for the file share.** Remember to replace `<storage-account-name>` and `<storage-account-key>` with the appropriate information for your environment. 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 
@@ -112,7 +112,7 @@ ms.component: files
     fi
     ```
 
-4. **Change permissions on the credential file so only root can read or modify the password file.** Since the storage account key is essentially a super-administrator password for the storage account, setting the permissions on the file such that only root can access is important so that lower privilege users cannot retrive the storage account key.   
+4. **Change permissions on the credential file so only root can read or modify the password file.** Since the storage account key is essentially a super-administrator password for the storage account, setting the permissions on the file such that only root can access is important so that lower privilege users cannot retrieve the storage account key.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

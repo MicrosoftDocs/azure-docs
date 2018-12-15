@@ -36,7 +36,7 @@ If you do not have an Azure subscription, create a [free account](https://azure.
  
 3. Provide a unique name and enable Kafka on the namespace. Click **Create**.
     
-    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Once the namespace is created, on the **Settings** tab click **Shared access policies** to get the connection string.
 

@@ -1,21 +1,18 @@
-﻿---
+---
 title: Release notes for Visual Studio Extension for Developer Analytics
 description: The latest updates for Visual Studio tools for Developer Analytics.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-
 ---
 # Release Notes for Developer Analytics Tools
 
@@ -190,7 +187,7 @@ This opens the HockeyApp upload dialog, which is similar to the one in a Univers
 
 Note a new field in this wizard, for specifying the version of the app. For Universal Windows apps, the information is populated from the manifest. Windows Forms apps, unfortunately, don’t have an equivalent to this feature. You will need to specify them manually.
 
-The rest of the flow is similar to Universal Windows apps: choose build and release options, add release notes, upload, and manage in the HockeyApp portal.
+The rest of the flow is similar to Universal Windows apps: choose Azure Pipelines options, add release notes, upload, and manage in the HockeyApp portal.
 
 It’s as simple as that. Give it a try and let us know what you think.
 

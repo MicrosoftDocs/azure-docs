@@ -20,14 +20,13 @@ ms.author: cynthn
 
 # Mount Azure File storage on Linux VMs using SMB
 
-
 This article shows you how to use the Azure File storage service on a Linux VM using an SMB mount with the Azure CLI. Azure File storage offers file shares in the cloud using the standard SMB protocol. 
 
 File storage offers file shares in the cloud that use the standard SMB protocol. You can mount a file share from any OS that supports SMB 3.0. When you use an SMB mount on Linux, you get easy backups to a robust, permanent archiving storage location that is supported by an SLA.
 
 Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs. The same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
 
-This guide requires that you're running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+This guide requires that you're running the Azure CLI version 2.0.4 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## Create a resource group
@@ -98,6 +97,7 @@ Mount the Azure file share to the local directory.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+The above command uses the [mount](https://linux.die.net/man/8/mount) command to mount the Azure file share and options specific to [cifs](https://linux.die.net/man/8/mount.cifs). Specifically, the file_mode and dir_mode options set files and directories to permission `0777`. The `0777` permission gives read, write, and execute permissions to all users. You can change these permissions by replacing the values with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod). You can also use other [cifs](https://linux.die.net/man/8/mount.cifs) options such as gid or uid. 
 
 
 ## Persist the mount

@@ -1,24 +1,18 @@
 ---
 title: Create web APIs & REST APIs for Azure Logic Apps | Microsoft Docs
-description: Create web APIs & REST APIs to  call your APIs, services, or systems from logic app workflows for system integrations
-keywords: web APIs, REST APIs, workflows, system integrations
+description: Create web APIs & REST APIs to call your APIs, services, or systems for system integrations in Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
 ---
 
-# Create custom APIs that you can call from logic app workflows
+# Create custom APIs you can call from Azure Logic Apps
 
 Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
 that you can use in logic app workflows, you might want to call APIs, 
@@ -71,7 +65,7 @@ easy API hosting.
 >
 > For API App samples built for logic apps, visit the 
 > [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
-> or [blog](http://aka.ms/logicappsblog).
+> or [blog](https://aka.ms/logicappsblog).
 
 ## How do custom APIs differ from custom connectors?
 
@@ -413,7 +407,7 @@ contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish). 
+[Logic Apps user feedback site](https://aka.ms/logicapps-wish). 
 
 ## Next steps
 

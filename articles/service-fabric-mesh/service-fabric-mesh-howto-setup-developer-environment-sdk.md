@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 08/08/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
@@ -65,31 +65,35 @@ Install-WindowsFeature Containers
 Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 
 1. Install the [Service Fabric Mesh SDK][download-sdkmesh] using Web Platform Installer. This will also install the Microsoft Azure Service Fabric SDK and runtime.
-2. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
+2. Install the [Visual Studio Service Fabric Mesh Tools (preview) extension][download-tools] from Visual Studio Marketplace.
 
 ## Build a cluster
+
+> [!IMPORTANT]
+> Docker **must** be running before you can build a cluster.
+> Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
 
 If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
 For the best debugging performance when you create and run Service Fabric apps, we recommend creating a single-node local development cluster. This cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
-Docker **must** be running before you can build a cluster. Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
-
-After you install the runtime, SDKs, and Visual Studio tools, create a development cluster.
+After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a development cluster.
 
 1. Close your PowerShell window.
 2. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules that were recently installed.
 3. Run the following PowerShell command to create a development cluster:
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-
 4. To start the local cluster manager tool, run the following PowerShell command:
 
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
+5. Once the Service cluster manager tool is running (it appears in your system tray), right-click it and click **Start Local Cluster**.
+
+![Figure 1 - Start the local cluster](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 You're now ready to create Service Fabric Mesh applications!
 
@@ -97,11 +101,13 @@ You're now ready to create Service Fabric Mesh applications!
 
 Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
 
+Find answers to [common questions](service-fabric-mesh-faq.md).
+
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: https://aka.ms/sfruntime
 [download-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
 [download-sdkmesh]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
-[download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
+[download-tools]: https://aka.ms/sfmesh_vs2017tools
 [download-visual-studio]: https://www.visualstudio.com/downloads/

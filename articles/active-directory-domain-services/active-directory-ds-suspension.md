@@ -9,12 +9,12 @@ editor: curtand
 
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
 
 ---
@@ -24,7 +24,7 @@ When Azure Active Directory Domain Services (Azure AD DS) is unable to service a
 
 ## States your managed domain can be in
 
-![Suspended domain timeline](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
+![Suspended domain timeline](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
 The preceding graphic outlines the possible states an Azure AD DS managed domain can be in.
 
@@ -39,7 +39,7 @@ A managed domain that is configured correctly and operating regularly is in the 
 
 
 ### "Needs Attention" state
-A managed domain is in the **Needs Attention** state if one or more issues require an administrator to take action. The health page of your managed domain lists one or more alerts in this state. 
+A managed domain is in the **Needs Attention** state if one or more issues require an administrator to take action. The health page of your managed domain lists one or more alerts in this state.
 
 For example, if you've configured a restrictive NSG for your virtual network, Microsoft might not be able to update and monitor your managed domain. This invalid configuration triggers an alert that puts your managed domain into the "Needs Attention" state.
 

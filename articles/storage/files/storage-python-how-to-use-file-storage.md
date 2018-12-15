@@ -173,5 +173,5 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 Now that you've learned how to manipulate Azure Files with Python, follow these links to learn more.
 
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [Azure Storage Services REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

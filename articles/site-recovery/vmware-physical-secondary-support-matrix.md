@@ -1,18 +1,17 @@
 ---
-title: Support matrix for replication of VMware VMs or physical servers to a secondary VMware site with Azure Site Recovery | Microsoft Docs
-description: Summarizes the support for VMware/physical server replication to a secondary site with Azure Site Recovery
-services: site-recovery
+title: Support matrix for disaster recovery of VMware VMs or physical servers to a secondary VMware site with Azure Site Recovery | Microsoft Docs
+description: Summarizes the support for disaster recovery of VMware VMs and physical servers to a secondary site with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
-# Support matrix for replication of VMware VMs and physical servers to a secondary site
+# Support matrix for disaster recovery of VMware VMs and physical servers to a secondary site
 
-This article summarizes what's supported when you use the [Azure Site Recovery](site-recovery-overview.md) service to replicate VMware VMs or Windows/Linux physical servers to a secondary VMware site.
+This article summarizes what's supported when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of VMware VMs or Windows/Linux physical servers to a secondary VMware site.
 
 - If you want to replicate VMware VMs or physical servers to Azure, review [this support matrix](vmware-physical-azure-support-matrix.md).
 - If you want to replicate Hyper-V VMs to a secondary site, review [this support matrix](hyper-v-azure-support-matrix.md).
@@ -107,7 +106,7 @@ The Mobility service coordinates replication between on-premises VMware servers 
 
 **Update** | **Details** 
 --- | --- 
-Scout updates | [Learn about and download](/vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
+Scout updates | [Learn about and download](vmware-physical-secondary-disaster-recovery.md#updates) the latest Scout updates | Scout updates are cumulative.
 Component updates | Scout updates include updates for all components, including the RX server, configuration server, process and master target servers, vContinuum servers, and source servers you want to protect.<br/><br/> [Learn more](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

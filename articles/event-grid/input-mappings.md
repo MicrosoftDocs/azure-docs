@@ -7,13 +7,15 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
 ---
 
 # Map custom fields to Event Grid schema
 
-If your event data does not match the expected [Event Grid schema](event-schema.md), you can still use Event Grid to route event to subscribers. This article describes how to map your schema to the Event Grid schema.
+If your event data doesn't match the expected [Event Grid schema](event-schema.md), you can still use Event Grid to route event to subscribers. This article describes how to map your schema to the Event Grid schema.
+
+## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -35,18 +37,18 @@ Although that format doesn't match the required schema, Event Grid enables you t
 
 ## Create custom topic with mapped fields
 
-When creating a custom topic, specify how to map fields from your original event to the event grid schema. There are three properties you use to customize the mapping:
+When creating a custom topic, specify how to map fields from your original event to the event grid schema. There are three values you use to customize the mapping:
 
-* The `--input-schema` parameter specifies the type of schema. The available options are *cloudeventv01schema*, *customeventschema*, and *eventgridschema*. The default value is eventgridschema. When creating custom mapping between your schema and the event grid schema, use customeventschema. When events are in the CloudEvents schema, use cloudeventv01schema.
+* The **input schema** value specifies the type of schema. The available options are CloudEvents schema, custom event schema, or Event Grid schema. The default value is Event Grid schema. When creating custom mapping between your schema and the event grid schema, use custom event schema. When events are in the CloudEvents schema, use Cloudevents schema.
 
-* The `--input-mapping-default-values` parameter specifies default values for fields in the Event Grid schema. You can set default values for *subject*, *eventtype*, and *dataversion*. Typically, you use this parameter when your custom schema does not include a field that corresponds to one of those three fields. For example, you can specify that dataversion is always set to **1.0**.
+* The **mapping default values** property specifies default values for fields in the Event Grid schema. You can set default values for `subject`, `eventtype`, and `dataversion`. Typically, you use this parameter when your custom schema doesn't include a field that corresponds to one of those three fields. For example, you can specify that data version is always set to **1.0**.
 
-* The `--input-mapping-fields` parameter maps fields from your schema to the event grid schema. You specify values in space-separated key/value pairs. For the key name, use the name of the event grid field. For the value, use the name of your field. You can use key names for *id*, *topic*, *eventtime*, *subject*, *eventtype*, and *dataversion*.
+* The **mapping fields** value maps fields from your schema to the event grid schema. You specify values in space-separated key/value pairs. For the key name, use the name of the event grid field. For the value, use the name of your field. You can use key names for `id`, `topic`, `eventtime`, `subject`, `eventtype`, and `dataversion`.
 
-The following example creates a custom topic with some mapped and default fields:
+To create a custom topic with Azure CLI, use:
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -54,70 +56,129 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
+For PowerShell, use:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName myResourceGroup `
+  -Name demotopic `
+  -Location eastus2 `
+  -InputSchema CustomEventSchema `
+  -InputMappingField @{eventType="myEventTypeField"} `
+  -InputMappingDefaultValue @{subject="DefaultSubject"; dataVersion="1.0" }
+```
+
 ## Subscribe to event grid topic
 
-When subscribing to the custom topic, you specify the schema you would like to use for receiving the events. You use the `--event-delivery-schema` parameter and set it to *cloudeventv01schema*, *eventgridschema*, or *inputeventschema*. The default value is eventgridschema.
+When subscribing to the custom topic, you specify the schema you would like to use for receiving the events. You specify the CloudEvents schema, custom event schema, or Event Grid schema. The default value is Event Grid schema.
 
-The examples in this section use a Queue storage for the event handler. For more information, see [Route custom events to Azure Queue storage](custom-event-to-queue-storage.md).
-
-The following example subscribes to an event grid topic and uses the default event grid schema:
+The following example subscribes to an event grid topic and uses the Event Grid schema. For Azure CLI, use:
 
 ```azurecli-interactive
+topicid=$(az eventgrid topic show --name demoTopic -g myResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub1 \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --event-delivery-schema eventgridschema \
+  --endpoint <endpoint_URL>
 ```
 
 The next example uses the input schema of the event:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub2 \
   --event-delivery-schema inputeventschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
+```
+
+The following example subscribes to an event grid topic and uses the Event Grid schema. For PowerShell, use:
+
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub1 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema EventGridSchema
+```
+
+The next example uses the input schema of the event:
+
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub2 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema CustomInputSchema
 ```
 
 ## Publish event to topic
 
-You are now ready to send an event to the custom topic, and see the result of the mapping. The following script to post an event in the [example schema](#original-event-schema):
+You're now ready to send an event to the custom topic, and see the result of the mapping. The following script to post an event in the [example schema](#original-event-schema):
+
+For Azure CLI, use:
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
-Now, look at your Queue storage. The two subscriptions delivered events in different schemas.
+For PowerShell, use:
+
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+
+$htbody = @{
+    myEventTypeField="Created"
+    resource="Users/example/Messages/1000"
+    resourceData= @{
+        someDataField1="SomeDataFieldValue"
+    }
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Now, look at your WebHook endpoint. The two subscriptions delivered events in different schemas.
 
 The first subscription used event grid schema. The format of the delivered event is:
 
 ```json
 {
-  "Id": "016b3d68-881f-4ea3-8a9c-ed9246582abe",
-  "EventTime": "2018-05-01T20:00:25.2606434Z",
-  "EventType": "Created",
-  "DataVersion": "1.0",
-  "MetadataVersion": "1",
-  "Topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
-  "Subject": "DefaultSubject",
-  "Data": {
+  "id": "aa5b8e2a-1235-4032-be8f-5223395b9eae",
+  "eventTime": "2018-11-07T23:59:14.7997564Z",
+  "eventType": "Created",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
+  "subject": "DefaultSubject",
+  "data": {
     "myEventTypeField": "Created",
     "resource": "Users/example/Messages/1000",
-    "resourceData": { "someDataField1": "SomeDataFieldValue" } 
+    "resourceData": {
+      "someDataField1": "SomeDataFieldValue"
+    }
   }
 }
 ```
@@ -130,7 +191,9 @@ The second subscription used the input event schema. The format of the delivered
 {
   "myEventTypeField": "Created",
   "resource": "Users/example/Messages/1000",
-  "resourceData": { "someDataField1": "SomeDataFieldValue" }
+  "resourceData": {
+    "someDataField1": "SomeDataFieldValue"
+  }
 }
 ```
 

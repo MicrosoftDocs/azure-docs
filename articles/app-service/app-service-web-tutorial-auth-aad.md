@@ -79,6 +79,10 @@ To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
 
 In this step, you deploy the project to two App Service apps. One is the front-end app and the other is the back-end app.
 
+### Configure a deployment user
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+
 ### Create Azure resources
 
 In the Cloud Shell, run the following commands to create two web apps. Replace _&lt;front\_end\_app\_name>_ and _&lt;back\_end\_app\_name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).

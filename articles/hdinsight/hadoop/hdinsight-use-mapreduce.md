@@ -1,16 +1,16 @@
 ---
-title: MapReduce with Hadoop on HDInsight 
-description: Learn how to run MapReduce jobs on Hadoop in HDInsight clusters.
+title: MapReduce with Apache Hadoop on HDInsight 
+description: Learn how to run MapReduce jobs on Apache Hadoop in HDInsight clusters.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ---
-# Use MapReduce in Hadoop on HDInsight
+# Use MapReduce in Apache Hadoop on HDInsight
 
 Learn how to run MapReduce jobs on HDInsight clusters. Use the following table to discover the various ways that MapReduce can be used with HDInsight:
 
@@ -26,7 +26,7 @@ Learn how to run MapReduce jobs on HDInsight clusters. Use the following table t
 
 ## <a id="whatis"></a>What is MapReduce
 
-Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks. Each chunk is processed in parallel across the nodes in your cluster. A MapReduce job consists of two functions:
+Apache Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks. Each chunk is processed in parallel across the nodes in your cluster. A MapReduce job consists of two functions:
 
 * **Mapper**: Consumes input data, analyzes it (usually with filter and sorting operations), and emits tuples (key-value pairs)
 

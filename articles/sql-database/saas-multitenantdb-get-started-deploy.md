@@ -1,18 +1,19 @@
 ---
 title: "Deploy a sharded multi-tenant database SaaS app that uses Azure SQL Database | Microsoft Docs"
 description: "Deploy and explore the sharded Wingtip Tickets SaaS multi-tenant database application, that demonstrates SaaS patterns by using Azure SQL Database."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "MightyPen"
-manager: "craigg"
-ms.service: "sql-database"
-ms.custom: "scale out apps"
-ms.workload: "data-management"
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: "genemi"
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, stein
+manager: craigg
+ms.date: 04/02/2018
 ---
-# Deploy and explore a sharded multi-tenant application that uses Azure SQL Database
+# Deploy and explore a sharded multi-tenant application
 
 In this tutorial, you deploy and explore a sample  multi-tenant SaaS application that is named Wingtip Tickets. The Wingtip Tickets app is designed to showcase features of Azure SQL Database that simplify the implementation of SaaS scenarios.
 
@@ -20,7 +21,7 @@ This implementation of the Wingtip Tickets app uses a sharded multi-tenant datab
 
 This database pattern allows you to store one or more tenants in each shard or database. You can optimize for lowest cost by having each database be shared by multiple tenants. Or you can optimize for isolation by having each database store only one tenant. Your optimization choice can be made independently for each specific tenant. Your choice can be made when the tenant is first stored, or you can change your mind later. The application is designed to work well either way.
 
-#### App deploys quickly
+## App deploys quickly
 
 The app runs in the Azure cloud and uses Azure SQL Database. The deployment section that follows provides the blue **Deploy to Azure** button. When the button is pressed, the app is fully deployed to your Azure subscription within five minutes. You have full access to work with the individual application components.
 
@@ -28,7 +29,7 @@ The application is deployed with data for three sample tenants. The tenants are 
 
 Anyone can download the C# and PowerShell source code for Wingtip Tickets from [its GitHub repository][link-github-wingtip-multitenantdb-55g].
 
-#### Learn in this tutorial
+## Learn in this tutorial
 
 > [!div class="checklist"]
 > - How to deploy the Wingtip Tickets SaaS application.
@@ -48,7 +49,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Deploy the Wingtip Tickets app
 
-#### Plan the names
+### Plan the names
 
 In the steps of this section, you provide a *user* value that is used to ensure resource names are globally unique, and a name for the *resource group* which contains all the resources created by a deployment of the app. For a person named *Ann Finley*, we suggest:
 - *User:* **af1**  *(Her initials, plus a digit. Use a different value (e.g. af2) if you deploy the app a second time.)*
@@ -56,7 +57,7 @@ In the steps of this section, you provide a *user* value that is used to ensure 
 
 Choose your names now, and write them down. 
 
-#### Steps
+### Steps
 
 1. Click the following blue **Deploy to Azure** button.
     - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
@@ -126,7 +127,7 @@ A central **Events Hub** webpage provides a list of links to the tenants in your
 
    ![Events](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### Azure Traffic Manager
+### Azure Traffic Manager
 
 To control the distribution of incoming requests, the Wingtip app uses [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). The events page for each tenant includes the tenant name in its URL. Each URL also includes your specific User value. Each URL obeys the shown format by using the following steps:
 
@@ -137,7 +138,7 @@ To control the distribution of incoming requests, the Wingtip app uses [Azure Tr
 3. The app finds the key in the catalog, and obtains the corresponding location of the tenant's database.
 4. The app uses the location info to find and access the one database that contains all the data for the tenant.
 
-#### Events Hub
+### Events Hub
 
 1. The **Events Hub** lists all the tenants that are registered in the catalog, and their venues.
 2. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant's name associated with each mapping to construct the URLs.
@@ -178,6 +179,7 @@ Refresh the **Events Hub**, and the new tenant now appears in the list.
 ## Provision a new tenant in its own database
 
 The sharded multi-tenant model allows you to choose whether to provision a new tenant into a database that contains other tenants, or into a database of its own. A tenant isolated in its own database enjoys the following benefits:
+
 - The performance of the tenant's database can be managed without the need to compromise with the needs of other tenants.
 - If necessary, the database can be restored to an earlier point in time, because no other tenants would be affected.
 
@@ -214,7 +216,6 @@ Now we look at some of the resources that were deployed:
 
    ![tenants server](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## Monitor the performance of the database
 
 If the load generator has been running for several minutes, enough telemetry is available to look at the database monitoring capabilities built into the Azure portal.
@@ -231,7 +232,7 @@ If the load generator has been running for several minutes, enough telemetry is 
 
 The load generator is applying a similar load to each tenant, regardless of which database each tenant is in. With only one tenant in the **salixsalsa** database, you can see that the database could sustain a much higher load than the database with several tenants. 
 
-#### Resource allocations vary by workload
+### Resource allocations vary by workload
 
 Sometimes a multi-tenant database requires more resources for good performance than does a single-tenant database, but not always. The optimal allocation of resources depends on the particular workload characteristics for the tenants in your system.
 
@@ -242,8 +243,9 @@ The workloads generated by the load generator script are for illustration purpos
 - To learn about multi-tenant SaaS applications, see [Design patterns for multi-tenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 - To learn about elastic pools, see:
-    - [Elastic pools help you manage and scale multiple Azure SQL databases](sql-database-elastic-pool.md)
-    - [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
+
+  - [Elastic pools help you manage and scale multiple Azure SQL databases](sql-database-elastic-pool.md)
+  - [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## Next steps
 

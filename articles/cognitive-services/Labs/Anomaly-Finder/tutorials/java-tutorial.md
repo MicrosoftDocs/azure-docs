@@ -1,18 +1,21 @@
 ---
-title: Anomaly Detection Java app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a Java app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
+title: "Tutorial: Anomaly Detection, Java"
+titlesuffix: Azure Cognitive Services
+description: Explore a Java app that uses the Anomaly Detection API. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: wenya
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
 ---
 
-# Anomaly Detection Java application
+# Tutorial: Anomaly Detection with Java application
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 This article demonstrates using a simple Java application to invoke the Anomaly Detection API.  
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.
@@ -22,7 +25,7 @@ The example submits the time series data to the Anomaly Detection API with your 
 ### Platform requirements
 
 This tutorial has been developed using [IntelliJ IDEA](https://www.jetbrains.com/idea). 
-And also you need to install [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) version 1.8+, and an up-to-date [Apache's Maven](http://maven.apache.org/) build tool.
+And also you need to install [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 1.8+, and an up-to-date [Apache's Maven](http://maven.apache.org/) build tool.
 
 ### Subscribe to Anomaly Detection and get a subscription key 
 

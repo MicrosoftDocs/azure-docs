@@ -27,6 +27,8 @@ This guide shows you how to configure your API Management service instance to us
 > [!NOTE]
 > For more information on configuring OAuth 2.0 using Azure Active Directory, see the [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] sample.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
 
 > [!NOTE]
@@ -59,9 +61,9 @@ This guide shows you how to configure your API Management service instance to us
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    For an Azure Active Directory OAuth 2.0 server, the **Token endpoint URL** will have the following format, where `<APPID>`  has the format of `yourapp.onmicrosoft.com`.
+    For an Azure Active Directory OAuth 2.0 server, the **Token endpoint URL** will have the following format, where `<TenantID>`  has the format of `yourapp.onmicrosoft.com`.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     The default setting for **Client authentication methods** is **Basic**, and  **Access token sending method** is **Authorization header**. These values are configured on this section of the form, along with the **Default scope**.
 

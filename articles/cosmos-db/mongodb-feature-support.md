@@ -1,13 +1,11 @@
 ---
-title: 'Azure Cosmos DB feature support for MongoDB | Microsoft Docs'
+title: 'Azure Cosmos DB feature support for MongoDB'
 description: Learn about the feature support the Azure Cosmos DB MongoDB API provides for MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
@@ -310,7 +308,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documents without sort 
 
 ## Unique indexes
 
-Azure Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default “_id” key. Now you can create custom indexes in Azure Cosmos DB by using the createIndex command, including the ‘unique’ constraint.
+Azure Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. Now you can create custom indexes in Azure Cosmos DB by using the createIndex command, including the 'unique’ constraint.
 
 Unique indexes are available for all MongoDB API accounts.
 

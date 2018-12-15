@@ -1,13 +1,11 @@
 ---
-title: Azure Table Storage support in Azure Cosmos DB | Microsoft Docs
+title: Azure Table Storage support in Azure Cosmos DB
 description: Learn how Azure Cosmos DB Table API and Azure Storage Tables work together.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
@@ -28,7 +26,7 @@ At this time, the [Azure Cosmos DB Table API](table-introduction.md) has four SD
 - [Java SDK](table-sdk-java.md). This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 - [Node.js SDK](table-sdk-nodejs.md). This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
-Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#develop-with-the-table-api) article.
+Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](faq.md#table) article.
 
 ## Developing with Azure Table storage
 

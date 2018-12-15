@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,7 +14,7 @@ ms.reviewer: minewiskan
 Once you've created an Analysis Services server in Azure, there may be some administration and management tasks you need to perform right away or sometime down the road. For example, run processing to the refresh data, control who can access the models on your server, or monitor your server's health. Some management tasks can only be performed in Azure portal, others in SQL Server Management Studio (SSMS), and some tasks can be done in either.
 
 ## Azure portal
-[Azure portal](http://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
+[Azure portal](https://portal.azure.com/) is where you can create and delete servers, monitor server resources, change size, and manage who has access to your servers.  If you're having some problems, you can also submit a support request.
 
 ![Get server name in Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
@@ -41,7 +41,7 @@ To get all the latest features, and the smoothest experience when connecting to 
     > Authentication type, **Active Directory - Universal with MFA support**, is recommended.
 
     > [!NOTE]
-    > If you sign in with a Microsoft Account, Live ID, Yanoo, Gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
+    > If you sign in with a Microsoft Account, Live ID, Yahoo, Gmail, etc., leave the password field blank. You are prompted for a password after clicking Connect.
 
     **Windows Authentication** to use your Windows domain\username and password credentials.
 

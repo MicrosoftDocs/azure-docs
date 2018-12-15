@@ -1,16 +1,17 @@
 ---
 title: Split-merge security configuration | Microsoft Docs
 description: Set up x409 certificates for encryption with the split/merge service for elastic scale.
-metakeywords: Elastic Database certificates security
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: sstein
-
+author: VanMSFT
+ms.author: vanto
+ms.reviewer:
+manager: craigg
+ms.date: 12/04/2018
 ---
 # Split-merge security configuration
 To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -22,24 +23,24 @@ Certificates are configured in two ways.
 2. [To Configure Client Certificates](#to-configure-client-certificates) 
 
 ## To obtain certificates
-Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
+Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
 
 ## Tools to generate certificates
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### To run the tools
-* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](http://msdn.microsoft.com/library/ms229859.aspx) 
+* From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     If installed, go to:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Get the WDK from [Windows 8.1: Download kits and tools](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## To configure the SSL certificate
-A SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
+An SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
 ### Create a new self-signed certificate
 1. [Create a Self-Signed Certificate](#create-a-self-signed-certificate)
@@ -135,7 +136,7 @@ There are two different mechanisms supported to detect and prevent Denial of Ser
 These are based on the features further documented in Dynamic IP Security in IIS. When changing this configuration beware of the following factors:
 
 * The behavior of proxies and Network Address Translation devices over the remote host information
-* Each request to any resource in the web role is considered (e.g. loading scripts, images, etc)
+* Each request to any resource in the web role is considered (for example, loading scripts, images, etc)
 
 ## Restricting number of concurrent accesses
 The settings that configure this behavior are:
@@ -159,7 +160,7 @@ The following setting configures the response to a denied request:
 Refer to the documentation for Dynamic IP Security in IIS for other supported values.
 
 ## Operations for configuring service certificates
-This topic is for reference only. Please follow the configuration steps outlined in:
+This topic is for reference only. Follow the configuration steps outlined in:
 
 * Configure the SSL certificate
 * Configure client certificates
@@ -171,7 +172,7 @@ Execute:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 To customize:
@@ -216,9 +217,9 @@ Follow these steps in all account/machine that will communicate with the service
 * Import certificate into the Trusted Root Certification Authorities store
 
 ## Turn off client certificate-based authentication
-Only client certificate-based authentication is supported and disabling it will allow for public access to the service endpoints, unless other mechanisms are in place (e.g. Microsoft Azure Virtual Network).
+Only client certificate-based authentication is supported and disabling it will allow for public access to the service endpoints, unless other mechanisms are in place (for example, Microsoft Azure Virtual Network).
 
-Change these settings to false in the service configuration file to turn the feature off:
+Change these settings to false in the service configuration file to turn off the feature:
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
@@ -234,7 +235,7 @@ Execute the following steps to create a self-signed certificate to act as a Cert
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -275,7 +276,7 @@ Update the value of the following setting with the same thumbprint:
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## Issue client certificates
-Each individual authorized to access the service should have a client certificate issued for his/hers exclusive use and should choose his/hers own strong password to protect its private key. 
+Each individual authorized to access the service should have a client certificate issued for their exclusive use and should choose their own strong password to protect its private key. 
 
 The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
 
@@ -283,7 +284,7 @@ The following steps must be executed in the same machine where the self-signed C
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -311,14 +312,14 @@ Enter password and then export certificate with these options:
 * The individual to whom this certificate is being issued should choose the export password
 
 ## Import client certificate
-Each individual for whom a client certificate has been issued should import the key pair in the machines he/she will use to communicate with the service:
+Each individual for whom a client certificate has been issued should import the key pair in the machines they will use to communicate with the service:
 
 * Double-click the .PFX file in Windows Explorer
 * Import certificate into the Personal store with at least this option:
   * Include all extended properties checked
 
 ## Copy client certificate thumbprints
-Each individual for whom a client certificate has been issued must follow these steps in order to obtain the thumbprint of his/hers certificate which will be added to the service configuration file:
+Each individual for whom a client certificate has been issued must follow these steps in order to obtain the thumbprint of their certificate, which will be added to the service configuration file:
 
 * Run certmgr.exe
 * Select the Personal tab
@@ -336,7 +337,7 @@ Update the value of the following setting in the service configuration file with
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
 ## Configure client certificate revocation check
-The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority which issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
+The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority that issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 

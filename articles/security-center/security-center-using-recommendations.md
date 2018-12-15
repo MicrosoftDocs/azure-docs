@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
@@ -26,7 +26,7 @@ You can reduce the chances of a significant security event by configuring a secu
 >
 
 ## Managing security recommendations
-A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements. To learn more, see [Set security policies in Security Center](security-center-policies.md).
+A security policy defines the set of controls that are recommended for resources within the specified subscription or resource group. In Security Center, you define policies according to your company's security requirements. To learn more, see [Set security policies in Security Center](security-center-azure-policy.md).
 
 Security policies for resource groups are inherited from the subscription level.
 
@@ -113,7 +113,7 @@ To learn more about Security Center, see:
 * [Monitoring and processing security events](security-center-events-dashboard.md) - Learn how to monitor and process security events collected over time.
 * [Monitoring partner solutions](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png

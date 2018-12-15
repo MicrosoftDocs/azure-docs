@@ -95,31 +95,46 @@ Use the following steps to configure the native Windows VPN client for certifica
 2. Locate the **mobileconfig** file on the Mac.
 
    ![Location of the mobilconfig file](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
-3. Double-click the profile to install it, and select **Continue**. The profile name is the same as the name of your virtual network.
+
+3. Optional Step - If you want to specify a custom DNS, add the following lines to the **mobileconfig** file:
+```
+    <key>DNS</key>
+    <dict>
+      <key>ServerAddresses</key>
+        <array>
+            <string>10.0.0.132</string>
+        <array>
+      <key>SupplementalMatchDomains</key>
+        <array>
+            <string>TestDomain.com</string>
+        </array>
+    </dict> 
+```
+4. Double-click the profile to install it, and select **Continue**. The profile name is the same as the name of your virtual network.
 
    ![Installation message](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
-4. Select **Continue** to trust the sender of the profile and proceed with the installation.
+5. Select **Continue** to trust the sender of the profile and proceed with the installation.
 
    ![Confirmation message](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
-5. During profile installation, you have the option to specify the username and password for VPN authentication. It's not mandatory to enter this information. If you do, the information is saved and automatically used when you initiate a connection. Select **Install** to proceed.
+6. During profile installation, you have the option to specify the username and password for VPN authentication. It's not mandatory to enter this information. If you do, the information is saved and automatically used when you initiate a connection. Select **Install** to proceed.
 
    ![Username and password boxes for VPN](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-6. Enter a username and password for the privileges that are required to install the profile on your computer. Select **OK**.
+7. Enter a username and password for the privileges that are required to install the profile on your computer. Select **OK**.
 
    ![Username and password boxes for profile installation](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
-7. After the profile is installed, it's visible in the **Profiles** dialog box. You can also open this dialog box later from **System Preferences**.
+8. After the profile is installed, it's visible in the **Profiles** dialog box. You can also open this dialog box later from **System Preferences**.
 
    !["Profiles" dialog box](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
-8. To access the VPN connection, open the **Network** dialog box from **System Preferences**.
+9. To access the VPN connection, open the **Network** dialog box from **System Preferences**.
 
    ![Icons in System Preferences](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
-9. The VPN connection appears as **IkeV2-VPN**. You can change the name by updating the **mobileconfig** file.
+10. The VPN connection appears as **IkeV2-VPN**. You can change the name by updating the **mobileconfig** file.
 
    ![Details for the VPN connection](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
-10. Select **Authentication Settings**. Select **Username** in the list and enter your credentials. If you entered the credentials earlier, then **Username** is automatically chosen in the list and the username and password are prepopulated. Select **OK** to save the settings.
+11. Select **Authentication Settings**. Select **Username** in the list and enter your credentials. If you entered the credentials earlier, then **Username** is automatically chosen in the list and the username and password are prepopulated. Select **OK** to save the settings.
 
     ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
-11. Back in the **Network** dialog box, select **Apply** to save the changes. To initiate the connection, select **Connect**.
+12. Back in the **Network** dialog box, select **Apply** to save the changes. To initiate the connection, select **Connect**.
 
 #### <a name="adlinuxcli"></a>Linux VPN client setup through strongSwan
 

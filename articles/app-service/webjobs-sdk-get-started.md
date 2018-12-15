@@ -98,7 +98,7 @@ The `JobHost` object is the runtime container for functions: it listens for trig
 
 ## Enable console logging
 
-There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
+There are several options for logging in WebJobs SDK project. The one we recommend is the [logging framework that was developed for ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). This framework offers better performance and more flexibility in storage media and filtering. 
 
 In this section, you set up console logging that uses the new framework.
 
@@ -178,7 +178,7 @@ In this section, you set up console logging that uses the new framework.
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a Storage account in Azure and configure the project to use it.
 
-1. Open **Server Explorer** and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
+1. Open **Server Explorer** in Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
 
    ![Sign in to Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -241,7 +241,7 @@ In this section, you build and run the project locally and trigger the function 
 
 1. Close the console window.
 
-1. In **Server Explorer**, expand the node for your new storage account, and then right-click **Queues**. 
+1. In **Server Explorer** in Visual Studio, expand the node for your new storage account, and then right-click **Queues**. 
 
 1. Select **Create Queue**. 
 
@@ -306,7 +306,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 ### Configure app settings 
 
-1. In **Server Explorer**, expand the **App Service** node under **Azure**.
+1. In **Server Explorer** in Visual Studio, expand the **App Service** node under **Azure**.
 
 1. Expand the resource group that your App Service app is in, and then right-click your App Service app.
 
@@ -392,7 +392,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 In this section you run locally again to verify that logging data is now going to Application Insights as well as to the console.
 
-1. Use **Server Explorer** to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello App Insights!* as the message text.
+1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello App Insights!* as the message text.
 
 1. Run the project.
 
@@ -438,7 +438,6 @@ In this section you deploy the project as a WebJob. You deploy it to an App Serv
 
 1. Make sure you're not running locally (close the console window if it's still open). Otherwise the local instance might be the first to process any queue messages you create.
 
-1. Use **Server Explorer** to create a queue message, the same way you did [earlier](#trigger-the-function), except enter *Hello Azure!*.
 
 1. Refresh the **Queue** page in Visual Studio, and the new message has disappeared because the function running in Azure App Service processed it.
 
@@ -481,7 +480,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
 1. Create a blob container in your storage account.
 
-   a. In **Server Explorer**, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
+   a. In **Server Explorer** in Visual Studio, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
 
    b. In the **Create Blob Container** dialog, enter *container* as the container name, and then click **OK**.
 
