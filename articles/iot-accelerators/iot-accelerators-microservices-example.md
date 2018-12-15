@@ -73,7 +73,7 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
     
     or on Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 
@@ -120,7 +120,7 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 2. Open docker-compose.yml in any text editor or IDE that you like.
 3. Locate the following code:
 
-    ```docker
+    ```DockerFile
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 

@@ -43,7 +43,7 @@ The container reads user environment variables when the container is instantiate
 
 For example, the following commands use an environment variable to configure the console logging level to [LogLevel.Information](https://msdn.microsoft.com), then instantiates a container from the Face container image. The value of the environment variable overrides the default configuration setting.
 
-  ```Docker
+  ```DockerFile
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
   ```
@@ -56,7 +56,7 @@ You can specify configuration settings in the optional `ARGS` parameter of the [
 
 For example, the following command instantiates a container from the Face container image and configures the console logging level to LogLevel.Information, overriding the default configuration setting.
 
-  ```Docker
+  ```DockerFile
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
   ```
 
@@ -123,13 +123,13 @@ The storage scenarios and associated configuration settings are managed by the `
 
 For example, the following command specifies the Azure storage scenario and provides sample connection strings for the Azure Storage and Cosmos DB resources used to store data for the Face container.
 
-  ```Docker
+  ```DockerFile
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
 The storage scenario is handled separately from input mounts and output mounts. You can specify a combination of those features for a single container. For example, the following command defines a Docker bind mount to the `D:\Output` folder on the host machine as the output mount, then instantiates a container from the Face container image, saving log files in JSON format to the output mount. The command also specifies the Azure storage scenario and provides sample connection strings for the Azure Storage and Cosmos DB resources used to store data for the Face container.
 
-  ```Docker
+  ```DockerFile
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
   ```
 
@@ -202,7 +202,7 @@ You can specify an input mount or output mount by specifying the `--mount` optio
 
 For example, the following command defines a Docker bind mount to the `D:\Output` folder on the host machine as the output mount, then instantiates a container from the Face container image, saving log files in JSON format to the output mount.
 
-  ```Docker
+  ```DockerFile
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
 

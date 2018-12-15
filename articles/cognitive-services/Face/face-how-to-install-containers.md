@@ -64,13 +64,13 @@ There are several ways to authenticate with the private container registry for C
 
 Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
 
-```docker
+```DockerFile
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
 If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
 
-```docker
+```DockerFile
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
 ```
 
@@ -80,7 +80,7 @@ The container image for the Face container is available from a private Docker co
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest Face container image from the repository, use the following command:
 
-```Docker
+```DockerFile
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
@@ -89,7 +89,7 @@ For a full description of available tags for the Face container, see [Recognize 
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
 >
->  ```Docker
+>  ```DockerFile
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ```
 >
@@ -103,7 +103,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
 
-```Docker
+```DockerFile
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
 ```
 
@@ -171,5 +171,5 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](face-resource-container-config.md) for configuration settings
 * Review [Face overview](Overview.md) to learn more about detecting and identifying faces  
-* Refer to the [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for details about the methods supported by the container.
+* Refer to the [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Face functionality.

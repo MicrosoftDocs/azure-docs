@@ -61,7 +61,7 @@ Customize the Docker image that Azure ML deploys using:
    Image, Manifest, and Service commands accept the docker-file flag.
 
    Example Docker steps file:
-   ```docker
+   ```DockerFile
    # Install tools required to build the project
    RUN apt-get update && apt-get install -y git libxml2-dev
    # Install library dependencies

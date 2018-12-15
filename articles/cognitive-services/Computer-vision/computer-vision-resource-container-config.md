@@ -42,7 +42,7 @@ The container reads user environment variables when the container is instantiate
 
 For example, the following commands use an environment variable to configure the console logging level to [LogLevel.Information](https://msdn.microsoft.com), then instantiates a container from the Recognize Text container image. The value of the environment variable overrides the default configuration setting.
 
-  ```Docker
+  ```DockerFile
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789
   ```
@@ -55,7 +55,7 @@ You can specify configuration settings in the optional `ARGS` parameter of the [
 
 For example, the following command instantiates a container from the Recognize Text container image and configures the console logging level to LogLevel.Information, overriding the default configuration setting.
 
-  ```Docker
+  ```DockerFile
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
   ```
 
@@ -156,6 +156,6 @@ You can specify an input mount or output mount by specifying the `--mount` optio
 
 For example, the following command defines a Docker bind mount to the `D:\Output` folder on the host machine as the output mount, then instantiates a container from the Recognize Text container image, saving log files in JSON format to the output mount.
 
-  ```Docker
+  ```DockerFile
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```

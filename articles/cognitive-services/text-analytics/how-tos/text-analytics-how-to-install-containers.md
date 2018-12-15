@@ -61,7 +61,7 @@ Container images for Text Analytics are available from Microsoft Container Regis
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from a repository. For example, to download the latest Key Phrase Extraction container image from the repository, use the following command:
 
-```Docker
+```DockerFile
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
@@ -74,7 +74,7 @@ For a full description of available tags for the Text Analytics containers, see 
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
 >
->  ```Docker
+>  ```DockerFile
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ```
 >
@@ -88,7 +88,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
 
-```Docker
+```DockerFile
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789
 
 ```

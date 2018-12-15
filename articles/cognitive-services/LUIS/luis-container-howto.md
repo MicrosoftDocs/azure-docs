@@ -57,7 +57,7 @@ The `--cpus` and `--memory` settings are used as part of the `docker run` comman
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
-```Docker
+```DockerFile
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -66,7 +66,7 @@ For a full description of available tags, such as `latest` used in the preceding
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
 >
->  ```Docker
+>  ```DockerFile
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
 >  IMAGE ID            REPOSITORY                                                                TAG
