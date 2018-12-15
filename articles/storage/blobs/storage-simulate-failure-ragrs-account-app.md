@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage 
 ms.topic: tutorial
-ms.date: 12/23/2017
+ms.date: 12/15/2018
 ms.author: tamram 
 ---  
 
@@ -18,6 +18,8 @@ This tutorial is part two of a series.  In this tutorial, you can use either [Fi
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
 To complete this tutorial, you must have completed the previous storage tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 In part two of the series, you learn how to:
 
@@ -32,8 +34,6 @@ In part two of the series, you learn how to:
 To simulate a failure using Fiddler: 
 
 * Download and [install Fiddler](https://www.telerik.com/download/fiddler)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Simulate a failure with Fiddler
 
