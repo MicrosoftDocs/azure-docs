@@ -19,7 +19,7 @@ In this article we show how you can use an [Azure Resource Manager template](../
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
-* **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
 * **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 In this article we describe how to configure diagnostics using either method.
@@ -260,6 +260,6 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 The entire process, including samples, is described [in this document](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next steps
-* [Read more about Azure Diagnostic Logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream Azure Diagnostic Logs to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Read more about Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream Azure Diagnostic Logs to Event Hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

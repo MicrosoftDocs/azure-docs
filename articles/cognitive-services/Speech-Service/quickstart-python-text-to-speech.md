@@ -81,7 +81,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> For more information on authentication, see [Authenticate with an access token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## Make a request and save the response
 
