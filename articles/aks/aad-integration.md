@@ -145,7 +145,7 @@ First, use the [az aks get-credentials][az-aks-get-credentials] command with the
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. Update the user name with one from your Azure AD tenant. This example gives the account full access to all namespaces of the cluster:
+Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. This example gives the account full access to all namespaces of the cluster. Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. Update the user name with one from your Azure AD tenant:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -162,7 +162,13 @@ subjects:
   name: "user@contoso.com"
 ```
 
-A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group object ID, as shown in the following example:
+Apply the binding using the [kubectl apply][kubectl-apply] command as shown in the following example:
+
+```console
+kubectl apply -f rbac-aad-user.yaml
+```
+
+A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group object ID, as shown in the following example. Create a file, such as *rbac-aad-group.yaml*, and paste the following contents. Update the group object ID with one from your Azure AD tenant:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -177,6 +183,12 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
+```
+
+Apply the binding using the [kubectl apply][kubectl-apply] command as shown in the following example:
+
+```console
+kubectl apply -f rbac-aad-group.yaml
 ```
 
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
@@ -217,6 +229,7 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
