@@ -157,7 +157,7 @@ You can disable individual proxies by adding `"disabled": true` to the proxy in 
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
