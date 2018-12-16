@@ -5,13 +5,19 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
 
 You may receive a specific error message when protecting your VMware virtual machines or physical servers using Azure Site Recovery. This article describes some common issues you might encounter when replicating on-premises VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
+
+## Source machine to be protected through Site Recovery is not listed on Azure portal
+
+When trying to choose the source machine to enable replication through Azure Site Recovery, the machine might not available for you to continue because of the following reasons
+
+* If there are two virtual machines under the vCenter with same instance UUID, then the first virtal machine discovered by configuration server are shown on the portal.
 
 ## Initial replication issues.
 
