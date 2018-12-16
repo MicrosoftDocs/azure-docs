@@ -269,17 +269,19 @@ In Program.cs, comment out the following line of code, which puts a pause of 1 s
 await Task.Delay(1000);
 ```
 
-Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
+Run the console application. Wait a few minutes (10-15). You can see the messages being sent on the console screen of the application in the console log.
 
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`.
+The app sends continuous device-to-cloud message to the IoT hub. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`.
 
-If everything is set up correctly, at this point you can view the results. 
+### See the metrics in the portal.
 
-1. Open your metrics from the Dashboard. It shows the telemetry messages sent and the total number of messages used on the chart, with the numbers at the bottom of the chart. 
+Open your metrics from the Dashboard. It shows the telemetry messages sent and the total number of messages used on the chart, with the numbers at the bottom of the chart. 
 
 <!-- screenshot -->
 
-2. When the number of messages sent exceeds the limit, you start getting e-mail alerts. To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
+### See the alerts
+
+When the number of messages sent exceeds the limit, you start getting e-mail alerts. To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
 
 <!-- screenshot of classic alerts -->
 
@@ -287,9 +289,13 @@ Click on alert-telemetry-messages. It shows the metric result and a chart with t
 
 <!-- screenshot .media/tutorial-use-metrics-and-diags/metric-alert-fired.png -->
 
-3. Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see where the device connects and disconnects from the hub. 
+It may take up to 30 minutes for the e-mail alerts to come through. (ARE THESE RELIABLE? I'M NOT GETTING THEM FOR TOTAL-MESSAGES-USED.)
 
-OR, if you are sending it to the storage account, go to the storage account *contosostoragemon* and select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. Download it and open it. You see something like this:
+### See the diagnostic logs. 
+
+Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see messages showing the device connecting to and disconnecting from the hub. 
+
+If you are sending it to the storage account, go to the storage account *contosostoragemon* and select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. Download it and open it. You see something like this:
 
 ```
 { "time": "2018-12-16T19:01:43Z", 
@@ -299,25 +305,21 @@ OR, if you are sending it to the storage account, go to the storage account *con
    "category": "Connections", 
    "level": "Information", 
    "properties": 
-      "{\"deviceId\":\"Contoso-Test-Device\",
-      \"protocol\":\"Mqtt\",
-      \"authType\":null,
-      \"maskedIpAddress\":\"73.162.215.XXX\",
-      \"statusCode\":null}", 
+      "{"deviceId :"Contoso-Test-Device",
+      "protocol":"Mqtt",
+      "authType":null,
+      "maskedIpAddress":"73.162.215.XXX",
+      "statusCode":null}", 
     "location": "westus"}
 ```
 
 HOW DO I SEE WHAT JOHN SAW, WITH THE CONNECTIONS? I'M SENDING IT TO LOG ANALYTICS, BUT NO IDEA IF I'M DOING THAT RIGHT. 
 
-
-
-<!-- In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
--->
-
-
 ## Clean up resources 
 
-If you want to remove all of the resources you've created, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. 
+To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. 
+
+DOES IT REMOVE THE STUFF PINNED TO THE DASHBOARD? I DON'T THINK SO.
 
 To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
 
@@ -327,18 +329,16 @@ az group delete --name $resourceGroup
 
 ## Next steps
 
-In this tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by performing the following tasks.  
+In this tutorial, you learned how to use metrics and diagnostics by performing the following tasks:
 
 > [!div class="checklist"]
-> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
-> * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
-> * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
-> * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
-> * Create a Power BI visualization for data sent to the default endpoint.
-> * View the results ...
-> * ...in the Service Bus queue and e-mails.
-> * ...in the storage account.
-> * ...in the Power BI visualization.
+> * Using Azure CLI, create an IoT hub, a simulated device, and a storage account.  
+> * Enable diagnostics. 
+> * Enable metrics.
+> * Set up alerts for those metrics. 
+> * Download and run an app that simulates an IoT device sending messages to the hub. 
+> * Run the app until the alerts begin to fire. 
+> * View the metrics results and check the diagnostics results. 
 
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
