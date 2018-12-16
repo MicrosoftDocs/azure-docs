@@ -47,6 +47,10 @@
     href: tutorial-security-policy.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
+  - name: Manage security solutions
+    href: security-center-partner-integration.md
+  - name: Automate onboarding using PowerShell
+    href: security-center-powershell-onboarding.md
   - name: Security Center settings
     href: security-center-policies-overview.md
     items:
@@ -62,7 +66,6 @@
       href: security-center-customize-os-security-config.md
     - name: Tenant-wide visibility
       href: security-center-management-groups.md
-
   - name: Implement security recommendations
     href: security-center-recommendations.md
     items:
@@ -84,8 +87,6 @@
       href: security-center-adaptive-application.md
     - name: File integrity monitoring
       href: security-center-file-integrity-monitoring.md
-  - name: Manage security solutions
-    href: security-center-partner-integration.md
   - name: Detect threats
     href: security-center-detection-capabilities.md
     items:
@@ -99,10 +100,6 @@
       href: security-center-alert-validation.md
     - name: UEBA for Azure resources and users
       href: security-center-ueba-mcas.md
-
-  
-  - name: Automate onboarding using PowerShell
-    href: security-center-powershell-onboarding.md
    
   - name: Archive
     items:
