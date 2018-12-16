@@ -233,7 +233,7 @@ Go to the hub in the portal. IoT Hub has not been migrated to Azure Alerts yet (
 
     **Threshold**: Set to 1000.
 
-    **Period**: Set this to *Over the last hour*.   (what should this time interval really be?)
+    **Period**: Set this to *Over the last 5 minutes*. 
 
     On the **Notify via** section, fill in the felds: 
 
@@ -244,7 +244,6 @@ Go to the hub in the portal. IoT Hub has not been migrated to Azure Alerts yet (
 5. Close the classic alerts pane, and then close the alerts pane. 
     
     With these settings, you will get an alert when the number of messages sent is greater than 400 and when the total number of messages used exceeds NUMBER.
-
 
 ## Run Simulated Device app
 
@@ -264,6 +263,12 @@ Double-click on the solution file (SimulatedDevice.sln) to open the code in Visu
 
 ## Run and test 
 
+In Program.cs, comment out the following line of code, which puts a pause of 1 second in between each message sent. This will increase the number of messages sent. 
+
+```csharp
+await Task.Delay(1000);
+```
+
 Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
 
 The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`.
@@ -274,11 +279,37 @@ If everything is set up correctly, at this point you can view the results.
 
 <!-- screenshot -->
 
-2. When the number of messages sent exceeds the limit, you start getting e-mail alerts. 
+2. When the number of messages sent exceeds the limit, you start getting e-mail alerts. To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
 
-3. To to the hub in the portal and click **Logs** under the **Monitoring** section. You can see where the device connects and disconnects from the hub. 
-THIS DOESN'T SHOW ANY LOGS EVEN THOUGH I HAVE DIAGNOSTICS TURNED ON AND GOING TO THE STORAGE ACCOUNT AND TO STORAGE ANALYTICS.
-NOTHING IS GOING TO THE STORAGE ACCOUNT EITHER. 
+<!-- screenshot of classic alerts -->
+
+Click on alert-telemetry-messages. It shows the metric result and a chart with the results. The e-mail looks like this:
+
+<!-- screenshot .media/tutorial-use-metrics-and-diags/metric-alert-fired.png -->
+
+3. Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see where the device connects and disconnects from the hub. 
+
+OR, if you are sending it to the storage account, go to the storage account *contosostoragemon* and select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. Download it and open it. You see something like this:
+
+```
+{ "time": "2018-12-16T19:01:43Z", 
+   "resourceId":   
+      "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
+   "operationName": "deviceConnect", 
+   "category": "Connections", 
+   "level": "Information", 
+   "properties": 
+      "{\"deviceId\":\"Contoso-Test-Device\",
+      \"protocol\":\"Mqtt\",
+      \"authType\":null,
+      \"maskedIpAddress\":\"73.162.215.XXX\",
+      \"statusCode\":null}", 
+    "location": "westus"}
+```
+
+HOW DO I SEE WHAT JOHN SAW, WITH THE CONNECTIONS? I'M SENDING IT TO LOG ANALYTICS, BUT NO IDEA IF I'M DOING THAT RIGHT. 
+
+
 
 <!-- In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
 -->
