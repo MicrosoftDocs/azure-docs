@@ -9,12 +9,14 @@ ms.topic: tutorial
 ms.date: 12/15/2018
 ms.author: robinsh
 ms.custom: mvc
-#Customer intent: As a developer, I want to know how to set up metrics and diagnostics, and check them later, to help me troubleshoot when there is a problem with an IoT hub. 
+#Customer intent: As a developer, I want to know how to set up and check metrics and diagnostics, to help me troubleshoot when there is a problem with an IoT hub. 
 ---
 
 # Tutorial: Set up and use metrics and diagnostics with an IoT hub
 
 If you have an IoT Hub solution running in production, you want to set up some metrics and enable diagnostics. Then if a problem occurs, you have data to look at that will help you diagnose the problem. In this article, you'll see how to enable diagnostics, and how to check the diagnostics for errors. You'll also set up some metrics to watch, and alerts that fire when the metrics hit a certain boundary. 
+
+An example use case is a gas station where the pumps are IoT devices that send communicate with an IoT hub. Credit cards are validated, and the final transaction is written to a data store. If metrics and diagnostics are not set up, and there's a problem, there is no way to figure out what's going on. If the IoT devices stop connecting to the hub and sending messages, it takes longer to fix if you don't know what's going on.
 
 This tutorial uses the Azure sample from the [IoT Hub Routing](tutorial-routing.md) to send messages to the IoT hub.
 
@@ -23,7 +25,7 @@ In this tutorial, you perform the following tasks:
 > [!div class="checklist"]
 > * Using Azure CLI, create an IoT hub, a simulated device, and a storage account.  
 > * Enable diagnostics. 
-> * Enable metrics and set some up. 
+> * Enable metrics.
 > * Set up alerts for those metrics. 
 > * Download and run an app that simulates an IoT device sending messages to the hub. 
 > * Run the app until the alerts begin to fire. 
@@ -173,6 +175,75 @@ Click **Pin\ to dashboard** or you'll never see your metrics again. It will pin 
 
 ## SET UP ALERTS
 
+Go to the hub in the portal. IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to use classic alerts. 
+
+1. Under **Monitoring**, click **Alerts**.
+
+2. Click **View classic alerts**. Click **Add metric alert (classic)** . 
+
+<!-- screenshot of Add Rule blade-->
+
+3. Set up an alert for telemetry messages sent:
+
+   **Name**: Set name for the alert rule.
+
+   **Description**: Fill in a description for your alert rule. 
+
+   **Source**: Set to *Metrics*.
+
+   **Subscription**: select the current subscription.
+
+    **Resource Group**: Select *ContosoResources*.
+
+    **Resource**: Choose your IoT hub, *ContosoTestHub*. 
+
+    **Metric**: Select **Telemetry messages sent**. 
+
+    **Condition**: Set to *Greater than*.
+
+    **Threshold**: Set to 400.
+
+    **Period**: Set this to *Over the last 30 minutes*. 
+
+    On the **Notify via** section, fill in the felds: 
+
+    **Notification email recipients**: Fill in your e-mail address here. 
+
+    You can also set up a webhook here and send the alerts there instead. For example, you could send the results to an Azure Function. You can also send the results to a Logic App.
+
+    Click **OK** to save the rule. 
+
+4. Set up an alert for total messages used. This is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages.
+
+   **Name**: Set name for the alert rule.
+
+   **Description**: Fill in a description for your alert rule. 
+
+   **Source**: Set to *Metrics*.
+
+   **Subscription**: select the current subscription.
+
+    **Resource Group**: Select *ContosoResources*.
+
+    **Resource**: Choose your IoT hub, *ContosoTestHub*. 
+
+    **Metric**: Select **Total number of messages used**. 
+
+    **Condition**: Set to *Greater than*.
+
+    **Threshold**: Set to 1000.
+
+    **Period**: Set this to *Over the last hour*.   (what should this time interval really be?)
+
+    On the **Notify via** section, fill in the felds: 
+
+    **Notification email recipients**: Fill in your e-mail address here. 
+
+    Click **OK** to save the rule. 
+
+5. Close the classic alerts pane, and then close the alerts pane. 
+    
+    With these settings, you will get an alert when the number of messages sent is greater than 400 and when the total number of messages used exceeds NUMBER.
 
 
 ## Run Simulated Device app
@@ -195,29 +266,22 @@ Double-click on the solution file (SimulatedDevice.sln) to open the code in Visu
 
 Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
 
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings will be displayed in the BI report you set up next.
+The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`.
 
-If everything is set up correctly, at this point you should see the following results:
+If everything is set up correctly, at this point you can view the results. 
 
-1. You start getting e-mails about critical messages. 
+1. Open your metrics from the Dashboard. It shows the telemetry messages sent and the total number of messages used on the chart, with the numbers at the bottom of the chart. 
 
-   ![Screenshot showing the resulting emails.](./media/tutorial-routing/results-in-email.png)
+<!-- screenshot -->
 
-   This means the following:
+2. When the number of messages sent exceeds the limit, you start getting e-mail alerts. 
 
-   * The routing to the Service Bus queue is working correctly.
-   * The Logic App retrieving the message from the Service Bus queue is working correctly.
-   * The Logic App connector to Outlook is working correctly. 
+3. To to the hub in the portal and click **Logs** under the **Monitoring** section. You can see where the device connects and disconnects from the hub. 
+THIS DOESN'T SHOW ANY LOGS EVEN THOUGH I HAVE DIAGNOSTICS TURNED ON AND GOING TO THE STORAGE ACCOUNT AND TO STORAGE ANALYTICS.
+NOTHING IS GOING TO THE STORAGE ACCOUNT EITHER. 
 
-2. In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
-
-   ![Screenshot showing the result files in storage.](./media/tutorial-routing/results-in-storage.png)
-
-This means the following:
-
-   * The routing to the storage account is working correctly.
-
-Now with the application still running, set up the Power BI visualization to see the messages coming through the default routing. 
+<!-- In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
+-->
 
 
 ## Clean up resources 
