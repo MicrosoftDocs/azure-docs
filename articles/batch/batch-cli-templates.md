@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 012/07/2018
+ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ---
