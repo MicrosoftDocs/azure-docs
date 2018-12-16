@@ -284,7 +284,7 @@ featureFlags:
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Azure DevOps Project
+                                                            Azure DevOps Projects
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -302,25 +302,25 @@ featureFlags:
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
-                                                            <img src="/learn/achievements/tour-azure-services-and-features.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
                                                             Tour Azure services and features
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
-                                                            <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
                                                             Principles of cloud computing
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
-                                                            <img src="/learn/achievements/control-azure-services-with-cli.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/control-azure-services-with-cli.svg" alt="">
                                                              Control Azure services with the CLI
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
-                                                            <img src="/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
                                                              Automate Azure tasks using scripts with PowerShell
                                                         </a>
                                                     </li>
@@ -338,7 +338,7 @@ featureFlags:
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
-                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
                         </ul>
@@ -389,12 +389,6 @@ featureFlags:
                                             <a href="/azure/container-instances/">
                                                 <img src="media/index/ContainerInstances.svg" alt="" />
                                                 <p>Azure Container Instances</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
@@ -467,9 +461,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -589,12 +583,6 @@ featureFlags:
                                             <a href="/azure/event-grid/">
                                                 <img src="media/index/azure_event_grid.svg" alt="" />
                                                 <p>Event Grid</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/biztalk-services/">
-                                                <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Biztalk Services</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -768,12 +756,6 @@ featureFlags:
                                             <a href="/azure/azure-databricks/">
                                                 <img src="media/index/logo_databricks.svg" alt="" />
                                                 <p>Azure Databricks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1069,7 +1051,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/data-lake-storage/introduction">
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen2</p>
                                             </a>
@@ -1234,9 +1216,14 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                            <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1281,7 +1268,7 @@ featureFlags:
 										<li>
                                             <a href="/azure/devops-project">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Azure DevOps Project</p>
+                                                <p>Azure DevOps Projects</p>
                                             </a>
                                         </li>
 									</ul>
@@ -1554,7 +1541,13 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                        <li>
+                                            <a href="/azure/dedicated-hsm">
+                                                <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                <p>Azure Dedicated HSM</p>
+                                            </a>
+                                        </li>
+					    <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS protection</p>
                                             </a>
@@ -1897,25 +1890,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Easily run containers with a single command</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/batch-ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>Easily experiment and train your deep learning and AI models in parallel at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2370,7 +2344,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storage/data-lake-storage/introduction">
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2381,7 +2355,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Massively scalable, secure Data Lake storage with Blob storage integration</p>
+                                                    <p>Massively scalable, secure data lake storage built on Blob storage</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3093,7 +3067,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3103,7 +3077,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>Power applications with high-throughput, low-latency data access</p>
                                                 </div>
                                             </div>
@@ -3535,6 +3509,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>Massively scalable, secure data lake storage built on Blob storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3545,7 +3538,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Data Lake Storage Gen1</h3>
                                                     <p>Hyperscale repository for big data analytics workloads</p>
                                                 </div>
                                             </div>
@@ -3593,25 +3586,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
                                                     <p>Create an Azure Databricks workspace with Spark clusters</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>Easily experiment and train your deep learning and AI models in parallel at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4373,25 +4347,6 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/azure/biztalk-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/BizTalkServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Biztalk Services</h3>
-                                                    <p>Seamlessly integrate the enterprise and the cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4574,7 +4529,26 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                <a href="/azure/dedicated-hsm/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Dedicated HSM</h3>
+                                                    <p>Use cryptographic key storage in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+			        <a href="/azure/virtual-network/ddos-protection-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4855,7 +4829,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevOps Project</h3>
+                                                    <h3>Azure DevOps Projects</h3>
                                                     <p>Quickly deploy any language on any platform to Azure</p>
                                                 </div>
                                             </div>
@@ -6172,7 +6146,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Storage Explorer</a>
+                                                    <a href="https://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Get Started</a>

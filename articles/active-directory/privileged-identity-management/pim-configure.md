@@ -77,22 +77,13 @@ Privileged Identity Management supports the following scenarios:
 - View the status of your request to activate
 - Complete your task in Azure AD if activation was approved
 
-## Enable Privileged Identity Management for your directory
+## Who can do what in PIM
 
-You can start using Azure AD Privileged Identity Management in the [Azure portal](https://portal.azure.com/).
+If you're the first person to use PIM, you are automatically assigned the [Security Administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) and [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roles in the directory.
 
-> [!NOTE]
-> You must be a global administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.
+For Azure AD roles, only a user who is in the Privileged Role Administrator role can manage assignments for other administrators in PIM. You can [grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators and Security Readers can view assignments to Azure AD roles in PIM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your directory.
-2. If your organization has more than one directory, select your username in the upper right-hand corner of the Azure portal. Select the directory where you will use Azure AD Privileged Identity Management.
-3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
-4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
-
-If you're the first person to use Azure AD Privileged Identity Management in your directory and you navigate to Azure AD directory roles,  and you navigate to Azure AD directory roles,  a [security wizard](pim-security-wizard.md) walks you through the initial assignment experience. After that you automatically become the first **Security administrator** and **Privileged role administrator** of the directory.
-
-For Azure AD roles, only a user who is in the Privileged Role Administrator role can manage assignments for other administrators in Azure AD PIM. You can [give other users the ability to manage directory roles in PIM](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators and Security Readers can view assignments to Azure AD roles in Azure AD PIM.
-For Azure RBAC roles, only a subscription administrator, a resource owner, or a resource user access administrator can manage assignments for other administrators in Azure AD PIM.  Users who are Privileged Role Administrators, Security Administrators or Security Readers do not by default have access to view assignments to Azure RBAC roles in Azure AD PIM.
+For Azure resource roles, only a subscription administrator, a resource Owner, or a resource User Access Administrator can manage assignments for other administrators in PIM. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles in PIM.
 
 ## Privileged Identity Management Overview (Entry Point)
 
@@ -182,6 +173,6 @@ If your organization does not renew Azure AD Premium P2 or your trial expires, t
 
 ## Next steps
 
+- [Start using PIM](pim-getting-started.md)
 - [Subscription requirements to use PIM](subscription-requirements.md)
-- [Azure AD directory roles you can manage in PIM](pim-roles.md)
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

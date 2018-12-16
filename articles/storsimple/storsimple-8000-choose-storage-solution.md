@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: alkohli
 ---
 
@@ -33,5 +33,5 @@ This document provides an overview of options for on-premises data transfer to A
 
 ## Next steps
 
-- Learn about [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview.md) and [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview.md)
-- Learn about [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide.md)
+- Learn about [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) and [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
+- Learn about [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)

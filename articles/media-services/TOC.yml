@@ -3,7 +3,7 @@
 - name: Azure Media Services v2 (legacy)
   href: previous/media-services-overview.md
 - name: Video Indexer
-  href: ../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
+  href: video-indexer/video-indexer-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap

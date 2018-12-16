@@ -20,6 +20,16 @@ Visual Studio 2017. If necessary, you can download free community version from h
 A cognitive services API key is required to authenticate SDK calls. Sign up for a free trial key. The trial key is good for seven days with one call per second. For production scenarios, buy an access key. See also pricing information.
 The ability to run .NET core SDK, .net core 1.1 apps. You can get CORE, Framework, and Runtime from here: https://www.microsoft.com/net/download/.
 
+For this tutorial, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+To start a subscription in Azure Portal:
+1. Enter 'BingSearchV7' in the text box at the top of the Azure Portal that says `Search resources, services, and docs`.  
+2. Under Marketplace in the drop-down list, select `Bing Search v7`.
+3. Enter `Name` for the new resource.
+4. Select `Pay-As-You-Go` subscription.
+5. Select `S9` pricing tier.
+6. Click `Enable` to start the subscription.
+
 ## Application dependencies
 To set up a console application using the Bing Web Search SDK, browse to the Manage NuGet Packages option from the Solution Explorer in Visual Studio. Add:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch

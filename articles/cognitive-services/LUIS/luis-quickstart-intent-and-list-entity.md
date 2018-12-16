@@ -1,10 +1,11 @@
 ---
-title: "Tutorial 4: Exact text match - LUIS list entity"
+title: Exact text match
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -37,7 +38,7 @@ A list entity is a good choice for this type of data when:
 > * Publish
 > * Get intents and entities from endpoint
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
 Continue with the app created in the last tutorial, named **HumanResources**. 
@@ -53,7 +54,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## MoveEmployee intent
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Create new intent**. 
 
@@ -80,7 +81,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
     Remember that number and datetimeV2 were added in a previous tutorial and will be automatically labeled when they are found in any example utterances.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Employee list entity
 Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 
@@ -102,11 +103,11 @@ The primary, _canonical_, name for each item is the employee number. For this do
 
 3. In the entity pop-up dialog, enter `Employee` for the entity name, and  **List** for entity type. Select **Done**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. On the Employee entity page, enter `Employee-24612` as the new value.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Screenshot of entering value](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. For Synonyms, add the following values:
 
@@ -118,7 +119,7 @@ The primary, _canonical_, name for each item is the employee number. For this do
     |Personal mobile phone number|425-555-1212|
     |U.S. federal social security number|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Screenshot of entering synonyms](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Enter the `Employee-45612` as a new value.
 
@@ -146,7 +147,7 @@ The primary, _canonical_, name for each item is the employee number. For this do
 
 2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with `Employee` extracted.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

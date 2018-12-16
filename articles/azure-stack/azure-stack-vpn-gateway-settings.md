@@ -181,7 +181,7 @@ Unlike Azure, which supports multiple offers as both an initiator and a responde
 |Encryption & Hashing Algorithms (Encryption)     | GCMAES256|
 |Encryption & Hashing Algorithms (Authentication) | GCMAES256|
 |SA Lifetime (Time)  | 27,000 seconds  |
-|SA Lifetime (Bytes) | 33,553,408     |
+|SA Lifetime (Kilobytes) | 33,553,408     |
 |Perfect Forward Secrecy (PFS) |None<sup>See note 1</sup> |
 |Dead Peer Detection | Supported|  
 

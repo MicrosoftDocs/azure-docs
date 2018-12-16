@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure a policy to handle suspicious sign-ins, so that they can be automatically handled.
@@ -84,7 +84,7 @@ This section shows how to create the required conditional access policy. In your
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
     ![Conditional access](./media/app-sign-in-risk/03.png)
  
@@ -209,7 +209,7 @@ When no longer needed, delete the test user, the Tor Browser and the conditional
 
     ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
 
 ## Next steps
 

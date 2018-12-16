@@ -15,18 +15,18 @@ To change settings and monitor the Avere vFXT cluster, use the Avere Control Pan
 Because the vFXT cluster sits within a private virtual network, you must create an SSH tunnel or use another method to reach the cluster's management IP address. There are two basic steps: 
 
 1. Create a connection between your workstation and the private vnet 
-1. Use the cluster's management IP address to load the control panel in a web browser 
+1. Load the cluster's control panel in a web browser 
 
 > [!NOTE] 
-> This article assumes that you have set a public IP address on the cluster controller or on another VM inside your cluster's virtual network. If you are using a VPN or ExpressRoute for vnet access, skip to [Connect to the Avere Control Panel](#connect-to-the-avere-control-panel-in-a-browser).
+> This article assumes that you have set a public IP address on the cluster controller or on another VM inside your cluster's virtual network. This article describes how to use that VM as a host to access the cluster. If you are using a VPN or ExpressRoute for vnet access, skip to [Connect to the Avere Control Panel](#connect-to-the-avere-control-panel-in-a-browser).
 
-Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) or for [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.  
+Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help.  
 
-## Access with a Linux host
+## SSH tunnel with a Linux host
 
-with this form: 
+If using a Linux-based client, use an SSH tunneling command with this form: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP* 
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
 
 This command connects to the cluster's management IP address through the cluster controller's IP address.
 
@@ -38,10 +38,11 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system.
 
+## SSH tunnel with a Windows host
 
-## Access with a Windows host
+This example uses the common Windows-based terminal utility, PuTTY.
 
-If using PuTTY, fill in the **hostname** field with the cluster controller username and its IP address: *your_username*@*controller_public_IP*.
+Fill in the PuTTY **hostname** field with the cluster controller username and its IP address: *your_username*@*controller_public_IP*.
 
 Example: ``azureuser@203.0.113.51``
 
@@ -63,7 +64,11 @@ Authentication is automatic if you used your SSH public key to create the cluste
 
 This step uses a web browser to connect to the configuration utility running on the vFXT cluster.
 
-Open your web browser and navigate to https://127.0.0.1:8443. 
+* For an SSH tunnel connection, open your web browser and navigate to https://127.0.0.1:8443. 
+
+  You connected to the cluster IP address when you created the tunnel, so you just need to use the localhost IP address in the browser. If you used a local port other than 8443, use your port number instead.
+
+* If you are using a VPN or ExpressRoute to reach the cluster, navigate to the cluster management IP address in your browser. Example: ``https://203.0.113.51``
 
 Depending on your browser, you might need to click **Advanced** and verify that it is safe to proceed to the page.
 

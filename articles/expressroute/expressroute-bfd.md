@@ -1,20 +1,14 @@
 ---
-title: 'Configure BFD over ExpressRoute | Microsoft Docs'
-description: This document provides instructions on how to configure BFD over private-peering of an ExpressRoute circuit.
-documentationcenter: na
+title: 'Configure BFD over ExpressRoute - Azure | Microsoft Docs'
+description: This article provides instructions on how to configure BFD (Bidirectional Forwarding Detection) over private-peering of an ExpressRoute circuit.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: 
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
+ms.custom: seodec18
 
 ---
 # Configure BFD over ExpressRoute
@@ -64,7 +58,7 @@ An example PE (using Cisco IOS XE) configuration is shown below.
 
 ## BFD Timer Negotiation
 
-Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. By configuring higher values, you can force these intervals to be longer; but, not shorter.
+Between BFD peers, the slower of the two peers determine the transmission rate. MSEEs BFD transmission/receive intervals are set to 300 milliseconds. In certain scenarios, the interval may be set at a higher value of 750 milliseconds. By configuring higher values, you can force these intervals to be longer; but, not shorter.
 
 >[!NOTE]
 >If you have configured Geo-redundant ExpressRoute private peering circuits or use Site-to-Site IPSec VPN connectivity as backup for ExpressRoute private peering; enabling BFD over the private peering would help failover quicker following an ExpressRoute connectivity failure. 

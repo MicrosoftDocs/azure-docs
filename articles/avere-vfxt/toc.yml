@@ -42,8 +42,6 @@
     items: 
     - name: Supplemental documentation  
       href: avere-vfxt-additional-resources.md
-    - name: Port whitelist
-      href: avere-vfxt-required-ports.md
     - name: Create the cluster role without a controller
       href: avere-vfxt-pre-role.md
     - name: Avere cluster DNS configuration

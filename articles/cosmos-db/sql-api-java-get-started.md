@@ -1,10 +1,9 @@
 ---
-title: 'NoSQL tutorial: SQL API for Azure Cosmos DB Java SDK | Microsoft Docs'
+title: 'NoSQL tutorial: SQL API for Azure Cosmos DB Java SDK'
 description: A NoSQL tutorial that creates an online database and Java console application using the SQL API for Azure Cosmos DB. Azure SQL is a NoSQL database for JSON.
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -18,7 +17,9 @@ ms.author: sngun
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -51,7 +52,7 @@ Make sure you have the following:
 
 * [Git](https://git-scm.com/downloads).
 * [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## Step 1: Create an Azure Cosmos DB account
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Clone the GitHub project](#GitClone). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to [Clone the GitHub project](#GitClone).
@@ -87,7 +88,7 @@ In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Create a database
-Your Azure Cosmos DB [database](sql-api-resources.md#databases) can be created by using the [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
+Your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) can be created by using the [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
     Database database = new Database();
     database.setId("familydb");
@@ -99,7 +100,7 @@ Your Azure Cosmos DB [database](sql-api-resources.md#databases) can be created b
 > 
 > 
 
-A [collection](sql-api-resources.md#collections) can be created by using the [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
+A collection can be created by using the [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -113,7 +114,7 @@ A [collection](sql-api-resources.md#collections) can be created by using the [cr
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Step 6: Create JSON documents
-A [document](sql-api-resources.md#documents) can be created by using the [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) to import the data into a database.
+A document can be created by using the [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md) to import the data into a database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -136,7 +137,7 @@ A [document](sql-api-resources.md#documents) can be created by using the [create
 ![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a Java console application](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
-Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection.  The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) method.
+Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON documents stored in each collection.  The following sample code shows how to query documents in Azure Cosmos DB using SQL syntax with the [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) method.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",

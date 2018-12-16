@@ -1,22 +1,16 @@
 ---
-title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
-description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Manage Azure Cosmos DB resources using Azure Storage Explorer
+description: Learn how to connect to Azure Cosmos DB and manage its resources by using Azure Storage Explorer.
 author: Jejiang 
-manager: kfile
-editor: 
 tags: Azure Cosmos DB
 
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang 
-
+ms.custom: seodec18
 ---
-# Manage Azure Cosmos DB in Azure Storage Explorer
+# Manage Azure Cosmos DB resources using Azure Storage Explorer
 
 Using Azure Cosmos DB in Azure Storage Explorer enables users to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues. Now you can use the same tool to manage your different Azure entities in one place. At this time, Azure Storage Explorer supports SQL, MongoDB, Graph, and Table accounts.
 
@@ -149,7 +143,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 - Click the **Delete** button to delete the selected document.
 
 #### Query for documents
-- Edit the document filter by entering a [SQL query](sql-api-sql-query.md) and then click **Apply**.
+- Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
     ![Document Filter](./media/storage-explorer/document-filter.png)
 
@@ -239,8 +233,8 @@ If you're unable to find any self-signed certificates using the above steps, cou
 
 If you're unable to retrieve your subscriptions after you successfully signed in:
 
-- Verify your account has access to the subscriptions by signing into the [Azure Portal](http://portal.azure.com/)
-- Make sure you have signed in using the correct environment ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/), or Custom Environment/Azure Stack)
+- Verify your account has access to the subscriptions by signing into the [Azure Portal](https://portal.azure.com/)
+- Make sure you have signed in using the correct environment ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/), or Custom Environment/Azure Stack)
 - If you're behind a proxy, make sure that you have configured the Storage Explorer proxy properly
 - Try removing and readding the account
 - Try deleting the following files from your home directory (such as: C:\Users\ContosoUser), and then readding the account:

@@ -171,7 +171,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
       public void run() {
         try {
           while (true) {
-            System.out.println("Recieve file upload notifications...");
+            System.out.println("Receive file upload notifications...");
             FileUploadNotification fileUploadNotification = fileUploadNotificationReceiver.receive();
             if (fileUploadNotification != null) {
               System.out.println("File Upload notification received");

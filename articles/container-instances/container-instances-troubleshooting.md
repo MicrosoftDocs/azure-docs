@@ -202,6 +202,9 @@ This error indicates that due to heavy load in the region in which you are attem
 
 Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
+## IPs may not be accessible due to mismatched ports
+Azure Container Instances does not currently support port mapping like with regular docker configuration, however this fix is on the roadmap. If you find IPs are not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
+
 ## Next steps
 Learn how to [retrieve container logs & events](container-instances-get-logs.md) to help debug your containers.
 

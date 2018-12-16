@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<subdomain>.workforcehosting.com/<instancename>` |
 
 	> [!NOTE] 
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [EmpCenter Client support team](http://www.workforcesoftware.com/services/customer-support/) to get the value. 
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [EmpCenter Client support team](https://www.workforcesoftware.com/services/customer-support/) to get the value. 
  
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/empcenter-tutorial/tutorial_general_400.png)
 
-1. To configure single sign-on on **EmpCenter** side, you need to send the downloaded **Metadata XML** to [EmpCenter support team](http://www.workforcesoftware.com/services/customer-support/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **EmpCenter** side, you need to send the downloaded **Metadata XML** to [EmpCenter support team](https://www.workforcesoftware.com/services/customer-support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -165,7 +165,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating an EmpCenter test user
 
-In order to enable Azure AD users to log in to EmpCenter, they must be provisioned into EmpCenter. In the case of EmpCenter, the user accounts need to be created by your [EmpCenter support team](http://www.workforcesoftware.com/services/customer-support/).
+In order to enable Azure AD users to log in to EmpCenter, they must be provisioned into EmpCenter. In the case of EmpCenter, the user accounts need to be created by your [EmpCenter support team](https://www.workforcesoftware.com/services/customer-support/).
 
 > [!NOTE]
 > You can use any other EmpCenter user account creation tools or APIs provided by EmpCenter to provision Azure Active Directory user accounts.

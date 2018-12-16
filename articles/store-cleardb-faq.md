@@ -19,7 +19,7 @@ This FAQ answers common questions about using and purchasing ClearDB MySQL datab
 > [!IMPORTANT]
 > As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
 >
-> For more details and next steps, see [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+> For more details and next steps, see [Changes to ClearDB service plans](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
 
 ## What options do I have for MySQL on Azure?

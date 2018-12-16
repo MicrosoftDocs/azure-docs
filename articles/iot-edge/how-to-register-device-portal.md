@@ -1,6 +1,6 @@
 ---
-title: Register a new Azure IoT Edge device (portal) | Microsoft Docs 
-description: Use the Azure portal to register a new IoT Edge device
+title: Register a new device from Azure portal - Azure IoT Edge | Microsoft Docs 
+description: Use the Azure portal to register a new IoT Edge device and retrieve the connection string
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,6 +8,7 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Register a new Azure IoT Edge device from the Azure portal
@@ -39,7 +40,7 @@ All the edge-enabled devices that connect to your IoT hub are listed on the **Io
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 
 1. From the **IoT Edge** page in the portal, click on the device ID from the list of Edge devices. 
-2. Copy the value of either **Connection string—primary key** or **Connection string—secondary key**. 
+2. Copy the value of either **Connection string (primary key)** or **Connection string (secondary key)**. 
 
 ## Next steps
 

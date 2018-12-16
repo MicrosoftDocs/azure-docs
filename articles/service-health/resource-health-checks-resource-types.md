@@ -3,7 +3,7 @@ title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 services: Resource health
 documentationcenter: ''
-author: BernardoAMunoz
+author: stephbaron
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 10/09/2017
-ms.author: BernardoAMunoz
+ms.date: 11/15/2018
+ms.author: stbaron
 ---
 
 # Resource types and health checks in Azure resource health
@@ -97,6 +97,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li> Can runtime operations like registration, installation, or send be performed on the namespace?</li></ul>|
 
+## Microsoft.PowerBIDedicated/Capacities
+|Executed Checks|
+|---|
+|<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>|
+
 ## Microsoft.PowerBI/workspaceCollections
 |Executed Checks|
 |---|
@@ -135,4 +140,4 @@ Below is a complete list of all the checks executed through resource health by r
 # Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

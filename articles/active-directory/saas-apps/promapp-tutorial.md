@@ -110,6 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/promapp-tutorial/tutorial_promapp_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://go.promapp.com/TENANTNAME/`|

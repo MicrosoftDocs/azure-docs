@@ -122,7 +122,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 ## Connect to the cluster
 
-1. To connect to the primary head node of theApache Kafkacluster, use the following command. Replace `sshuser` with the SSH user name. Replace `mykafka` with the name of yourApache Kafkacluster
+1. To connect to the primary head node of the Apache Kafka cluster, use the following command. Replace `sshuser` with the SSH user name. Replace `mykafka` with the name of your Apache Kafkacluster
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -156,11 +156,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
+## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information
 
-When working with Kafka, you must know the *Zookeeper* and *Broker* hosts. These hosts are used with the Apache Kafka API and many of the utilities that ship with Kafka.
+When working with Kafka, you must know the *Apache Zookeeper* and *Broker* hosts. These hosts are used with the Apache Kafka API and many of the utilities that ship with Kafka.
 
-In this section, you get the host information from the Ambari REST API on the cluster.
+In this section, you get the host information from the Apache Ambari REST API on the cluster.
 
 1. From the SSH connection to the cluster, use the following command to install the `jq` utility. This utility is used to parse JSON documents, and is useful in retrieving the host information:
    
@@ -244,7 +244,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         > [!IMPORTANT] 
         > Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 
-        To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Apache Kafka cluster.
+        To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Apache Kafka cluster.
 
         For the highest availability of your Apache Kafka data, you should rebalance the partition replicas for your topic when:
 
@@ -306,7 +306,7 @@ To store records into the test topic you created earlier, and then read them usi
 
 4. Use __Ctrl + C__ to stop the consumer.
 
-You can also programmatically create producers and consumers. For an example of using this API, see the [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
+You can also programmatically create producers and consumers. For an example of using this API, see the [Apache Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
 
 ## Clean up resources
 
@@ -326,5 +326,5 @@ To remove the resource group using the Azure portal:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use Apache Spark with Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Use Apache Spark with Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

@@ -1,13 +1,12 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB Cassandra API account, database, and table | Microsoft Docs
+title: Azure CLI Script-Create an Azure Cosmos DB Cassandra API account, database, and table
 description: Azure CLI Script Sample - Create an Azure Cosmos DB Cassandra API account, database, and table
 author: markjbrown
-
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
 ---
 
 # Azure Cosmos DB: Create a Cassandra API account using Azure CLI

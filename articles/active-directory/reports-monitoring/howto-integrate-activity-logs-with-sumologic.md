@@ -1,6 +1,6 @@
 ---
-title: How to integrate Azure Active Directory logs with SumoLogic by using Azure Monitor (preview)  | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with SumoLogic by using Azure Monitor (preview)
+title: How to integrate Azure Active Directory logs with SumoLogic using Azure Monitor (preview)  | Microsoft Docs
+description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 
-# Integrate Azure AD logs with SumoLogic by using Azure Monitor (preview)
+# Integrate Azure Active Directory logs with SumoLogic using Azure Monitor (preview)
 
-In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with SumoLogic by using Azure Monitor. You first route the logs to an Azure event hub, and then you integrate the event hub with SumoLogic.
+In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with SumoLogic using Azure Monitor. You first route the logs to an Azure event hub, and then you integrate the event hub with SumoLogic.
 
 ## Prerequisites
 

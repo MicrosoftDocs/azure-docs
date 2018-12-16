@@ -32,15 +32,7 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a database in an Azure SQL server
 
@@ -68,6 +60,8 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 
 - [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+
+SQL DB requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications) and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the AAD display name  during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
 
 1.  Start SQL Server Management Studio.
 2.  In the **Connect to Server** dialog, Enter your SQL server name in the **Server name** field.

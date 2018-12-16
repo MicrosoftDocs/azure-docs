@@ -81,15 +81,42 @@ Run the following cmdlets from an elevated PowerShell terminal:
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### CLI
+Run the following commands from a shell:
+1.	Sign in to your Azure account:
+
+    ```
+    az login
+    ```
+
+2.	Select the subscription that you want to register:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.	Register this subscription:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## Verify that the upgrade is finished
+### PowerShell
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-If it says "Registered," then your subscription is upgraded to VM backup stack Resource Manager deployment model.
+### CLI
+From ashell, run the following command:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+If it says "Registered," then your subscription is upgraded to V2 backup stack.
 
 ## Frequently asked questions
 
