@@ -18,8 +18,8 @@ You can create an HDInsight cluster with Enterprise Security Package (ESP) that'
 
 The enterprise admin can configure role-based access control (RBAC) for Apache Hive security by using [Apache Ranger](https://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
 
-> [!NOTE]
-> Oozie is now enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]  
+> Apache Oozie is now enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Enterprise security contains four major pillars: perimeter security, authentication, authorization, and encryption.
 
@@ -33,7 +33,7 @@ Another layer of perimeter security is achieved through the VPN Gateway service.
 ## Authentication
 An enterprise admin can create a HDInsight cluster with ESP in a [virtual network](https://azure.microsoft.com/services/virtual-network/). All the nodes of the HDInsight cluster are joined to the domain that the enterprise manages. This is achieved through the use of [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-With this setup, enterprise employees can log on to the cluster nodes by using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Ambari Views, ODBC, JDBC, PowerShell, and REST APIs to interact with the cluster. The admin has full control over limiting the number of users who interact with the cluster via these endpoints.
+With this setup, enterprise employees can log on to the cluster nodes by using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Apache Ambari Views, ODBC, JDBC, PowerShell, and REST APIs to interact with the cluster. The admin has full control over limiting the number of users who interact with the cluster via these endpoints.
 
 ## Authorization
 A best practice that most enterprises follow is making sure that not every employee has access to all enterprise resources. Likewise, the admin can define role-based access control policies for the cluster resources. 
@@ -57,6 +57,6 @@ Both data stores for HDInsight clusters--Azure Blob storage and Azure Data Lake 
 * [Plan for HDInsight clusters with ESP](apache-domain-joined-architecture.md)
 * [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md)
 * [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md)
-* [Configure Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)
+* [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)
 * [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

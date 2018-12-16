@@ -129,6 +129,7 @@ sections:
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a>
+    - html: Find more <a href="sql-database-howto-single-database.md">How-to guides</a> that can help you configure your database.
 - title: Samples
   items:
   - type: paragraph
