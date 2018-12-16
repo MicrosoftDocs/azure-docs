@@ -80,6 +80,14 @@ sections:
     style: unordered
     items: 
     - html: <a href="ecommerce-retail-catalog-moderation.md">Moderate e-commerce product images</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples for Bing Web Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=Relevance">Code Samples</a>
 - title: Reference
   items:
   - type: list
@@ -89,12 +97,10 @@ sections:
     - title: APIs
       html: <p><a href="https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference">REST API</a></p>
     - title: SDKs
-      html: <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p>
-            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p>
-            <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules">Python</a></p>
-            <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p>
-            <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p>
-            <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+      html: <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python">Python</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator">Go</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
