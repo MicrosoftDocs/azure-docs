@@ -48,9 +48,9 @@ Source machine registers with configuration server during mobility agent install
 
 This error occurs when service is unable to read data from the transport connection while installing mobility agent and registering with configuration server. To resolve, ensure TLS 1.0 is enable on your source machine.
 
-## IP address of configuration server changed
+## Change IP address of configuration server
 
-It is strongly advised to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are STATIC IPs and not DHCP IPs.
+It is strongly advised to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are static IPs and not DHCP IPs.
 
 ## ACS50008: SAML token is invalid
 
