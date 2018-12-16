@@ -133,9 +133,8 @@ Other WMI troubleshooting articles could be found at the following articles.
 
 ## Unsupported Operating Systems
 
-Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service.
-
-To learn about which operating systems are supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
+Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service. Avoid the usage of private patch.
+To view the list of operating systems and kernel versions supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
 
