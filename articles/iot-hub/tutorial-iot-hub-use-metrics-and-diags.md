@@ -1,0 +1,251 @@
+---
+title: Set up and use metrics and diagnostics with an IoT hub | Microsoft Docs
+description: Set up and use metrics and diagnostics with an IoT hub 
+author: robinsh
+manager: philmea
+ms.service: iot-hub
+services: iot-hub
+ms.topic: tutorial
+ms.date: 12/15/2018
+ms.author: robinsh
+ms.custom: mvc
+#Customer intent: As a developer, I want to know how to set up metrics and diagnostics, and check them later, to help me troubleshoot when there is a problem with an IoT hub. 
+---
+
+# Tutorial: Set up and use metrics and diagnostics with an IoT hub
+
+If you have an IoT Hub solution running in production, you want to set up some metrics and enable diagnostics. Then if a problem occurs, you have data to look at that will help you diagnose the problem. In this article, you'll see how to enable diagnostics, and how to check the diagnostics for errors. You'll also set up some metrics to watch, and alerts that fire when the metrics hit a certain boundary. 
+
+This tutorial uses the Azure sample from the [IoT Hub Routing](tutorial-routing.md) to send messages to the IoT hub.
+
+In this tutorial, you perform the following tasks:
+
+> [!div class="checklist"]
+> * Using Azure CLI, create an IoT hub, a simulated device, and a storage account.  
+> * Enable diagnostics. 
+> * Enable metrics and set some up. 
+> * Set up alerts for those metrics. 
+> * Download and run an app that simulates an IoT device sending messages to the hub. 
+> * Run the app until the alerts begin to fire. 
+> * View the metrics results and check the diagnostics results. 
+
+## Prerequisites
+
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- Install [Visual Studio](https://www.visualstudio.com/). 
+
+- An Office 365 account to send notification e-mails. 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Set up resources
+
+For this tutorial, you need an IoT hub, a storage account, and a simulated IoT device. These resources can be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
+
+The following sections describe how to do these required steps. Follow the CLI instructions.
+
+1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+
+2. Create an IoT hub.  (can it be free?)
+
+3. Create a standard V1 storage account with Standard_LRS replication.
+
+4. Create a device identity for the simulated device that sends messages to your hub. Save the key for the testing phase.
+
+### Set up your resources using Azure CLI
+
+Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. 
+
+The variables that must be globally unique have `$RANDOM` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, making it unique.
+
+```azurecli-interactive
+
+# This is the IOT Extension for Azure CLI.
+# You only need to install this the first time.
+# You need it to create the device identity. 
+az extension add --name azure-cli-iot-ext
+
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
+location=westus
+resourceGroup=ContosoResources
+containerName=contosoresults  --- need this, robin?
+iotDeviceName=Contoso-Test-Device 
+
+# Create the resource group to be used
+#   for all the resources for this tutorial.
+az group create --name $resourceGroup \
+    --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub  #$RANDOM
+echo "IoT hub name = " $iotHubName
+
+# Create the IoT hub.
+az iot hub create --name $iotHubName \
+    --resource-group $resourceGroup \
+    --sku S1 --location $location
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostoragemon   #$RANDOM
+echo "Storage account name = " $storageAccountName
+
+# Create the storage account to be used as a routing destination.
+az storage account create --name $storageAccountName \
+    --resource-group $resourceGroup \
+	--location $location \
+    --sku Standard_LRS
+
+# Get the primary storage account key. 
+#    You need this to create the container.
+storageAccountKey=$(az storage account keys list \
+    --resource-group $resourceGroup \
+    --account-name $storageAccountName \
+    --query "[0].value" | tr -d '"') 
+
+# See the value of the storage account key.
+echo "$storageAccountKey"
+
+# Create the container in the storage account. 
+az storage container create --name $containerName \
+    --account-name $storageAccountName \
+    --account-key $storageAccountKey \
+    --public-access off 
+
+# this gives an error: No keys found for policy iothubowner of IoT Hub ContosoTestHub  ROBIN
+# Create the IoT device identity to be used for testing.
+az iot hub device-identity create --device-id $iotDeviceName \
+    --hub-name $iotHubName
+
+# THIS DOESN'T WORK BECAUSE THE ONE ABOVE DOESN'T WORK - ROBIN
+# Retrieve the information about the device identity, then copy the primary key to
+#   Notepad. You need this to run the device simulation during the testing phase.
+az iot hub device-identity show --device-id $iotDeviceName \
+    --hub-name $iotHubName
+
+```
+device key p2FwVoAsUPk5cJFBzOKh2HpQZk15vKSSi+ivkcXBrRU=
+device name is "Contoso-Test-Device"
+
+## Enable diagnostics 
+
+Diagnostics are disabled by default when you create a new IoT hub. In this section, enable the diagnostics for your hub.
+
+1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. [robin - be sure you've talked about that above]. Select the hub from the list of resources displayed. 
+
+2. Look for the **Monitoring** section in the IoT Hub blade. Click **Diagnostic settings**. 
+
+<!-- screenshot] -->
+
+3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All** and check **IoT Hub**. The hub name is displayed below; click on it to select it. Then click **Turn on diagnostics**. The Diagnostics settings screen is displayed.
+
+<!--screenshot of diagnostic settings screen -->
+
+4. Set the name of the settings to Contoso-Diag-Settings. Check **Archive to a storage account**. Click **Configure** for the storage account. 
+
+<!-- Show the 'select a storage account' screen -->
+
+5. Make sure the subscription is correct, then select the new storage account -- *contosostoragemon* - from the **Storage Account** dropdown, then click **OK**.
+
+6. Under **LOG**, select the settings in which you are interested. For this tutorial, select **Connections** and **Device Telemetry**. Set the **Retention (days)** to 7 for each setting. 
+
+You'll look at this later, and see the device connecting and disconnecting as the sample runs. (robin - right?)
+
+7. Click **Save**.  Then close the Diagnostics Settings pane.
+
+## Set up metrics 
+
+Now set up some metrics to watch for when messages are sent to the hub. 
+
+1. In the settings pane for the IoT hub, click on the **Metrics** option under the **Monitoring** section.
+
+2. At the top of the screen change **Last 24 hours...** to **Last 24 hours (Automatic - 15 minutes)**. In the dropdown that appears, select **Last 30 minutes** for **Time Range**, and set **Time Granularity** to **1 minute**, local time. Click **Apply** to save these settings. 
+
+3. Click **Add metric**. Select your resource gruop (**ContosoTestHub**). For **Metric Namespace**, select **IoT Hub standard metrics**. Under **Metric**, select **Telemetry messages sent**. Set **Aggregation** to **Sum**.
+
+4. Click **Add metric**. Select your resource group (**ContosoTestHub**). Under **Metric**, select **Total Number of Messages Used**. For **Aggregation**, select **Avg**.  (ROBIN - or should you set Max?)
+
+Click **Pin\ to dashboard** or you'll never see your metrics again. It will pin it to the dashboard of your Azure portal so you can access it again. 
+**I already had one pinned to the dashboard, and it didn't save the new one, and the resources for the old one had been deleted, so it didn't work. Can you not have more than one? Or more than one for the same hub? Or what?** ROBIN
+
+## SET UP ALERTS
+
+
+
+## Run Simulated Device app
+
+Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.  
+
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/SimulatedDevice/.
+
+Double-click on the solution file (SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
+
+   ```csharp
+        static string myDeviceId = "contoso-test-device";
+        static string iotHubUri = "ContosoTestHub.azure-devices.net";
+        // This is the primary key for the device. This is in the portal. 
+        // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
+        static string deviceKey = "{your device key here}";
+   ```
+
+## Run and test 
+
+Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
+
+The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings will be displayed in the BI report you set up next.
+
+If everything is set up correctly, at this point you should see the following results:
+
+1. You start getting e-mails about critical messages. 
+
+   ![Screenshot showing the resulting emails.](./media/tutorial-routing/results-in-email.png)
+
+   This means the following:
+
+   * The routing to the Service Bus queue is working correctly.
+   * The Logic App retrieving the message from the Service Bus queue is working correctly.
+   * The Logic App connector to Outlook is working correctly. 
+
+2. In the [Azure portal](https://portal.azure.com), click **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. Select the storage account, click **Blobs**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
+
+   ![Screenshot showing the result files in storage.](./media/tutorial-routing/results-in-storage.png)
+
+This means the following:
+
+   * The routing to the storage account is working correctly.
+
+Now with the application still running, set up the Power BI visualization to see the messages coming through the default routing. 
+
+
+## Clean up resources 
+
+If you want to remove all of the resources you've created, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. 
+
+To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+
+```azurecli-interactive
+az group delete --name $resourceGroup
+```
+
+## Next steps
+
+In this tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by performing the following tasks.  
+
+> [!div class="checklist"]
+> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
+> * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
+> * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
+> * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
+> * Create a Power BI visualization for data sent to the default endpoint.
+> * View the results ...
+> * ...in the Service Bus queue and e-mails.
+> * ...in the storage account.
+> * ...in the Power BI visualization.
+
+Advance to the next tutorial to learn how to manage the state of an IoT device. 
+
+> [!div class="nextstepaction"]
+[Configure your devices from a back-end service](tutorial-device-twins.md)
