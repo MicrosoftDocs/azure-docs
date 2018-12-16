@@ -244,7 +244,7 @@ dotnet add package Newtonsoft.json
 
 Add the following `using` statement to the top of *Program.cs*:
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 
