@@ -43,7 +43,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-If you are provisioning throughput for MongoDB API account, use '/myShardKey' for the partition key path and when provisioning throughput for Cassandra API account, use '/myPrimaryKey' for the partition key path.
+If you are provisioning throughput for Azure Cosmos DB API account for MongoDB, use '/myShardKey' for the partition key path and when provisioning throughput for Cassandra API account, use '/myPrimaryKey' for the partition key path.
 
 ## Provision throughput using .NET SDK
 
