@@ -104,7 +104,7 @@ As an Azure Media Services on-prem encoder partner, Media Services promotes your
 7. Stop the live event
 8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder
 
-Lastly, send your recorded settings and live archive parameters to Media Services by emailing amsstreaming@microsoft.com. Upon receipt, Media Services performs verification tests on the samples from your live encoder. You can contact the Media Services with any questions regarding this process.
+Lastly, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow ups. You can contact the Azure Media Services team with any questions regarding this process.
 
 ## Next steps
 
