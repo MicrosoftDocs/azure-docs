@@ -30,7 +30,7 @@ This section illustrates how to use Ansible to retrieve host information for a g
 
 Save the following sample playbook as `get-hosts-tasks.yml`: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -58,7 +58,7 @@ Save the following sample playbook as `get-hosts-tasks.yml`:
 
 In this section, you use git to clone a Java sample project from GitHub and build the project. Save the following playbook as `app.yml`:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -82,7 +82,7 @@ Run the sample Ansible playbook with the following command:
 
 The output from the ansible-playbook command displays out similar to the following where you see that it built the sample app cloned from GitHub:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -105,7 +105,7 @@ The following section in an Ansible playbook installs the JRE (Java Runtime Envi
 
 (Change the `admin_password` to your own password.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -162,7 +162,7 @@ Run the playbook with the following command:
 
 The output from running the ansible-playbook command indicates that the sample Java application has been installed to the host group of the virtual machine scale set:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -203,4 +203,4 @@ Congratulation! Your application is running in Azure now. You can now navigate t
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Ansible sample playbook for VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
