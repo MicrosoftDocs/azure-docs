@@ -1,16 +1,16 @@
 ---
-title: Speech Service SDK Documentation
+title: Release Notes - Speech Services
 titlesuffix: Azure Cognitive Services
-description: Release notes - what has changed in the most recent releases
+description: See a running log of feature releases, improvements, bug fixes, and known issues for Azure Speech Services.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Release notes
@@ -27,7 +27,7 @@ ms.author: wolfma
 
 * Added additional verification in the recognizer configuration, and added additional error message.
 * Improved handling of long-time silence in middle of an audio file.
-* NuGet package: for .NET Framework projects prevent building with AnyCPU configuration.
+* NuGet package: for .NET Framework projects, it prevents building with AnyCPU configuration.
 
 **Bug fixes**
 

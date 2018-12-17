@@ -124,7 +124,7 @@
       - name: Visual Studio
         href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
     - name: Store and view diagnostic data in Azure Storage
-      href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json 
+      href: ../azure-monitor/platform/diagnostics-extension-to-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json 
     - name: Trace Cloud Service with Diagnostics
       href: cloud-services-dotnet-diagnostics-trace-flow.md
   - name: Troubleshoot

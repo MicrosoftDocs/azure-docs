@@ -1,5 +1,5 @@
 ---
-title: How to sign-up for Translator Text - Translator Text API
+title: Get started - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Learn how to sign up for the Translator Text API and get a subscription key.
 services: cognitive-services
@@ -8,8 +8,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 # How to sign up for the Translator Text API
 
@@ -42,6 +43,8 @@ When you sign up for Translator Text, you get a personalized access key unique t
 
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
+
+Microsoft Translator will generally let your first couple of requests pass before it has verified the subscription account status. If the first few Microsoft Translator API requests succeed then the calls fail, the error response will indicate the problem. Please log the API response so you can see the reason.
 
 ## Pricing options
 

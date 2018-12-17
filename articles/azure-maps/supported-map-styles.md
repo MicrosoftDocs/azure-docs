@@ -11,7 +11,7 @@ manager: timlt
 ---
 
 # Azure Maps supported map styles
-Azure maps support four different built-in map styles. The styles with their descriptions are listed below.
+Azure maps supports several different built-in map styles as described below.
 
 ## road
 A **road** map is a standard map that displays roads, natural and artificial features along with the labels for those features.
@@ -44,6 +44,14 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **grayscale dark** is a dark version of the road map style.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**Applicable APIs:**
+* JS map control 
+
+## night
+**night** is a dark version of the road map style with colored roads and symbols.
+
+![night](./media/supported-map-styles/night.PNG)
 
 **Applicable APIs:**
 * JS map control 

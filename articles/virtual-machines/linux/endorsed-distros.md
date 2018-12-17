@@ -1,5 +1,5 @@
 ---
-title: Endorsed distributions of Linux | Microsoft Docs
+title: Linux distributions endorsed on Azure | Microsoft Docs
 description: Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, CentOS, Oracle, and SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 11/21/2017
 ms.author: szark
 
 ---
-# Linux on distributions endorsed by Azure
+# Linux distributions endorsed on Azure
 Partners provide Linux images in the Azure Marketplace. We are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## Supported distributions and versions

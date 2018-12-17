@@ -41,7 +41,7 @@ First you need to set up a storage account to which the monitoring data will be 
 
 ## Route subscription logs to the storage account
 
-You are now ready to begin to set up your Azure environment to route monitoring data to a storage account. First we configure subscription-level data (contained in the Azure Activity Log) to be routed to the storage account. The [**Azure Activity Log**](monitoring-overview-activity-logs.md) provides a history of subscription-level events in Azure. You can browse it in the Azure portal to determine *who* created, updated, or deleted *what* resources and *when* they did it.
+You are now ready to begin to set up your Azure environment to route monitoring data to a storage account. First we configure subscription-level data (contained in the Azure Activity Log) to be routed to the storage account. The [**Azure Activity Log**](../azure-monitor/platform/activity-logs-overview.md) provides a history of subscription-level events in Azure. You can browse it in the Azure portal to determine *who* created, updated, or deleted *what* resources and *when* they did it.
 
 1. Click the **Monitor** button found on the left-hand navigation list, then on **Activity Log**.
 
@@ -139,13 +139,13 @@ Monitoring data from your virtual machines is now flowing into the storage accou
 ## View the monitoring data in the storage account
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
 If you have followed the preceding steps, data has begun flowing to your storage account.
 
-1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./monitor-quick-audit-notify-action-in-subscription.md). You may need to wait up to five minutes before the event appears in the storage account.
+1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./../azure-monitor/platform/quick-audit-notify-action-subscription.md). You may need to wait up to five minutes before the event appears in the storage account.
 
 2. In the portal, navigate to the **Storage Accounts** section by finding it on the left-hand navigation bar.
 
@@ -193,4 +193,4 @@ In this tutorial, you learned how to set up monitoring data from your Azure envi
 To get more out of your data and derive additional insights, also  send your data into Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Get started with Log Analytics](../log-analytics/log-analytics-queries.md)
+> [Get started with Log Analytics](../azure-monitor/log-query/log-query-overview.md)

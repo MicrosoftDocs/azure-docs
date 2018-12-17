@@ -1,4 +1,4 @@
----
+﻿---
 title: "Tutorial: Create a custom search web page - Bing Custom Search"
 titlesuffix: Azure Cognitive Services
 description: Describes how to configure a custom search instance and integrate it into a web page.
@@ -116,7 +116,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
   
   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## Consuming Hosted UI
