@@ -51,7 +51,11 @@ This tutorial assumes that you are familiar with:
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
   
 
-To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
+To configure the scenario in this article, you need:
+
+- An on-premises Active Directory (AD) with a schema level of 85 or later. For more information, see [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- The [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
 
 Verify that Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well.
 

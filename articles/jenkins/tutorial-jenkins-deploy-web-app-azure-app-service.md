@@ -113,7 +113,7 @@ in Jenkins.
 > However, if your GitHub account uses two-factor authentication, 
 > create your token in GitHub and set up Jenkins to use that token instead. 
 > For more information, see the 
-> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation.
+> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) documentation.
 
 1. From the **Manage Jenkins** page, 
 select **Configure System**. 

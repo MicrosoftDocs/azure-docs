@@ -12,7 +12,7 @@ ms.reviewer: minewiskan
 ---
 # Setup diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
 ![Diagnostic logging to Storage, Event Hubs, or Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -299,6 +299,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## Next steps
 
-Learn more about [Azure resource diagnostic logging](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Learn more about [Azure resource diagnostic logging](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 See [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) in PowerShell help.
