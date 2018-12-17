@@ -549,7 +549,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |Name|Description|
 |---|---|
 |CorrespondenceCount|Number of correspondences in the video.|
-|WordCount|The number of words per speaker.|
+|SpeakerWordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
