@@ -256,7 +256,7 @@ Next, determine if the data source should be available to one application or to 
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 
