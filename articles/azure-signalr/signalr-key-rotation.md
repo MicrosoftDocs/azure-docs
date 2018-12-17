@@ -17,15 +17,17 @@ For security reason and compliance requirement, developers are recommended to ro
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in with your credentials.
 
-1. Find the Keys section from the Azure SignalR Service instance you want to regenerate the keys.
+1. Find the Keys section from the Azure SignalR Service instance that you want to regenerate the keys.
 
-1. Click **Keys** on the navigation menu. A new key and corresponding connection string will be created.
+1. Click **Keys** on the navigation menu. 
+
+1. Click **Regenerate Primary Key** and **Regenerate Secondary Key**, a new set of keys and corresponding connection strings will be created.
 
  ![Regenerate Keys](media/signalr-key-rotation/regenerate-keys.png)
 
 You can also regenerate keys using [Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew)
 
-## Updating configurations with new connection strings
+## Update configurations with new connection strings
 
 1. Copy the newly generated connection string
 
@@ -39,4 +41,4 @@ Azure SignalR Service may enforce a mandatory Access Key regeneration under cert
 
 ## Next steps
 
-Routinely rotate the access keys as a good security practice. We recommend rotating all keys at least quarterly.
+Routinely rotate the access keys as a good security practice. We recommend rotating all keys quarterly.
