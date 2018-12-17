@@ -29,7 +29,7 @@ Managing and tuning the performance of relational databases is a challenging tas
 * Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It is automatically enabled for all Azure SQL Databases by default. In case Query Store is not running for some reason, the portal will prompt you to turn it on.
 
 > [!NOTE]
->Perhaps the most common reason for Query Store to stop running is filling up the available data space. In case this happens, Query Store will be in Read-Only state. To resolve, consider increasing Query Store data space or flushing the existing data, see [Optimizing the Query Store configuration](sql-database-query-performance.md#optimizing-the-query-store-configuration-for-query-performance-insight) at the bottom of this article.
+>Perhaps the most common reason for Query Store to stop running is filling up the available data space. In case this happens, Query Store will be in Read-Only state. To resolve, consider increasing Query Store data space or flushing the existing data collected, see [Optimizing the Query Store configuration](sql-database-query-performance.md#optimizing-the-query-store-configuration-for-query-performance-insight) at the bottom of this article.
 >
 
 ## Permissions
@@ -77,7 +77,7 @@ In Azure portal, perform these steps:
 3. If your data becomes stale, click the **Refresh** button.
 4. You can use sliders and zoom buttons to change observation interval and investigate spikes:
     ![settings](./media/sql-database-query-performance/zoom.png)
-5. Optionally, if you want a different view, you can select **Custom** tab and set:
+5. Optionally, if you would like to see a different view, you can select **Custom** tab and set:
    
    * Metric (CPU, duration, execution count)
    * Time interval (Last 24 hours, Past week, Past month). 
@@ -85,6 +85,10 @@ In Azure portal, perform these steps:
    * Aggregation function.
      
      ![settings](./media/sql-database-query-performance/custom-tab.png)
+
+> [!IMPORTANT]
+>**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5 - 20 running queries, depending on your selection. Your database could execute many more queries beyond the top shown and it is important to note that these will not be included on the chart. There could exist a performance degradation case in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU. This tool is intended to be a basic performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance degradations such is this one. To upgrade your monitoring experience for cases such as this one, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql) as an advanced database performance monitoring solution.
+>
 
 ## Viewing individual query details
 To view query details:
