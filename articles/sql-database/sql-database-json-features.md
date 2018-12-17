@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 12/17/2018
 ---
 # Getting started with JSON features in Azure SQL Database
-Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text. The following scenarios are available in Azure SQL Dataabase:
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
 - [Formatting relational data in JSON format](#formatting-relational-data-in-json-format) using `FOR JSON` clause.
 - [Working with JSON data](#working-with-json-data)
 - [Querying JSON data](#querying-json-data) using JSON scalar functions.
@@ -64,9 +64,9 @@ The output of this query looks like this:
 }
 ```
 
-In this example we returned a single JSON object instead of an array by specifying the [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) option. You can use this option if you know that you are returning a single object as a result of query.
+In this example, we returned a single JSON object instead of an array by specifying the [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) option. You can use this option if you know that you are returning a single object as a result of query.
 
-The main value of the FOR JSON clause is that it lets you return complex hierarchical data from your database formatted as nested JSON objects or arrays. The following example shows how to include Orders that belong to the Customer as a nested array of Orders:
+The main value of the FOR JSON clause is that it lets you return complex hierarchical data from your database formatted as nested JSON objects or arrays. The following example shows how to include the rows from the `Orders` table that belong to the `Customer` as a nested array of `Orders`:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
