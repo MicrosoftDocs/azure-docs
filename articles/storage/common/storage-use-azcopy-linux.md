@@ -26,7 +26,7 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 > You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. 
 >
 > For RHEL 7 distributions, install ICU and libunwind dependencies:
-> ```yum install -y libunwind icu```
+> ```yum install -y libunwind icu libicu```
 
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
