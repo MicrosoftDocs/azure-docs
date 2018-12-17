@@ -21,7 +21,9 @@ For security reason and compliance requirement, developers are recommended to ro
 
 1. Click **Keys** on the navigation menu. 
 
-1. Click **Regenerate Primary Key** and **Regenerate Secondary Key**, a new set of keys and corresponding connection strings will be created.
+1. Click **Regenerate Primary Key** and **Regenerate Secondary Key**
+ 
+A new set of keys and corresponding connection strings will be created and displayed.
 
  ![Regenerate Keys](media/signalr-key-rotation/regenerate-keys.png)
 
