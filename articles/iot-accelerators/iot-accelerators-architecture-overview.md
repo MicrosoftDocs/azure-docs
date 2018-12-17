@@ -1,6 +1,6 @@
 ---
 title: Azure IoT solution accelerators reference architecture | Microsoft Docs
-description: Learn about the Azure IoT solution accelerators reference architecure. The existing solution accelerators use this reference architecture. You can also use the reference architecture when you build your own custom IoT solutions.
+description: Learn about the Azure IoT solution accelerators reference architecure. The existing solution accelerators leverage this reference architecture. You can also use the reference architecture when you build your own custom IoT solutions.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -29,6 +29,8 @@ At the highest level, you can view an IoT solution as being made up of:
 * Insights generated from the telemetry sent from the things. In the Remote Monitoring solution accelerator, a rule generates an insight. For example, a rule can identify when the temperature in an engine reaches a threshold.
 * Actions, based in insights, that help improve a business or process. In the Remote Monitoring solution accelerator, an email action can notify an operator about a potential issue with an engine.
 
+The [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture) is a living document updates as the technology evolves.
+
 ## Core subsystems
 
 The reference architecture identifies the core subsystems shown in the following diagram:
@@ -48,7 +50,7 @@ A field gateway, or edge device, is a specialized device-appliance or general-pu
 
 In the Remote Monitoring solution, devices connect to an IoT hub and send telemetry for processing. The Remote Monitoring solution also lets operators manage devices using jobs or automatic device management. You can use the Azure IoT device SDKs to implement your devices.
 
-The Remote Monitoring solution can deploy and manage IoT edge devices. Edge processing helps to reduce the volume of telemetry sent to the cloud and speed up responses to device events.
+The Remote Monitoring solution can deploy and manage IoT Edge devices. Processing at the edge helps to reduce the volume of telemetry sent to the cloud and speed up responses to device events.
 
 ### Cloud gateway
 
