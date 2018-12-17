@@ -98,7 +98,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), Azure monitoring, or the [Application Insights collectd writer](app-insights-java-collectd.md).
+* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md) that you code.
 * [Trace logs](app-insights-asp-net-trace-logs.md) if you configure the appropriate collector.
 
