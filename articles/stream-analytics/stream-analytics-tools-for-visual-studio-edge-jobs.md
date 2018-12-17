@@ -19,7 +19,7 @@ In this tutorial, you learn how to use Stream Analytics tools for Visual Studio 
 
 You need the following prerequisites to complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), or [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported.  
+* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), or [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported.  
 
 * Follow the [installation instructions](stream-analytics-tools-for-visual-studio-edge-jobs.md) to install Stream Analytics tools for Visual Studio.
  
@@ -38,13 +38,13 @@ After the project gets created, navigate to the **Solution Explorer** to view th
 
 1. From your Visual Studio **View** menu, select **Server Explorer**.  
 
-2. Right click on **Azure** > Select **Connect to Microsoft Azure Subscription** > and then log in with your Azure account.
+2. Right click on **Azure** > Select **Connect to Microsoft Azure Subscription** > and then sign in with your Azure account.
 
 ## Define inputs
 
 1. From the **Solution Explorer**, expand the **Inputs** node you should see an input named **EdgeInput.json**. Double-click to view its settings.  
 
-2. Make sure that Source Type is set to **Data Stream** > Source is set to **Edge Hub** > Event Serialization Format set to **Json** > and Encoding is set to **UTF8**. Optionally, you can rename the **Input Alias**, let’s leave it as is for this example. In case you rename the input alias, use the name you specified when defining the query. Select **Save** to save the settings.  
+2. Set Source Type to **Data Stream**. Then set Source to **Edge Hub**, Event Serialization Format to **Json**, and Encoding to **UTF8**. Optionally, you can rename the **Input Alias**, let’s leave it as is for this example. In case you rename the input alias, use the name you specified when defining the query. Select **Save** to save the settings.  
    ![Stream Analytics job input configuration](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
@@ -79,7 +79,7 @@ FROM EdgeInput
 
 To test the query locally, you should upload the sample data. You can get sample data by downloading Registration data from the [GitHub repository](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) and save it to your local computer. 
 
-1. To upload sample data, > right click on **EdgeInput.json** file > choose **Add Local Input**  
+1. To upload sample data, right click on **EdgeInput.json** file and choose **Add Local Input**  
 
 2. In the pop-up window > **Browse** the sample data from your local path > Select **Save**.
    ![Local input configuration in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
@@ -108,16 +108,16 @@ To test the query locally, you should upload the sample data. You can get sample
 
 ## Manage the job 
 
-You can view the status of job and the job diagram from the Server Explorer. From the **Server Explorer** > **Stream Analytics** > expand the subscription and the resource group where you deployed the Edge job > you can view the MyASAEdgejob with status **Created**. Expand your job node and double-click on it to open the job view.
+You can view the status of job and the job diagram from the Server Explorer. From **Stream Analytics** in **Server Explorer**, expand the subscription and the resource group where you deployed the Edge job. You can view the MyASAEdgejob with status **Created**. Expand your job node and double-click on it to open the job view.
 
 ![Server explorer job management options](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  
-The job view window provides you with operations such as refreshing the job, deleting the job, opening the job from Azure portal etc.
+The job view window provides you with operations such as refreshing the job, deleting the job, and opening the job from Azure portal.
 
 ![Job diagram and other options in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
 ## Next steps
 
-* [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)
+* [More information on Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
