@@ -168,23 +168,6 @@ export storageconnectionstring=\<yourconnectionstring\>
 setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
-## Set the connection string
-
-In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
-
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
-
-### Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\> 
-```
-### Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
 # [Java-V10] (#tab/java-v10)
 
 This sample requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that will run the sample. Use either the Linux or the Windows example, depending on your operating system, to create the environment variables. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using.

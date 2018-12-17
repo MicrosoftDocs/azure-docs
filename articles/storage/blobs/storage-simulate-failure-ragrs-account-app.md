@@ -17,8 +17,6 @@ This tutorial is part two of a series.  In this tutorial, you can use either [Fi
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-To complete this tutorial, you must have completed the previous storage tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
-
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 In part two of the series, you learn how to:
@@ -30,6 +28,8 @@ In part two of the series, you learn how to:
 
 
 ## Prerequisites
+
+To complete this tutorial, you must have completed the previous storage tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
 
 To simulate a failure using Fiddler: 
 
@@ -47,7 +47,11 @@ Open Fiddler, select **Rules** and **Customize Rules**.
 
 ![Customize Fiddler rules](media/storage-simulate-failure-ragrs-account-app/figure1.png)
 
-The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file is used to customize Fiddler. Paste the following code sample in the `OnBeforeResponse` function. The new code is commented out to ensure that the logic it creates is not implemented immediately. Once complete select **File** and **Save** to save your changes.
+The Fiddler ScriptEditor launches and displays the **SampleRules.js** file. This file is used to customize Fiddler.
+
+Paste the following code sample in the `OnBeforeResponse` function. The new code is commented out to ensure that the logic it creates is not implemented immediately.
+
+Once complete select **File** and **Save** to save your changes.
 
 ```javascript
 	/*
@@ -71,23 +75,28 @@ The Fiddler ScriptEditor launches showing the **SampleRules.js** file. This file
 
 #### For .Net, Python, and Java v7
 
-Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
+Run the application in your IDE or shell.
+
+Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
 
 #### For Java v10
+
+Run the application in your IDE or shell.
 
 Since you control the sample, you do not need to interrupt it in order to test failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
-With the application paused you can now uncomment the custom rule we saved in Fiddler in a preceding step. The code sample looks for requests to the RA-GRS storage account and if the path contains the name of the image, `HelloWorld`, it returns a response code of `503 - Service Unavailable`.
+When the application is paused, uncomment the custom rule we saved in Fiddler.
 
-Navigate to Fiddler and select **Rules** -> **Customize Rules...**.  Uncomment out the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes. 
+The code sample looks for requests to the RA-GRS storage account and, if the path contains the name of the image `HelloWorld`, returns a response code of `503 - Service Unavailable`.
+
+Navigate to Fiddler and select **Rules** -> **Customize Rules...**.
+
+Uncomment out the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes. 
 
 > [!NOTE]
-> If you are running the sample application on Linux, you need to restart Fiddler whenever you edit the **CustomRule.js** file, in order for Fiddler to install the custom logic. 
-> 
-> 
-
+> If you are running the sample application on Linux, you need to restart Fiddler whenever you edit the **CustomRule.js** file, in order for Fiddler to install the custom logic.
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
@@ -106,17 +115,25 @@ Once the application starts running again, the requests to the primary endpoint 
 
 #### Java v10
 
-Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is following the secondary pipeline as opposed to the primary pipeline.
+Now that you've introduced the failure, enter **G** to test the failure.
+
+It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
 ### Simulate primary endpoint restoration
 
 #### .Net, Python, and Java v7
 
-With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
+With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
+
+In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
 
 To pause the application, press **any key**.
 
-Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function. Select **File** and **Save** to save the changes.
+Navigate to Fiddler and select **Rules** and **Customize Rules...**. 
+
+Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
+
+Select **File** and **Save** to save the changes.
 
 ![Remove customized rule](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
@@ -126,9 +143,13 @@ When complete, press **any key** to resume the application. The application cont
 
 #### Java v10
 
-With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail. In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
+With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
-Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function. Select **File** and **Save** to save the changes.
+In order to simulate the primary endpoint functioning again, you remove the logic to inject the `503` error.
+
+Navigate to Fiddler and select **Rules** and **Customize Rules...**.  Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
+
+Select **File** and **Save** to save the changes.
 
 When complete, enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 
@@ -144,11 +165,15 @@ Run the application in your IDE or shell. Once the application begins reading fr
 
 #### Java v10
 
-Since you control the sample, you do not need to interrupt it in order to test failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
+Since you control the sample, you do not need to interrupt it in order to test failure.
+
+Make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
-With the application paused, start command prompt on Windows as an administrator or run terminal as root on Linux. To get information about the storage account primary endpoint domain, enter the following command on a command prompt or terminal.
+With the application paused, start command prompt on Windows as an administrator or run terminal as root on Linux.
+
+Get information about the storage account primary endpoint domain by entering the following command on a command prompt or terminal.
 
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
@@ -168,7 +193,7 @@ To add a static route for a destination host, type the following command on a Wi
 
 ---
 
-Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address. 
+Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address.
 
 #### .Net, Python, and Java v7
 
@@ -178,7 +203,7 @@ Once the application starts running again, the requests to the primary endpoint 
 
 #### Java v10
 
-Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is following the secondary pipeline as opposed to the primary pipeline.
+Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
 ### Simulate primary endpoint restoration
 
