@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prepare to back up Azure VMs with Azure Backup
 description: Describes how to prepare Azure VMs for backup with the Azure Backup service
 services: backup
