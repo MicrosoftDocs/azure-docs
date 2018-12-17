@@ -42,7 +42,7 @@ The graph relationships and graph query capabilities are integrated into Transac
 
 ### When to use a graph capability
 
-There is nothing a graph database can achieve, which cannot be achieved using a relational database. However, a graph database can make it easier to express certain kind of queries. Your decision to choose one over the other can be based on following factors:
+There is nothing a graph database can achieve, which cannot be achieved using a relational database. However, a graph database can make it easier to express certain queries. Your decision to choose one over the other can be based on following factors:
 
 - Model hierarchical data where one node can have multiple parents, so HieararchyId cannot be used
 - Model has Your application has complex many-to-many relationships; as application evolves, new relationships are added.
@@ -98,7 +98,7 @@ SQL Server provides a powerful platform for developing rich applications for sem
 
 [XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server) is core SQL Server Database Engine feature, so you can find more info about the XML feature there.
 
-### When to use a XML capability
+### When to use an XML capability
 
 Document models can be used instead of the relational models in some specific scenarios:
 - High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
