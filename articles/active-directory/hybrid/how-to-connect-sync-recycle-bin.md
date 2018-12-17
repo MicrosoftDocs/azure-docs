@@ -36,7 +36,7 @@ This feature helps with restoring Azure AD user objects by doing the following:
 > By default, Azure AD keeps deleted Azure AD user objects in soft-deleted state for 30 days before they are permanently deleted. However, administrators can accelerate the deletion of such objects. Once the objects are permanently deleted, they can no longer be recovered, even if on-premises AD Recycle Bin feature is enabled.
 
 >[!NOTE]
->Previously when a user was removed from on-premises synchronization scope and deleted in the cloud, the DirSyncEnabled status of the account was erroneously set to "False". If afterwards that user was manually restored from Azure AD Recycle Bin, it showed an incorrect state of “Cloud-Only” account. This has now been fixed and the value of the DirSyncEnabled status is always kept “True” when a user is removed from sync scope, then soft-deleted and manually restored from Azure AD Recycle Bin.
+>Previously when a user was removed from the on-premises synchronization scope, and deleted in the cloud, the DirSyncEnabled status of the account was erroneously set to "False". If afterwards, that user was manually restored from Azure AD Recycle Bin, it showed an incorrect state of “Cloud-Only” account. This has now been fixed and the value of the DirSyncEnabled status is always kept “True” when a user is removed from sync scope, then soft-deleted, and manually restored from Azure AD Recycle Bin.
 
 ## Next steps
 **Overview topics**
