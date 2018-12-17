@@ -46,7 +46,7 @@ Query Performance Insight is easy to use:
 * On the first tab, review the list of top resource-consuming queries.
 * Select an individual query to view its details.
 * Open **Intelligent Performance** > **Performance recommendations** and check if any performance improvement recommendations are available. For more information on built-in performance recommendations, see [SQL Azure Database Advisor](sql-database-advisor.md).
-* Use sliders or zoom icons to change observed interval.
+* Use sliders or zoom icons to change the observed interval.
 
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
@@ -61,9 +61,9 @@ In Azure portal, do the following:
    
     ![Query Performance Insight][1]
    
-    The top queries view opens and the top CPU consuming queries are listed.
+The top queries view opens and the top CPU consuming queries are listed.
     
-2. Click around the chart for details.
+2. Click at the chart features for details.
 
 The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected, each bar represents a single day). DTU% chart is agrg
    
@@ -80,10 +80,14 @@ The top line shows overall DTU% for the database, while the bars show CPU% consu
    * Duration per query (depends on aggregation function).
    * Total number of executions for a particular query.
      
-     Select or clear individual queries to include or exclude them from the chart using checkboxes.
+2. Select or clear individual queries to include or exclude them from the chart using checkboxes.
+     
 3. If your data becomes stale, click the **Refresh** button.
+
 4. You can use sliders and zoom buttons to change observation interval and investigate spikes:
-    ![settings](./media/sql-database-query-performance/zoom.png)
+
+![settings](./media/sql-database-query-performance/zoom.png)
+
 5. Optionally, if you would like to see a different view, you can select **Custom** tab and set:
    
    * Metric (CPU, duration, execution count)
@@ -94,12 +98,7 @@ The top line shows overall DTU% for the database, while the bars show CPU% consu
      ![settings](./media/sql-database-query-performance/custom-tab.png)
 
 > [!IMPORTANT]
->**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the **top 5 - 20 CPU consuming** queries, depending on your selection. Your database could execute many more queries beyond the top shown and **these queries will not** be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU. This tool is intended to be a basic performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance degradations such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
->
-
-> [!IMPORTANT]
-> **Product limitation:** Changing
-Query Performance Insight, as a basic monitoring tool, does not capture **any ad-hoc, DDL, or DML queries** and cannot be used for monitoring these types of queries.
+>**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the **top 5 - 20 consuming** queries, depending on your selection. Your database could execute many more queries beyond the top shown and **these queries will not** be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU. This tool is intended to be a basic performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance degradations such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
 >
 
 ## Viewing individual query details
@@ -108,8 +107,10 @@ To view query details:
 1. Click any query in the list of top queries.
    
     ![details](./media/sql-database-query-performance/details.png)
+
 2. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
-3. Click around the chart for details.
+
+3. Click at the chart features for details.
    
    * Top chart shows line with overall database DTU%, and the bars are CPU% consumed by the selected query.
    * Second chart shows total duration by the selected query.
@@ -120,7 +121,7 @@ To view query details:
 4. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time period.
 
 > [!IMPORTANT]
-> **Product limitation:** Query Performance Insight, as a basic monitoring tool, does not capture **any ad-hoc, DDL, or DML queries** and cannot be used for monitoring these types of queries.
+> **Product limitation:** Query Performance Insight, as a basic monitoring tool, does not capture **any ad-hoc, DDL, or DML queries** and cannot be used for monitoring of these types of queries.
 >
 
 ## Review top queries per duration
@@ -142,7 +143,7 @@ To identify long running queries:
      ![query duration][4]
 
 > [!IMPORTANT]
-> **Product limitation:** Custom adjusting the metrics will update Query Performance Insight only, and it will **not update** the DTU chart. Therefore, following the custom adjustment the **DTU chart is not in correlation with the Query Performance Insights chart**. To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
+> **Product limitation:** Custom adjusting the metrics duration will update Query Performance Insight only, and it will **not update** the DTU chart. Consequently, following the custom adjustment of the view the **DTU chart will not be in correlation with the Query Performance Insights chart**. To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. It is recommended that such custom created DTU chart is used to correlate with query performance insights chart.
 >
 
 ## Review top queries per execution count
