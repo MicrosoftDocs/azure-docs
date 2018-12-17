@@ -11,7 +11,7 @@ ms.author: zhshang
 
 ## Why rotating the Access Keys?
 
-For security reason and compliance requirement, it is highly recommended to routinely rotate the access keys, by regenerating them for Azure SignalR Service instances, and updating your application configurations that use these Access Keys through connection strings.
+For security reason and compliance requirement, developers are recommended to routinely rotate the access keys.
 
 ## How to regenerate Access Keys?
 
@@ -35,8 +35,8 @@ You can also regenerate keys using [Azure CLI](/cli/azure/ext/signalr/signalr/ke
 
 ## Forced Access Key regeneration
 
-Under certain circumstances, the Azure SignalR Service may enforce a mandatory Access Key regeneration and notify customer via email and portal notification. If you received this communication or encountered service failure due to access key, please login to the Azure Portal and find the new connection string, and update the application configurations accordingly.
+Azure SignalR Service may enforce a mandatory Access Key regeneration under certain situation. The service will notify customers via email and portal notification. If you receive this communication or encounter service failure due to access key, rotate the keys by following this guide.
 
 ## Next steps
 
-Please routinely rotate the access keys as a good security practice. We recommend rotate all keys at least quarterly.
+Routinely rotate the access keys as a good security practice. We recommend rotating all keys at least quarterly.
