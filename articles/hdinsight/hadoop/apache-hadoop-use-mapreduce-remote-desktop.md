@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 
 In this article, you will learn how to connect to an Apache Hadoop on HDInsight cluster by using Remote Desktop and then run MapReduce jobs by using the Hadoop command.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Remote Desktop is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > For HDInsight 3.4 or greater, see [Use MapReduce with SSH](apache-hadoop-use-mapreduce-ssh.md) for information on connecting to the HDInsight cluster and running MapReduce jobs.
@@ -36,7 +36,7 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
 1. From the HDInsight desktop, start the **Hadoop Command Line**. This opens a new command prompt in the **c:\apps\dist\hadoop-&lt;version number>** directory.
 
-   > [!NOTE]
+   > [!NOTE]  
    > The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
    >
    >
@@ -90,5 +90,5 @@ For general information about MapReduce jobs in HDInsight:
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)

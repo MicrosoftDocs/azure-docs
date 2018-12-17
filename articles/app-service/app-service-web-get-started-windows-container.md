@@ -1,5 +1,5 @@
 ---
-title: Run a custom Windows container in Azure (Preview) | Microsoft Docs
+title: Run custom Windows container (Preview) - Azure App Service | Microsoft Docs
 description: Learn how to deploy a custom Windows container into Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -15,10 +15,12 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Run a custom Windows container in Azure (Preview)
 
-[Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead. This quickstart shows how to deploy an ASP.NET app in a Windows image to [Docker Hub](https://hub.docker.com/) from Visual Studio and run it in a custom container in Azure App Service.
+[Azure App Service](app-service-web-overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead. This quickstart shows how to deploy an ASP.NET app in a Windows image to [Docker Hub](https://hub.docker.com/) from Visual Studio and run it in a custom container in Azure App Service.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 

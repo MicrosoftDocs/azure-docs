@@ -4,10 +4,9 @@ description: Data Science for Beginners is teaches basic concepts in 5 short vid
 keywords: doing data science,data science beginners,data science for beginners,data science basics,data science questions,data science video,data science introduction
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning

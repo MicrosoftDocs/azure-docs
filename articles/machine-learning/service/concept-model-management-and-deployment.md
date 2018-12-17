@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author:  clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
 ---

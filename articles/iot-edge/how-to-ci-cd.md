@@ -4,7 +4,7 @@ description: Set up continuous integration and continuous deployment - Azure IoT
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,21 +13,19 @@ ms.custom: seodec18
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge) on your Jenkins server. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines and Azure DevOps Server to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines or [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge) on your Jenkins server. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
 
 In this article, you will learn how to:
 * Create and check in a sample IoT Edge solution.
 * Configure continuous integration (CI) to build the solution.
 * Configure continuous deployment (CD) to deploy the solution and view responses.
 
-It will take 20 minutes to complete the steps in this article.
-
 ![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
 
 ## Create a sample Azure IoT Edge solution using Visual Studio Code
 
-In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](how-to-develop-multiple-modules-vscode.md).
 
 1. In VS Code command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). Change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
 
@@ -37,7 +35,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
 3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub.
 
-4. Save these projects, then check it into your Azure Repos or Azure DevOps Server repository.
+4. Save these projects, then commit into your Azure Repos.
     
 > [!NOTE]
 > For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -54,7 +52,7 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![Create a new build pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select **Azure DevOps Git** the source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
+1. If prompted, select Azure Repos for your source. Then select the project, repository, and branch where your code is located. Choose **Continue**.
 
     ![Select Azure Repos Git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -86,7 +84,7 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![Configure publish artifact task](./media/how-to-ci-cd/publish-build-artifacts.png)
 
-1. Open the **Triggers** tab and turn on the **Continuous integration** trigger. Make sure the branch containing your code is included.
+1. Open the **Triggers** tab and turn on the **continuous integration** trigger. Make sure the branch containing your code is included.
 
     ![Turn on continuous integration trigger](./media/how-to-ci-cd/configure-trigger.png)
 
@@ -96,7 +94,7 @@ In this section, you will create a build pipeline that is configured to run auto
 ## Configure Azure Pipelines for continuous deployment
 In this section, you will create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
 
-1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button.  
+1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button and click **+ New release pipeline**.  
 
     ![Add release pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
 

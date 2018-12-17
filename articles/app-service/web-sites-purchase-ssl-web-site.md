@@ -1,5 +1,5 @@
 ---
-title: Buy and configure an SSL certificate for Azure App Service | Microsoft Docs
+title: Buy and configure an SSL certificate from Azure - App Service | Microsoft Docs
 description: Learn how to buy an App Service certificate and bind it to your App Service app
 services: app-service
 documentationcenter: .net
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
+ms.custom: seodec18
 ---
 # Buy and configure an SSL certificate for Azure App Service
 

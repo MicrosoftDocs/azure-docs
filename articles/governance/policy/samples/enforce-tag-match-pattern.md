@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - enforce tag match pattern 
+title: Sample - Enforce tag match pattern 
 description: This sample policy requires that resources meet the match pattern for tag value.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Enforce tag match pattern for tag values
 
