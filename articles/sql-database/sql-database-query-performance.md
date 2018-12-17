@@ -223,8 +223,7 @@ Increase size of Query Store. This could be performed by connecting to a databas
 Applying these settings will eventually make Query Store collecting new queries, however if you don’t want to wait you can clear Query Store. 
 
 > [!NOTE]
-> Executing following query will delete all current information in the Query Store. 
-> 
+> Executing the following query will delete all previously collected monitored telemetry in the Query Store. 
 > 
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
@@ -236,15 +235,3 @@ Query Performance Insight helps you understand the impact of your query workload
 For additional recommendations about improving the performance of your SQL database, click [Recommendations](sql-database-advisor.md) on the **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
-
-<!--Image references-->
-[1]: ./media/sql-database-query-performance/tile.png
-[2]: ./media/sql-database-query-performance/top-queries.png
-[3]: ./media/sql-database-query-performance/query-details.png
-[4]: ./media/sql-database-query-performance/top-duration.png
-[5]: ./media/sql-database-query-performance/top-execution.png
-[6]: ./media/sql-database-query-performance/annotation.png
-[7]: ./media/sql-database-query-performance/annotation-details.png
-[8]: ./media/sql-database-query-performance/qds-off.png
-[9]: ./media/sql-database-query-performance/qds-button.png
-
