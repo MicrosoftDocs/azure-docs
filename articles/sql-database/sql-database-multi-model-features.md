@@ -15,25 +15,24 @@ ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Azure SQL Database
 
-Multi-model databases enable you to store and work with data represented in multiple data model formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc.
+Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc.
 
-Azure SQL Database is designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, Azure SQL Database is not limited to relational-data only. Azure SQL Database enables you to to use a variety of non-relational formats that are tightly integrated into the relational model. Azure SQL provides the following multi-model featues:
-- [Graph features](#graph-features) enable you to represent your data as set of nodels and edges, and use standard Transact-SQL queries enahanced with graph `MATCH` operator to query the graph data.
-- [JSON features](#json-features) enable you to put JSON documents in tables, transfrom relational data to JSON documents and vice versa. You can use the standard Transact-SQL language enchanced with JSON functions for parsing documents, and use non clustered indexes, columnstore indexes, or memory-optimized tables, to optimize your queries.
-- [Spatial features](#spatial-features) enables you to store geograpical and geometrical data, index them using the special indexes and retrieve the data using spatial queries.
+Azure SQL Database is designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, Azure SQL Database is not limited to relational-data only. Azure SQL Database enables you to use a variety of non-relational formats that are tightly integrated into the relational model. Azure SQL provides the following multi-model features:
+- [Graph features](#graph-features) enable you to represent your data as set of nodes and edges, and use standard Transact-SQL queries enhanced with graph `MATCH` operator to query the graph data.
+- [JSON features](#json-features) enable you to put JSON documents in tables, transform relational data to JSON documents and vice versa. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents, and use non clustered indexes, columnstore indexes, or memory-optimized tables, to optimize your queries.
+- [Spatial features](#spatial-features) enables you to store geographical and geometrical data, index them using the spatial indexes, and retrieve the data using spatial queries.
 - [XML features](#xml-features) enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL database has specialized built-in XML query engine that process XML data.
 - [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value paris can be natively modeled as two-column tables.
 
   > [!Note]
   > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](/azure/cosmos-db/) that provides specialized API for different data models.
 
-In the following sections you can learn about the most important multi-model capabilities of Azures SQL Database.
+In the following sections, you can learn about the most important multi-model capabilities of Azures SQL Database.
 
-## Graph fetures
+## Graph features
 
-Azure SQL Database offers graph database capabilities to model many-to-many relationships in database. A graph is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). You can combine  Here are some features that make a graph database unique:
-
-Edges or relationships are first class entities in a Graph Database and can have attributes or properties associated with them.
+Azure SQL Database offers graph database capabilities to model many-to-many relationships in database. A graph is a collection of nodes (or vertices) and edges (or relationships). A node represents an entity (for example, a person or an organization) and an edge represents a relationship between the two nodes that it connects (for example, likes or friends). Here are some features that make a graph database unique:
+- Edges or relationships are first class entities in a Graph Database and can have attributes or properties associated with them.
 - A single edge can flexibly connect multiple nodes in a Graph Database.
 - You can express pattern matching and multi-hop navigation queries easily.
 - You can express transitive closure and polymorphic queries easily.
@@ -41,7 +40,7 @@ Edges or relationships are first class entities in a Graph Database and can have
 The graph relationships and graph query capabilities are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
 [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) is the core SQL Server Database Engine feature, so you can find more info about the Graph processing there.
 
-### When to use a graph capabilities
+### When to use a graph capability
 
 There is nothing a graph database can achieve, which cannot be achieved using a relational database. However, a graph database can make it easier to express certain kind of queries. Your decision to choose one over the other can be based on following factors:
 
@@ -61,14 +60,14 @@ Azure SQL Database lets you work with JSON data easily and integrate your databa
 
 If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), and [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). The [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) clause that lets you format data stored in your relational tables as JSON text.
 
-For more informaton see [How to work with JSON data in azure SQL Database](sql-database-json-features.md).
+For more information, see [How to work with JSON data in azure SQL Database](sql-database-json-features.md).
 [JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) is core SQL Server Database Engine feature, so you can find more info about the JSON feature there.
 
-### When to use a JSON capabilities
+### When to use a JSON capability
 
 Document models can be used instead of the relational models in some specific scenarios:
-- High-normalization of schema don't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
-- You are working with the applications that natively use JSON documents are communication or data models, and you don't want to introduce additonal layers that transforms relational data to JSON and vice versa.
+- High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
+- You are working with the applications that natively use JSON documents are communication or data models, and you don't want to introduce additional layers that transforms relational data to JSON and vice versa.
 - You need to simplify your data model by de-normalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in JSON format without some additional tool that parses the data.
 
@@ -94,16 +93,16 @@ SQL Server provides a powerful platform for developing rich applications for sem
 - The xml data type. XML values can be stored natively in an xml data type column that can be typed according to a collection of XML schemas, or left untyped. You can index the XML column.
 - The ability to specify an XQuery query against XML data stored in columns and variables of the xml type. XQUery functionalities can be used in any Transact-SQL query that access any data model that you use in your database.
 - Automatically index all elements in XML documents using [primary XML index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) or specify the exact paths that should be indexed using [Secondary XML index](https://docs.microsoft.com/en-us/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
-- OPENROWSET that allow bulk loading of XML data.
+- OPENROWSET that allows bulk loading of XML data.
 - Transform relational data to XML format.
 
 [XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server) is core SQL Server Database Engine feature, so you can find more info about the XML feature there.
 
-### When to use a XML capabilities
+### When to use a XML capability
 
 Document models can be used instead of the relational models in some specific scenarios:
-- High-normalization of schema don't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
-- You are working with the applications that natively use XML documents are communication or data models, and you don't want to introduce additonal layers that transforms relational data to JSON and vice versa.
+- High-normalization of schema doesn't bring significant benefits because you access the all fields of objects at once, or you never update normalized parts of the objects. However, the normalized model increases the complexity of your queries due to the large number of tables that you need to join to get the data.
+- You are working with the applications that natively use XML documents are communication or data models, and you don't want to introduce additional layers that transforms relational data to XML and vice versa.
 - You need to simplify your data model by de-normalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in XML format without some additional tool that parses the data.
 
@@ -120,7 +119,7 @@ CREATE TABLE Collection (
 
 You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be XML document instead of `nvarchar(max)` type, if the value is JSON document, you can put `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns, add computed columns and indexes to simplify and optimize data access, define the table as memory/optimized schema-only table to get better performance, etc.
 
-See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achived 1.200.000 batches per seconds.
+See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds.
 
 ## Next steps
 Multi-model capabilities in Azure SQL Databases are also the core SQL Server Database Engine features that are shared between Azure SQL Database and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:
