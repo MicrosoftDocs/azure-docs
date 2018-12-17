@@ -39,7 +39,7 @@ The workflow that you create monitors a hashtag on Twitter.
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
 and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md). 
 For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](http://aka.ms/logicappsdemo). 
+[watch this Channel 9 video](https://aka.ms/logicappsdemo). 
 
 ## Trigger on customer data
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -51,9 +51,12 @@ This tutorial assumes that you are familiar with:
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 
+
 To configure the scenario in this tutorial, you need:
 
 - Windows Server 2012 R2 with AD FS
+
+- An on-premises Active Directory (AD) with a schema level of 85 or later. For more information, see [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 or higher. 
  
@@ -154,6 +157,8 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
+- Control Windows down-level devices 
+
 
 ### Update device settings 
 
@@ -174,8 +179,6 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Your organization's Security Token Service (STS - federated domains)
 
 - `https://autologon.microsoftazuread-sso.com` (for Seamless SSO).
@@ -183,6 +186,10 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
 
 
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 ## Verify the registration
 

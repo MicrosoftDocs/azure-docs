@@ -61,3 +61,6 @@ For example, if you want to page 30 videos at a time, you'd set `count` to 30 an
 
 > [!NOTE]
 > Paging applies only to videos search (/videos/search), and not to video insights (/videos/details) or trending videos (/videos/trending).
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 

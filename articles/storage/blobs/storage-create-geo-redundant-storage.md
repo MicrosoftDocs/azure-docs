@@ -1,4 +1,4 @@
-﻿---
+---
 title: Make application data highly available in Azure | Microsoft Docs 
 description: Use read-access geo-redundant storage to make your application data highly available
 services: storage
@@ -45,7 +45,7 @@ To complete this tutorial:
 # [Java] (#tab/java)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
-* Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Install and configure a [JDK](https://aka.ms/azure-jdks)
 
 ---
 

@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 <!--author=jgerend last changed: 03/16/16-->
 
 ## Preparing for updates

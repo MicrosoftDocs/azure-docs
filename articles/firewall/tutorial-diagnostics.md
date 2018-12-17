@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -13,7 +13,7 @@ ms.author: victorh
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal. 
 
-You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
 
 In this tutorial, you learn how to:
 
@@ -90,7 +90,9 @@ You can view and analyze activity log data by using any of the following methods
 
 ## View and analyze the network and application rule logs
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
+
+For Azure Firewall Log Analytics sample queries, see [Azure Firewall Log Analytics samples](log-analytics-samples.md).
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -105,7 +107,7 @@ Browse to an Azure Firewall, under **Monitoring** click **Metrics**. To view the
 Now that you've configured your firewall to collect logs, you can explore Log Analytics to view your data.
 
 > [!div class="nextstepaction"]
-> [Networking monitoring solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Networking monitoring solutions in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

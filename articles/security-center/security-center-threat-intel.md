@@ -103,4 +103,4 @@ In this article, you learned how to use threat intelligence in Security Center t
 * [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
 * [Azure Security Center troubleshooting guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using the service.
-* [Azure security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* [Azure security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

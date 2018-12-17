@@ -4,7 +4,7 @@ description: Learn how about SQL Server database migration to Azure SQL Database
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

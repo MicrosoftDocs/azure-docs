@@ -1,12 +1,10 @@
 ---
-title: Introduction to Azure Cosmos DB | Microsoft Docs
+title: Introduction to Azure Cosmos DB
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
@@ -36,7 +34,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
         * [SQL API](sql-api-introduction.md): A schema-less JSON database engine with rich SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A massively scalable *MongoDB-as-a-Service* powered by Azure Cosmos DB platform. Compatible with existing MongoDB libraries, drivers, tools, and applications.
         * [Cassandra API](cassandra-introduction.md): A globally distributed Cassandra-as-a-Service powered by Azure Cosmos DB platform. Compatible with existing [Apache Cassandra](https://cassandra.apache.org/) libraries, drivers, tools, and applications.
-        * [Gremlin API](graph-introduction.md): A fully managed, horizontally scalable graph database service that makes it easy to build and run applications that work with highly connected datasets supporting Open Gremlin APIs (based on the [Apache TinkerPop specification](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin API](graph-introduction.md): A fully managed, horizontally scalable graph database service that makes it easy to build and run applications that work with highly connected datasets supporting Open Gremlin APIs (based on the [Apache TinkerPop specification](https://tinkerpop.apache.org/), Apache Gremlin).
         * [Table API](table-introduction.md): A key-value database service built to provide premium capabilities (for example, automatic indexing, guaranteed low latency, global distribution) to existing Azure Table storage applications without making any app changes.
         * Additional data models and APIs are coming soon!
 
@@ -46,12 +44,12 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
 
 * **Build highly responsive and mission-critical applications**
     * Azure Cosmos DB guarantees end-to-end low latency at the 99th percentile to its customers. 
-    * For a typical 1KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
+    * For a typical 1KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 10 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
 * **Ensure "always on" availability**
     * 99.99% availability SLA for all single region database accounts, and all 99.999% read availability on all multi-region database accounts.
     * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability and better performance.
-    * Dynamically set priorities to regions and [simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees to test the end-to-end availability for the entire app (beyond just the database). 
+    * Dynamically set priorities to regions and [simulate a failure](high-availability.md) of one or more regions with zero-data loss guarantees to test the end-to-end availability for the entire app (beyond just the database). 
 
 * **Write globally distributed applications, the right way**
     * Five well-defined, practical, and intuitive [consistency models](consistency-levels.md) provide a spectrum of strong SQL-like consistency all the way to the relaxed NoSQL-like eventual consistency, and everything in-between. 
@@ -75,9 +73,9 @@ Azure Cosmos DB provides the best capabilities of traditional relational and non
 | --- | --- | --- | --- |
 | Global distribution | No | No | Yes, turnkey distribution in 30+ regions, with multi-homing APIs|
 | Horizontal scale | No | Yes | Yes, you can independently scale storage and throughput | 
-| Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <15 ms | 
+| Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <10 ms | 
 | High availability | No | Yes | Yes, Azure Cosmos DB is always on, has well-defined PACELC tradeoffs, and offers automatic and manual failover options|
-| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
+| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API |
 | SLAs | Yes | No | Yes, comprehensive SLAs for latency, throughput, consistency, availability |
 
 ## Solutions that benefit from Azure Cosmos DB

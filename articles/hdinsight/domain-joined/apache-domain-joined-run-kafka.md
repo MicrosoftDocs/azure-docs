@@ -1,5 +1,5 @@
 ---
-title: Configure Kafka policies in HDInsight with Enterprise Security Package - Azure
+title: Configure Apache Kafka policies in HDInsight with Enterprise Security Package - Azure
 description: Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
@@ -10,9 +10,9 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Tutorial: Configure Kafka policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
 
-Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
+Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache Kafka clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to `sales*` and `marketingspend` topics.
 
 In this tutorial, you learn how to:
 
@@ -28,13 +28,13 @@ In this tutorial, you learn how to:
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
-* Create a [HDInsight Kafka cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive).
+* Create a [HDInsight Kafka cluster with Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
 ## Connect to Apache Ranger Admin UI
 
 1. From a browser, connect to the Ranger Admin user interface using the URL `https://<ClusterName>.azurehdinsight.net/Ranger/`. Remember to change `<ClusterName>` to the name of your Kafka cluster.
 
-    > [!NOTE] 
+    > [!NOTE]  
     > Ranger credentials are not the same as Hadoop cluster credentials. To prevent browsers from using cached Hadoop credentials, use a new InPrivate browser window to connect to the Ranger Admin UI.
 
 2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
@@ -69,7 +69,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
    ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
 
 4. Click **Add** to save the policy.
@@ -108,23 +108,26 @@ To create two topics, **salesevents** and **marketingspend**:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Use the following commands to get the Kafka broker hosts and the Zookeeper hosts. When prompted, enter the password for the cluster admin account.
+3. Use the following commands to get the Kafka broker hosts and the Apache Zookeeper hosts. When prompted, enter the password for the cluster admin account.
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-   
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
+> [!Note]  
+> Before proceeding, you may need to setup your development environment if you have not already done so. You will need components such as the Java JDK, Apache Maven and an SSH client with scp. See these [setup instructions](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) for more details.
+1. Download the [Apache Kafka domain-joined producer consumer examples](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 
-4. Run the following commands: 
+1. Follow Steps 2 and 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
+
+1. Run the following commands:
 
    ```bash
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Only the process owner of Kafka service, such as root, can write to Zookeeper znodes `/config/topics`. Ranger policies are not enforced when a non-privileged user creates a topic. This is because the `kafka-topics.sh` script communicates directly with Zookeeper to create the topic. Entries are added to the Zookeeper nodes, while the watchers on the broker side monitor and create topics accordingly. The authorization can't be done through the ranger plugin, and the command above is executed using `sudo` through the Kafka broker.
 
 
@@ -202,5 +205,5 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 ## Next steps
 
-* [Bring your own key to Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [An introduction to Hadoop security with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [Bring your own key to Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [An introduction to Apache Hadoop security with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

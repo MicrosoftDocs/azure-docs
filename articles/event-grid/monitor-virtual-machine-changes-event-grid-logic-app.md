@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ---
 
-# Monitor virtual machine changes with Azure Event Grid and Logic Apps
+# Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps
 
 You can start an automated [logic app workflow](../logic-apps/logic-apps-overview.md) 
 when specific events happen in Azure resources or third-party resources. 
@@ -122,7 +122,7 @@ with your Azure credentials.
    > If you're signed in with a personal Microsoft account, 
    > such as @outlook.com or @hotmail.com, 
    > the Event Grid trigger might not appear correctly. 
-   > As a workaround, choose [Connect with Service Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md), 
+   > As a workaround, choose [Connect with Service Principal](../active-directory/develop/howto-create-service-principal-portal.md), 
    > or authenticate as a member of the Azure Active Directory 
    > that's associated with your Azure subscription, for example, 
    > *user-name*@emailoutlook.onmicrosoft.com.

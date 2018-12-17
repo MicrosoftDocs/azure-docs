@@ -4,7 +4,7 @@ description: Set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 10/29/2018
 ms.author: juliako
 
 ---

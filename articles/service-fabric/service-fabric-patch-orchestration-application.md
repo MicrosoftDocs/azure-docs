@@ -164,7 +164,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 1. Finish all the prerequisite steps to prepare the cluster.
 2. Deploy the patch orchestration app like any other Service Fabric app. You can deploy the app by using PowerShell. Follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. To configure the application at the time of deployment, pass the `ApplicationParamater` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
+3. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
 
     - Connect to a Service Fabric cluster by using `Connect-ServiceFabricCluster`.
     - Execute the PowerShell script Deploy.ps1 with the appropriate `ApplicationParameter` value.

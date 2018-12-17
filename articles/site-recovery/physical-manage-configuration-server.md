@@ -1,12 +1,12 @@
 ﻿---
-title: ' Manage the configuration server for physical server disaster recovery with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to manage an existing configuration server for physical server disaster recovery to Azure, with the Azure Site Recovery service.
+title: Manage the configuration server for disaster recovery of on-premises physical servers to Azure with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
 
 # Manage the configuration server for physical server disaster recovery
@@ -37,7 +37,7 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 
 ## Download the latest installation file
 
-The latest version of the configuration server installation file is available in the Site Recovery portal. Additionally, it can be downloaded directly from the [Microsoft Download Center](http://aka.ms/unifiedsetup).
+The latest version of the configuration server installation file is available in the Site Recovery portal. Additionally, it can be downloaded directly from the [Microsoft Download Center](https://aka.ms/unifiedsetup).
 
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).

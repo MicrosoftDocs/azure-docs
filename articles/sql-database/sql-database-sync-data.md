@@ -63,7 +63,7 @@ Data Sync is not the preferred solution for the following scenarios:
 
 ## How does Data Sync work? 
 
--   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database.
+-   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT does not fire triggers by default. If FIRE_TRIGGERS is not specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
 
 -   **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
 
@@ -76,6 +76,7 @@ Data Sync is not the preferred solution for the following scenarios:
 ### Set up Data Sync in the Azure portal
 
 -   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### Set up Data Sync with PowerShell
 

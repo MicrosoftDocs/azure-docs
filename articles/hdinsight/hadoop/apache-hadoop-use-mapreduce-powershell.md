@@ -1,18 +1,18 @@
 ---
-title: Use MapReduce and PowerShell with Hadoop - Azure HDInsight 
-description: Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.
+title: Use MapReduce and PowerShell with Apache Hadoop - Azure HDInsight 
+description: Learn how to use PowerShell to remotely run MapReduce jobs with Apache Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run MapReduce jobs with Hadoop on HDInsight using PowerShell
+# Run MapReduce jobs with Apache Hadoop on HDInsight using PowerShell
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -22,7 +22,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **A workstation with Azure PowerShell**.
@@ -69,7 +69,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
     This output indicates that the job completed successfully.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If the **ExitCode** is a value other than 0, see [Troubleshooting](#troubleshooting).
 
     This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
@@ -78,7 +78,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 To see the words and counts produced by the job, open the **output.txt** file in a text editor.
 
-> [!NOTE]
+> [!NOTE]  
 > The output files of a MapReduce job are immutable. So if you rerun this sample, you need to change the name of the output file.
 
 ## <a id="troubleshooting"></a>Troubleshooting
@@ -109,5 +109,5 @@ For general information about MapReduce jobs in HDInsight:
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)

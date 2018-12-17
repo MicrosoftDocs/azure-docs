@@ -43,7 +43,7 @@ Next, verify that the service URL corresponds to the region you used when settin
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-This walkthrough uses images that are stored on disk. You can also use images that are available via a publically accessible URL. For more information, see the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
+This walkthrough uses images that are stored on disk. You can also use images that are available via a publicly accessible URL. For more information, see the [REST API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
 
 Since the image data is passed as part of the request body, notice that you need to set the `Content-Type` header to `application/octet-stream`. If you are passing in an image via a URL, remember to set the header to:
 ```python

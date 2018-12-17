@@ -1,15 +1,12 @@
 ---
 title: Quickstart - Create an Azure Database for PostgreSQL server using the Azure portal
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL server by using the Azure portal user interface.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 11/01/2018
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
@@ -92,21 +89,13 @@ Open your server's **Overview** page. Make a note of the **Server name** and the
 
  ![The server "Overview" page](./media/quickstart-create-database-portal/6-server-name.png)
 
-## Connect to the PostgreSQL Database by using psql in Cloud Shell
+## Connect to the PostgreSQL database using psql
 
-There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. Let's first use the psql command-line utility to illustrate how to connect to the server. You can use a web browser and Azure Cloud Shell as described here without the need to install any additional software. If you have the psql utility installed locally on your own machine, you can connect from there as well.
+There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
 
-1. In the top navigation pane, select the terminal symbol to open Cloud Shell.
+1. In a shell, connect to a database in your Azure Database for PostgreSQL server by typing the psql command line.
 
-   ![Azure Cloud Shell terminal symbol](./media/quickstart-create-database-portal/7-cloud-console.png)
-
-2. Cloud Shell opens in your browser, where you can type Bash shell commands.
-
-   ![Cloud Shell Bash prompt](./media/quickstart-create-database-portal/8-bash.png)
-
-3. At the Cloud Shell prompt, connect to a database in your Azure Database for PostgreSQL server by typing the psql command line.
-
-    To connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility, use the following format:
+    To connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/current/static/app-psql.html) utility, use the following format:
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -130,7 +119,7 @@ There are a number of applications you can use to connect to your Azure Database
     ---|---|---
     password | Your admin password | The typed password characters aren't shown on the bash prompt. After you type all the characters, hit the Enter key to authenticate and connect.
 
-    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql in Cloud Shell might be a different version than the Azure Database for PostgreSQL server version. 
+    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql you're using might be a different version than the Azure Database for PostgreSQL server version. 
     
     Example psql output:
     ```bash
@@ -144,30 +133,30 @@ There are a number of applications you can use to connect to your Azure Database
     ```
 
     > [!TIP]
-    > If the firewall is not configured to allow the IP address of Cloud Shell, the following error occurs:
+    > If the firewall is not configured to allow the IP address of your client, the following error occurs:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "0.0.0.0", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
     > 
     > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of this article.
 
-4. Create a blank database called "mypgsqldb" at the prompt by typing the following command:
+2. Create a blank database called "mypgsqldb" at the prompt by typing the following command:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     The command might take a few minutes to finish. 
 
-5. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
+3. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
     ```bash
     \c mypgsqldb
     ```
 
-6. Type  `\q`, and then select the Enter key to quit psql. You can close Cloud Shell after you're finished.
+4. Type  `\q`, and then select the Enter key to quit psql. 
 
-You connected to the Azure Database for PostgreSQL server via psql in Cloud Shell, and you created a blank user database. Continue to the next section to connect by using another common tool, pgAdmin.
+You connected to the Azure Database for PostgreSQL server via psql, and you created a blank user database. Continue to the next section to connect by using another common tool, pgAdmin.
 
 ## Connect to the PostgreSQL Server using pgAdmin
 
-pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the [pgAdmin website](http://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
+pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the [pgAdmin website](https://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
 
 1. Open the pgAdmin application on your client computer.
 

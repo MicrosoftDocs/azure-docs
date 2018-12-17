@@ -55,6 +55,10 @@
       href: classroom-labs/how-to-manage-lab-accounts.md
     - name: Manage classroom labs
       href: classroom-labs/how-to-manage-classroom-labs.md
+    - name: Set up and publish templates
+      href: classroom-labs/how-to-create-manage-template.md
+    - name: Configure and control usage
+      href: classroom-labs/how-to-configure-student-usage.md      
     - name: Access classroom labs
       href: classroom-labs/how-to-use-classroom-lab.md
   - name: DevTest labs
@@ -71,6 +75,8 @@
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Test your app in Azure
       href: test-app-azure.md
+    - name: Export or delete personal data
+      href: personal-data-delete-export.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:

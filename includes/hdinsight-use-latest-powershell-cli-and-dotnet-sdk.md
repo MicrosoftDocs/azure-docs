@@ -1,3 +1,10 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+---
 > [!IMPORTANT]
 > Support for managing HDInsight resources using Azure Service Manager (ASM) through Azure PowerShell, the Azure CLI, and the HDInsight .NET SDK is **deprecated**, and was removed on January 1, 2017. The steps in this document use the new Azure PowerShell cmdlets, Azure CLI commands, and .NET SDK that work with Azure Resource Manager.
 > 

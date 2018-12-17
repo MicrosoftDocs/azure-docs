@@ -1,19 +1,22 @@
 ---
-title: "Quickstart: Create a machine learning service workspace in the Azure portal - Azure Machine Learning"
-description: Use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Azure Machine Learning.  
+title: "Quickstart through Azure portal"
+titleSuffix: Azure Machine Learning service
+description: Get started with Azure Machine Learning service. Use Azure portal to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
-ms.date: 09/24/2018
+author: hning86
+ms.author: haining
+ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
 # Quickstart: Use the Azure portal to get started with Azure Machine Learning
 
-In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+In this quickstart, you use the Azure portal to create an Azure Machine Learning workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. This quickstart uses cloud resources and requires no installation. To configure your own Jupyter notebook server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -30,9 +33,9 @@ The following Azure resources are added automatically to your workspace when the
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is Azure Batch AI cluster size. For information on default limits and how to increase your quota, see [this article](how-to-manage-quotas.md).
+The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning, such as compute cluster size. Learn more about [the default limits and how to increase your quota](how-to-manage-quotas.md).
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 
 ## Create a workspace 
@@ -64,7 +67,7 @@ Select `Open Azure Notebooks` to try your first experiment.
 
 Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
-After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`
+After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`.
 
 
 ### Run the notebook
@@ -73,32 +76,9 @@ Along with two notebooks, you see a `config.json` file. This config file contain
 
 Select `01.run-experiment.ipynb` to open the notebook.
 
-To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. After the code for that cell finishes, a number appears.
+To run the cells one at a time, use `Shift`+`Enter`. Or select `Cells` > `Run All` to run the entire notebook. When you see an asterisk [*] next to a cell, it's running. After the code for that cell finishes, a number appears. 
 
-You might be prompted to sign in. Copy the code in the message. Then select the link, and paste the code into the new window. Be sure not to copy a space before or after the code. Sign in with the same account you used in the Azure portal.
-
- ![Log in](./media/quickstart-get-started/login.png)
-
-In the notebook, the second cell reads from `config.json` to connect to your workspace.
-```
-ws = Workspace.from_config()
-```
-
-The third cell of code starts an experiment with the name "my-first-experiment." Use this name to look up information about the run back in your workspace.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-In the last cell of the notebook, notice the values that are written to a log file.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-You can view these values in your workspace after the code runs.
+After you've completed running all of the cells in the notebook, you can view the logged values in your workspace.
 
 ## View logged values
 
@@ -116,11 +96,11 @@ See information about the run you just performed. Scroll down the page to find t
 
  ![Run history link](./media/quickstart-get-started/report.png)
 
-You see plots that were automatically created of the logged values.  
+You see plots that were automatically created of the logged values. Whenever you log multiple values with the same name parameter, a plot is automatically generated for you.
 
    ![View history](./media/quickstart-get-started/plots.png)
 
-Since the code to approximate pi uses random values, your plots will show different values.
+Since the code to approximate pi uses random values, your plots will show different values.  
 
 ## Clean up resources 
 

@@ -13,8 +13,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Store Batch AI job input and output with Azure Storage
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This guide describes how to use Azure Storage for storing input and output files when running a job. Azure Storage is one of several storage options supported by Batch AI. Batch AI integrates with Azure Storage by mounting Azure Storage systems to a Batch AI job or cluster filesystem, allowing seamless access to files stored in the cloud. 
 
@@ -94,7 +98,7 @@ If your training script requires knowledge of a path, you should pass it as a co
 
 ### Abbreviate input paths
 
-To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParamters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
+To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParameters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
 
 ```json
 {
@@ -111,7 +115,7 @@ For more information, see [here](https://github.com/Azure/BatchAI/blob/master/do
 
 ### Abbreviate output paths
 
-To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParamters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
+To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParameters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
 
 ```json
 {

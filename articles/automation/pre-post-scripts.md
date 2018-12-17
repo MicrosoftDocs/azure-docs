@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Manage pre and post scripts (Preview)
 
-Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginnin of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
+Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
@@ -214,8 +214,6 @@ if ($summary.Type -eq "Error")
 ## Known issues
 
 * You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
-* Runbooks that are not published are displayed as selectable when choosing a pre or post script. Only runbooks that are published should be chosen as un-published runbooks can not be invoked and will fail.
-* Computers added to a deployment using [Dynamic groups (preview)](automation-update-management.md#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter that is passed into pre and post scripts.
 
 ## Next steps
 

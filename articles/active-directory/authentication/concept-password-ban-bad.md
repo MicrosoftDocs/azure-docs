@@ -67,4 +67,4 @@ Unfortunately, your password contains a word, phrase, or pattern that makes your
 ## Next steps
 
 * [Configure the custom banned password list](howto-password-ban-bad.md)
-* [Enable Azure AD password protection agents on-premises](howto-password-ban-bad-on-premises.md)
+* [Enable Azure AD password protection agents on-premises](howto-password-ban-bad-on-premises-deploy.md)

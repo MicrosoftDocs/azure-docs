@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Cosmos DB by using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Cosmos DB (SQL API) by using Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB to supported sink stores by using Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Cosmos DB by using Azure Data Factory
+# Copy data to or from Azure Cosmos DB (SQL API) by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
@@ -35,6 +35,9 @@ You can use the Azure Cosmos DB connector to:
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import or export JSON documents](#importexport-json-documents).
 
 Data Factory integrates with the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance when you write to Azure Cosmos DB.
+
+>[!NOTE]
+>This connector only support copy data to/from Cosmos DB SQL API.
 
 > [!TIP]
 > The [Data Migration video](https://youtu.be/5-SRNiC_qOU) walks you through the steps of copying data from Azure Blob storage to Azure Cosmos DB. The video also describes performance-tuning considerations for ingesting data to Azure Cosmos DB in general.
@@ -178,8 +181,11 @@ The following properties are supported in the Copy Activity **source** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **DocumentDbCollectionSink**. |Yes |
 | writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same ID already exists; otherwise, insert the document.<br /><br />**Note**: Data Factory automatically generates an ID for a document if an ID isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
-| writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that we provide to the library. You can try increasing the value for **writeBatchSize** to improve performance. |No<br />(the default is **10,000**) |
+| writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that we provide to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
 | nestingSeparator |A special character in the **source** column name that indicates that a nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Azure Cosmos DB document when the **nestedSeparator** is **.** (dot): `"Name": {"First": "[value maps to this column from source]"}`  |No<br />(the default is **.** (dot)) |
+
+>[!TIP]
+>Cosmos DB limits single request's size to 2MB. The formula is Request Size = Single Document Size * Write Batch Size. If you hit error saying **"Request size is too large."**, **reduce the `writeBatchSize` value** in copy sink configuration.
 
 **Example**
 

@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Recognize speech in C# in a UWP app by using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in a UWP app by using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech, C# (UWP) - Speech Services'
+titleSuffix: Azure Cognitive Services
+description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech SDK. You transcribe speech to text in real time from your device's microphone. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
-
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Quickstart: Recognize speech in a UWP app by using the Speech SDK
@@ -29,7 +30,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 1. Start Visual Studio 2017.
 
-1. Make sure the **Universal Windows Platform development** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog box. 
+1. Make sure the **Universal Windows Platform development** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog box.
 
     ![Screenshot of Visual Studio installer, with Workloads tab highlighted](media/sdk/vs-enable-uwp-workload.png)
 
@@ -65,7 +66,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. Because the application uses the microphone for speech input, add the **Microphone** capability to the project. In Solution Explorer, double-click **Package.appxmanifest** to edit your application manifest. Then switch to the **Capabilities** tab, select the box for the **Microphone** capability, and save your changes.

@@ -36,7 +36,7 @@ You can use Azure portal or Azure Media Services APIs to configure cache header 
 
 1. To configure cache headers using Azure portal, refer to [How to Manage Streaming Endpoints](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) section Configuring the Streaming Endpoint.
 2. Azure Media Services REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
-3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](http://go.microsoft.com/fwlink/?LinkId=615302).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](https://go.microsoft.com/fwlink/?LinkId=615302).
 
 ## Cache configuration precedence order
 1. Azure Media Services configured cache value overrides default value.

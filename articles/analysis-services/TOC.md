@@ -38,8 +38,8 @@
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)
-### [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Create service principal - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
 
 ## Model
@@ -94,7 +94,7 @@
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
 

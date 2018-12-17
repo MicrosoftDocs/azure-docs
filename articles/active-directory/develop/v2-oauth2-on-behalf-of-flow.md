@@ -21,12 +21,14 @@ ms.custom: aaddev
 ---
 
 # Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 >
-
 
 > [!IMPORTANT]
 > As of May 2018, an `id_token` cannot be used for the On-Behalf-Of flow - SPAs must pass an **access** token to a middle-tier confidential client to perform OBO flows. See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.
@@ -128,7 +130,7 @@ A success response is a JSON OAuth 2.0 response with the following parameters.
 
 | Parameter | Description |
 | --- | --- |
-| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |The scope of access granted in the token. |
 | expires_in |The length of time the access token is valid (in seconds). |
 | access_token |The requested access token. The calling service can use this token to authenticate to the receiving service. |

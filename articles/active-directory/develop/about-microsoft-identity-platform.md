@@ -34,7 +34,7 @@ Applications using the latest ADAL and the latest MSAL will SSO with each other.
 
 The following diagram shows the Microsoft identity experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 
-![Microsoft identity platform today](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![Microsoft identity platform today](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 The Microsoft identity platform has two endpoints (v1.0 and v2.0) and two sets of client libraries to handle these endpoints. When developing a new application, consider the advantages and the current state of the endpoints and the authentication libraries. Also consider these:
 
@@ -58,5 +58,5 @@ The Microsoft identity platform has two endpoints (v1.0 and v2.0) and two sets o
 
 Learn more about v1.0 and v2.0.
 
-* [About v1.0](azure-ad-developers-guide.md)
-* [About v2.0](azure-ad-developers-guide.md)
+* [About v1.0](v1-overview.md)
+* [About v2.0](v2-overview.md)

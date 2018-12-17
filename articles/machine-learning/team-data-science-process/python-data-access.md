@@ -1,22 +1,16 @@
 ---
-title: Access datasets with Machine Learning Python client library | Microsoft Docs
+title: Access datasets with Python client library - Team Data Science Process
 description: Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment.
 services: machine-learning
-documentationcenter: python
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Access datasets with Python using the Azure Machine Learning Python client library
 The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.
@@ -61,7 +55,7 @@ If you have git installed on your machine, you can use pip to install directly f
 ## <a name="datasetAccess"></a>Use Studio Code snippets to access datasets
 The Python client library gives you programmatic access to your existing datasets from experiments that have been run.
 
-From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your location machine.
+From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your local machine.
 
 ### <a name="security"></a>Security for data access
 The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.
@@ -92,10 +86,10 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
     ![Datasets][datasets]
 4. Select the code snippet from the window that appears and copy it to your clipboard.
    
-    ![Access Code][dataset-access-code]
+    ![Generate data access code button][dataset-access-code]
 5. Paste the code into the notebook of your local Python application.
    
-    ![Notebook][ipython-dataset]
+    ![Paste code into the notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
 After an experiment is run in the Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
@@ -133,10 +127,10 @@ The following steps show an example that creates an experiment, runs it and acce
     ![Context Menu][experiment]
 8. Select the code snippet and copy it to your clipboard from the window that appears.
    
-    ![Access Code][intermediate-dataset-access-code]
+    ![Generate access code from context menu][intermediate-dataset-access-code]
 9. Paste the code in your notebook.
    
-    ![Notebook][ipython-intermediate-dataset]
+    ![Paste code into notebook][ipython-intermediate-dataset]
 10. You can visualize the data using matplotlib. This displays in a histogram for the age column:
     
     ![Histogram][ipython-histogram]

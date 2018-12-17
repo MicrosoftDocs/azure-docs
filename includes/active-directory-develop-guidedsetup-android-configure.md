@@ -19,34 +19,30 @@ ms.custom: include file
 ---
 
 ## Register your application
+
 You can register your application in either of two ways, as described in the next two sections.
 
 ### Option 1: Express
+
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.	In **Application Name**, enter a name for your application.
-
+2. In **Application Name**, enter a name for your application.
 3. Ensure that the **Guided Setup** check box is selected, and then select **Create**.
-
 4. Follow the instructions for obtaining the application ID, and paste it into your code.
 
-### Option 2: Advanced 
+### Option 2: Advanced
+
 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
-2. In the **Application Name** box, enter a name for your application. 
-
+2. In the **Application Name** box, enter a name for your application.
 3. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
-
 4. Select **Add Platform**, select **Native Application**, and then select **Save**.
-
 5. Under **app** > **java** > **{host}.{namespace}**, open `MainActivity`. 
-
-6.	Replace *[Enter the application Id here]* with your Application / Client ID:
+6. Replace *[Enter the application Id here]* with your Application / Client ID:
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
 <!-- Workaround for Docs conversion bug -->
 7. Under **app** > **manifests**, open the *AndroidManifest.xml* file.
-
 8. In the `manifest\application`, add the following activity. The `BrowserTabActivity` activity that allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml

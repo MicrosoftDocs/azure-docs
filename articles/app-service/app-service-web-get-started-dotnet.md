@@ -1,6 +1,6 @@
 ---
-title: Create a C# ASP.NET Core web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
+title: Create C# ASP.NET Core web app - Azure App Service | Microsoft Docs
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,11 +16,13 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
+ms.custom: seodec18
+
 ---
 # Create an ASP.NET Core web app in Azure
 
 > [!NOTE]
-> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md). 
 >
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.

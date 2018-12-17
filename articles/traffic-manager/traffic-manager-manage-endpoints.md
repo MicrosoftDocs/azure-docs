@@ -3,11 +3,7 @@ title: Manage endpoints in Azure Traffic Manager | Microsoft Docs
 description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
+author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -79,5 +75,5 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 * [Configure routing methods](traffic-manager-configure-routing-method.md)
 * [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 * [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
-* [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 

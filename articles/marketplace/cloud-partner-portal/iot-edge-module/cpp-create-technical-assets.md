@@ -41,7 +41,7 @@ Your IoT Edge module must support one of the following platform options.
 Support all Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). We recommend this option because it provides a better customer experience. Modules meeting this criteria will be showcased. A module using this platform option must:
 
 - Provide a `latest` tag and a version tag (for example, `1.0.1`) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool).
-- Use the [the Marketplace tab](./cpp-marketplace-tab.md) to add a link to [Compatible IoT Edge certified devices](http://aka.ms/iot-edge-certified). This link resolves to `http://aka.ms/iot-edge-certified`, a website where customers can browse or search for certified devices. This website is also known as the [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) device catalog.
+- Use the [the Marketplace tab](./cpp-marketplace-tab.md) to add a link to [Compatible IoT Edge certified devices](https://aka.ms/iot-edge-certified). This link resolves to `http://aka.ms/iot-edge-certified`, a website where customers can browse or search for certified devices. This website is also known as the [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) device catalog.
 
 #### A subset of Tier 1 platforms supported by IoT Edge
   

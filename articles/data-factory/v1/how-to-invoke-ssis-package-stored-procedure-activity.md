@@ -232,7 +232,7 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
 ### Create an output dataset
 This output dataset is a dummy dataset that drives the schedule of the pipeline. Notice that the frequency is set to Hour and interval is set to 1. Therefore, the pipeline runs once an hour within the pipeline start and end times. 
 
-1. Create an OuputDataset.json file with the following content: 
+1. Create an OutputDataset.json file with the following content: 
     
     ```json
     {

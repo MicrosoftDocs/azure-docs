@@ -5,7 +5,6 @@ description: Transform text using the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
@@ -18,7 +17,7 @@ ms.author: v-jansko
 > [!NOTE]
 > This method is deprecated. It is not available in V3.0 of the Translator Text API.
 
-The TransformText method is a text normalization function for social media, which returns a normalized form of the input. The method can be used as a preprocessing step in machine translation or other applications which expect clean input text that is not typically found in social media or user-generated content. The function currently works only with English input. 
+The TransformText method is a text normalization function for social media, which returns a normalized form of the input. The method can be used as a preprocessing step in machine translation or other applications which expect clean input text that is not typically found in social media or user-generated content. The function currently works only with English input.
 
 The method is a RESTful service using GET over HTTP. It supports simple XML and JSON serialization.
 
@@ -40,12 +39,12 @@ The return value provides the transformed sentence.
 GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
 {
 int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message 
+string em;         // A descriptive error message
 string sentence;   // transformed text
 }
 ```
 
-## Example 
+## Example
 
 ```csharp
 using System;
@@ -68,9 +67,9 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx) 
+            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
-            
+
             try
             {
                 admToken = admAuth.GetAccessToken();
@@ -175,7 +174,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             //If clientid or client secret has special characters, encode before sending request
             this.request = string.Format("grant_type=client_credentials&client_id={0}&client_secret={1}&scope=http://api.microsofttranslator.com", HttpUtility.UrlEncode(clientId), HttpUtility.UrlEncode(clientSecret));
             this.token = HttpPost(DatamarketAccessUri, this.request);
-            //renew the token every specfied minutes
+            //renew the token every specified minutes
             accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback), this, TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
         }
         public AdmAccessToken GetAccessToken()
@@ -212,7 +211,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
         }
         private AdmAccessToken HttpPost(string DatamarketAccessUri, string requestDetails)
         {
-            //Prepare OAuth request 
+            //Prepare OAuth request
             WebRequest webRequest = WebRequest.Create(DatamarketAccessUri);
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
@@ -231,6 +230,6 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             }
         }
     }
-} 
+}
 
 ```

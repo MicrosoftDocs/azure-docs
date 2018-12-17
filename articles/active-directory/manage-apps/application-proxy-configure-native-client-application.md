@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 
 ---
@@ -32,7 +32,7 @@ Use the Azure AD Authentication Library, which takes care of authentication and 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
 ## Step 1: Publish your application
-Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
+Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md).
 
 ## Step 2: Configure your application
 Configure your native application as follows:
@@ -52,8 +52,8 @@ For more detailed information about creating a new app registration, see [Integr
 Enable the native application to be exposed to other applications in your directory:
 
 1. Still in **App registrations**, select the new native application that you just created.
-2. Select **Required permissions**.
-3. Select **Add**.
+2. Select **API permissions**.
+3. Select **Add a permission**.
 4. Open the first step, **Select an API**.
 5. Use the search bar to find the Application Proxy app that you published in the first section. Choose that app, then click **Select**. 
 
@@ -95,4 +95,4 @@ Once the ADAL is edited with these parameters, your users should be able to auth
 
 For more information about the native application flow, see [Native application to web API](../develop/native-app.md)
 
-Learn about setting up [Single sign-on for Application Proxy](application-proxy-single-sign-on.md)
+Learn about setting up [Single sign-on for Application Proxy](what-is-single-sign-on.md#single- sign-on-methods)

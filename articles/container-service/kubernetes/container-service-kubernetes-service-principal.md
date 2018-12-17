@@ -1,20 +1,23 @@
 ---
-title: Service principal for Azure Kubernetes cluster
+title: (DEPRECATED) Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Set up an Azure AD service principal for a Kubernetes cluster in Container Service
+# (DEPRECATED) Set up an Azure AD service principal for a Kubernetes cluster in Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Service principals with Azure Kubernetes Service (AKS)](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/app-objects-and-service-principals.md) to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md)
@@ -35,14 +38,14 @@ You can use an existing Azure AD service principal that meets the following requ
 * **Client secret**: Must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!IMPORTANT]
-> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## Option 1: Create a service principal in Azure AD
 
 If you want to create an Azure AD service principal before you deploy your Kubernetes cluster, Azure provides several methods.
 
-The following example commands show you how to do this with the [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), the [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md), or other methods.
+The following example commands show you how to do this with the [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). You can alternatively create a service principal using [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), the [portal](../../active-directory/develop/howto-create-service-principal-portal.md), or other methods.
 
 ```azurecli
 az login

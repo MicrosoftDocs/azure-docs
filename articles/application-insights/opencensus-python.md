@@ -175,7 +175,7 @@ First you have to create an Application Insights resource which will generate an
 
     Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Application Map](media/opencensus-python/application-map.png)
 
 4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
 

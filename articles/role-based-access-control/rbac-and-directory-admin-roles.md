@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
@@ -57,6 +57,7 @@ An Azure account represents a billing relationship. An Azure account is a user i
 Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Every service belongs to a subscription, and the subscription ID may be required for programmatic operations.
 
 Accounts and subscriptions are managed in the [Azure Account Center](https://account.azure.com/Subscriptions).
+
 ## Azure RBAC roles
 
 Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
@@ -72,13 +73,13 @@ The rest of the built-in roles allow management of specific Azure resources. For
 
 Only the Azure portal and the Azure Resource Manager APIs support RBAC. Users, groups, and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
 
-In the Azure portal, role assignments using RBAC appear on the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
+In the Azure portal, role assignments using RBAC appear on the **Access control (IAM)** blade. This blade can found throughout the portal, such as management groups, subscriptions, resource groups, and various resources.
 
-![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control.png)
+![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 When you click the **Roles** option, you will see the list of built-in and custom roles.
 
-![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## Azure AD administrator roles
 

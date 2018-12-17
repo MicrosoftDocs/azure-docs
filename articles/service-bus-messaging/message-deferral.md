@@ -37,7 +37,6 @@ To retrieve a deferred message, its owner is responsible for remembering the [Se
 
 If a message cannot be processed because a particular resource for handling that message is temporarily unavailable but message processing should not be summarily suspended, a way to put that message on the side for a few minutes is to remember the **SequenceNumber** in a [scheduled message](message-sequencing.md) to be posted in a few minutes, and re-retrieve the deferred message when the scheduled message arrives. If a message handler depends on a database for all operations and that database is temporarily unavailable, it should not use deferral, but rather suspend receiving messages altogether until the database is available again.
 
-Deferring messages does not impact the message expiration, meaning that deferred messages still expire at the initially scheduled time and are then moved into the dead-letter queue, if so configured.
 
 ## Next steps
 

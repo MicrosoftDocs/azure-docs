@@ -1,13 +1,14 @@
 ---
-title: Best practices for building apps with LUIS - Language Understanding 
-titleSuffix: Azure Cognitive Services
-description: Learn the LUIS best practices to get the best results.
+title: Best practices
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Learn the LUIS best practices to get the best results from your LUIS app's model.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---
@@ -44,10 +45,10 @@ If the vocabulary between two intents is the same, combine the intent, and use e
 
 Consider the following example utterances:
 
-```
-Book a flight
-Book a hotel
-```
+|Example utterances|
+|--|
+|Book a flight|
+|Book a hotel|
 
 "Book a flight" and "Book a hotel" use the same vocabulary of "book a ". This is overlapping so it should be the same intent with the different words of flight and hotel extracted entities. 
 

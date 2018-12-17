@@ -5,7 +5,7 @@ metadata:
   title: Azure IoT Edge - Tutorials, API Reference
   description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
   author: kgremban
-  manager: timlt
+  manager: philmea
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page

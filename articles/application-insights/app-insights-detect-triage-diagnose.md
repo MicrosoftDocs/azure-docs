@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Application Insights for DevOps | Microsoft Docs
 description: Learn how to use Application Insights in a Dev Ops environment.
 author: mrbullwinkle
@@ -9,7 +9,6 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
@@ -227,6 +226,6 @@ You can get started in several ways, depending on the characteristics of your ap
 * [ASP.NET web application](app-insights-asp-net.md)
 * [Java web application](app-insights-java-get-started.md)
 * [Node.js web application](app-insights-nodejs.md)
-* Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), or [Azure](app-insights-azure.md).
+* Already deployed apps, hosted on [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), or [Azure](app-insights-overview.md).
 * [Web pages](app-insights-javascript.md) - Single Page App or ordinary web page - use this on its own or in addition to any of the server options.
 * [Availability tests](app-insights-monitor-web-app-availability.md) to test your app from the public internet.

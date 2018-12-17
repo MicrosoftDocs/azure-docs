@@ -1,16 +1,20 @@
 ---
-title: What is Custom Voice? - Azure Cognitive Services
-description: This article is an overview of Microsoft Text to Speech voice customization, which enables you to create a recognizable, one-of-a-kind brand voice. 
+title: How to create a custom voice font
+titlesuffix: Azure Cognitive Services
+description: This article is an overview of Text to Speech voice customization, which enables you to create a recognizable, one-of-a-kind brand voice. 
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
+ms.author: panosper
 ---
 # Creating custom voice fonts
 
-Microsoft Text-to-Speech (TTS) voice customization enables you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.* 
+Text-to-Speech (TTS) voice customization enables you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.* 
 
 To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use  this voice font to synthesize speech. 
 
@@ -78,7 +82,7 @@ For example:
 The custom voice system normalizes transcripts by converting the text to lowercase and removing extraneous punctuation. It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio recordings.
 
 > [!TIP]
-> When building production Text-to-Speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:tts@microsoft.com) to find out more about having us consult.
+> When building production Text-to-Speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:speechsupport@microsoft.com) to find out more about having us consult.
 
 ## Upload your datasets
 

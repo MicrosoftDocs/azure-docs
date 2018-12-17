@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 
 | Resource | Default limit | Maximum limit | 
 | --- | --- | --- |

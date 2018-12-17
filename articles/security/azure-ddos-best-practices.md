@@ -304,6 +304,6 @@ documentation.
 
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection blog](http://aka.ms/ddosblog)
+* [Azure DDoS Protection blog](https://aka.ms/ddosblog)
 
 * [Azure DDoS Protection documentation](../virtual-network/ddos-protection-overview.md)
