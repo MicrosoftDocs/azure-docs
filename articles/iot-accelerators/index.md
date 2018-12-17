@@ -130,39 +130,20 @@ Learn how to use the IoT solution accelerators. These articles show you how to u
 ---
 
 <h2>5-Minute Quickstarts</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Get started with the IoT solution accelerators:</h3>
-                        <p><a href="/azure/iot-accelerators/quickstart-remote-monitoring-deploy">Try a cloud-based remote monitoring solution</a></p>
-                        <p><a href="/azure/iot-accelerators/quickstart-connected-factory-deploy">Try a cloud-based connected factory solution</a></p>
-                        <p><a href="/azure/iot-accelerators/quickstart-device-simulation-deploy">Try a cloud-based device simulation solution</a></p>
-                        <p><a href="/azure/iot-accelerators/quickstart-predictive-maintenance-deploy">Try a cloud-based predictive maintenance solution</a></p></div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+
+<h3>Get started with the IoT solution accelerators:</h3>
+
+* [Try a cloud-based remote monitoring solution](quickstart-remote-monitoring-deploy.md)
+* [Try a cloud-based connected factory solution](quickstart-connected-factory-deploy.md)
+* [Try a cloud-based device simulation solution](quickstart-device-simulation-deploy.md)
+* [Try a cloud-based predictive maintenance solution](quickstart-predictive-maintenance-deploy.md)
 
 <h2>Step-by-Step Tutorials</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Learn about the IoT solution accelerators and the key scenarios they implements:</h3>
-                        <p><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitor your IoT devices</a></p>
-                        <p><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Detect issues with devices connected to your monitoring solution</a></p>
-                        <p><a href="/azure/iot-accelerators/quickstart-connected-factory-deploy">Try a cloud-based connected factory solution</a></p>
-                        <p><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis">Conduct a root cause analysis on an alert</a></p>
-                        <p><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Use alerts and fix device issues</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+
+<h3>Learn about the IoT solution accelerators and the key scenarios they implements:</h3>
+
+1. [Monitor your IoT devices](iot-accelerators-remote-monitoring-monitor.md)
+1. [Detect issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-automate.md)
+1. [Configure and manage devices connected to your monitoring solution](iot-accelerators-remote-monitoring-manage.md)
+1. [Conduct a root cause analysis on an alert](iot-accelerators-remote-monitoring-root-cause-analysis.md)
+1. [Use alerts and fix device issues](iot-accelerators-remote-monitoring-maintain.md)
