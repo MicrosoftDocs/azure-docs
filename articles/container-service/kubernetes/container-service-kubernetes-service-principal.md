@@ -1,20 +1,23 @@
 ---
-title: Service principal for Azure Kubernetes cluster
+title: (DEPRECATED) Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Set up an Azure AD service principal for a Kubernetes cluster in Container Service
+# (DEPRECATED) Set up an Azure AD service principal for a Kubernetes cluster in Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Service principals with Azure Kubernetes Service (AKS)](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/app-objects-and-service-principals.md) to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md)

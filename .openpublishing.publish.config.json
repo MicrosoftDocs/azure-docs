@@ -289,6 +289,18 @@
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-content-moderator-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-eCommerceCatalogModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

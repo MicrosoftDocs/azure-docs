@@ -1,5 +1,6 @@
 ---
-title: Train and deploy machine learning models using Azure Machine Learning for Visual Studio Code
+title: Train & deploy models from VS Code
+titleSuffix: Azure Machine Learning service
 description: Learn about Azure Machine Learning for Visual Studio Code and how to start training and deploying machine learning and deep learning models in Azure Machine Learning service using Visual Studio Code.
 services: machine-learning
 ms.service: machine-learning
@@ -8,9 +9,11 @@ ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 
 ---
-# Train and deploy machine learning models using Azure Machine Learning for Visual Studio Code
+# Use Visual Studio Code to train and deploy machine learning models
 
 In this article, you will learn how to use the **Azure Machine Learning for Visual Studio Code** extension to train and deploy machine learning and deep learning models with Azure Machine Learning service in Visual Studio Code (VS Code).
 
@@ -20,11 +23,11 @@ And you can deploy these models for your testing and production needs.
 
 ## Prerequisites
 
++ If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+
 + Have the [Azure Machine Learning for VS Code](how-to-vscode-tools.md) extension set up.
 
 + Have the [Azure Machine Learning SDK for Python installed](how-to-vscode-tools.md)  with VS Code.
-
-+ If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Create and manage compute targets
 

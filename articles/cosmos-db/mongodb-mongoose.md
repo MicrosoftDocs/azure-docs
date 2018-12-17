@@ -1,20 +1,19 @@
 ---
-title: Using the Mongoose framework with Azure Cosmos DB
-description: Learn how to connect a Node.js Mongoose app to Azure Cosmos DB
-services: cosmos-db
-author: slyons
+title: Connect a Node.js Mongoose application to Azure Cosmos DB
+description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB. 
+author: SnehaGunda
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
 ---
-# Azure Cosmos DB: Using the Mongoose framework with Azure Cosmos DB
+# Connect a Node.js Mongoose application to Azure Cosmos DB
 
-This tutorial demonstrates how to use the [Mongoose Framework](http://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the MongoDB API for Azure Cosmos DB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
+This tutorial demonstrates how to use the [Mongoose Framework](https://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the Azure Cosmos DB API for MongoDB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -91,7 +90,7 @@ For every model you create, Mongoose creates a new MongoDB collection underneath
 
 This walkthrough covers both models. We'll first cover the walkthrough on storing one type of data per collection. This is the defacto behavior for Mongoose.
 
-Mongoose also has a concept called [Discriminators](http://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
+Mongoose also has a concept called [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
 
 You can store the various data models in the same collection and then use a filter clause at query time to pull down only the data needed.
 
@@ -191,7 +190,7 @@ The default Mongoose behavior is to create a MongoDB collection every time you c
 
 ### Using Mongoose discriminators to store data in a single collection
 
-In this method, we use [Mongoose Discriminators](http://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
+In this method, we use [Mongoose Discriminators](https://mongoosejs.com/docs/discriminators.html) to help optimize for the costs of each Azure Cosmos DB collection. Discriminators allow you to define a differentiating 'Key', which allows you to store, differentiate and filter on different object models.
 
 Here, we create a base object model, define a differentiating key and add 'Family' and 'VacationDestinations' as an extension to the base model.
 
@@ -296,7 +295,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
     });
     ```
 
-As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running on the MongoDB API on Azure Cosmos DB without requiring too many changes.
+As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running on the Azure Cosmos DB API for MongoDB without requiring too many changes.
 
 ## Clean up resources
 
@@ -304,7 +303,7 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 ## Next steps
 
-Learn more about the MongoDB operations, operators, stages, commands and options supported by the Azure Cosmos DB MongoDB API in [MongoDB API support for MongoDB features and syntax](mongodb-feature-support.md).
+Learn more about the MongoDB operations, operators, stages, commands and options supported by the Azure Cosmos DB API for MongoDB in the [MongoDB features and syntax](mongodb-feature-support.md) article.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

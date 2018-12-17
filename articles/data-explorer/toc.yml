@@ -36,7 +36,7 @@
       href: power-bi-sql-query.md
 - name: Tutorials
   items:
-  - name: Visualize data - Power BI
+  - name: Visualize data in Power BI
     href: visualize-power-bi.md  
 - name: Concepts
   expanded: true
@@ -54,6 +54,8 @@
     href: write-queries.md
   - name: Ingest sample data
     href: ingest-sample-data.md
+  - name: Visualize data in Grafana
+    href: grafana.md
   - name: Delete data
     href: delete-data.md
   - name: Manage database permissions

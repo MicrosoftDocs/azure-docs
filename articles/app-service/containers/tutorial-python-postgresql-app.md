@@ -1,5 +1,5 @@
 ---
-title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Docs
+title: Build a Python web app with PostgreSQL on Linux - Azure App Service | Microsoft Docs
 description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Build a Python and PostgreSQL web app in Azure App Service
 
@@ -199,7 +200,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > This setting allows network connections from all IPs within the Azure network. For production use, try to configure the most restrictive firewall rules possible by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
+In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -281,7 +282,7 @@ Django validates the `HTTP_HOST` header in incoming requests. For your Django ap
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Next, Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), so you need to enable this manually. For this tutorial, you use [WhiteNoise](http://whitenoise.evans.io/en/stable/). The WhiteNoise package is already included in _requirements.txt_. You just need to configure Django to use it. 
+Next, Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), so you need to enable this manually. For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/en/stable/). The WhiteNoise package is already included in _requirements.txt_. You just need to configure Django to use it. 
 
 In _azuresite/settings.py_, find the `MIDDLEWARE` setting, and add the `whitenoise.middleware.WhiteNoiseMiddleware` middleware to the list, just below the `django.middleware.security.SecurityMiddleware` middleware. Your `MIDDLEWARE` setting should look like this:
 
@@ -301,7 +302,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-For more information on configuring WhiteNoise, see the [WhiteNoise documentation](http://whitenoise.evans.io/en/stable/).
+For more information on configuring WhiteNoise, see the [WhiteNoise documentation](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > The database settings section already follows the security best practice of using environment variables. For the complete deployment recommendations, see [Django Documentation: deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

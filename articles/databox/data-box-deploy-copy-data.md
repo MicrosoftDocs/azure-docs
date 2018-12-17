@@ -1,17 +1,17 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box
+title: Copy data to  your Microsoft Azure Data Box via SMB| Microsoft Docs
+description: Learn how to copy data to your Azure Data Box via SMB
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data to Azure Data Box 
+# Tutorial: Copy data to Azure Data Box via SMB
 
 This tutorial describes how to connect to and copy data from your host computer using the local web UI, and then prepare to ship Data Box.
 
@@ -46,10 +46,6 @@ Consider the following example.
 - Share for block blob: *Mystoracct_BlockBlob/my-container/blob*
 - Share for page blob: *Mystoracct_PageBlob/my-container/blob*
 - Share for file: *Mystoracct_AzFile/my-share*
-
-Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
-
-### Connect via SMB 
 
 If you are using a Windows Server host computer, perform the following steps to connect to the Data Box.
 
@@ -86,29 +82,6 @@ If you are using a Windows Server host computer, perform the following steps to 
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
-### Connect via NFS 
-
-If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
-
-1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
-
-    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access.png)
-
-2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
-
-    ![Configure NFS client access 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
-
-2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
-
-3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-    The following example shows how to connect via NFS to a Data Box share. The Data Box device IP is `10.161.23.130`, the share `Mystoracct_Blob` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/databox`.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
-
 ## Copy data to Data Box
 
 Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
@@ -117,8 +90,6 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
-
-### Copy data via SMB
 
 After you have connected to the SMB share, initiate a data copy. 
 
@@ -219,80 +190,11 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### Copy data via NFS
-
-If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
-
-The `cp` command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
-
-If using rsync option for a multi-threaded copy, follow these guidelines:
-
- - Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
-
-    `sudo apt-get install cifs-utils`
-
-    `sudo apt-get install nfs-utils`
-
- -  Install **Rsync**, and **Parallel** (varies depending on the Linux distributed version).
-
-    `sudo apt-get install rsync`
-   
-    `sudo apt-get install parallel` 
-
- - Create a mount point.
-
-    `sudo mkdir /mnt/databox`
-
- - Mount the volume.
-
-    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
-
- - Mirror folder directory structure.  
-
-    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
-
- - Copy files. 
-
-    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
-
-     where j specifies the number of parallelization,  X = number of parallel copies
-
-     We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
 
 ## Prepare to ship
 
-Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start preparing the device to ship.
-1. Go to **Prepare to ship** and click **Start preparation**. 
-   
-    ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
-2. By default, checksums are computed inline during the prepare to ship. The checksum computation may take some time depending upon the size of your data. Click **Start preparation**.
-    1. The device shares go offline and the device is locked when we prepare to ship.
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. The device status updates to *Ready to ship* once the device preparation is complete. 
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
-
-    3. Download the list of files (manifest) that were copied in this process. You can later use this list to verify the files uploaded to Azure.
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
-
-3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
-4. Remove the cables. The next step is to ship the device to Microsoft.
-
- 
-<!--## Appendix - robocopy parameters
-
-This section describes the robocopy parameters used when copying the data to optimize the performance.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
 
 ## Next steps
 
@@ -303,7 +205,7 @@ In this tutorial, you learned about Azure Data Box topics such as:
 > * Copy data to Data Box
 > * Prepare to ship Data Box
 
-Advance to the next tutorial to learn how to set up and copy data on your Data Box.
+Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)

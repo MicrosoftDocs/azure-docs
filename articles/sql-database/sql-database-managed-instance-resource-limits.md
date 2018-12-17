@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 12/12/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -51,6 +51,8 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192-1920 GB (24 GB per vCore) | Determined by the max storage size per instance |
 
+- Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
+
 ## Supported regions
 
 Managed Instanced can be created only in [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
@@ -62,6 +64,8 @@ Managed Instance currently supports deployment only on the following types of su
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
@@ -79,6 +83,8 @@ In the following table are shown default regional limits for supported subscript
 | :---| :--- | :--- |:--- |:--- |
 |Pay-as-you-go|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
+|Pay-as-you-go Dev/Test|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* You can either deploy 1 BC or 4 GP instances in one subnet, so that total number of “instance units” in the subnet never exceeds 4.

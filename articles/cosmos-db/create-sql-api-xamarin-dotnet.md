@@ -60,7 +60,7 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 ## Clone the sample application
 
-Now let's clone the Xamarin SQL API app from github, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
+Now let's clone the Xamarin SQL API app from GitHub, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -86,7 +86,7 @@ Now let's clone the Xamarin SQL API app from github, review the code, obtain the
 
 Go back to the Azure portal to get your API key information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB SQL API account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the APIKeys.cs file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB SQL API account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the APIKeys.cs file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-xamarin-dotnet/keys.png)
 

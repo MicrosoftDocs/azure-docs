@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
 ---
-# Quickstart: Transliterate text with the Translator Text REST API (Java)
+# Quickstart: Use the Translator Text API to transliterate text using Java
 
 In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Java and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
 
@@ -86,7 +86,7 @@ import com.squareup.okhttp.*;
 ```
 
 
-## Add the subscription key and host URL
+## Define variables
 
 First, you'll need to create a public class for your project:
 
@@ -103,7 +103,7 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
 
-## Instantiate the HTTP client and build a request
+## Create a client and build a request
 
 Add this line to the `Transliterate` class to instantiate the `OkHttpClient`:
 

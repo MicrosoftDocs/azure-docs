@@ -1,5 +1,5 @@
 ---
-title: Security in Azure App Service and Azure Functions | Microsoft Docs
+title: Security overview - Azure App Service | Microsoft Docs
 description: Learn about how App Service helps secure your app, and how you can further lock down your app from threats. 
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
 services: app-service
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Security in Azure App Service and Azure Functions
@@ -47,7 +48,7 @@ To secure your app against all unencrypted (HTTP) connections, App Service provi
 
 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service lets you disable outdated protocols by [enforcing TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
 
-App Service supports both FTP and FTPS for deploying your files. However, FTPS should be used instead of FTP, if at all possible. When one or both of these protocols are not in use, you should [disable them](app-service-deploy-ftp.md#enforce-ftps).
+App Service supports both FTP and FTPS for deploying your files. However, FTPS should be used instead of FTP, if at all possible. When one or both of these protocols are not in use, you should [disable them](deploy-ftp.md#enforce-ftps).
 
 ## Static IP restrictions
 

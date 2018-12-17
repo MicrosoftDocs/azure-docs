@@ -1,19 +1,18 @@
 ---
-title: Azure Cosmos DB as a key value store – Cost overview
-description: Learn about the low cost of using Azure Cosmos DB as a key value store.
-keywords: key value store
-services: cosmos-db
+title: Request unit charges for Azure Cosmos DB as a key value store
+description: Learn about the request unit charges of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store.
 author: SnehaGunda
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 ---
 
 # Azure Cosmos DB as a key value store – Cost overview
 
-Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](how-to-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
+Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](how-to-sql-query.md) (and [JavaScript](stored-procedures-triggers-udfs.md)) queries on any kind of data. 
 
 This article describes the cost of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of documents. Besides guaranteeing a 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts, Azure Cosmos DB offers guaranteed <10-ms latency for reads and <15-ms latency for the (indexed) writes respectively, at the 99th percentile. 
 
@@ -32,9 +31,9 @@ The following table shows the number of RUs required to perform read and write t
 
 ## Cost of reads and writes
 
-If you provision 1,000 RU/sec, this amounts to 3.6 m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1-KB size document, this means that you can consume 3.6-m reads or 0.72-m writes (3.6 m RU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
+If you provision 1,000 RU/sec, this amounts to 3.6-m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1-KB size document, this means that you can consume 3.6-m reads or 0.72-m writes (3.6-m RU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
 
-|Item Size|1-m Read|1-m Write|
+|Item Size|1-m Read|1 m Write|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|

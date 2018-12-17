@@ -51,7 +51,7 @@ To further explore the capabilities of the Application Insights portal, head ove
 >[!NOTE]
 >This is only applicable to Windows clusters at the moment.
 
-There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, as detailed in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, as detailed in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 #### Add an Application Insights Instrumentation Key when creating a cluster in Azure portal
 
@@ -85,7 +85,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the preceding code snippets, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
-Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >If you use an incorrect Application Insights Key either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.

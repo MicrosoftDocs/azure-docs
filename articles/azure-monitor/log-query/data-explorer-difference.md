@@ -10,11 +10,9 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.component: na
 ---
 
 # Log Analytics query language differences
@@ -26,7 +24,7 @@ The following sections describe elements of the Data Explorer query language tha
 
 ### Statements not supported in Log Analytics
 
-* [Alias](/kusto/query/aliasstatement)
+* [Alias](/azure/kusto/query/aliasstatement)
 * [Query parameters](/azure/kusto/query/queryparametersstatement)
 
 ### Functions not supported in Log Analytics

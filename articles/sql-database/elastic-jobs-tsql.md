@@ -204,9 +204,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -251,8 +251,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -324,7 +324,7 @@ Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run t
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -333,7 +333,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -638,10 +638,10 @@ If specified, the value must be Inline.
 [ **@command =** ] 'command'  
 The command must be valid T-SQL script and is then executed by this job step. command is nvarchar(max), with a default of NULL.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 The name of the database scoped credential stored in this job control database that is used to connect to each of the target databases within the target group when this step is executed. credential_name is nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 The name of the target group that contains the target databases that the job step will be executed on. target_group_name is nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -768,10 +768,10 @@ If specified, the value must be Inline.
 [ **@command =** ] 'command'  
 The command(s) must be valid T-SQL script and is then executed by this job step. command is nvarchar(max), with a default of NULL.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 The name of the database scoped credential stored in this job control database that is used to connect to each of the target databases within the target group when this step is executed. credential_name is nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 The name of the target group that contains the target databases that the job step will be executed on. target_group_name is nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -1006,14 +1006,14 @@ Adds a database or group of databases to a target group.
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### Arguments
@@ -1035,10 +1035,10 @@ The name of the logical server that should be added to the specified target grou
 [ **@database_name =** ] 'database_name'  
 The name of the database that should be added to the specified target group. database_name should be specified when target_type is ‘SqlDatabase’. database_name is nvarchar(128), with no default.
 
-[ **@elastic_pool_name =** ] ‘elastic_pool_name'  
+[ **@elastic_pool_name =** ] 'elastic_pool_name'  
 The name of the Elastic pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlElasticPool’. elastic_pool_name is nvarchar(128), with no default.
 
-[ **@shard_map_name =** ] ‘shard_map_name'  
+[ **@shard_map_name =** ] 'shard_map_name'  
 The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlSqlShardMap’. shard_map_name is nvarchar(128), with no default.
 
 [ **@target_id =** ] target_group_id OUTPUT  
@@ -1097,7 +1097,7 @@ Removes a target group member from a target group.
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-     	[ , [ @target_id = ] ‘target_id’]
+     	[ , [ @target_id = ] 'target_id']
 ```
 
 
@@ -1218,7 +1218,7 @@ Shows job execution history.
 |**job_version**	|int	|Version of the job (automatically updated each time the job is modified).
 |**step_id**	|int|	Unique (for this job) identifier for the step. NULL indicates this is the parent job execution.
 |**is_active**|	bit	|Indicates whether information is active or inactive. 1 indicates active jobs, and 0 indicates inactive.
-|**lifecycle**|	nvarchar(50)|Value indicating the status of the job:‘Created’,‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’,'SucceededWithSkipped’|
+|**lifecycle**|	nvarchar(50)|Value indicating the status of the job:‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
 |**create_time**|	datetime2(7)|	Date and time the job was created.
 |**start_time**	|datetime2(7)|	Date and time the job started execution. NULL if the job has not yet been executed.
 |**end_time**|	datetime2(7)	|Date and time the job finished execution. NULL if the job has not yet been executed or has not yet completed execution.
