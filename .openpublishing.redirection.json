@@ -23122,6 +23122,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-ata-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-compliance-rest-api.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/compliances",
+            "redirect_document_id": false
+        },
+         {
+            "source_path": "articles/security-center/security-center-review-policy-compliance.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/tasks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-export-data-to-siem.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-aadip-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-connect-application-gateway.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/quick-security-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-partner-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-azure-policy.md",
             "redirect_url": "/azure/security-center/tutorial-security-policy",
             "redirect_document_id": false
