@@ -58,6 +58,8 @@ Publisher and distributor on Azure SQL Database requires:
 
 - An Azure Storage Account share for the replication working directory.
 
+- Port 445 (TCP outbound) needs to be open in the security rules of the Managed Instance subnet to access the Azure file share
+
 ## Features
 
 Supports:
