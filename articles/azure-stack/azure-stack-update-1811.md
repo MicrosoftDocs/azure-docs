@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -196,9 +196,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+- During installation of the 1811 update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
-- During the update, both the administrator and user portal dashboards might disappear, and customizations can be lost. You can restore the dashboard to default setting after the update completes by opening the portal settings and selecting **Restore default settings**.
+- During installation of the 1811 update, both the administrator and user portal dashboards might not be available, and customizations can be lost. You can restore the dashboard to the default setting after the update completes by opening the portal settings and selecting **Restore default settings**.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
