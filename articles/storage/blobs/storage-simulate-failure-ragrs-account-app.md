@@ -13,7 +13,9 @@ ms.author: tamram
 
 # Tutorial: Simulate a failure in accessing read-access redundant storage
 
-This tutorial is part two of a series.  In this tutorial, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
+This tutorial is part two of a series.
+
+In this tutorial, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -26,10 +28,9 @@ In part two of the series, you learn how to:
 > * Simulate a failure with [fiddler](#simulate-a-failure-with-fiddler) or [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) 
 > * Simulate primary endpoint restoration
 
-
 ## Prerequisites
 
-To complete this tutorial, you must have completed the previous storage tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
+To complete this tutorial, you must have completed the previous tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
 
 To simulate a failure using Fiddler: 
 
@@ -37,9 +38,9 @@ To simulate a failure using Fiddler:
 
 ## Simulate a failure with Fiddler
 
-To simulate failure with Fiddler, you inject a failed response for requests to the primary endpoint of your RA-GRS storage account to simulate a failure.
+To simulate failure with Fiddler, you inject a failed response for requests to the primary endpoint of your RA-GRS storage account.
 
-Follow the following steps to simulate a failure, and primary endpoint restoration with fiddler.
+The following sections depict how to simulate a failure and primary endpoint restoration with fiddler.
 
 ### Launch fiddler
 
@@ -51,7 +52,7 @@ The Fiddler ScriptEditor launches and displays the **SampleRules.js** file. This
 
 Paste the following code sample in the `OnBeforeResponse` function. The new code is commented out to ensure that the logic it creates is not implemented immediately.
 
-Once complete select **File** and **Save** to save your changes.
+Once complete, select **File** and **Save** to save your changes.
 
 ```javascript
 	/*
@@ -87,9 +88,9 @@ Since you control the sample, you do not need to interrupt it in order to test f
 
 ### Simulate failure
 
-When the application is paused, uncomment the custom rule we saved in Fiddler.
+While the application is paused, uncomment the custom rule we saved in Fiddler.
 
-The code sample looks for requests to the RA-GRS storage account and, if the path contains the name of the image `HelloWorld`, returns a response code of `503 - Service Unavailable`.
+The code sample looks for requests to the RA-GRS storage account and, if the path contains the name of the file `HelloWorld`, returns a response code of `503 - Service Unavailable`.
 
 Navigate to Fiddler and select **Rules** -> **Customize Rules...**.
 
@@ -178,7 +179,9 @@ Get information about the storage account primary endpoint domain by entering th
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 ``` 
- Replace `STORAGEACCOUNTNAME` with the name of your storage account. Copy to the IP address of your storage account to a text editor for later use. To get the IP address of your local host, type `ipconfig` on the Windows command prompt, or `ifconfig` on the Linux terminal. 
+ Replace `STORAGEACCOUNTNAME` with the name of your storage account. Copy to the IP address of your storage account to a text editor for later use.
+
+To get the IP address of your local host, type `ipconfig` on the Windows command prompt, or `ifconfig` on the Linux terminal. 
 
 To add a static route for a destination host, type the following command on a Windows command prompt or Linux terminal. 
 

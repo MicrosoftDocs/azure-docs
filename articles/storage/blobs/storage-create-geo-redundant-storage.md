@@ -220,17 +220,17 @@ The Storage object retry function is set to use a linear retry policy. The retry
 
 # [Java V10 SDK] (#tab/java-v10)
 
+To run the sample, use Maven at the command line.
+
+1. open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory.
+2. Enter `mvn compile exec:java`.
+
 This sample creates a test file in your default directory, **AppData\Local\Temp**, for Windows users. Then it prompts you to take the following steps:
 
 1. Enter commands to upload the test file to Azure Blob storage.
 2. List the blobs in the container.
 3. Download the uploaded file with a new name so you can compare the old and new files.
 4. Close the sample, which will also clean up any resources the sample created.
-
-To run the sample, use Maven at the command line.
-
-1. open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory.
-2. Enter `mvn compile exec:java`.
 
 This example shows your output if you run the application on Windows.
 
