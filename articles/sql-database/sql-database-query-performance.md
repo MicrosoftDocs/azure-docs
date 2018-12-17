@@ -62,9 +62,16 @@ In Azure portal, do the following:
     ![Query Performance Insight][1]
    
     The top queries view opens and the top CPU consuming queries are listed.
-2. Click around the chart for details.<br>The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected each bar represents one day).
+    
+2. Click around the chart for details.
+
+The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected, each bar represents a single day). DTU% chart is agrg
    
     ![top queries][2]
+   
+   > [!IMPORTANT]
+>**Product limitations:** DTU chart **should not be used** to understand the **overall DTU consumption**. This is because DTU chart is aggregated to a maximum value for the observed period. For example, if there was a query that maxed out DTU to 100% only for a few minutes, the DTU chart will show that the entire 1hr consumption was 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute time granularity. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
+>
    
     The bottom grid represents aggregated information for the visible queries.
    
@@ -87,7 +94,7 @@ In Azure portal, do the following:
      ![settings](./media/sql-database-query-performance/custom-tab.png)
 
 > [!IMPORTANT]
->**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5 - 20 running queries, depending on your selection. Your database could execute many more queries beyond the top shown and these will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU. This tool is intended to be a basic performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance degradations such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
+>**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the **top 5 - 20 CPU consuming** queries, depending on your selection. Your database could execute many more queries beyond the top shown and **these queries will not** be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU. This tool is intended to be a basic performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance degradations such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
 >
 
 ## Viewing individual query details
@@ -123,6 +130,10 @@ To identify long running queries:
    * **Avg** finds average execution time of all query executions and show you the top out of these averages. 
      
      ![query duration][4]
+
+> [!IMPORTANT]
+> **Product limitation:** Query Performance Insight, as a basic monitoring tool, does not capture **any ad-hoc, DDL, or DML queries** and cannot be used for monitoring these types of queries.
+>
 
 ## Review top queries per execution count
 High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
