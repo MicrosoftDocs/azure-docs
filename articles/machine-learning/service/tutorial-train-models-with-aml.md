@@ -12,14 +12,14 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
 
 # Tutorial: Train an image classification model with Azure Machine Learning service
 
 In this tutorial, you train a machine learning model both locally and on remote compute resources. You use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook. You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
-This tutorial trains a simple logistic regression by using the [MNIST](https://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from 0 to 9. The goal is to create a multiclass classifier to identify the digit a given image represents. 
+This tutorial trains a simple logistic regression by using the [MNIST](https://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents. 
 
 Learn how to take the following actions:
 
@@ -49,7 +49,7 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
 
 * Import Python packages.
-* Connect to a workspace to enable communication between your local computer and remote resources.
+* Connect to a workspace, so that your local computer can communicate with remote resources.
 * Create an experiment to track all your runs.
 * Create a remote compute target to use for training.
 
@@ -70,7 +70,7 @@ from azureml.core import Workspace, Run
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-### Connect to workspace
+### Connect to a workspace
 
 Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`:
 
@@ -80,7 +80,7 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 ```
 
-### Create experiment
+### Create an experiment
 
 Create an experiment to track the runs in your workspace. A workspace can have multiple experiments: 
 
@@ -142,7 +142,7 @@ You now have the necessary packages and compute resources to train a model in th
 
 ## Explore data
 
-Before you train a model, you need to understand the data that you're using to train it. You also need to copy the data into the cloud, so it can be accessed by your cloud training environment. In this section, you learn how to take the following actions:
+Before you train a model, you need to understand the data that you use to train it. You also need to copy the data into the cloud, so it can be accessed by your cloud training environment. In this section, you learn how to take the following actions:
 
 * Download the MNIST dataset.
 * Display some sample images.
@@ -182,7 +182,7 @@ y_train = load_data('./data/train-labels.gz', True).reshape(-1)
 X_test = load_data('./data/test-images.gz', False) / 255.0
 y_test = load_data('./data/test-labels.gz', True).reshape(-1)
 
-# now let's show some randomly chosen images from the traininng set.
+# now let's show some randomly chosen images from the training set.
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
@@ -300,7 +300,7 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 # get hold of the current run
 run = Run.get_context()
 
-print('Train a logistic regression model with regularizaion rate of', args.reg)
+print('Train a logistic regression model with regularization rate of', args.reg)
 clf = LogisticRegression(C=1.0/args.reg, random_state=42)
 clf.fit(X_train, y_train)
 
@@ -321,13 +321,13 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Notice how the script gets data and saves models:
 
-+ The training script reads an argument to find the directory containing the data. When you submit the job later, you point to the datastore for this argument:
++ The training script reads an argument to find the directory that contains the data. When you submit the job later, you point to the datastore for this argument:
 `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
 
 + The training script saves your model into a directory named **outputs**: <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
 Anything written in this directory is automatically uploaded into your workspace. You access your model from this directory later in the tutorial.
-The file `utils.py` is referenced from the training script to load the dataset correctly. Copy this script into the script folder, so that it can be accessed along with the training script on the remote resource:
+The file `utils.py` is referenced from the training script to load the dataset correctly. Copy this script into the script folder, so that it can be accessed along with the training script on the remote resource.
 
 
 ```python
@@ -382,11 +382,11 @@ In total, the first run takes **about 10 minutes**. But for subsequent runs, as 
 
 What happens while you wait:
 
-- **Image creation**: A Docker image is created that matches the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about 5 minutes**. 
+- **Image creation**: A Docker image is created that matches the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**. 
 
   This stage happens once for each Python environment because the container is cached for subsequent runs. During image creation, logs are streamed to the run history. You can monitor the image creation progress by using these logs.
 
-- **Scaling**: If the remote cluster requires more nodes to do the run than currently available, additional nodes are added automatically. Scaling typically takes **about 5 minutes.**
+- **Scaling**: If the remote cluster requires more nodes to do the run than currently available, additional nodes are added automatically. Scaling typically takes **about five minutes.**
 
 - **Running**: In this stage, the necessary scripts and files are sent to the compute target. Then datastores are mounted or copied. And then the **entry_script** is run. While the job is running, **stdout** and the **./logs** directory are streamed to the run history. You can monitor the run's progress by using these logs.
 
@@ -433,15 +433,15 @@ In the next tutorial, you explore this model in more detail.
 
 ## Register model
 
-The last step in the training script wrote the file `outputs/sklearn_mnist_model.pkl` in a directory named `outputs` in the VM of the cluster where the job is run. `outputs` is a special directory in that all content in this  directory is automatically uploaded to your workspace.  This content appears in the run record in the experiment under your workspace. Hence, the model file is now also available in your workspace.
+The last step in the training script wrote the file `outputs/sklearn_mnist_model.pkl` in a directory named `outputs` in the VM of the cluster where the job is run. `outputs` is a special directory in that all content in this directory is automatically uploaded to your workspace. This content appears in the run record in the experiment under your workspace. So the model file is now also available in your workspace.
 
-You can see files associated with that run.
+You can see files associated with that run:
 
 ```python
 print(run.get_file_names())
 ```
 
-Register the model in the workspace so that you (or other collaborators) can later query, examine, and deploy this model.
+Register the model in the workspace, so that you or other collaborators can later query, examine, and deploy this model:
 
 ```python
 # register model 
@@ -453,7 +453,7 @@ print(model.name, model.id, model.version, sep = '\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You can also  delete just the Azure Managed Compute cluster. However, since autoscale is turned on and the cluster minimum is 0, this particular resource will not incur additional compute charges when not in use.
+You can also delete just the Azure Managed Compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
 
 
 ```python
@@ -463,16 +463,16 @@ compute_target.delete()
 
 ## Next steps
 
-In this Azure Machine Learning service tutorial, you used Python to:
+In this Azure Machine Learning service tutorial, you used Python for the following tasks:
 
 > [!div class="checklist"]
-> * Set up your development environment
-> * Access and examine the data
-> * Train a simple logistic regression locally using the popular scikit-learn machine learning library
-> * Train multiple models on a remote cluster
-> * Review training details and register the best model
+> * Set up your development environment.
+> * Access and examine the data.
+> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library.
+> * Train multiple models on a remote cluster.
+> * Review training details and register the best model.
 
-You are ready to deploy this registered model using the instructions in the next part of the tutorial series:
+You're ready to deploy this registered model by using the instructions in the next part of the tutorial series:
 
 > [!div class="nextstepaction"]
 > [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)
