@@ -49,7 +49,7 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 Azure Machine Learning service can autotrain a model and autotune it for you.
 For an example, see [Train a regression model with automated machine learning](tutorial-auto-train-models.md).
 
-By using the Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service workspace.
+By using the Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 You can choose from many machine learning components available in open-source Python packages, such as the following examples:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>

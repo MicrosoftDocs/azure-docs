@@ -27,7 +27,7 @@ The latest release of Azure Machine Learning service includes the following feat
 + A new, more comprehensive Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md#workspace). You can create workspaces quickly in the [Azure portal](quickstart-get-started.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-azure-machine-learning-architecture.md#workspace). You can create workspaces quickly in the [Azure portal](quickstart-get-started.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself is deprecated. Now you can monitor your experiments in the [workspace dashboard in the Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -70,7 +70,7 @@ You can use this same <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> f
 
 ## Will projects persist?
 
-You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning Workspace service by using a local config file. See a [diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
+You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning service Workspace by using a local config file. See a [diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
 Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. Learn how to [migrate your existing projects](how-to-migrate.md#projects).
 
