@@ -18,13 +18,13 @@ In this document, you learn how to install Presto on HDInsight Hadoop clusters b
 
 HDInsight also offers the Starburst Presto application for Apache Hadoop clusters. For more information, see [Install third-party applications on Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require an **HDInsight 3.5 Hadoop cluster** that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versions](hdinsight-component-versioning.md).
 
 ## What is Presto?
 [Presto](https://prestodb.io/overview.html) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on the components of Presto and how they work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
 
-> [!WARNING]
+> [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 > 
 > Custom components, such as Presto, receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
@@ -48,17 +48,17 @@ This section provides instructions on how to use the sample script when creating
    
    * **NAME**: Enter a friendly name for the script action.
    * **Bash script URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
-   * **HEAD**: Check this option
-   * **WORKER**: Check this option
-   * **ZOOKEEPER**: Leave this check box blank
-   * **PARAMETERS**: Leave this field blank
+   * **HEAD**: Check this option.
+   * **WORKER**: Check this option.
+   * **ZOOKEEPER**: Leave this check box blank.
+   * **PARAMETERS**: Leave this field blank.
 
 
 3. At the bottom of the **Script Actions** area, click the **Select** button to save the configuration. Finally, click  the **Select** button at the bottom of the **Advanced Settings** area to save the configuration information.
 
 4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Azure PowerShell, the Azure Classic CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
@@ -82,7 +82,7 @@ To work with Presto in an HDInsight cluster, use the following steps:
    
 		select count (*) from hivesampletable;
    
-	By default, [Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto.
+	By default, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto.
 
 	For more information, see [Presto documentation](https://prestodb.io/docs/current/index.html).
 
@@ -164,11 +164,11 @@ TPC-DS is the industry standard for measuring the performance of many decision s
 
 
 ## See also
-* [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run, and save Pig and Hive jobs.
+* [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Hue is a web UI that makes it easy to create, run, and save Apache Pig and Hive jobs.
 
-* [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
+* [Install Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.
 
-* [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
+* [Install Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

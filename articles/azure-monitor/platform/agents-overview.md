@@ -25,7 +25,7 @@ Microsoft Azure provides multiple ways to collect different types of data from v
 This article describes the differences between them and their capabilities in order for you to determine which one will support your IT service management or general monitoring requirements.  
 
 ## Azure Diagnostic extension
-The [Azure Diagnostics extension](../../monitoring-and-diagnostics/azure-diagnostics.md) (commonly referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure compute resource like a VM, and persist it to Azure storage. Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) and [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+The [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md) (commonly referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure compute resource like a VM, and persist it to Azure storage. Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) and [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 You can choose to collect:
 
@@ -39,7 +39,7 @@ You can choose to collect:
 The Azure Diagnostics agent should be used when you want to:
 
 * Archive logs and metrics to Azure storage
-* Integrate monitoring data with third-party tools. These tools use a variety of methods including querying the storage account, forwarded to [Event Hubs](../../event-hubs/event-hubs-about.md), or querying with the [Azure Monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+* Integrate monitoring data with third-party tools. These tools use a variety of methods including querying the storage account, forwarded to [Event Hubs](../../event-hubs/event-hubs-about.md), or querying with the [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md)
 * Upload data to Azure Monitor to create metric charts in the Azure portal or create near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Autoscale virtual machine scale sets and Classic Cloud Services based on guest OS metrics.
 * Investigate VM boot issues with [Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md).

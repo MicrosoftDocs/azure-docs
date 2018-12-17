@@ -1,5 +1,5 @@
 ---
-title: Consume web service with web app template - Azure Machine Learning Studio | Microsoft Docs
+title: Consume Studio web service with web app template - Azure Machine Learning Studio | Microsoft Docs
 description: Use a web app template in Azure Marketplace to consume a predictive web service in Azure Machine Learning.
 keywords: web service,operationalization,REST API,machine learning
 services: machine-learning
@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# Consume an Azure Machine Learning web service by using a web app template
+# Consume an Azure Machine Learning Studio web service by using a web app template
 
 You can develop a predictive model and deploy it as an Azure web service by using:
 - Azure Machine Learning Studio.
@@ -30,7 +30,7 @@ There are a number of ways to consume the REST API and access the web service. F
 
 But the quickest and easiest way to access your web service is through the web app templates available in the [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Azure Machine Learning web app templates
 The web app templates available in the Azure Marketplace can build a custom web app that knows your web service's input data and expected results. All you need to do is give the web app access to your web service and data, and the template does the rest.

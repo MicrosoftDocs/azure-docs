@@ -1,5 +1,5 @@
 ---
-title: Create a Node.js web app in Azure | Microsoft Docs
+title: Create Node.js web app - Azure App Service | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,8 @@ ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
+ms.custom: seodec18
+
 ---
 # Create a Node.js web app in Azure
 

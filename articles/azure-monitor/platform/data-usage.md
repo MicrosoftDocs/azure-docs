@@ -20,7 +20,7 @@ ms.author: magoedte
 > [!NOTE]
 > This article describes how to analyze data usage in Log Analytics.  Refer to the following articles for related information.
 > - [Manage cost by controlling data volume and retention in Log Analytics](manage-cost-storage.md) describes how to control your costs by changing your data retention period.
-> - [Monitoring usage and estimated costs](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
+> - [Monitoring usage and estimated costs](../../azure-monitor/platform/usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
 ## Understand usage
 
@@ -169,7 +169,7 @@ This section describes how to create an alert if:
 - Data volume exceeds a specified amount.
 - Data volume is predicted to exceed a specified amount.
 
-Azure Alerts support [log alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) that use search queries. 
+Azure Alerts support [log alerts](../../azure-monitor/platform/alerts-unified-log.md) that use search queries. 
 
 The following query has a result when there is more than 100 GB of data collected in the last 24 hours:
 

@@ -1074,11 +1074,11 @@ download the project to your local computer. To edit script files in the online 
 [Xamarin.Forms Client quickstart]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client quickstart]: app-service-mobile-windows-store-dotnet-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
-[Configure Azure Active Directory authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Configure Facebook authentication]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Configure Google authentication]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Configure Microsoft authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configure Twitter authentication]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Configure Azure Active Directory authentication]: ../app-service/configure-authentication-provider-aad.md
+[Configure Facebook authentication]: ../app-service/configure-authentication-provider-facebook.md
+[Configure Google authentication]: ../app-service/configure-authentication-provider-google.md
+[Configure Microsoft authentication]: ../app-service/configure-authentication-provider-microsoft.md
+[Configure Twitter authentication]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service deployment guide]: ../app-service/app-service-deploy-local-git.md
 [Monitoring Azure App Service]: ../app-service/web-sites-monitor.md
 [Enable diagnostic logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
