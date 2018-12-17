@@ -134,7 +134,7 @@ Ubuntu will drop you into single user mode automatically if it cannot boot norma
 1. Press Ctrl + X to reboot with these settings and enter single user mode
 
 ### Using GRUB to invoke bash in Ubuntu
-There may be situations where you may still be unable to access single user mode in your Ubuntu VM after trying the instructions above. You can also tell the kernel to run /bin/bash as init, rather than the system init, which will give oyu a bash shell and allow for system maintenance. Use the following instructions:
+There may be situations (such as a forgotten root password) where you may still be unable to access single user mode in your Ubuntu VM after trying the instructions above. You can also tell the kernel to run /bin/bash as init, rather than the system init, which will give you a bash shell and allow for system maintenance. Use the following instructions:
 
 1. From GRUB, press 'e' to edit your boot entry (the Ubuntu entry)
 1. Look for the line that starts with `linux`, then look for `ro`
