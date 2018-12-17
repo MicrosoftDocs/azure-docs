@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: sethm
 
 ---
@@ -364,7 +364,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
      ![select access](./media/azure-stack-create-service-principal/image17.png)
 
-4. Select **Add**.
+4. Select **Add role assignment**.
 
 5. Select the role you wish to assign to the application.
 

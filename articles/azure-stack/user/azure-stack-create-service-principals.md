@@ -109,9 +109,7 @@ Use the following steps as a guide for assigning a role to a service principal.
 
 3. Select **Access Control (IAM)** for the subscription.
 
-     ![Select Access control](./media/azure-stack-create-service-principal/image17.png)
-
-4. Select **Add**.
+4. Select **Add role assignment**.
 
 5. Select the role you wish to assign to the application.
 
