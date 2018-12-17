@@ -36,7 +36,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group**
 
-  A failover group is a group of databases manged by a single logical server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.
+  A failover group is a group of databases managed by a single logical server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.
 
   - **Logical servers**
 
@@ -256,7 +256,7 @@ When you set up a failover groups between primary and secondary managed instance
     > [!IMPORTANT]
     > Misconfigured NSG security rules leads to stuck database copy operations.
 
-7. You need to configure DNS zone partner on secondary instance. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the `.database.windows.net` prefix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same subnet share the same DNS zone value. For Manged Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DNS zone value. You accomplish this by specifying the DnsZonePartner parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
+7. You need to configure DNS zone partner on secondary instance. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the `.database.windows.net` prefix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same subnet share the same DNS zone value. For Managed Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DNS zone value. You accomplish this by specifying the DnsZonePartner parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
 
 ## Upgrading or downgrading a primary database
 
