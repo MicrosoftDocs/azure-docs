@@ -74,7 +74,7 @@ This section shows the summary of the insights.
 |Attribute | Description|
 |---|---|
 |name|The name of the video. For example, Azure Monitor.|
-|shortId|The ID of the video. For example, 63c6d532ff.|
+|id|The ID of the video. For example, 63c6d532ff.|
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
