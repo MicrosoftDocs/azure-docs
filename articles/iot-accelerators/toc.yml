@@ -1,7 +1,7 @@
 - name: Azure IoT Fundamentals
   href: ../iot-fundamentals/index.yml
 - name: IoT solution accelerators documentation
-  href: index.yml
+  href: index.md
 
 
 - name: Overview
