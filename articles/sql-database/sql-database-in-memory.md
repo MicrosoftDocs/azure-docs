@@ -17,7 +17,7 @@ ms.date: 07/16/2018
 
 By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
 - Transactional (online transactional processing (OLTP)) where most of the requests read or update smaller set of data (for example, CRUD operations).
-- Analytics (online analytical processing (OLAP)) where most of the queries have complex calculations for reporting purposes, with a certain number of queries that load and append data to the existing tables (so called bulk load), or delete the data from the tables. 
+- Analytic (online analytical processing (OLAP)) where most of the queries have complex calculations for the reporting purposes, with a certain number of queries that load and append data to the existing tables (so called bulk load), or delete the data from the tables. 
 - Mixed (hybrid transaction/analytical processing (HTAP)) where both OLTP and OLAP queries are executed on the same set of data.
 
 In-memory technologies can improve performance of these workloads by keeping the data that should be processed into the memory, using native compilation of the queries, or advanced processing such as batch processing and SIMD instructions that are available on the underlying hardware.
