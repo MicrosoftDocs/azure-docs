@@ -1,7 +1,7 @@
 ---
 title: What's new in the release?
 titleSuffix: Azure Machine Learning service
-description: Learn about the latest updates to Azure Machine Learning service.
+description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
