@@ -118,7 +118,56 @@ git clone LINKHERE
 
 ---
 
-# [.Net, Python, or Java V7] (#tab/.Net, Python, or Java-v7)
+# [.NET] (#tab/dotnet)
+
+In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
+
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
+
+### Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# [Python] (#tab/python)
+
+In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
+
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
+
+### Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# [Java V7 SDK ] (#tab/java-v7)
+
+In the application, you must provide the connection string for your storage account. It is recommended that you store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
+
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Replace \<yourconnectionstring\> with your actual connection string by running one of the following commands based on your Operating System. This command saves an environment variable to the local machine. In Windows, the environment variable is not available until you reload the **Command Prompt** or shell you are using. Replace **\<storageConnectionString\>** in the following sample:
+
+### Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
 
 ## Set the connection string
 

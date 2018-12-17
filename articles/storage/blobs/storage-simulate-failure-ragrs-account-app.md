@@ -144,7 +144,7 @@ Run the application in your IDE or shell. Once the application begins reading fr
 
 #### Java v10
 
-Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is following the secondary pipeline as opposed to the primary pipeline.
+Since you control the sample, you do not need to interrupt it in order to test failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
@@ -168,9 +168,17 @@ To add a static route for a destination host, type the following command on a Wi
 
 ---
 
-Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address. To resume the application, press **any key**.
+Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address. 
+
+#### .Net, Python, and Java v7
+
+To resume the application, press **any key**.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+
+#### Java v10
+
+Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is following the secondary pipeline as opposed to the primary pipeline.
 
 ### Simulate primary endpoint restoration
 
