@@ -67,6 +67,8 @@
     items:
     - name: Azure to Azure architecture
       href: azure-to-azure-architecture.md
+      name: Common questions
+      href: azure-to-azure-common-questions.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
     - name: Accelerated networking for Azure VM disaster recovery
@@ -321,6 +323,8 @@
         href: site-recovery-manage-registration-and-protection.md
       - name: Delete a vault
         href: delete-vault.md
+      - name: Upgrade Windows Servers configured with Site Recovery
+        href: upgrade-2012R2-to-2016.md
   - name: Disaster recovery for apps
     items:
     - name: Set up disaster recovery to Azure for on-premises apps
