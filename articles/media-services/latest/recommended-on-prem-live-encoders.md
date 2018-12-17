@@ -63,46 +63,46 @@ Media Services recommends using one of the following live encoders that have mul
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
-## How to become an on-prem encoder partner
+## How to become an on-premises encoder partner
 
-As an Azure Media Services on-prem encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-prem encoder partner, you must verify compatibility of your on-prem encoder with Media Services. To do so, complete the following verifications:
+As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications:
 
 ### Pass-through LiveEvent verification
 
-1. Create or visit your Azure Media Services account
-2. Create and start a **pass-through** LiveEvent
+1. Create or visit your Azure Media Services account.
+2. Create and start a **pass-through** LiveEvent.
 3. Configure your encoder to push a multi-bitrate live stream.
-4. Create a published live event
-5. Run your live encoder for approximately 10 minutes
-6. Stop the live event
-7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6)
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder
-9. Reset the LiveEvent state after creating each sample
-10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds)
+4. Create a published live event.
+5. Run your live encoder for approximately 10 minutes.
+6. Stop the live event.
+7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6).
+8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
+9. Reset the LiveEvent state after creating each sample.
+10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
 
 ### Live encoding LiveEvent verification
 
-1. Create or visit your Azure Media Services account
-2. Create and start a **live encoding** LiveEvent
+1. Create or visit your Azure Media Services account.
+2. Create and start a **live encoding** LiveEvent.
 3. Configure your encoder to push a single-bitrate live stream.
-4. Create a published live event
-5. Run your live encoder for approximately 10 minutes
-6. Stop the live event
-7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6)
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder
-9. Reset the LiveEvent state after creating each sample
-10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/various encoding speeds)
+4. Create a published live event.
+5. Run your live encoder for approximately 10 minutes.
+6. Stop the live event.
+7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6).
+8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
+9. Reset the LiveEvent state after creating each sample.
+10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/various encoding speeds).
 
 ### Longevity verification
 
-1. Create or visit your Azure Media Services account
-2. Create and start a **pass-through** channel
+1. Create or visit your Azure Media Services account.
+2. Create and start a **pass-through** channel.
 3. Configure your encoder to push a multi-bitrate live stream.
-4. Create a published live event
-5. Run your live encoder for one week or longer
-6. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or archived asset) to ensure that playback has no visible glitches
-7. Stop the live event
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder
+4. Create a published live event.
+5. Run your live encoder for one week or longer.
+6. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or archived asset) to ensure that playback has no visible glitches.
+7. Stop the live event.
+8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
 
 Lastly, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow ups. You can contact the Azure Media Services team with any questions regarding this process.
 
