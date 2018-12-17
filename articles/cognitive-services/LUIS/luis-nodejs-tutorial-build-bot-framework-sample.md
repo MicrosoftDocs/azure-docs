@@ -1,5 +1,5 @@
 ﻿---
-title: LUIS Bot with Node.js 
+title: Bot - Node.js - v3  
 titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: diberry
 ---
 
-# LUIS bot in Node.js
+# LUIS bot in Node.js with the Bot Framework 3.x and the Azure Web app bot
 
 Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
 
@@ -296,9 +296,9 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 
 
 <!-- Old Links -->
-[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[GitHub-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot

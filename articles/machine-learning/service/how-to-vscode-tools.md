@@ -1,5 +1,6 @@
 ---
-title: Get started with Azure Machine Learning for Visual Studio Code
+title: Use Visual Studio Code with
+titleSuffix: Azure Machine Learning service
 description: Learn how to install Azure Machine Learning for Visual Studio Code and create a simple experiment in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -18,11 +19,13 @@ Use the Azure Machine Learning extension in Visual Studio code to use the Azure 
 
 ## Prerequisite
 
+
++ If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+
 + Visual Studio Code must be installed. VS Code is a lightweight but powerful source code editor that runs on your desktop. It comes with built-in support for Python and more.  [Learn how to install VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 + [Install Python 3.5 or greater](https://www.anaconda.com/download/).
 
-+ If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Install the Azure Machine Learning for VS Code extension
 

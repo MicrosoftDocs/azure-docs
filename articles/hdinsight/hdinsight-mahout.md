@@ -12,7 +12,7 @@ ms.date: 04/23/2018
 ms.author: hrasheed
 
 ---
-# Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight (PowerShell)
+# Generate movie recommendations by using Apache Mahout with Apache Hadoop in HDInsight (PowerShell)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -22,17 +22,17 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 
 * A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="recommendations"></a>Generate recommendations by using Azure PowerShell
 
-> [!WARNING]
+> [!WARNING]  
 > The job in this section works by using Azure PowerShell. Many of the classes provided with Mahout do not currently work with Azure PowerShell. For a list of classes that do not work with Azure PowerShell, see the [Troubleshooting](#troubleshooting) section.
 >
-> For an example of using SSH to connect to HDInsight and run Mahout examples directly on the cluster, see [Generate movie recommendations using Mahout and HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+> For an example of using SSH to connect to HDInsight and run Mahout examples directly on the cluster, see [Generate movie recommendations using Apache Mahout and HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the users preference for the item). Mahout uses the data to determine users with like-item preferences, which can be used to make recommendations.
 
@@ -62,12 +62,12 @@ The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `
 
 Use the following Windows PowerShell script to run a job that uses the Mahout recommendation engine with the movie data:
 
-> [!NOTE]
+> [!NOTE]  
 > This file prompts you for information that is used to connect to your HDInsight cluster and run jobs. It may take several minutes for the jobs to complete and download the output.txt file.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
-> [!NOTE]
+> [!NOTE]  
 > Mahout jobs do not remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific directory.
 
 The Mahout job does not return the output to STDOUT. Instead, it stores it in the specified output directory as **part-r-00000**. The script downloads this file to **output.txt** in the current directory on your workstation.
@@ -198,14 +198,14 @@ Mahout jobs that use the following classes return various error messages when us
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-To run jobs that use these classes, connect to the HDInsight cluster using SSH and run the jobs from the command line. For an example of using SSH to run Mahout jobs, see [Generate movie recommendations using Mahout and HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+To run jobs that use these classes, connect to the HDInsight cluster using SSH and run the jobs from the command line. For an example of using SSH to run Mahout jobs, see [Generate movie recommendations using Apache Mahout and HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## Next steps
 
-Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
+Now that you have learned how to use Apache Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html

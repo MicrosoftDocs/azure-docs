@@ -1,6 +1,6 @@
 ---
 title: Capture streaming events - Azure Event Hubs | Microsoft Docs
-description: Capture telemetry data with Event Hubs Capture
+description: This article provides an overview of the Capture feature that allows you to capture events streaming through Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy

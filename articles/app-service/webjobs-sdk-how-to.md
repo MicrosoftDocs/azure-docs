@@ -1,5 +1,5 @@
 ---
-title: How to use the Azure WebJobs SDK
+title: How to use the WebJobs SDK - Azure
 description: Learn more about how to write code for the WebJobs SDK. Create  event-driven background processing jobs that access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -446,7 +446,7 @@ The queue and blob triggers automatically prevent a function from processing a q
 
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 
-If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton](#singleton) attribute.
+If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton attribute](#singleton-attribute).
 	
 ## Filters 
 

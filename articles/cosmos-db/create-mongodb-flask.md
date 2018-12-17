@@ -1,19 +1,18 @@
 ---
-title: 'Azure Cosmos DB: Build a Flask web app with Python and the Azure Cosmos DB MongoDB API'
-description: Presents a Python Flask code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
+title: 'Build a Flask web app with Python and the Azure Cosmos DB API for MongoDB'
+description: Presents a Python Flask code sample you can use to connect to and query data from Azure Cosmos DB API for MongoDB.
 services: cosmos-db
 author: slyons
-
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
 
 ---
-# Azure Cosmos DB: Build a Flask app with the MongoDB API
+# Build a Flask app with the Azure Cosmos DB API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -26,7 +25,7 @@ ms.author: sclyon
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB [MongoDB API](mongodb-introduction.md) instead of MongoDB.
+This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB API for MongoDB instead of native MongoDB.
 
 ## Prerequisites
 
@@ -42,7 +41,7 @@ This quick start guide, uses the following [Flask example](https://github.com/Az
 
 ## Clone the sample application
 
-Now let's clone a Flask-MongoDB API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically.
+Now let's clone a Flask-MongoDB app from GitHub, set the connection string, and run it. You see how easy it is to work with data programmatically.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -130,7 +129,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Deploy to Azure
 
-To deploy this app, you can create a new web app in Azure and enable continuous deployment with a fork of this github repo. Follow this [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) to set up continuous deployment with Github in Azure.
+To deploy this app, you can create a new web app in Azure and enable continuous deployment with a fork of this GitHub repo. Follow this [tutorial](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) to set up continuous deployment with GitHub in Azure.
 
 When deploying to Azure, you should remove your application keys and make sure the section below is not commented out:
 
@@ -145,11 +144,11 @@ You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the ap
 If you don't want to create a fork of this repo, you can also click the deploy to Azure button below. You should then go into Azure and set up the application settings with your Cosmos DB account info.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="https://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]
-> If you plan to store your code in Github or other source control options, please be sure to remove your connection strings from the code. They can be set with application settings for the web app instead.
+> If you plan to store your code in GitHub or other source control options, please be sure to remove your connection strings from the code. They can be set with application settings for the web app instead.
 
 ## Review SLAs in the Azure portal
 
@@ -164,4 +163,4 @@ If you don't want to create a fork of this repo, you can also click the deploy t
 In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Flask app using the API for MongoDB.You can now import additional data to your Cosmos DB account.
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
+> [Import data into Azure Cosmos DB API for MongoDB](mongodb-migrate.md)

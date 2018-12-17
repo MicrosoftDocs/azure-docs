@@ -1,5 +1,5 @@
 ---
-title: Enable diagnostics logging for web apps in Azure App Service
+title: Enable diagnostics logging for web apps - Azure App Service
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 services: app-service
 documentationcenter: .net
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Enable diagnostics logging for web apps in Azure App Service
@@ -59,6 +60,11 @@ When you enable **application diagnostics**, you also choose the **Level**. This
 
 For **Application logging**, you can turn on the file system option temporarily for debugging purposes. This option turns off automatically in 12 hours. You can also turn on the blob storage option to select a blob container to write logs to.
 
+> [!NOTE]
+> Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the file system (without code modifications to write logs to external storage).
+>
+>
+
 For **Web server logging**, you can select **storage** or **file system**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. 
 
 If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using Azure CLI.
@@ -94,7 +100,7 @@ The directory structure that the logs are stored in is as follows:
 
 ### FTP
 
-To open an FTP connection to your app's FTP server, see [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
+To open an FTP connection to your app's FTP server, see [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
 
 Once connected to your web app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
 

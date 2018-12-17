@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-## Configuring Homepage
+# Configuring Homepage
 
 The Homepage is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the "Sample Contoso" or "Sample Devkits" Application Templates while creating your application, your application will have pre-defined Homepages. If on the other hand you selected the "Custom Application" Application Template, your Homepage will be blank.
 

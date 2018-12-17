@@ -72,7 +72,7 @@ When setting-up a project for deploying functions to a function app in Azure, yo
 ## <a id="fileupdate"></a> How to update function app files
 The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.
 
-Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
+Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
 #### Use local tools and publishing
 Function apps can be authored and published using various tools, including [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md), and the [Azure Functions Core Tools](./functions-develop-local.md). For more information, see [Code and test Azure Functions locally](./functions-develop-local.md).

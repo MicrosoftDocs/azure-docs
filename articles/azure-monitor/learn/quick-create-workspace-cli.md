@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Create a Log Analytics workspace with Azure CLI 2.0

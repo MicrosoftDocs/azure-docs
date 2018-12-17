@@ -1,17 +1,15 @@
 ---
-title: Connect a MongoDB app to Azure Cosmos DB by using Node.js
-description: Learn how to connect an existing Node.js MongoDB app to Azure Cosmos DB
-services: cosmos-db
+title: Connect a Node.js MongoDB app to Azure Cosmos DB 
+description: This quickstart demonstrates how to connect an existing MongoDB app written in Node.js to Azure Cosmos DB.
 author: SnehaGunda
-
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-
+ms.custom: seodec18
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
@@ -26,7 +24,7 @@ ms.author: sngun
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [MongoDB API](mongodb-introduction.md). In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
+This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the [Azure Cosmos DB API for MongoDB](mongodb-introduction.md). In other words, your Node.js application only knows that it's connecting to a database using Azure Cosmos DB APIs for MongoDB. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
 When you are done, you will have a MEAN application (MongoDB, Express, Angular, and Node.js) running on [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
@@ -176,7 +174,7 @@ module.exports = {
 
 ## Retrieve the key
 
-In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
+In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) command to retrieve the primary key.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
