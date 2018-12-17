@@ -39,7 +39,7 @@ This tutorial requires that the general tutorial bot is running
 
 ### Create a pair of Entities
 
-1. On the left panel, click "Entities", then the "New Entity" button.
+1. On the left panel, click "Entities", then click the "New Entity" button.
 2. In the "Entity Name" field, type "departure".
 3. In the "Resolver Type" drop down, select "datetimeV2".
 4. Click the "Create" button.
@@ -48,7 +48,7 @@ This tutorial requires that the general tutorial bot is running
 
 ### Create a pair of Actions
 
-1. On the left panel, click "Actions", then the "New Action" button.
+1. On the left panel, click "Actions", then click the "New Action" button.
 2. In the "Bot's response" field type, "You are leaving on $departure and returning on $return".
 	- IMPORTANT - When typing in "$[entityName]" you need to hit enter or click on the entity in the drop down, otherwise Conversation Learner will consider this to be text instead of an Entity.
 	- Notice that the "Required Entities" field will also get these Entities and they cannot be removed. This prevents this action from becoming available until both required Entities are present.
@@ -65,7 +65,7 @@ This tutorial requires that the general tutorial bot is running
 1. Watch the "Training: [Status]" on the upper left part of the page and wait for it to be "Completed".
 	- You can click the "Refresh" link if this takes too long.
 	- Training status "Completed" is necessary so that our Entity Resolvers work when we train the Model.
-2. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. On the left panel, click "Train Dialogs", then click the "New Train Dialog" button.
 3. Type in the first user utterance, "book me a flight". 
 4. Click the "Score Actions" button.
 5. Select the response, "When are you planning to travel?".
