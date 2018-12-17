@@ -4277,7 +4277,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-continuous-deployment.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-continuous-deployment.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -4287,27 +4292,57 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-complex-application-predictably.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-complex-application-predictably",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-complex-application-predictably.md",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-ftp.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-ftp",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-ftp.md",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-zip.md",
+            "redirect_url": "/azure/app-service/deploy-zip",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-local-git.md",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deployment-credentials.md",
-            "redirect_url": "/azure/app-service/app-service-deployment-credentials",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deployment-credentials.md",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
             "redirect_document_id": false
         },
         {
@@ -4907,7 +4942,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-deployment-readme.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
@@ -5017,7 +5052,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-agile-software-development.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5062,7 +5097,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-test-in-production-controlled-test-flight.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5102,7 +5137,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-deploy.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
@@ -23109,6 +23144,46 @@
         {
             "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md",
             "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-ata-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-compliance-rest-api.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/compliances",
+            "redirect_document_id": false
+        },
+         {
+            "source_path": "articles/security-center/security-center-review-policy-compliance.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/tasks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-export-data-to-siem.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-aadip-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-connect-application-gateway.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/quick-security-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-partner-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
             "redirect_document_id": false
         },
         {

@@ -17,8 +17,8 @@ ms.custom: seodec18
 
 ---
 # Configure deployment credentials for Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
-and [FTP/S deployment](app-service-deploy-ftp.md). These are not the same as your Azure Active Directory credentials.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
+and [FTP/S deployment](deploy-ftp.md). These are not the same as your Azure Active Directory credentials.
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. It's the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
 of the app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources)). When a user is granted app access via Role-Based Access Control (RBAC) or coadmin permissions, that user can use his/her own user-level credentials until the access is revoked. Do not share these credentials with other Azure users.
@@ -65,4 +65,4 @@ To reset the app-level credentials, click **Reset Credentials** in the same dial
 
 ## Next steps
 
-Find out how to use these credentials to deploy your app from [local Git](app-service-deploy-local-git.md) or using [FTP/S](app-service-deploy-ftp.md).
+Find out how to use these credentials to deploy your app from [local Git](deploy-local-git.md) or using [FTP/S](deploy-ftp.md).

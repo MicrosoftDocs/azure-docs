@@ -83,7 +83,7 @@ This command deploys the files and directories from the ZIP file to your default
 
 To deploy a WAR file to App Service, send a POST request to https://<app_name>.scm.azurewebsites.net/api/wardeploy. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. 
 
-For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](app-service-deployment-credentials.md#userscope).
+For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](deploy-configure-credentials.md#userscope).
 
 ### With cURL
 
@@ -110,10 +110,10 @@ Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64A
 
 ## Next steps
 
-For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
+For more advanced deployment scenarios, try [deploying to Azure with Git](deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
 ## More resources
 
 * [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
-* [Azure App Service Deployment Credentials](app-service-deploy-ftp.md)
+* [Azure App Service Deployment Credentials](deploy-ftp.md)

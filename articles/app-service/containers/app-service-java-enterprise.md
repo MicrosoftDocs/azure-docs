@@ -45,7 +45,7 @@ Do not use the interactive mode of the CLI to configure Wildfly. Instead, you ca
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Upload the startup script to `/home/site/deployments/tools` in your App Service instance. See [this document](/azure/app-service/app-service-deployment-credentials#userscope) for instructions on getting your FTP credentials. 
+Upload the startup script to `/home/site/deployments/tools` in your App Service instance. See [this document](/azure/app-service/deploy-configure-credentials#userscope) for instructions on getting your FTP credentials. 
 
 Set the **Startup Script** field in the Azure portal to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh`.
 
