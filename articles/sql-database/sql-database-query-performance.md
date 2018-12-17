@@ -59,17 +59,17 @@ In Azure portal, do the following:
 
 1. Browse to a SQL database and click **Intelligent Performance** > **Query performance insight**. 
    
-    ![Query Performance Insight][1]
+    ![qpi_menu](./media/sql-database-query-performance/title.png)
    
 The top queries view opens and the top CPU consuming queries are listed.
     
 2. Click at the chart features for details.
 
-The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected, each bar represents a single day). DTU% chart is agrg
+The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected, each bar represents a single day).
    
-    ![top queries][2]
-   
-   > [!IMPORTANT]
+   ![top queries](./media/sql-database-query-performance/top-queries.png)
+
+> [!IMPORTANT]
 >**Product limitations:** DTU chart in Query Performance Insight **should not be used** to understand the **overall DTU consumption**. This is because DTU chart is aggregated to a maximum value for the observed period. For example, if there was a query that maxed out DTU to 100% only for a few minutes, the DTU chart will show that the entire 1hr consumption as 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
 >
    
@@ -86,7 +86,7 @@ The top line shows overall DTU% for the database, while the bars show CPU% consu
 
 4. You can use sliders and zoom buttons to change observation interval and investigate spikes:
 
-![settings](./media/sql-database-query-performance/zoom.png)
+   ![settings](./media/sql-database-query-performance/zoom.png)
 
 5. Optionally, if you would like to see a different view, you can select **Custom** tab and set:
    
@@ -116,7 +116,7 @@ To view query details:
    * Second chart shows total duration by the selected query.
    * Bottom chart shows total number of executions by the selected query.
      
-     ![query details][3]
+     ![query details](./media/sql-database-query-performance/query-details.png)
      
 4. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time period.
 
@@ -125,22 +125,24 @@ To view query details:
 >
 
 ## Review top queries per duration
-In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.<br>
+In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.
 
-Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.<br>
+Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They are also the best candidates for optimization.
 
 To identify long running queries:
 
 1. Open **Custom** tab in Query Performance Insight for selected database
 2. Change metrics to be **duration**
-3. Select number of queries and observation interval
-4. Select aggregation function
+3. Select number of queries and the observation interval.
+4. Select aggregation function:
    
    * **Sum** adds up all query execution time during whole observation interval.
    * **Max** finds queries which execution time was maximum at whole observation interval.
    * **Avg** finds average execution time of all query executions and show you the top out of these averages. 
-     
-     ![query duration][4]
+
+5. Click on the "Go >" button
+
+        ![query_duration](./media/sql-database-query-performance/top-duration.png)
 
 > [!IMPORTANT]
 > **Product limitation:** Custom adjusting the metrics duration will update Query Performance Insight only, and it will **not update** the DTU chart. Consequently, following the custom adjustment of the view, the **DTU chart will not be in correlation with the Query Performance Insights chart**. To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. It is recommended that such custom created DTU chart is used to correlate with query performance insights chart.
@@ -159,18 +161,18 @@ To identify frequently executed queries (“chatty”) queries:
 2. Change metrics to be **execution count**
 3. Select number of queries and observation interval
    
-    ![query execution count][5]
+   ![query execution count](./media/sql-database-query-performance/top-execution.png)
 
 ## Understanding performance tuning annotations
-While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.<br>
+While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.
 
 These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
 
-![query annotation][6]
+   ![query annotation](./media/sql-database-query-performance/annotation.png)
 
 If you want to know more or apply advisor recommendation, click the icon. It will open details of action. If it’s an active recommendation you can apply it straight away using command.
 
-![query annotation details][7]
+   ![query annotation details](./media/sql-database-query-performance/annotation-details.png)
 
 ### Multiple annotations.
 It’s possible, that because of zoom level, annotations that are close to each other will get collapsed into one. This will be represented by special icon, clicking it will open new blade where list of grouped annotations will be shown.
@@ -184,13 +186,11 @@ During your use of Query Performance Insight, you might encounter the following 
 
 These messages usually appear when Query Store is not able to collect new data. 
 
-First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store.
+First case happens when Query Store is in Read-Only state and parameters are set optimally. You can fix this by increasing size of Query Store or clearing Query Store (in this case all previously collected telemetry will be lost). 
 
-![qds button][8]
+   ![qds details](./media/sql-database-query-performance/qds-off.png)
 
-Second case happens when Query Store is Off or parameters aren’t set optimally. <br>You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
-
-![qds button][9]
+Second case happens when Query Store is Off or parameters aren’t set optimally. You can change the Retention and Capture policy and enable Query Store by executing commands below or directly from portal:
 
 ### Recommended retention and capture policy
 There are two types of retention policies:
@@ -228,7 +228,6 @@ Applying these settings will eventually make Query Store collecting new queries,
 > 
 
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
-
 
 ## Summary
 Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem.
