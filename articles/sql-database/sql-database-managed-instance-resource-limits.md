@@ -51,7 +51,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192-1920 GB (24 GB per vCore) | Determined by the max storage size per instance |
 
-- Both user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
+- Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 
 ## Supported regions
 
