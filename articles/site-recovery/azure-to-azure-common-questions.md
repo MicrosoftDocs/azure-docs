@@ -19,11 +19,11 @@ This article provides answers to common questions we see when deploying disaster
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
 
 ### How to configure Site Recovery on Azure VMs, What are the best practices?
-•	[Understand Azure to Azure architecture](azure-to-azure-architecture.md)</br>
-•	[Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)</br>
-•	[Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)</br>
-•	[Run a test failover](azure-to-azure-tutorial-dr-drill.md)</br>
-•	[Failover and failback to primary region](azure-to-azure-tutorial-failover-failback.md)</br>
+1. [Understand Azure to Azure architecture](azure-to-azure-architecture.md)
+2. [Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)
+3. [Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)
+4. [Run a test failover](azure-to-azure-tutorial-dr-drill.md)
+5. [Failover and failback to primary region](azure-to-azure-tutorial-failover-failback.md)
 
 ## Replication
 
