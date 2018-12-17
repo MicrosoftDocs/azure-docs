@@ -14,9 +14,9 @@ ms.custom: mvc
 
 # Tutorial: Set up and use metrics and diagnostics with an IoT hub
 
-If you have an IoT Hub solution running in production, you want to set up some metrics and enable diagnostics. Then if a problem occurs, you have data to look at that will help you diagnose the problem. In this article, you'll see how to enable diagnostics, and how to check the diagnostics for errors. You'll also set up some metrics to watch, and alerts that fire when the metrics hit a certain boundary. 
+If you have an IoT Hub solution running in production, you want to set up some metrics and enable diagnostics. Then if a problem occurs, you have data to look at that will help you diagnose the problem and fix it more quickly. In this article, you'll see how to enable diagnostics, and how to check the diagnostics for errors. You'll also set up some metrics to watch, and alerts that fire when the metrics hit a certain boundary. For example, you could have an e-mail sent to you when the number of telemetry messages sent exceeds a specific boundary, or when the number of messages used gets close to the quota of messages allowed per day for the IoT Hub. 
 
-An example use case is a gas station where the pumps are IoT devices that send communicate with an IoT hub. Credit cards are validated, and the final transaction is written to a data store. If metrics and diagnostics are not set up, and there's a problem, there is no way to figure out what's going on. If the IoT devices stop connecting to the hub and sending messages, it takes longer to fix if you don't know what's going on.
+An example use case is a gas station where the pumps are IoT devices that send communicate with an IoT hub. Credit cards are validated, and the final transaction is written to a data store. If the IoT devices stop connecting to the hub and sending messages, it is much more difficult to fix if you have no visibility into what's going on.
 
 This tutorial uses the Azure sample from the [IoT Hub Routing](tutorial-routing.md) to send messages to the IoT hub.
 
@@ -45,11 +45,11 @@ In this tutorial, you perform the following tasks:
 
 For this tutorial, you need an IoT hub, a storage account, and a simulated IoT device. These resources can be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
 
-The following sections describe how to do these required steps. Follow the CLI instructions.
+These are the required steps.
 
 1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
 
-2. Create an IoT hub.  (can it be free?)
+2. Create an IoT hub.
 
 3. Create a standard V1 storage account with Standard_LRS replication.
 
@@ -57,7 +57,7 @@ The following sections describe how to do these required steps. Follow the CLI i
 
 ### Set up your resources using Azure CLI
 
-Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. 
+Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. This creates the new resources in the resource group ContosoResources.
 
 The variables that must be globally unique have `$RANDOM` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, making it unique.
 
@@ -74,7 +74,6 @@ az extension add --name azure-cli-iot-ext
 #   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
-containerName=contosoresults  --- need this, robin?
 iotDeviceName=Contoso-Test-Device 
 
 # Create the resource group to be used
@@ -83,39 +82,23 @@ az group create --name $resourceGroup \
     --location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
-iotHubName=ContosoTestHub  #$RANDOM
+iotHubName=ContosoTestHub$RANDOM
 echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
     --resource-group $resourceGroup \
-    --sku S1 --location $location
+    --sku F1 --location $location
 
 # The storage account name must be globally unique, so add a random number to the end.
-storageAccountName=contosostoragemon   #$RANDOM
+storageAccountName=contosostoragemon$RANDOM
 echo "Storage account name = " $storageAccountName
 
-# Create the storage account to be used as a routing destination.
+# Create the storage account.
 az storage account create --name $storageAccountName \
     --resource-group $resourceGroup \
 	--location $location \
     --sku Standard_LRS
-
-# Get the primary storage account key. 
-#    You need this to create the container.
-storageAccountKey=$(az storage account keys list \
-    --resource-group $resourceGroup \
-    --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"') 
-
-# See the value of the storage account key.
-echo "$storageAccountKey"
-
-# Create the container in the storage account. 
-az storage container create --name $containerName \
-    --account-name $storageAccountName \
-    --account-key $storageAccountKey \
-    --public-access off 
 
 # this gives an error: No keys found for policy iothubowner of IoT Hub ContosoTestHub  ROBIN
 # Create the IoT device identity to be used for testing.
@@ -129,8 +112,6 @@ az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
 
 ```
-device key p2FwVoAsUPk5cJFBzOKh2HpQZk15vKSSi+ivkcXBrRU=
-device name is "Contoso-Test-Device"
 
 ## Enable diagnostics 
 
@@ -140,23 +121,26 @@ Diagnostics are disabled by default when you create a new IoT hub. In this secti
 
 2. Look for the **Monitoring** section in the IoT Hub blade. Click **Diagnostic settings**. 
 
-<!-- screenshot] -->
+<!-- ./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png -->
 
-3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All** and check **IoT Hub**. The hub name is displayed below; click on it to select it. Then click **Turn on diagnostics**. The Diagnostics settings screen is displayed.
+3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All** and check **IoT Hub**. (It re-checks *Select All*, just ignore this.) Under **Resource**, select the hub name. You screen should look like this image:
 
-<!--screenshot of diagnostic settings screen -->
+<!-- ./media/tutorial-use-metrics-and-diags/02-diagnostics-settings-filledin.png -->
 
-4. Set the name of the settings to Contoso-Diag-Settings. Check **Archive to a storage account**. Click **Configure** for the storage account. 
+4. Now click **Turn on diagnostics**. The Diagnostics Settings screen is displayed. Specify the name of your diagnostics as "diags-hub".
 
-<!-- Show the 'select a storage account' screen -->
+5. Check **Archive to a storage 
+account**. Click **Configure** to see the **Select a storage account** screen, select the right one (contosostoragemon), and click **OK** to return to the Diagnostics Settings screen. 
 
-5. Make sure the subscription is correct, then select the new storage account -- *contosostoragemon* - from the **Storage Account** dropdown, then click **OK**.
+<!-- ./media/tutorial-use-metrics-and-diags/04-diagnostics-settings-select-storage-account.png-->
 
-6. Under **LOG**, select the settings in which you are interested. For this tutorial, select **Connections** and **Device Telemetry**. Set the **Retention (days)** to 7 for each setting. 
+6. Under **LOG**, check Connections and Device Telemetry, and set the **Retention (days)** to 7 days for each. 
 
-You'll look at this later, and see the device connecting and disconnecting as the sample runs. (robin - right?)
+<!-- ./media/tutorial-use-metrics-and-diags/05-diagnostics-settings-done.png  -->
 
-7. Click **Save**.  Then close the Diagnostics Settings pane.
+7. Click **Save** to save the settings. 
+
+Later, when you look at the diagnostics logs, you'll see the connect and disconnect diagnostics for the device. 
 
 ## Set up metrics 
 
