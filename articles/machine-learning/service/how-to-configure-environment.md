@@ -281,7 +281,7 @@ You can create the configuration file in three ways:
 
 * **Follow the [Azure Machine Learning quickstart](quickstart-get-started.md)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
 
-* **Create the file manually**: With this method, you use a text editor. You can find the values that go into the config file by visiting your workspace in the [Azure portal](https://portal.azure.com). Copy the __Workspace name__, __Resource group__, and __Subscription ID__ values and use them in the configuration file.
+* **Create the file manually**: With this method, you use a text editor. You can find the values that go into the configuration file by visiting your workspace in the [Azure portal](https://portal.azure.com). Copy the workspace name, resource group, and subscription ID values and use them in the configuration file.
 
      ![Azure portal](./media/how-to-configure-environment/configure.png)
 
