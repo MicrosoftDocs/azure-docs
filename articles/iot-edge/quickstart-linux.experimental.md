@@ -69,7 +69,7 @@ IoT Edge device:
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT hub with Azure CLI.
+Start the quickstart by creating an IoT hub with Azure CLI.
 
 ![Diagram - Create an IoT hub in the cloud](./media/quickstart-linux/create-iot-hub.png)
 
@@ -106,7 +106,9 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
+3. Copy the connection string from the JSON output and save it. You'll use this value to configure the IoT Edge runtime in the next section.
+
+   ![Retrieve connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
 
 ## Connect the IoT Edge device to IoT Hub
 
