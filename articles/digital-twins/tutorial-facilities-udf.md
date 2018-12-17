@@ -43,14 +43,14 @@ Add the following matcher below the existing matchers. Make sure the keys are al
         dataTypeValue: Temperature
 ```
 
-This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [the first tutorial](tutorial-facilities-setup.md). These lines are also present in the *provisionSample.yaml* file as commented-out lines. You can uncomment them by removing the `#` character in front of each line. 
+This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [the first tutorial](tutorial-facilities-setup.md). These lines are also present in the *provisionSample.yaml* file as commented-out lines. You can uncomment them by removing the `#` character in front of each line.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## Create a user-defined function
 You can use user-defined functions to customize the processing of your sensor data. They're custom JavaScript code that can run within your Azure Digital Twins instance, when specific conditions as described by the matchers occur. You can create matchers and user-defined functions for each sensor that you want to monitor. For more information, read [Data processing and user-defined functions](concepts-user-defined-functions.md). 
 
-In the sample provisionSample.yaml file, look for a section that begins with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**. This UDF acts on the list of matchers under **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**. 
+In the sample provisionSample.yaml file, look for a section that begins with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**. This UDF acts on the list of matchers under **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**.
 
 Also note the section named **roleassignments**. It assigns the Space Administrator role to the user-defined function. This role allows it to access the events that come from any of the provisioned spaces. 
 
@@ -183,7 +183,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 > [!TIP]
 > If you get an error message similar to "The I/O operation has been aborted because of either a thread exit or an application request" in the middle of the provisioning, try running the command again. This might happen if the HTTP client timed out from a network issue.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## Simulate sensor data
 
@@ -197,7 +197,7 @@ In this section, you'll use the project named *device-connectivity* in the sampl
     dotnet restore
     ```
 
-1. Open the **appSettings.json** file in your editor, and edit the following values:
+1. Open the **appsettings.json** file in your editor, and edit the following values:
 
    a. **DeviceConnectionString**: Assign the value of `ConnectionString` in the output window from the previous section. Copy this string completely, within the quotes, so the simulator can connect properly with the IoT hub.
 
