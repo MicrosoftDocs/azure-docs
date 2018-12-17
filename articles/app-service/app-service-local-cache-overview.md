@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Local Cache overview | Microsoft Docs
+title: Local cache overview - Azure App Service | Microsoft Docs
 description: This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature
 services: app-service
 documentationcenter: app-service
@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Azure App Service Local Cache overview

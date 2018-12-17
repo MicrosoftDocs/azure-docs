@@ -193,19 +193,21 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 
 1. Join **MicrosoftAzureBatch** to the **Classic Virtual Machine Contributor** role for the virtual network. 
 
-	a. Select **Access control (IAM)** on the left menu, and select **Add** on the toolbar. 
+	a. Select **Access control (IAM)** on the left menu, and select the **Role assignments** tab. 
 
 	!["Access control" and "Add" buttons](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-	b. On the **Add permissions** page, select **Classic Virtual Machine Contributor** for **Role**. Paste **ddbf3205-c6bd-46ae-8127-60eb93363864** in the **Select** box, and then select **Microsoft Azure Batch** from the list of search results. 
+    b. Select **Add role assignment**.
 
-	![Search results on "Add permissions" page](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+	c. On the **Add role assignment** page, select **Classic Virtual Machine Contributor** for **Role**. Paste **ddbf3205-c6bd-46ae-8127-60eb93363864** in the **Select** box, and then select **Microsoft Azure Batch** from the list of search results. 
 
-	c. Select **Save** to save the settings and to close the page. 
+	![Search results on "Add role assignment" page](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+	d. Select **Save** to save the settings and to close the page. 
 
 	![Save access settings](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-	d. Confirm that you see **Microsoft Azure Batch** in the list of contributors. 
+	e. Confirm that you see **Microsoft Azure Batch** in the list of contributors. 
 
 	![Confirm Azure Batch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

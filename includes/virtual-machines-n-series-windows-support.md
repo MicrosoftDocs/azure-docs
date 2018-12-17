@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines-windows
  ms.topic: include
- ms.date: 11/14/2018
+ ms.date: 11/27/2018
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -31,5 +31,5 @@ Microsoft redistributes NVIDIA GRID driver installers for NV and NVv2-series VMs
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>Windows 10 | [GRID 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
-| Windows Server 2012 R2 | [GRID 6.2 (391.81)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |
+| Windows Server 2016<br/><br/>Windows 10 | [GRID 7 (411.81)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe) |
+| Windows Server 2012 R2 | [GRID 7 (411.81)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)  |

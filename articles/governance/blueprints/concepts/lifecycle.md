@@ -1,6 +1,6 @@
 ---
-title: Understand the life-cycle of an Azure Blueprint
-description: Learn about the life-cycle that a blueprint goes through and details about each stage.
+title: Understand the lifecycle of a blueprint
+description: Learn about the lifecycle that a blueprint goes through and details about each stage.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,17 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
-# Understand the life-cycle of an Azure Blueprint
+# Understand the lifecycle of an Azure Blueprint
 
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
-life-cycle. They're created, deployed, and finally deleted when no longer needed or relevant.
-Blueprints supports standard life-cycle operations. It then builds upon them to provide additional
+lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant.
+Blueprints supports standard lifecycle operations. It then builds upon them to provide additional
 levels of status that support common continuous integration and continuous deployment pipelines for
 organizations that manage their Infrastructure as Code – a key element in DevOps.
 
-To fully understand a blueprint and the stages, we'll cover a standard life-cycle:
+To fully understand a blueprint and the stages, we'll cover a standard lifecycle:
 
 > [!div class="checklist"]
 > - Creating and editing a blueprint
@@ -106,10 +107,10 @@ Delete a blueprint with the [Azure portal](../create-blueprint-portal.md#delete-
 
 ## Assignments
 
-There's several points during the life-cycle a blueprint can be assigned to a subscription. When
-the mode of a version of the blueprint is **Published**, then that version can be assigned to a
-subscription. This life-cycle enables versions of a blueprint to be used and actively assigned
-while a newer version is being developed.
+There's several points during the lifecycle a blueprint can be assigned to a subscription. When the
+mode of a version of the blueprint is **Published**, then that version can be assigned to a
+subscription. This lifecycle enables versions of a blueprint to be used and actively assigned while
+a newer version is being developed.
 
 As versions of blueprints are assigned, it's important to understand where they're assigned and
 with what parameters they've been assigned with. The parameters can either be static or dynamic. To

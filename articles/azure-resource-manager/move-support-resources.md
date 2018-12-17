@@ -31,7 +31,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 For Azure CLI, use:
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 The resource type is returned in the format `<resource-provider>/<resource-type-name>`. So, the value `Microsoft.OperationalInsights/workspaces` has a resource provider of **Microsoft.OperationalInsights** and resource type name of **workspaces**.
@@ -85,14 +85,6 @@ After finding the resource provider and resource type, use the tables in this ar
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
 | batchaccounts	| Yes | Yes |
-
-## Microsoft.BatchAI
-| Resource type | Resource group | Subscription |
-| ------------- | -------------- | ------------ |
-| clusters | No | No |
-| fileservers | No | No |
-| jobs | No | No |
-| workspaces | No | No |
 
 ## Microsoft.BingMaps
 | Resource type | Resource group | Subscription |

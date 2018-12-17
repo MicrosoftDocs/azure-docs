@@ -51,7 +51,7 @@ Follow these steps to prepare your IoT Edge Module listing:
 
 >[!Note]
 >For general information about the Cloud Partner Portal, you can check
-the [learn documentation](https://cloudpartner.azure.com/#learn)
+the [learn documentation](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)
 
 -   Select **New offer**, and then select **IoT Edge Module**.
 

@@ -83,13 +83,13 @@ The Azure connector is shipped as of SAP LaMa 3.0 SP05. We recommend always inst
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to access them.
 
 1. Go to https://portal.azure.com
-1. Open the Resource Groups blade
+1. Open the Resource groups blade
 1. Select the resource group you want to use
-1. Click on Access control (IAM)
-1. Click on Add
+1. Click Access control (IAM)
+1. Click on Add role assignment
 1. Select the role Contributor
 1. Enter the name of the application you created above
-1. Click on OK
+1. Click Save
 1. Repeat step 3 to 8 for all resource groups you want to use in SAP LaMa
 
 Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Managers and click on Add. Select the Microsoft Azure Cloud Adapter and click Next. Enter the following information:

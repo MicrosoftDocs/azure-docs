@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -29,7 +29,7 @@ Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-au
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
 
 No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
 
@@ -39,7 +39,7 @@ Yes. All conditional access capabilities, including Azure Multi-Factor Authentic
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 
-Yes. Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
+Yes, Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. As a pre-requisite, Azure AD Connect needs to synchronize the on-premises Active Directory `UserPrincipalName` attribute to Azure AD. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
@@ -114,6 +114,10 @@ If you are migrating from AD FS (or other federation technologies) to Pass-throu
 
 Yes. Multi-forest environments are supported if there are forest trusts between your Active Directory forests and if name suffix routing is correctly configured.
 
+## Does Pass-through Authentication provide load balancing across multiple Authentication Agents?
+
+No, installing multiple Pass-through Authentication Agents ensures only [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). It does not provide deterministic load balancing between the Authentication Agents. Any Authentication Agent (at random) can process a particular user sign-in request.
+
 ## How many Pass-through Authentication Agents do I need to install?
 
 Installing multiple Pass-through Authentication Agents ensures [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
@@ -144,6 +148,22 @@ Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-t
 ## What happens when I uninstall a Pass-through Authentication Agent?
 
 If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
+
+## I have an older tenant that was originally setup using AD FS.  We recently migrated to PTA but now are not seeing our UPN changes synchronizing to Azure AD.  Why are our UPN changes not being synchronized?
+
+A: Under the following circumstances your on-premises UPN changes may not synchronize if:
+
+- Your Azure AD tenant was created prior to June 15th 2015
+- You initially were federated with your Azure AD tenant using AD FS for authentication
+- You switched to having managed users using PTA as authentication
+
+This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
+
+
 
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.

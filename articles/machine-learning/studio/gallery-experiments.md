@@ -1,12 +1,12 @@
 ---
-title: Azure AI Gallery experiments | Microsoft Docs
-description: Discover and share experiments in Azure AI Gallery.
+title: Azure AI Gallery experiments - Azure Machine Learning Studio | Microsoft Docs
+description: Discover and share experiments in Azure AI Gallery. An experiment is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -17,9 +17,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ---
-# Discover experiments in Azure AI Gallery
+# Discover Azure Machine Learning Studio experiments in Azure AI Gallery
 
-[Azure AI Gallery](http://gallery.cortanaintelligence.com) has a wide variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) has a variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
 
 > [!NOTE]
 > An ***experiment*** is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model. You create the model by connecting data with various analytical modules. You can try different ideas, do trial runs, and eventually deploy your model as a web service in Azure. For an example of how to create a basic experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](create-experiment.md). For a more comprehensive walkthrough of how to create a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
@@ -183,4 +183,4 @@ After you enter a tag, to enter another tag, press the Tab key.
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

@@ -29,7 +29,7 @@ Using the health page on your Azure portal, you are able to keep up-to-date on w
 3. In the left-hand navigation pane, click **Health**.
 
 The following picture illustrates a sample health page:
-![Example health page](.\media\active-directory-domain-services-alerts\health-page.png)
+![Example health page](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Your managed domain's health is evaluated every hour. After making changes to your managed domain, wait until the next evaluation cycle to view your managed domain's updated health. The "Last evaluated" timestamp in the top right corner shows when the health of your managed domain was last evaluated.
@@ -40,10 +40,10 @@ The status in the top right of your health page indicates the overall health of 
 
 | Status | Icon | Explanation |
 | --- | :----: | --- |
-| Running | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
-| Needs attention (Warning) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
-| Needs attention (Critical) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
-| Deploying | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | Your domain is in the process of being deployed. |
+| Running | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Your managed domain is running smoothly and does not have any critical or warning alerts. This domain may have informational alerts. |
+| Needs attention (Warning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | There are no critical alerts on your managed domain, but there are one or more warning alerts that need to be addressed. |
+| Needs attention (Critical) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | There are one or more critical alerts on your managed domain. You may also have warning and/or informational alerts. |
+| Deploying | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Your domain is in the process of being deployed. |
 
 ## Monitors
 Monitors are aspects of your managed domain that Azure AD Domain Services monitors on a regular basis. The best way to keep your monitors in a healthy state is to resolve any active alerts for your managed domain.

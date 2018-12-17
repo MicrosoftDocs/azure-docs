@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Build a console app with Java and the MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a console app with Java and the MongoDB API'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: slyons
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -50,7 +49,7 @@ Name your new database, **db**, and your new collection, **coll**.
 
 ## Clone the sample application
 
-Now let's clone a MongoDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a MongoDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

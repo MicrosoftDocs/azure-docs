@@ -175,6 +175,6 @@ To get logs, take the following steps:
 
 [Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes cluster to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
