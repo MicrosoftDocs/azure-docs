@@ -9,7 +9,7 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: seanmck
-ms.custom: seodec18,mvc
+ms.custom: "seodec18, mvc"
 ---
 
 # What is Azure Container Instances?

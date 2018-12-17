@@ -18,7 +18,7 @@ The prebuilt dimension entity detects various types of dimensions, regardless of
 
 ## Types of dimension
 
-Dimension is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) Github repository
+Dimension is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) GitHub repository
 
 
 ## Resolution for dimension entity

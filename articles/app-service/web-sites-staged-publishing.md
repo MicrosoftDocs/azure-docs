@@ -1,5 +1,5 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
+title: Set up staging environments for web apps - Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Set up staging environments in Azure App Service
@@ -182,7 +183,7 @@ When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions
 
 ## Monitor swap progress
 
-Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the [Azure portal](https://portal.azure.com).
+Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../azure-monitor/platform/activity-logs-overview.md) in the [Azure portal](https://portal.azure.com).
 
 In your app page of the portal, in the left-hand navigation, select **Activity log**.
 

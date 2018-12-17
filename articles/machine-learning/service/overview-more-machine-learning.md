@@ -1,5 +1,5 @@
 ---
-title: Compare the machine learning product options at Microsoft
+title: Compare machine learning product options at Microsoft
 description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. Decide which products to choose for your solution.
 services: machine-learning
 ms.service: machine-learning
@@ -38,8 +38,7 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 
 Use Azure Machine Learning service to train, deploy, and manage ML models using Python and CLI at cloud scale.
 
->[!Note]
-> You can try Azure Machine Learning for free. No credit card or Azure subscription is required. Get started now. https://azure.microsoft.com/free/
+Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 ## Azure Machine Learning Studio
 

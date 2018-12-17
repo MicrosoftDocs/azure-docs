@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: concepts
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 12/11/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -27,13 +27,13 @@ Find answers to common questions about Microsoft Azure Dedicated HSM.
 
 A Hardware Security Module (HSM) is a physical computing device used to safeguard and manage cryptographic keys. Keys stored in HSMs can be used for cryptographic operations. The key material stays safely in tamper-resistant, tamper-evident hardware modules. The HSM only allows authenticated and authorized applications to use the keys. The key material never leaves the HSM protection boundary.
 
-### Q: What is Azure Dedicated HSM offering?
+### Q: What is the Azure Dedicated HSM offering?
 
 Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated network appliances (Gemalto's SafeNet Network HSM 7 Model A790). They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
 
-## What hardware is used for Dedicated HSM?
+### Q: What hardware is used for Dedicated HSM?
 
-Microsoft has partnered with Gemalto to provide the Azure Dedicated HSM service. The specific device used is the [SafeNet Luna Network HSM 7 Model A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). This device not only provides FIPS 140-2 Level 3 validated firmware, but also offers low-latency, high performance, and high capacity via 10 partitions. 
+Microsoft has partnered with Gemalto to deliver the Azure Dedicated HSM service. The specific device used is the [SafeNet Luna Network HSM 7 Model A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). This device not only provides FIPS 140-2 Level 3 validated firmware, but also offers low-latency, high performance, and high capacity via 10 partitions. 
 
 ### Q: What is an HSM used for?
 
@@ -46,6 +46,18 @@ Customers can provision HSMs in specific regions using PowerShell or command-lin
 ### Q: What software is provided with the Dedicated HSM service?
 
 Gemalto supplies all software for the HSM device once provisioned by Microsoft. The software is available at the [Gemalto customer support portal](https://supportportal.gemalto.com/csm/). Customers using the Dedicated HSM service are required to be registered for Gemalto support and have a Customer ID that enables access and download of relevant software. The supported client software is version 7.2 which is compatible with the FIPS 140-2 Level 3 validated firmware version 7.0.3. 
+
+### Q: Does Azure Dedicated HSM offer Password-based and PED-based authentication?
+
+At this time, Azure Dedicated HSM only provides HSMs with password-based authentication.
+
+### Q: Will Azure Dedicated HSM host my HSMs for me?
+
+Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any cusotmer provided devices.
+
+### Q: Does Azure Dedicated HSM support PIN/ETF features or meet PCI HSM v1 or v2 certification requirements?
+
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please provide the feedback below.
 
 ## Interoperability
 
