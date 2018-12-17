@@ -52,6 +52,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Workplace by Facebook supports **SP** initiated SSO
+* [Configure User Provisioning](workplacebyfacebook-provisioning-tutorial.md)
 
 ## Adding Workplace by Facebook from the gallery
 
