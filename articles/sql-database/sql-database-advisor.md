@@ -17,8 +17,10 @@ ms.date: 04/01/2018
 
 Azure SQL Database learns and adapts with your application. It provides customized recommendations that enable you to maximize the performance of your SQL databases. SQL Database continuously assesses and analyzes the usage history of your SQL databases. The recommendations that are provided are based on database-unique workload patterns and help improve performance.
 
+(../azure-monitor/insights/azure-sql.md)
+
 > [!TIP]
-> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for performance tuning. [Intelligent Insights](sql-database-intelligent-insights.md) is the recommended method for monitoring performance. 
+> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for automated performance tuning. [Query Performance Insights](sql-database-query-performance.md) is the recommended way for basic performance monitoring. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced performance monitoring.
 >
 
 ## Create index recommendations
