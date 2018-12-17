@@ -57,7 +57,7 @@ These are the required steps.
 
 ### Set up your resources using Azure CLI
 
-Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. This creates the new resources in the resource group ContosoResources.
+Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. The new resources are created in the resource group ContosoResources.
 
 The variables that must be globally unique have `$RANDOM` concatenated to them. When the script is run and the variables are set, a random numeric string is generated and concatenated to the end of the fixed string, making it unique.
 
@@ -126,7 +126,7 @@ Diagnostics are disabled by default when you create a new IoT hub. In this secti
    ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
-3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All**, then look for and check **IoT Hub**. (It re-checks *Select All*, just ignore this.) Under **Resource**, select the hub name. You screen should look like this image: 
+3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All**, then look for and check **IoT Hub**. (It puts the checkmark next to *Select All* again, just ignore it.) Under **Resource**, select the hub name. Your screen should look like this image: 
 
    ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
@@ -140,7 +140,7 @@ Diagnostics are disabled by default when you create a new IoT hub. In this secti
 
    ![Screenshot showing setting the diagnostics to archive to a storage account.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
-6. Under **LOG**, check **Connections** and **Device Telemetry**, and set the **Retention (days)** to 7 days for each. Your Diagnostic settings screen should now look like this:
+6. Under **LOG**, check **Connections** and **Device Telemetry**, and set the **Retention (days)** to 7 days for each. Your Diagnostic settings screen should now look like this image:
 
    ![Screenshot showing the final diagnostics settings.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
 
@@ -182,13 +182,13 @@ IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to u
 
     Fill in the fields: 
 
-    **Subscription**: Leave this as your current subscription.
+    **Subscription**: Leave this field set to your current subscription.
 
-    **Source**: Set this to *Metrics*.
+    **Source**: Set this field to *Metrics*.
 
-    **Resource group**: Set this to your current resource group, *ContosoResources*. 
+    **Resource group**: Set this field to your current resource group, *ContosoResources*. 
 
-    **Resource type**: Set this to IoT Hub. 
+    **Resource type**: Set this field to IoT Hub. 
 
     **Resource**: Select your IoT hub, *ContosoTestHub*.
 
@@ -222,7 +222,7 @@ IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to u
 
    Click **OK** to save the alert. 
 
-5. Now set up another alert for the *Total number of messages used*. This is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages.
+5. Now set up another alert for the *Total number of messages used*. This metric is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages.
 
    On the **View classic alerts** screen, click **Add metric alert (classic)**, then fill in these fields on the **Add rule** pane.
 
@@ -230,7 +230,7 @@ IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to u
 
    **Description**: Provide a description of your alert, such as *alert when getting close to quota*.
 
-   **Source**: Set this to *Metrics*.
+   **Source**: Set this field to *Metrics*.
 
     **Subscription**, **Resource group**, and **Resource** should be set to the values you selected on the **View classic alerts** screen. 
 
@@ -242,7 +242,7 @@ IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to u
 
    **Threshold**: Set to 1000.
 
-   **Period**: Set this to *Over the last 5 minutes*. 
+   **Period**: Set this field to *Over the last 5 minutes*. 
 
    **Notification email recipients**: Put your e-mail address here. 
 
@@ -260,7 +260,7 @@ IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to u
 
 Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.  
 
-Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/SimulatedDevice/.
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This link downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/SimulatedDevice/.
 
 Double-click on the solution file (SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
 
@@ -274,7 +274,7 @@ Double-click on the solution file (SimulatedDevice.sln) to open the code in Visu
 
 ## Run and test 
 
-In Program.cs, comment out the following line of code, which puts a pause of 1 second in between each message sent. This will increase the number of messages sent. 
+In Program.cs, comment out the following line of code, which puts a pause of 1 second in between each message sent. Removing that pause will increase the number of messages sent. 
 
 ```csharp
 await Task.Delay(1000);
@@ -296,7 +296,7 @@ When the number of messages sent exceeds the limit, you start getting e-mail ale
 
    ![Screenshot showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
 
-Click on the alert for telemetry messages. It shows the metric result and a chart with the results. Also, the e-mail sent to warn you of the alert firing looks like this: 
+Click on the alert for telemetry messages. It shows the metric result and a chart with the results. Also, the e-mail sent to warn you of the alert firing looks like this image:
 
    ![Screenshot of the e-mail showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
 
