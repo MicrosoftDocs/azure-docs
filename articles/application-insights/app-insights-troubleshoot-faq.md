@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/17/2018
 ms.author: mbullwin
 ---
 # Application Insights: Frequently Asked Questions
@@ -248,7 +248,7 @@ Allow your web server to send telemetry to our endpoints https://dc.services.vis
 
 ### Proxy
 
-Route traffic from your server to a gateway on your intranet, by overwritting these settings in the example ApplicationInsights.config.
+Route traffic from your server to a gateway on your intranet, by overwriting these settings in the example ApplicationInsights.config.
 If these "Endpoint" properties are not present in your config, these classes will be using the default values shown in the example below.
 
 #### Example ApplicationInsights.config:
@@ -278,15 +278,16 @@ http://<your.gateway.endpoint>/v2/track
 http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 ```
 
-
-
-
 ## Can I run Availability web tests on an intranet server?
 
 Our [web tests](app-insights-monitor-web-app-availability.md) run on points of presence that are distributed around the globe. There are two solutions:
 
 * Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app-insights-ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
+
+## How long does it take for telemetry to be collected?
+
+Most Application Insights data has a latency of under 5 minutes. Some data can take longer; typically larger log files. For more information refer to the [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
 ## More answers
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
