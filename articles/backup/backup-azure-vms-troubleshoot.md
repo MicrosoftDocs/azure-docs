@@ -67,7 +67,7 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 
 ## Backup or restore takes time
 If your backup takes more than 12 hours, or restore takes more than 6 hours:
-* Understand [factors that contribute to backup time](backup-azure-vms-introduction.md#total-vm-backup-time) and [factors that contribute to restore time](backup-azure-vms-introduction.md#total-restore-time).
+* Understand [factors that contribute to backup time](backup-azure-vms-introduction.md#time-considerations) and [factors that contribute to restore time](backup-azure-vms-introduction.md#restore-considerations).
 * Make sure that you follow [backup best practices](backup-azure-vms-introduction.md#best-practices).
 
 ## VM Agent

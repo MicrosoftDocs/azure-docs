@@ -62,7 +62,7 @@ Restore can be performed in many ways from this blade. Note that This blade list
 
     c) **Restore VM** in the menu header provides an option to list and filter the VMs in customized dates as preferred.
 
-    Use the Filter to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the All restore points filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#data-consistency).
+    Use the Filter to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the All restore points filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#consistency-types).
 
     Restore point consistency options:
     - Crash consistent restore points

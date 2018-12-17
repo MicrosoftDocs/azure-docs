@@ -57,7 +57,7 @@ This article describes how to prepare for backing up an Azure VM using an [Azure
 
 
 
-### Verify the VM agent
+### Install the VM agent
 
 To enable backup, Azure Backup installs a backup extension (VM Snapshot or VM Snapshot Linux) to the VM agent that runs on the Azure VM.
     -  The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image. When you deploy an Azure Marketplace image from the portal, PowerShell, CLI, or an Azure Resource Manager template, the Azure VM Agent is also installed.
@@ -71,7 +71,7 @@ If needed, install the agent as follows.
 **Linux VMs** | Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.
 If you have problems backing up the Azure VM, use the following table to check that the Azure VM agent is correctly installed on the virtual machine. The table provides additional information about the VM agent for Windows and Linux VMs.
 
-### Verify network access
+### Establish network connectivity
 
 The Backup extension running on the VM must have outbound access to Azure public IP addresses. To allow access you can:
 

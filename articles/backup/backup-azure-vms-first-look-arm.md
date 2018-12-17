@@ -1,18 +1,15 @@
 ---
-title: 'First look: Protect Azure VMs with a recovery services vault'
-description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
+title: Back up Azure VMs with the Azure Backup service
+description: Learn how to back up Azure VMs with the Azure Backup service
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: backups; vm backup
 ---
-# Back up Azure virtual machines to Recovery Services vault
+# Back up Azure VMs with the Azure Backup service
 
 This article explains how to configure protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
 
@@ -26,7 +23,7 @@ This article explains how to configure protection for a virtual machine from Vir
 
 For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). For more information on pre and post-script framework for Linux VM backup see [Application consistent Linux VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-To find out more about what you can and can't backup, see [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+To find out more about what you can and can't backup, see [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service.
@@ -332,7 +329,9 @@ If you have issues accomplishing some of the tasks in this article, consult the
 [Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
 
 ## Pricing
-The cost of backing up Azure VMs is based on the number of protected instances. For a definition of a protected instance, see [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). For an example of calculating the cost of backing up a virtual machine, see [How are protected instances calculated](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). See the Azure Backup Pricing page for information about [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/).
+The cost of backing up Azure VMs is based on the number of protected instances. For a definition of a protected instance, see [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). See the Azure Backup Pricing page for information about [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/).
 
-## Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](https://aka.ms/azurebackup_feedback).
+## Next steps
+
+[Manage](backup-azure-manage-vms.md) your backups.
+

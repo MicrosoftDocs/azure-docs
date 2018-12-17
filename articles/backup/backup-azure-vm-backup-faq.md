@@ -18,7 +18,7 @@ This article has answers to common questions to help you quickly understand the 
 Recovery Services vaults support both models.  You can back up a classic VM or a Resource Manager VM to a Recovery Services vault.
 
 ### What configurations are not supported by Azure VM backup?
-Go through [Supported operating systems](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) and [Limitations of VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+[Review](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) supported operating systems and limitations
 
 ### Why can't I see my VM in configure backup wizard?
 In Configure backup wizard, Azure Backup only lists VMs that are:
@@ -37,7 +37,7 @@ You need to give permissions for Azure Backup service to access Key Vault. You c
 Yes, backups work seamlessly and no need to reconfigure backup.
 
 ### My VM is shut down. Will an on-demand or a scheduled backup work?
-Yes. Even when a machine is shut down backups work and the recovery point is marked as Crash consistent. For more details, see the data consistency section in [this article](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+Yes. Even when a machine is shut down backups work and the recovery point is marked as Crash consistent. For more details, see the data consistency section in [this article](backup-azure-vms-introduction.md#backup-process)
 
 ### Can I cancel an in-progress backup job?
 Yes. You can cancel backup job if it is in "Taking snapshot" phase. **You can't cancel a job if data transfer from snapshot is in progress**.

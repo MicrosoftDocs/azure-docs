@@ -33,7 +33,8 @@ Here's how Azure Backup completes a  backup for Azure VMs.
 
 ## Data encryption
 
-Azure Backup doesn't encrypt data as a part of the backup process. Azure Backup does support backup of Azure VMs (managed and unmanaged) that are encrypted using Azure Disk Encryption.
+Azure Backup doesn't encrypt data as a part of the backup process. Azure Backup does support backup of Azure VMs that are encrypted using Azure Disk Encryption.
+
 - Backup of VMs encrypted with Bitlocker Encryption Key(BEK) only, and BEK together with Key Encryption Key(KEK) is supported, for managed and unmanaged Azure VMs.
 - The BEK(secrets) and KEK(keys) backed up are encrypted so they can be read and used only when restored back to key vault by the authorized users.
 - Since the BEK is also backed up, in scenarios where BEK is lost, authorized users can restore the BEK to the KeyVault and recover the encrypted VM. Keys and secrets of encrypted VMs are backed up in encrypted form, so neither unauthorized users nor Azure can read or use backed up keys and secrets. Only users with the right level of permissions can backup and restore encrypted VMs, as well as keys and secrets.
@@ -62,14 +63,14 @@ The following table explains different types of consistency.
 --- | --- | --- | ---
 **Application-consistent** | Yes (Windows only) | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use VSS writer (or pre/post script for Linux) to that ensure the consistency of app data before a backup occurs. | When recovering with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state.
 **File system consistent** | Yes (Windows only) |  File consistent backups provide consistent backups of disk files by taking a snapshot of all files at the same time.<br/><br/> Azure Backup recovery points are file consistent for:<br/><br/> -Linux VMs backups that don't have pre/post scripts, or that have script that failed.<br/><br/> - Windows VM backups where VSS failed. | When recovering with a file-consistent snapshot, the VM boots up. There's no data corruption or loss. Apps needs to implement their own "fix-up" mechanism to make sure that restored data is consistent.
-**Crash-consistent** | No | Crash consistency often happens when an Azure VM shuts down at the time of backup.  Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | There are no guaranteese, but usually the VM boots, and follows with a disk check to fix corruption errors. Any in-memory data or write that weren't transferred to disk are lost. Apps implement their own data verification. For example, for a database app, if a transaction log has entries that aren't in the database, the database software rolls rolls until data is consistent.
+**Crash-consistent** | No | Crash consistency often happens when an Azure VM shuts down at the time of backup.  Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | There are no guaranteese, but usually the VM boots, and follows with a disk check to fix corruption errors. Any in-memory data or write that weren't transferred to disk are lost. Apps implement their own data verification. For example, for a database app, if a transaction log has entries that aren't in the database, the database software rolls until data is consistent.
 
 
 ## Service and subscription limits
 
 Azure Backup has a number of limits around subscriptions and vaults.
 
-[!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+[!INCLUDE [azure-backup-limits](../azure-backup-limits.md)]
 
 
 ## Backup performance
@@ -139,7 +140,7 @@ A restore operation consists of two main tasks: copying data back from the vault
 - **Queue wait time**: Since the service processes restore jobs from multiple customers at the same time, restore requests are put in a queue.
 - **Data copy time**: Data is copied from the vault to the customer storage account. Restore time depends on IOPS and throughput Azure Backup service gets on the selected customer storage account. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
 
-## Best practices for backups
+## Best practices
 
 We suggest following these practices while configuring VM backups
 
