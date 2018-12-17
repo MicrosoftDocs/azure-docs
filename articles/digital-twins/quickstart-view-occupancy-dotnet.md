@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Find available rooms with Azure Digital Twins (C#) | Microsoft Docs'
+title: 'Quickstart: Find available rooms (C#) - Azure Digital Twins | Microsoft Docs'
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and carbon dioxide telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 author: alinamstanciu
 manager: bertvanhoof
