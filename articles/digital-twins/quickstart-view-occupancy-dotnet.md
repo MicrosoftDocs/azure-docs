@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/7/2018
+ms.date: 12/17/2018
 ms.author: alinast
 # As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
 
 # Quickstart: Find available rooms by using Azure Digital Twins
 
-The Azure Digital Twins service allows you to re-create a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them. 
+The Azure Digital Twins service allows you to re-create a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them.
 
 This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginary office building. It shows you how to find available rooms in that building. With Digital Twins, you can associate many sensors with your environment. You also can find out if the air quality of your available room is optimal with the help of a simulated sensor for carbon dioxide. One of the sample applications generates random sensor data to help you visualize this scenario.
 
