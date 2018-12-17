@@ -20,7 +20,7 @@ Azure SQL Database learns and adapts with your application. It provides customiz
 (../azure-monitor/insights/azure-sql.md)
 
 > [!TIP]
-> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method for automated performance tuning. [Query Performance Insights](sql-database-query-performance.md) is the recommended way for basic performance monitoring. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced performance monitoring.
+> [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues. [Query Performance Insights](sql-database-query-performance.md) is the recommended method for basic Azure SQL Database performance monitoring needs. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting.
 >
 
 ## Create index recommendations
