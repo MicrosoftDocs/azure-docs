@@ -20,7 +20,7 @@ In this article, you use the Azure Machine Learning SDK for Python to create and
 
 You begin by configuring your own Python environment and Jupyter notebook server. To run with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
+[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
 In this article, you install the Python SDK and:
 
