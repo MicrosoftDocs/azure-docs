@@ -16,7 +16,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ## Create a container using Azure portal
 
-### <a id="portal-sql"></a>SQL (Core) API
+### <a id="portal-sql"></a>Azure Cosmos DB API for SQL (Core)
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -32,7 +32,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ![SQL API creates a collection](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API
+### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -47,9 +47,9 @@ This article explains the different ways to create a container (collection, tabl
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![MongoDB API creates a collection](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Azure Cosmos DB API for MongoDB creates a collection](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>Cassandra API
+### <a id="portal-cassandra"></a>Azure Cosmos DB API for Cassandra
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -68,7 +68,7 @@ This article explains the different ways to create a container (collection, tabl
 > [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
 
-### <a id="portal-gremlin"></a>Gremlin API
+### <a id="portal-gremlin"></a>Azure Cosmos DB API for Gremlin
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -85,7 +85,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ![Gremlin API creates a collection](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
-### <a id="portal-table"></a>Table API
+### <a id="portal-table"></a>Azure Cosmos DB API for Table
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -105,7 +105,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ## Create a container using Azure CLI
 
-### <a id="cli-sql"></a>SQL (Core) API
+### <a id="cli-sql"></a>Azure Cosmos DB API for SQL (Core)
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -119,7 +119,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>MongoDB API
+### <a id="cli-mongodb"></a>Azure Cosmos DB API for MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -132,7 +132,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-cassandra"></a>Cassandra API
+### <a id="cli-cassandra"></a>Azure Cosmos DB API for Cassandra
 
 ```azurecli-interactive
 # Create a table with a partition/primary key and provision 1000 RU/s throughput.
@@ -145,7 +145,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-gremlin"></a>Gremlin API
+### <a id="cli-gremlin"></a>Azure Cosmos DB API for Gremlin
 
 ```azurecli-interactive
 # Create a graph with a partition key and provision 1000 RU/s throughput.
@@ -158,7 +158,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-table"></a>Table API
+### <a id="cli-table"></a>Azure Cosmos DB API for Table
 
 ```azurecli-interactive
 # Create a table with 1000 RU/s
@@ -173,7 +173,7 @@ az cosmosdb collection create \
 
 ## Create a container using .NET SDK
 
-### <a id="dotnet-sql-graph"></a>SQL API and Gremlin API
+### <a id="dotnet-sql-graph"></a>Azure Cosmos DB API for SQL and Gremlin
 
 ```csharp
 // Create a container with a partition key and provision 1000 RU/s throughput.
@@ -187,7 +187,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>MongoDB API
+### <a id="dotnet-mongodb"></a>Azure Cosmos DB API for MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -197,7 +197,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > MongoDB does not have a concept of request units. To create a new collection with throughput, use the Azure Portal or SQL API as shown in the previous examples.
 
-### <a id="dotnet-cassandra"></a>Cassandra API
+### <a id="dotnet-cassandra"></a>Azure Cosmos DB API for Cassandra
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.

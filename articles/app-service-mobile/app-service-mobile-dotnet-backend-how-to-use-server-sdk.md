@@ -160,7 +160,7 @@ initialization by using the **MobileAppConfiguration** object.
      Provides the AppServiceLoginHandler.CreateToken() method, which is a static method used during custom authentication scenarios.
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
-This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using [Git](../app-service/app-service-deploy-local-git.md) or any of
+This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using [Git](../app-service/deploy-local-git.md) or any of
 the other methods available there.
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
