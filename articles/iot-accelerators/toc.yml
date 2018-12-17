@@ -220,19 +220,19 @@
       href: https://github.com/Azure/azure-iot-predictive-maintenance
 
 - name: Reference Architecture
+  items:
+  - name: Overview
+    href: iot-accelerators-architecture-overview.md
+  - name: Download
+    href: https://aka.ms/iotrefarchitecture
+  - name: Partner implementations
     items:
-    - name: Overview
-      href: iot-accelerators-architecture-overview.md
-    - name: Download
-      href: https://aka.ms/iotrefarchitecture
-    - name: Partner implementations
-      items:
-      - name: Intel Connected Logistics Platform
-        href: https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform
-      - name: Edge Dynamometer Analysis
-        href: https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis
-      - name: Digital Signage Solution
-        href: https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution
+    - name: Intel Connected Logistics Platform
+      href: https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform
+    - name: Edge Dynamometer Analysis
+      href: https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis
+    - name: Digital Signage Solution
+      href: https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution
 
 - name: Related
   items:
