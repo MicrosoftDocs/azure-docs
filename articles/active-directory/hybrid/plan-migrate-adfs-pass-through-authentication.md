@@ -241,7 +241,7 @@ First you have to change sign-on method:
    6. In the **Ready to Configure** screen, make sure **Start Synchronization process when configuration completes** checkbox is selected. Then select **Configure**.</br>
    ![picture](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
    7. Open the **Azure AD portal**, select **Azure Active Directory**, and then select **Azure AD Connect**.
-   8. Verify that that **Federation is Disabled** while **Seamless single sign on** and **Pass-thorough authentication** are **Enabled**.</br>
+   8. Verify that **Federation is Disabled** while **Seamless single sign on** and **Pass-thorough authentication** are **Enabled**.</br>
    ![picture](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
 
 Next you must deploy additional authentication methods. Open the **Azure portal**, browse to **Azure Active Directory, Azure AD Connect** and click **Pass-through Authentication**.
@@ -322,7 +322,7 @@ The conversion is performed using the Azure AD PowerShell Module.
  ```
  
    3. Open the **Azure AD portal**, select **Azure Active Directory**, and then select **Azure AD Connect**.  
-   4. Once you have converted all your federated domains, verify that that **Federation is Disabled** while **Seamless single sign-on** and **Pass-through authentication** are **Enabled**.</br>
+   4. Once you have converted all your federated domains, verify that **Federation is Disabled** while **Seamless single sign-on** and **Pass-through authentication** are **Enabled**.</br>
    ![picture](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
 
 ## Testing and next steps
