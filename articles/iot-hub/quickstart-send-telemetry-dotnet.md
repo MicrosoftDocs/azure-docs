@@ -52,18 +52,22 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
    **MyDotnetDevice** : This is the name given for the registered device. Use MyDotnetDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   
+   **YourIoTHubRGName** : Replace with the name of the Resource Group where your IoT hub is created.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice --resource-group YourIoTHubRGName
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   
+   **YourIoTHubRGName** : Replace with the name of the Resource Group where your IoT hub is created.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --resource-group YourIoTHubRGName --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -75,13 +79,15 @@ A device must be registered with your IoT hub before it can connect. In this qui
 3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _iothubowner primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
 
    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   
+   **YourIoTHubRGName** : Replace with the name of the Resource Group where your IoT hub is created.
 
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName --resource-group YourIoTHubRGName
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName --resource-group YourIoTHubRGName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName --resource-group YourIoTHubRGName
     ```
 
     Make a note of these three values, which you use later in the quickstart.
