@@ -120,7 +120,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Oriya | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
-| Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic |
+| Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
@@ -272,7 +272,7 @@ The following languages are avaialble for customization using [Custom Translator
 | Bangla      | `bn`          |
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
-| Chinese Simplified*      | `zh-Hans`          |
+| Chinese Simplified      | `zh-Hans`          |
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
 | Danish      | `da`          |
@@ -304,8 +304,6 @@ The following languages are avaialble for customization using [Custom Translator
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Vietnamese      | `vi`          |
-
-Chinese traditional 
 
 ## Access the list on the Microsoft Translator website
 
