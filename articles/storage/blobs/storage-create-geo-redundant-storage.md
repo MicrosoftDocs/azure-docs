@@ -49,7 +49,7 @@ To complete this tutorial:
 # [Java V10 SDK] (#tab/java-v10)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
-* Install and configure a [JDK](https://aka.ms/azure-jdks)
+* Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
@@ -64,9 +64,9 @@ A storage account provides a unique namespace to store and access your Azure Sto
 Follow these steps to create a read-access geo-redundant storage account:
 
 1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-
-2. Select **Storage** from the **New** page, and select **Storage account - blob, file, table, queue** under **Featured**.
-3. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
+2. Select **Storage** from the **New** page.
+3. Select **Storage account - blob, file, table, queue** under **Featured**.
+4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -75,7 +75,6 @@ Follow these steps to create a read-access geo-redundant storage account:
    | **Account kind** | StorageV2 | For details on the types of accounts, see [types of storage accounts](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
-   |**Secure transfer required** | Disabled| Secure transfer is not required for this scenario. |
    |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Location** | East US | Choose a location. |
