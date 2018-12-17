@@ -26,6 +26,12 @@ Before you get started, here's a list of prerequisites:
 * A [subscription key](get-started.md) for the Speech Service.
 * Python 3.5 (64 bit) or later needs to be installed. Downloads are available [here](https://www.python.org/downloads/).
 * The Python Speech SDK package is available for Windows (x64), Mac (macOS X version 10.12 or later), and Linux (x64).
+* On Ubuntu, run the following commands for the installation of required packages:
+  ```sh
+  sudo apt-get update
+  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  ```
+* On Windows, you also need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
 
 ## Get the Speech SDK Python Package
 
@@ -33,7 +39,9 @@ Before you get started, here's a list of prerequisites:
 
 The Cognitive Services Speech SDK Python package can be installed from [PyPI](https://pypi.org/project/azure-cognitiveservices-speech/) using this command on the command line:
 
-    pip install azure-cognitiveservices-speech
+```sh
+pip install azure-cognitiveservices-speech
+```
 
 The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
@@ -45,7 +53,17 @@ You can check which version is currently installed by inspecting the `azure.cogn
 
 If you have a problem or are missing a feature, please have a look at our [support page](./support.md).
 
-## Create a Python Application using the SDK
+## Create a Python Application using the Speech SDK
+
+### Running the Sample in a Terminal
+
+You can either copy the code from this quickstart to a source file `speech.py` and run it in your IDE or in the console
+
+```sh
+python speech.py
+```
+
+or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
 
 ### Installing the Speech SDK Python Package and Running the Sample in Visual Studio Code
 
@@ -71,13 +89,6 @@ If you have a problem or are missing a feature, please have a look at our [suppo
 
 If there are issues following these instructions, please refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
-### Other Ways of Running the Sample
-
-You can either copy the code from this quickstart to a source file `speech.py` and run it in your IDE or in the console
-
-    python speech.py
-
-or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
 
 ```python
 import azure.cognitiveservices.speech as speechsdk
