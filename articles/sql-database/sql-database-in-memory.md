@@ -65,7 +65,7 @@ In-depth information about the technologies:
 
 ## In-memory OLTP
 
-In-memmory OLTP technology keeps data in memory, which enables fast data access in OLTP scenarios. It also uses specialized indexes, native compilation of queries, and latch-free data-acccess to improve performance of the OLTP workload. A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
+In-memory OLTP technology keeps data in memory, which enables fast data access in OLTP scenarios. It also uses specialized indexes, native compilation of queries, and latch-free data-acccess to improve performance of the OLTP workload. A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
 
 In-depth videos about the technologies:
 
