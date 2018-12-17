@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Checking for pool and node errors
 
-When creating and managing Azure Batch pools, some operations happen immediately. However some operations are asynchronous and don't occur immediately. They might run in the background and take several minutes to complete.
+When creating and managing Azure Batch pools, some operations happen immediately. However some operations are asynchronous and run in the background. They might take several minutes to complete.
 
 Detecting failures for operations that take place immediately is straightforward because any failures are returned immediately by the API, CLI, or UI.
 
@@ -20,7 +20,7 @@ This article covers the background operations that can occur for pools and pool 
 
 ### Resize timeout or failure
 
-When creating a new pool or resizing an existing pool, you specify the target number of nodes.  The operation completes immediately, but the actual allocation of new nodes or the removal of existing nodes might take several minutes.  You specify the resize timeout in the [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) or [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API. If Batch can't obtain the target number of nodes during the resize timeout period, it stops the operation. Afterwards, the pool goes into a steady state and reports resize errors.
+When creating a new pool or resizing an existing pool, you specify the target number of nodes.  The operation completes immediately, but the actual allocation of new nodes or the removal of existing nodes might take several minutes.  You specify the resize timeout in the [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) or [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API. If Batch can't obtain the target number of nodes during the resize timeout period, it stops the operation. The pool goes into a steady state and reports resize errors.
 
 The [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) property for the most recent evaluation reports a resize timeout and lists any errors that occurred.
 
@@ -48,23 +48,23 @@ You can also set Azure Batch to automatically scale the number of nodes in a poo
 
 You can get information about the last automatic scaling evaluation by using the [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) property. This property reports the evaluation time, the values and result, and any performance errors.
 
-The [pool resize complete event](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)captures information about all evaluations.
+The [pool resize complete event](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) captures information about all evaluations.
 
 ### Delete
 
-When you delete a pool that contains nodes, the nodes are deleted first, followed by the pool object itself. It can take a few minutes for the pool nodes to be deleted.
+When you delete a pool that contains nodes, first Batch deletes the nodes are and then it deletes the pool object itself. It can take a few minutes for the pool nodes to be deleted.
 
 Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) to 'deleting' during the delete process. The calling application can detect if the pool delete is taking too long by using the 'state' and 'stateTransitionTime' properties.
 
 ## Pool compute node errors
 
-Even when Batch successfully allocates nodes in a pool, various issues can cause some unhealthy and unusable nodes. These nodes incur charges. It's important to detect problems so you aren't paying for unusable nodes.
+Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unusable. These nodes incur charges. It's important to detect problems so you aren't paying for unusable nodes.
 
 ### Start task failure
 
 You might want to specify an optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, you can use a command line and resource files to download from storage. The start task is run for each node after it's been started. The 'waitForSuccess' property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node.
 
-What if you've configured the node to wait for successful start task completion, but the start task fails? In that case, the node is  unusable but still incurs charges.
+What if you've configured the node to wait for successful start task completion, but the start task fails? In that case, the node is unusable but still incurs charges.
 
 You can detect start task failures by using the [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) and  [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) node property.
 
