@@ -1,6 +1,7 @@
 ---
-title: Use datastores in Azure Machine Learning to access data
-description: How to use datastores to access data storage during training
+title: Access data in datastores for training
+titleSuffix: Azure Machine Learning service
+description: Learn how to use datastores to access data storage during training with Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,9 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
+ms.custom: seodec18
+
+
 ---
 
-# How to access data during training
+# Access data during training from your datastores
 Use a datastore to access and interact with your data in Azure Machine Learning workflows.
 
 In Azure Machine Learning service, the datastore is an abstraction over [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). The datastore can reference either an [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) container or [Azure file share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) as the underlying storage. 
@@ -71,7 +75,7 @@ You can also get all the datastores for a workspace:
 ```Python
 datastores = ws.datastores()
 for name, ds in datastores.items(),
-    print(name, ds.datastore_type)"
+    print(name, ds.datastore_type)
 ```
 
 For convenience, set one of your registered datastores as the default datastore for your workspace:

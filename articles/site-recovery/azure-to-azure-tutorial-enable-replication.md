@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/18/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -142,7 +142,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 Site Recovery creates default settings and replication policy for the target region. You can change the settings as required.
 
 1. Click **Settings** to view the target and replication settings.
-2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability Sets**.
+2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability**.
 
   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
@@ -172,8 +172,14 @@ Site Recovery creates default settings and replication policy for the target reg
 
     - **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
       target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-    - **Target availability sets**: By default, Site Recovery creates a new availability set in the
-      target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
+    - **Target availability sets**: By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.
+    - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones. 
+
+    If the target region does not support availability zones, the target VMs are configured as single instances by default. If required, you can configure such VMs to be part of availability sets in target region by clicking 'Customize'.
+
+    >[!NOTE]
+    >You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You need to disable and enable replication to change the availability type.
+    >
 
 4. To customize replication policy settings, click **Customize** next to **Replication policy**, and modify the following settings as required:
 

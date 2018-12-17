@@ -33,8 +33,8 @@ In addition to an Azure subscription, you need the following to complete this qu
 Install *azure-kusto-data* and *azure-kusto-ingest*.
 
 ```
-pip install azure-kusto-data==0.0.13
-pip install azure-kusto-ingest==0.0.13
+pip install azure-kusto-data
+pip install azure-kusto-ingest
 ```
 
 ## Add import statements and constants
@@ -70,7 +70,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-Now construct the connection string. This example uses device authentication to access the cluster. You can also use AAD application certificate, AAD application key, and AAD user and password.
+Now construct the connection string. This example uses device authentication to access the cluster. You can also use [AAD application certificate](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [AAD application key](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), and [AAD user and password](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 You create the destination table and mapping in a later step.
 

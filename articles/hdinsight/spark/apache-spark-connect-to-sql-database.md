@@ -13,7 +13,7 @@ ms.date: 05/01/2018
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL database
 
-Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQL database and then read, write, and stream data into the SQL database. The instructions in this article use a Jupyter notebook to run the Scala code snippets. However, you can create a standalone application in Scala or Python and perform the same tasks. 
+Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQL database and then read, write, and stream data into the SQL database. The instructions in this article use a [Jupyter Notebook](https://jupyter.org/) to run the Scala code snippets. However, you can create a standalone application in Scala or Python and perform the same tasks. 
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 * **SQL Server Management Studio**. Follow the instructions at [Use SSMS to connect and query data](../../sql-database/sql-database-connect-query-ssms.md).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook 
 
-Start by creating a Jupyter notebook associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
+Start by creating a [Jupyter Notebook](https://jupyter.org/) associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
 
 1. From the [Azure portal](https://portal.azure.com/), open your cluster.
 1. Select **Jupyter notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, click **Overview** from the left menu on the blade. If prompted, enter the admin credentials for the cluster.
@@ -232,4 +232,4 @@ In this section, we stream data into the **hvactable** that you already created 
 
 * [Use HDInsight Spark cluster to analyze data in Data Lake Store](apache-spark-use-with-data-lake-store.md)
 * [Process structured streaming events using EventHub](apache-spark-eventhub-structured-streaming.md)
-* [Use Spark Structured Streaming with Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [Use Apache Spark Structured Streaming with Apache Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

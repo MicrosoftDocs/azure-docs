@@ -1,6 +1,6 @@
 ---
 title: Automate custom reports with Azure Application Insights data
-description: Automate custom daily/weekly/monthly reports with Azure Application Insights data 
+description: Automate custom daily/weekly/monthly reports with Azure Application Insights data
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -8,11 +8,10 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
-ms.author:  mbullwin
+ms.author: mbullwin
 ---
 
 # Automate custom reports with Azure Application Insights data
@@ -155,7 +154,7 @@ These steps only apply if you don't already have a SendGrid account configured.
 
 ## Next steps
 
-* Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
+* Learn more about creating [Analytics queries](../azure-monitor/log-query/get-started-queries.md).
 * Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
 * Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).

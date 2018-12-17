@@ -36,7 +36,7 @@ In this example, we will enable Security Center on a subscription with ID: d07c0
 
 5. Set the organization’s [CISO as the security contact for ASC alerts and notable events](security-center-provide-security-contact-details.md).
 
-6. Assign Security Center’s [default security policies](security-center-azure-policy.md).
+6. Assign Security Center’s [default security policies](tutorial-security-policy.md).
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ These steps should be performed before you run the Security Center cmdlets:
 6.	Assign the default Security Center policy initiative:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
+        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 You now successfully onboarded Azure Security Center with PowerShell!
@@ -107,6 +107,6 @@ To learn more about how you can use PowerShell to automate onboarding to Securit
 
 To learn more about Security Center, see the following article:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

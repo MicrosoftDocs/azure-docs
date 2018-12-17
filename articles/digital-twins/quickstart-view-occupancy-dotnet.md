@@ -67,7 +67,7 @@ This step provisions your Digital Twins spatial graph with:
 - A custom function. 
 - One role assignment.
  
-The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file.
+The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file. 
 
 1. Run `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -85,6 +85,9 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 1. At the end of the execution, copy the `ConnectionString` of the device for use in the device simulator sample. Copy only the string outlined in this image.
 
     ![Provision sample][1]
+
+    >[!TIP]
+    > You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## Send sensor data
 
@@ -148,6 +151,10 @@ To continue to the tutorials, don't clean up the resources created in this quick
 
 1. Delete the folder that was created when you downloaded the sample repository.
 1. From the menu on the left in the [Azure portal](http://portal.azure.com), select **All resources**. Then select your Digital Twins resource. At the top of the **All resources** pane, select **Delete**.
+   
+    > [!TIP]
+    > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
+
 
 ## Next steps
 

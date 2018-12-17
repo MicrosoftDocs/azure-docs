@@ -70,20 +70,20 @@ Application Insights collects any failures in your application and lets you view
 	![Exception details](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## Identify failing code
-The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. You can then debug the source code by downloading the snapshot and opening it in Visual Studio 2017.
+The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production.  You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. Afterwards, you have the option to debug the source code by downloading the snapshot and opening it in Visual Studio 2017 Enterprise.
 
 1. In the properties of the exception, click **Open debug snapshot**.
 2. The **Debug Snapshot** panel opens with the call stack for the request.  Click any method to view the values of all local variables at the time of the request.  Starting from the top method in this example, we can see local variables that have no value.
 
 	![Debug snapshot](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. The first call that has valid values is **ValidZipCode**, and we can see that a zip code was provided with letters that isn't able to be translated into an integer.  This appears to be the error in the code that needs to be corrected.
+3. The first call that has valid values is **ValidZipCode**, and we can see that a zip code was provided with letters that isn't able to be translated into an integer.  This appears to be the error in the code that needs to be corrected.
 
 	![Debug snapshot](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. To download this snapshot into Visual Studio where we can locate the actual code that needs to be corrected, click **Download Snapshot**.
-6. The snapshot is loaded into Visual Studio.
-7. You can now run a debug session in Visual Studio that quickly identifies the line of code that caused the exception.
+4. You then have the option to download this snapshot into Visual Studio where we can locate the actual code that needs to be corrected. To do so, click **Download Snapshot**.
+5. The snapshot is loaded into Visual Studio.
+6. You can now run a debug session in Visual Studio Enterprise that quickly identifies the line of code that caused the exception.
 
 	![Exception in code](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

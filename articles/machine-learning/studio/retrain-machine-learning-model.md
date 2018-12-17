@@ -1,12 +1,12 @@
 ---
-title: Retrain a Machine Learning Model | Microsoft Docs
+title: Retrain a Machine Learning Studio model - Azure | Microsoft Docs
 description: Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ---
-# Retrain a Machine Learning Model
+# Retrain an Azure Machine Learning Studio model
 As part of the process of operationalization of machine learning models in Azure Machine Learning, your model is trained and saved. You then use it to create a predictive Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps. 
 
 Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. 

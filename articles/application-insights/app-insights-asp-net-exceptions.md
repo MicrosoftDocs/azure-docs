@@ -10,7 +10,6 @@ ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
@@ -47,16 +46,15 @@ Notice that you can filter the report to show just exceptions.
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
 Click an exception report to show its stack trace.
-Click a line reference in the stack trace, to open the relevant code file.  
+Click a line reference in the stack trace, to open the relevant code file.
 
 In the code, notice that CodeLens shows data about the exceptions:
 
 ![CodeLens notification of exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## Diagnosing failures using the Azure portal
-Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section. 
-You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right you'll see some of the most 
-useful distributions specific to the selected failing operation, including top 3 response codes, top 3 exception types, and top 3 failing dependency types. 
+Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section.
+You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right you'll see some of the most useful distributions specific to the selected failing operation, including top 3 response codes, top 3 exception types, and top 3 failing dependency types.
 
 ![Failures triage view (operations tab)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -98,7 +96,7 @@ Request details don't include the data sent to your app in a POST call. To have 
 
 * [Install the SDK](app-insights-asp-net.md) in your application project.
 * Insert code in your application to call [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Send the POST data in the message parameter. There is a limit to the permitted size, so you should try to send just the essential data.
-* When you investigate a failed request, find the associated traces.  
+* When you investigate a failed request, find the associated traces.
 
 ![Drill through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -168,7 +166,7 @@ The properties and measurements parameters are optional, but are useful for [fil
 ## Browser exceptions
 Most browser exceptions are reported.
 
-If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](http://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
+If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](https://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
 
 ## Web forms
 For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.
@@ -178,7 +176,7 @@ But if you have active redirects, add the following lines to the Application_Err
 ```csharp
     void Application_Error(object sender, EventArgs e)
     {
-      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
+      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
       {
          var ai = new TelemetryClient(); // or re-use an existing instance
 
@@ -199,13 +197,13 @@ There are a number of cases that the exception filters cannot handle. For exampl
 * Exception thrown during application start-up.
 * Exception thrown in background tasks.
 
-All exceptions *handled* by application still need to be tracked manually. 
+All exceptions *handled* by application still need to be tracked manually.
 Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
 
 ### Prior versions support
 If you use MVC 4 (and prior) of Application Insights Web SDK 2.5 (and prior), refer to the following examples to track exceptions.
 
-If the [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuration is `Off`, then exceptions will be available for the [HTTP Module](https://msdn.microsoft.com/library/ms178468.aspx) to collect. However, if it is `RemoteOnly` (default), or `On`, then the exception will be cleared and not available for Application Insights to automatically collect. You can fix that by overriding the [System.Web.Mvc.HandleErrorAttribute class](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), and applying the overridden class as shown for the different MVC versions below ([github source](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+If the [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuration is `Off`, then exceptions will be available for the [HTTP Module](https://msdn.microsoft.com/library/ms178468.aspx) to collect. However, if it is `RemoteOnly` (default), or `On`, then the exception will be cleared and not available for Application Insights to automatically collect. You can fix that by overriding the [System.Web.Mvc.HandleErrorAttribute class](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), and applying the overridden class as shown for the different MVC versions below ([GitHub source](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -223,7 +221,7 @@ If the [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configur
             {
                 //If customError is Off, then AI HTTPModule will report the exception
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
-                {   //or reuse instance (recommended!). see note above  
+                {   //or reuse instance (recommended!). see note above
                     var ai = new TelemetryClient();
                     ai.TrackException(filterContext.Exception);
                 }
@@ -240,9 +238,9 @@ Replace the HandleError attribute with your new attribute in your controllers.
 ```csharp
     namespace MVC2App.Controllers
     {
-       [AiHandleError]
-       public class HomeController : Controller
-       {
+        [AiHandleError]
+        public class HomeController : Controller
+        {
     ...
 ```
 
@@ -291,7 +289,7 @@ There are a number of cases that the exception filters cannot handle. For exampl
 * Exception thrown during application start-up.
 * Exception thrown in background tasks.
 
-All exceptions *handled* by application still need to be tracked manually. 
+All exceptions *handled* by application still need to be tracked manually.
 Unhandled exceptions originating from controllers typically result in 500 "Internal Server Error" response. If such response is manually constructed as a result of handled exception (or no exception at all) it is tracked in a corresponding request telemetry with `ResultCode` 500, however Application Insights SDK is unable to track corresponding exception.
 
 ### Prior versions support
@@ -313,7 +311,7 @@ Override System.Web.Http.Filters.ExceptionFilterAttribute:
             if (actionExecutedContext != null && actionExecutedContext.Exception != null)
             {  //or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
-                ai.TrackException(actionExecutedContext.Exception);    
+                ai.TrackException(actionExecutedContext.Exception);
             }
             base.OnException(actionExecutedContext);
         }
@@ -483,7 +481,7 @@ This is different from the 'Exceptions' count calculated by the Application Insi
 
 ## Video
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 * [Monitor REST, SQL, and other calls to dependencies](app-insights-asp-net-dependencies.md)

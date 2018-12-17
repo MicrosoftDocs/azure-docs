@@ -1,13 +1,13 @@
 ---
-title: ALM in Azure Machine Learning| Microsoft Docs
+title: Application lifecycle management - Azure Machine Learning Studio | Microsoft Docs
 description: Apply Application Lifecycle Management best practices in Azure Machine Learning Studio
 keywords: ALM, AML, Azure ML, Application Life Cycle Management, Version Control
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.author: amlstudiodocs
-manager: mwinkle
+
 editor: cgronlun
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
 ms.service: machine-learning
