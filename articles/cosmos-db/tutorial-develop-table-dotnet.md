@@ -73,7 +73,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 

@@ -35,14 +35,14 @@ Only the following devices are listed under the USER devices:
 
 **Q: How do I know what the device registration state of the client is?**
 
-**A:** You can use the Azure portal, go to All devices and search for the device using device ID. Check the value under the join type column. Sometimes, the device could have been reset or re-imaged. So, it is essential to also check device registration state on the device too:
+**A:** You can use the Azure portal, go to All devices and search for the device using device ID. Check the value under the join type column. Sometimes, the device could have been reset or reimaged. So, it is essential to also check device registration state on the device too:
 
 - For Windows 10 and Windows Server 2016 or later devices, run dsregcmd.exe /status.
 - For down-level OS versions, run "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
 
 ---
 
-**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
+**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I set up correctly for using conditional access?**
 
 **A:** The device join state, reflected by deviceID, must match with that on Azure AD and meet any evaluation criteria for conditional access. 
 For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
@@ -94,7 +94,7 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 ---
 
-# Azure AD Join FAQ
+## Azure AD Join FAQ
 
 **Q: How do I unjoin an Azure AD Joined device locally on the device?**
 
@@ -108,18 +108,18 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 **Q: Can my users sign in to Azure AD joined devices that have been deleted or disabled in Azure AD?**
 **A:** Yes. Windows has cached logon capability to allow previously logged in users to access desktop quickly even without network connectivity. When a device is deleted or disabled in Azure AD, it is not known to the Windows device. So, previously logged in users can continue to access the desktop with cached logon. However, as the device is deleted or disabled, users cannot access any resources protected by device-based Conditional Access. 
 
-Users who havent already logged in cannot access the device as there is no cached logon enabled for them. 
+Users who haven't already logged in cannot access the device as there is no cached logon enabled for them. 
 
 ---
 
 **Q: Can disabled or deleted users sign in to Azure AD joined devices?**
 **A:** Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it is not immediately known to the Windows device. So, previously logged in users can access the desktop with cached logon. Once the device is aware of the user state (typically in less than 4 hours), Windows blocks those users from accessing the desktop. As the user is deleted or disabled in Azure AD, all their tokens will be revoked, so they cannot access any resources. 
 
-Deleted or disabled users who havent logged in previously cannot access a device as there is no cached logon enabled for them. 
+Deleted or disabled users who haven't logged in previously cannot access a device as there is no cached logon enabled for them. 
 
 ---
 
-**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
+**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices?**
 
 **A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
 
@@ -133,7 +133,7 @@ Deleted or disabled users who havent logged in previously cannot access a device
 **Q: Why do my users see “You can’t get there from here”?**
 
 **A:** If you have configured certain conditional access rules to require a specific device state and the device does not meet the criteria, users are blocked and see this message. 
-Please evaluate the conditional access policy rules and ensure that the device is able to meet the criteria to avoid this message.
+Evaluate the conditional access policy rules and ensure that the device is able to meet the criteria to avoid this message.
 
 ---
 
@@ -151,7 +151,7 @@ Please evaluate the conditional access policy rules and ensure that the device i
 
 - Your computer is unable to communicate with Azure Active Directory. Check for any network connectivity issues.
 
-- Federated logins requires your federation server to support WS-Trust endpoints enabled and accessible. 
+- Federated logins require your federation server to support WS-Trust endpoints enabled and accessible. 
 
 - You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon.
 
@@ -159,31 +159,31 @@ Please evaluate the conditional access policy rules and ensure that the device i
 
 **Q: Why do I see the “Oops… an error occurred!" dialog when I try do Azure AD join my PC?**
 
-**A:** This is a result of setting up Azure Active Directory enrollment with Intune. Please make sure that the user attempting to do Azure AD join has correct Intune license assigned. For more information, see [Set up Windows device management](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**A:** This is a result of setting up Azure Active Directory enrollment with Intune. Make sure that the user attempting to do Azure AD join has correct Intune license assigned. For more information, see [Set up Windows device management](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
 **Q: Why did my attempt to Azure AD join a PC fail although I didn't get any error information?**
 
 **A:** A likely cause is that the user is logged in to the device using the local built-in administrator account. 
-Please create a different local account before using Azure Active Directory Join to complete the setup. 
+Create a different local account before using Azure Active Directory Join to complete the setup. 
 
 ---
 
-# Hybrid Azure AD Join FAQ
+## Hybrid Azure AD Join FAQ
 
 **Q: Where can I find troubleshooting information for diagnosing hybrid Azure AD join failures?**
 
 **A:** For troubleshooting information, see:
 
-- [Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
+- [Troubleshooting autoregistration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016](troubleshoot-hybrid-join-windows-current.md)
 
-- [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](troubleshoot-hybrid-join-windows-legacy.md)
+- [Troubleshooting autoregistration of domain joined computers to Azure AD for Windows down-level clients](troubleshoot-hybrid-join-windows-legacy.md)
  
 
 ---
 
-# Azure AD Register FAQ
+## Azure AD Register FAQ
 
 **Q: Can I register Android or iOS BYOD devices?**
 

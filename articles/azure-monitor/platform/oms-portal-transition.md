@@ -12,7 +12,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # OMS portal moving to Azure
@@ -75,15 +74,15 @@ You are no longer be able to create new workspaces using the OMS portal. Follow 
 > [!NOTE]
 > Alerts have now been fully extended into the Azure portal for the public cloud. Existing alert rules can be viewed in the OMS portal, but they can only be managed in the Azure portal. Extension of alerts into the Azure portal will start for the Azure government cloud in October, 2018.
 
-Alerts have been [extended into the Azure portal](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
+Alerts have been [extended into the Azure portal](../../azure-monitor/platform/alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
-Instead of the [alert management solution](../../azure-monitor/platform/alert-management-solution.md), you can use [Azure Monitor's unified alerting interface](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to visualize and manage your alerts. This new experience aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. You can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. All these features are available in preview starting June 4, 2018. The alert management solution will not be available in the Azure portal. 
+Instead of the [alert management solution](../../azure-monitor/platform/alert-management-solution.md), you can use [Azure Monitor's unified alerting interface](../../azure-monitor/platform/alerts-overview.md) to visualize and manage your alerts. This new experience aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. You can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. All these features are available in preview starting June 4, 2018. The alert management solution will not be available in the Azure portal. 
 
 The data collected by the Alert Management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. Starting August 2018, streaming of alerts from unified alerting into workspaces will be enabled, replacing this capability. Some schema changes are expected and will be announced at a later date.
 
 ## OMS Mobile App
-The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../monitoring-and-diagnostics/monitoring-action-groups.md) to receive notifications in the form of SMS or a voice call
+The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../azure-monitor/platform/action-groups.md) to receive notifications in the form of SMS or a voice call
 
 ## Application Insights Connector and solution
 [Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) provides a way to bring Application Insights data into a Log Analytics workspace. This data duplication was required to enable visibility across infrastructure and application data.

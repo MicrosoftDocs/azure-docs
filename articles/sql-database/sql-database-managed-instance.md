@@ -41,7 +41,7 @@ Azure SQL Database Managed Instance combines the best features that are availabl
 | --- | --- |
 |No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
-|Isolated environment ([VNet integration](sql-database-managed-instance-vnet-configuration.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD logins</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Threat Detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
+|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD logins</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Threat Detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
 The key features of Managed Instance are shown in the following table:
 
@@ -116,15 +116,15 @@ Azure SQL Database Managed Instance combines advanced security features provided
 
 Managed Instance provide additional security isolation from other tenants in the Azure cloud. Security isolation includes:
 
-- [Native virtual network implementation](sql-database-managed-instance-vnet-configuration.md) and connectivity to your on-premises environment using Azure Express Route or VPN Gateway
-- SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks
-- Single-tenant with dedicated underlying infrastructure (compute, storage)
+- [Native virtual network implementation](sql-database-managed-instance-connectivity-architecture.md) and connectivity to your on-premises environment using Azure Express Route or VPN Gateway.
+- SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks.
+- Single-tenant with dedicated underlying infrastructure (compute, storage).
 
 The following diagram outlines various connectivity options for your applications:
 
 ![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-To learn more details about VNet integration and networking policy enforcement at the subnet level, see [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) and [Connect your application to Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
+To learn more details about VNet integration and networking policy enforcement at the subnet level, see [VNet architecture for Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md) and [Connect your application to Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
 > Place multiple managed instance in the same subnet, wherever that is allowed by your security requirements, as that will bring you additional benefits. Collocating instances in the same subnet will significantly simplify networking infrastructure maintenance and reduce instance provisioning time, since long provisioning duration is associated with the cost of deploying first managed instance in a subnet.
@@ -228,7 +228,7 @@ The following table shows several properties, accessible through Transact SQL, t
 
 - To learn how to create your first Managed Instance, see [Quickstart guide](sql-database-managed-instance-get-started.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
+- For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-connectivity-architecture.md).
 - For a quickstart that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - For advanced monitoring of Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)

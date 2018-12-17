@@ -1,5 +1,5 @@
 ---
-title: High density hosting on Azure App Service using per-app scaling | Microsoft Docs
+title: High density hosting using per-app scaling - Azure App Service | Microsoft Docs
 description: High density hosting on Azure App Service
 author: btardif
 manager: erikre
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
+ms.custom: seodec18
 
 ---
 # High density hosting on Azure App Service using per-app scaling
@@ -139,13 +140,13 @@ Follow these steps to configure
 high density hosting for your apps:
 
 1. Configure the App Service Environment and choose a worker pool that is dedicated to the high density hosting scenario.
-1. Create a single App Service plan, and scale it to use all the available
+2. Create a single App Service plan, and scale it to use all the available
    capacity on the worker pool.
-1. Set the `PerSiteScaling` flag to true on the App Service plan.
-1. New apps are created and assigned to that App Service plan with the
+3. Set the `PerSiteScaling` flag to true on the App Service plan.
+4. New apps are created and assigned to that App Service plan with the
    **numberOfWorkers** property set to **1**. Using this configuration yields the 
    highest density possible on this worker pool.
-1. The number of workers can be configured independently per app to grant
+5. The number of workers can be configured independently per app to grant
    additional resources as needed. For example:
     - A high-use app can set **numberOfWorkers** to **3** to have more 
       processing capacity for that app. 

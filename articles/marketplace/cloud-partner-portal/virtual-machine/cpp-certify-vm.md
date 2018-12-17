@@ -78,4 +78,4 @@ Lastly, click **Generate Report** to download the test results and log files for
 
 ## Next steps
 
-You must next [generate a uniform resource identifiers (URI) for each VHD](./cpp-get-sas-uri.md) that you submit to the marketplace. 
+Next, you will [generate a uniform resource identifiers (URI) for each VHD](./cpp-get-sas-uri.md) that you submit to the marketplace. 
