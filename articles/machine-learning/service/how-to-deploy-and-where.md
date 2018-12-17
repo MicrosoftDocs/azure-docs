@@ -213,7 +213,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
