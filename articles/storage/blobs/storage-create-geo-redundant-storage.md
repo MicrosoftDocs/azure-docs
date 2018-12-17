@@ -113,7 +113,7 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 [Download the sample project](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) and extract the storage-java-ragrs.zip file. You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project contains a basic Java application.
 
 ```bash
-git clone LINKHERE
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
 ---
@@ -396,7 +396,7 @@ With the Java V10 SDK, defining callback handlers remains unnecessary and the SD
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
 PipelineOptions myOptions = new PipelineOptions();
-myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, "exampleragrsaccount-secondary.blob.core.windows.net"));
+myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
@@ -404,13 +404,7 @@ final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + 
 
 ## Next steps
 
-In part one of the series, you learned about making an application highly available with RA-GRS storage accounts, such as how to:
-
-> [!div class="checklist"]
-> * Create a storage account
-> * Download the sample
-> * Set the connection string
-> * Run the console application
+In part one of the series, you learned about making an application highly available with RA-GRS storage accounts.
 
 Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
 
