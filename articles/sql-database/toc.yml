@@ -310,8 +310,8 @@
     items:
     - name: Databases features
       href: sql-database-develop-overview.md
-    - name: JSON data
-      href: sql-database-json-features.md
+    - name: Multi-model capabilities
+      href: sql-database-multi-model-features.md
     - name: In-memory
       href: sql-database-in-memory.md
     - name: Temporal tables 
@@ -500,6 +500,8 @@
     items:
     - name: Connectivity
       href: sql-database-libraries.md
+    - name: Working with JSON data
+      href: sql-database-json-features.md
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
     - name: Authenticate app 
