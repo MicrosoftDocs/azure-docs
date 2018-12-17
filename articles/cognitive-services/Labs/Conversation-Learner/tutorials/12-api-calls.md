@@ -51,40 +51,46 @@ The code for the API calls is defined in the this file: C:\<installedpath\>\src\
 - The ClearEntities API callback: clears the number entity to let the user enter the next number. This illustrates how API calls can manipulate entities.
 
 ### Actions
-
-We have created four actions. 
-
 ![](../media/tutorial12_actions.PNG)
 
-- In addition to 'What number do you want to multiply by 12?' which is a communicative action, there are three different API calls that illustrate the typical API call patterns.
+We have created four Actions. Three of them are "Non-Wait" API Actions, with the fourth is a "Text" Action that asks the user a question similar to what we have seen in other tutorials. To see how each was created do the following:
+1. On the left panel, click "Actions", then click on one of the four actions listed in the grid.
+2. Notice the values of each field on the form that pops up.
+3. Notice the `Refresh` button next to the API field.
+	- If we were to stop the bot and make change to the APIs while the UI page is up, then you click `Refresh` to pick up the latest changes.
 
-- RandomGreeting: is a non-wait action. To set this up, in the Create Action Dialog, we selected the Action Type of API_LOCAL, then selected RandomGreeting. 
+#### ClearEntities
+This Action uses an API call to clear Entity Memory of our one and only `number` Entity.
 
-![](../media/tutorial12_setupapicall.PNG)
+#### Multiply
+This Action uses an API call to multiply 2 numbers. The Action is setup to pass the value of the `number` Entity and the number 12 to the `Multiply` call back API.
 
-The refresh button next to the API is used if we were to stop the bot, and make any changes to the APIs. Clicking on refresh would pick up the latest changes.
+#### RandomGreeting
+This API call creates a formatted textual random greeting that also includes a photograph.
 
-Here's how we created the Multiply action: after selecting API_Local and API, we entered an entity ($number) for the first input value (num1string), and a value (12) for the second input value (num2string). This provides a level of indirection between the bot and the API calls so the same callback can be mapped to a few actions in the system and they differ on how the actions are assigned.
+#### "What number do you want to multiply by 12"
+This is the "Text" Action and it simply asks a question of the user. While this Action does not actually interact with an API, it prompts the user to respond with a number that will go into the memory of an Entity that can then be used by the "Multiply" action.
 
-![](../media/tutorial12_actionmultiply.PNG)
 
 ### Train Dialog
 
 Let's walk through a teaching dialog.
 
-1. Click Train Dialogs, then New Train Dialog.
-1. Enter 'hi'.
-2. Click Score Action.
-3. Click to Select RandomGreeting. This will execute the Random Greeting API call.
-3. Click to Select 'What number to do you want to multiply by 12?'
-4. Enter '8'. Then click Score Actions.
-4. Select 'Multiply $number 12'. Note the result of the multiplication.
-5. Select 'Clear Entities'.
-	- The `number` entity's value has been cleared.
-3. Click to Select 'What number to do you want to multiply by 12?'
-4. Click Done Testing.
-
-![](../media/tutorial12_dialog.PNG)
+1. On the left panel, click `Train Dialogs`, then the `New Train Dialog` button.
+2. Type "hello".
+3. Click the `Score Actions` button.
+4. Select `RandomGreeting`. 
+	- This will execute the Random Greeting API call.
+5. Select `What number to do you want to multiply by 12?`
+6. Type in a number, any number and only a number.
+	- Notice that your number was automatically labeled as the `number` entity.
+7. Click the `Score Actions` button.
+8. Select the `Multiply` Action.
+	- Notice the result of the multiplication by 12.
+	- Notice that memory still contains the value you entered for `number`
+9. Select the `Clear Entities` Action.
+	- Notice that the Entity value for `number` has been cleared from memory.
+10. Click the `Save` button.
 
 You have now seen how to register API callbacks, their common patterns, and how to define arguments and associate values and entities in them.
 
