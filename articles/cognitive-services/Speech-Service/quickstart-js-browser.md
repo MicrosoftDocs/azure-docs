@@ -36,8 +36,8 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-The latter file is optional and used to help debugging into SDK code, if necessary.
+Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+The latter file is optional, and is useful for debugging into the SDK code.
 
 ## Create an index.html page
 
@@ -70,7 +70,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Wire up handlers for the recognition button, recognition result, and subscription related fields defined by the UI code:
+1. Wire up handlers for the recognition button, recognition result, and subscription-related fields defined by the UI code:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 

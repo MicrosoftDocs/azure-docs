@@ -29,7 +29,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
-The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tarfile from https://aka.ms/csspeech/linuxbinary.
+The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
 Download and install the SDK as follows:
 

@@ -108,7 +108,7 @@ You can run the sample from Visual Studio Code as well. Follow these steps to in
 
    ![Screenshot of the debug menu](media/sdk/qs-js-node-05-start_debugging.png)
 
-1. When a breakpiont is hit, you can inspect the callstack and variables
+1. When a breakpoint is hit, you can inspect the callstack and variables
 
    ![Screenshot of debugger](media/sdk/qs-js-node-06-hit_breakpoint.png)
 

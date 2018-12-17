@@ -17,7 +17,7 @@ ms.author: wolfma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
+In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.2.0, and Android Studio 3.1.
 The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
@@ -56,7 +56,7 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 
 The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
-The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
+The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
 It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
 
 Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes:
@@ -82,7 +82,7 @@ Set up your project to use the Speech SDK. Open the Project Structure window by 
 
 ## Create user interface
 
-We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!"
+We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
 
 * Click the TextView element. Change its ID attribute in the upper-right corner to `hello`.
 
@@ -94,7 +94,7 @@ We will create a basic user interface for the application. Edit the layout for y
 
   ![Screenshot of magic wand icon](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-The text and graphical representation of your UI should now look like this.
+The text and graphical representation of your UI should now look like this:
 
 <table>
 <tr>
