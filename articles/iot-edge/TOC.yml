@@ -106,23 +106,7 @@
   - name: Develop and debug modules in VS 2017
     href: how-to-visual-studio-develop-csharp-module.md
   - name: Develop and debug modules in VS Code
-    items:
-    - name: Azure Functions
-      href: how-to-develop-csharp-function.md
-    - name: C#
-      href: how-to-develop-csharp-module.md
-    - name: Python
-      href: how-to-develop-python-module.md
-    - name: Node.js
-      href: how-to-develop-node-module.md
-    - name: Java
-      href: how-to-develop-java-module.md
-    - name: C
-      href: how-to-develop-c-module.md
-    - name: Develop multiple modules
-      href: how-to-develop-multiple-modules-vscode.md
-    - name: Debug multiple modules
-      href: how-to-debug-multiple-modules-vscode.md
+    href: how-to-vs-code-develop-module.md
   - name: Deploy modules
     items:
     - name: Azure portal
