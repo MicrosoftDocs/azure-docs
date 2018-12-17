@@ -146,6 +146,10 @@ From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-roll
 Before 9.20 version, root partition or volume laid on multiple disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
 
+## GRUB UUID failure (ErrorID: 95320)
+
+If source machine's GRUB is using device name instead of UUID, then mobility agent installation fails. Reach out to system admin to make the changes to GRUB file.
+
 ## LVM support from 9.20 version
 
 Before 9.20 version, LVM was supported for data disks only. /boot should be on a disk partition and not be an LVM volume.

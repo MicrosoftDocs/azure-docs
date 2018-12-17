@@ -80,6 +80,7 @@ Make sure VMware servers and VMs comply with requirements.
 3. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
 4. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
 5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. Note that the virtual machine name is not case sensitive. Ensure no two machines to be replicated has case sensitive names.
 
 
 ## Prepare to connect to Azure VMs after failover

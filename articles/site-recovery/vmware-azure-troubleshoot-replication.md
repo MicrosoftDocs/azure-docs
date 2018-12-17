@@ -17,9 +17,16 @@ You may receive a specific error message when protecting your VMware virtual mac
 
 When trying to choose the source machine to enable replication through Azure Site Recovery, the machine might not available for you to continue because of the following reasons
 
-* If there are two virtual machines under the vCenter with same instance UUID, then the first virtal machine discovered by configuration server are shown on the portal.
+* If there are two virtual machines under the vCenter with same instance UUID, then the first virtual machine discovered by configuration server are shown on the portal. To resolve, ensure that no two virtual machines have same instance UUID.
+* Ensure that you have added the correct vCenter credentials during the set up of configuration through OVF template or unified set up. To verify the credentials added, refer to the guidelines shared [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* If the permissions provided to access vCenter do not have sufficient privileges, it might lead to failure in discovering virtual machines. Ensure the permissions provided [here](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
+* If the virtual machine is already protected through Site Recovery, then it will not be available for protection. Ensure that the virtual machine you are looking for on the portal is not already protected by any other user or under other subscriptions.
 
-## Initial replication issues.
+## Enable replication failure due to special character in drive
+
+During enable replication, if the drive name has special character, then it leads to parsing failure and thus fails to refresh configuration server. To resolve the issue, ensure that there are no special characters while naming drives.
+
+## Initial replication issues
 
 In many cases, initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure. For most cases, you can troubleshoot these issues by following the steps listed below.
 
@@ -34,7 +41,7 @@ If unable to connect, allow inbound port 9443 on the Process Server and check if
 
 * Check the status of service `InMage Scout VX Agent – Sentinel/OutpostStart` if it is not running and check if the problem still exists.   
 
-## Verify the process server
+### Verify the process server
 
 * **Check if process server is actively pushing data to Azure**
 
