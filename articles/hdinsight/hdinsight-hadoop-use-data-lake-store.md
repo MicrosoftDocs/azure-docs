@@ -67,24 +67,37 @@ For more information for creating service principal and grant access, see [Confi
 
 ### Extracting a certificate from Azure Keyvault for use in cluster creation
 
-If you want to setup ADLS as your default storage and the certificate for your service principal is stored in Azure Key Vault, there are a few additional steps required to export the certificate and store it on the local machine so that it can be used again with ADLS. The following code snippets show how to
+If you want to setup ADLS as your default storage for a new cluster and the certificate for your service principal is stored in Azure Key Vault, there are a few additional steps required to convert the certificate to the correct format. The following code snippets show how to perform the conversion.
 
 First, download the certificate from Key Vault and extract the `SecretValueText`.
 
 ```powershell
+$certPassword = Read-Host "Enter Certificate Password"
 $cert = (Get-AzureKeyVaultSecret -VaultName 'MY-KEY-VAULT' -Name 'MY-SECRET-NAME')
 $certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
-$certPass = (Get-AzureKeyVaultSecret -VaultName 'MY-KEY-VAULT' -Name 'MY-CERT-PWD').SecretValueText
 ```
 
 Next, convert the `SecretValueText` to a certificate.
 
 ```powershell
 $certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $certValue,$null,"Exportable, PersistKeySet"
-$certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPass);
-$credential = [System.Convert]::ToBase64String($certBytes)
+$certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword.SecretValueText);
+$identityCertificate = [System.Convert]::ToBase64String($certBytes)
 ```
 
+Then you can use the `$identityCertificate` to deploy a new cluster as in the following snippet:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $pathToArmTemplate `
+    -identityCertificate $identityCertificate `
+    -identityCertificatePassword $certPassword.SecretValueText `
+    -clusterName  $clusterName `
+    -clusterLoginPassword $SSHpassword `
+    -sshPassword $SSHpassword `
+    -servicePrincipalApplicationId $application.ApplicationId
+```
 
 ## Use Data Lake Store as additional storage
 
@@ -144,7 +157,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 ## Refresh the HDInsight certificate for Data Lake Store access
 
-The following example PowerShell code reads a local certificate file, and updates your HDInsight cluster with the new certificate to access Azure Data Lake Store. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted.
+The following example PowerShell code reads a certificate from a local file or Azure Key Vault, and updates your HDInsight cluster with the new certificate to access Azure Data Lake Storage. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted.
 
 ```powershell-interactive
 $clusterName = '<clustername>'
@@ -165,7 +178,7 @@ $certSource = 0
 if($certSource -eq 0)
 {
     Write-Host "Generating new SelfSigned certificate"
-    
+
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=hdinsightAdlsCert" -KeySpec KeyExchange
     $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
     $certString = [System.Convert]::ToBase64String($certBytes)
@@ -180,11 +193,12 @@ elsif($certSource -eq 1)
 }
 elsif($certSource -eq 2)
 {
+
+    Write-Host "Reading the cert file from Azure Key Vault $KeyVaultName"
+
     $cert = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName)
-
     $certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
-
-    $certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2-ArgumentList $certValue,$null,"Exportable, PersistKeySet"
+    $certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $certValue, $null,"Exportable, PersistKeySet"
 
     $certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword.SecretValueText);
 
