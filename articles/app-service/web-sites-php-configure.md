@@ -165,7 +165,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 ## How to: Enable Composer automation in Azure
 
 By default, App Service doesn't do anything with composer.json, if you have one in your PHP
-project. If you use [Git deployment](app-service-deploy-local-git.md), you can enable composer.json 
+project. If you use [Git deployment](deploy-local-git.md), you can enable composer.json 
 processing during `git push` by enabling the Composer extension.
 
 > [!NOTE]

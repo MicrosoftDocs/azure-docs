@@ -104,7 +104,7 @@ Alerts on management events that you have previously created will not be automat
 
 ## Next steps
 
-* Learn more about [Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* Learn more about [Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
 * Configure [Activity Log Alerts via Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
 * Review the [activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md)

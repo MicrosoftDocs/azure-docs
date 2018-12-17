@@ -65,7 +65,7 @@ You can mix and match services when you build an orchestration, calling function
 
 ## Compare Functions and WebJobs
 
-Like Azure Functions, Azure App Service WebJobs with the WebJobs SDK is a *code-first* integration service that is designed for developers. Both are built on [Azure App Service](../app-service/app-service-web-overview.md) and support features such as [source control integration](../app-service/app-service-continuous-deployment.md), [authentication](../app-service/app-service-authentication-overview.md), and [monitoring with Application Insights integration](functions-monitoring.md).
+Like Azure Functions, Azure App Service WebJobs with the WebJobs SDK is a *code-first* integration service that is designed for developers. Both are built on [Azure App Service](../app-service/app-service-web-overview.md) and support features such as [source control integration](../app-service/deploy-continuous-deployment.md), [authentication](../app-service/app-service-authentication-overview.md), and [monitoring with Application Insights integration](functions-monitoring.md).
 
 ### WebJobs and the WebJobs SDK
 

@@ -70,7 +70,7 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 >
 >
 
-* For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+* For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 * For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ### Enable diagnostics with PowerShell

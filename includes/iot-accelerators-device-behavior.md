@@ -134,7 +134,7 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-You can view the complete [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) on Github.
+You can view the complete [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) on GitHub.
 
 ## Method behavior
 

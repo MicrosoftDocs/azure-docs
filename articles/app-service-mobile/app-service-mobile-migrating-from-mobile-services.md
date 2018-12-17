@@ -417,7 +417,7 @@ Now that your application is migrated to App Service, there are even more featur
 [Azure portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
-[continuously deploy]: ../app-service/app-service-continuous-deployment.md
+[continuously deploy]: ../app-service/deploy-continuous-deployment.md
 [Convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [custom domain names]: ../app-service/app-service-web-tutorial-custom-domain.md
