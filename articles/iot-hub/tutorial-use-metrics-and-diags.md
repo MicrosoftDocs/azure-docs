@@ -294,7 +294,7 @@ Go back to alerts. Click **Resource groups**, select *ContosoResources*, then se
 
 When the number of messages sent exceeds the limit, you start getting e-mail alerts. To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
 
-   ![Screenshot showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/14-alerts-firing)
+   ![Screenshot showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
 
 Click on the alert for telemetry messages. It shows the metric result and a chart with the results. Also, the e-mail sent to warn you of the alert firing looks like this: 
 
