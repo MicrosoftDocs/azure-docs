@@ -51,7 +51,7 @@ Query Performance Insight is easy to use:
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain period of time, the charts will be empty when displaying that particular time period. You may enable Query Store at any time if it is not running, see [Best practices with Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/best-practice-with-the-query-store).    
+> A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain period of time, the charts will be empty when displaying that particular time period. You may enable Query Store at any time if it is not running, see [Best practices with Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).    
 > 
 
 ## Review top CPU consuming queries
@@ -61,17 +61,17 @@ In Azure portal, do the following:
    
     ![qpi_menu](./media/sql-database-query-performance/tile.png)
    
-The top queries view opens and the top CPU consuming queries are listed.
+    The top queries view opens and the top CPU consuming queries are listed.
     
 2. Click at the chart features for details.
 
-The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if "**Past week**" is selected, each bar represents a single day).
+    The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if "**Past week**" is selected, each bar represents a single day).
    
    ![top queries](./media/sql-database-query-performance/top-queries.png)
 
-> [!IMPORTANT]
->**Product limitations:** DTU chart in Query Performance Insight **should not be used** to understand the **overall DTU consumption**. This is because DTU chart is aggregated to a maximum value for 1hr periods. For example, if there was a query that maxed out DTU to 100% for a few minutes only, the DTU chart will show the entire 1hr consumption as 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart in Azure portal by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
->
+   > [!IMPORTANT]
+   >**Product limitations:** DTU chart in Query Performance Insight **should not be used** to understand the **overall DTU consumption**. This is because DTU chart is aggregated to a maximum value for one hour periods. For example, if there was a query that maxed out DTU to 100% for a few minutes only, the DTU chart will show the entire hour of consumption as 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to one minute), consider creating a custom chart in Azure portal by clicking on 1. Azure SQL Database > Monitoring, 2. Click on Metrics, 3. Click on +Add chart, 4. select DTU percentage on the chart. In addition, click on “Last 24 hours” on the top left hand side menu and change to one minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
+   >
    
     The bottom grid represents aggregated information for the visible queries.
    
@@ -142,11 +142,11 @@ To identify long running queries:
 
 5. Click on the "Go >" button
 
-        ![query_duration](./media/sql-database-query-performance/top-duration.png)
+   ![query_duration](./media/sql-database-query-performance/top-duration.png)
 
-> [!IMPORTANT]
-> **Product limitation:** Custom adjusting the metrics duration will update Query Performance Insight only, and it will **not update** the DTU chart. Consequently, following the custom adjustment of the view, the **DTU chart will not be in correlation with the Query Performance Insights chart**. To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. It is recommended that such custom created DTU chart is used to correlate with query performance insights chart.
->
+   > [!IMPORTANT]
+   > **Product limitation:** Custom adjusting the metrics duration will update Query Performance Insight only, and it will **not update** the DTU chart. Consequently, following the custom adjustment of the view, the **DTU chart will not be in correlation with the Query Performance Insights chart**. To understand database DTU consumption with more granularity (up to one minute), consider creating a custom chart in Azure portal by clicking on 1. Azure SQL Database > Monitoring, 2. Click on Metrics, 3. Click on +Add chart, 4. select DTU percentage on the chart. In addition, click on “Last 24 hours” on the top left hand side menu and change to one minute. It is recommended that such custom created DTU chart is used to correlate with query performance insights chart.
+   >
 
 ## Review top queries per execution count
 High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
@@ -164,6 +164,7 @@ To identify frequently executed queries (“chatty”) queries:
    ![query execution count](./media/sql-database-query-performance/top-execution.png)
 
 ## Understanding performance tuning annotations
+
 While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.
 
 These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
@@ -175,10 +176,12 @@ If you want to know more or apply advisor recommendation, click the icon. It wil
    ![query annotation details](./media/sql-database-query-performance/annotation-details.png)
 
 ### Multiple annotations.
+
 It’s possible, that because of zoom level, annotations that are close to each other will get collapsed into one. This will be represented by special icon, clicking it will open new blade where list of grouped annotations will be shown.
 Correlating queries and performance tuning actions can help to better understand your workload. 
 
 ## Optimizing the Query Store configuration for Query Performance Insight
+
 During your use of Query Performance Insight, you might encounter the following Query Store messages:
 
 * "Query Store is not properly configured on this database. Click here to learn more."
