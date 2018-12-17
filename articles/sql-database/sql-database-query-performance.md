@@ -21,10 +21,16 @@ Managing and tuning the performance of relational databases is a challenging tas
 * The ability to drill down into the details of a query, view its text and history of resource utilization. 
 * Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
-​
+> [!TIP]
+> Query Performance Insights is the recommended method for basic Azure SQL Database performance monitoring needs. Please note product limitations published on this page. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting. [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues.
+>
 
 ## Prerequisites
-* Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. If Query Store is not running, the portal prompts you to turn it on.
+* Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It is automatically enabled for all Azure SQL Databases by default. In case Query Store is not running for some reason, the portal will prompt you to turn it on.
+
+> [!NOTE]
+>Perhaps the most common reason for Query Store to stop running is filling up the available data space. In case this happens, Query Store will be in Read-Only state. To resolve, consider increasing Query Store data space or flushing the existing data, see [Optimizing the Query Store configuration](sql-database-query-performance.md#optimizing-the-query-store-configuration-for-query-performance-insight) at the bottom of this article.
+>
 
 ## Permissions
 The following [role-based access control](../role-based-access-control/overview.md) permissions are required to use Query Performance Insight: 
@@ -35,24 +41,23 @@ The following [role-based access control](../role-based-access-control/overview.
 ## Using Query Performance Insight
 Query Performance Insight is easy to use:
 
-* Open [Azure portal](https://portal.azure.com/) and find database that you want to examine. 
-  * From left-hand side menu, under support and troubleshooting, select “Query Performance Insight”.
+* Open [Azure portal](https://portal.azure.com/) and find a database that you would like to examine. 
+  * From the left-hand side menu, open **Intelligent Performance** > **Query performance insight**
 * On the first tab, review the list of top resource-consuming queries.
 * Select an individual query to view its details.
-* Open [SQL Azure Database Advisor](sql-database-advisor.md) and check if any recommendations are available.
+* Open **Intelligent Performance** > **Performance recommendations** and check if any performance improvement recommendations are available. For more information on built-in performance recommendations, see [SQL Azure Database Advisor](sql-database-advisor.md).
 * Use sliders or zoom icons to change observed interval.
-  
+
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that time period. You may enable Query Store at any time if it is not running.   
-> 
+> A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that particular time period. You may enable Query Store at any time if it is not running, see [Best practices with Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/best-practice-with-the-query-store).    
 > 
 
 ## Review top CPU consuming queries
-In the [portal](http://portal.azure.com) do the following:
+In Azure portal, perform these steps:
 
-1. Browse to a SQL database and click **All settings** > **Support + Troubleshooting** > **Query performance insight**. 
+1. Browse to a SQL database and click **Intelligent Performance** > **Query performance insight**. 
    
     ![Query Performance Insight][1]
    
