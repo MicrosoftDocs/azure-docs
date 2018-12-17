@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Log Analytics FAQ
@@ -131,7 +130,7 @@ Log Analytics uses UTC time and each day starts at midnight UTC. If the workspac
 
 ### Q. How can I be notified when data collection stops?
 
-A: Use the steps described in [create a new log alert](../../monitoring-and-diagnostics/alert-metric.md) to be notified when data collection stops.
+A: Use the steps described in [create a new log alert](../../azure-monitor/platform/alerts-metric.md) to be notified when data collection stops.
 
 When creating the alert for when data collection stops, set the:
 
@@ -145,7 +144,7 @@ When creating the alert for when data collection stops, set the:
    - **Name** to *Data collection stopped*
    - **Severity** to *Warning*
 
-Specify an existing or create a new [Action Group](../../monitoring-and-diagnostics/monitoring-action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
+Specify an existing or create a new [Action Group](../../azure-monitor/platform/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
 
 ## Configuration
 ### Q. Can I change the name of the table/blob container used to read from Azure Diagnostics (WAD)?

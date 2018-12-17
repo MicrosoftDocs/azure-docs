@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container from Azure Container Registry | Microsoft Docs
+title: Azure CLI Script Sample - Create ASP.NET Core app in Azure Container Registry | Microsoft Docs
 description: Azure CLI Script Sample - Create an ASP.NET Core web app in a Docker container from Azure Container Registry
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 
@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
-ms.author: cfowler
+ms.date: 12/13/2018
+ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Create an ASP.NET Core web app in a Docker container from Azure Container Registry
@@ -26,13 +27,11 @@ This sample script creates a resource group, a Linux App Service plan, and a web
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+You need Azure CLI version 2.0.52 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh "Linux Azure Container Registry")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

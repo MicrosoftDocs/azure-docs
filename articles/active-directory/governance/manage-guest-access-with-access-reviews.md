@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
@@ -34,7 +34,7 @@ You also can easily ensure that guest users have appropriate access. You can ask
 
 Access reviews are available with the Premium P2 edition of Azure AD, which is included in Microsoft Enterprise Mobility + Security, E5. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md). Each user who interacts with this feature, including to create a review, fill out a review or confirm their access, requires a license. 
 
-If you plan to ask guest users to review their own access, read about guest user licensing. For more information, see [Azure AD B2B collaboration licensing](../b2b/licensing-guidance.md).
+You can also ask guest users to review their own access. For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use B2B to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing](../b2b/licensing-guidance.md).
 
 ## Create and perform an access review for guests
 

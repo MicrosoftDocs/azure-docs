@@ -27,7 +27,7 @@ This section presents a sample Ansible playbook that defines the following resou
 - Resource group, where your App Service plan and web app will be deployed to
 - Web app with Java 8 and the Tomcat container runtime in App Service on Linux
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
@@ -67,7 +67,7 @@ ansible-playbook firstwebapp.yml
 
 The output from running the Ansible playbook shows that the web app was successfully created:
 
-```
+```Output
 PLAY [localhost] *************************************************
 
 TASK [Gathering Facts] *************************************************
@@ -99,7 +99,7 @@ This section presents a sample Ansible playbook that defines the following resou
 - Traffic Manager profile
 - Traffic Manager endpoint, using the created website
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
@@ -187,7 +187,7 @@ ansible-playbook webapp.yml
 ```
 
 The output from running the Ansible playbook shows that the App service plan, web app, Traffic Manager profile, and endpoint were successfully created:
-```
+```Output
 PLAY [localhost] *************************************************
 
 TASK [Gathering Facts] *************************************************
