@@ -29,7 +29,7 @@ The application is based on the Microsoft [Cognitive Services Speech SDK](https:
 
 Create a new, empty folder and initialize it as a new JavaScript and Node.js project.
 
-```nodejs
+```sh
 npm init -f
 ```
 
@@ -39,7 +39,7 @@ This will init the package.json files with default values. You will probably wan
 
 Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk` to your Node.js project.
 
-This will download and install the latest version of the Speech SDK and any required prerequisites from npmjs. The SDK will be installed in the `node_modules\microsoft-cognitiveservices-speech-sdk` directory inside your project folder.
+This will download and install the latest version of the Speech SDK and any required prerequisites from npmjs. The SDK will be installed in the `node_modules` directory inside your project folder.
 
 ## Using the Speech SDK
 
@@ -56,9 +56,9 @@ Add the following JavaScript code:
 
 ## Running the sample from command line
 
-To launch the app, adapt `YourSubscriptionKey`, `YourServiceRegion`, and `YourAudioFile.wav` to your configuration. Then you can execute it by calling
+To launch the app, adapt `YourSubscriptionKey`, `YourServiceRegion`, and `YourAudioFile.wav` to your configuration. Then you can execute it by calling the following command:
 
-```shell
+```sh
 node index.js
 ```
 
@@ -115,9 +115,6 @@ You can run the sample from Visual Studio Code as well. Follow these steps to in
 1. Any output will be shown in the debug console window
 
    ![Screenshot of debug console](media/sdk/qs-js-node-07-debug_output.png)
-
-
-For the complete quickstart code and more samples, please visit our Samples Repository.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/js-node` folder.
