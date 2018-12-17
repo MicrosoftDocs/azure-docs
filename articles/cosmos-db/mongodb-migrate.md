@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-Customer intent: As a developer, I want to migrate the data from my existing MongoDB workloads to MongoDB API account in Azure Cosmos DB so that the overhead to manage resources is handled by Azure Cosmos DB.
+Customer intent: As a developer, I want to migrate the data from my existing MongoDB workloads to a MongoDB API account in Azure Cosmos DB, so that the overhead to manage resources is handled by Azure Cosmos DB.
 ---
 
 # Tutorial: Migrate your data to an Azure Cosmos DB MongoDB API account
 
-As developer you may have applications that use NoSQL document data. You can use MongoDB API account in Azure cosmos DB, to store and access this document data. You can also migrate data from your existing applications to MongoDB API. This tutorial provides instructions on how to migrate data stored in MongoDB to an Azure Cosmos DB MongoDB API account. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
+As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can also migrate data from your existing applications to the MongoDB API. This tutorial provides instructions on how to migrate data stored in MongoDB to an Azure Cosmos DB MongoDB API account. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
 
 In this tutorial, you will:
 
@@ -175,11 +175,11 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. Use the following steps to delete the resource group:
+When it's no longer needed, you can delete the resource group, Azure Cosmos DB account, and all related resources. Use the following steps to delete the resource group:
 
 1. Navigate to the resource group where you created the Azure Cosmos DB account.
-
-1. Select **Delete resource group**, confirm the name of the resource group to delete and select **Delete**.
+1. Select **Delete resource group**.
+1. Confirm the name of the resource group to delete, and select **Delete**.
 
 ## Next steps
 
