@@ -209,7 +209,7 @@ We also provide the capability to export the telemetry data programmatically (in
 [Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Notification Hubs Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs Metrics]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Notification Hubs Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.com

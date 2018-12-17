@@ -18,18 +18,18 @@ Learn about errors received when using WebHCat with HDInsight, and how to resolv
 
 ## What is WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is a REST API for [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), a table, and storage management layer for Hadoop. WebHCat is enabled by default on HDInsight clusters, and is used by various tools to submit jobs, get job status, etc. without logging in to the cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is a REST API for [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), a table, and storage management layer for Apache Hadoop. WebHCat is enabled by default on HDInsight clusters, and is used by various tools to submit jobs, get job status, etc. without logging in to the cluster.
 
 ## Modifying configuration
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Several of the errors listed in this document occur because a configured maximum has been exceeded. When the resolution step mentions that you can change a value, you must use one of the following to perform the change:
 
 * For **Windows** clusters: Use a script action to configure the value during cluster creation. For more information, see [Develop script actions](hdinsight-hadoop-script-actions.md).
 
-* For **Linux** clusters: Use Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
+* For **Linux** clusters: Use Apache Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### Default configuration

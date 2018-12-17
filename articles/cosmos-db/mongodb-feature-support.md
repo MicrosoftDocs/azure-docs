@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB feature support for MongoDB'
-description: Learn about the feature support the Azure Cosmos DB MongoDB API provides for MongoDB 3.4.
+description: Learn about the feature support the Azure Cosmos DB API for MongoDB provides for MongoDB 3.4.
 services: cosmos-db
 author: alekseys
 
@@ -12,25 +12,30 @@ ms.author: alekseys
 experimental: true
 experiment_id: "662dc5fd-886f-4a"
 ---
-# MongoDB API support for MongoDB features and syntax
+# Azure Cosmos DB API for MongoDB support for MongoDB features and syntax
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the database's MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB API for MongoDB
+ through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB API for MongoDB
+ enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of the enterprise capabilities Azure Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB API for MongoDB
+, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities Azure Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
 ## MongoDB Protocol Support
 
-The Azure Cosmos DB MongoDB API is compatible with MongoDB Server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Cosmos DB using the MongoDB API.
+The Azure Cosmos DB API for MongoDB
+I is compatible with MongoDB Server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB API for MongoDB.
 
 The [MongoDB aggregation pipeline](#aggregation-pipeline) is also currently available as a separate preview feature.
 
 ## MongoDB query language support
 
-Azure Cosmos DB MongoDB API provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands and options.
+Azure Cosmos DB API for MongoDB
+ provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands and options.
 
 ## Database commands
 
-Azure Cosmos DB supports the following database commands on all MongoDB API accounts.
+Azure Cosmos DB supports the following database commands on all Azure Cosmos DB API for MongoDB.
 
 ### Query and write operation commands
 - delete
@@ -310,11 +315,12 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documents without sort 
 
 Azure Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. Now you can create custom indexes in Azure Cosmos DB by using the createIndex command, including the 'unique’ constraint.
 
-Unique indexes are available for all MongoDB API accounts.
+Unique indexes are available for all Azure Cosmos DB API for MongoDB accounts.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a relative time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for MongoDB API collections through the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a relative time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for Azure Cosmos DB API for MongoDB
+ collections through the [Azure portal](https://portal.azure.com).
 
 ## User and role management
 
@@ -326,7 +332,7 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 ## Write Concern
 
-Certain MongoDB Apis support specifying a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+Certain Azure Cosmos DB API for MongoDB support specifying a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Sharding
 

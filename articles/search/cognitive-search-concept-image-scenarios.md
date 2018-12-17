@@ -1,5 +1,5 @@
 ---
-title: Process and extract text from images in Azure Search | Microsoft Docs
+title: Process and extract text from images in cognitive search - Azure Search
 description: Process and extract text and other information from images in cognitive search pipelines in Azure Search.
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #  How to process and extract information from images in cognitive search scenarios
 

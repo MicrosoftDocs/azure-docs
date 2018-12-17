@@ -1,5 +1,6 @@
 ---
-title: Configure your automated machine learning experiment - Azure Machine Learning
+title: Create automated ML experiments 
+titleSuffix: Azure Machine Learning service
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
@@ -9,9 +10,10 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
-# Configure your automated machine learning experiment
+# Configure automated machine learning experiments
 
 Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 
@@ -165,7 +167,7 @@ Next determine where the model will be trained. An automated machine learning tr
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
 *	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
-See the [Github site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) for example notebooks with local and remote compute targets.
+See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) for example notebooks with local and remote compute targets.
 
 <a name='configure-experiment'/>
 
@@ -210,7 +212,7 @@ Property |	Description	| Default Value
 `iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. To get a high-quality model, use 250 or more	| 100
 `max_concurrent_iterations`|	Max number of iterations to run in parallel. This setting works only for remote compute.|	1
 `max_cores_per_iteration`	| Indicates how many cores on the compute target would be used to train a single pipeline. If the algorithm can leverage multiple cores, then this increases the performance on a multi-core machine. You can set it to -1 to use all the cores available on the machine.|	1
-`Iteration_timeout_minutes` |	Limits the amount of time (minutes) a particular iteration takes. If an iteration exceeds the specified amount, that iteration gets canceled. If not set, then the iteration continues to run until it is finished. |	None
+`iteration_timeout_minutes` |	Limits the amount of time (minutes) a particular iteration takes. If an iteration exceeds the specified amount, that iteration gets canceled. If not set, then the iteration continues to run until it is finished. |	None
 `n_cross_validations`	|Number of cross validation splits|	None
 `validation_size`	|Size of validation set as percentage of all training sample.|	None
 `preprocess` | True/False <br/>True enables experiment to perform preprocessing on the input. Following is a subset of preprocessing<li>Missing Data: Imputes the missing data- Numerical with Average, Text with most occurrence </li><li>Categorical Values: If data type is numeric and number of unique values is less than 5 percent, Converts into one-hot encoding </li><li>Etc. for complete list check [the GitHub repository](https://aka.ms/aml-notebooks)</li><br/>Note : if data is sparse you cannot use preprocess = true |	False |	
@@ -226,8 +228,9 @@ Property |	Description	| Default Value
 `run_configuration` |	RunConfiguration object.  Used for remote runs. |None
 `data_script`  |	Path to a file containing the get_data method.  Required for remote runs.	|None
 `model_explainability` | _Optional_ True/False <br/>  True enables experiment to perform feature importance for every iteration. You can also use explain_model() method on a specific iteration to enable feature importance on-demand for that iteration after experiment is complete. | False
-`enable_ensembling`|Flag to enable an ensembling iteration after all the other iterations complete.|
-`ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.|
+`enable_ensembling`|Flag to enable an ensembling iteration after all the other iterations complete.| True 
+`ensemble_iterations`|Number of iterations during which we choose a fitted pipeline to be part of the final ensemble.| 15
+`experiment_timeout_minutes`| Limits the amount of time (minues) that the whole experiment run can take | None
 
 ## Data pre-processing and featurization
 

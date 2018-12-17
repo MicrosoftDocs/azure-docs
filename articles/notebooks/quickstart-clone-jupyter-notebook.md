@@ -1,5 +1,5 @@
 ---
-title: Clone a Jupyter notebook from GitHub with Azure Notebooks | Microsoft Docs 
+title: Clone a Jupyter notebook from GitHub with Azure Notebooks
 description: Quickly clone a Jupyter notebook from a GitHub repository and run it in your Azure Notebooks account.
 services: app-service
 documentationcenter: ''
@@ -30,19 +30,19 @@ Cloning creates a copy of a GitHub notebook in your Azure Notebooks account inst
 
     ![My Projects link on the top of the browser window](media/quickstarts/my-projects-link.png)
 
-1. On the **My Projects** page, select the up arrow button (keyboard shortcut: U; the button appears as **Upload Github Repo** when the browser window is wide enough):
+1. On the **My Projects** page, select the up arrow button (keyboard shortcut: U; the button appears as **Upload GitHub Repo** when the browser window is wide enough):
 
-    ![Upload Github Repo command on My Projects page](media/quickstarts/upload-github-repo-command.png)
+    ![Upload GitHub Repo command on My Projects page](media/quickstarts/upload-github-repo-command.png)
 
-1. In the **Upload Github Repository** that appears, enter or set the following details, then select **Import**:
+1. In the **Upload GitHub Repository** that appears, enter or set the following details, then select **Import**:
 
-    - **Github repository**: Microsoft/cognitive-services-notebooks (this name clones the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
+    - **GitHub repository**: Microsoft/cognitive-services-notebooks (this name clones the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
     - **Clone recursively**: (cleared)
     - **Project name**: Cognitive Services Clone
     - **Project ID**: cognitive-services-clone
     - **Public**: (cleared)
 
-    ![Upload Github Repo popup to collect repo information](media/quickstarts/upload-github-repo-popup.png)
+    ![Upload GitHub Repo popup to collect repo information](media/quickstarts/upload-github-repo-popup.png)
 
 1. Be patient while the process completes; cloning a repository can take a few minutes.
 

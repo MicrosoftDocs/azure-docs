@@ -18,7 +18,7 @@ ms.author: mbullwin
 
 > [!NOTE]
 > This article describes how to analyze data usage Application Insights.  Refer to the following articles for related information.
-> - [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
+> - [Monitoring usage and estimated costs](../azure-monitor/platform/usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
 Pricing for [Azure Application Insights][start] is based on data volume per application. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription.
 
@@ -165,4 +165,4 @@ To disable the daily volume cap e-mails, under the **Configure** section of your
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

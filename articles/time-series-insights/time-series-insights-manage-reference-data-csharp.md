@@ -1,5 +1,5 @@
 ---
-title: Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs
+title: Azure Time Series Insights C# reference data - Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs
 description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
+ms.custom: seodec18
 ---
 # Manage reference data for an Azure Time Series Insights environment by using C#
 

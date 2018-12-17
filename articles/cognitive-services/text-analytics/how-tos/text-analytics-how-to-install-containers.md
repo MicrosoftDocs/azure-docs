@@ -1,10 +1,11 @@
 ---
 title: Install and run containers
-titleSuffix: Text Analytics - Cognitive Services - Azure
+titleSuffix: Text Analytics -  Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
@@ -22,7 +23,7 @@ Text Analytics provides the following set of Docker containers, each of which co
 |----------|-------------|
 |Key Phrase Extraction | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 |Language Detection | For up to 120 languages, detects and reports in which language the input text is written. The container reports a single language code for every document that's included in the request. The language code is paired with a score indicating the strength of the score. |
-|Sentiment Analysis | Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
+|Sentiment Analysis | Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](../language-support.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You must meet the following prerequisites before using Text Analytics containers:
 
-**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](../../../aks/index.yml), [Azure Container Instances](../../../container-instances/index.yml), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../../azure-stack/index.yml). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker must be configured to allow the containers to connect with and send billing data to Azure.
 

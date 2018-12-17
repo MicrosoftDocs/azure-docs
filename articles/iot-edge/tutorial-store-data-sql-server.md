@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Store data with Azure IoT Edge SQL module | Microsoft Docs 
+title: Tutorial store data with SQL module - Azure IoT Edge | Microsoft Docs 
 description: Learn how to store data locally on your IoT Edge device with a SQL Server module
 services: iot-edge
 author: kgremban
@@ -9,7 +9,7 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: "mvc, seodec18"
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
 
@@ -160,7 +160,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -248,7 +248,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
    }
    ```
 
-   ![Add sql server container](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Add SQL server module to manifest](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Depending on the type of Docker containers on your IoT Edge device, update the **sql** module parameters with the following code:
    * Windows containers:
@@ -413,7 +413,7 @@ From inside the SQL command tool, run the following command to view your formatt
    GO
    ```
 
-   ![View local data](./media/tutorial-store-data-sql-server/view-data.png)
+   ![View contents of local database](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

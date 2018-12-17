@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build a Xamarin.Forms app with .NET and the MongoDB API'
-description: Presents a Xamarin code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
+title: 'Build a Xamarin.Forms app with .NET and the Azure Cosmos DB API for MongoDB'
+description: Presents a Xamarin code sample you can use to connect to and query the Azure Cosmos DB API for MongoDB
 services: cosmos-db
 author: codemillmatt 
 
@@ -14,7 +14,7 @@ ms.author: masoucou
 
 ---
 
-# QuickStart: Build a MongoDB API Xamarin.Forms app with .NET and the Azure portal
+# QuickStart: Build a Xamarin.Forms app with .NET and the Azure Cosmos DB API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -27,7 +27,7 @@ ms.author: masoucou
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quickstart demonstrates how to create an Azure Cosmos DB [MongoDB API](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build a todo app Xamarin.Forms app by  using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+This quickstart demonstrates how to create an [Azure Cosmos DB API for MongoDB](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build a todo app Xamarin.Forms app by  using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## Prerequisites to run the sample app
 
@@ -49,7 +49,7 @@ The sample described in this article is compatible with MongoDB.Driver version 2
 
 ## Clone the sample app
 
-First, download the sample MongoDB API app from GitHub. It implements a todo app with MongoDB's document storage model.
+First, download the sample app from GitHub. It implements a todo app with MongoDB's document storage model.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -153,7 +153,7 @@ The following snippets are all taken from the `MongoService` class, found at the
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Connection String in the next steps.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Primary Connection String in the next steps.
 
 2. Open the **APIKeys.cs** file in the **Helpers** directory of the **TaskList.Core** project.
 
@@ -191,4 +191,4 @@ You've now updated your app with all the info it needs to communicate with Azure
 In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Xamarin.Forms app using the API for MongoDB. You can now import additional data to your Cosmos DB account.
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
+> [Import data into Azure Cosmos DB API for MongoDB](mongodb-migrate.md)
