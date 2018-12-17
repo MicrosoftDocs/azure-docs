@@ -10,7 +10,7 @@ ms.author: johnkem
 ms.component: activitylog
 ---
 # Stream the Azure Activity Log to Event Hubs
-You can stream the [Azure Activity Log](monitoring-overview-activity-logs.md) in near real time to any application by either:
+You can stream the [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md) in near real time to any application by either:
 
 * Using the built-in **Export** option in the portal
 * Enabling the Azure Service Bus rule ID in a log profile via the Azure PowerShell cmdlets or Azure CLI
@@ -90,10 +90,10 @@ If a log profile already exists, you first need to remove the existing log profi
    ```
 
 ## Consume the log data from Event Hubs
-The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](monitoring-overview-activity-logs.md). Each event is in an array of JSON blobs called *records*.
+The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). Each event is in an array of JSON blobs called *records*.
 
 ## Next steps
 * [Archive the Activity Log to a storage account](../azure-monitor/platform/archive-activity-log.md)
-* [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
+* [Read the overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md)
 * [Set up an alert based on an Activity Log event](../azure-monitor/platform/alerts-log-webhook.md)
 

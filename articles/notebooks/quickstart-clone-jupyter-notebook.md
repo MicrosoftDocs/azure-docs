@@ -36,7 +36,7 @@ Cloning creates a copy of a GitHub notebook in your Azure Notebooks account inst
 
 1. In the **Upload GitHub Repository** that appears, enter or set the following details, then select **Import**:
 
-    - **Github repository**: Microsoft/cognitive-services-notebooks (this name clones the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
+    - **GitHub repository**: Microsoft/cognitive-services-notebooks (this name clones the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
     - **Clone recursively**: (cleared)
     - **Project name**: Cognitive Services Clone
     - **Project ID**: cognitive-services-clone

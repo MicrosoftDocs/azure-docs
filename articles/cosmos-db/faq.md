@@ -177,7 +177,7 @@ To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.mi
 
 ### How do I perform transactions in the SQL API?
 
-The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it's a single-partition collection, the execution is scoped to the collection. If the collection is partitioned, the execution is scoped to documents with the same partition-key value within the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
+The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it's a single-partition collection, the execution is scoped to the collection. If the collection is partitioned, the execution is scoped to documents with the same partition-key value within the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### How can I bulk-insert documents into Cosmos DB?
 
@@ -185,7 +185,7 @@ You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 
 * The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dot-net.md) and [Using bulk executor Java library](bulk-executor-java.md)
 * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
-* Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
+* Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
 ### I've set up my container to use lazy indexing, I see that my queries don't return expected results.
 
