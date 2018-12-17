@@ -61,10 +61,10 @@ Azure.Offer | String | Offer for VM Marketplace image
 Azure.Sku | String | Sku of VM Marketplace image
 Azure.ImageVersion | String | Image Version of Marketplace image
 ImageId | String | Resource ID of VM image
-InstallJetpack | Boolean | CycleCloud will install jetpack with os extension
+InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension
 AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
 JetpackPlatform | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
-ImageOs | String | Either `windows` or `linux` to inform CycleCloud how to structure the os extension
+ImageOS | String | Either `windows` or `linux` to inform CycleCloud how to structure the OS extension
 IsReturnProxy | Boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
 KeyPairLocation | Integer | Location of ssh keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud
