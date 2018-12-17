@@ -25,7 +25,7 @@ Before you get started, here's a list of prerequisites:
 
 * A [subscription key](get-started.md) for the Speech Service.
 * Python 3.5 (64 bit) or later needs to be installed. Downloads are available [here](https://www.python.org/downloads/).
-* The Python Speech SDK package is available for Windows(x64), Mac (macOS X version 10.12 or later), and Linux (x64).
+* The Python Speech SDK package is available for Windows (x64), Mac (macOS X version 10.12 or later), and Linux (x64).
 
 ## Get the Speech SDK Python Package
 
