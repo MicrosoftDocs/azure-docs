@@ -97,7 +97,6 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
    * For the **Database id** field, select **Create new**, then enter **changefeedlabdatabase**. Leave the **Provision database throughput** box unchecked.  
    * For the **Collection** id field, enter **changefeedlabcollection**.  
-   * For **Storage capacity**, select **Unlimited**.  
    * For the **Partition key** field, enter **/Item**. This is case-sensitive, so make sure you enter it correctly.  
    * For the **Throughput** field, enter **10000**.  
    * Select the **OK** button.  
@@ -323,7 +322,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
    Add two collections under **changefeedlabdatabase** - **products** and **categories** with Fixed storage capacity.
 
-   Add another collection under **changefeedlabdatabase** named **topItems** with **Unlimited** storage capacity. Write **/Item** as the partition key.
+   Add another collection under **changefeedlabdatabase** named **topItems** and **/Item** as the partition key.
 
 2. Select the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
 

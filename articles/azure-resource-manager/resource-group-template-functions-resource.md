@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
 
 ---
@@ -286,9 +286,9 @@ Every resource type returns different properties for the reference function. The
 
 ### Remarks
 
-The reference function can retrieve the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
+The reference function retrieves the runtime state of either a previously deployed resource or a resource deployed in the current template. This article shows examples for both scenarios. When referencing a resource in the current template, provide only the resource name as a parameter. When referencing a previously deployed resource, provide the resource ID and an API version for the resource. You can determine valid API versions for your resource in the [template reference](/azure/templates/).
 
-The reference function derives its value from a runtime state, and therefore can't be used in the variables section. It can be used in outputs section of a template or [linked template](resource-group-linked-templates.md#link-or-nest-a-template). It can't be used in the outputs section of a [nested template](resource-group-linked-templates.md#link-or-nest-a-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template. 
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment.
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
 
@@ -505,6 +505,8 @@ The returned object is in the following format:
 
 ### Remarks
 
+The `resourceGroup()` function can't be used in a template that is [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group.
+
 A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location to assign the location for a web site.
 
 ```json
@@ -589,9 +591,9 @@ The identifier is returned in the following format:
 
 ### Remarks
 
-The parameter values you specify depend on whether the resource is in the same subscription and resource group as the current deployment.
+When used with a [subscription-level deployment](deploy-to-subscription.md), the `resourceId()` function can only retrieve the ID of resources deployed at that level. For example, you can get the ID of a policy definition or role definition, but not the ID of a storage account. For deployments to a resource group, the opposite is true. You can't get the resource ID of resources deployed at the subscription-level.
 
-To get the resource ID for a storage account in the same subscription and resource group, use:
+The parameter values you specify depend on whether the resource is in the same subscription and resource group as the current deployment. To get the resource ID for a storage account in the same subscription and resource group, use:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -613,6 +615,12 @@ To get the resource ID for a database in a different resource group, use:
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+To get the resource ID of a subscription-level resource when deploying at the subscription scope, use:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:

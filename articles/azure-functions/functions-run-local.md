@@ -440,7 +440,7 @@ The following project publish options are only supported in version 2.x:
 | **`--publish-settings-only -o`** |  Only publish settings and skip the content. Default is prompt. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the .funcignore file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
-| **`--zip`** | Publish in Run-From-Zip package. Requires the app to have AzureWebJobsStorage setting defined. |
+| **`--nozip`** | Turns the default `Run-From-Zip` mode off. |
 | **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |

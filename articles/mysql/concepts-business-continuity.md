@@ -1,13 +1,10 @@
 ---
 title: Overview of business continuity with Azure Database for MySQL
 description: Overview of business continuity with Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 

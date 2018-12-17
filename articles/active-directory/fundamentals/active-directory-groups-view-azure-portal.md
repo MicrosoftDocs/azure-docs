@@ -1,6 +1,6 @@
 ---
-title: Quickstart to view your groups and members - Azure Active Directory | Microsoft Docs
-description: Quickstart with steps about how to search for and view your organization's groups and their assigned members using the Azure portal.
+title: Quickstart to view your organization's groups and members - Azure Active Directory | Microsoft Docs
+description: Instructions about how to search for and view your organization's groups and their assigned members.
 services: active-directory
 author: eross-msft
 manager: mtillman
