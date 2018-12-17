@@ -75,7 +75,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group read-only listener**
 
-  A DNS CNAME record formed that points to the the read-only listener that points to the secondary's URL. It allows the read-only SQL applications to transparently connect to the secondary using the specified load-balancing rules.
+  A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It allows the read-only SQL applications to transparently connect to the secondary using the specified load-balancing rules.
 
   - **Logical server DNS CNAME record for read-only listener**
 
@@ -300,17 +300,17 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 #### Install the newest pre-release version of Powershell
 
-1. Update the powershellget module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Update the PowerShellGet module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. In a new PowerShell window, execute the following commands:
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
