@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 
 ms.author: mimart
 author: msmimart
