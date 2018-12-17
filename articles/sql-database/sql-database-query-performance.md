@@ -59,7 +59,7 @@ In Azure portal, do the following:
 
 1. Browse to a SQL database and click **Intelligent Performance** > **Query performance insight**. 
    
-    ![qpi_menu](./media/sql-database-query-performance/title.png)
+    ![qpi_menu](./media/sql-database-query-performance/tile.png)
    
 The top queries view opens and the top CPU consuming queries are listed.
     
