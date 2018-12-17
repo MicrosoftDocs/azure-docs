@@ -73,7 +73,6 @@ Azure Backup has a number of limits around subscriptions and vaults.
 [!INCLUDE [azure-backup-limits](../../includes/azure-backup-limits.md)]
 
 
-
 ## Backup performance
 
 ### Disk considerations
