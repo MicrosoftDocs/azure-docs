@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: fmegen
 ---
 
@@ -27,7 +27,7 @@ The application is based on the Microsoft [Cognitive Services Speech SDK](https:
 
 ## Create a new project folder
 
-Create a new, empty folder and initialize it as a new Javascript and Node.js project.
+Create a new, empty folder and initialize it as a new JavaScript and Node.js project.
 
 ```nodejs
 npm init -f
@@ -90,31 +90,31 @@ You can run the sample from Visual Studio Code as well. Follow these steps to in
 
 1. Start Visual Studio Code and click on "Open Folder", then navigate to the quickstart folder
 
-   ![Screenshot of Open Folder](media/sdk/qs-js-node-01-open_project.jpg)
+   ![Screenshot of Open Folder](media/sdk/qs-js-node-01-open_project.png)
 
 1. Open a terminal in Visual Studio Code
 
-   ![Screenshot of the terminal window](media/sdk/qs-js-node-02_open_terminal.jpg)
+   ![Screenshot of the terminal window](media/sdk/qs-js-node-02_open_terminal.png)
 
 1. Run npm to install the dependencies
 
-   ![Screenshot of npm install](media/sdk/qs-js-node-03-npm_install.jpg)
+   ![Screenshot of npm install](media/sdk/qs-js-node-03-npm_install.png)
 
 1. Now you are ready to open `index.js`and set a breakpoint
 
-   ![Screenshot of index.js with a breakpoint on line 16](media/sdk/qs-js-node-04-setup_breakpoint.jpg)
+   ![Screenshot of index.js with a breakpoint on line 16](media/sdk/qs-js-node-04-setup_breakpoint.png)
 
 1. To start debugging, either hit F5 or select Debug/Start Debugging from the menu
 
-   ![Screenshot of the debug menu](media/sdk/qs-js-node-05-start_debugging.jpg)
+   ![Screenshot of the debug menu](media/sdk/qs-js-node-05-start_debugging.png)
 
 1. When a breakpiont is hit, you can inspect the callstack and variables
 
-   ![Screenshot of debugger](media/sdk/qs-js-node-06-hit_breakpoint.jpg)
+   ![Screenshot of debugger](media/sdk/qs-js-node-06-hit_breakpoint.png)
 
 1. Any output will be shown in the debug console window
 
-   ![Screenshot of debug console](media/sdk/qs-js-node-07-debug_output.jpg)
+   ![Screenshot of debug console](media/sdk/qs-js-node-07-debug_output.png)
 
 
 For the complete quickstart code and more samples, please visit our Samples Repository.

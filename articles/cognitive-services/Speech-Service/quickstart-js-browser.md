@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Javascript (Browser) - Speech Services'
+title: 'Quickstart: Recognize speech, JavaScript (Browser) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in JavaScript in a browser using the Speech Service SDK
 services: cognitive-services

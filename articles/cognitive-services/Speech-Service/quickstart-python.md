@@ -9,7 +9,7 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 12/18/2018
 ms.author: chlandsi
 ---
 
