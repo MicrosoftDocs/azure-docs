@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.author: danlep
 ---
 # Quotas and region availability for Azure Container Instances
