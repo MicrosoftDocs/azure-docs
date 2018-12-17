@@ -26,7 +26,7 @@ You will need to request cores [here](https://docs.microsoft.com/azure/azure-sup
 ### What is the max pods per node setting for AKS?
 
 The max pods per node are set to 30 by default if you deploy an AKS cluster in the Azure portal.
-The max pods per node are set to 110 by default if you deploy an AKS cluster in the Azure CLI. (Ensure you are using the latest version of the Azure CLI). This default setting can be changed using the –max-nodes-per-pod flag in the az aks create command.
+The max pods per node are set to 110 by default if you deploy an AKS cluster in the Azure CLI. (Ensure you are using the latest version of the Azure CLI). This default setting can be changed using the --max-pods flag in the az aks create command.
 
 ### I am getting “insufficientSubnetSize” error while deploying an AKS cluster with Advanced networking. What should I do?
 
