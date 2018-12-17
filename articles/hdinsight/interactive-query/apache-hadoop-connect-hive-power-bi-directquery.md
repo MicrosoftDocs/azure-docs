@@ -72,7 +72,7 @@ Continue from the last procedure.
 3. Expand the map.
 
 ## Next steps
-In this article, you learned how to visualize data from HDInsight using Power BI.  For more information on data visualization, see the following articles:
+In this article, you learned how to visualize data from HDInsight using Microsoft Power BI.  For more information on data visualization, see the following articles:
 
 * [Visualize Apache Hive data with Microsoft Power BI using ODBC in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
 * [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
