@@ -25,7 +25,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 
 - The [Gson library](https://github.com/google/gson)
 
-[!INCLUDE [cognitive-services-bing-news-search-prerequisites](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
