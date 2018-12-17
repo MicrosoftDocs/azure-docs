@@ -53,7 +53,7 @@ For more information about users and roles in Azure AD, see the following resour
 
 The AzureIoTSolutions.com site links to the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
 
-The catalog lists more than a 1000 certified IoT hardware devices you can connect to your solution accelerators to start building your IoT solution.
+The catalog lists hundreds of certified IoT hardware devices you can connect to your solution accelerators to start building your IoT solution.
 
 ![Device catalog](media/iot-accelerators-permissions/devicecatalog.png)
 

@@ -33,7 +33,6 @@
       - name: Architecural choices
         href: iot-accelerators-remote-monitoring-architectural-choices.md
 
-<<<<<<< HEAD
     - name: Tutorials
       items: 
       - name: Monitor IoT devices
@@ -50,33 +49,6 @@
         href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
       - name: Detect anomalies at the edge
         href: iot-accelerators-remote-monitoring-edge.md
-=======
-- name: Concepts
-  items:
-  - name: Reference architecture overview
-    href: iot-accelerators-architecture-overview.md
-    items:
-    - name: Reference architecture
-      href: https://aka.ms/iotrefarchitecture
-  - name: Remote Monitoring
-    href: iot-accelerators-remote-monitoring-sample-walkthrough.md
-    items:
-    - name: Architectural choices
-      href: iot-accelerators-remote-monitoring-architectural-choices.md
-    - name: Device model schema
-      href: iot-accelerators-remote-monitoring-device-schema.md
-    - name: Device model behavior
-      href: iot-accelerators-remote-monitoring-device-behavior.md
-  - name: Predictive Maintenance
-    href: iot-accelerators-predictive-walkthrough.md
-  - name: Connected Factory
-    href: iot-accelerators-connected-factory-features.md
-    items:
-    - name: Architecture
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Permissions on azureiotsolutions.com
-    href: iot-accelerators-permissions.md
->>>>>>> 3e7f0489b6e... Add arch intro
 
     - name: How-to guides
       items:
@@ -157,8 +129,10 @@
 
     - name: Resources
       items:
-      - name: Developer reference guide
+      - name: Developer reference guide (.NET)
         href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
+      - name: Developer reference guide (Java)
+        href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide
       - name: Developer troubleshooting guide
         href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
       - name: GitHub repository (.NET)
@@ -240,6 +214,8 @@
 
   - name: Reference Architecture
     items:
+    - name: Overview
+      href: iot-accelerators-architecture-overview.md
     - name: Download
       href: https://aka.ms/iotrefarchitecture
     - name: Partner implementations
