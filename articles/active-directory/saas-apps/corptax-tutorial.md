@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 12/17/2018
 ms.author: jeedes
 
 ---
@@ -173,7 +173,7 @@ When you click the CorpTax tile in the Access Panel, you should be redirected to
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-In **Environment** text box, type **microsoft.com.2016**, you should be automatically signed in to the CorpTax for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In **Environment** text box, type your appropriate environment, you should be automatically signed in to the CorpTax for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
