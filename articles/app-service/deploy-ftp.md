@@ -49,7 +49,7 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 3. Browse to your app's URL to verify the app is running properly. 
 
 > [!NOTE] 
-> Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
+> Unlike [Git-based deployments](deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
 >
 > - dependency restores (such as NuGet, NPM, PIP, and Composer automations)
 > - compilation of .NET binaries
@@ -104,9 +104,9 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 
 ## Next steps
 
-For more advanced deployment scenarios, try [deploying to Azure with Git](app-service-deploy-local-git.md). Git-based deployment to Azure
+For more advanced deployment scenarios, try [deploying to Azure with Git](deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
 ## More resources
 
-* [Azure App Service Deployment Credentials](app-service-deployment-credentials.md)
+* [Azure App Service Deployment Credentials](deploy-configure-credentials.md)

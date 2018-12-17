@@ -129,7 +129,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Deploy to Azure
 
-To deploy this app, you can create a new web app in Azure and enable continuous deployment with a fork of this GitHub repo. Follow this [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) to set up continuous deployment with GitHub in Azure.
+To deploy this app, you can create a new web app in Azure and enable continuous deployment with a fork of this GitHub repo. Follow this [tutorial](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) to set up continuous deployment with GitHub in Azure.
 
 When deploying to Azure, you should remove your application keys and make sure the section below is not commented out:
 
