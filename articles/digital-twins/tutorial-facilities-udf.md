@@ -206,7 +206,7 @@ In this section, you'll use the project named *device-connectivity* in the sampl
 
    b. **HardwareId** within the **Sensors** array: Because you're simulating events from sensors provisioned to your Azure Digital Twins instance, the hardware ID and the names of the sensors in this file should match the `sensors` node of the provisionSample.yaml file.
 
-      Add a new entry for the temperature sensor. The **Sensors** node in appSettings.json should look like the following:
+      Add a new entry for the temperature sensor. The **Sensors** node in appsettings.json should look like the following:
 
       ```JSON
       "Sensors": [{
