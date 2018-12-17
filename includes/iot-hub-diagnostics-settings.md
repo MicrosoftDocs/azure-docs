@@ -52,4 +52,4 @@ Select-AzureRmSubscription -SubscriptionName <subscription that includes your Io
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your azure resources](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your azure resources](../articles/azure-monitor/platform/diagnostic-logs-overview.md).

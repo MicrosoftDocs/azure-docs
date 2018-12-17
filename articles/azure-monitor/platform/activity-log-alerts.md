@@ -22,11 +22,11 @@ Typically, you create activity log alerts to receive notifications when:
 * Specific operations occur on resources in your Azure subscription, often scoped to particular resource groups or resources. For example, you might want to be notified when any virtual machine in myProductionResourceGroup is deleted. Or, you might want to be notified if any new roles are assigned to a user in your subscription.
 * A service health event occurs. Service health events include notification of incidents and maintenance events that apply to resources in your subscription.
 
-A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure Portal](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
+A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure Portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
 
 In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 
-You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Overview of the Azure activity log](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Overview of the Azure activity log](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Activity log alerts have a few common options:
 

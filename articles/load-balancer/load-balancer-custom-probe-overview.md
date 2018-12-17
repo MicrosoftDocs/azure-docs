@@ -196,7 +196,7 @@ If you don't allow the [source IP](#probesource) of the probe in your firewall p
 
 For Load Balancer's health probe to mark up your instance, you **must** allow this IP address in any Azure [network security groups](../virtual-network/security-overview.md) and local firewall policies.  By default, every network security group includes the [service tag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic.
 
-If you wish to test a health probe failure or mark down an individual instance, you can use a [network security groups](../virtual-network/security-overview.md) to explicit block the health probe (destination port or [source IP](#probesource)) and simulate the failure of a probe.
+If you wish to test a health probe failure or mark down an individual instance, you can use a [network security groups](../virtual-network/security-overview.md) to explicitly block the health probe (destination port or [source IP](#probesource)) and simulate the failure of a probe.
 
 Do not configure your VNet with the Microsoft owned IP address range that contains 168.63.129.16.  Such configurations will collide with the IP address of the health probe and can cause your scenario to fail.
 

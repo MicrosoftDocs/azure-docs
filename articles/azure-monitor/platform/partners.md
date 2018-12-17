@@ -161,7 +161,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 * [Learn more about Azure Monitor](../../azure-monitor/overview.md)
 * [Access metrics using the REST API](rest-api-walkthrough.md)
 * [Stream the Activity Log to a non-Microsoft service](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [Stream Diagnostic Logs to a non-Microsoft service](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Stream Diagnostic Logs to a non-Microsoft service](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
