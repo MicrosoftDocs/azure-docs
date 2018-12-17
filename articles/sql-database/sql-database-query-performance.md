@@ -55,7 +55,7 @@ Query Performance Insight is easy to use:
 > 
 
 ## Review top CPU consuming queries
-In Azure portal, perform these steps:
+In Azure portal, do the following:
 
 1. Browse to a SQL database and click **Intelligent Performance** > **Query performance insight**. 
    
