@@ -25,6 +25,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 This tutorial assumes that you have [finished your Azure Digital Twins setup](tutorial-facilities-setup.md). Before proceeding, make sure that you have:
+
 - An [Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An instance of Digital Twins running. 
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine. 
@@ -32,6 +33,7 @@ This tutorial assumes that you have [finished your Azure Digital Twins setup](tu
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
 ## Define conditions to monitor
+
 You can define a set of specific conditions to monitor in the device or sensor data, called *matchers*. You can then define functions called *user-defined functions*. User-defined functions execute custom logic on data that comes from your spaces and devices, when the conditions specified by the matchers occur. For more information, read [Data processing and user-defined functions](concepts-user-defined-functions.md). 
 
 From the **occupancy-quickstart** sample project, open the file **src\actions\provisionSample.yaml** in Visual Studio Code. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**. The matcher will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node that contains a few sensors. To provision a matcher that will track one of these sensors, make sure that its **dataTypeValue** matches the sensor's **dataType**. 
@@ -48,6 +50,7 @@ This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [
 <a id="udf"></a>
 
 ## Create a user-defined function
+
 You can use user-defined functions to customize the processing of your sensor data. They're custom JavaScript code that can run within your Azure Digital Twins instance, when specific conditions as described by the matchers occur. You can create matchers and user-defined functions for each sensor that you want to monitor. For more information, read [Data processing and user-defined functions](concepts-user-defined-functions.md). 
 
 In the sample provisionSample.yaml file, look for a section that begins with the type **userdefinedfunctions**. This section provisions a user-defined function with a given **Name**. This UDF acts on the list of matchers under **matcherNames**. Notice how you can provide your own JavaScript file for the UDF as the **script**.
@@ -228,6 +231,7 @@ In this section, you'll use the project named *device-connectivity* in the sampl
    > Because the simulation sample does not directly communicate with your Digital Twins instance, it does not require you to authenticate.
 
 ## Get results of the user-defined function
+
 The user-defined function runs every time your instance receives device and sensor data. This section queries your Azure Digital Twins instance to get the results of the user-defined function. You'll see in near real time, when a room is available, that the air is fresh and temperature is right. 
 
 1. Open the command window that you used to provision the sample, or a new command window, and go to the **occupancy-quickstart\src** folder of the sample again.
