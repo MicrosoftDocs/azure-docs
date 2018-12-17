@@ -70,7 +70,8 @@ The following table explains different types of consistency.
 
 Azure Backup has a number of limits around subscriptions and vaults.
 
-[!INCLUDE [azure-backup-limits](../azure-backup-limits.md)]
+[!INCLUDE [azure-backup-limits](../../includes/azure-backup-limits.md)]
+
 
 
 ## Backup performance
