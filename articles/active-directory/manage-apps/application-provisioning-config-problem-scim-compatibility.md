@@ -27,16 +27,16 @@ Azure AD's support for the SCIM 2.0 protocol is described in [Using System for C
 This article describes current and past issues with the Azure AD user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 
 > [!IMPORTANT]
-> The latest update to the Azure AD user provisioning service SCIM client was made on December 19, 2018. This update addressed the known compatibility issues listed in the table below. See the frequently asked questions below for more information about this update.
+> The latest update to the Azure AD user provisioning service SCIM client was made on December 18, 2018. This update addressed the known compatibility issues listed in the table below. See the frequently asked questions below for more information about this update.
 
 ## SCIM 2.0 compliance issues and status
 
 | **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  
 |---|---|---|
-| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 19, 2018 | 
-| Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 19, 2018  | 
-|  Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 19, 2018  | 
-|  Group creation requests contain an invalid schema URI | Yes  |  December 19, 2018  |  
+| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | 
+| Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | 
+|  Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | 
+|  Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  
 
 ## Were the services fixes described automatically applied to my pre-existing SCIM app?
 
@@ -60,7 +60,7 @@ Yes. If you are already using this application instance for single sign-on, and 
 4.  In a new web browser window, go to https://developer.microsoft.com/en-us/graph/graph-explorer 
 and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to locate the ID of your provisioning job. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
-```Graph
+```
 GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
 ```
 
@@ -69,7 +69,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizati
 
 6. In the results, copy the full "ID" string that begins with either "customappsso" or "scim".
 7. Run the command below to retrieve the attribute-mapping configuration, so you can make a backup. Use the same [object-id] as before, and replace [job-id] with the provisioning job ID copied from the last step.
-```Graph
+```
 GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema
 ```
 
@@ -78,23 +78,23 @@ GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizati
 
 8. Copy the JSON output from the last step, and save it to a text file. This contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
 9. Run the command below to delete the provisioning job:
-```Graph
+```
 DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
 ```
 10. Run the command below to create a new provisioning job that has the latest service fixes.
-```Graph
-POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
-{
-  templateId: "scim"
-} 
-```   
+
+```POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs ```
+```{```
+```  templateId: "scim"```
+```} ```
+   
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, re-apply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you just copied, and entering the JSON output from step #7 as the request body.
-```Graph
-POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema
-{
-  <your-schema-json-here>
-} 
-```
+
+```POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema ```
+```{ ```
+```  <your-schema-json-here> ```
+```} ```
+
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.
 13. Verify your configuration, and then start the provisioning job. 
 
@@ -109,12 +109,12 @@ Yes. If you had coded an application to the old behavior that existed prior to t
 and sign in as the administrator for the Azure AD tenant where your app is added.
 5. In the Graph Explorer, run the command below to initialize the provisioning configuration for your app.
 Replace "[object-id]" with the service principal ID (object ID) copied from the third step.
-```Graph
-POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs 
-{
-  templateId: "customappsso"
-} 
-``` 
+
+```POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs ```
+```{ ```
+```  templateId: "customappsso" ```
+```} ```
+ 
 6. Return to the first web browser window, and select the **Provisioning** tab for your application.
 7. Complete the user provisioning configuration as you normally would.
 
