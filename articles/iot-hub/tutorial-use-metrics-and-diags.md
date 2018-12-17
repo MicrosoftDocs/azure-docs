@@ -82,16 +82,16 @@ az group create --name $resourceGroup \
     --location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
-iotHubName=ContosoTestHub$RANDOM
+iotHubName=ContosoTestHub  #ROBIN $RANDOM
 echo "IoT hub name = " $iotHubName
 
-# Create the IoT hub.
+# Create the IoT hub in the Free tier.
 az iot hub create --name $iotHubName \
     --resource-group $resourceGroup \
     --sku F1 --location $location
 
 # The storage account name must be globally unique, so add a random number to the end.
-storageAccountName=contosostoragemon$RANDOM
+storageAccountName=contosostoragemon   #ROBIN $RANDOM
 echo "Storage account name = " $storageAccountName
 
 # Create the storage account.
@@ -103,129 +103,156 @@ az storage account create --name $storageAccountName \
 # this gives an error: No keys found for policy iothubowner of IoT Hub ContosoTestHub  ROBIN
 # Create the IoT device identity to be used for testing.
 az iot hub device-identity create --device-id $iotDeviceName \
-    --hub-name $iotHubName
+    --hub-name $iotHubName 
 
-# THIS DOESN'T WORK BECAUSE THE ONE ABOVE DOESN'T WORK - ROBIN
 # Retrieve the information about the device identity, then copy the primary key to
 #   Notepad. You need this to run the device simulation during the testing phase.
 az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
 
 ```
+Robin Key
+8rWNCoq1jcp0DV/woEl4/ZmWGvTZHGIuPyrogY4qI+Y=
+Contoso-Test-Device
 
 ## Enable diagnostics 
 
 Diagnostics are disabled by default when you create a new IoT hub. In this section, enable the diagnostics for your hub.
 
-1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. [robin - be sure you've talked about that above]. Select the hub from the list of resources displayed. 
+1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. Select the hub from the list of resources displayed. 
 
 2. Look for the **Monitoring** section in the IoT Hub blade. Click **Diagnostic settings**. 
 
-<!-- ./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png -->
+   ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
-3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All** and check **IoT Hub**. (It re-checks *Select All*, just ignore this.) Under **Resource**, select the hub name. You screen should look like this image:
 
-<!-- ./media/tutorial-use-metrics-and-diags/02-diagnostics-settings-filledin.png -->
+3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All**, then look for and check **IoT Hub**. (It re-checks *Select All*, just ignore this.) Under **Resource**, select the hub name. You screen should look like this image: 
+
+   ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
 4. Now click **Turn on diagnostics**. The Diagnostics Settings screen is displayed. Specify the name of your diagnostics as "diags-hub".
 
-5. Check **Archive to a storage 
-account**. Click **Configure** to see the **Select a storage account** screen, select the right one (contosostoragemon), and click **OK** to return to the Diagnostics Settings screen. 
+5. Check **Archive to a storage account**. 
 
-<!-- ./media/tutorial-use-metrics-and-diags/04-diagnostics-settings-select-storage-account.png-->
+   ![Screenshot showing setting the diagnostics to archive to a storage account.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-6. Under **LOG**, check Connections and Device Telemetry, and set the **Retention (days)** to 7 days for each. 
+    Click **Configure** to see the **Select a storage account** screen, select the right one (*contosostoragemon*), and click **OK** to return to the Diagnostics Settings screen. 
 
-<!-- ./media/tutorial-use-metrics-and-diags/05-diagnostics-settings-done.png  -->
+   ![Screenshot showing setting the diagnostics to archive to a storage account.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
-7. Click **Save** to save the settings. 
+6. Under **LOG**, check **Connections** and **Device Telemetry**, and set the **Retention (days)** to 7 days for each. Your Diagnostic settings screen should now look like this:
 
-Later, when you look at the diagnostics logs, you'll see the connect and disconnect diagnostics for the device. 
+   ![Screenshot showing the final diagnostics settings.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
+
+7. Click **Save** to save the settings. Close the Diagnostics settings pane.
+
+Later, when you look at the diagnostics logs, you'll be able to see the connect and disconnect diagnostics for the device. 
 
 ## Set up metrics 
 
 Now set up some metrics to watch for when messages are sent to the hub. 
 
-1. In the settings pane for the IoT hub, click on the **Metrics** option under the **Monitoring** section.
+1. In the settings pane for the IoT hub, click on the **Metrics** option in the **Monitoring** section.
 
-2. At the top of the screen change **Last 24 hours...** to **Last 24 hours (Automatic - 15 minutes)**. In the dropdown that appears, select **Last 30 minutes** for **Time Range**, and set **Time Granularity** to **1 minute**, local time. Click **Apply** to save these settings. 
+2. At the top of the screen, click **Last 24 hours (Automatic)**. In the dropdown that appears, select **Last 4 hours** for **Time Range**, and set **Time Granularity** to **1 minute**, local time. Click **Apply** to save these settings. 
 
-3. Click **Add metric**. Select your resource gruop (**ContosoTestHub**). For **Metric Namespace**, select **IoT Hub standard metrics**. Under **Metric**, select **Telemetry messages sent**. Set **Aggregation** to **Sum**.
+   ![Screenshot showing the metrics time settings.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
-4. Click **Add metric**. Select your resource group (**ContosoTestHub**). Under **Metric**, select **Total Number of Messages Used**. For **Aggregation**, select **Avg**.  (ROBIN - or should you set Max?)
+3. There is one metric entry by default. Leave the resource group as the default, and the metric namespace. In the **Metric** dropdown list, select **Telemetry messages sent**. Set **Aggregation** to **Sum**.
 
-Click **Pin\ to dashboard** or you'll never see your metrics again. It will pin it to the dashboard of your Azure portal so you can access it again. 
-**I already had one pinned to the dashboard, and it didn't save the new one, and the resources for the old one had been deleted, so it didn't work. Can you not have more than one? Or more than one for the same hub? Or what?** ROBIN
+   ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-added.png)
 
-## SET UP ALERTS
+4. Click **Add metric** to add another metric to the chart. Select your resource group (**ContosoTestHub**). Under **Metric**, select **Total number of messages used**. For **Aggregation**, select **Avg**. 
 
-Go to the hub in the portal. IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to use classic alerts. 
+5. Click **Pin to dashboard** or you'll never see your metrics again. It will pin it to the dashboard of your Azure portal so you can access it again. 
 
-1. Under **Monitoring**, click **Alerts**.
+## Set up alerts
 
-2. Click **View classic alerts**. Click **Add metric alert (classic)** . 
+Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources*, then select IoT Hub *ContosoTestHub*. 
 
-<!-- screenshot of Add Rule blade-->
+IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to use classic alerts. 
 
-3. Set up an alert for telemetry messages sent:
+1. Under **Monitoring**, click **Alerts**. 
 
-   **Name**: Set name for the alert rule.
+   ![Screenshot showing how to find classic alerts.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
 
-   **Description**: Fill in a description for your alert rule. 
+2. Click **View classic alerts**. 
 
-   **Source**: Set to *Metrics*.
+    ![Screenshot showing the classic alerts screen.](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
 
-   **Subscription**: select the current subscription.
+    Fill in the fields: 
 
-    **Resource Group**: Select *ContosoResources*.
+    **Subscription**: Leave this as your current subscription.
 
-    **Resource**: Choose your IoT hub, *ContosoTestHub*. 
+    **Source**: Set this to *Metrics*.
 
-    **Metric**: Select **Telemetry messages sent**. 
+    **Resource group**: Set this to your current resource group, *ContosoResources*. 
 
-    **Condition**: Set to *Greater than*.
+    **Resource type**: Set this to IoT Hub. 
 
-    **Threshold**: Set to 400.
+    **Resource**: Select your IoT hub, *ContosoTestHub*.
 
-    **Period**: Set this to *Over the last 30 minutes*. 
+3. Click **Add metric alert (classic)**. 
 
-    On the **Notify via** section, fill in the felds: 
+    ![Screenshot showing setting up a classic alert for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
 
-    **Notification email recipients**: Fill in your e-mail address here. 
+    Fill in the fields:
 
-    You can also set up a webhook here and send the alerts there instead. For example, you could send the results to an Azure Function. You can also send the results to a Logic App.
+    **Name**: Provide a name for your alert rule, such as *telemetry-messages*.
 
-    Click **OK** to save the rule. 
+    **Description**: Provide a description of your alert, such as *alert when there are 1000 telemetry messages sent*. 
 
-4. Set up an alert for total messages used. This is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages.
+    **Source**: Set this to *Metrics*.
 
-   **Name**: Set name for the alert rule.
+    **Subscription**, **Resource group**, and **Resource** should be set to the values you selected on the **View classic alerts** screen. 
 
-   **Description**: Fill in a description for your alert rule. 
+    Set **Metric** to *Telemetry messages sent*.
 
-   **Source**: Set to *Metrics*.
+4. After the chart, set the following fields:
 
-   **Subscription**: select the current subscription.
+   **Condition**: Set to *Greater than*.
 
-    **Resource Group**: Select *ContosoResources*.
+   **Threshold**: Set to 1000.
 
-    **Resource**: Choose your IoT hub, *ContosoTestHub*. 
+   **Period**: Set to *Over the last 5 minutes*.
 
-    **Metric**: Select **Total number of messages used**. 
+   **Notification email recipients**: Put your e-mail address here. 
 
-    **Condition**: Set to *Greater than*.
+   ![Screenshot showing bottom half of alerts screen.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
-    **Threshold**: Set to 1000.
+   Click **OK** to save the alert. 
 
-    **Period**: Set this to *Over the last 5 minutes*. 
+5. Now set up another alert for the *Total number of messages used*. This is useful if you want to send an alert when the number of messages used is approaching the quota for the IoT hub -- to let you know the hub will soon start rejecting messages.
 
-    On the **Notify via** section, fill in the felds: 
+   On the **View classic alerts** screen, click **Add metric alert (classic)**, then fill in these fields on the **Add rule** pane.
 
-    **Notification email recipients**: Fill in your e-mail address here. 
+   **Name**: Provide a name for your alert rule, such as *number-of-messages-used*.
 
-    Click **OK** to save the rule. 
+   **Description**: Provide a description of your alert, such as *alert when getting close to quota*.
 
-5. Close the classic alerts pane, and then close the alerts pane. 
+   **Source**: Set this to *Metrics*.
+
+    **Subscription**, **Resource group**, and **Resource** should be set to the values you selected on the **View classic alerts** screen. 
+
+    Set **Metric** to *Total number of messages used*.
+
+6. Under the chart, fill in the following fields:
+
+   **Condition**: Set to *Greater than*.
+
+   **Threshold**: Set to 1000.
+
+   **Period**: Set this to *Over the last 5 minutes*. 
+
+   **Notification email recipients**: Put your e-mail address here. 
+
+   Click **OK** to save the rule. 
+
+5. You should now see two alerts in the classic alerts pane: 
+
+   ![Screenshot showing classic alerts screen with the new alert rules.](./media/tutorial-use-metrics-and-diags/12-alerts-done.png)
+
+6. Close the alerts pane. 
     
     With these settings, you will get an alert when the number of messages sent is greater than 400 and when the total number of messages used exceeds NUMBER.
 
@@ -253,59 +280,64 @@ In Program.cs, comment out the following line of code, which puts a pause of 1 s
 await Task.Delay(1000);
 ```
 
-Run the console application. Wait a few minutes (10-15). You can see the messages being sent on the console screen of the application in the console log.
-
-The app sends continuous device-to-cloud message to the IoT hub. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`.
+Run the console application. Wait a few minutes (10-15). You can see the messages being sent from the simulated device to the hub on the console screen of the application.
 
 ### See the metrics in the portal.
 
-Open your metrics from the Dashboard. It shows the telemetry messages sent and the total number of messages used on the chart, with the numbers at the bottom of the chart. 
+Open your metrics from the Dashboard. Change the time values to *Last 30 minutes* with a time granularity of *1 minute*. It shows the telemetry messages sent and the total number of messages used on the chart, with the most recent numbers at the bottom of the chart. 
 
-<!-- screenshot -->
+   ![Screenshot showing the metrics.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
 ### See the alerts
 
+Go back to alerts. Click **Resource groups**, select *ContosoResources*, then select the hub *ContosoTestHub*. In the properties page displayed for the hub, select **Alerts**, then **View classic alerts**. 
+
 When the number of messages sent exceeds the limit, you start getting e-mail alerts. To see if there are any active alerts, go to your hub and select **Alerts**. It will show you the alerts that are active, and if there are any warnings. 
 
-<!-- screenshot of classic alerts -->
+   ![Screenshot showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/14-alerts-firing)
 
-Click on alert-telemetry-messages. It shows the metric result and a chart with the results. The e-mail looks like this:
+Click on the alert for telemetry messages. It shows the metric result and a chart with the results. Also, the e-mail sent to warn you of the alert firing looks like this: 
 
-<!-- screenshot .media/tutorial-use-metrics-and-diags/metric-alert-fired.png -->
-
-It may take up to 30 minutes for the e-mail alerts to come through. (ARE THESE RELIABLE? I'M NOT GETTING THEM FOR TOTAL-MESSAGES-USED.)
+   ![Screenshot of the e-mail showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
 
 ### See the diagnostic logs. 
 
-Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see messages showing the device connecting to and disconnecting from the hub. 
+Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see messages showing the device connecting to and disconnecting from the hub.  (THIS DOESN'T WORK FOR ME, WHAT DO I NEED ENABLED?)
 
-If you are sending it to the storage account, go to the storage account *contosostoragemon* and select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. Download it and open it. You see something like this:
+You can see your diagnostics logs in the storage account. Go to your resource group and select your storage account *contosostoragemon*. Select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. 
 
-```
-{ "time": "2018-12-16T19:01:43Z", 
-   "resourceId":   
-      "/SUBSCRIPTIONS/<subscription id>/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
-   "operationName": "deviceConnect", 
-   "category": "Connections", 
-   "level": "Information", 
-   "properties": 
-      "{"deviceId :"Contoso-Test-Device",
-      "protocol":"Mqtt",
-      "authType":null,
-      "maskedIpAddress":"73.162.215.XXX",
-      "statusCode":null}", 
-    "location": "westus"}
-```
+   ![Screenshot of drilling down into the storage container to see the diagnostic logs.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
-HOW DO I SEE WHAT JOHN SAW, WITH THE CONNECTIONS? I'M SENDING IT TO LOG ANALYTICS, BUT NO IDEA IF I'M DOING THAT RIGHT. 
+Click **Download** to download it and open it. You see the logs of the device connecting and disconnecting as it sends messages to the hub. Here a sample: (ROBIN - CLEAN THIS UP)
+
+``` json
+{ "time": "2018-12-17T18:11:25Z", 
+  "resourceId": 
+    "/SUBSCRIPTIONS/A4295411-5EFF-4F81-B77E-276AB1CCDA12/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
+  "operationName": "deviceConnect", 
+  "category": "Connections", 
+  "level": "Information", 
+  "properties": "{\"deviceId\":\"Contoso-Test-Device\",\"protocol\":\"Mqtt\",\"authType\":null,\"maskedIpAddress\":\"73.162.215.XXX\",\"statusCode\":null}", 
+  "location": "westus"
+}
+{ "time": "2018-12-17T18:19:25Z", 
+   "resourceId": 
+     "/SUBSCRIPTIONS/A4295411-5EFF-4F81-B77E-276AB1CCDA12/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
+    "operationName": "deviceDisconnect", 
+    "category": "Connections", 
+    "level": "Error", 
+    "resultType": "404104", 
+    "resultDescription": "DeviceConnectionClosedRemotely", 
+    "properties": "{\"deviceId\":\"Contoso-Test-Device\",\"protocol\":\"Mqtt\",\"authType\":null,\"maskedIpAddress\":\"73.162.215.XXX\",\"statusCode\":\"404\"}", 
+    "location": "westus"
+}
+``'
 
 ## Clean up resources 
 
-To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. 
+To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**.
 
-DOES IT REMOVE THE STUFF PINNED TO THE DASHBOARD? I DON'T THINK SO.
-
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](cli/azure/group?view=azure-cli-latest#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
