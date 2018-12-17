@@ -47,10 +47,10 @@ This section registers your sample application to Azure Active Directory (Azure 
 
 Build the occupancy application by following these steps.
 
-1. Open a command prompt. Go to the folder where your **digital-twins-samples-csharp-master.zip** files were extracted.
+1. Open a command prompt. Go to the folder where your `digital-twins-samples-csharp-master.zip` files were extracted.
 1. Run `cd occupancy-quickstart/src`.
 1. Run `dotnet restore`.
-1. Edit **appSettings.json** to update the following variables:
+1. Edit [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) to update the following variables:
     - **ClientId**: Enter the Application ID of your Azure AD app registration, noted in the preceding section.
     - **Tenant**: Enter the Directory ID of your Azure AD tenant, also noted in the previous section.
     - **BaseUrl**: The Management API URL of your Digital Twins instance is in the format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Replace the placeholders in this URL with values for your instance from the previous section.
@@ -93,7 +93,7 @@ Build and run the sensor simulator application by following these steps.
 1. Open a new command prompt. Go to the project you downloaded in the digital-twins-samples-csharp-master folder.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
-1. Edit **appsettings.json** to update **DeviceConnectionString** with the previous `ConnectionString`.
+1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`.
 1. Run `dotnet run` to start sending sensor data. You see it sent to Digital Twins as shown in the following image.
 
      ![Device Connectivity][2]
