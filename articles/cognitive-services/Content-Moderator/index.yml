@@ -21,7 +21,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: ../media/index/computer-vision-landing-page-video.png
+      src: ../media/index/content-moderator-landing-page-video.png
       width: 250  
     title: Video moderation with Content Moderator (15:42)
     href: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
