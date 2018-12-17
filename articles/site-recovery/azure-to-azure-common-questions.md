@@ -16,7 +16,7 @@ This article provides answers to common questions we see when deploying disaster
 
 ## General
 ### How is Site Recovery priced?
-Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
+Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 
 ### How to configure Site Recovery on Azure VMs, What are the best practices?
 1. [Understand Azure to Azure architecture](azure-to-azure-architecture.md)
