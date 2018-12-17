@@ -74,7 +74,7 @@ To use the .NET Azure SDK with Azure Stack, you must supply the following values
 | Subscription ID           | AZURE_SUBSCRIPTION_ID | The [*subscription ID*][] is how you access offers in Azure Stack.                                                      |
 | Client Secret             | AZURE_CLIENT_SECRET   | The service principal application secret saved when the service principal was created.                                      |
 | Resource Manager Endpoint | ARM_ENDPOINT           | See [*the Azure Stack Resource Manager endpoint*][].                                                                    |
-| Location                  | RESOURCE_LOCATION     | Local for Azure Stack.
+| Location                  | RESOURCE_LOCATION     | Location for Azure Stack.
 
 To find the Tenant ID for your Azure Stack, follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following steps:
 
