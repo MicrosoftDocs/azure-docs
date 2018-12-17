@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights data modeling - Data modeling in Azure Time Series Insights Preview | Microsoft Docs
+title: 'Data modeling in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understand data modeling in Azure Time Series Insights Preview.
 author: ashannon7
 ms.author: anshan
