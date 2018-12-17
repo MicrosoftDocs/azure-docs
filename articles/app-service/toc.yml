@@ -101,19 +101,19 @@
     - name: Deploy the app
       items:
       - name: Deploy ZIP or WAR
-        href: app-service-deploy-zip.md
+        href: deploy-zip.md
       - name: Deploy via FTP
-        href: app-service-deploy-ftp.md
+        href: deploy-ftp.md
       - name: Deploy via cloud sync
-        href: app-service-deploy-content-sync.md
+        href: deploy-content-sync.md
       - name: Deploy continuously
-        href: app-service-continuous-deployment.md
+        href: deploy-continuous-deployment.md
       - name: Deploy from local Git
-        href: app-service-deploy-local-git.md
+        href: deploy-local-git.md
       - name: Deploy with template
-        href: app-service-deploy-complex-application-predictably.md
+        href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
-      href: app-service-deployment-credentials.md
+      href: deploy-configure-credentials.md
     - name: Create staging environments
       href: web-sites-staged-publishing.md
     - name: Resource Manager template guidance

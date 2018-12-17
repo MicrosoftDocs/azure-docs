@@ -167,18 +167,18 @@ The following procedure uses a Git repository to download the quickstart
 project code:
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. See [Prepare your repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
-1. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
-1. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
+2. See [Prepare your repository](../app-service/deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
+3. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
+4. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
    following example:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Browse to the local directory (`/todolist` in the preceding example), and notice that project files have been
+5. Browse to the local directory (`/todolist` in the preceding example), and notice that project files have been
    downloaded. Locate the todoitem.json file in the `/tables` directory. This file defines permissions on the
    table. Also find the todoitem.js file in the same directory. It defines the CRUD operation scripts for
    the table.
-1. After you make changes to project files, run the following commands to add, commit, and then upload the
+6. After you make changes to project files, run the following commands to add, commit, and then upload the
    changes to the site:
 
         $ git commit -m "updated the table script"
@@ -1079,7 +1079,7 @@ download the project to your local computer. To edit script files in the online 
 [Configure Google authentication]: ../app-service/configure-authentication-provider-google.md
 [Configure Microsoft authentication]: ../app-service/configure-authentication-provider-microsoft.md
 [Configure Twitter authentication]: ../app-service/configure-authentication-provider-twitter.md
-[Azure App Service deployment guide]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service deployment guide]: ../app-service/deploy-local-git.md
 [Monitoring Azure App Service]: ../app-service/web-sites-monitor.md
 [Enable diagnostic logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
 [Troubleshoot Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md

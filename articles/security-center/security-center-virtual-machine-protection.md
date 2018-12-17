@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: rkarlin
 
 ---
@@ -30,27 +30,24 @@ You can view a list of all issues by selecting **Recommendations**. For more inf
 For a complete list of Compute and App services recommendations, see [Recommendations](security-center-virtual-machine-recommendations.md).
 
 To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
-![Security Center dashboard][1]
+![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)
 
-## Monitor Compute and App services
-Under **Compute**, there are four tabs:
+## Monitor compute and app services
+Under **Compute & apps**, there are the following tabs:
 
 - **Overview**: monitoring and recommendations identified by Security Center.
 - **VMs and computers**: list of your VMs, computers, and current security state of each.
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
 - **App services (Preview)**: list of your App service environments and current security state of each.
-To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
+- **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
+- **VM scale sets (Preview)**: list of your scale sets and recommendations for each.
+- **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
-![Compute][2]
+To continue, select **Compute & apps** under **Resource security hygeine**.
+
+![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
-
-### Monitoring recommendations
-This section shows the total number of VMs and computers that were initialized for automatic provisioning and their current statuses. In this example there is one recommendation, **Monitoring agent health issues**. Select this recommendation.
-
-![Monitor agent health issues][3]
-
-**Monitoring agent health issues** opens. VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide.md) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
 
 ### Unmonitored VMs and computers <a name="unmonitored-vms-and-computers"></a>
 A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the SCOM agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
@@ -60,13 +57,9 @@ You can install the extension on the unmonitored VM or computer in addition to t
 See [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent) to learn more about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning.
 
 ### Recommendations
-This section has a set of recommendations for each VM and computer, web and worker roles, Azure App Service Web Apps, and Azure App Service Environment that Security Center monitors. The first column lists the recommendation. The second column shows the total number of resources that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot:
+This section has a set of recommendations for each VM and computer, web and worker roles, Azure App Service Web Apps, and Azure App Service Environment that Security Center monitors. The first column lists the recommendation. The second column shows the total number of resources that are affected by that recommendation. The third column shows the severity of the issue.
 
-![Recommendations][4]
-
-Each recommendation has a set of actions that you can perform after you select it. For example, if you select **Missing system updates**, the number of VMs and computers that are missing patches, and the severity of the missing update appears, as shown in the following screenshot:
-
-![Apply system updates][5]
+Each recommendation has a set of actions that you can perform after you select it. For example, if you select **Missing system updates**, the number of VMs and computers that are missing patches, and the severity of the missing update appears.
 
 **Apply system updates** has a summary of critical updates in a graph format, one for Windows, and one for Linux. The second part has a table with the following information:
 
@@ -87,7 +80,6 @@ Each recommendation has a set of actions that you can perform after you select i
 
 To view the recommendation details, click the name of the missing update from the list.
 
-![Recommendation details][6]
 
 > [!NOTE]
 > The security recommendations here are the same as those under the **Recommendations** tile. See [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) for more information about how to resolve recommendations.
@@ -95,42 +87,39 @@ To view the recommendation details, click the name of the missing update from th
 >
 
 ### VMs and computers
-The VMs and computers section gives you an overview of all VM and computer recommendations. Each column represents one set of recommendations as shown in the following screenshot:
+The VMs and computers section gives you an overview of all VM and computer recommendations. Each column represents one set of recommendations.
 
-![VM and computer recommendations][7]
+![VM and computer recommendations](./media/security-center-virtual-machine-recommendations/vm-computers.png)
 
 There are four types of icons represented in this list:
 
-![Non-Azure computer][8] Non-Azure computer.
+![Non-Azure computer](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Non-Azure computer.
 
-![Azure Resource Manager VM][9] Azure Resource Manager VM.
+![Azure Resource Manager VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) Azure Resource Manager VM.
 
-![Azure Classic VM][10] Azure Classic VM.
+![Azure Classic VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure Classic VM.
 
-![VMs identified from the workspace][11] VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with SCOM direct agent, and have no resource ID.
 
-The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the Filter option to select which options you will see on this screen.
+![VMs identified from the workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with SCOM direct agent, and have no resource ID.
 
-![Filter][12]
+The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the filters to search the list by **Resource type** and by **Severity**.
 
-In the previous example, one VM has a critical recommendation regarding endpoint protection. Select the VM to get more information about it:
-
-![Critical recommendation][13]
-
+To drill down into the security recommendations for each VM, click on the VM.
 Here you see the security details for the VM or computer. At the bottom you can see the recommended action and the severity of each issue.
+![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### Cloud services
-For cloud services, a recommendation is created when the operating system version is out of date as shown in the following screenshot:
+For cloud services, a recommendation is created when the operating system version is out of date.
 
-![Cloud services][14]
+![Cloud services](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
 
-In a scenario where you do have a recommendation (which is not the case for the previous example), you need to follow the steps in the recommendation to update the operating system version. When an update is available, you will have an alert (red or orange - depends on the severity of the issue). When you select this alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, you see more details about this recommendation as shown in the following screenshot:
-
-![WorkerRole1][15]
+In a scenario where you do have a recommendation (which is not the case for the previous example), you need to follow the steps in the recommendation to update the operating system version. When an update is available, you will have an alert (red or orange - depends on the severity of the issue). When you select this alert in the WebRole1 (runs Windows Server with your web app automatically deployed to IIS) or WorkerRole1 (runs Windows Server with your web app automatically deployed to IIS) rows, you see more details about this recommendation.
 
 To see a more prescriptive explanation about this recommendation, click **Update OS version** under the **DESCRIPTION** column.
 
-![Update OS version][16]
+
+
+![Update OS version](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### App services (Preview)
 
@@ -141,15 +130,15 @@ To see a more prescriptive explanation about this recommendation, click **Update
 
 Under **App services**, you find a list of your App service environments and the health summary based on the assessment Security Center performed.
 
-![App services][17]
+![App services](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 There are three types of icons represented in this list:
 
-![App services environment][18] App services environment.
+![App services environment](./media/security-center-virtual-machine-recommendations/ase.png) App services environment.
 
-![Web application][19] Web application.
+![Web application](./media/security-center-virtual-machine-recommendations/web-app.png) Web application.
 
-![Function application][24] Function application.
+![Function application](./media/security-center-virtual-machine-recommendations/function-app.png) Function application.
 
 1. Select a web application. A summary view opens with three tabs:
 
@@ -159,19 +148,15 @@ There are three types of icons represented in this list:
 
   Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
 
-  ![Summary view][20]
+  ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
-2. Select a recommendation for a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
+2. Select a recommendation to see a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
 
-  ![Recommendation description][21]
+ - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
 
-  Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
+ -  Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
-  ![Passed assessments][22]
-
-3. Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
-
-    ![Healthy resources][23]
+    ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## Compute and app recommendations
 |Resource type|Secure score|Recommendation|Description|
@@ -249,28 +234,3 @@ To learn more about Security Center, see the following:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 
-<!--Image references-->
-[1]: ./media/security-center-virtual-machine-recommendations/overview.png
-[2]: ./media/security-center-virtual-machine-recommendations/compute.png
-[3]: ./media/security-center-virtual-machine-recommendations/monitoring-agent-health-issues.png
-[4]: ./media/security-center-virtual-machine-recommendations/compute-recommendations.png
-[5]: ./media/security-center-virtual-machine-recommendations/apply-system-updates.png
-[6]: ./media/security-center-virtual-machine-recommendations/missing-update-details.png
-[7]: ./media/security-center-virtual-machine-recommendations/vm-computers.png
-[8]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png
-[9]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png
-[10]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png
-[11]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png
-[12]: ./media/security-center-virtual-machine-recommendations/filter.png
-[13]: ./media/security-center-virtual-machine-recommendations/vm-detail.png
-[14]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png
-[15]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new3.png
-[16]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png
-[17]: ./media/security-center-virtual-machine-recommendations/app-services.png
-[18]: ./media/security-center-virtual-machine-recommendations/ase.png
-[19]: ./media/security-center-virtual-machine-recommendations/web-app.png
-[20]: ./media/security-center-virtual-machine-recommendations/recommendation.png
-[21]: ./media/security-center-virtual-machine-recommendations/recommendation-desc.png
-[22]: ./media/security-center-virtual-machine-recommendations/passed-assessment.png
-[23]: ./media/security-center-virtual-machine-recommendations/healthy-resources.png
-[24]: ./media/security-center-virtual-machine-recommendations/function-app.png
