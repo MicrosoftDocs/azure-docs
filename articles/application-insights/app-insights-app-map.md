@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/12/2018
+ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 
@@ -202,7 +202,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 ## Portal feedback
 To provide feedback, use the portal feedback option.
 
-![MapLink-1 image](./media/app-insights-app-map/13.png)
+![MapLink-1 image](./media/app-insights-app-map/14-updated.png)
 
 ## Next steps
 
