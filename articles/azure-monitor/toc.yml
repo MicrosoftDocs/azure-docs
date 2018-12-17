@@ -38,11 +38,11 @@
   - name: Visualize data in Log Analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Archive platform metric and log data 
-    href: azure-monitor/learn/tutorial-archive-data.md
+    href: learn/tutorial-archive-data.md
   - name: Alert on log data
     href: learn/tutorial-response.md
   - name: Autoscale on performance and schedule
-    href: azure-monitor/learn/tutorial-autoscale-performance-schedule.md
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Find application run-time exceptions
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
   - name: Find application performance issues
@@ -537,7 +537,7 @@
       - name: Monitor Docker applications
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor resource groups
-      href: azure-monitor/insights/resource-group-insights.md
+      href: insights/resource-group-insights.md
     - name: Monitor databases
       items:
       - name: Azure SQL
