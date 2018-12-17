@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -28,9 +28,10 @@ This article explains the following functions in the sample app:
 The following sections explain the configuration and code that are used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
 
 > [!NOTE]
-> Durable Functions is available in JavaScript in the v2 Functions runtime only.
+> JavaScript Durable Functions are available for the Functions 2.x runtime only.
 
 ## E1_HelloSequence
+
 ### function.json file
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
@@ -42,7 +43,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 > [!WARNING]
 > To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator.
 
-### C# script (Visual Studio Code and Azure portal sample code) 
+### C# script (Visual Studio Code and Azure portal sample code)
 
 Here is the source code:
 
@@ -58,15 +59,16 @@ Here is the source code:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-All JavaScript orchestration functions must include the `durable-functions` module. This is a JavaScript library that translates the orchestration function's actions into Durable's execution protocol for out-of-proc languages. There are three significant differences between an orchestration function and other JavaScript functions:
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This is a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestration function and other JavaScript functions:
 
 1. The function is a [generator function.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. The function is wrapped in a call to the `durable-functions` module (here `df`).
-3. The function ends by calling `return`, not `context.done`.
+2. The function is wrapped in a call to the `durable-functions` module's `orchestrator` method (here `df`).
+3. The function must be synchronous. Because the 'orchestrator' method handles calling 'context.done', the function should simply 'return'.
 
-The `context` object contains a `df` object lets you call other *activity* functions and pass input parameters using its `callActivityAsync` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
+The `context` object contains a `df` object lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
 
 ## E1_SayHello
+
 ### function.json file
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
@@ -88,7 +90,7 @@ This function has a parameter of type [DurableActivityContext](https://azure.git
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Unlike a JavaScript orchestration function, a JavaScript activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activitytrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
+Unlike a JavaScript orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
 
 ## Run the sample
 
@@ -145,7 +147,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-This sample has demonstrated a simple function-chaining orchestration. The next sample shows how to implement the  fan-out/fan-in pattern. 
+This sample has demonstrated a simple function-chaining orchestration. The next sample shows how to implement the fan-out/fan-in pattern.
 
 > [!div class="nextstepaction"]
 > [Run the Fan-out/fan-in sample](durable-functions-cloud-backup.md)

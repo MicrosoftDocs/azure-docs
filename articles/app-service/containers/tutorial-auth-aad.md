@@ -1,6 +1,6 @@
 ---
 title: Authenticate and authorize users end-to-end on Linux - Azure App Service | Microsoft Docs 
-description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
+description: Learn how to use App Service authentication and authorization to secure your App Service apps running on Linux, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -234,7 +234,7 @@ Navigate to `http://<back_end_app_name>.azurewebsites.net` to see the items adde
 
 In this step, you enable authentication and authorization for the two apps. You also configure the front-end app to generate an access token that you can use to make authenticated calls to the back-end app.
 
-You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### Enable authentication and authorization for back-end app
 

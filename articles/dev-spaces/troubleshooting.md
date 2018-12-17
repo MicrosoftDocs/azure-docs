@@ -132,6 +132,18 @@ The error means that azds.exe is not in the PATH environment variable, as seen i
 
 Launch VS Code from a command prompt where the PATH environment variable is set properly.
 
+## Error "Required tools to build and debug 'projectname' are out of date."
+
+You will see this error in Visual Studio Code if you have a newer version of the VS Code extension for Azure Dev Spaces, but an older version of the Azure Dev Spaces CLI.
+
+### Try
+
+Download and install the latest version of the Azure Dev Spaces CLI:
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
+
 ## Error 'azds' is not recognized as an internal or external command, operable program, or batch file
  
 You might see this error if azds.exe is not installed or configured correctly.

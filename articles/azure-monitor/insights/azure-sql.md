@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: 
 ms.topic: conceptual
 author: danimir
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/26/2018
-ms.author: v-daljep
+ms.date: 12/17/2018
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is a cloud monitoring solution for monitoring performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions through a single pane of glass. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
+Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of Azure SQL databases, elastic pools, and Managed Instances at scale and across multiple subscriptions through a single pane of glass. It collects and visualizes important Azure SQL Database performance metrics with built-in intelligence for performance troubleshooting.
 
 By using metrics that you collect with the solution, you can create custom monitoring rules and alerts. The solution helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Log Analytics views to present data about all your Azure SQL databases, elastic pools, and databases in Managed Instances in a single Log Analytics workspace. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
@@ -294,4 +294,4 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 - Use [Log Searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](../../azure-monitor/platform/dashboards.md) showing Azure SQL data.
-- [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) when specific Azure SQL events occur.
+- [Create alerts](../../azure-monitor/platform/alerts-overview.md) when specific Azure SQL events occur.
