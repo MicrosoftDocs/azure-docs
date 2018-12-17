@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 4: Create an Azure Cosmos DB account
 
-This multi-part tutorial demonstrates how to create a new [MAzure Cosmos DB API account for MongoDB](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
+This multi-part tutorial demonstrates how to create a new [Azure Cosmos DB API account for MongoDB](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
 
 Part 4 of the tutorial builds on [Part 3](tutorial-develop-mongodb-nodejs-part3.md) and covers the following tasks:
 
