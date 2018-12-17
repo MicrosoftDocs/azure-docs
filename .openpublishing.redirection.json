@@ -377,11 +377,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/iot-edge-what-is-azure-iot.md",
             "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
@@ -455,11 +450,6 @@
         {
             "source_path": "articles/cognitive-services/Computer-vision/Research.md",
             "redirect_url": "/azure/cognitive-services/Computer-vision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
             "redirect_document_id": false
         },
         {
@@ -1338,13 +1328,63 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-csharp-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
-            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-python-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-node-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-java-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-c-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-develop-multiple-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-debug-multiple-modules-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
             "redirect_document_id": false
         },
         {
@@ -4237,7 +4277,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-continuous-deployment.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-continuous-deployment.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -4247,27 +4292,57 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-complex-application-predictably.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-complex-application-predictably",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-complex-application-predictably.md",
+            "redirect_url": "/azure/app-service/deploy-complex-application-predictably",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-content-sync",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-ftp.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-ftp",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-ftp.md",
+            "redirect_url": "/azure/app-service/deploy-ftp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-zip.md",
+            "redirect_url": "/azure/app-service/deploy-zip",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deploy-local-git.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deploy-local-git.md",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/app-service-deployment-credentials.md",
-            "redirect_url": "/azure/app-service/app-service-deployment-credentials",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-deployment-credentials.md",
+            "redirect_url": "/azure/app-service/deploy-configure-credentials",
             "redirect_document_id": false
         },
         {
@@ -4867,7 +4942,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-deployment-readme.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
@@ -4977,7 +5052,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-agile-software-development.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5022,7 +5097,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-test-in-production-controlled-test-flight.md",
-            "redirect_url": "/azure/app-service/app-service-continuous-deployment",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -5062,7 +5137,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-deploy.md",
-            "redirect_url": "/azure/app-service/app-service-deploy-local-git",
+            "redirect_url": "/azure/app-service/deploy-local-git",
             "redirect_document_id": false
         },
         {
@@ -23082,6 +23157,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security-center/security-center-ata-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-compliance-rest-api.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/compliances",
+            "redirect_document_id": false
+        },
+         {
+            "source_path": "articles/security-center/security-center-review-policy-compliance.md",
+            "redirect_url": "https://docs.microsoft.com/rest/api/securitycenter/tasks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-export-data-to-siem.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-aadip-integration.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-connect-application-gateway.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/quick-security-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security-center/security-center-partner-solutions.md",
+            "redirect_url": "/azure/security-center/security-center-partner-integration",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/security-center/security-center-azure-policy.md",
             "redirect_url": "/azure/security-center/tutorial-security-policy",
             "redirect_document_id": false
@@ -32314,6 +32429,31 @@
         {
             "source_path":  "articles/monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md",
             "redirect_url":  "/azure/azure-monitor/platform/diagnostic-logs-append-blobs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostic-logs-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/activity-logs-overview",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-data-sources.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources-reference",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md",
+            "redirect_url":  "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
             "redirect_document_id":  true
         },
         {

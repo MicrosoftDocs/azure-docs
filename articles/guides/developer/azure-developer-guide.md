@@ -187,7 +187,7 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 
 >**Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
 
->**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/app-service-continuous-deployment.md).
+>**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/deploy-continuous-deployment.md).
 
 
 ## Azure regions
