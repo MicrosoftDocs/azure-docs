@@ -19,7 +19,7 @@ Managing and tuning the performance of relational databases is a challenging tas
 * Deeper insight into your databases resource (DTU) consumption. 
 * The top queries by CPU/Duration/Execution count, which can potentially be tuned for improved performance.
 * The ability to drill down into the details of a query, view its text and history of resource utilization. 
-* Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
+* Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md).
 
 > [!TIP]
 > Query Performance Insights is the recommended method for basic Azure SQL Database performance monitoring needs. Please note product limitations published on this page. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting. [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues.
@@ -51,7 +51,7 @@ Query Performance Insight is easy to use:
     ![performance dashboard](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain time period, the charts will be empty when displaying that particular time period. You may enable Query Store at any time if it is not running, see [Best practices with Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/best-practice-with-the-query-store).    
+> A couple hours of data needs to be captured by Query Store for SQL Database to provide query performance insights. If the database has no activity or Query Store was not active during a certain period of time, the charts will be empty when displaying that particular time period. You may enable Query Store at any time if it is not running, see [Best practices with Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/best-practice-with-the-query-store).    
 > 
 
 ## Review top CPU consuming queries
@@ -65,12 +65,12 @@ The top queries view opens and the top CPU consuming queries are listed.
     
 2. Click at the chart features for details.
 
-The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if **Past week** is selected, each bar represents a single day).
+The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if "**Past week**" is selected, each bar represents a single day).
    
    ![top queries](./media/sql-database-query-performance/top-queries.png)
 
 > [!IMPORTANT]
->**Product limitations:** DTU chart in Query Performance Insight **should not be used** to understand the **overall DTU consumption**. This is because DTU chart is aggregated to a maximum value for the observed period. For example, if there was a query that maxed out DTU to 100% only for a few minutes, the DTU chart will show that the entire 1hr consumption as 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
+>**Product limitations:** DTU chart in Query Performance Insight **should not be used** to understand the **overall DTU consumption**. This is because DTU chart is aggregated to a maximum value for 1hr periods. For example, if there was a query that maxed out DTU to 100% for a few minutes only, the DTU chart will show the entire 1hr consumption as 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to 1 minute), consider creating a custom chart in Azure portal by clicking on Azure SQL Database, Monitoring, Metrics, +Add chart, select DTU percentage on the chart, then change “Last 24 hours” on the top left hand side menu to 1 minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
 >
    
     The bottom grid represents aggregated information for the visible queries.
