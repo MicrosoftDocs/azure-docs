@@ -124,7 +124,7 @@ Logs are especially useful for combining data from a variety of sources, for com
 ### Sources of log data
 Azure Monitor can collect log data from a variety of sources both within Azure and from on-premises resources. Sources of log data include the following:
 
-- [Activity logs](collect-activity-logs.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) that provide insights into their operation.
+- [Activity logs](collect-activity-logs.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) that provide insights into their operation.
 - Agents on [Windows](agent-windows.md) and [Linux](../learn/quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Azure Monitor according to [Data Sources](data-sources.md) that you configure.
 - Application data collected by [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data providing insights into a particular application or service from [monitoring solutions](../insights/solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.

@@ -1,5 +1,5 @@
 ---
-title: Checking for Batch pool and node errors
+title: Checking for pool and node errors - Azure Batch
 description: Errors to check for and how to avoid when creating pools and nodes
 services: batch
 author: mscurrell

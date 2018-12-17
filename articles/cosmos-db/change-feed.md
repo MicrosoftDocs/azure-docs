@@ -26,7 +26,7 @@ The change feed in Azure Cosmos DB enables you to build efficient and scalable s
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API**|**Table API** |
+| **Client drivers** | **Azure CLI** | **Azure Cosmos DB: API for SQL** | **Azure Cosmos DB: API for Cassandra** | **Azure Cosmos DB: API for MongoDB** | **Azure Cosmos DB: API for Gremlin**|**Azure Cosmos DB: API for Table** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | NA | Yes | No | No | Yes | No |
 |Java|NA|Yes|No|No|Yes|No|

@@ -140,7 +140,7 @@ Create a file called `_backup.filter` and put the preceding list in the file, bu
     \site\wwwroot\Images\2013
 ```
 
-Upload `_backup.filter` file to the `D:\home\site\wwwroot\` directory of your site using [ftp](app-service-deploy-ftp.md) or any other method. If you wish, you can create the file directly using Kudu  `DebugConsole` and insert the content there.
+Upload `_backup.filter` file to the `D:\home\site\wwwroot\` directory of your site using [ftp](deploy-ftp.md) or any other method. If you wish, you can create the file directly using Kudu  `DebugConsole` and insert the content there.
 
 Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups). Now, any files and folders that are specified in `_backup.filter` is excluded from the future backups scheduled or manually initiated. 
 
