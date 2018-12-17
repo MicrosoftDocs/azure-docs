@@ -15,7 +15,7 @@ ms.date: 07/16/2018
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
-In-Memory technologies in Azure SQL Database enabl eyou to improve performance of your application, and potentially reduce cost of your database. By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
+In-Memory technologies in Azure SQL Database enable you to improve performance of your application, and potentially reduce cost of your database. By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
 - Transactional (online transactional processing (OLTP)) where most of the requests read or update smaller set of data (for example, CRUD operations).
 - Analytic (online analytical processing (OLAP)) where most of the queries have complex calculations for the reporting purposes, with a certain number of queries that load and append data to the existing tables (so called bulk load), or delete the data from the tables. 
 - Mixed (hybrid transaction/analytical processing (HTAP)) where both OLTP and OLAP queries are executed on the same set of data.
@@ -99,9 +99,9 @@ With elastic pools, the In-Memory OLTP storage is shared across all databases in
 
 Columnstore technology enabling you to store and query a large amount of data in the tables. Columnstore technology uses column-based data storage and query processing to achieve gains up to 10 times the query performance in OLAP workloads over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size.
 
-Columnstore technology also enables Hybrid Transactional-Analytic Processin (HTAP): the ability to run performant real-time analytics on a transactional workload.
+Columnstore technology also enables Hybrid Transactional-Analytic Processing (HTAP): the ability to run performant real-time analytics on a transactional workload.
 
-In depth overview:
+In-depth video about the technology:
 - [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### Data size and storage for columnstore indexes
