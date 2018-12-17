@@ -92,7 +92,7 @@ SQL Server provides a powerful platform for developing rich applications for sem
 
 - The xml data type. XML values can be stored natively in an xml data type column that can be typed according to a collection of XML schemas, or left untyped. You can index the XML column.
 - The ability to specify an XQuery query against XML data stored in columns and variables of the xml type. XQUery functionalities can be used in any Transact-SQL query that access any data model that you use in your database.
-- Automatically index all elements in XML documents using [primary XML index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) or specify the exact paths that should be indexed using [Secondary XML index](https://docs.microsoft.com/en-us/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
+- Automatically index all elements in XML documents using [primary XML index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) or specify the exact paths that should be indexed using [secondary XML index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET that allows bulk loading of XML data.
 - Transform relational data to XML format.
 
@@ -124,7 +124,7 @@ See [how BWin is using In-Memory OLTP to achieve unprecedented performance and s
 ## Next steps
 Multi-model capabilities in Azure SQL Databases are also the core SQL Server Database Engine features that are shared between Azure SQL Database and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:
 
-* [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview).
-* [JSON data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server).
-* [Spatial support](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server).
-* [XML data](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server).
+* [Graph processing](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [JSON data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
+* [Spatial support](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
+* [XML data](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)
