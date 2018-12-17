@@ -13547,7 +13547,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/translator-speech/index.yml",
+            "source_path": "articles/cognitive-services/translator-speech/index.md",
             "redirect_url": "/azure/cognitive-services/translator-speech/overview",
             "redirect_document_id": true
         },
