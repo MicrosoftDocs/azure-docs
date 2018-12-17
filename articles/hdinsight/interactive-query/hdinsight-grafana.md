@@ -6,17 +6,15 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 12/11/2018
 ---
 # Access Grafana in Azure HDInsight
 
 
 [Grafana](https://grafana.com/) is a popular, open-source graph and dashboard builder. Grafana is feature rich; not only does it let users create customizable and shareable dashboards, it also offers templated/scripted dashboards, LDAP integration, multiple data sources, and more.
 
-Currently, Grafana is only support by the Interactive Query cluster type in Azure HDInsight.
-
+Currently, in Azure HDInsight, Grafana is supported with the Hbase and Interactive Query cluster types.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -59,7 +57,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
    
     ![HDInsight Linux get started resource group](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group")
     
-5. The tile also lists the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
+5. The tile also lists the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters does not delete the storage account.
     
 
 > [!NOTE]
@@ -70,16 +68,22 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 ## Access the Grafana dashboard
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 2. Select **HDInsight clusters**, and then select the cluster name you created in the last section.
+
 3. Under **Quick links**, click **Cluster dashboard**.
 
     ![HDInsight cluster dashboard portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "HDInsight cluster dashboard on the portal")
 
-4. From the dashboard, click the **Grafana** tile.
+4. From the dashboard, click the **Grafana** tile. Alternatively, browse to the `/grafana/` path of your cluster URL. For example, `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Enter the Hadoop cluster user credentials.
-6. The Grafana dashboard looks like:
+
+6. The Grafana dashboard appears and looks like this example:
 
     ![HDInsight Grafana dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
+
+   
 
 ## Clean up resources
 After you complete the article, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
@@ -131,5 +135,3 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

@@ -1,5 +1,5 @@
 ---
-title: How to Create an App Service Environment v1
+title: How to Create an App Service Environment v1 - Azure
 description: Creation flow description for an app service environment v1
 services: app-service
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # How to Create an App Service Environment v1 

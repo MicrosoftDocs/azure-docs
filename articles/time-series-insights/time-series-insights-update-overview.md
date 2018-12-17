@@ -1,6 +1,6 @@
 ﻿---
 title: Azure Time Series Insights Preview overview | Microsoft Docs
-description: Azure Time Series Insights Preview overview
+description: Azure Time Series Insights Preview overview.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,6 +10,7 @@ ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
+ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Preview overview

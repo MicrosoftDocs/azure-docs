@@ -13,19 +13,19 @@ ms.date: 10/26/2018
 
 # Use Terraform to create an Azure virtual machine scale set
 
-[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to create and manage a group of identical, load balanced virtual machines where the number of virtual machine instances can automatically increase, or decrease in response to demand or a defined schedule. 
+[Azure virtual machine scale sets](/azure/virtual-machine-scale-sets) allow you to create and manage a group of identical, load balanced virtual machines where the number of virtual machine instances can automatically increase, or decrease in response to demand or a defined schedule.
 
 In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/overview) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Set up a Terraform deployment
-> * Use variables and outputs for Terraform deployment 
+> * Use variables and outputs for Terraform deployment
 > * Create and deploy network infrastructure
 > * Create and deploy a virtual machine scale set and attach it to the network
 > * Create and deploy a jumpbox to connect to the VMs via SSH
 
 > [!NOTE]
-> The most recent version of the Terraform configuration files used in this article are in the [Awesome Terraform repository on Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
+> The most recent version of the Terraform configuration files used in this article are in the [Awesome Terraform repository on GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
 ## Prerequisites
 
@@ -117,7 +117,7 @@ Within the Azure Cloud Shell, perform the following steps:
 
 1. Enter insert mode by selecting the I key.
 
-1. Paste the following code into the editor to expose the fully qualified domain name (FQDN) for the virtual machines. 
+1. Paste the following code into the editor to expose the fully qualified domain name (FQDN) for the virtual machines.
 :
 
   ```JSON
@@ -135,9 +135,9 @@ Within the Azure Cloud Shell, perform the following steps:
     ```
 
 ## Define the network infrastructure in a template
-In this section, you create the following network infrastructure in a new Azure resource group: 
+In this section, you create the following network infrastructure in a new Azure resource group:
 
-  - One virtual network (VNET) with the address space of 10.0.0.0/16 
+  - One virtual network (VNET) with the address space of 10.0.0.0/16
   - One subnet with the address space of 10.0.2.0/24
   - Two public IP addresses. One used by the virtual machine scale set load balancer, the other used to connect to the SSH jumpbox.
 
@@ -151,7 +151,7 @@ Within the Azure Cloud Shell, perform the following steps:
 
 1. Enter insert mode by selecting the I key.
 
-1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines. 
+1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines.
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -206,7 +206,7 @@ Using the Azure Cloud Shell from the directory where you created the configurati
 1. Initialize Terraform.
 
   ```bash
-  terraform init 
+  terraform init
   ```
 
 1. Run the following command to deploy the defined infrastructure in Azure.
@@ -231,8 +231,8 @@ Using the Azure Cloud Shell from the directory where you created the configurati
 In this section, you learn how to add the following resources to the template:
 
 - An Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier in this article
-- An Azure backend address pool and assign it to the load balancer 
-- A health probe port used by the application and configured on the load balancer 
+- An Azure backend address pool and assign it to the load balancer
+- A health probe port used by the application and configured on the load balancer
 - A virtual machine scale set sitting behind the load balancer that runs on the VNET deployed earlier in this article
 - [Nginx](http://nginx.org/) on the nodes of the virtual machine scale using [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
 
@@ -355,7 +355,7 @@ In Cloud Shell, perform the following steps:
     :wq
     ```
 
-1. Create a file named `web.conf` to serve as the cloud-init configuration for the virtual machines that are part of the scale set. 
+1. Create a file named `web.conf` to serve as the cloud-init configuration for the virtual machines that are part of the scale set.
 
     ```bash
     vi web.conf
@@ -403,7 +403,7 @@ In Cloud Shell, perform the following steps:
   variable "admin_password" {
       description = "Default password for admin account"
   }
-  ``` 
+  ```
 
 1. Exit insert mode by selecting the Esc key.
 
@@ -426,14 +426,14 @@ In Cloud Shell, perform the following steps:
 1. Deploy the new resources in Azure.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
   The output of the command should be similar to the following screenshot:
 
   ![Terraform virtual machine scale set resource group](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. Open a browser and connect to the FQDN that was returned by the command. 
+1. Open a browser and connect to the FQDN that was returned by the command.
 
   ![Results of browsing to FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
@@ -541,7 +541,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
 1. Deploy the jumpbox.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
 Once the deployment has completed, the content of the resource group resembles that shown in the following screenshot:
@@ -551,7 +551,7 @@ Once the deployment has completed, the content of the resource group resembles t
 > [!NOTE]
 > The ability to log in with a password is disabled on the jumpbox and the virtual machine scale set that you deployed. Log in with SSH to access the virtual machine(s).
 
-## Environment cleanup 
+## Environment cleanup
 
 To delete the Terraform resources that were created in this tutorial, enter the following command into Cloud Shell:
 
@@ -562,9 +562,9 @@ terraform destroy
 The destruction process can take several minutes to complete.
 
 ## Next steps
-In this article, you learned how to use Terraform to create an Azure virtual machine scale set. Here are some additional resources to help you learn more about Terraform on Azure: 
+In this article, you learned how to use Terraform to create an Azure virtual machine scale set. Here are some additional resources to help you learn more about Terraform on Azure:
 
- [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](https://aka.ms/terraform)  
- [Terraform Azure provider source](https://aka.ms/tfgit)  
- [Terraform Azure modules](https://aka.ms/tfmodules)
+[Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+[Terraform Azure provider documentation](https://aka.ms/terraform)
+[Terraform Azure provider source](https://aka.ms/tfgit)
+[Terraform Azure modules](https://aka.ms/tfmodules)

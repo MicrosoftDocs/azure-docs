@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Explore the Azure Time Series Insights Preview demo environment | Microsoft Docs'
-description: Understand the Azure Time Series Insights Preview demo environment
+description: Understand the Azure Time Series Insights Preview demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc
+ms.custom: mvc seodec18
 ms.date: 12/03/2018
 ---
 

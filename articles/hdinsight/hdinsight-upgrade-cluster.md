@@ -13,7 +13,7 @@ ms.date: 04/04/2017
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be upgraded to latest version. 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
 
-> [!NOTE]
+> [!NOTE]  
 > For information on supported versions of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
@@ -42,5 +42,5 @@ actions:
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Manage a Linux-based cluster using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
