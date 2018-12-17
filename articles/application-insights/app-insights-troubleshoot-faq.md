@@ -285,9 +285,9 @@ Our [web tests](app-insights-monitor-web-app-availability.md) run on points of p
 * Firewall door - Allow requests to your server from [the long and changeable list of web test agents](app-insights-ip-addresses.md).
 * Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights using the TrackAvailability() API.
 
-## How long does it take for telemetry to be ingested?
+## How long does it take for telemetry to be collected?
 
-Most Application Insights data has an ingestion latency of under 5 minutes. Some data can take longer; typically larger log files. For more information refer to the [Application Insights SLA](https://azure.microsoft.com/en-us/support/legal/sla/application-insights/v1_2/).
+Most Application Insights data has a latency of under 5 minutes. Some data can take longer; typically larger log files. For more information refer to the [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
 ## More answers
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
