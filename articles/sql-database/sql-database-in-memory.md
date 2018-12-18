@@ -65,7 +65,16 @@ In-depth information about the technologies:
 
 ## In-memory OLTP
 
-In-memory OLTP technology keeps data in memory, which enables fast data access in OLTP scenarios. It also uses specialized indexes, native compilation of queries, and latch-free data-acccess to improve performance of the OLTP workload. A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
+In-memory OLTP technology provides extremely fast data access operations by keeping all data in memory. It also uses specialized indexes, native compilation of queries, and latch-free data-acccess to improve performance of the OLTP workload. There are two ways to organize your In-Memory OLTP data:
+- Memory-optimized rowstore format where every row is a separate memory object. This is a classic In-Memory OLTP optimized for high-performance OLTP workloads. There are two types of memory-optimized tables that can be used in rowstore format:
+  - Durable tables (SCHEMA_AND_DATA) where information placed in memory are preserved after server restart.
+  - Non-durable tables (SCEMA_ONLY) where information are not-preserved after restart. This type of table is designed for temporary data (for example, replacement of temp tables), or tables where you need to quickly load data before you move it to some persisted table (so called staging tables).
+- Memory-optimized columnstore format where data is organized in a columnar format. This structure is designed for HTAP scenarios where you need to run anaytic queries on the ame data structure where your OLTP workload is running.
+
+ > [!Note]
+ > In-Memory OLTP technology is designed for the data structures that can fully reside in memory. Since the In-memory data cannot be offloaded to disk, make sure that you are using database that has enough memory. See [Data size and storage cap for In-Memory OLTP](#data-size-and-storage-cap-for-in-memory-oltp) for more details.
+
+A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
 
 In-depth videos about the technologies:
 
@@ -95,11 +104,15 @@ With elastic pools, the In-Memory OLTP storage is shared across all databases in
 - Configure a `Max-eDTU` or `MaxvCore` for databases that is lower than the eDTU or vCore count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
 - Configure a `Min-eDTU` or `MinvCore` that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured `Min-eDTU` or `vCore`.
 
-## In-memory Columnstore
+## In-memory columnstore
 
-Columnstore technology enabling you to store and query a large amount of data in the tables. Columnstore technology uses column-based data storage and query processing to achieve gains up to 10 times the query performance in OLAP workloads over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size.
+In-memory columnstore technology is enabling you to store and query a large amount of data in the tables. Columnstore technology uses column-based data storage format and batch query processing to achieve gain up to 10 times the query performance in OLAP workloads over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size.
+There are two types of columnstore models that you can use to organize your data:
+- **Clustered columnstore** where all data in the table is organized in the columnar format. In this model, all rows in the table are placed in columnar format that highly compress the data and enables you to execute fast analytical queries and reports on the table. Clustered columnstore model also enables fast ingestion of large amount of data (bulk-load) since large batches of data greater than 100K rows are compressed before they are stored on disk. This model is a good choice for the classic datawarehouse scenarios. 
+- **Non-clustered columnstore** where the data is stored in traditional rowstore table and there is an index in the columnstore format that is used for the analytical queries. This model enables Hybrid Transactional-Analytic Processing (HTAP): the ability to run performant real-time analytics on a transactional workload. OLTP queries are executed on rowstore table that is optimized for accessing a small set of rows, while OLAP queries are executed on columnstore index that is better choice for scans and analytics. Azure SQL Database Query optimizer dynamicaly chooses rowstore or columnstore format based on the query.
 
-Columnstore technology also enables Hybrid Transactional-Analytic Processing (HTAP): the ability to run performant real-time analytics on a transactional workload.
+ > [!Note]
+ > In-memory columnstore technology keeps only the data that is needed for processing in the memory, while the data that cannot fit into the memory is stored on-disk. Therefore, the amount of data in In-memory columnstore structures can exceed the amount of available memory. 
 
 In-depth video about the technology:
 - [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
