@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom:
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: 
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
 ---

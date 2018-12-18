@@ -7,10 +7,10 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
-manager: craigg-database
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 04/01/2018
 ---
 # Managing Azure SQL databases using Azure Automation

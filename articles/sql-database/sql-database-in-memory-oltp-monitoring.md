@@ -7,8 +7,8 @@ ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: juliemsft
+ms.author: jrasnick
 ms.reviewer: genemi
 manager: craigg
 ms.date: 09/14/2018

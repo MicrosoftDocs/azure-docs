@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
 ---
