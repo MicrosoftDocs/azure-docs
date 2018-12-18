@@ -72,7 +72,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 - The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
 
-    If you ignore every warning and still choose to install the 1811 update, the update will fail with the following message:   
+    If you ignore every warning and still choose to install the 1811 update, the update will fail in approximately 1 hour with the following message:   
  
     ```shell
     The required SSL certificates for the Extension Host have not been found.
@@ -92,8 +92,6 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 This update includes the following improvements for Azure Stack:
 
 - With this release, the extension host is enabled. The extension host simplifies network integration and improves the security posture of Azure Stack.
-
-- This release enhances the Azure Stack operator experience for [managing updates](azure-stack-updates.md) from the **Update** blade.
 
 - Added support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
@@ -200,7 +198,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - When running **Test-AzureStack**, if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If the user attempts to run this command, the command fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
 
-- During installation of the 1811 update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host takes several hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+- During installation of the 1811 update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
 
 - During installation of the 1811 update, both the administrator and user portal dashboards might not be available, and customizations can be lost. You can restore the dashboard to the default setting after the update completes by opening the portal settings and selecting **Restore default settings**.
 
