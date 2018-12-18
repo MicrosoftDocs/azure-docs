@@ -60,7 +60,7 @@ Like the [alerts you set manually](app-insights-alerts.md), you can inspect the 
 
 The alerts are triggered by our proprietary machine learning algorithm so we can't share the exact implementation details. With that said, we understand that you sometimes need to know more about how the underlying logic works. The primary factors that are evaluated to determine if an alert should be triggered are: 
 
-* Analysis of the failure percentage requests/dependencies in a rolling time window of 20 minutes.
+* Analysis of the failure percentage of requests/dependencies in a rolling time window of 20 minutes.
 * A comparison of the failure percentage of the last 20 minutes to the rate in the last 40 minutes and the past seven days, and looking for significant deviations that exceed X-times that standard deviation.
 * Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
 
