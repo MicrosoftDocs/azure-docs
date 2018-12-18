@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use a domain model - REST, PHP - Computer Vision"
+title: "Quickstart: Domain-specific image content - REST, PHP"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you use a domain model to identify landmarks in  an image using the Computer Vision API with PHP.
 services: cognitive-services
@@ -11,8 +11,9 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
-# Quickstart: Use a domain model using the REST API and PHP in Computer Vision
+# Quickstart: Recognize domain-specific content using the REST API and PHP with Computer Vision
 
 In this quickstart, you use a domain model to identify landmarks or, optionally, celebrities in a remotely stored image by using Computer Vision's REST API. With the [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) method, you can apply a domain-specific model to recognize content within an image.
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create and run the sample, do the following steps:
 
-1. Install the PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) package.
+1. Install the PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) package.
    1. Open a command prompt window as an administrator.
    1. Run the following command:
 

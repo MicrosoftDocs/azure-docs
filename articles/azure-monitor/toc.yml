@@ -366,8 +366,6 @@
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
           href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
-        - name: More platforms
-          href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
       - name: Smart Detection
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
@@ -914,6 +912,8 @@
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: NuGet packages
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+    - name: Platform support
+      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview

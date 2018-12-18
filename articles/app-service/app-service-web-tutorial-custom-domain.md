@@ -331,7 +331,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-For more information, see [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md). 
+For more information, see [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md). 
 
 ### Azure PowerShell 
 
@@ -344,7 +344,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-For more information, see [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md).
+For more information, see [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md).
 
 ## Next steps
 
