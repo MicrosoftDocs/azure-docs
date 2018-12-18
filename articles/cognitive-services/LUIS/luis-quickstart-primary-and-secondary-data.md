@@ -280,7 +280,7 @@ Because a name can be anything, LUIS predicts entities more accurately if it has
 
 ## To boost signal, add phrase list
 
-Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples GitHub repository. The list is over one thousand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
+Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the Azure-Samples GitHub repository. The list is over one thousand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
 
