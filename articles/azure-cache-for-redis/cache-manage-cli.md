@@ -70,7 +70,7 @@ To see all Azure Cache for Redis commands and their parameters, use the `azure r
     help:    Delete an existing Azure Cache for Redis
     help:      rediscache delete [--name <name> --resource-group <resource-group> ]
     help:
-    help:    List all Azure Cache for Rediss within your Subscription or Resource Group
+    help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:      rediscache list [options]
     help:
     help:    Show properties of an existing Azure Cache for Redis
@@ -146,15 +146,15 @@ For more information about this command, run the `azure rediscache delete -h` co
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## List all Azure Cache for Rediss within your Subscription or Resource Group
-To list all Azure Cache for Rediss within your Subscription or Resource Group, use the following command:
+## List all Azure Cache for Redis within your Subscription or Resource Group
+To list all Azure Cache for Redis within your Subscription or Resource Group, use the following command:
 
     azure rediscache list [options]
 
 For more information about this command, run the `azure rediscache list -h` command.
 
     C:\>azure rediscache list -h
-    help:    List all Azure Cache for Rediss within your Subscription or Resource Group
+    help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:
     help:    Usage: rediscache list [options]
     help:
