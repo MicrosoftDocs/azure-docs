@@ -21,7 +21,7 @@ This tutorial shows how to add and use a simple card in your bot.
 
 ## Video
 
-[![Tutorial 13 Preview](https://aka.ms/cl-tutorial-13-preview)](https://aka.ms/blis-tutorial-13)
+[![Cards Tutorial Preview](https://aka.ms/cl_Tutorial_v3_Cards_Preview)](https://aka.ms/cl_Tutorial_v3_Cards)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -86,4 +86,4 @@ You have now seen how cards work. They are defined in the cards directory as jso
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cards part 2](./14-cards-2.md)
+> [Branching and undo](./15-branching-and-undo.md)

@@ -18,7 +18,7 @@ This tutorial shows the basics of training a Model, branching off a new training
 
 ## Video
 
-[![Tutorial 2 Preview](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
+[![Intro to Training Tutorial Preview](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

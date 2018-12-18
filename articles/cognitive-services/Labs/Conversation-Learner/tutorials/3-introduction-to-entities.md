@@ -18,7 +18,7 @@ This tutorial introduces Entities, Disqualifying Entities, Required Entities and
 
 ## Video
 
-[![Tutorial 3 Preview](https://aka.ms/cl-tutorial-03-preview)](https://aka.ms/blis-tutorial-03)
+[![Intro to Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_IntroEntities_Preview)](https://aka.ms/cl_Tutorial_v3_IntroEntities)
 
 ## Requirements
 

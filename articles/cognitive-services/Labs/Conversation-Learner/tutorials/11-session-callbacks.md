@@ -18,7 +18,7 @@ This tutorial illustrates the onSessionStart and onSessionEnd callbacks.
 
 ## Video
 
-[![Tutorial 11 Preview](https://aka.ms/cl-tutorial-11-preview)](https://aka.ms/blis-tutorial-11)
+[![Session Callbacks Tutorial Preview](https://aka.ms/cl_Tutorial_v3_SessionCallbacks_Preview)](https://aka.ms/cl_Tutorial_v3_SessionCallbacks)
 
 ## Requirements
 This tutorial requires that the `tutorialSessionCallbacks` bot is running.

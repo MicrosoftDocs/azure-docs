@@ -18,7 +18,7 @@ This tutorial demonstrates how Log Dialogs are employed to better train Conversa
 
 ## Video
 
-[![Tutorial 9 Preview](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
+[![Log Dialogs Tutorial Preview](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

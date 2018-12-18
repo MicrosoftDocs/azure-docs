@@ -18,7 +18,7 @@ This tutorial shows how to use Entity Resolvers in Conversation Learner
 
 ## Video
 
-[![Tutorial 2 Preview](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
+[![Entity Resolvers Tutorial Preview](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

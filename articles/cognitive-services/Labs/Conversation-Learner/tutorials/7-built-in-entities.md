@@ -17,7 +17,7 @@ This tutorial shows how to add Pre-trained Entities to your Conversation Learner
 
 ## Video
 
-[![Tutorial 7 Preview](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
+[![Pre-Trained Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

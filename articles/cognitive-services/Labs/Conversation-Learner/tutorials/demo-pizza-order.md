@@ -21,7 +21,7 @@ This demo illustrates a pizza ordering bot. It supports ordering of a single piz
 
 ## Video
 
-[![Demo Pizza Preview](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
+[![Demo Pizza Preview](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## Requirements
 This tutorial requires that the pizza order bot is running
@@ -108,4 +108,4 @@ As an example, let's try a teaching session.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Demo - VR app launcher](./demo-vr-app-launcher.md)
+> [Deploying a Conversation Learner bot](../deploy-to-bf.md)
