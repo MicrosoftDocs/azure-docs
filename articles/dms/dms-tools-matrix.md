@@ -120,4 +120,4 @@ The following tables identify the service and tools that you can use to plan suc
 
 ## Next steps
 
-For an overview of the Azure Database Migration Service, see [What is the Azure Database Migration Service Preview](dms-overview.md).
+For an overview of the Azure Database Migration Service, see the article [What is the Azure Database Migration Service](dms-overview.md).
