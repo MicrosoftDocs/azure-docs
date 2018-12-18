@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 12/18/2018
 ms.author: jeedes
 
 ---
@@ -42,6 +42,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Box supports **SP** initiated SSO
 * Box supports **Just In Time** user provisioning
+* [Configure user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) 
 
 ## Adding Box from the gallery
 
