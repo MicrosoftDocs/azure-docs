@@ -11,7 +11,7 @@ ms.date: 8/16/2018
 ms.author: trinadhk
 ---
 # Questions about the Azure VM Backup service
-This article has answers to common questions to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+This article provides answers to common questions to help you quickly understand the Azure VM Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Configure backup
 ### Do Recovery Services vaults support classic VMs or Resource Manager based VMs? <br/>
