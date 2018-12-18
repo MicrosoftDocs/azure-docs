@@ -243,9 +243,9 @@ Query Performance Insight helps you understand the impact of query workload and 
 
 ## Next steps
 
-* For database performance recommendations, click on the [Recommendations](sql-database-advisor.md) in the Query Performance Insight.
+* For database performance recommendations, click on the [Recommendations](sql-database-advisor.md) within the Query Performance Insight navigation blade.
 
- ![Performance Advisor](./media/sql-database-query-performance/ia.png)
+    ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 * Consider enabling [Automatic tuning](sql-database-automatic-tuning.md) for automated tuning of some of the most common database performance issues.
 * Learn how [Intelligent Insights](sql-database-intelligent-insights.md) can help automatically troubleshoot database performance issues.
