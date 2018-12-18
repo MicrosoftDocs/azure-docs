@@ -20,7 +20,6 @@ The following list are the three readiness states a machine can be in:
 * **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
 * **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
 * **Not configured** -  The update agent isn't found or hasn't finished onboarding.
-=======
 
 ## Start the troubleshooter
 
