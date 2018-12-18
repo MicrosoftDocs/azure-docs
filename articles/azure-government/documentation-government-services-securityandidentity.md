@@ -22,7 +22,7 @@ This article outlines the security and identity services variations and consider
 
 ## Azure Security Center
 
-Azure Security Center is available for public preview in Azure Government.  
+Azure Security Center is generally available in Azure Government.  
 
 For details on this service and how to use it, see the [Azure Security Center public documentation](../security-center/index.yml).  
 
@@ -62,7 +62,7 @@ The following variations and limitations are present in the Azure Security Cente
 For Azure Security Center FAQs, see [Azure Security Center frequently asked questions public documentation](../security-center/security-center-faq.md). Additional FAQs for Azure Security Center in Azure Government are listed below. 
 
 
-**What will customers be charged for Azure Security Center in Azure Government?** </br>The Standard tier of Azure Security Center is free for the first 60 days. Should you choose to continue to use public preview or generally available Standard features beyond 60 days, we automatically start to charge for the service.
+**What will customers be charged for Azure Security Center in Azure Government?** </br>The Standard tier of Azure Security Center is free for the first 30 days. Should you choose to continue to use public preview or generally available Standard features beyond 60 days, we automatically start to charge for the service.
 
 **What features are available for Azure Security Center government customers?**</br>A detailed list of feature variations in the Azure Security Center government offering can found in the [variations section](#bkmk_ASCVariations) of this article. All other Azure Security Center capabilities can be referenced in the [Azure Security Center public documentation](../security-center/index.yml).  
 
