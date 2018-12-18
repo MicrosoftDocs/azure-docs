@@ -26,11 +26,11 @@
 
 # Samples
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
@@ -55,7 +55,7 @@
 ### [Serverless apps](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Microservices cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Deploy
-### [Web and mobile apps from source control](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Web and mobile apps from source control](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microservices locally](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)

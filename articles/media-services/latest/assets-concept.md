@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Assets
 
-In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. For more information see the [Upload digital files into Assets](#upload-digital-files-into-assets) section below.
+In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. For more information, see the [Upload digital files into Assets](#upload-digital-files-into-assets) section below.
 
 An Asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the Asset are stored as block blobs in that container. Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to [Cool or Archive storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Archive** storage is suitable for archiving source files when no longer needed (for example, after they have been encoded).
 
@@ -47,13 +47,24 @@ For a full definition, see [Assets](https://docs.microsoft.com/rest/api/media/as
 
 ## Upload digital files into Assets
 
-One of common Media Services workflows:
+One of the common Media Services workflows:
 
-1. Use the Media Services v3 API to create a new "input" Asset. This operation creates a container in the storage account associated with your Media Services account. The API returns the contatiner name (for example, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Use the Media Services v3 API to create a new "input" Asset. This operation creates a container in the storage account associated with your Media Services account. The API returns the container name (for example, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+   
+    If you already have a blob container that you want to associate with an Asset, you can specify the container name when creating the Asset. Media Services currently only supports blobs in the container root and not with paths in the file name. Thus, a container with the "input.mp4" file name will work. However, a container with the "videos/inputs/input.mp4" file name, will not work.
+
+    You can use the Azure CLI to upload directly to any storage account and container that you have rights to in your subscription. <br/>The container name must be unique and follow storage naming guidelines. The name doesn't have to follow the Media Services Asset container name (Asset-GUID) formatting. 
+    
+    ```azurecli
+    az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
+    ```
 2. Get a SAS URL with read-write permissions that will be used to upload digital files into the Asset container. You can use the Media Services API to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Use the Azure Storage SDKs (for example, [JAVA SDK](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java-v10)) or the [Storage REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to upload files into the Asset container. 
+3. Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to upload files into the Asset container. 
 4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
-5. Stream the content from the "output" asset. 
+5. Stream the content from the "output" asset.
+
+> [!TIP]
+> For a full .NET example that shows how to: create the Asset, get a writable SAS URL to the Asset’s container in storage, upload the file into the container in storage using the SAS URL, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
 ### Create a new asset
 
@@ -63,7 +74,9 @@ One of common Media Services workflows:
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-Also, see the [Create an Asset with REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) example.
+For a REST example, see the [Create an Asset with REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) example.
+
+The example shows how to create the **Request Body** where you can specify useful information like description, container name, storage account, and other information.
 
 #### cURL
 
@@ -79,7 +92,7 @@ curl -X PUT \
 }'
 ```
 
-#### C#
+#### .NET
 
 ```csharp
  Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());

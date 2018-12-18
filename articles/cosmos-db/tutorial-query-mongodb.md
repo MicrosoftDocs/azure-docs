@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: How to query using the MongoDB API?'
-description: Learn to query with the MongoDB API for Azure Cosmos DB
+title: 'How to query data from Azure Cosmos DB API for MongoDB'
+description: Learn to query with the Azure Cosmos DB API for MongoDB.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -11,7 +11,7 @@ ms.custom: mvc
 ms.date: 03/29/2018
 ---
 
-# Tutorial: Query Azure Cosmos DB by using the MongoDB API
+# Tutorial: Query data from Azure Cosmos DB API for MongoDB
 
 The Azure Cosmos DB [API for MongoDB](mongodb-introduction.md) supports [MongoDB shell queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
