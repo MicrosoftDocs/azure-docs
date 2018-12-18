@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 ---
 # Restore an app in Azure from a snapshot
-This article shows you how to restore an app in [Azure App Service](../app-service/app-service-web-overview.md) from a snapshot. You can restore your app to a previous state, based on one of your app's snapshots. You do not need to enable snapshots backup, the platform automatically saves a snapshot of all apps for data recovery purposes.
+This article shows you how to restore an app in [Azure App Service](../app-service/overview.md) from a snapshot. You can restore your app to a previous state, based on one of your app's snapshots. You do not need to enable snapshots backup, the platform automatically saves a snapshot of all apps for data recovery purposes.
 
 Snapshots are incremental shadow copies, and they offer several advantages over regular [backups](web-sites-backup.md):
 - No file copy errors due to file locks.

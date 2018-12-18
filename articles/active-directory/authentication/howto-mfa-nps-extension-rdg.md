@@ -23,7 +23,7 @@ The Network Policy Server (NPS) extension for Azure allows customers to safeguar
 This article provides step-by-step instructions for integrating the NPS infrastructure with Azure MFA using the NPS extension for Azure. This enables secure verification for users attempting to sign in to a Remote Desktop Gateway.
 
 > [!NOTE]
-> This article should not be used with MFA Server deployments only Azure MFA (Cloud-based).
+> This article should not be used with MFA Server deployments and should only be used with Azure MFA (Cloud-based) deployments.
 
 The Network Policy and Access Services (NPS) gives organizations the ability to do the following:
 
