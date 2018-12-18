@@ -19,9 +19,9 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
   - name: Azure PowerShell
-    href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Concepts
   items:
   - name: Network architecture
