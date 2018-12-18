@@ -40,15 +40,15 @@ Infrastructure service certificates for external-facing services that are provid
     - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-   <sup>*</sup> Only applicable if the environment’s identity provider is Active Directory Federated Services (AD FS).
+   <sup>*</sup> Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
 
 > [!Note]  
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
 
 > [!Note]  
-> Starting with Azure Stack’s 1811 release, secret rotation has been separated for internal and external certificates. 
+> Starting with Azure Stack's 1811 release, secret rotation has been separated for internal and external certificates. 
 
-In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements.
+In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure's secrets at frequencies that are consistent with their organization's security requirements.
 
 ### Rotating Secrets with External Certificates from a new Certificate Authority
 
@@ -86,8 +86,12 @@ Running secret rotation using the instructions below will remediate these alerts
    > [!IMPORTANT]  
    > Ensure secret rotation hasn't been successfully executed on your environment. If secret rotation has already been performed, update Azure Stack to version 1807 or later before you execute secret rotation. 
 
-1. It is highly recommended that you update your Azure Stack instance to version 1811. 
-2.  Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running Test-AzureStack.  For operators using SCOM to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable. 
+1. It is highly recommended that you update your Azure Stack instance to version 1811.
+
+    > [!Note] 
+    > For pre-1811 versions you do not need to rotate secrets to add extension host certificates. You should follow the instructions in the article [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md) to add extension host certificates.
+
+2.  Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using SCOM to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable. 
 3. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
 
     > [!Note]  
@@ -100,9 +104,9 @@ Running secret rotation using the instructions below will remediate these alerts
 8.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
 9.  Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
-## Rotating external and internal secrets
+## Rotating external secrets
 
-To rotate both external an internal secret:
+To rotate external secrets:
 
 1. Within the newly created **/Certificates** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Create a PowerShell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) using the **CloudAdmin** account and store the sessions as a variable. You will use this variable as the parameter in the next step.
@@ -118,15 +122,15 @@ To rotate both external an internal secret:
     A PSCredential object for credentials to the share. 
     - **CertificatePassword**  
     A secure string of the password used for all of the pfx certificate files created.
-4. Wait while your secrets rotate.  
+4. Wait while your secrets rotate. External secret rotation usually takes approximately one hour. 
 When secret rotation successfully completes, your console will display **Overall action status: Success**. 
     > [!Note]  
-    > If secret rotation fails, follow the instructions in the error message and re-run start-secretrotation with the **-Rerun** Parameter. Contact Support if you experience repeated secret rotation failures.
+    > If secret rotation fails, follow the instructions in the error message and re-run **start-secretrotation** with the **-Rerun** Parameter. 
 
     ```PowerShell  
     Start-SecretRotation -Rerun
     ```
-
+    Contact Support if you experience repeated secret rotation failures.
 5. After successful completion of secret rotation, remove your certificates from the share created in the pre-step and store them in their secure backup location. 
 
 ## Walkthrough of secret rotation
@@ -147,9 +151,13 @@ Invoke-Command -session $PEPsession -ScriptBlock {
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
+
 ## Rotating only internal secrets
 
-To rotate only Azure Stack’s internal secrets:
+> [!Note]  
+> Internal Secret Rotation should only be done if you suspect an internal secret has been compromised by a malicious entity, or if you have received an alert (on build 1811 or later) indicating internal certificates are nearing expiration. Azure Stack environments on pre-1811 versions may see alerts for pending internal certificate or secret expirations. These alerts are inaccurate and should be ignored without running internal secret rotation. Inaccurate internal secret expiration alerts are a known issue that is resolved in 1811– internal secrets will not expire unless the environment has been active for two years.
+
+To rotate only Azure Stack's internal secrets:
 
 1. Create a PowerShell session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. In the Privileged Endpoint session, run **Start-SecretRotation -Internal**.
@@ -158,12 +166,12 @@ To rotate only Azure Stack’s internal secrets:
 3. Wait while your secrets rotate.  
 When secret rotation successfully completes, your console will display **Overall action status: Success**. 
     > [!Note]  
-    > If secret rotation fails, follow the instructions in the error message and rerun start-secretrotation with the **-Rerun** Parameter. Contact Support if you experience repeated secret rotation failures. 
+    > If secret rotation fails, follow the instructions in the error message and rerun **start-secretrotation** with the  **–Internal** and **-Rerun** parameters.  
 
     ```PowerShell  
     Start-SecretRotation -Internal -Rerun
     ```
-
+    Contact Support if you experience repeated secret rotation failures.
 
 ## Start-SecretRotation reference
 
@@ -196,7 +204,7 @@ Start-SecretRotation [-Rerun] [-Internal]
 ```
 ### Description
 
-The Start-SecretRotation cmdlet rotates the infrastructure secrets of an Azure Stack system. By default it rotates only the certificates of all external network infrastructure endpoints. If used with the -Internal flag internal infrastructure secrets will be rotated. When rotating external network infrastructure endpoints, Start-SecretRotation should be executed via an Invoke-Command script block with the Azure Stack environment's privileged endpoint session passed in as the session parameter.
+The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azure Stack system. By default it rotates only the certificates of all external network infrastructure endpoints. If used with the -Internal flag internal infrastructure secrets will be rotated. When rotating external network infrastructure endpoints, **Start-SecretRotation** should be run with an **Invoke-Command** script block with the Azure Stack environment's privileged endpoint session passed in as the session parameter.
  
 ### Parameters
 
@@ -230,7 +238,7 @@ Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $u
 Remove-PSSession -Session $PEPSession
 ```
 
-This command rotates the TLS certificates used for Azure Stack’s external network infrastructure endpoints.   
+This command rotates the TLS certificates used for Azure Stack's external network infrastructure endpoints.   
 
 **Rotate internal and external infrastructure secrets**
   
@@ -240,7 +248,7 @@ Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $u
 Remove-PSSession -Session $PEPSession
 ```
 
-This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack’s external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
+This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack's external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
 
 
 ## Update the baseboard management controller (BMC) credential
