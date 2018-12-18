@@ -306,9 +306,9 @@ In this example, you create a policy that requires users to authenticate less fr
 
    When you have the **ObjectId** of your app, run the following command:
 
-    ```PowerShell
-    Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-    ```
+        ```PowerShell
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        ```
 
 
 ### Example: Manage an advanced policy
