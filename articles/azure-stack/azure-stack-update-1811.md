@@ -91,7 +91,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, the extension host is enabled. The extension host simplifies network integration and improves the security posture of Azure Stack.
+- With this release, the [extension host](azure-stack-extension-host-prepare.md) is enabled. The extension host simplifies network integration and improves the security posture of Azure Stack.
 
 - Added support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
@@ -120,8 +120,6 @@ This update includes the following improvements for Azure Stack:
 - **Azure Stack PowerShell** has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For steps on updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
 - Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. Please see the known issues section for the additional steps required for Managed Disks to avoid VM creation failures.
-
-- Extended data at rest encryption protection to include all the infrastructure data stored on local volumes (not on cluster shared volumes). For more information, see [this article](azure-stack-security-bitlocker.md)
 
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert which you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
 
@@ -198,7 +196,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 - When running **Test-AzureStack**, if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If the user attempts to run this command, the command fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
 
-- During installation of the 1811 update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using Azure Stack Administrator PowerShell or the privileged endpoint.
+- During installation of the 1811 update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
 - During installation of the 1811 update, both the administrator and user portal dashboards might not be available, and customizations can be lost. You can restore the dashboard to the default setting after the update completes by opening the portal settings and selecting **Restore default settings**.
 
@@ -231,8 +229,7 @@ The following are post-installation known issues for this build version.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
 <!-- TBD - IS ASDK --> 
-- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
-
+- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
 ### Health and monitoring
 
