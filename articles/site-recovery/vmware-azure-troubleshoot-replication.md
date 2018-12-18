@@ -13,18 +13,6 @@ ms.author: ramamill
 
 You may receive a specific error message when protecting your VMware virtual machines or physical servers using Azure Site Recovery. This article describes some common issues you might encounter when replicating on-premises VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 
-## Source machine to be protected through Site Recovery is not listed on Azure portal
-
-When trying to choose the source machine to enable replication through Azure Site Recovery, the machine might not available for you to continue because of the following reasons
-
-* If there are two virtual machines under the vCenter with same instance UUID, then the first virtual machine discovered by configuration server are shown on the portal. To resolve, ensure that no two virtual machines have same instance UUID.
-* Ensure that you have added the correct vCenter credentials during the set up of configuration through OVF template or unified set up. To verify the credentials added, refer to the guidelines shared [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* If the permissions provided to access vCenter do not have sufficient privileges, it might lead to failure in discovering virtual machines. Ensure the permissions provided [here](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
-* If the virtual machine is already protected through Site Recovery, then it will not be available for protection. Ensure that the virtual machine you are looking for on the portal is not already protected by any other user or under other subscriptions.
-
-## Enable replication failure due to special character in drive
-
-During enable replication, if the drive name has special character, then it leads to parsing failure and thus fails to refresh configuration server. To resolve the issue, ensure that there are no special characters while naming drives.
 
 ## Initial replication issues
 
@@ -95,6 +83,19 @@ Open it and click on Action > Change Properties. Under Proxy Configuration tab, 
 
 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
+
+## Source machine to be protected through Site Recovery is not listed on Azure portal
+
+When trying to choose the source machine to enable replication through Azure Site Recovery, the machine might not available for you to continue because of the following reasons
+
+* If there are two virtual machines under the vCenter with same instance UUID, then the first virtual machine discovered by configuration server are shown on the portal. To resolve, ensure that no two virtual machines have same instance UUID.
+* Ensure that you have added the correct vCenter credentials during the set up of configuration through OVF template or unified set up. To verify the credentials added, refer to the guidelines shared [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* If the permissions provided to access vCenter do not have sufficient privileges, it might lead to failure in discovering virtual machines. Ensure the permissions provided [here](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
+* If the virtual machine is already protected through Site Recovery, then it will not be available for protection. Ensure that the virtual machine you are looking for on the portal is not already protected by any other user or under other subscriptions.
+
+## Protected virtual machines are greyed out in the portal
+
+Virtual machines that are replicated under Site Recovery are greyed out if there duplicate entries in the system. Refer to the guidelines given [here](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) to delete the stale entries and resolve the issue.
 
 ## Next steps
 If you need more help, then post your query to [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). We have an active community and one of our engineers will be able to assist you.

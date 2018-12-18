@@ -146,7 +146,9 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 8. Can I clone an existing Configuration Server and use it for replication orchestration?
 
     **No**, use of a cloned Configuration Server component is not supported.
-9. Can I change th IP of configuration server/.
+
+9. Can I change the IP of configuration server?
+
     **No**, it is strongly recommended to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are STATIC IPs and not DHCP IPs.
 
 ## Troubleshoot deployment issues
