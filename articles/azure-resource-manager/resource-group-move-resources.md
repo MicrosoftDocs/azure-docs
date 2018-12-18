@@ -248,6 +248,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * Express Route
+* Key Vault Limitations - see [Key Vault Limitations](#key-vault-limitations)
 * Kubernetes Service
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
@@ -260,6 +261,9 @@ The following list provides a general summary of Azure services that can't be mo
 * Site Recovery
 * StorSimple Device Manager
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+
+## Key Vault limitations
+* Key Vaults used for disk encryption cannot be moved across resource groups in the same subscription or across subscriptions
 
 ## Virtual Machines limitations
 
@@ -274,8 +278,7 @@ This support means you can also move:
 
 Here are the constraints that aren't yet supported:
 
-* Virtual Machines with certificate stored in Key Vault cannot be moved across resource groups in the same subscription or subscriptions.
-* Key Vaults used for disk encryption cannot be moved across resource groups in the same subscription or across subscriptions
+* Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * If your virtual machine is configured for backup, see [Recovery Services limitations](#recovery-services-limitations).
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
