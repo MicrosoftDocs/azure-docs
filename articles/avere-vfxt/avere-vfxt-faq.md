@@ -21,7 +21,7 @@ Avere vFXT for Azure is a high-performance file system that caches active data i
 
 ### Is Avere vFXT a storage solution?
 
-No. Avere vFXT is a file-system *cache* that attaches to storage environments, such as your EMC or NetApp NAS or an Azure blob container. Avere vFXT streamlines data requests from clients, and it caches the data it serves to improve performance at scale and over time. Avere vFXT itself does not store data. It has no information about the amount of data stored behind it.
+No. Avere vFXT is a file-system *cache* that attaches to storage environments, such as your EMC or NetApp NAS or an Azure blob container. Avere vFXT streamlines data requests from clients, and it caches the data that it serves to improve performance at scale and over time. Avere vFXT itself does not store data. It has no information about the amount of data stored behind it.
 
 ### Is Avere vFXT a tiering solution?
 
@@ -29,7 +29,7 @@ Avere vFXT does not automatically tier data between hot and cool tiers.
 
 ### How do I know if an environment is right for Avere vFXT?
 
-The best way to think about this question is to ask, "Is the workload cacheable?" That is, does the workload have a high read-to-write ratio - for example, 80/20 or 70/30 reads/writes.
+The best way to think about this question is to ask, "Is the workload cacheable?" That is, does the workload have a high read-to-write ratio? An example is 80/20 or 70/30 reads/writes.
 
 Consider Avere vFXT for Azure if you have a file-based analytic pipeline that runs across a large number of Azure virtual machines, and it meets one or more of the following conditions:
 
@@ -59,7 +59,7 @@ Avere vFXT is a cache. It doesn't specifically store data. It uses a combination
 
 ### What regions are supported?
 
-As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores as well as the VM instances needed to create the Avere vFXT cluster. Sovereign regions and government clouds are not yet supported.
+As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores as well as the VM instances needed to create the Avere vFXT cluster.
 
 ### How do I get help with Avere vFXT?
 
@@ -71,7 +71,7 @@ Yes, Avere vFXT runs exclusively as an HA solution.
 
 ### Does Avere vFXT for Azure also support other cloud services?
 
-Yes, customers can use more than one cloud provider with the Avere vFXT cluster. It supports AWS S3 standard buckets and Google Cloud Services standard buckets as well as Azure blob containers. 
+Yes, customers can use more than one cloud provider with the Avere vFXT cluster. It supports AWS S3 standard buckets, Google Cloud Services standard buckets, and Azure blob containers. 
 
 > [!NOTE] 
 > A software fee applies to use Avere vFXT in AWS or Google Cloud, but not with Azure.
@@ -94,9 +94,9 @@ No, you must choose one virtual machine type or the other.
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
 
-### Does Avere vFXT environment scale?
+### Does the Avere vFXT environment scale?
 
-The Avere vFXT cluster can be as small as three virtual machine nodes or as large as 24 nodes. Contact Azure technical support for help planning if you believe you need a cluster of more than nine nodes. The larger number of nodes requires a larger deployment architecture.
+The Avere vFXT cluster can be as small as three virtual machine nodes or as large as 24 nodes. Contact Azure technical support for help with planning if you believe you need a cluster of more than nine nodes. The larger number of nodes requires a larger deployment architecture.
 
 ### Does the Avere vFXT environment "autoscale"?
 
@@ -160,7 +160,7 @@ Data is striped across the disks but is not encrypted. However, the disks themse
 
 ### What network is recommended?
 
-If you're using on-premises storage with Avere vFXT, you should have a 1-Gbps or better network connection. If you have a small amount of data and are willing to copy data to the cloud before running jobs, VPN connectivity might be sufficient. 
+If you're using on-premises storage with Avere vFXT, you should have a 1-Gbps or better network connection. If you have a small amount of data and are willing to copy data to the cloud before running jobs, VPN connectivity might be enough. 
 
 > [!TIP] 
 > The slower the network link is, the slower the initial cold reads will be. Slow reads increase the latency of the work pipeline. 
@@ -192,7 +192,7 @@ For latency-sensitive environments, you should use a fiber solution with a minim
 
 ### Can I run Avere vFXT with public IP addresses?
 
-No, Avere vFXT is meant to be operated within a network environment secured through best practices.  
+No, Avere vFXT is meant to be operated in a network environment secured through best practices.  
 
 ## Technical: Back-end storage (core filers)
 
@@ -208,8 +208,8 @@ Avere vFXT is not storage. It's a cache that reads and writes data from multiple
 
 In general terms, Avere vFXT for Azure supports the following systems as core filers: 
 
-* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 and 8.1) 
-* NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0 - 8.3) and (7-Mode 7.*, 8.0 - 8.3) 
+* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0, and 8.1) 
+* NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3) 
 * Azure blob containers (LRS only) 
 * AWS S3 buckets 
 * Google Cloud buckets
@@ -254,7 +254,7 @@ By default, data is encrypted through Microsoft managed keys for Azure Blob, Tab
 
 ### How do I get Avere vFXT for Azure licensing?
 
-Getting an Avere vFXT for Azure license is easy through the Azure Marketplace. Sign up for an Azure account and then follow the instructions in [Deploy the Avere vFXT cluster](avere-vfxt-deploy.md) to create an Avere vFXT cluster. 
+Getting an Avere vFXT for Azure license is easy through the Azure Marketplace. Sign up for an Azure account, and then follow the instructions in [Deploy the Avere vFXT cluster](avere-vfxt-deploy.md) to create an Avere vFXT cluster. 
 
 ### How much does Avere vFXT cost?
 
@@ -266,7 +266,7 @@ No, Avere vFXT clusters require "always on" service. The clusters can be turned 
 
 ## Next steps
 
-To get started with Avere vFXT for Azure, read these links to learn how to plan and deploy your own system:
+To get started with Avere vFXT for Azure, read these articles to learn how to plan and deploy your own system:
 
 * [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md)
 * [Deployment overview](avere-vfxt-deploy-overview.md)
