@@ -1,24 +1,20 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 5 | Microsoft Docs"
-description: Part 5 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
-services: cosmos-db
+title: "Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB"
+description: This tutorial describes how to build a Node.js application by using Angular, Express to manage the data stored in a MongoDB API account. In this part, you use Mongoose to connect to Azure Cosmos DB.
 author: johnpapa
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/03/2017
 ms.author: jopapa
-ms.custom: mvc
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in a MongoDB API account of Azure Cosmos DB.
 ---
 
-# Tutorial: Use Mongoose to connect to Azure Cosmos DB (Part 5 of Create a MongoDB app with Angular and Azure Cosmos DB)
+# Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB 
 
-This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to an [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account. This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
+As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can build a Node.js application to manage the data stored in a MongoDB API account of Azure Cosmos DB. This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to an [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account. This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
 In this part of the tutorial, you will:
 
@@ -29,34 +25,19 @@ In this part of the tutorial, you will:
 > * Create the Hero service to get Hero data.
 > * Run the app locally.
 
-<!-- The video is extraneous to the purpose of the tutorial and should be removed.
-## Video walkthrough
-
-Watch the following video to quickly learn the steps described in this article: 
-
-> [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
--->
-
-<!-- Include a link to add a free Azure account here. -->
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-<!-- Prerequisites must be the first H2 section in the tutorial. -->
 ## Prerequisites
 
-* Before you start this part of the tutorial, complete the steps in [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
+* Before you start this tutorial, complete the steps in [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-<!-- When all commands don't run in Cloud Shell, instruct the user to install the CLI locally. -->
-<!-- Replace the <version #> placeholder with the specific version requirements. -->
-* This part of the tutorial requires that you run the Azure CLI locally. You must have the Azure CLI \<version 2.0.4\> or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0  or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-<!-- Avoid the use of alert boxes in tutorials. Reformat as plain text with a bold heading.
-> [!TIP]
-> This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
--->
 * This tutorial walks you through the steps to build the application step by step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
 ## Use Mongoose to connect
-<!-- Add one or two transitional sentences to explain why the steps need to be performed or how they contribute to the whole. -->
+
+Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You can use Mongoose to connect to your Azure Cosmos DB account. Use the following steps to install Mongoose and connect to Azure Cosmos DB:
 
 1. Install the mongoose npm module, which is an API that's used to talk to MongoDB.
 
@@ -113,9 +94,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     ```
 
 ## Get the connection string
-<!-- Add one or two transitional sentences to explain why the steps need to be performed or how they contribute to the whole. -->
 
-1. In the **environment.js** file, change the value of `port` to 10255. (You can find your Azure Cosmos DB port in the Azure portal.)
+To connect your application to Azure Cosmos DB, you need to update the configuration settings for the application. Use the following steps to update the settings: 
+
+1. In the Azure portal, get the port number, Azure Cosmos DB account name, and primary key values for your Azure Cosmos DB account.
+
+1. In the **environment.js** file, change the value of `port` to 10255. 
 
     ```javascript
     const port = 10255;
@@ -133,10 +117,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Copy the primary key into the **environment.js** file as the `key` value.
 
-    Your app now has all the information it needs to connect to Azure Cosmos DB. This information can also be retrieved in the portal. For more information, see [Get the MongoDB connection string to customize](connect-mongodb-account.md#GetCustomConnection). The username in the portal equates to the `dbName` in **environments.js** file. 
+Now your application has all the necessary information to connect to Azure Cosmos DB. 
 
 ## Create a Hero model
-<!-- Add one or two transitional sentences to explain why the steps need to be performed or how they contribute to the whole. -->
+
+Next, you need to define the schema of the data to store in Azure Cosmos DB by defining a model file. Use the following steps to create a _Hero model_ that defines the schema of the data:
 
 1. In the Explorer pane, under the **server** folder, create a file named **hero.model.js**.
 
@@ -170,7 +155,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    ```
 
 ## Create a Hero service
-<!-- Add one or two transitional sentences to explain why the steps need to be performed or how they contribute to the whole. -->
+
+After you create the hero model, you need to define a service to read the data, and perform list, create, delete, and update operations. Use the following steps to create a _Hero service_ that queries the data from Azure Cosmos DB:
 
 1. In the Explorer pane, under the **server** folder, create a file named **hero.service.js**.
 
@@ -206,8 +192,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    };
    ```
 
-## Add the Hero service
-<!-- Add one or two transitional sentences to explain why the steps need to be performed or how they contribute to the whole. -->
+## Configure routes for your service
+
+Next, you need to set up routes to handle the URLs for get, create, read, and delete requests. The routing methods specify a callback function (also called _handler functions_). These functions are called when the application receives a request to the specified endpoint and HTTP method. Use the following steps to add the Hero service and to define your routes:
 
 1. In Visual Studio Code, in the **routes.js** file, comment out the `res.send` function that sends the sample hero data. Add a line to call the `heroService.getHeroes` function instead.
 
@@ -232,12 +219,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     function getHeroes(req, res) {
     ```
 
-Let's take a minute to review and walk through the call chain. First, we come into the index.js file, which sets up the node server. Notice that it sets up and defines your routes. Next, your routes.js file talks to the hero service and tells it to get your functions, like getHeroes, and pass the request and response. Here the hero.service.js gets the model and connects to Mongo. Then it executes **getHeroes** when we call it, and returns back a response of 200. Then it bubbles back out through the chain. 
+Let's take a minute to review and walk through the previous code. First, we come into the index.js file, which sets up the node server. Notice that it sets up and defines your routes. Next, your routes.js file talks to the hero service and tells it to get your functions, like getHeroes, and pass the request and response. Here the hero.service.js gets the model and connects to Mongo. Then it executes **getHeroes** when we call it, and returns back a response of 200. 
 
 ## Run the app
-<!-- Add one or two transitional sentences to explain why the steps need to be performed or how they contribute to the whole. -->
 
-Let's run the app again.
+Next run the app by using the following steps:
 
 1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), and then select the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
@@ -247,21 +233,16 @@ Let's run the app again.
 
 There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos DB database. 
 
-<!-- Add required section. -->
 ## Clean up resources
 
-<!-- Update this section as needed. -->
-None. 
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. Use the following steps to delete the resource group:
+
+ 1. Navigate to the resource group where you created the Azure Cosmos DB account.
+ 1. Select **Delete resource group**.
+ 1. Confirm the name of the resource group to delete, and select **Delete**.
 
 ## Next steps
 
-<!-- The Next steps section should contain only a single blue link and any necessary introductory text for the link.
-In Part 5 of the tutorial, you completed the following tasks:
-
-> [!div class="checklist"]
-> * Used Mongoose APIs to connect your Heroes app to Azure Cosmos DB. 
-> * Added the get heroes functionality to the app.
--->
 Continue to Part 6 of the tutorial to add Post, Put, and Delete functions to the app:
 
 > [!div class="nextstepaction"]
