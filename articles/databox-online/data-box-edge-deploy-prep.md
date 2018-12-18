@@ -124,7 +124,7 @@ In this tutorial, you learned about Data Box Edge topics such as:
 > * Creating a new resource
 > * Getting the activation key
 
-Advance to the next tutorial to learn how to install your Data Box Edge. 
+Advance to the next tutorial to learn how to install Data Box Edge. 
 
 > [!div class="nextstepaction"]
 > [Install a Data Box Edge](./data-box-edge-deploy-install.md)
