@@ -1,5 +1,5 @@
 ---
-title: Use the Azure IoT Solutions site | Microsoft Docs
+title: Use the Azure IoT Solutions site - Azure | Microsoft Docs
 description: Describes how to use the AzureIoTSolutions.com website to deploy your solution accelerator.
 author: dominicbetts
 manager: philmea

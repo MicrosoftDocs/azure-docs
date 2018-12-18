@@ -73,7 +73,7 @@ If you deployed the solution from www.azureiotsolutions.com, you cannot sign in 
 1. To start all simulation containers:
     * Export a shell variable with the name **IOTHUB_CONNECTIONSTRING**. Use the value of the **IotHubOwnerConnectionString** setting in the `<name of your deployment>.config.user` file. For example:
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 

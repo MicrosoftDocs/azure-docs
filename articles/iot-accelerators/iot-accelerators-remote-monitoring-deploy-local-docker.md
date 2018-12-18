@@ -67,11 +67,11 @@ The first time you run this command, Docker downloads the microservice images fr
 > [!TIP]
 > Microsoft frequently publishes new Docker images with new functionality. You can use the following set of commands to cleanup your local Docker containers and corresponding images before you pull the latest ones:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 You can use a separate shell to view the logs from the container. First find the container ID using the `docker ps` command. Then use `docker logs {container-id} --tail 1000` to view the last 1000 entries for the specified container.
 
