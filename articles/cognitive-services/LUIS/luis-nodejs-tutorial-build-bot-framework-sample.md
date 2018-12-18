@@ -1,7 +1,7 @@
 ﻿---
 title: Bot - Node.js - v3  
 titleSuffix: Azure Cognitive Services
-description: Build a bot integrated with a LUIS application using the Bot Framework.
+description: Build a bot integrated with a LUIS application with the Bot Framework 3.x and the Azure Web app bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun

@@ -13762,6 +13762,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/translator-speech/index.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/translator-speech-how-to-signup.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-build-system.md",
             "redirect_document_id": false
