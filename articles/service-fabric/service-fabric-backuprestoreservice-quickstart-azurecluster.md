@@ -148,7 +148,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 > [!IMPORTANT]
-> Due to a bug in the runtime, ensure that the retention duration in the retention policy is configred to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
 
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
