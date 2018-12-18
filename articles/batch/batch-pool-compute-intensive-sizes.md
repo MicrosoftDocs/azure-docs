@@ -131,7 +131,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 
 ## Example: Microsoft MPI on a Windows H16r VM pool
 
-To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to configure the HpcVmDrivers extension and install [Microsoft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi). Here are sample steps to deploy a custom Windows Server 2016 image with the necessary drivers and software:
+To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to configure the HpcVmDrivers extension and install [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Here are sample steps to deploy a custom Windows Server 2016 image with the necessary drivers and software:
 
 1. Deploy an Azure H16r VM running Windows Server 2016. For example, create the VM in the US West region. 
 2. Add the HpcVmDrivers extension to the VM by [running an Azure PowerShell command](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances
