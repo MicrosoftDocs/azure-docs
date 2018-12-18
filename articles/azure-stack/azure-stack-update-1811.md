@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 12/19/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1811 update package. The update packa
 
 ## Build reference
 
-The Azure Stack 1811 update build number is **1.1811.0.93**.
+The Azure Stack 1811 update build number is **1.1811.0.101**.
 
 ## Hotfixes
 
@@ -294,10 +294,10 @@ The following are post-installation known issues for this build version.
 <!-- TBD - IS ASDK --> 
 - After applying the 1811 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
-   1. If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
+   - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
-   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+   - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
    
 ### Networking  
 
@@ -308,27 +308,27 @@ The following are post-installation known issues for this build version.
 - Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
 <!-- 16309153 - IS ASDK --> 
-- On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- On a virtual network that was created with a DNS server setting of *Automatic*, changing to a custom DNS server fails. The updated settings are not pushed to VMs in that Vnet.
 
 <!-- 2529607 - IS ASDK --> 
-- During Azure Stack *Secret Rotation*, there is a period in which Public IP Addresses are unreachable for two to five minutes.
+- During Azure Stack *Secret Rotation*, there is a period in which public IP addresses are unreachable for two to five minutes.
 
 <!-- 2664148 - IS ASDK --> 
--	In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the Local Network Gateway after gateway was already created. 
+-	In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
 
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`. You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
 - In the portal, on the **Networking Properties** blade there is a link for **Effective Security Rules** for each network adapter. If you select this link, a new blade opens that shows the error message `Not Found.` This error occurs because Azure Stack does not yet support **Effective Security Rules**.
 
-- In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available in Azure Stack. The only options that are valid in Azure Stack are as follows:
+- In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
     - **Internet**
     - **VirtualNetwork**
     - **AzureLoadBalancer**
   
-    The other options are not supported as source tags in Azure Stack.  Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag** described in the previous list.
+    The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 
-- The `New-AzureRmIpSecPolicy` PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter. This is due to a bug and will be supported in a future release.
+- The `New-AzureRmIpSecPolicy` PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
 
 <!-- ### SQL and MySQL-->
 
