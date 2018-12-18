@@ -11,9 +11,9 @@
     href: stream-files-dotnet-quickstart.md
 - name: Tutorials
   items:
-  - name: Encode remote file and stream – REST
+  - name: Encode remote file and stream video – REST
     href: stream-files-tutorial-with-rest.md
-  - name: Encode uploaded file and stream - .NET
+  - name: Encode uploaded file and stream video - .NET
     href: stream-files-tutorial-with-api.md
   - name: Stream live - .NET
     href: stream-live-tutorial-with-api.md
