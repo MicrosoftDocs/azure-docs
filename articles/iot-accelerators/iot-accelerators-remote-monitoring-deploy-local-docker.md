@@ -22,7 +22,7 @@ If you want to run the Remote Monitoring solution accelerator in an IDE on your 
 
 To deploy the Azure services used by the Remote Monitoring solution accelerator, you need an active Azure subscription.
 
-If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Machine setup
 

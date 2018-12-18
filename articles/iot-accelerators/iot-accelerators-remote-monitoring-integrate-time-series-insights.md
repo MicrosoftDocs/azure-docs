@@ -44,7 +44,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Next, deploy Time Series Insights as an additional resource into your Remote Monitoring solution and connect it to the IoT hub.
 
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**.
 
