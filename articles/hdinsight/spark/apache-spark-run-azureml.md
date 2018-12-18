@@ -1,6 +1,6 @@
 ---
 title: Run Azure ML workloads with Auto ML on Apache Spark in Azure HDInsight
-description: Learn how to run Azure ML workloads with Auto ML on Apache Spark in Azure HDInsight.
+description: Learn how to run Azure ML workloads with AutoML on Apache Spark in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,22 +9,22 @@ ms.service: hdinsight
 ms.topic: howto
 ms.date: 12/17/2018
 ---
-# Run Azure ML workloads with Auto ML on Apache Spark in Azure HDInsight
+# Run Azure ML workloads with AutoML on Apache Spark in Azure HDInsight
 
-Azure Machine Learning (Azure ML) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure ML publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. Automated ML (Auto ML) helps create high quality machine learning models using intelligent automation and optimization. Automated ML decides the right algorithm and hyper parameters to use for specific problem types.
+Azure Machine Learning (Azure ML) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure ML publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. AutoML helps create high quality machine learning models using intelligent automation and optimization. AutoML decides the right algorithm and hyper parameters to use for specific problem types.
 
 ## Install AzureML on an HDInsight cluster
 
 > [!Note]
 > The Azure ML workspace is currently available in the following regions: eastus, eastus2 and westcentralus. The HDInsight cluster should also be created in one of these regions.
 
-For general tutorials of Azure ML and Auto ML, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models).
+For general tutorials of Azure ML and AutoML, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models).
 To install AzureML on your Azure HDInsight cluster, run the script action - [install_aml](https://commonartifacts.blob.core.windows.net/automl/install_aml.sh) - on head nodes and worker nodes of a HDInsight 3.6 Spark 2.3.0 cluster (recommended). This script action can be run either as part of the cluster creation process, or on an existing cluster through the Azure portal.
 
 For more information about script actions, read [Customize Linux-based HDInsight clusters using script actions](../hdinsight-hadoop-customize-cluster-linux). Along with installing Azure ML packages and dependencies, the script also downloads a sample Jupyter Notebook (into path `HdiNotebooks/PySpark` of the default store) which demonstrates how to use Auto ML Classifier for a simple classification problem.
 
 > [!Note]
-> AzureML packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
+> Azure ML packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.
 
 ## Authentication for workspace
 
@@ -49,7 +49,7 @@ credentials = UserPassCredentials('user@domain.com','my_smart_password')
 
 ## Loading dataset
 
-Auto ML on Spark uses **Dataflows**, which are lazily evaluated, immutable operations on data.  A Dataflow can load a dataset from a blob with public read access or from a blob URL with a SAS token.
+AutoML on Spark uses **Dataflows**, which are lazily evaluated, immutable operations on data.  A Dataflow can load a dataset from a blob with public read access or from a blob URL with a SAS token.
 
 ```python
 import azureml.dataprep as dprep
@@ -63,7 +63,7 @@ You can also register the datastore with the workspace using a one-time registra
 
 ## Experiment submission
 
-In the Auto ML configuration, the property `spark_context` should be set for Auto ML to run on distributed mode. The property `concurrent_iterations`, which represents the maximum number of iterations executed in parallel, is set to a number less than the executor cores for the Spark app.
+In the AutoML configuration, the property `spark_context` should be set for AutoML to run on distributed mode. The property `concurrent_iterations`, which represents the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
 
 ## Next Steps
 
