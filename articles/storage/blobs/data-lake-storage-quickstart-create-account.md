@@ -120,11 +120,8 @@ Start by opening a PowerShell session with elevated permissions.
 Install the Az.Storage module
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> Azure Powershell Az modules are the preferred modules for working with Azure services in Powershell. To learn more, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### Log in to your Azure Subscription
 
