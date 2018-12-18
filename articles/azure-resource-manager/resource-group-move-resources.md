@@ -197,7 +197,7 @@ The following list provides a general summary of Azure services that can be move
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
-* Key Vault
+* Key Vault Limitations - see [Key Vault Limitations](#key-vault-limitations)
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Log Analytics
 * Logic Apps
@@ -248,7 +248,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * Express Route
-* Key Vault Limitations - see [Key Vault Limitations](#key-vault-limitations)
 * Kubernetes Service
 * Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
