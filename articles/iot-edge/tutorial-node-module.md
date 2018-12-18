@@ -33,6 +33,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* If you're running IoT Edge on Windows, IoT Edge version 1.0.5 does not support Node.js modules. For more information, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For steps on how to install a specific version, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
 Cloud resources:
 
