@@ -184,7 +184,7 @@ The dictionary supports the following languages to or from English using the Loo
 
 ## Detect
 
-The following languages can be detected by the Detect method. Detect may detect languages that Microsoft Translator can't translate.
+The following languages are supported by the Detect method. Detect may identify languages that the Microsoft Translator can't translate.
 
 | Language    |
 |:----------- |
