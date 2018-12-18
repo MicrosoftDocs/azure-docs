@@ -115,7 +115,7 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/librar
 
 ## Setup Azure Site Recovery infrastructure to protect more than 500 Virtual machines
 
-Before setting up of Azure Site Recovery infrastructure, we need to access the environment to measure the following factors: compatible virtual machines, daily data change rate, required network bandwidth for desired RPO, number of Azure site recovery components required, time taken to complete the initial replication etc.,
+Before setting up of Azure Site Recovery infrastructure, you need to access the environment to measure the following factors: compatible virtual machines, daily data change rate, required network bandwidth for desired RPO, number of Azure site recovery components required, time taken to complete the initial replication etc.,
 
 1. To measure these parameters, ensure to run the deployment planner on your environment with the help of guidelines shared [here](site-recovery-deployment-planner.md).
 2. Deploy a configuration server with requirements mentioned [here](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server). If your production workload exceeds 650 virtual machines, deploy another configuration server.
@@ -162,10 +162,6 @@ For **Windows-based virtual machine**, follow the below given instructions.
 
  >[!NOTE]
  >You can also download the latest version of Master target server unified set-up for Windows [here](https://aka.ms/latestmobsvc).
-
-## How do I protect more than 500 Virtual machines through Azure Site Recovery?
-
-
 
 ## Next steps
 
