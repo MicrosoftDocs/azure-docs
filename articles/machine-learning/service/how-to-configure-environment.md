@@ -24,13 +24,13 @@ This article focuses on the following environments and tools:
 
 * [Azure Notebooks](#aznotebooks): A Jupyter Notebooks service that's hosted in the Azure cloud. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
 
-* [The Data Science Virtual Machine (DSVM)](#dsvm): A *pre-configured development/experimentation environment* in the Azure cloud that is *designed for data science work* and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
+* [The Data Science Virtual Machine (DSVM)](#dsvm): A pre-configured development or experimentation environment in the Azure cloud that's designed for data science work and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
 
 * [The Jupyter Notebook](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
 
-* [Visual Studio Code](#vscode): If you use Visual Studio Code, there are some useful extensions that you can install.
+* [Visual Studio Code](#vscode): If you use Visual Studio Code, it has some useful extensions that you can install.
 
-* [Azure Databricks](#aml-databricks): A popular data analytics platform based on Apache Spark. Learn how to get the Azure Machine Learning SDK onto your cluster so you can deploy models.
+* [Azure Databricks](#aml-databricks): A popular data analytics platform that's based on Apache Spark. Learn how to get the Azure Machine Learning SDK onto your cluster so that you can deploy models.
 
 If you already have a Python 3 environment, or just want the basic steps for installing the SDK, see the [Local computer](#local) section.
 
@@ -156,7 +156,7 @@ When you're using a local computer (which might also be a remote virtual machine
     ```
 
    > [!NOTE]
-   > If you get a message that *PyYAML* can't be uninstalled, use the following command instead:
+   > If you get a message that PyYAML can't be uninstalled, use the following command instead:
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
@@ -183,7 +183,7 @@ The procedure in the [Local computer](#local) section installs optional componen
 
 1. Open a command prompt or shell.
 
-1. To install a Conda-aware Jupyter Notebook server, use the following command:
+1. To install a Conda-aware Jupyter Notebook Server, use the following command:
 
     ```shell
     # install Jupyter
@@ -196,7 +196,7 @@ The procedure in the [Local computer](#local) section installs optional componen
     jupyter notebook
     ```
 
-1. To verify that Jupyter Notebook can use the SDK, open a new notebook and select "myenv" as your kernel. Then run the following command in a notebook cell:
+1. To verify that Jupyter Notebook can use the SDK, open a new notebook, select **myenv** as your kernel, and then run the following command in a notebook cell:
 
     ```python
     import azureml.core
@@ -218,7 +218,7 @@ To use Visual Studio Code for development, do the following:
 
 1. Enter __Python: Select Interpreter__, and then select the Conda environment.
 
-1. To validate that you can use the SDK, create a new Python file (.py) that contains the following code, and then run the file:
+1. To validate that you can use the SDK, create and then run a new Python file (.py) that contains the following code:
 
     ```python
     import azureml.core
