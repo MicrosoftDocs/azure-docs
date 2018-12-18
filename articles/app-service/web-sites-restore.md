@@ -93,8 +93,8 @@ You can automate backup management with scripts, using the [Azure CLI](/cli/azur
 
 For samples, see:
 
-- [Azure CLI samples](app-service-cli-samples.md)
-- [Azure PowerShell samples](app-service-powershell-samples.md)
+- [Azure CLI samples](samples-cli.md)
+- [Azure PowerShell samples](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->
