@@ -165,7 +165,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 
 <!-- Images. -->
-[15]:./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]:./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

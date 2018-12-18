@@ -30,6 +30,8 @@ To follow the steps from this article, you must:
 + Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 + Understand [manual scaling process of an Azure API Management instance](upgrade-and-scale.md), including cost consequences.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Azure API Management autoscale limitations
 
 Certain limitations and consequences of scaling decisions need to be considered before configuring autoscale behavior.

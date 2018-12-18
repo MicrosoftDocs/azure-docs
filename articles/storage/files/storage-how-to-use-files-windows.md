@@ -19,9 +19,9 @@ You can use Azure file shares on a Windows installation that is running either i
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (preview)<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server semi-annual channel<sup>3</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2019    | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
 | Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
@@ -29,9 +29,8 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows Server 2019 is available in preview through the [Windows Server Insiders program](https://insider.windows.com/for-business-getting-started-server/). Although Windows Server 2019 is not supported for production use yet, please let us know if you have any issues connecting to Azure file shares beyond what is covered in the [troubleshooting guide for Windows](storage-troubleshoot-windows-file-connection-problems.md).  
-<sup>2</sup>Windows 10, versions 1507, 1607, 1703, 1709, and 1803.  
-<sup>3</sup>Windows Server, version 1709 and 1803.
+<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, and 1809.  
+<sup>2</sup>Windows Server, version 1709 and 1803.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -41,11 +40,20 @@ You can use Azure file shares on a Windows installation that is running either i
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. Remember to replace `your-storage-account-name` with the relevant name for your storage account.
+* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
-    
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
     ```
 
     If the connection was successful, you should see the following output:

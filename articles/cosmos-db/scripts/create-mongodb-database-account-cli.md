@@ -1,18 +1,17 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB MongoDB API account, database, and collection | Microsoft Docs
-description: Azure CLI Script Sample - Create an Azure Cosmos DB MongoDB API account, database, and collection
+title: Azure CLI Script-Create an Azure Cosmos DB API for MongoDB account, database, and collection
+description: Azure CLI Script Sample - Create an Azure Cosmos DB API for MongoDB account, database, and collection
 author: markjbrown
-
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
 ---
 
-# Azure Cosmos DB: Create an MongoDB API account using Azure CLI
+# Azure Cosmos DB: Create an Azure Cosmos DB API account for MongoDB using Azure CLI
 
-This sample CLI script creates an Azure Cosmos DB MongoDB API account, database, and collection.
+This sample CLI script creates an Azure Cosmos DB API account for MongoDB, database, and collection.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -20,7 +19,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create an Azure Cosmos DB MongoDB API account, database, and collection.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create an Azure Cosmos DB API account for MongoDB, database, and collection.")]
 
 ## Clean up deployment
 

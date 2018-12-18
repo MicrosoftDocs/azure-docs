@@ -7,7 +7,6 @@ author: SnehaGunda
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
@@ -15,7 +14,7 @@ ms.custom: mvc
 Customer intent: As a developer, I want to migrate the data from my existing MongoDB workloads to a MongoDB API account in Azure Cosmos DB, so that the overhead to manage resources is handled by Azure Cosmos DB.
 ---
 
-# Tutorial: Migrate your data to an Azure Cosmos DB MongoDB API account
+# Tutorial: Migrate your data to an Azure Cosmos DB API account for MongoDB
 
 As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can also migrate data from your existing applications to the MongoDB API. This tutorial provides instructions on how to migrate data stored in MongoDB to an Azure Cosmos DB MongoDB API account. If you import data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import the data.
 
@@ -47,7 +46,7 @@ You can create sharded collections through your favorite tool, driver, or SDK. I
 ```bash
 db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
 ```
-    
+
 The command returns the following results:
 
 ```JSON

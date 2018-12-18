@@ -1,9 +1,9 @@
 ---
-title: Capture events from an Azure Digital Twins space | Microsoft Docs
+title: 'Tutorial: Capture events from an Azure Digital Twins space | Microsoft Docs'
 description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
-
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 10/15/2018
@@ -190,6 +190,10 @@ To stop receiving these emails, go to your Logic Apps resource in the portal, an
 If you want to stop exploring Azure Digital Twins at this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and select **Delete**.
+
+    > [!TIP]
+    > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
+
 2. If necessary, delete the sample applications on your work machine. 
 
 

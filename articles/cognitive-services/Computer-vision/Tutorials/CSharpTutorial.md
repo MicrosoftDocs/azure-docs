@@ -10,6 +10,7 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
 # Tutorial: Build an image processing app - C&#35;
@@ -97,7 +98,7 @@ You can run the sample app, to see how it interacts with you and with the Comput
    > Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    The following screenshot illustrates the page provided for the Analyze Image scenario, after analyzing a sample image.
-   ![Analyze Image scenario page](../Images/Analyze_Image_Example.PNG)
+   ![Screenshot of the Analyze image page](../Images/Analyze_Image_Example.PNG)
 
 ## Explore the sample app
 

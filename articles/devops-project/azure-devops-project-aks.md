@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy your ASP.NET Core app to Azure Kubernetes Service (AKS) by using Azure DevOps Projects'
+title: 'Tutorial: Deploy ASP.NET Core apps to Azure Kubernetes Service with Azure DevOps Projects'
 description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET Core app with the Azure Kubernetes Service (AKS) in a few quick steps.
 ms.author: mlearned
 ms.manager: douge
@@ -12,7 +12,7 @@ monikerRange: 'vsts'
 ---
 
 
-# Tutorial: Deploy your ASP.NET Core app to Azure Kubernetes Service (AKS) by using Azure DevOps Projects
+# Tutorial: Deploy ASP.NET Core apps to Azure Kubernetes Service with Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
@@ -20,6 +20,7 @@ DevOps Projects also:
 * Automatically creates Azure resources, such as Azure Kubernetes Service (AKS).
 * Creates and configures a release pipeline in Azure DevOps that sets up a build and release pipeline for CI/CD.
 * Creates an Azure Application Insights resource for monitoring.
+* Enables [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) to monitor performance for the container workloads on the AKS cluster
 
 In this tutorial, you will:
 

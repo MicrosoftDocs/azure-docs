@@ -1,9 +1,9 @@
 ---
-title: Analyze events from Azure Digital Twins setup | Microsoft Docs
+title: 'Tutorial: Analyze events from Azure Digital Twins setup | Microsoft Docs'
 description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, by using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
-
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 10/15/2018
@@ -156,6 +156,10 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 If you want to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and then select **Delete**.
+
+    > [!TIP]
+    > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
+
 2. If necessary, delete the sample applications on your work machine. 
 
 

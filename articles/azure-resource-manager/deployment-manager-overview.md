@@ -1,6 +1,6 @@
 ---
-title: Azure Deployment Manager overview | Microsoft Docs
-description: Describes how to deploy a service over many regions with Azure Deployment Manager
+title: Safe deployment practices across regions - Azure Deployment Manager
+description: Describes how to deploy a service over many regions with Azure Deployment Manager. It shows safe deployment practices to verify the stability of your deployment before rolling out to all regions.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,8 +10,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
+ms.custom: seodec18
 ---
 # Enable safe deployment practices with Azure Deployment Manager (Private Preview)
 
@@ -29,6 +30,8 @@ To use Deployment Manager, you need to create four files:
 * Parameter file for rollout
 
 You deploy the topology template before deploying the rollout template.
+
+The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## Supported locations
 

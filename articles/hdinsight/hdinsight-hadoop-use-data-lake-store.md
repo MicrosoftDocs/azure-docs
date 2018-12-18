@@ -14,16 +14,15 @@ ms.date: 11/06/2018
 
 To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In this article, you learn how Data Lake Store works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Data Lake Store is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
-> 
 
 
 ## Availability for HDInsight clusters
 
-Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5 and newer versions, you can select either Azure Storage or Azure Data Lake Store as the default files system with a few exceptions. 
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5 and newer versions, you can select either Azure Storage or Azure Data Lake Store as the default files system with a few exceptions. 
 
 HDInsight clusters can use Data Lake Store in two ways:
 
@@ -41,7 +40,7 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 | HDInsight version 3.2 | No | Yes | |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight HBase is not supported with Azure Data Lake Storage Gen 1
 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
@@ -66,6 +65,39 @@ To be able to use a Data Lake Store as default storage, you must grant the servi
 
 For more information for creating service principal and grant access, see [Configure Data Lake store access](#configure-data-lake-store-access).
 
+### Extracting a certificate from Azure Keyvault for use in cluster creation
+
+If you want to setup ADLS as your default storage for a new cluster and the certificate for your service principal is stored in Azure Key Vault, there are a few additional steps required to convert the certificate to the correct format. The following code snippets show how to perform the conversion.
+
+First, download the certificate from Key Vault and extract the `SecretValueText`.
+
+```powershell
+$certPassword = Read-Host "Enter Certificate Password"
+$cert = (Get-AzureKeyVaultSecret -VaultName 'MY-KEY-VAULT' -Name 'MY-SECRET-NAME')
+$certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
+```
+
+Next, convert the `SecretValueText` to a certificate.
+
+```powershell
+$certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $certValue,$null,"Exportable, PersistKeySet"
+$certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword.SecretValueText);
+$identityCertificate = [System.Convert]::ToBase64String($certBytes)
+```
+
+Then you can use the `$identityCertificate` to deploy a new cluster as in the following snippet:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $pathToArmTemplate `
+    -identityCertificate $identityCertificate `
+    -identityCertificatePassword $certPassword.SecretValueText `
+    -clusterName  $clusterName `
+    -clusterLoginPassword $SSHpassword `
+    -sshPassword $SSHpassword `
+    -servicePrincipalApplicationId $application.ApplicationId
+```
 
 ## Use Data Lake Store as additional storage
 
@@ -90,7 +122,7 @@ Adding a Data Lake Store account as additional and adding more than one Data Lak
 
 To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), and [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
-> [!NOTE]
+> [!NOTE]  
 > If you are going to use Azure Data Lake Store as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Store as additional storage to an existing HDInsight cluster is not a supported scenario.
 >
 
@@ -125,33 +157,52 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 ## Refresh the HDInsight certificate for Data Lake Store access
 
-The following example PowerShell code reads a local certificate file, and updates your HDInsight cluster with the new certificate to access Azure Data Lake Store. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted.
+The following example PowerShell code reads a certificate from a local file or Azure Key Vault, and updates your HDInsight cluster with the new certificate to access Azure Data Lake Storage. Provide your own HDInsight cluster name, resource group name, subscription ID, app ID, local path to the certificate. Type in the password when prompted.
 
 ```powershell-interactive
 $clusterName = '<clustername>'
 $resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
-$generateSelfSignedCert = $false
 $addNewCertKeyCredential = $true
 $certFilePath = 'C:\localfolder\adls.pfx'
+$KeyVaultName = "my-key-vault-name"
+$KeyVaultSecretName = "my-key-vault-secret-name"
 $certPassword = Read-Host "Enter Certificate Password"
+# certSource
+# 0 - create self signed cert
+# 1 - read cert from file path
+# 2 - read cert from key vault
+$certSource = 0
 
-if($generateSelfSignedCert)
+if($certSource -eq 0)
 {
     Write-Host "Generating new SelfSigned certificate"
-    
+
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=hdinsightAdlsCert" -KeySpec KeyExchange
     $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
     $certString = [System.Convert]::ToBase64String($certBytes)
 }
-else
+elsif($certSource -eq 1)
 {
 
     Write-Host "Reading the cert file from path $certFilePath"
 
     $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($certFilePath, $certPassword)
     $certString = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certFilePath))
+}
+elsif($certSource -eq 2)
+{
+
+    Write-Host "Reading the cert file from Azure Key Vault $KeyVaultName"
+
+    $cert = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName)
+    $certValue = [System.Convert]::FromBase64String($cert.SecretValueText)
+    $certObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $certValue, $null,"Exportable, PersistKeySet"
+
+    $certBytes = $certObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword.SecretValueText);
+
+    $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
 Login-AzureRmAccount
@@ -187,8 +238,8 @@ For more information, see:
 * [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Create an HDInsight cluster to use Data Lake Store using the Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Apache Hive with HDInsight][hdinsight-use-hive]
+* [Use Apache Pig with HDInsight][hdinsight-use-pig]
 * [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
@@ -199,7 +250,7 @@ For more information, see:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

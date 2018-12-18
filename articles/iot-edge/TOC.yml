@@ -41,20 +41,20 @@
   items: 
   - name: IoT Edge runtime
     href: iot-edge-runtime.md
-  - name: IoT Edge certificates
-    href: iot-edge-certs.md
   - name: IoT Edge modules
     items: 
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
     - name: Development
       href: module-development.md
-    - name: Composition
-      href: module-composition.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: Deployments
-    href: module-deployment-monitoring.md
+  - name: Module deployment 
+    items:
+    - name: Deployment manifest
+      href: module-composition.md
+    - name: Automatic deployments
+      href: module-deployment-monitoring.md
   - name: Offline capabilities
     href: offline-capabilities.md
   - name: IoT Edge device as a gateway
@@ -65,8 +65,12 @@
       href: security.md
     - name: IoT Edge security manager
       href: iot-edge-security-manager.md
+    - name: IoT Edge certificates
+      href: iot-edge-certs.md
   - name: Platform support
     href: support.md
+  - name: Production deployment checklist
+    href: production-checklist.md
   - name: IoT Edge glossary
     href: iot-edge-glossary.md
 - name: How-to guides
@@ -79,18 +83,14 @@
       href: how-to-register-device-cli.md
     - name: Visual Studio Code
       href: how-to-register-device-vscode.md
-  - name: Install IoT Edge runtime
+  - name: Install and manage IoT Edge
     items:
     - name: Linux X64
       href: how-to-install-iot-edge-linux.md
     - name: Linux ARM32
       href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows with Windows containers
-      href: how-to-install-iot-edge-windows-with-windows.md
-    - name: Windows with Linux containers
-      href: how-to-install-iot-edge-windows-with-linux.md
-    - name: IoT Core
-      href: how-to-install-iot-core.md
+    - name: Windows X64
+      href: how-to-install-iot-edge-windows.md
     - name: Update the runtime version
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
@@ -102,23 +102,7 @@
   - name: Develop and debug modules in VS 2017
     href: how-to-visual-studio-develop-csharp-module.md
   - name: Develop and debug modules in VS Code
-    items:
-    - name: Azure Functions
-      href: how-to-develop-csharp-function.md
-    - name: C#
-      href: how-to-develop-csharp-module.md
-    - name: Python
-      href: how-to-develop-python-module.md
-    - name: Node.js
-      href: how-to-develop-node-module.md
-    - name: Java
-      href: how-to-develop-java-module.md
-    - name: C
-      href: how-to-develop-c-module.md
-    - name: Develop multiple modules
-      href: how-to-develop-multiple-modules-vscode.md
-    - name: Debug multiple modules
-      href: how-to-debug-multiple-modules-vscode.md
+    href: how-to-vs-code-develop-module.md
   - name: Deploy modules
     items:
     - name: Azure portal
@@ -147,8 +131,12 @@
     items:
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
-  - name: CI/CD in Azure DevOps
-    href: how-to-ci-cd.md
+  - name: Manage with DevOps tools
+    items:
+    - name: Azure DevOps Projects for IoT Edge
+      href: how-to-devops-project.md
+    - name: CI/CD in Azure DevOps
+      href: how-to-ci-cd.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Related
@@ -197,7 +185,7 @@
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Edge for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: Azure IoT Toolkit for VS Code
+  - name: Azure IoT Hub Toolkit for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: DeviceExplorer tool
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer

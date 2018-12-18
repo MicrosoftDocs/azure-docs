@@ -9,7 +9,7 @@ ms.author: cephalin
 
 You can use the [deployment service REST APIs](https://github.com/projectkudu/kudu/wiki/REST-API) to deploy the .zip file to your app in Azure. To deploy, send a POST request to https://<app_name>.scm.azurewebsites.net/api/zipdeploy. The POST request must contain the .zip file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication. For more information, see the [.zip push deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](../articles/app-service/app-service-deployment-credentials.md#userscope).
+For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](../articles/app-service/deploy-configure-credentials.md#userscope).
 
 ### With cURL
 

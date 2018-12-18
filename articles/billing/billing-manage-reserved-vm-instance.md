@@ -47,8 +47,8 @@ To delegate access management for a reservation:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservation** to list reservations that you have access to.
 3. Select the reservation that you want to delegate access to other users.
-4. Select **Access Control (IAM)**.
-5. Select **Add** > **Role** > **Owner**. Or, if you want to give limited access, select a different role.
+4. Select **Access control (IAM)**.
+5. Select **Add role assignment** > **Role** > **Owner**. Or, if you want to give limited access, select a different role.
 6. Type the email address of the user you want to add as owner.
 7. Select the user, and then select **Save**.
 
@@ -125,6 +125,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -1,20 +1,23 @@
 ---
-title: Azure Container Service tutorial - Deploy Cluster
+title: (DEPRECATED) Azure Container Service tutorial - Deploy Cluster
 description: Azure Container Service tutorial - Deploy Cluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Deploy a Kubernetes cluster in Azure Container Service
+# (DEPRECATED) Deploy a Kubernetes cluster in Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes provides a distributed platform for containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part 3 of 7, an Azure Container Service Kubernetes cluster is deployed. Steps completed include:
 

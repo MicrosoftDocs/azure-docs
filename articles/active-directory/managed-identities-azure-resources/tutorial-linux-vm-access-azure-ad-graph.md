@@ -19,7 +19,7 @@ ms.author: daveba
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Azure AD Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  
 

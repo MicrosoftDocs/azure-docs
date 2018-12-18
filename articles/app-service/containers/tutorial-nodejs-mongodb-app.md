@@ -1,5 +1,5 @@
 ---
-title: Build a Node.js and MongoDB web app in Azure App Service on Linux | Microsoft Docs 
+title: Build Node.js app with MongoDB on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a Node.js app working in Azure App Service on Linux, with connection to a Cosmos DB database with a MongoDB connection string.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Build a Node.js and MongoDB web app in Azure App Service on Linux
 
@@ -23,14 +24,14 @@ ms.custom: mvc
 > This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a Node.js and MongoDB web app in Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app, connect it locally to a MongoDB database, then deploy to Azure connected to a CosmosDB database using the MongoDB API. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](http://meanjs.org/).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app, connect it locally to a MongoDB database, then deploy to Azure Cosmos DB API for MongoDB. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 What you learn how to:
 
 > [!div class="checklist"]
-> * Create a CosmosDB database using the MongoDB API in Azure
+> * Create a database in Azure Cosmos DB API for MongoDB
 > * Connect a Node.js app to MongoDB
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
@@ -44,9 +45,9 @@ What you learn how to:
 To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
-1. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
-1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
+2. [Install Node.js v6.0 or above and NPM](https://nodejs.org/)
+3. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## Test local MongoDB
 
@@ -297,7 +298,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-You may notice that the deployment process runs [Gulp](http://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it:
+You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it:
 
 - _.deployment_ - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 - _deploy.sh_ - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`.
@@ -314,7 +315,7 @@ http://<app_name>.azurewebsites.net
 
 Click **Sign Up** in the top menu and create a dummy user.
 
-If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the Cosmos DB database MongoDB API.
+If you are successful and the app automatically signs in to the created user, then your MEAN.js app in Azure has connectivity to the Azure Cosmos DB API for MongoDB.
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -469,7 +470,7 @@ By default, the portal shows your web app's **Overview** page. This page gives y
 What you learned:
 
 > [!div class="checklist"]
-> * Create a CosmosDB database using the MongoDB API in Azure
+> * Create a database in Azure Cosmos DB API for MongoDB
 > * Connect a Node.js app to MongoDB
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
