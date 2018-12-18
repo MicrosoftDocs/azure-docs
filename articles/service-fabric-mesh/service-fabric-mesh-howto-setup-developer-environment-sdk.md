@@ -82,7 +82,7 @@ Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 > Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
 
 > [!Note]
-> If you are developing on the Windows Fall Creators update (version 1709) machine, you can only use Windows version 1709 docker docker images.
+> If you are developing on the Windows Fall Creators update (version 1709) machine, you can only use Windows version 1709 docker images.
 > If you are developing on the Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or 1803 docker images.
 
 If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
