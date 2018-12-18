@@ -75,6 +75,8 @@
         href: howto-create-webhooks.md
       - name: Build workflows in Microsoft Flow
         href: howto-add-microsoft-flow.md
+      - name: Build workflows in Azure Logic Apps
+        href: howto-build-azure-logic-apps.md
       - name: Trigger Azure Functions
         href: howto-trigger-azure-functions.md
       - name: Export your data
