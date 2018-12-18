@@ -1,5 +1,5 @@
 ﻿---
-title: "Example: Real-time video analysis with the Computer Vision API"
+title: "Example: Real-time video analysis - Computer Vision"
 titlesuffix: Azure Cognitive Services
 description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # How to Analyze Videos in Real-time
@@ -173,7 +174,7 @@ The second sample app is a bit more interesting, and allows you to choose which 
 
 In most modes, there will be a visible delay between the live video on the left, and the visualized analysis on the right. This delay is the time taken to make the API call. The exception to this is in the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer using OpenCV, before submitting any images to Cognitive Services. By doing this, we can visualize the detected face immediately, and then update the emotions later once the API call returns. This demonstrates the possibility of a "hybrid" approach, where some simple processing can be performed on the client, and then Cognitive Services APIs can be used to augment this with more advanced analysis when necessary.
 
-![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
+![Screenshot of the LiveCameraSample app showing an image with tags displayed](../../Video/Images/FramebyFrame.jpg)
 
 ### Integrating into your codebase
 To get started with this sample, follow these steps:

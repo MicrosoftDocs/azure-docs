@@ -184,7 +184,7 @@ No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for 
 
 ## Migrate to Managed Disks
 
-**Is there any impact of migration on the Managed Disks performance?
+**Is there any impact of migration on the Managed Disks performance?**
 
 Migration involves movement of the Disk from one Storage location to another. This is orchestrated via background copy of data which can take several hours to complete, typically less than 24Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
 
