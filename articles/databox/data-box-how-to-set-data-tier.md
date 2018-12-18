@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.author: alkohli
 ---
 
@@ -48,11 +48,15 @@ Once the data from Data Box is uploaded to the default tier, you may want to mov
 
 Following steps describe how you can set the blob tier to Archive using an Azure PowerShell script.
 
-1. Sign into the Azure PowerShell.
+1. Open an elevated Windows PowerShell session. Sign into the Azure PowerShell.
 
-    `Login-AzureRmAccount`
+     `Login-AzureRmAccount`
 
-2. Define the variables for storage account, access key, container, and the storage context.
+2.  Make sure that your running PowerShell 5.0 or higher. Type:
+
+    `$PSVersionTable.PSVersion`
+
+3. Define the variables for storage account, access key, container, and the storage context.
 
     ```powershell
     $StorageAccountName = "<enter account name>"
@@ -61,14 +65,47 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
-3. Get all the blobs in the container.
+4. Get all the blobs in the container.
 
-    `$blob = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
  
-4. Set the tier of all the blobs to Archive.
+5. Set the tier of all the blobs in the container to Archive.
 
-    `$blob.icloudblob.setstandardblobtier("Archive")`
+    ```powershell
+    Foreach ($blob in $blobs) {
+    $blob.ICloudBlob.SetStandardBlobTier("Archive")
+    }
+    ```
 
+    A sample output is shown below:
+    ```
+    Windows PowerShell
+    Copyright (C) Microsoft Corporation. All rights reserved.
+
+    PS C:\WINDOWS\system32> Login-AzureRmAccount
+
+    Account          : gus@contoso.com
+    SubscriptionName : MySubscription
+    SubscriptionId   : subscription-id
+    TenantId         : tenant-id
+    Environment      : AzureCloud
+
+    PS C:\WINDOWS\system32> $PSVersionTable.PSVersion
+
+    Major  Minor  Build  Revision
+    -----  -----  -----  --------
+    5      1      17763  134
+
+    PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
+    PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
+    PS C:\WINDOWS\system32> $ContainerName = "test"
+    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
+    >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
+    >> }
+    PS C:\WINDOWS\system32>
+    ```
 > [!TIP]
 > If you want the data to archive on ingest, set the default account tier to Hot. If the default tier is Cool, then there is a 30-day early deletion penalty if the data moves to Archive immediately.
 
