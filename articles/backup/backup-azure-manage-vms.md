@@ -79,7 +79,8 @@ In the previous procedure you opened the vault dashboard. To open the vault item
    * stop protecting virtual machines
    * resume protection of a virtual machine
    * delete a backup data (or recovery point)
-   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [restore backup disks](backup-azure-arm-restore-vms.md#create-new-restore-disks
+)
 
 For the following procedures, the starting point is the vault item dashboard.
 
