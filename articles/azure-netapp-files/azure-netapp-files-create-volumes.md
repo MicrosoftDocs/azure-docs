@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
 ---
 # Create a volume for Azure NetApp Files
@@ -57,7 +57,7 @@ A subnet must be delegated to Azure NetApp Files.
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files.    
+        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. Note that in each Vnet, only one subnet can be delegated to Azure NetApp Files.   
  
         ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
