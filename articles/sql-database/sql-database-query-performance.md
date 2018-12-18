@@ -91,11 +91,11 @@ Query Performance Insight by default shows the top 5 CPU consuming queries when 
    * Time interval (Last 24 hours, Past week, Past month). 
    * Number of queries.
    * Aggregation function.
-
-  Click on the "Go >" button to see the customized view.
   
   ![settings](./media/sql-database-query-performance/custom-tab.png)
   
+5. Click on the "Go >" button to see the customized view.
+
   > [!IMPORTANT]
   >**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5-20 consuming queries, depending on your selection. Your database could execute many more queries beyond the top shown and these queries will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU, while this would not be visible on the chart. This tool is intended to be a basic database performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance issues such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
   >
@@ -134,14 +134,14 @@ To identify long running queries:
 2. Change metrics to be **duration**
 3. Select number of queries and the observation interval.
 4. Select aggregation function:
-   
+
    * **Sum** adds up all query execution time during whole observation interval.
    * **Max** finds queries which execution time was maximum at whole observation interval.
    * **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
-  Click on the "Go >" button to see the customized view.
-
    ![query_duration](./media/sql-database-query-performance/top-duration.png)
+
+5. Click on the "Go >" button to see the customized view.
 
    > [!IMPORTANT]
    > **Product limitation:** Custom adjusting the query view will not update the DTU line. The DTU line will always show maximum consumption value per the interval of granularity. To understand database DTU consumption with more granularity (up to one minute), consider creating a custom chart in Azure portal by clicking on 1. Azure SQL Database > Monitoring, 2. Click on Metrics, 3. Click on +Add chart, 4. select DTU percentage on the chart. In addition, click on “Last 24 hours” on the top left hand side menu and change to one minute. It is recommended that such custom created DTU chart is used to correlate with the query performance chart.
@@ -159,9 +159,8 @@ To identify frequently executed (“chatty”) queries:
 1. Open **Custom** tab in Query Performance Insight for selected database
 2. Change metrics to be **execution count**
 3. Select number of queries and observation interval
-   
-   Click on the "Go >" button to see the customized view.
-   
+4. Click on the "Go >" button to see the customized view.
+
    ![query execution count](./media/sql-database-query-performance/top-execution.png)
 
 ## Understanding performance tuning annotations
