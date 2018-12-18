@@ -53,6 +53,24 @@ If the workspace selected is not linked to an Automation Account, you'll see the
 
 ![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+When enabling solutions, only certain regions are supported for linking a Log Analytics Workspace and an Automation Account.
+
+The following table shows the supported mapping for linking of a Log Analytics Workspace to an Automation Account:
+
+|**Log Analytics Workspace Region**|**Azure Automation Region**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
 
 Click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
