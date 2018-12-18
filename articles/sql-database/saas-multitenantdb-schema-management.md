@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 09/19/2018
 ---

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
-ms.reviwer:
+ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
 ---
