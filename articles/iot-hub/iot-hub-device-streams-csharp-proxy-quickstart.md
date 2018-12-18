@@ -220,6 +220,10 @@ dotnet run
 
 Now use your RDP client program and connect to service-local proxy on port `2222`. 
 
+<p>
+    <img style="margin:auto;display:block;background-color:white;" src="./media/iot-hub-device-streams-csharp-proxy-quickstart/rdp-screen-capture.PNG">
+</p>
+
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
