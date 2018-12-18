@@ -11,7 +11,7 @@ ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Prepare to deploy Azure Data Box Edge resource 
+# Tutorial: Prepare to deploy Azure Data Box Edge  
 
 
 This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Data Box Edge. This tutorial describes how to prepare the Azure portal to deploy a Data Box Edge resource. 
@@ -38,7 +38,7 @@ To deploy Data Box Edge, refer to the following tutorials in the prescribed sequ
 | --- | --- | --- | 
 | 1. |**[Prepare the Azure portal for Data Box Edge](data-box-edge-deploy-prep.md)** |Create and configure your Data Box Edge resource before you install a Data Box Edge physical device. |
 | 2. |**[Install Data Box Edge](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Data Box Edge physical device.  |
-| 3. |**[Connect, set up, and activate the Data Box Edge device](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
+| 3. |**[Connect, set up, and activate Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
 | 4. |**[Transfer data with Data Box Edge](data-box-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
 | 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure Edge modules on the device to transform the data as it moves to Azure. |
 
@@ -78,7 +78,7 @@ Perform the following steps to create a new Data Box Edge resource.
 
 If you have an existing Data Box Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-To create a Data Box resource, take the following steps in the Azure portal.
+To create a Data Box Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
