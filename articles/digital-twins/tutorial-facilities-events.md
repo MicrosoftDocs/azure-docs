@@ -6,7 +6,7 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 12/17/2018
+ms.date: 12/18/2018
 ms.author: dkshir
 ---
 
@@ -124,33 +124,33 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 1. Select the **New step** button.
 
 1. In the **Choose an action** window:
-    
+
    a. Search the phrase **parse json**, and select the **Parse JSON** action.
 
    b. In the **Content** field, select **Body** from the **Dynamic content** list.
 
    c. Select **Use sample to payload to generate schema**. Paste the following JSON payload, and then select **Done**.
 
-        ```JSON
-        {
-        "id": "32162f00-a8f1-4d37-aee2-9312aabba0fd",
-        "subject": "UdfCustom",
-        "data": {
-          "TopologyObjectId": "20efd3a8-34cb-4d96-a502-e02bffdabb14",
-          "ResourceType": "Space",
-          "Payload": "\"Air quality is poor.\"",
-          "CorrelationId": "32162f00-a8f1-4d37-aee2-9312aabba0fd"
-        },
-        "eventType": "UdfCustom",
-        "eventTime": "0001-01-01T00:00:00Z",
-        "dataVersion": "1.0",
-        "metadataVersion": "1",
-        "topic": "/subscriptions/a382ee71-b48e-4382-b6be-eec7540cf271/resourceGroups/HOL/providers/Microsoft.EventGrid/topics/DigitalTwinEventGrid"
-        }
-        ```
-    
+    ```JSON
+    {
+    "id": "32162f00-a8f1-4d37-aee2-9312aabba0fd",
+    "subject": "UdfCustom",
+    "data": {
+      "TopologyObjectId": "20efd3a8-34cb-4d96-a502-e02bffdabb14",
+      "ResourceType": "Space",
+      "Payload": "\"Air quality is poor.\"",
+      "CorrelationId": "32162f00-a8f1-4d37-aee2-9312aabba0fd"
+    },
+    "eventType": "UdfCustom",
+    "eventTime": "0001-01-01T00:00:00Z",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/a382ee71-b48e-4382-b6be-eec7540cf271/resourceGroups/HOL/providers/Microsoft.EventGrid/topics/DigitalTwinEventGrid"
+    }
+    ```
+
     This payload has fictitious values. Logic Apps uses this sample payload to generate a *schema*.
-    
+
     ![Logic Apps Parse JSON window for Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
 
 1. Select the **New step** button.
@@ -166,7 +166,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
    ![Selected conditions](./media/tutorial-facilities-events/logic-app-condition.png)
 
 1. In the **If true** window:
-   
+
    a. Select **Add an action**, and select **Office 365 Outlook**.
 
    b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** when prompted.
@@ -196,14 +196,16 @@ If you want to stop exploring Azure Digital Twins at this point, feel free to de
     > [!TIP]
     > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
 
-2. If necessary, delete the sample applications on your work machine. 
+2. If necessary, delete the sample applications on your work machine.
 
 ## Next steps
 
-To learn how to visualize your sensor data, analyze trends, and spot anomalies, go to the next tutorial: 
+To learn how to visualize your sensor data, analyze trends, and spot anomalies, go to the next tutorial:
+
 > [!div class="nextstepaction"]
 > [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md)
 
-You can also learn more about the spatial intelligence graphs and object models in Azure Digital Twins: 
+You can also learn more about the spatial intelligence graphs and object models in Azure Digital Twins:
+
 > [!div class="nextstepaction"]
 > [Understanding Digital Twins object models and spatial intelligence graph](concepts-objectmodel-spatialgraph.md)
