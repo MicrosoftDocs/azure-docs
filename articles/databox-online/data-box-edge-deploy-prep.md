@@ -127,7 +127,7 @@ In this tutorial, you learned about Data Box Edge topics such as:
 Advance to the next tutorial to learn how to install Data Box Edge. 
 
 > [!div class="nextstepaction"]
-> [Install a Data Box Edge](./data-box-edge-deploy-install.md)
+> [Install Data Box Edge](./data-box-edge-deploy-install.md)
 
 
 
