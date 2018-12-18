@@ -258,7 +258,7 @@ The following languages are supported by the Detect method. Detect may identify 
 
 ## Access the Translator Text API language list programmatically
 
-You can access the list of supported languages programmatically using the Languages operation of the V3.0 Text API. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
+You can retrieve a list of supported languages for the Translator Text API v3.0 using the Languages method. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages are made available.
 
 [View Languages operation reference documentation](reference/v3-0-languages.md)
 
