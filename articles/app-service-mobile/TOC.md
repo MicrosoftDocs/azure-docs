@@ -79,11 +79,11 @@
 #### [Create an ASE by using a template](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Deploy
-### [Cloud sync deployment](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Continuous deployment](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Cloud sync deployment](../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Continuous deployment](../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Staging environments](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Local Git deployment](../app-service/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Resource Manager deployment](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Local Git deployment](../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Resource Manager deployment](../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Scale
 ### [Scale-up an app](../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -119,11 +119,11 @@
 
 ## Secure
 ### Authenticate with identity providers
-#### [Azure Active Directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Facebook authentication](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Google authentication](../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Microsoft Account authentication](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Twitter authentication](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Azure Active Directory authentication](../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Facebook authentication](../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Google authentication](../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Microsoft Account authentication](../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Twitter authentication](../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### HTTPS
 #### [Configure TLS Mutual Authentication ](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -173,7 +173,7 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=mobile-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Samples
 ### [Field engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

@@ -1,5 +1,5 @@
 ---
-title: Introduction to App Service on Linux | Microsoft Docs
+title: Introduction to App Service on Linux - Azure | Microsoft Docs
 description: Learn about Azure App Service on Linux.
 keywords: azure app service, linux, oss
 services: app-service
@@ -17,11 +17,12 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
+ms.custom: seodec18
 
 ---
 # Introduction to Azure App Service on Linux
 
-[Web App](../app-service-web-overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
+[Web App](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The following sections lists the application stacks that are currently supported.
 
 ## Languages
 

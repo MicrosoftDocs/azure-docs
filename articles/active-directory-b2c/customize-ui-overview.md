@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -19,13 +19,13 @@ The ability for you to brand and customize the user interface (UI) that Azure Ac
 
 Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
 
-- If you're using [built-in policies](active-directory-b2c-reference-policies.md) to provide sign-up or sign-in, password reset, or profile-editing experiences in your application, you use the [Azure portal to customize the UI](tutorial-customize-ui.md).
+- If you're using [user flows](active-directory-b2c-reference-policies.md) to provide sign-up or sign-in, password reset, or profile-editing experiences in your application, you use the [Azure portal to customize the UI](tutorial-customize-ui.md).
 - If you're providing sign-in only, its accompanying password reset page, and verification emails, you use the same customization steps that are used for an [Azure AD sign-in page](../active-directory/fundamentals/customize-branding.md).
 - If customers try to edit their profile before they sign in, they are redirected to a page that you customize using the same steps that are used for customizing the Azure AD sign-in page.
 - If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, you use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
 - If you need to provide dynamic content based on a customer’s decision, you use [custom policies that can change page content](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, the background image on the Azure AD B2C sign-up or sign-in page changes, based on a parameter that you pass from your web or mobile application.
 
-Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). At run-time, content is loaded from a URL that you specify in a policy. You specify different URLs for different pages. After content is loaded from your URL, it's merged with an HTML fragment inserted from Azure AD B2C, and then displayed to your customer.
+Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At run-time, content is loaded from a URL that you specify in a user flow or policy. You specify different URLs for different pages. After content is loaded from your URL, it's merged with an HTML fragment inserted from Azure AD B2C, and then displayed to your customer.
 
 Before you start, review the following guidance:
 
@@ -114,6 +114,6 @@ For customization examples, download and review these [sample template files](ht
 
 ## Next steps
 
-- If you're using built-in policies, you can start customizing your UI with the tutorial: [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
+- If you're using user flows, you can start customizing your UI with the tutorial: [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
 - If you're using custom policies, you can start customizing the UI with the article: [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

@@ -188,14 +188,14 @@ As seen in the diagram, Azure Load Balancer distributes traffic across multiple 
 
 ![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/redis-cache/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) or [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
+Another approach to implement this application pattern is to use a consolidated web role that contains both presentation tier and business tier components as shown in the following diagram. This application pattern is useful for applications that require stateful design. Since Azure provides stateless compute nodes on web and worker roles, we recommend that you implement a logic to store session state using one of the following technologies: [Azure Caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Azure Table Storage](../../../cosmos-db/table-storage-how-to-use-dotnet.md) or [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md).
 
 ![Application patterns with Cloud Services](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 
 ## Pattern with Azure VMs, Azure SQL Database, and Azure App Service (Web Apps)
 The primary goal of this application pattern is to show you how to combine Azure infrastructure as a service (IaaS) components with Azure platform-as-a-service components (PaaS) in your solution. This pattern is focused on Azure SQL Database for relational data storage. It does not include SQL Server in an Azure virtual machine, which is part of the Azure infrastructure as a service offering.
 
-In this application pattern, you deploy a database application to Azure by placing the presentation and business tiers in the same virtual machine and accessing a database in Azure SQL Database (SQL Database) servers. You can implement the presentation tier by using traditional IIS-based web solutions. Or, you can implement a combined presentation and business tier by using [Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/).
+In this application pattern, you deploy a database application to Azure by placing the presentation and business tiers in the same virtual machine and accessing a database in Azure SQL Database (SQL Database) servers. You can implement the presentation tier by using traditional IIS-based web solutions. Or, you can implement a combined presentation and business tier by using [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/).
 
 This application pattern is useful when:
 

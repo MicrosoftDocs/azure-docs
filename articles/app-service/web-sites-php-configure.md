@@ -1,5 +1,5 @@
 ﻿---
-title: Configure PHP in Azure App Service Web Apps
+title: Configure PHP runtime - Azure App Service
 description: Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service.
 services: app-service
 documentationcenter: php
@@ -14,6 +14,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
+ms.custom: seodec18
 
 ---
 # Configure PHP in Azure App Service Web Apps
@@ -35,10 +36,10 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 1. Browse to your web app in the [Azure portal](https://portal.azure.com) and click on the **Settings** button.
 
     ![Web App Settings][settings-button]
-1. From the **Settings** blade, select **Application Settings** and choose the new PHP version.
+2. From the **Settings** blade, select **Application Settings** and choose the new PHP version.
 
     ![Application Settings][application-settings]
-1. Click the **Save** button at the top of the **Web app settings** blade.
+3. Click the **Save** button at the top of the **Web app settings** blade.
 
     ![Save configuration settings][save-button]
 
@@ -144,7 +145,7 @@ Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To ena
 
 Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime with Web Apps, following these steps.
 
-1. Obtain a non-thread-safe, VC9 or VC11 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [http://windows.php.net/download/]. Older releases can be found in the archive here: [http://windows.php.net/downloads/releases/archives/].
+1. Obtain a non-thread-safe, VC9 or VC11 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [https://windows.php.net/download/]. Older releases can be found in the archive here: [https://windows.php.net/downloads/releases/archives/].
 1. Modify the `php.ini` file for your runtime. Any configuration settings that are system-level-only directives are ignored by Web Apps. (For information about system-level-only directives, see [List of php.ini directives]).
 1. Optionally, add extensions to your PHP runtime and enable them in the `php.ini` file.
 1. Add a `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
@@ -164,7 +165,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 ## How to: Enable Composer automation in Azure
 
 By default, App Service doesn't do anything with composer.json, if you have one in your PHP
-project. If you use [Git deployment](app-service-deploy-local-git.md), you can enable composer.json 
+project. If you use [Git deployment](deploy-local-git.md), you can enable composer.json 
 processing during `git push` by enabling the Composer extension.
 
 > [!NOTE]
@@ -195,7 +196,7 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 >
 
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [List of php.ini directives]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -205,8 +206,8 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

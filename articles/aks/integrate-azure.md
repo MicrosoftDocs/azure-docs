@@ -166,7 +166,7 @@ Finally, list all available service plans. Service plans are the service tiers f
 In this step, you use Helm to install an updated Helm chart for WordPress. The chart provisions an external Azure Database for MySQL instance that WordPress can use. This process can take a few minutes.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 In order to verify the installation has provisioned the right resources, list the installed service instances and bindings:

@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Identify language from text, C# - Translator Text API"
+title: "Quickstart: Detect text language, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to detect the language of provided text using .NET Core and the Translator Text REST API.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/26/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Detect text language with the Translator Text REST API (C#)
+# Quickstart: Use the Translator Text API to detect text language using C#
 
 In this quickstart, you'll learn how to detect the language of provided text using .NET Core and the Translator Text REST API.
 
@@ -23,7 +23,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for the Speech Service
+* An Azure subscription key for Translator Text
 
 ## Create a .NET Core project
 

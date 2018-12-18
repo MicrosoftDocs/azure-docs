@@ -1,5 +1,5 @@
 ---
-title: Share Azure Time Series Insights custom views with parameterized URLs | Microsoft Docs
+title: 'Share Azure Time Series Insights custom views with parameterized URLs | Microsoft Docs'
 description: This article describes how to develop parameterized URLs in Azure Time Series Insights, so that a customer view can easily be shared.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,6 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
+ms.custom: seodec18
 ---
 
 # Share a custom view using a parameterized URL
@@ -65,7 +66,7 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the
   - The column name of *measure*.
 - "predicate":"<string>"
   - The *where* clause for server-side filtering.
--  "useSum":"true"
+- "useSum":"true"
   - This is an optional parameter that specifies using sum for your measure.  Note, if "Events" is the selected measure, count is selected by default.  If "Events" is not selected, average is selected by default.  
 
 The 'multiChartStack=<true/false>' parameter enables stacking in the chart and the 'multiChartSameScale=<true/false>' parameter enables the same Y-axis scale across terms within an optional parameter.  

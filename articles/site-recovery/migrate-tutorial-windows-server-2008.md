@@ -6,7 +6,7 @@ manager: abhemraj
 ms.service: site-recovery
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 09/22/2018
+ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
 ---

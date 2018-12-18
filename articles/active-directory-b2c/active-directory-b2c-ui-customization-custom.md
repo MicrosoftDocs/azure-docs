@@ -26,7 +26,7 @@ Complete the steps in [Get started with custom policies](active-directory-b2c-ge
 
 By using the page UI customization feature, you can customize the look and feel of any custom policy. You can also maintain brand and visual consistency between your application and Azure AD B2C.
 
-Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
+Here's how it works: Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). First, you specify a URL in the custom policy with customized HTML content. Azure AD B2C merges UI elements with the HTML content that's loaded from your URL and then displays the page to the customer.
 
 ## Create your HTML5 content
 
@@ -106,7 +106,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 Validate that you're ready by doing the following:
 
-1. Go to the [www.test-cors.org](http://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
+1. Go to the [www.test-cors.org](https://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
 2. Click **Send Request**.  
     If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
@@ -119,7 +119,7 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 3. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 4. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element. 
 5. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
-6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     Your custom policy should look like the following:
 

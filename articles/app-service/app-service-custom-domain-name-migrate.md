@@ -1,5 +1,5 @@
 ---
-title: Migrate an active DNS name to Azure App Service | Microsoft Docs
+title: Migrate an active DNS name - Azure App Service | Microsoft Docs
 description: Learn how to migrate a custom DNS domain name that is already assigned to a live site to Azure App Service without any downtime.
 services: app-service
 documentationcenter: ''
@@ -16,15 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Migrate an active DNS name to Azure App Service
 
-This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/app-service-web-overview.md) without any downtime.
+This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/overview.md) without any downtime.
 
 When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by binding the active DNS name to your App Service app preemptively.
 
-If you're not worried about downtime in DNS resolution, see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md).
+If you're not worried about downtime in DNS resolution, see [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 ## Prerequisites
 
@@ -132,4 +133,4 @@ DNS queries should start resolving to your App Service app immediately after DNS
 Learn how to bind a custom SSL certificate to App Service.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md)

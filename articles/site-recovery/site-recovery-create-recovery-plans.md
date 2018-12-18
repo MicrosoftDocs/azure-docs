@@ -1,10 +1,11 @@
 ---
 title: Create and customize recovery plans for disaster recovery using Azure Site Recovery | Microsoft Docs
 description: Learn how to create and customize recovery plans for disaster recovery using the Azure Site Recovery service.
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
@@ -38,7 +39,7 @@ This article describes how to create and customize a recovery plan in [Azure Sit
 
 ## Add a group to a plan
 
-You create additional groups, and add machines to different groups so that you can specify different behavior on a group-by-grou basis. For example, you can specify when machines in a group should start after failover, or specify customized actions per group.
+You create additional groups, and add machines to different groups so that you can specify different behavior on a group-by-group basis. For example, you can specify when machines in a group should start after failover, or specify customized actions per group.
 
 1. In **Recovery Plans**, right-click the plan > **Customize**. By default, after creating a plan all the machines you added to it are located in default Group 1.
 2. Click **+Group**. By default a new group is numbered in the order in which it's added. You can have up to seven groups.

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze an image - SDK, C# - Computer Vision"
+title: "Quickstart: Analyze an image - SDK, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Analyze an image using the Computer Vision SDK and C#
 
@@ -25,7 +26,7 @@ In this quickstart, you analyze both a local and a remote image to extract visua
 ## AnalyzeImageAsync method
 
 > [!TIP]
-> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 The `AnalyzeImageAsync` and `AnalyzeImageInStreamAsync` methods wrap the [Analyze Image API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for remote and local images, respectively. You can use these methods to extract visual features based on image content and choose which features to return, including:
 

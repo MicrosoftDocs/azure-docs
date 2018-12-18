@@ -1,5 +1,5 @@
 ---
-title: Create a C# ASP.NET Framework web app in Azure | Microsoft Docs
+title: Create C# ASP.NET Framework web app - Azure App Service | Microsoft Docs
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
 services: app-service\web
 documentationcenter: ''
@@ -16,10 +16,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
+ms.custom: seodec18
+
 ---
 # Create an ASP.NET Framework web app in Azure
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 ![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 

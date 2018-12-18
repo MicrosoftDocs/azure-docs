@@ -142,3 +142,6 @@ Incremental snapshots are used for unmanaged disks. For managed disks, restore p
 
 ### How to get standard SSD managed disk support for a virtual machine?
 Upgrade to Azure VM Backup stack V2 to get Azure Backup support for the [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### What happens if I select retention period of restore point (Tier 2) less than snapshot (Tier1)?
+The VM backup stack v2  does not allow deleting the restore point (Tier2) unless the snapshot (Tier1) is deleted. Currently we support 7 days retention period for snapshot (Tier1) deletion, so the restore point (Tier2) retention period for less than 7 days is not honored. We recommend scheduling restore point (Tier2) retention period greater than 7 days.

@@ -1,5 +1,5 @@
 ---
-title: Create a static HTML web app in Azure | Microsoft Docs
+title: Create static HTML web app - Azure App Service | Microsoft Docs
 description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
 services: app-service\web
 documentationcenter: ''
@@ -16,10 +16,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Create a static HTML web app in Azure
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Home page of sample app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -79,7 +81,7 @@ The `az webapp up` command does the following actions:
 
 - Create an app with the specified name.
 
-- [Zip deploy](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) files from the current working directory to the web app.
+- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the web app.
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
 

@@ -115,7 +115,7 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | Elevation of privilege | Authorization | Use [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## Develop on Azure App Service
-[Azure App Service](../app-service/app-service-web-overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
+[Azure App Service](../app-service/overview.md) is a PaaS offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
 
 Following are best practices for using App Service.
 
@@ -159,7 +159,7 @@ In this article, we focused on security advantages of an Azure PaaS deployment a
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database and Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
 - [Azure Storage](security-paas-applications-using-storage.md)
-- Azure REDIS Cache
+- Azure Cache for Redis
 - Azure Service Bus
 - Web Application Firewalls
 

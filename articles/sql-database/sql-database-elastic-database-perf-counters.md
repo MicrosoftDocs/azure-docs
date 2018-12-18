@@ -25,7 +25,7 @@ Counters are used to track the performance of [data dependent routing](sql-datab
 * To create a performance counter instance and update the counters, the user must be a member of either the **Administrators** or **Performance Monitor Users** group. 
 
 ## Create performance category and counters
-To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagmentFactory class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
+To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagementFactory class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

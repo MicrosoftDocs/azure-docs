@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-
 ---
 # IP addresses used by Application Insights and Log Analytics
 The [Azure Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.

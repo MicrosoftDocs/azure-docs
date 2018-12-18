@@ -1,14 +1,12 @@
 ---
-title: Azure PowerShell Samples for Azure Cosmos DB | Microsoft Docs
+title: Azure PowerShell Samples for Azure Cosmos DB
 description: Azure PowerShell Samples - Scripts to help you create and manage Azure Cosmos DB accounts. 
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 tags: azure-service-management
 
 ms.service: cosmos-db
 ms.custom: mvc
-ms.devlang: na
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
@@ -22,7 +20,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |---|---|
 |**Create an Azure Cosmos DB account**||
 |[Create a SQL API account](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the SQL API. |
-|[Create a MongoDB API account](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the MongoDB API. |
+|[Create a Azure Cosmos DB API account for MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB API account for MongoDB. |
 |[Create a Gremlin API account](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Gremlin API. |
 |[Create a Cassandra API account](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Cassandra API. |
 |[Create a Table API account](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Table API. |

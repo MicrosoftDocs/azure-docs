@@ -1,22 +1,25 @@
 ---
-title: Azure Disk Encryption Prerequisites | Microsoft Docs
+title: Prerequisites - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
+ms.date: 12/17/2018
 
+ms.custom: seodec18
 ---
 
-# Azure Disk Encryption prerequisites 
+# Azure Disk Encryption prerequisites
+
  This article, Azure Disk Encryption Prerequisites, explains items that need to be in place before you can use Azure Disk Encryption. Azure Disk Encryption is integrated with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) to help manage encryption keys. You can use [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), or the [Azure portal](https://portal.azure.com) to configure Azure Disk Encryption.
 
 Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scenarios that were discussed in the [Azure Disk Encryption Overview](azure-security-disk-encryption-overview.md) article, be sure to have the prerequisites in place. 
 
-> [!NOTE]
-> Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
+> [!WARNING]
+> - If you have previously used [Azure Disk Encryption with Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
+> - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 
 
 ## <a name="bkmk_OSs"></a> Supported operating systems
@@ -204,7 +207,7 @@ The Azure platform needs access to the encryption keys or secrets in your key va
   - **Enable Key Vault for template deployment, if needed:** Enables Azure Resource Manager to get secrets from this key vault when this key vault is referenced in a template deployment.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Set key vault advanced access policies using the Azure CLI

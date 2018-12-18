@@ -1,5 +1,5 @@
 ---
-title: Build a .NET Core and SQL Database web app in Azure App Service | Microsoft Docs 
+title: Build .NET Core app with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -15,6 +15,8 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Tutorial: Build a .NET Core and SQL Database web app in Azure App Service
 
@@ -22,7 +24,7 @@ ms.custom: mvc
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database web app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
 
 ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -211,6 +213,10 @@ If this code detects that it is running in production (which indicates the Azure
 
 The `Database.Migrate()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration. 
 
+> [!IMPORTANT]
+> For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
+
 Save your changes, then commit it into your Git repository. 
 
 ```bash
@@ -388,4 +394,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)

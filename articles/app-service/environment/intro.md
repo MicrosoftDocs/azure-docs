@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure App Service Environments
+title: Introduction to App Service Environments - Azure
 description: Brief overview of Azure App Service Environments
 services: app-service
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Introduction to the App Service Environments #
  
@@ -95,12 +96,12 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md

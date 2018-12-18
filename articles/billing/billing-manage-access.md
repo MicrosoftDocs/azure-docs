@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure billing | Microsoft Docs
-description: 
+description: Learn how to give access to your Azure billing information for members of your team.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-
+ms.custom: seodec18
 ---
 # Manage access to billing information for Azure
 
@@ -68,9 +68,10 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
 1. Select **Access control (IAM)**.
 1. Select **Role assignments** to view all the role assignments for this subscription.
-1. Select **Add** > **Add role assignment**.
+1. Select **Add role assignment**.
 1. In the **Role** drop-down list, choose **Billing Reader**.
 1. In the **Select** textbox, type the name or email for the user you want to add.
+1. Select the user.
 1. Select **Save**.
 1. After a few moments, the user is assigned the Billing Reader role at the subscription scope.
 1. The Billing Reader receives an email with a link to sign in.

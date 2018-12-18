@@ -5,21 +5,18 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-
 ---
 # Profile live Azure cloud services with Application Insights
 
 You can also deploy Application Insights profiler on these services:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

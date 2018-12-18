@@ -1,5 +1,5 @@
 ---
-title: Authentication and authorization in Azure App Service | Microsoft Docs
+title: Authentication and authorization - Azure App Service | Microsoft Docs
 description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
+ms.custom: seodec18
 
 ---
 # Authentication and authorization in Azure App Service
@@ -148,11 +149,11 @@ Provider-specific how-to guides:
 * [How to configure your app to use Twitter login][Twitter]
 * [How to: Use custom authentication for your application][custom-auth]
 
-[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: configure-authentication-provider-aad.md
+[Facebook]: configure-authentication-provider-facebook.md
+[Google]: configure-authentication-provider-google.md
+[MSA]: configure-authentication-provider-microsoft.md
+[Twitter]: configure-authentication-provider-twitter.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

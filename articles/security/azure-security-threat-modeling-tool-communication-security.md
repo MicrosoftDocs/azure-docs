@@ -31,7 +31,7 @@ ms.author: jegeib
 | **Mobile Client** | <ul><li>[Implement Certificate Pinning](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Enable HTTPS - Secure Transport channel](#https-transport)</li><li>[WCF: Set Message security Protection level to EncryptAndSign](#message-protection)</li><li>[WCF: Use a least-privileged account to run your WCF service](#least-account-wcf)</li></ul> |
 | **Web API** | <ul><li>[Force all traffic to Web APIs over HTTPS connection](#webapi-https)</li></ul> |
-| **Azure Redis Cache** | <ul><li>[Ensure that communication to Azure Redis Cache is over SSL](#redis-ssl)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Ensure that communication to Azure Cache for Redis is over SSL](#redis-ssl)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Secure Device to Field Gateway communication](#device-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Secure Device to Cloud Gateway communication using SSL/TLS](#device-cloud)</li></ul> |
 
@@ -369,16 +369,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Ensure that communication to Azure Redis Cache is over SSL
+## <a id="redis-ssl"></a>Ensure that communication to Azure Cache for Redis is over SSL
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Redis Cache | 
+| **Component**               | Azure Cache for Redis | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Azure Redis SSL support](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Steps** | Redis server does not support SSL out of the box, but Azure Redis Cache does. If you are connecting to Azure Redis Cache and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Redis Cache instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
+| **Steps** | Redis server does not support SSL out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
 

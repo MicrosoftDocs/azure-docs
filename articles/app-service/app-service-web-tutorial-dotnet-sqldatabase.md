@@ -1,5 +1,5 @@
 ---
-title: Build an ASP.NET app in Azure with SQL Database | Microsoft Docs 
+title: Build ASP.NET app with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to deploy a C# ASP.NET app with a SQL Server database to Azure.
 services: app-service\web
 documentationcenter: ''
@@ -16,11 +16,13 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
+ms.custom: seodec18
+
 ---
 
 # Tutorial: Build an ASP.NET app in Azure with SQL Database
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in Azure and connected to SQL Database.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in Azure and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 

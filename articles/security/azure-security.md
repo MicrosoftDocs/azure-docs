@@ -107,7 +107,7 @@ In addition, Azure Security Center helps with security operations by providing y
 The section provides additional information regarding key features in application security and summary information about these capabilities.
 
 ### Web Application vulnerability scanning
-One of the easiest ways to get started with testing for vulnerabilities on your [App Service app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
+One of the easiest ways to get started with testing for vulnerabilities on your [App Service app](https://docs.microsoft.com/azure/app-service/overview) is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
 
 ### Penetration Testing
 If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the [Azure penetration testing approval process](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) and obtain prior approval to perform the desired penetration tests.
