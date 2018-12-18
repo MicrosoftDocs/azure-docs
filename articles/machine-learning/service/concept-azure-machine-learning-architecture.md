@@ -77,7 +77,7 @@ For an example of training a model, see [Quickstart: Create a Machine Learning s
 
 The model registry keeps track of all the models in your Azure Machine Learning service workspace. 
 
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it is a new version. The version is incremented, and the new model is registered under the same name.
+Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
 
 When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
 
@@ -87,7 +87,7 @@ For an example of registering a model, see [Train an image classification model 
 
 ## Image
 
-Images provide a way to reliably deploy a model, along with all components needed to use the model. An image contains the following items:
+Images provide a way to reliably deploy a model, along with all components you need to use the model. An image contains the following items:
 
 * A model.
 * A scoring script or application. You use the script to pass input to the model and return the output of the model.
@@ -95,8 +95,8 @@ Images provide a way to reliably deploy a model, along with all components neede
 
 Azure Machine Learning can create two types of images:
 
-* **FPGA image**: Used when deploying to a field-programmable gate array in Azure.
-* **Docker image**: Used when deploying to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
+* **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
+* **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
@@ -136,7 +136,7 @@ Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve f
 
 A run is a record that contains the following information:
 
-* Metadata about the run (timestamp, duration, and so forth)
+* Metadata about the run (timestamp, duration, and so on)
 * Metrics that are logged by your script
 * Output files that are autocollected by the experiment or explicitly uploaded by you
 * A snapshot of the directory that contains your scripts, prior to the run
@@ -192,7 +192,7 @@ For information about selecting a compute target for deployment, see the [Deploy
 
 A run configuration is a set of instructions that defines how a script should be run in a specified compute target. The configuration includes a wide set of behavior definitions, such as whether to use an existing Python environment or to use a Conda environment that's built from a specification.
 
-A run configuration can be persisted into a file inside the directory that contains your training script, or constructed as an in-memory object and used to submit a run.
+A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
 
