@@ -161,7 +161,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    b. In the first **Choose a value** text box, select **eventType** from the **Dynamic content** list for the **Parse JSON** window.
 
-   c. In the second **Choose a value** text box, enter **UdfCustom**.
+   c. In the second **Choose a value** text box, enter `UdfCustom`.
 
    ![Selected conditions](./media/tutorial-facilities-events/logic-app-condition.png)
 
