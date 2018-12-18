@@ -45,6 +45,7 @@ Query Performance Insight is easy to use:
 
 * Open [Azure portal](https://portal.azure.com/) and find a database that you would like to examine. 
   * From the left-hand side menu, open **Intelligent Performance** > **Query performance insight**
+  
   ![qpi_menu](./media/sql-database-query-performance/tile.png)
 * On the first tab, review the list of top resource-consuming queries.
 * Select an individual query to view its details.
@@ -93,8 +94,8 @@ Query Performance Insight by default shows the top 5 CPU consuming queries when 
 
   Click on the "Go >" button to see the customized view.
   
-     ![settings](./media/sql-database-query-performance/custom-tab.png)
-
+  ![settings](./media/sql-database-query-performance/custom-tab.png)
+  
   > [!IMPORTANT]
   >**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5-20 consuming queries, depending on your selection. Your database could execute many more queries beyond the top shown and these queries will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU, while this would not be visible on the chart. This tool is intended to be a basic database performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance issues such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
   >
@@ -194,7 +195,7 @@ The first case happens when Query Store is in the Read-Only state and parameters
 
    ![qds details](./media/sql-database-query-performance/qds-off.png)
 
-The second case happens when Query Store is Off, or parameters are not set optimally. You can change the Retention and Capture policy, and also enable Query Store by executing commands provided below from [SSMS tool](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), or the Azure portal:
+The second case happens when Query Store is Off, or parameters are not set optimally. You can change the Retention and Capture policy, and also enable Query Store by executing commands provided below from [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) tool, or the Azure portal:
 
 ### Recommended retention and capture policy
 There are two types of retention policies:
@@ -208,7 +209,7 @@ Capture policy could be set to:
 * **Auto** - Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
 * **None** - Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
 
-We recommend setting all policies to AUTO and clean policy to 30 days by executing the following commands from SSMS, or Azure portal (replace "YourDB" with database name):
+We recommend setting all policies to AUTO and clean policy to 30 days by executing the following commands from [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), or Azure portal (replace YourDB with database name):
 
 ```T-SQL
     ALTER DATABASE [YourDB] 
@@ -221,14 +222,14 @@ We recommend setting all policies to AUTO and clean policy to 30 days by executi
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Increase size of Query Store. This could be performed by connecting to a database using SSMS, or Azure portal and executing the following query (replace "YourDB" with database name):
+Increase size of Query Store. This could be performed by connecting to a database using [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), or Azure portal and executing the following query (replace YourDB with database name):
 
 ```T-SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
 
-Applying these settings will eventually make Query Store collect telemetry for new queries. In case you need Query Store operational right way, you may optionally choose to clear Query Store (with the consequence of deleting all previously collected telemetry) by execuring the query below using SSMS, or Azure portal (replace "YourDB" with database name):
+Applying these settings will eventually make Query Store collect telemetry for new queries. In case you need Query Store operational right way, you may optionally choose to clear Query Store by execuring the query below using SSMS, or Azure portal (replace YourDB with database name):
 
 > [!NOTE]
 > Executing the following query will delete all previously collected monitored telemetry in Query Store. 
@@ -239,7 +240,7 @@ Applying these settings will eventually make Query Store collect telemetry for n
 ```
 
 ## Summary
-Query Performance Insight helps you understand the impact of query workload and how it relates to the database resource consumption. With this feature, you will learn about the top consuming queries on your database, and easily identify queries to optimize before they become a problem.
+Query Performance Insight helps you understand the impact of query workload and how it relates to the database resource consumption. With this feature, you will learn about the top consuming queries on your database, and easily identify queries to optimize before they become an issue.
 
 ## Next steps
 
