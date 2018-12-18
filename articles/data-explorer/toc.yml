@@ -48,32 +48,23 @@
     href: time-series-analysis.md
 - name: How-to guides
   items:
-  - name: Get Started
-    expanded: true
-    items:
-    - name: Write queries
-      href: write-queries.md
-    - name: Ingest sample data
-      href: ingest-sample-data.md
-  - name: Manage
-    items:
-    - name: Manage database permissions
-      href: manage-database-permissions.md
-    - name: Check cluster health
-      href: check-cluster-health.md
-    - name: Manage cluster scaling
-      href: manage-cluster-scaling.md
-    - name: Delete data
-      href: delete-data.md
-  - name: Work with other tools
-    items:
-    - name: Connect from Databricks using Python
-      href: connect-from-databricks.md
-    - name: Connect from other tools using ODBC
-      href: connect-with-odbc.md
-    - name: Visualize data in Grafana
-      href: grafana.md
-  - name: Troubleshoot
+  - name: Connect from Databricks using Python
+    href: connect-from-databricks.md
+  - name: Write queries
+    href: write-queries.md
+  - name: Ingest sample data
+    href: ingest-sample-data.md
+  - name: Visualize data in Grafana
+    href: grafana.md
+  - name: Delete data
+    href: delete-data.md
+  - name: Manage database permissions
+    href: manage-database-permissions.md
+  - name: Check cluster health
+    href: check-cluster-health.md
+  - name: Manage cluster scaling
+    href: manage-cluster-scaling.md
+  - name: Troubleshooting
     items:
     - name: Creating a cluster
       href: troubleshoot-create-cluster.md
