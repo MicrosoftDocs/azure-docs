@@ -138,6 +138,14 @@ There are two parts to this scenario:
 
 9. The time that the download takes depends on the size of the item. After the download completes, the item is available in the folder that you specified in the script. The download includes a VHD file (for virtual machines) or a .zip file (for virtual machine extensions). It might also include a gallery package in the *.azpkg* format, which is simply a .zip file.
 
+10. If the download fails, you can try again by re-running the following PowerShell cmdlet:
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    Before retrying, remove the product folder in which the download failed. For example, if the download script fails when downloading to `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, remove the `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` folder, then rerun the cmdlet.
+ 
 ### Import the download and publish to Azure Stack Marketplace (1811 and higher)
 
 1. You must move the files that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) locally so that they are available to your Azure Stack environment. The marketplace syndication tool must also be available to your Azure Stack environment, because you need to use the tool to perform the import operation.
