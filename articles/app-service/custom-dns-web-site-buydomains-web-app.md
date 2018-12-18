@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Buy a custom domain name for Azure Web Apps
 
-App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure Web Apps](app-service-web-overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure Web Apps.
+App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure Web Apps.
 
 This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps). For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). For Cloud Services, see 
 [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
@@ -151,7 +151,7 @@ If you choose not to assign one or more default hostnames to your web app during
 
 You can also assign hostnames in the App Service Domain to any other web app. The steps depend on whether the App Service Domain and the web app belong to the same subscription.
 
-- Different subscription: Map custom DNS records from the App Service Domain to the web app like an externally purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external purchased domain to a web app, see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md). 
+- Different subscription: Map custom DNS records from the App Service Domain to the web app like an externally purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external purchased domain to a web app, see [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md). 
 - Same subscription: Use the following steps.
 
 ### Launch add hostname

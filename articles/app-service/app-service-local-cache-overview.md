@@ -26,7 +26,7 @@ ms.custom: seodec18
 > Local cache is not supported in Function apps or containerized App Service apps, such as on [App Service on Linux](containers/app-service-linux-intro.md).
 
 
-Azure web app content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
+Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
 * The content is shared across multiple virtual machine (VM) instances of the web app.
 * The content is durable and can be modified by running web apps.
