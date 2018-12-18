@@ -90,7 +90,7 @@ After you select the restore point, choose a VM restore configuration. To config
 **Option** | **Details**
 --- | ---
 **Create new-create VM** | Equivalent to quick create of a VM. Gets a basic VM up and running from a restore point.<br/><br/> The VM settings can be modified as part of the restore process.
-**Create new-restore disk** | Creates a VM that you can customize as part of the restore process.<br/><br/> This option copies VHDs to the storage account you specify.<br/><br/> - The storage account should be in the same location as the vault.<br/><br/> If you don't have an appropriate storage account you need to create one.<br/><br/> The storage account replication type is shown in parentheses. Zone redundant storage (ZRS) isn't supported.<br/><br/> From the storage account you can either [attach the restored disks to an existing VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps), or [create a new VM](backup-azure-vms-automation#create-a-vm-from-restored-disks) from the restored disks.
+**Create new-restore disk** | Creates a VM that you can customize as part of the restore process.<br/><br/> This option copies VHDs to the storage account you specify.<br/><br/> - The storage account should be in the same location as the vault.<br/><br/> If you don't have an appropriate storage account you need to create one.<br/><br/> The storage account replication type is shown in parentheses. Zone redundant storage (ZRS) isn't supported.<br/><br/> From the storage account you can either attach the restored disks to an existing VM, or create a new VM from the restored disks using PowerShell.
 **Replace existing** | With this option you don't need to create a VM.<br/><br/> The current VM must exist. If it's been deleted this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM and stores it in the staging location specified. The existing disks connected to the VM are then replaced with the selected restore point. The snapshot created previously is copied to the vault and stored as a recovery point in accordance with your backup retention policy.<br/><br/> Replace existing is supported for unencrypted managed VMs. It's not supported for unmanaged disks, [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), or for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM. 
 
 > [!NOTE]
@@ -110,7 +110,7 @@ Specify the restore setting as follows:
 ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
 
-## Create new: Create a VM
+## Create new-Create a VM
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Create a virtual machine**.
 2. In **Virtual machine name**, specify a VM which doesn’t exist in the subscription.
@@ -124,7 +124,7 @@ Specify the restore setting as follows:
 
 
 
-## Create new: Restore disks 
+## Create new-Restore disks 
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
 2. In In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name. 
@@ -137,7 +137,7 @@ Specify the restore setting as follows:
 
     - Use the template that was generated as part of the restore operation to customize settings, and trigger VM deployment. Ypu edit the default template settings, and submit the template for VM deployment.
     - You can [attach the restored disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps) to an existing VM.
-    - You can [create a new VM](backup-azure-vms-automation#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
+    - You can [create a new VM](backup-azure-vms-automation#restore-an-azure-vm) from the restored disks using PowerShell.
 
 
 ## Replace existing disks 
