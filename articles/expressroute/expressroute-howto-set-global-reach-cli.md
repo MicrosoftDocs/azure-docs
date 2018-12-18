@@ -52,17 +52,22 @@ You can enable ExpressRoute Global Reach between any two ExpressRoute circuits a
 
 ## Enable connectivity between your on-premises networks
 
-Run the following CLI to connect two ExpressRoute circuits. When running the command, consider the following:
+When running the command to enable connectivity, consider the following values:
 
-* *peer-circuit* should be the full resource ID, for example: `/subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}`
+* *peer-circuit* should be the full resource ID. For example: 
 
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
 * *-AddressPrefix* must be a /29 IPv4 subnet, e.g. "10.0.0.0/29". We will use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure VNets or in your on-premises networks.
+
+Run the following CLI to connect two ExpressRoute circuits. Use the following example command:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-The CLI output looks like the following.
+The CLI output looks like the following example:
 
 ```azurecli
 {

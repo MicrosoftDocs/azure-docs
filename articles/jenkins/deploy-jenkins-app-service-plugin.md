@@ -60,9 +60,9 @@ You need an Azure service principal to deploy to Azure.
 
 To deploy your project to Web Apps, you can upload your build artifacts by file upload. Azure App Service supports multiple deployment options. The Azure App Service Jenkins plugin makes it simple for you and derives the deployment option based on the file type. 
 
-* For Java EE applications, [WAR deployment](/azure/app-service/app-service-deploy-zip#deploy-war-file) is used.
-* For Java SE applications, [ZIP deployment](/azure/app-service/app-service-deploy-zip#deploy-zip-file) is used.
-* For other languages, [Git deployment](/azure/app-service/app-service-deploy-local-git) is used.
+* For Java EE applications, [WAR deployment](/azure/app-service/deploy-zip#deploy-war-file) is used.
+* For Java SE applications, [ZIP deployment](/azure/app-service/deploy-zip#deploy-zip-file) is used.
+* For other languages, [Git deployment](/azure/app-service/deploy-local-git) is used.
 
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 

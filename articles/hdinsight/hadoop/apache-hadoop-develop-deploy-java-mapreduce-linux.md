@@ -281,8 +281,8 @@ This command copies the files from the local system to the head node. For more i
 
 In this document, you have learned how to develop a Java MapReduce job. See the following documents for other ways to work with HDInsight.
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 For more information, see also the [Java Developer Center](https://azure.microsoft.com/develop/java/).

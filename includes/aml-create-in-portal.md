@@ -23,9 +23,9 @@ In the upper-left corner of the portal, select **Create a resource**.
 
 In the search bar, enter **Machine Learning**. Select the **Machine Learning service workspace** search result.
 
-   ![Search for workspace](./media/aml-create-in-portal/allservices-search.PNG)
+   ![Search for a workspace](./media/aml-create-in-portal/allservices-search.PNG)
 
-In the **Machine Learning service workspace** pane, scroll to the bottom and select **Create** to begin.
+In the **ML service workspace** pane, scroll to the bottom and select **Create** to begin.
 
    ![Create](./media/aml-create-in-portal/portal-create-button.png)
 
@@ -33,16 +33,16 @@ In the **ML service workspace** pane, configure your workspace.
 
    Field|Description
    ---|---
-   Workspace name |Enter a unique name that identifies your workspace. Here we use docs-ws. Names must be unique across the resource group. Use a name that's easy to recall and differentiate from workspaces created by others.  
+   Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and differentiate from workspaces created by others.  
    Subscription |Select the Azure subscription that you want to use.
-   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. Here we use docs-aml. 
+   Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group is a container that holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
 
    ![Create workspace](./media/aml-create-in-portal/workspace-create.png)
 
 To start the creation process, select **Create**. It can take a few moments to create the workspace.
 
-To check on the status of the deployment, select the Notifications icon (bell) on the toolbar.
+To check on the status of the deployment, select the Notifications icon, **bell**, on the toolbar.
 
    ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
 

@@ -597,38 +597,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Batch/register/action | Registers the subscription for the Batch Resource Provider and enables the creation of Batch accounts |
 > | Action | Microsoft.Batch/unregister/action | Unregisters the subscription for the Batch Resource Provider preventing the creation of Batch accounts |
 
-## Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Action Type | Operation | Description |
-> | --- | --- | --- |
-> | Action | Microsoft.BatchAI/clusters/read | Lists Batch AI clusters or gets the properties of a Batch AI cluster |
-> | Action | Microsoft.BatchAI/fileservers/read | Lists Batch AI fileservers or gets the properties of a Batch AI fileserver |
-> | Action | Microsoft.BatchAI/locations/operationresults/read | Gets Batch AI async operation result at the specified Azure region |
-> | Action | Microsoft.BatchAI/locations/operationstatuses/read | Gets Batch AI async operation status at the specified Azure region |
-> | Action | Microsoft.BatchAI/locations/usages/read | Gets Batch AI usages of the specified subscription at the specified Azure region |
-> | Action | Microsoft.BatchAI/register/action | Registers the subscription for the Batch AI Resource Provider and enables the creation of Batch AI resources |
-> | Action | Microsoft.BatchAI/unregister/action | Unregisters the subscription for the Batch AI Resource Provider preventing the creation of Batch AI resources |
-> | Action | Microsoft.BatchAI/workspaces/clusters/delete | Deletes a Batch AI cluster |
-> | Action | Microsoft.BatchAI/workspaces/clusters/read | Lists Batch AI clusters or gets the properties of a Batch AI cluster |
-> | Action | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Lists remote-login information for a Batch AI cluster |
-> | Action | Microsoft.BatchAI/workspaces/clusters/write | Creates a new Batch AI cluster or updates an existing Batch AI cluster |
-> | Action | Microsoft.BatchAI/workspaces/delete | Deletes a Batch AI workspace |
-> | Action | Microsoft.BatchAI/workspaces/experiments/delete | Deletes a Batch AI experiment |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Deletes a Batch AI job |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Lists output files for a Batch AI job |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/read | Lists Batch AI jobs or gets the properties of a Batch AI job |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Lists remote-login information for a Batch AI job |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Terminates a Batch AI job |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/write | Creates a new Batch AI job or updates an existing Batch AI job |
-> | Action | Microsoft.BatchAI/workspaces/experiments/read | Lists Batch AI experiments or gets the properties of a Batch AI experiment |
-> | Action | Microsoft.BatchAI/workspaces/experiments/write | Creates a new Batch AI experiment or updates an existing Batch AI experiment |
-> | Action | Microsoft.BatchAI/workspaces/fileservers/delete | Deletes a Batch AI fileserver |
-> | Action | Microsoft.BatchAI/workspaces/fileservers/read | Lists Batch AI fileservers or gets the properties of a Batch AI fileserver |
-> | Action | Microsoft.BatchAI/workspaces/fileservers/write | Creates a new Batch AI fileserver or updates an existing Batch AI fileserver |
-> | Action | Microsoft.BatchAI/workspaces/read | Lists Batch AI workspaces or gets the properties of a Batch AI workspace |
-> | Action | Microsoft.BatchAI/workspaces/write | Creates a new Batch AI workspace or updates an existing Batch AI workspace |
-
 ## Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
