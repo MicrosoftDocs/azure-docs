@@ -50,6 +50,8 @@
   items:
   - name: Connect from Databricks using Python
     href: connect-from-databricks.md
+  - name: Analyze data using Jupyter Notebooks and KQLmagic
+    href: kqlmagic.md
   - name: Write queries
     href: write-queries.md
   - name: Ingest sample data
