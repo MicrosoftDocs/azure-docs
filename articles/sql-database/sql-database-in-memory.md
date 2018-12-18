@@ -81,6 +81,17 @@ In-depth videos about the technologies:
 - [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (which contains a demo of performance benefits and steps to reproduce these results yourself)
 - [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
+There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
+```
+SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
+```
+If the query returns **1**, In-Memory OLTP is supported in this database. The following queries identify all objects that need to be removed before a database can be downgraded to Standard/Basic:
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
 ### Data size and storage cap for In-Memory OLTP
 
 In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
@@ -103,6 +114,19 @@ With elastic pools, the In-Memory OLTP storage is shared across all databases in
 
 - Configure a `Max-eDTU` or `MaxvCore` for databases that is lower than the eDTU or vCore count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
 - Configure a `Min-eDTU` or `MinvCore` that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured `Min-eDTU` or `vCore`.
+
+### Changing service tiers of databases that use In-Memory OLTP technologies
+
+You can always upgrade your database or instance to a higher tier, such as from General Purpose to Business Critical (or Standard to Premium). The available functionality and resources only increase.
+
+But downgrading the tier can negatively impact your database. The impact is especially apparent when you downgrade from Business Critical to General Purpose (or Premium to Standard or Basic) when your database contains In-Memory OLTP objects. Memory-optimized tables are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a Standard or Basic elastic pool.
+
+> [!Important]
+> In-Memory OLTP isn't supported in the General Purpose, Standard or Basic tier. Therefore, it isn't possible to move a database that has any In-Memory OLTP objects to the Standard or Basic tier.
+
+Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules. 
+
+*Scaling-down resources in Business Critical tier*: Data in memory-optimized tables must fit within the In-Memory OLTP storage that is associated with the tier of the database or Managed Instance, or it is available in the elastic pool. If you try to scale-down the tier or move the database into a pool that doesn't have enough available In-Memory OLTP storage, the operation fails.
 
 ## In-memory columnstore
 
@@ -127,42 +151,14 @@ For example, if you have a database with a maximum size of 1 terabyte (TB) and y
 
 When you use nonclustered columnstore indexes, the base table is still stored in the traditional rowstore format. Therefore, the storage savings aren't as big as with clustered columnstore indexes. However, if you're replacing a number of traditional nonclustered indexes with a single columnstore index, you can still see an overall savings in the storage footprint for the table.
 
-## Moving databases that use In-Memory technologies between pricing tiers
+### Changing service tiers of databases containing Columnstore indexes
 
-There are never any incompatibilities or other problems when you upgrade to a higher pricing tier, such as from Standard to Premium. The available functionality and resources only increase.
-
-But downgrading the pricing tier can negatively impact your database. The impact is especially apparent when you downgrade from Premium to Standard or Basic when your database contains In-Memory OLTP objects. Memory-optimized tables are unavailable after the downgrade (even if they remain visible). The same considerations apply when you're lowering the pricing tier of an elastic pool, or moving a database with In-Memory technologies, into a Standard or Basic elastic pool.
-
-### In-Memory OLTP
-
-*Downgrading to Basic/Standard*: In-Memory OLTP isn't supported in databases in the Standard or Basic tier. In addition, it isn't possible to move a database that has any In-Memory OLTP objects to the Standard or Basic tier.
-
-There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
-
-```
-SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
-```
-
-If the query returns **1**, In-Memory OLTP is supported in this database.
-
-Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules. The following queries identify all objects that need to be removed before a database can be downgraded to Standard/Basic:
-
-```
-SELECT * FROM sys.tables WHERE is_memory_optimized=1
-SELECT * FROM sys.table_types WHERE is_memory_optimized=1
-SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
-```
-
-*Downgrading to a lower Premium tier*: Data in memory-optimized tables must fit within the In-Memory OLTP storage that is associated with the pricing tier of the database or is available in the elastic pool. If you try to lower the pricing tier or move the database into a pool that doesn't have enough available In-Memory OLTP storage, the operation fails.
-
-### Columnstore indexes
-
-*Downgrading to Basic or Standard*: Columnstore indexes are supported only on the Premium pricing tier and on the Standard tier, S3 and above, and not on the Basic tier. When you downgrade your database to an unsupported tier or level, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to a supported tier or level, your columnstore index is immediately ready to be leveraged again.
+*Downgrading Single Database to Basic or Standard* might not be possible if your target tier is below S3. Columnstore indexes are supported only on the Business Critical/Premium pricing tier and on the Standard tier, S3 and above, and not on the Basic tier. When you downgrade your database to an unsupported tier or level, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to a supported tier or level, your columnstore index is immediately ready to be leveraged again.
 
 If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
-*Downgrading to a lower supported tier or level*: This downgrade succeeds if the whole database fits within the maximum database size for the target pricing tier, or within the available storage in the elastic pool. There is no specific impact from the columnstore indexes.
-
+> [!Note]
+> Managed Instance supports Columstore indexes in all tiers.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
