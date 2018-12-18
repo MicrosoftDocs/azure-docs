@@ -33141,6 +33141,11 @@
             "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
             "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
             "redirect_document_id": false            
+        },
+			{
+			"source_path": "articles/application-insights/app-insights-analytics-import.md",
+			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+			"redirect_document_id": false
         }
     ]
 }
