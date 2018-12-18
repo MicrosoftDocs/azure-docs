@@ -19,7 +19,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 ## Build errors
 **In Eclipse or Intellij Idea, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.**
 
-* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.0.+'`), try specifying a specific version instead like `2.0.1`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) for the latest version.
+* If the dependency `<version>` element is using a pattern with wildcard characters (e.g. (Maven) `<version>[2.0,)</version>` or (Gradle) `version:'2.0.+'`), try specifying a specific version instead like `2.0.1`. See the [release notes](https://github.com/Microsoft/ApplicationInsights-Java/releases) for the latest version.
 
 ## No data
 **I added Application Insights successfully and ran my app, but I've never seen data in the portal.**
@@ -42,7 +42,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.
 
 #### I don't see all the data I'm expecting
-* Open the Usage and estimated cost page and check whether [sampling](app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry. 
+* Open the Usage and estimated cost page and check whether [sampling](app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
 * Do you have SDK Sampling turned on? If yes, data would be sampled at the rate specified for all the applicable types.
 * Are you running an older version of Java SDK? Starting with version 2.0.1, we have introduced fault tolerance mechanism to handle intermittent network and backend failures as well as data persistence on local drives.
 * Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
@@ -58,7 +58,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 
 You successfully set up your app to send telemetry from the server. Now your next step is to [set up your web pages to send telemetry from the web browser][usage].
 
-Alternatively, if your client is an app in a [phone or other device][platforms], you can send telemetry from there. 
+Alternatively, if your client is an app in a [phone or other device][platforms], you can send telemetry from there.
 
 Use the same instrumentation key to set up both your client and server telemetry. The data will appear in the same Application Insights resource, and you'll be able to correlate events from client and server.
 
@@ -74,7 +74,7 @@ In code:
     config.setTrackingIsDisabled(true);
 ```
 
-**Or** 
+**Or**
 
 Update ApplicationInsights.xml (in the resources folder in your project). Add the following under the root node:
 
@@ -124,7 +124,7 @@ Assuming you [set up your app for Application Insights][java], click Browse, sel
 ## Intranet servers
 **Can I monitor a server on my intranet?**
 
-Yes, provided your server can send telemetry to the Application Insights portal through the public internet. 
+Yes, provided your server can send telemetry to the Application Insights portal through the public internet.
 
 In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
@@ -134,7 +134,7 @@ In your firewall, you might have to open TCP ports 80 and 443 for outgoing traff
 See [Data retention and privacy][data].
 
 ## Debug logging
-Application Insights uses `org.apache.http`. This is relocated within Application Insights core jars under the namespace `com.microsoft.applicationinsights.core.dependencies.http`. This enables Application Insights to handle scenarios where different versions of the same `org.apache.http` exist in one code base. 
+Application Insights uses `org.apache.http`. This is relocated within Application Insights core jars under the namespace `com.microsoft.applicationinsights.core.dependencies.http`. This enables Application Insights to handle scenarios where different versions of the same `org.apache.http` exist in one code base.
 
 >[!NOTE]
 >If you enable DEBUG level logging for all namespaces in the app, it will be honored by all executing modules including `org.apache.http` renamed as `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights will not be able to apply filtering for these calls because the log call is being made by the Apache library. DEBUG level logging produce a considerable amount of log data and is not recommended for live production instances.
