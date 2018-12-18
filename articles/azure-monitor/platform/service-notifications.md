@@ -98,15 +98,15 @@ Properties.communicationId | The communication with which this event is associat
 ## View your service health notifications in the Azure portal
 1.	In the [Azure portal](https://portal.azure.com), select **Monitor**.
 
-    ![Screenshot of Azure portal menu, with Monitor selected](./media/monitoring-service-notifications/home-monitor.png)
+    ![Screenshot of Azure portal menu, with Monitor selected](./media/service-notifications/home-monitor.png)
 
     Azure Monitor brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
 3.	Select **Alerts**.
 
-    ![Screenshot of Monitor Activity log, with Alerts selected](./media/monitoring-service-notifications/service-health-summary.png)
-4. Select **+Add activity log alert**, and set up an alert to ensure you are notified for future service notifications. For more information, see [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+    ![Screenshot of Monitor Activity log, with Alerts selected](./media/service-notifications/service-health-summary.png)
+4. Select **+Add activity log alert**, and set up an alert to ensure you are notified for future service notifications. For more information, see [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 ## Next steps
-Receive [alert notifications whenever a service health notification](../azure-monitor/platform/alerts-activity-log-service-notifications.md) is posted.  
-Learn more about [activity log alerts](../azure-monitor/platform/activity-log-alerts.md).
+Receive [alert notifications whenever a service health notification](../../azure-monitor/platform/alerts-activity-log-service-notifications.md) is posted.  
+Learn more about [activity log alerts](../../azure-monitor/platform/activity-log-alerts.md).

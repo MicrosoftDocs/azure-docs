@@ -42,7 +42,7 @@ The [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overvi
 Some of the things you can do with the activity log include:
 
 - Create an [alert on an Activity Log event](../articles/azure-monitor/platform/activity-logs-overview.md).
-- [Stream it to an Event Hub](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+- [Stream it to an Event Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 - Analyze it in PowerBI using the [PowerBI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Save it to a storage account](../articles/azure-monitor/platform/archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
 

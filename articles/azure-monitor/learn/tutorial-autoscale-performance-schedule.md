@@ -36,26 +36,26 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 Within a few minutes, your resources should be provisioned. Use the Web App and corresponding App Service Plan in the remainder of this tutorial.
 
-   ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Create a new app service in the portal](./media/tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## Navigate to Autoscale settings
 1. From the left-hand navigation pane, select the **Monitor** option. Once the page loads, select the **Autoscale** tab.
 2. A list of the resources under your subscription that support autoscale are listed here. Identify the App Service Plan that was created earlier in the tutorial, and click on it.
 
-    ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. On the autoscale setting, click the **Enable Autoscale** button.
 
 The next few steps help you fill the autoscale screen to look like following picture:
 
-   ![Save autoscale setting](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
+   ![Save autoscale setting](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
  ## Configure default profile
 1. Provide a **Name** for the autoscale setting.
 2. In the default profile, ensure the **Scale mode** is set to 'Scale to a specific instance count'.
 3. Set the instance count to **1**. This setting ensures that when no other profile is active, or in effect, the default profile returns the instance count to 1.
 
-  ![Navigate to autoscale settings](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+  ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## Create recurrance profile
@@ -90,7 +90,7 @@ The next few steps help you fill the autoscale screen to look like following pic
 
 This rule ensures that if your Web App receives more than 10 requests within 5 minutes or less, one additional instance is added to your App Service Plan to manage load.
 
-   ![Create a scale-out rule](./media/monitor-tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
+   ![Create a scale-out rule](./media/tutorial-autoscale-performance-schedule/Scale-Out-Rule.png)
 
 ## Create a scale-in rule
 We recommended you always to have a scale-in rule to accompany a scale-out rule. Having both ensures that your resources are not over provisioned. Over provisioning means you have more instances running than needed to handle the current load. 
@@ -109,11 +109,11 @@ We recommended you always to have a scale-in rule to accompany a scale-out rule.
 
 7. Click the **Add** button.
 
-    ![Create a scale-in rule](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
+    ![Create a scale-in rule](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
 8. **Save** the autoscale setting.
 
-    ![Save autoscale setting](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
+    ![Save autoscale setting](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
 ## Trigger scale-out action
 To trigger the scale-out condition in the autoscale setting just created, the Web App must have more than 10 requests in less than 5 minutes.
@@ -153,7 +153,7 @@ The scale-in condition in the autoscale setting triggers if there are fewer than
 
 8. Under the chart, are the corresponding set of activity log entries for each scale action taken by this autoscale setting.
 
-    ![View scale-in actions](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
+    ![View scale-in actions](./media/tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
 ## Clean up resources
 
@@ -176,7 +176,7 @@ In this tutorial, you
 > * Cleaned up your resources
 
 
-To learn more about autoscale settings, continue on to the [autoscale overview](../azure-monitor/platform/autoscale-overview.md).
+To learn more about autoscale settings, continue on to the [autoscale overview](../../azure-monitor/platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
-> [Archive your monitoring data](monitor-tutorial-archive-monitoring-data.md)
+> [Archive your monitoring data](tutorial-archive-data.md)
