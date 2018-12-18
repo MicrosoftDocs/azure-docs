@@ -1,5 +1,5 @@
-﻿---
-title: Create and use an internal load balancer with an Azure App Service Environment
+---
+title: Create internal load balancer with App Service Environment - Azure
 description: Details on how to create and use an internet-isolated Azure App Service Environment
 services: app-service
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create and use an internal load balancer with an App Service Environment #
 
@@ -53,17 +54,17 @@ To create an ILB ASE:
 
 1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
-1. Select your subscription.
+2. Select your subscription.
 
-1. Select or create a resource group.
+3. Select or create a resource group.
 
-1. Select or create a VNet.
+4. Select or create a VNet.
 
-1. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
+5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-1. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
+6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
-1. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
+7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
 	* net	
 
@@ -169,7 +170,7 @@ To upload your own certificates and test access:
 
 	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
-1. Use a browser on that VM and go to http://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
+1. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your web app name is with your domain.)
 
 1. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
 
@@ -240,10 +241,10 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md

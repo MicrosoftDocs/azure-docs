@@ -1,5 +1,5 @@
 ---
-title: Back up your app in Azure
+title: Back up app - Azure App Service
 description: Learn how to create backups of your apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Back up your app in Azure

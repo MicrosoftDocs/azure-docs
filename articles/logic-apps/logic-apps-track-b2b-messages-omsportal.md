@@ -31,7 +31,7 @@ capabilities for tracking messages:
 > [!NOTE]
 > This page previously described steps for how to perform these tasks 
 > with the Microsoft Operations Management Suite (OMS), which is 
-> [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > replaces those steps with Azure Log Analytics instead. 
 
 ## Prerequisites
@@ -49,13 +49,13 @@ and [how to set up monitoring and logging for that account](../logic-apps/logic-
 * After you meet the previous requirements, you also need a Log Analytics workspace, 
 which you use for tracking B2B communication through Log Analytics. 
 If you don't have a Log Analytics workspace, learn 
-[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 ## Install Logic Apps B2B solution
 
 Before you can have Log Analytics track B2B messages for your logic app, 
 add the **Logic Apps B2B** solution to Log Analytics. Learn more about 
-[adding solutions to Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+[adding solutions to Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. In the [Azure portal](https://portal.azure.com), 
 select **All services**. In the search box, 

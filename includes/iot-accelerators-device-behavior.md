@@ -12,7 +12,7 @@
 
 ## State behavior
 
-The [Simulation](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#simulation) section of the device model schema defines the internal state of a simulated device:
+The [Simulation](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) section of the device model schema defines the internal state of a simulated device:
 
 - `InitialState` defines initial values for all the properties of the device state object.
 - `Script` identifies a JavaScript file that runs on a schedule to update the device state.
@@ -134,11 +134,11 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-You can view the complete [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) on Github.
+You can view the complete [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) on GitHub.
 
 ## Method behavior
 
-The [CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md#cloudtodevicemethods) section of the device model schema defines the methods a simulated device responds to.
+The [CloudToDeviceMethods](../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) section of the device model schema defines the methods a simulated device responds to.
 
 The following example shows the list of methods supported by a simulated chiller device:
 
