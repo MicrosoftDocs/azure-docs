@@ -19,7 +19,7 @@ ms.author: cfowler
 ms.custom: mvc
 
 ---
-# Azure CLI Samples
+# CLI samples for Azure App Service
 
 The following table includes links to bash scripts built using the Azure CLI.
 

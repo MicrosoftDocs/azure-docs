@@ -37,25 +37,25 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
-First you need to set up a storage account to which the monitoring data will be archived. To do this, [follow the steps here](../storage/common/storage-quickstart-create-account.md).
+First you need to set up a storage account to which the monitoring data will be archived. To do this, [follow the steps here](../../storage/common/storage-quickstart-create-account.md).
 
 ## Route subscription logs to the storage account
 
-You are now ready to begin to set up your Azure environment to route monitoring data to a storage account. First we configure subscription-level data (contained in the Azure Activity Log) to be routed to the storage account. The [**Azure Activity Log**](../azure-monitor/platform/activity-logs-overview.md) provides a history of subscription-level events in Azure. You can browse it in the Azure portal to determine *who* created, updated, or deleted *what* resources and *when* they did it.
+You are now ready to begin to set up your Azure environment to route monitoring data to a storage account. First we configure subscription-level data (contained in the Azure Activity Log) to be routed to the storage account. The [**Azure Activity Log**](../../azure-monitor/platform/activity-logs-overview.md) provides a history of subscription-level events in Azure. You can browse it in the Azure portal to determine *who* created, updated, or deleted *what* resources and *when* they did it.
 
 1. Click the **Monitor** button found on the left-hand navigation list, then on **Activity Log**.
 
-   ![Activity Log section](media/monitor-tutorial-archive-monitoring-data/activity-log-home.png)
+   ![Activity Log section](media/tutorial-archive-data/activity-log-home.png)
 
 2. In the Activity Log section that is displayed, click on the **Export** button.
 
 3. In the **Export activity log** section that appears, check the box for **Export to a storage account** and click **Select a storage account.**
 
-   ![Activity Log export](media/monitor-tutorial-archive-monitoring-data/activity-log-export.png)
+   ![Activity Log export](media/tutorial-archive-data/activity-log-export.png)
 
 4. In the section that appears, use the **Storage account** dropdown to select the name of the storage account you created in the preceding **Create a storage account** step, then click **OK**.
 
-   ![Pick a storage account](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
+   ![Pick a storage account](media/tutorial-archive-data/activity-log-storage.png)
 
 5. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
@@ -67,11 +67,11 @@ Monitoring data from your subscription is now flowing into the storage account.
 
 Now we configure resource-level data (resource metrics and diagnostic logs) to be routed to the storage account by setting up **resource diagnostic settings**.
 
-1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
+1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../../logic-apps/quickstart-create-first-logic-app-workflow.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
 
 2. Click on a resource in the list, and then click **Turn on diagnostics**.
 
-   ![Turn on diagnostics](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
+   ![Turn on diagnostics](media/tutorial-archive-data/diagnostic-settings-turn-on.png)
 
    If there is already a setting configured, you instead see the existing settings, and a button to **Add diagnostic setting**. Click this button.
 
@@ -79,15 +79,15 @@ Now we configure resource-level data (resource metrics and diagnostic logs) to b
 
 3. In the section that appears, give your setting a **name** and check the box for **Archive to a storage account**.
 
-   ![Diagnostic settings section](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
+   ![Diagnostic settings section](media/tutorial-archive-data/diagnostic-settings-home.png)
 
 4. Click on the **Configure** button under **Archive to a storage account** and select the storage account you created in the preceding section. Click **OK**.
 
-   ![Diagnostic settings storage account](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
+   ![Diagnostic settings storage account](media/tutorial-archive-data/diagnostic-settings-storage.png)
 
 5. Check all the boxes under **Log** and **Metric**. Depending on the resource type, you may only have one of these options. These checkboxes control what categories of log and metric data available for that resource type are sent to the destination you've selected, in this case, a storage account.
 
-   ![Diagnostic settings categories](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
+   ![Diagnostic settings categories](media/tutorial-archive-data/diagnostic-settings-categories.png)
 
 6. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 
@@ -104,7 +104,7 @@ Monitoring data from your resource is now flowing into the storage account.
 
 ## Route virtual machine (guest OS) data to the storage account
 
-1. If you do not already have a virtual machine in your subscription, [create a virtual machine](../virtual-machines/windows/quick-create-portal.md).
+1. If you do not already have a virtual machine in your subscription, [create a virtual machine](../../virtual-machines/windows/quick-create-portal.md).
 
 2. In the left-hand navigation list in the portal, click on **Virtual Machines**.
 
@@ -112,23 +112,23 @@ Monitoring data from your resource is now flowing into the storage account.
 
 4. In the section that appears, click on **Diagnostic Settings** on the left-hand navigation. This section enables you to set up the out-of-box monitoring extension from Azure Monitor on your virtual machine and route data being produced by Windows or Linux to a storage account.
 
-   ![Navigate to diagnostic settings](media/monitor-tutorial-archive-monitoring-data/guest-navigation.png)
+   ![Navigate to diagnostic settings](media/tutorial-archive-data/guest-navigation.png)
 
 5. Click **Enable guest-level monitoring** in the section that appears.
 
-   ![Enable diagnostic settings](media/monitor-tutorial-archive-monitoring-data/guest-enable.png)
+   ![Enable diagnostic settings](media/tutorial-archive-data/guest-enable.png)
 
 6. Once the diagnostic setting has correctly saved, the **Overview** tab shows a list of the data being collected and where it is being stored. Click on the **Performance counters** section to review the set of Windows performance counters being collected.
 
-   ![Performance counters settings](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
+   ![Performance counters settings](media/tutorial-archive-data/guest-perf-counters.png)
 
 7. Click on the **Logs** tab and check the checkboxes for **Information** level logs on Application and System logs.
 
-   ![Logs settings](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
+   ![Logs settings](media/tutorial-archive-data/guest-logs.png)
 
 8. Click on the **Agent** tab and under **Storage account** click on the name of the storage account shown.
 
-   ![Update storage account](media/monitor-tutorial-archive-monitoring-data/guest-storage-home.png)
+   ![Update storage account](media/tutorial-archive-data/guest-storage-home.png)
 
 9. In the section that appears, pick the storage account you created in the preceding **Create a storage account** step.
 
@@ -139,13 +139,13 @@ Monitoring data from your virtual machines is now flowing into the storage accou
 ## View the monitoring data in the storage account
 
 > [!WARNING]
-> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
 If you have followed the preceding steps, data has begun flowing to your storage account.
 
-1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./../azure-monitor/platform/quick-audit-notify-action-subscription.md). You may need to wait up to five minutes before the event appears in the storage account.
+1. For some data types, for example, the Activity Log, there needs to be some activity that generates an event in the storage account. To generate activity in the Activity Log, follow [these instructions](./../../azure-monitor/platform/quick-audit-notify-action-subscription.md). You may need to wait up to five minutes before the event appears in the storage account.
 
 2. In the portal, navigate to the **Storage Accounts** section by finding it on the left-hand navigation bar.
 
@@ -193,4 +193,4 @@ In this tutorial, you learned how to set up monitoring data from your Azure envi
 To get more out of your data and derive additional insights, also  send your data into Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Get started with Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+> [Get started with Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
