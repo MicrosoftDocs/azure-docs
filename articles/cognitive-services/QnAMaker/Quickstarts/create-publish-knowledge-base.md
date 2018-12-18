@@ -53,9 +53,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 11. In the upper right, select **Save and train** to save your edits and train the QnA Maker model. Edits aren't kept unless they're saved.
 
-   ![Save and train](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. In the upper right, select **Test** to test that the changes you made took effect. Enter **hi there** in the box, and select Enter. You should see the answer you created as a response.
+12. In the upper right, select **Test** to test that the changes you made took effect. Enter `hi there` in the box, and select Enter. You should see the answer you created as a response.
 
 13. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the KB before they're published.
 

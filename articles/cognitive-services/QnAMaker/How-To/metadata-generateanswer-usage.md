@@ -108,7 +108,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 
 ## Metadata example
 
-Consider the below FAQ data for restaurants in Hyderabad. Add metadata to your knowledge base by clicking on the gear icon.
+Consider the below FAQ data. Add metadata to your knowledge base by clicking on the metadata icon.
 
 ![add metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
