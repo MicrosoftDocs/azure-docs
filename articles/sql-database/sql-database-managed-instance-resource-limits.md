@@ -47,8 +47,8 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | 32,767 files per database |
-| Data IOPS (approximate) | 500-7500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
-| Log IOPS (approximate) | 3MB/vCore<br/>Max 22MB/s per instance | 6MB/vCore<br/>Max 48MB/s per instance |
+| Data/Log IOPS (approximate) | 500-7500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
+| Instance Log throughput | 22MB/s per instance | 3MB/s per vCore<br/>Max 48MB/s |
 | Data throughput (approximate) | 100-250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s per vCore |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192-1920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |

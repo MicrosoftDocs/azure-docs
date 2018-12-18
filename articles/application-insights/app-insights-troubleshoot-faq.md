@@ -54,7 +54,7 @@ The Enterprise plan incurs a charge for each day that each web server node sends
 
 ## How much is it costing?
 
-* Open the **Usage and estimated costs page** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
+* Open the **Usage and estimated costs page** in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
 * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
@@ -98,7 +98,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](app-insights-asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue. 
 * [Exceptions](app-insights-asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md) or the [Application Insights collectd writer](app-insights-java-collectd.md).
+* [Performance Counters](app-insights-performance-counters.md) - If you use [Status Monitor](app-insights-monitor-performance-live-website-now.md), [Azure monitoring](app-insights-azure-web-apps.md), or the [Application Insights collectd writer](app-insights-java-collectd.md).
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md) that you code.
 * [Trace logs](app-insights-asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -113,10 +113,9 @@ From [client web pages](app-insights-javascript.md):
 From other sources, if you configure them:
 
 * [Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Docker containers](app-insights-docker.md)
-* [Import tables to Analytics](app-insights-analytics-import.md)
-* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
-* [Logstash](app-insights-analytics-import.md)
+* [Import to Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
+* [Logstash](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 ## Can I filter out or modify some telemetry?
 
@@ -142,9 +141,9 @@ You can [use Power BI](app-insights-export-power-bi.md) to display your request 
 ## <a name="data"></a>How long is data retained in the portal? Is it secure?
 Take a look at [Data Retention and Privacy][data].
 
-## Might personally identifiable information (PII) be sent in the telemetry?
+## Could personal data be sent in the telemetry?
 
-This is possible if your code sends such data. It can also happen if variables in stack traces include PII. Your development team should conduct risk assessments to ensure that PII is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
+This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app-insights-data-retention-privacy.md).
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
@@ -287,7 +286,7 @@ Our [web tests](app-insights-monitor-web-app-availability.md) run on points of p
 
 ## How long does it take for telemetry to be collected?
 
-Most Application Insights data has a latency of under 5 minutes. Some data can take longer; typically larger log files. For more information refer to the [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
+Most Application Insights data has a latency of under 5 minutes. Some data can take longer; typically larger log files. For more information, see the [Application Insights SLA](https://azure.microsoft.com/support/legal/sla/application-insights/v1_2/).
 
 ## More answers
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

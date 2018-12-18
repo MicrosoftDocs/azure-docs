@@ -79,9 +79,9 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
 
 1. Select the last page of questions and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality. 
 
-1. From the toolbar above the list of questions and answers, select the gear. This shows the filters for each question and answer. The Chit-chat questions have the **editorial: chit-chat** filter already set. This filter is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filter to determine additional processing or interactions with the user.
+1. From the toolbar above the list of questions and answers, select the metadata icon. This shows the metadata tags for each question and answer. The Chit-chat questions have the **editorial: chit-chat** metadata already set. This metadata is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filtered metadata to determine additional processing or interactions with the user.
 
-    ![View filters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Select **Save and train** in the top menu bar.
 
@@ -167,7 +167,7 @@ After the KB is published, the endpoint is displayed
    
     ```
 
-    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat filter information.  
+    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat metadata tag information.  
 
 ## Use curl to query for the default answer
 
