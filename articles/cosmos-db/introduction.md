@@ -87,7 +87,7 @@ Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mong
 * Easily migrate your application to Cosmos DB while preserving significant portions of your application logic unchanged.
 * Keep your application portable and continue to remain cloud vendor-agnostic.
 * Get industry leading, financially backed SLAs for the common NoSQL APIs. 
-* Elastically scale the provisioned throughput and storage for your Cassandra and MongoDB databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
+* Elastically scale the provisioned throughput and storage for your databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
 
 ## Solutions that benefit from Azure Cosmos DB
 
