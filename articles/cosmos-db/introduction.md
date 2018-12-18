@@ -76,13 +76,13 @@ Cosmos DB is the first and only service to offer [industry-leading comprehensive
 
 ### Apache Spark + Cosmos DB = operational analytics at global scale
 
-You can run [Spark](park-connector.md) on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB.
+You can run [Spark](spark-connector.md) on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB.
 
 ## Native wire-compatible MongoDB, Cassandra, Gremlin, and Azure Table Storage APIs
 
 Cosmos DB offers a choice of APIs to update and query your data stored in your Cosmos database. By default, [you can use SQL](how-to-sql-query.md) to update and query your data in your Cosmos database.
 
-Cosmos DB also implements [Cassandra](cassandra-introduction), [MongoDB](mongodb-introduction.md), and [Gremlin](graph-introduction) wire protocols directly on the service. This enables you to point Cassandra, MongoDB, or Gremlin client drivers (and tools) directly to your Cosmos database and use Cosmos DB as a fully managed, globally distributed, Cassandra/MongoDB/Gremlin-as-a-service without paying for license, support, or operations cost to the database vendor. Native support for Cassandra/MongoDB/Gremlin/Table storage APIs provides numerous benefits. You can:
+Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), and [Gremlin](graph-introduction.md) wire protocols directly on the service. This enables you to point Cassandra, MongoDB, or Gremlin client drivers (and tools) directly to your Cosmos database and use Cosmos DB as a fully managed, globally distributed, Cassandra/MongoDB/Gremlin-as-a-service without paying for license, support, or operations cost to the database vendor. Native support for Cassandra/MongoDB/Gremlin/Table storage APIs provides numerous benefits. You can:
 
 * Easily migrate your Cassandra, MongoDB, Gremlin, and Table Storage databases to Cosmos DB. 
 * Preserve large portion of your application logic unchanged to interface with Cassandra, MongoDB, Gremlin, and Table storage interfaces of Cosmos DB.
