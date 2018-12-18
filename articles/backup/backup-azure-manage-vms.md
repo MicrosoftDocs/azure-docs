@@ -71,7 +71,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
 
     ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    From the vault item dashboard, you can accomplish many key t tasks, such as:
+    From the vault item dashboard, you can accomplish many key tasks, such as:
 
    * change policies or create a new backup policy
    * view restore points, and see their consistency state
