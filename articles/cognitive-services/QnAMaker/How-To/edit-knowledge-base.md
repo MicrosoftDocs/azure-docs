@@ -65,7 +65,7 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 ## Add metadata
 
 
-Add metadata pairs by selecting the filter icon
+Add metadata pairs by selecting the metadata icon
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

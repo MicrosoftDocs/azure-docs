@@ -14,7 +14,7 @@ ms.author: tulasim88
 
 # Using metadata and the GenerateAnswer API
 
-QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key and value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 ## QnA Entity
 
@@ -112,7 +112,7 @@ Consider the below FAQ data for restaurants in Hyderabad. Add metadata to your k
 
 ![add metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### Filter results with strictFilters
+### Filter results with strictFilters for metadata tags
 
 Consider the user question "When does this hotel close?" where the intent is implied for the restaurant "Paradise."
 
