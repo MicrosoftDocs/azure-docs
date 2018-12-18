@@ -65,7 +65,7 @@ The Microsoft FHIR Server uses Azure AD for identity. This presents a few challe
 
 ## Search
 
-For a list of the search capabilities see [Search Features](documentation-fhir-supported-features.md#Search). The project aims to have a full implementation of the search specification including chained search parameters.
+For a list of the search capabilities see [Features](documentation-fhir-supported-features.md). The project aims to have a full implementation of the search specification including chained search parameters.
 
 ## Extensions
 
