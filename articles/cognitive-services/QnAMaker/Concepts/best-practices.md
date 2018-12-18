@@ -62,7 +62,7 @@ The default confidence score that is used as a threshold is 50, however you can 
 |Is parking available?|Do you have car park?|sentence structure|
  |Hi|Yo<br>Hey there!|word-style or slang|
 
-<a href="#use-metadata-filters"></a>
+<a name="#use-metadata-filters"></a>
 
 ### Use metadata tags to filter questions and answers
 
