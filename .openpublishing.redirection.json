@@ -32657,6 +32657,66 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-archive-data",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md",
+            "redirect_url":  "/azure/azure-monitor/learn/tutorial-autoscale-performance-schedule",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/insights-powershell-samples.md",
+            "redirect_url":  "/azure/azure-monitor/platform/powershell-quickstart-samples",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/resource-group-insights.md",
+            "redirect_url":  "/azure/azure-monitor/insights/resource-group-insights",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/stream-monitoring-data-event-hubs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md",
+            "redirect_url":  "/azure/azure-monitor/platform/activity-logs-stream-event-hubs",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alerts-metric-near-real-time",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md",
+            "redirect_url":  "/azure/azure-monitor/platform/autoscale-understanding-settings",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-service-notifications.md",
+            "redirect_url":  "/azure/azure-monitor/platform/service-notifications",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-log-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alert-log-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-rest-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/metrics-store-custom-rest-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-classic-retirement.md",
+            "redirect_url":  "/azure/azure-monitor/platform/monitoring-classic-retirement",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

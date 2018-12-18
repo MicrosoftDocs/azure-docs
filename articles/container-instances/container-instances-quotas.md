@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.author: danlep
 ---
 # Quotas and region availability for Azure Container Instances
@@ -19,16 +19,17 @@ All Azure services include certain default limits and quotas for resources and f
 
 ## Region availability
 
-Azure Container Instances is available in the following regions with the specified CPU and memory limits.
+Azure Container Instances is available in the following regions with the specified CPU and memory limits. Values are current at time of publication. For up-to-date information, use the [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) API.
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
+| Canada Central | Linux | 4 | 16 |
 | East US, North Europe, West Europe, West US, West US 2 | Linux | 4 | 14 |
 | Japan East | Linux | 2 | 8 |
 | Australia East, East US 2, Southeast Asia | Linux | 2 | 7 |
-| Canada Central, Central India, East Asia, North Central US, South Central US | Linux | 2 | 3.5 |
+| Central India, East Asia, North Central US, South Central US, South India | Linux | 2 | 3.5 |
 | East US, West Europe, West US | Windows | 4 | 14 |
-| Australia East, Canada Central, Central India, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
+| Australia East, Canada Central, Central India, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, South India, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
 
 Container instances created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower CPU and memory settings, or try your deployment at a later time.
 

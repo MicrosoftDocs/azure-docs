@@ -130,7 +130,7 @@ The [configuration microservice](https://github.com/Azure/remote-monitoring-serv
 
 ### Authentication and authorization microservice
 
-The [authentication and authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) manages the users authorized to access the solution accelerator. User management can be done using any identity service provider that supports [OpenId Connect](http://openid.net/connect/).
+The [authentication and authorization microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) manages the users authorized to access the solution accelerator. User management can be done using any identity service provider that supports [OpenId Connect](https://openid.net/connect/).
 
 ### Azure Active Directory
 
