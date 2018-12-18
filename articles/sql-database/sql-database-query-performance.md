@@ -17,11 +17,11 @@ ms.date: 04/01/2018
 Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight is a part of Azure SQL Database intelligent performance product line allowing you to spend less time troubleshooting database performance by providing the following:
 
 * Deeper insight into your databases resource (DTU) consumption. 
-* The top queries by CPU/Duration/Execution count, which can potentially be tuned for improved performance.
-* The ability to drill down into the details of a query, view its text and history of resource utilization. 
-* Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md).
+* Details on top database queries by CPU, duration, and execution count (potential tuning candidates for performance improvements).
+* Ability to drill down into details of a query, view the query text and history of resource utilization. 
+* Performance tuning annotations showing [SQL Azure Database Advisor](sql-database-advisor.md) performance recommendations.
 
-   ![opening](./media/sql-database-query-performance/opening-title.png)
+![opening](./media/sql-database-query-performance/opening-title.png)
 
 > [!TIP]
 > Query Performance Insight is the recommended method for basic Azure SQL Database performance monitoring needs. Please note product limitations published on this page. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) is the recommended method for advanced monitoring of database performance at scale, with built-in intelligence for automated performance troubleshooting. [Automatic tuning](sql-database-automatic-tuning.md) is the recommended method to automatically tune some of the most common database performance issues.
@@ -157,7 +157,7 @@ In some cases, very high execution count may lead to increase of network round t
 
 For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
-To identify frequently executed queries (“chatty”) queries:
+To identify frequently executed (“chatty”) queries:
 
 1. Open **Custom** tab in Query Performance Insight for selected database
 2. Change metrics to be **execution count**
@@ -167,13 +167,13 @@ To identify frequently executed queries (“chatty”) queries:
 
 ## Understanding performance tuning annotations
 
-While exploring your workload in Query Performance Insight, you might notice icons with vertical line on top of the chart.
+While exploring your workload in Query Performance Insight, you might notice icons with a vertical line on top of the chart.
 
-* These icons are annotations; they represent performance affecting actions performed by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering annotation, you get basic information about the action:
+* These icons are annotations. They represent performance recommendations provided by [SQL Azure Database Advisor](sql-database-advisor.md). By hovering above an annotation, summarized information on performance recommendation is shown.
 
    ![query annotation](./media/sql-database-query-performance/annotation.png)
 
-* If you would like to know more or apply the advisor recommendation, click on the icon to open details of the recommended action. If this is an active recommendation, you can apply it right away using the portal.
+* If you would like to understand more, or apply the advisor recommendation, click on the icon to open details of the recommended action. If this is an active recommendation, you can apply it right away from the portal.
 
    ![query annotation details](./media/sql-database-query-performance/annotation-details.png)
 
