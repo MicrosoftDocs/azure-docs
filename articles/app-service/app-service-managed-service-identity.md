@@ -62,7 +62,7 @@ The following steps will walk you through creating a web app and assigning it an
     ```azurecli-interactive
     az login
     ```
-2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/app-service-cli-samples.md):
+2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/samples-cli.md):
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
@@ -82,7 +82,7 @@ The following steps will walk you through creating a web app and assigning it an
 
 1. If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.
 
-2. Create a web application using Azure PowerShell. For more examples of how to use Azure PowerShell with App Service, see [App Service PowerShell samples](../app-service/app-service-powershell-samples.md):
+2. Create a web application using Azure PowerShell. For more examples of how to use Azure PowerShell with App Service, see [App Service PowerShell samples](../app-service/samples-powershell.md):
 
     ```azurepowershell-interactive
     # Create a resource group.

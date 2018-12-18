@@ -22,6 +22,10 @@ This article talks about the steps to back up and restore virtual machines (VMs)
    | **Nonmanaged VMs**  | Yes | Yes  |
    | **Managed VMs**  | Yes | Yes  |
 
+   > [!NOTE]
+   > Azure Backup supports VMs encrypted using standalone key(s). Any key which is a part of a certificate used to encrypt a VM is not supported today.
+   >   
+
 ## Prerequisites
 * The VM was encrypted by using [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 

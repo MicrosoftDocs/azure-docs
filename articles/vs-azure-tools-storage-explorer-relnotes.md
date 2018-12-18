@@ -22,49 +22,40 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 1.5.0
-10/29/2018
+## Version 1.6.0
+12/5/2018
 
-### Download Azure Storage Explorer 1.5.0
-- [Azure Storage Explorer 1.5.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.5.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.5.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 1.6.0
+- [Azure Storage Explorer 1.6.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.6.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.6.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 
-* You can now use [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) for uploading and downloading Blobs. To enable this feature go to the "Experimental" menu and then click "Use AzCopy for Improved Blob Upload and Download". When enabled, AzCopy will be used in the following scenarios:
-   * Upload of folders and files to blob containers, either via the toolbar or drag and drop.
-   * Downloading of folders and files, either via the toolbar or context menu.
-
-* Additionally, when using AzCopy:
-   * You can copy the AzCopy command used to execute the transfer to your clipboard. Simply click "Copy AzCopy Command to Clipboard" in the activity log.
-   * You will need to refresh the blob editor manually after uploading.
-   * Uploading files to append blobs is not supported, .vhds will be uploaded as page blobs, and all other files will be uploaded as block blobs.
-   * Errors and conflicts that occur during upload or download will not be surfaced until after a upload or download is finished.
-
-Finally, support for using AzCopy with File Shares will be coming in the future.
-* Storage Explorer is now using Electron version 2.0.11.
-* Breaking leases can now only be performed on one blob at a time. Additionally, you have to enter the name of the blob whose lease you are breaking. This change was made to reduce the likelihood of accidentally breaking a lease, especially in the case of .vhds for VMs. #394
-* If you ever encounter sign-in issues, you can now try resetting authentication. Go to the "Help" menu and click "Reset" to access this capability. #419
-
-### Fix
-
-* After strong user feedback, the default emulator node has been re-enabled. You can still add additional emulator connections via the Connect dialog, but if your emulator is configured to use the default ports you can also use the "Emulator * Default Ports" node under "Local & Attached/Storage Accounts". #669
-* Storage Explorer will no longer let you set blob metadata values which have leading or trailing whitespace. #760
-* The "Sign In" button was always enabled on same pages of the Connect dialog. It is now disabled when appropriate. #761
-* Quick Access will no longer generate an error in the console when no Quick Access items have been added.
+* You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
+* Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
+	* Create and delete containers
+	* Manage container properties and permissions (left-hand side)
+	* View and navigate data inside of containers
+	* Create new folders
+	* Upload, download, rename, and delete files and folders
+	* Manage file and folder properties and permissions (right-hand side).
+	
+	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
+* After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
 
 ### Known Issues
 
-* Detatching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
-* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on this issue.
+* When downloading from an ADLS Gen2 Storage account, if one of the files being transferred already exists, then AzCopy will sometimes crash. This will be fixed in an upcoming hotfix.
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
 * Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
-* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To workaround this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To work around this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Azure Stack does not support the following features. Attempting to use these features while working with Azure Stack resources may result in unexpected errors.
    * File shares
    * Access tiers
@@ -93,6 +84,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 ## Previous releases
 
+* [Version 1.5.0](#version-150)
 * [Version 1.4.4](#version-144)
 * [Version 1.4.3](#version-143)
 * [Version 1.4.2](#version-142)
@@ -124,11 +116,76 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
 
+## Version 1.5.0
+10/29/2018
+
+### New
+
+* You can now use [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) for uploading and downloading Blobs. To enable this feature go to the "Experimental" menu and then click "Use AzCopy for Improved Blob Upload and Download". When enabled, AzCopy will be used in the following scenarios:
+   * Upload of folders and files to blob containers, either via the toolbar or drag and drop.
+   * Downloading of folders and files, either via the toolbar or context menu.
+
+* Additionally, when using AzCopy:
+   * You can copy the AzCopy command used to execute the transfer to your clipboard. Simply click "Copy AzCopy Command to Clipboard" in the activity log.
+   * You will need to refresh the blob editor manually after uploading.
+   * Uploading files to append blobs is not supported, and vhd files will be uploaded as page blobs, and all other files will be uploaded as block blobs.
+   * Errors and conflicts that occur during upload or download will not be surfaced until after an upload or download is finished.
+
+Finally, support for using AzCopy with File Shares will be coming in the future.
+* Storage Explorer is now using Electron version 2.0.11.
+* Breaking leases can now only be performed on one blob at a time. Additionally, you have to enter the name of the blob whose lease you are breaking. This change was made to reduce the likelihood of accidentally breaking a lease, especially for VMs. #394
+* If you ever encounter sign-in issues, you can now try resetting authentication. Go to the "Help" menu and click "Reset" to access this capability. #419
+
+### Fix
+
+* After strong user feedback, the default emulator node has been re-enabled. You can still add additional emulator connections via the Connect dialog, but if your emulator is configured to use the default ports you can also use the "Emulator * Default Ports" node under "Local & Attached/Storage Accounts". #669
+* Storage Explorer will no longer let you set blob metadata values which have leading or trailing whitespace. #760
+* The "Sign In" button was always enabled on same pages of the Connect dialog. It is now disabled when appropriate. #761
+* Quick Access will no longer generate an error in the console when no Quick Access items have been added.
+
+### Known Issues
+
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To work around this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Azure Stack does not support the following features. Attempting to use these features while working with Azure Stack resources may result in unexpected errors.
+   * File shares
+   * Access tiers
+   * Soft Delete
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+	```
+	./StorageExplorer.exe --disable-gpu
+	```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+
 ## Version 1.4.4
 10/15/2018
 
 ### Hotfixes
-* The Azure Resource Management Api Version has been rolled back to unblock Azure US Government users. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* The Azure Resource Management API Version has been rolled back to unblock Azure US Government users. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Loading spinners are now using CSS animations to reduce the amount of GPU used by Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### New
@@ -154,7 +211,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -184,7 +241,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 10/11/2018
 
 ### Hotfixes
-* The Azure Resource Management Api Version has been rolled back to unblock Azure US Government users. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* The Azure Resource Management API Version has been rolled back to unblock Azure US Government users. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
 * Loading spinners are now using CSS animations to reduce the amount of GPU used by Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### New
@@ -210,7 +267,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -240,7 +297,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 09/24/2018
 
 ### Hotfixes
-* Update Azure Resource Management Api Version to 2018-07-01 to add support for new Azure Storage Account kinds. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+* Update Azure Resource Management API Version to 2018-07-01 to add support for new Azure Storage Account kinds. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
 
 ### New
 * External resource attachments, such as for SAS connections and emulators, has been significantly improved. Now you can:
@@ -265,7 +322,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -325,7 +382,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -373,13 +430,13 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Accessibility: Collapsed tree nodes on the left hand side were not being given an aria-expanded value of false. This has been fixed. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
 
 ### Known Issues
-* Detatching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/537) for more information.
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/537) for more information.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on [this issue](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
 * Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Azure Stack does not support the following features, and attempting to use them while working with Azure Stack may result in unexpected errors:
@@ -439,7 +496,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -493,7 +550,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -559,7 +616,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 ### Known Issues
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
@@ -595,7 +652,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 ### Known Issues
 * Storage Explorer does not support ADFS accounts.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described [here](https://github.com/Azure/azure-storage-node/issues/317).
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described [here](https://github.com/Azure/azure-storage-node/issues/317).
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
@@ -644,7 +701,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 ### Known Issues
 * Storage Explorer does not support ADFS accounts.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
@@ -691,7 +748,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Storage Explorer does not support ADFS accounts.
 * Shortcut keys for "View Explorer" and "View Account Management" should be Ctrl/Cmd+Shift+E and Ctrl/Cmd+Shift+A respectively.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
@@ -755,7 +812,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Storage Explorer does not support ADFS accounts.
 * Shortcut keys for "View Explorer" and "View Account Management" should be Ctrl/Cmd+Shift+E and Ctrl/Cmd+Shift+A respectively.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
@@ -811,7 +868,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Storage Explorer does not support ADFS accounts.
 * Shortcut keys for "View Explorer" and "View Account Management" should be Ctrl/Cmd+Shift+E and Ctrl/Cmd+Shift+A respectively.
 * When targeting Azure Stack, uploading certain files as append blobs may fail.
-* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
 * If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
 * The account settings panel may show that you need to reenter credentials to filter subscriptions.
 * Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
@@ -889,7 +946,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 ### Known Issues
 
-* Buttons on the delete folder confirmation dialog don't register with the mouse clicks on Linux. Workaround is to use the Enter key
+* Buttons on the delete folder confirmation dialog don't register with the mouse clicks on Linux. work around is to use the Enter key
 * If you choose the wrong PIN/Smartcard certificate then you will need to restart in order to have Storage Explorer forget the decision
 * Having more than 3 groups of blobs or files uploading at the same time may cause errors
 * The account settings panel may show that you need to reenter credentials in order to filter subscriptions
@@ -916,7 +973,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * Fixed: File upload had a high chance of causing an out of memory error
 * Fixed: You can now sign-in with PIN/Smartcard
-* Fixed: Open in Portal now works with Azure China, Azure Germany, Azure US Government, and Azure Stack
+* Fixed: Open in Portal now works with Azure China 21Vianet, Azure Germany, Azure US Government, and Azure Stack
 * Fixed: While uploading a folder to a blob container, an "Illegal operation" error would sometimes occur
 * Fixed: Select all was disabled while managing snapshots
 * Fixed: The metadata of the base blob might get overwritten after viewing the properties of its snapshots
@@ -995,7 +1052,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Storage Explorer 0.8.9 will automatically download the latest version for updates.
 * Hotfix: using a portal generated SAS URI to attach a storage account would result in an error.
 * You can now create, manage, and promote blob snapshots.
-* You can now sign-in to Azure China, Azure Germany, and Azure US Government accounts.
+* You can now sign-in to Azure China 21Vianet, Azure Germany, and Azure US Government accounts.
 * You can now change the zoom level. Use the options in the View menu to Zoom In, Zoom Out, and Reset Zoom.
 * Unicode characters are now supported in user metadata for blobs and files.
 * Accessibility improvements.
@@ -1147,7 +1204,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * macOS install may require elevated permissions
 * Account settings panel may show that you need to reenter credentials in order to filter subscriptions
 * Renaming file shares, blob containers, and tables does not preserve metadata or other properties on the container, such as file share quota, public access level or access policies
-* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename
 * Copying or renaming resources does not work within SAS-attached accounts
 
 07/07/2016
@@ -1158,7 +1215,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 #### New
 
 * Storage Accounts are grouped by subscriptions; development storage and resources attached via key or SAS are shown under (Local and Attached) node
-* Sign off from accounts in "Azure Account Settings" panel
+* Sign out from accounts in "Azure Account Settings" panel
 * Configure proxy settings to enable and manage sign-in
 * Create and break blob leases
 * Open blob containers, queues, tables, and files with single-click
@@ -1261,7 +1318,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * Linux support (parity features to OSX)
 * Add blob containers with Shared Access Signatures (SAS) key
-* Add Storage Accounts for Azure China
+* Add Storage Accounts for Azure China 21Vianet
 * Add Storage Accounts with custom endpoints
 * Open and view the contents text and picture blobs
 * View and edit blob properties and metadata

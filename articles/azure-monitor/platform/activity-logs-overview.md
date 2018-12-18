@@ -52,7 +52,7 @@ Here are some of the things you can do with the Activity Log:
 
 * Query and view it in the **Azure portal**.
 * [Create an alert on an Activity Log event.](../../azure-monitor/platform/activity-log-alerts.md)
-* [Stream it to an **Event Hub**](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* [Stream it to an **Event Hub**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](../../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
@@ -178,4 +178,4 @@ az monitor log-profiles delete --name <profile name>
 
 ## Next Steps
 * [Learn more about the Activity Log (formerly Audit Logs)](../../azure-resource-manager/resource-group-audit.md)
-* [Stream the Azure Activity Log to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
