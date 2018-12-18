@@ -21,7 +21,7 @@ ms.custom: seodec18
 ---
 # Create an ASP.NET Framework web app in Azure
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 ![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 

@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 ---
 # Back up your app in Azure
-The Backup and Restore feature in [Azure App Service](app-service-web-overview.md) lets you easily
+The Backup and Restore feature in [Azure App Service](overview.md) lets you easily
 create app backups manually or on a schedule. You can restore the app to a snapshot of a previous state by overwriting the existing app or restoring to another app. 
 
 For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
