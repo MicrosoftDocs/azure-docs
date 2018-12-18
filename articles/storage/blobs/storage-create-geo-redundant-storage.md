@@ -229,12 +229,13 @@ To run the sample, use Maven at the command line.
 1. open a shell and browse to **storage-blobs-java-v10-quickstart** inside your cloned directory.
 2. Enter `mvn compile exec:java`.
 
-This sample creates a test file in your default directory, **AppData\Local\Temp**, for Windows users. Then it prompts you to take the following steps:
+This sample creates a test file in your default directory, for windows users this directory is **AppData\Local\Temp**. The sample then presents you with the following options of commands which you can enter:
 
-1. Enter commands to upload the test file to Azure Blob storage.
-2. List the blobs in the container.
-3. Download the uploaded file with a new name so you can compare the old and new files.
-4. Close the sample, which will also clean up any resources the sample created.
+- Enter **P** to execute a put blob operation, this uploads a temp file to your storage account.
+- Enter **L** to perform a list blob operation, this list the blobs currently in your container.
+- Enter **G** to perform a get blob operation, this downloads a file from your storage account to your local machine.
+- Enter **D** to execute a delete blob operation, this deletes the blob from your storage account.
+- Enter **E** to close the sample, this also deletes all resources the sample created.
 
 This example shows your output if you run the application on Windows.
 

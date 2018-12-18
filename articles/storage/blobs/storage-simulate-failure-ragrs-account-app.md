@@ -84,7 +84,7 @@ Once the application begins reading from the primary endpoint, press **any key**
 
 Run the application in your IDE or shell.
 
-Since you control the sample, you do not need to interrupt it in order to test failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
+Since you control the sample, you do not need to interrupt it in order to simulate a failure. Just make sure that the file has been uploaded to your storage account by running the sample and entering **P**.
 
 ### Simulate failure
 
@@ -94,7 +94,7 @@ The code sample looks for requests to the RA-GRS storage account and, if the pat
 
 Navigate to Fiddler and select **Rules** -> **Customize Rules...**.
 
-Uncomment out the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes. 
+Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes. 
 
 > [!NOTE]
 > If you are running the sample application on Linux, you need to restart Fiddler whenever you edit the **CustomRule.js** file, in order for Fiddler to install the custom logic.
@@ -110,7 +110,9 @@ Uncomment out the following lines, replace `STORAGEACCOUNTNAME` with the name of
 
 To resume the application, press **any key**.
 
-Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. When the application successfully retrieves the image 20 times from the secondary endpoint it will attempt to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint.
+
+This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
