@@ -18,14 +18,16 @@ ms.date: 12/18/18
 ms.author: rajraj
 
 ---
-# Choosing the right number of Fault Domains in VMSS
-VM scale sets are created with 5 fault domains by default in Azure regions with no zones. For the regions that support zonal deployment of VM scale sets, the default value of the fault domain count is 1 for each of the zones. FD=1 in this case implies that the VM instances belonging to the VMSS will be spread across many racks (best effort, not guaranteed). However, customers might want to align the number of fault domains with the number of Managed Disks fault domains to prevent loss of quorum in case of an entire Managed Disk fault domain going down. We allow FD count to be set to less than or equal to the number of Managed Disks Fault Domains available in each of the regions. Please refer to this [document](../virtual-machines/windows/manage-availability.md) to learn about the number of Managed Disks fault domains by region.
+# Choosing the right number of Fault Domains for virtual machine scale set
+Virtual machine scale sets are created with five fault domains by default in Azure regions with no zones. For the regions that support zonal deployment of VM scale sets, the default value of the fault domain count is 1 for each of the zones. FD=1 in this case implies that the VM instances belonging to the scale set will be spread across many racks (best effort, not guaranteed).
+
+However, you might want to align the number of scale set fault domains with the number of Managed Disks fault domains to prevent loss of quorum if an entire Managed Disks fault domain goes down. We allow FD count to be set to less than or equal to the number of Managed Disks Fault Domains available in each of the regions. Refer to this [document](../virtual-machines/windows/manage-availability.md) to learn about the number of Managed Disks fault domains by region.
 
 ## REST API
-You can set the property `properties.platformFaultDomainCount` to 1, 2, or 3 (default of 5 if not specified). Please refer to the documentation for REST API [here](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
+You can set the property `properties.platformFaultDomainCount` to 1, 2, or 3 (default of 5 if not specified). Refer to the documentation for REST API [here](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 ## Azure CLI
-You can set the parameter `--platform-fault-domain-count` to 1, 2, or 3 (default of 5 if not specified). Please refer to the documentation for Azure CLI [here](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
+You can set the parameter `--platform-fault-domain-count` to 1, 2, or 3 (default of 5 if not specified). Refer to the documentation for Azure CLI [here](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
