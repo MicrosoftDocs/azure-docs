@@ -257,7 +257,7 @@ The following are post-installation known issues for this build version.
 
 ### Compute
 
-- When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack.
+- When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack. You can select **No Public Inbound Ports**, or any of the other options to proceed with VM creation. The setting will have no effect.
 
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
@@ -316,9 +316,21 @@ The following are post-installation known issues for this build version.
 <!-- 2664148 - IS ASDK --> 
 -	In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the Local Network Gateway after gateway was already created. 
 
+- In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states `The virtual machine associated with this network interface will be restarted to utilize the new private IP address`. You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
+
+- In the portal, on the **Networking Properties** blade there is a link for **Effective Security Rules** for each network adapter. If you select this link, a new blade opens that shows the error message `Not Found.` This error occurs because Azure Stack does not yet support **Effective Security Rules**.
+
+- In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available in Azure Stack. The only options that are valid in Azure Stack are as follows:
+
+    - **Internet**
+    - **VirtualNetwork**
+    - **AzureLoadBalancer**
+  
+    The other options are not supported as source tags in Azure Stack.  Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag** described in the previous list.
+
+- The `New-AzureRmIpSecPolicy` PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter. This is due to a bug and will be supported in a future release.
 
 <!-- ### SQL and MySQL-->
-
 
 ### App Service
 
