@@ -66,7 +66,7 @@ You need to add the NuGet package that contains the SqlClient library. This data
 
 1. On the **Browse** tab, search for ```System.Data.SqlClient``` and, when found, select it.
 
-1. In the **System.Data.SqlClient** page, click **Install**.
+1. In the **System.Data.SqlClient** page, select version `4.5.1` and then click **Install**.
 
 1. When the install completes, review the changes and then click **OK** to close the **Preview** window.
 
