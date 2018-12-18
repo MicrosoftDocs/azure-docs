@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 12/18/2018
 ms.author: jeedes
 
 ---
@@ -105,8 +105,9 @@ To configure Azure AD single sign-on with LinkedIn Learning, perform the followi
 
 	b. In the **Reply URL** textbox, enter the **Assertion Consumer Service (ACS) Url** copied from LinkedIn Portal.
 
-	c. If you wish to configure the application in **SP Initiated** mode then click **set additional URLs** option in the **Basic SAML Configuration**  section where you will specify your sign-on URL. To create your login Url copy the **Assertion Consumer Service (ACS) Url** and replace /saml/ with /login/. Once that has been done, the sign-on URL should have the following pattern:
-    `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`.
+	c. If you wish to configure the application in **SP Initiated** mode then click **Set additional URLs** option in the **Basic SAML Configuration**  section where you will specify your sign-on URL. To create your login Url copy the **Assertion Consumer Service (ACS) Url** and replace /saml/ with /login/. Once that has been done, the sign-on URL should have the following pattern:
+
+    `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
     ![LinkedIn Learning Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
@@ -119,12 +120,12 @@ To configure Azure AD single sign-on with LinkedIn Learning, perform the followi
 
 6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
     
-	| Name | Source Attribute | Namespace |
-	| ---------------| --------------- | --------- |
+	| Name | Source Attribute |
+	| ---------------| --------------- |
 	| email  | user.mail  | N/A |
-	| department  | user.department  | N/A |
-	| firstname  | user.givenname  | N/A |
-	| lastname  | user.surname  | N/A |
+	| department  | user.department  |
+	| firstname  | user.givenname  |
+	| lastname  | user.surname  |
 	| Unique User Identifier | User.mail |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
