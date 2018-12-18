@@ -72,7 +72,7 @@ The following table provides a matrix of the data and workloads that can be prot
 | Azure IaaS VMs (Linux) |running in Azure |[Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
 ## Linux support
-The following table shows the Azure Backup components that have support for Linux.  
+The following table shows Azure Backup components supported for Linux.  
 
 | Component | Linux (Azure endorsed) Support |
 | --- | --- |

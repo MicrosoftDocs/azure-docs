@@ -159,7 +159,7 @@ If you don't have a system account proxy, set one up as follows:
 
         ```
 
-#### Allow incoming connections on the proxy'
+#### Allow incoming connections on the proxy
 
 1. Allow incoming connections in the proxy settings.
 2. For example, open **Windows Firewall with Advanced Security**.

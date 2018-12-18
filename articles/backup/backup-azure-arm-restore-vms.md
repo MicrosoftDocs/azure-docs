@@ -137,7 +137,7 @@ Specify the restore setting as follows:
 
     - Use the template that was generated as part of the restore operation to customize settings, and trigger VM deployment. Ypu edit the default template settings, and submit the template for VM deployment.
     - You can [attach the restored disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps) to an existing VM.
-    - You can [create a new VM](backup-azure-vms-automation#restore-an-azure-vm) from the restored disks using PowerShell.
+    - You can [create a new VM](backup-azure-vms-automation.md#restore-an-azure-vm) from the restored disks using PowerShell.
 
 
 ## Replace existing disks 
