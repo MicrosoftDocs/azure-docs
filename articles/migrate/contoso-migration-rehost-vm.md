@@ -36,7 +36,7 @@ Article 5: Rehost an app on Azure VMs | Contoso migrates its SmartHotel360 app V
 [Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 
-In this article, Contoso will migrate the two-tier Windows. NET SmartHotel360 app running on VMware VMs, to Azure. If you want to use this app, it's provided as open-source and you can download it from [github](https://github.com/Microsoft/SmartHotel360).
+In this article, Contoso will migrate the two-tier Windows. NET SmartHotel360 app running on VMware VMs, to Azure. If you want to use this app, it's provided as open-source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 
 
