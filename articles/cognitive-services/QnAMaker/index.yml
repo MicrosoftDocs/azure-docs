@@ -77,7 +77,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to develop applications using the Face API:'
+    text: 'Learn how to develop applications using QnA Maker:'
   - type: list
     style: unordered
     items:
