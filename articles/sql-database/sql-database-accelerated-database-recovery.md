@@ -6,9 +6,9 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: 
+author: mashamsft
+ms.author: mathoma
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/11/2018
 ---
