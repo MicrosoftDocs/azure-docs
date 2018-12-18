@@ -16,7 +16,7 @@ Learn how to use Apache Kafka's mirroring feature to replicate topics to a secon
 
 In this example, mirroring is used to replicate topics between two HDInsight clusters. Both clusters are in an Azure Virtual Network in the same region.
 
-> [!WARNING]
+> [!WARNING]  
 > Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the source and destination clusters, so clients cannot use the two interchangeably.
 >
 > If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md).
@@ -45,7 +45,7 @@ If you need to mirror between Kafka clusters in different networks, there are th
 
     When creating an Azure Virtual Network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After the Virtual Network has been created, you must then create an Azure Virtual Machine that uses that IP address, then install and configure DNS software on it.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Create and configure the custom DNS server before installing HDInsight into the Virtual Network. There is no additional configuration required for HDInsight to use the DNS server configured for the Virtual Network.
 
 For more information on connecting two Azure Virtual Networks, see [Configure a VNet-to-VNet connection](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
@@ -60,7 +60,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
    
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following information to populate the entries on the **Custom deployment** blade:
@@ -85,7 +85,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The name of the HDInsight clusters are **source-BASENAME** and **dest-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
 ## Create topics
