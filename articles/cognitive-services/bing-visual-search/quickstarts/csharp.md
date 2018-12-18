@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Create a visual search query, C# - Bing Visual Search"
+title: "Quickstart: Get image insights using Bing Visual Search REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Shows how to upload an image to Bing Visual Search API and get back insights about the image.
+description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -13,27 +13,27 @@ ms.date: 5/16/2018
 ms.author: scottwhi
 ---
 
-# Quickstart: Your first Bing Visual Search query in C#
+# Quickstart: Get image insights using the Bing Visual Search REST API and C#
 
-Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](../overview.md) This article demonstrates uploading an image. Uploading an image could be useful in mobile scenarios where you take a picture of a well-known landmark and get back information about it. For example, the insights could include trivia about the landmark. 
+Use this quickstart to make your first call to the Bing Visual Search API and view the search results. This simple C# application uploads an image to the API, and displays the information returned about it.
 
-If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
+When uploading a local image, the form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB.
 
-```
---boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-
---boundary_1234-abcd--
-```
-
-This article includes a simple console application that sends a Bing Visual Search API request and displays the JSON search results. While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
-
-The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or macOS using [Mono](http://www.mono-project.com/).
-
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
+    ```
 
 ## Prerequisites
+
+* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
+* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+
 For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
 To start a subscription in Azure portal:
@@ -44,7 +44,17 @@ To start a subscription in Azure portal:
 5. Select `S9` pricing tier.
 6. Click `Enable` to start the subscription.
 
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows. (The free Community Edition will work.)  
+## Create and initialize a project
+
+1. create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then add the following namespaces into the main code file.
+
+    ```csharp
+    using System;
+    using System.Text;
+    using System.Net;
+    using System.IO;
+    using System.Collections.Generic;
+    ```
 
 ## Running the application
 

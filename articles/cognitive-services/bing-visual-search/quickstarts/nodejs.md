@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a visual search query, Node.js - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: How to upload an image to Bing Visual Search API and get back insights about the image.
+description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -13,11 +13,11 @@ ms.date: 5/16/2018
 ms.author: scottwhi
 ---
 
-# Quickstart: Your first Bing Visual Search query in JavaScript
+# Quickstart: Get image insights using the Bing Visual Search REST API and Node.js
 
-Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](../overview.md) This article demonstrates uploading an image. Uploading an image could be useful in mobile scenarios where you take a picture of a well-known landmark and get back information about it. For example, the insights could include trivia about the landmark. 
+Use this quickstart to make your first call to the Bing Visual Search API and view the search results. This simple JavaScript application uploads an image to the API, and displays the information returned about it. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
-If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
+When uploading a local image, the form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -28,9 +28,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-This article includes a simple console application that sends a Bing Visual Search API request and displays the JSON search results. While this application is written in JavaScript, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
-
 ## Prerequisites
+
+* [Node.js](https://nodejs.org/en/download/)
+* The Request module for JavaScript
+    * You can install this module using `npm install request`
+* The form-data module
+    * You can install this module using `npm install form-data`
+
 For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
 To start a subscription in Azure portal:
@@ -41,7 +46,50 @@ To start a subscription in Azure portal:
 5. Select `S9` pricing tier.
 6. Click `Enable` to start the subscription.
 
-You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
+
+## Initialize the application
+
+1. Create a new JavaScript file in your favorite IDE or editor, and set the following requirements:
+
+    ```javascript
+    var request = require('request');
+    var FormData = require('form-data');
+    var fs = require('fs');
+    ```
+
+2. Create variables for your API endpoint, subscription key, and the path to your image.
+
+    ```javascript
+    var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
+    var subscriptionKey = 'your-api-key';
+    var imagePath = "path-to-your-image";
+    ```
+
+## Construct the search request
+
+1. Create a new form-data using `FormData()`, and append your image path to it, using `fs.createReadStream()`.
+    
+    ```java
+    var form = new FormData();
+    form.append("image", fs.createReadStream(imagePath));
+    ```
+
+2. Use the request library to 
+
+form.getLength(function(err, length){
+  if (err) {
+    return requestCallback(err);
+  }
+
+  var r = request.post(baseUri, requestCallback);
+  r._form = form; 
+  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
+});
+
+function requestCallback(err, res, body) {
+    console.log(JSON.stringify(JSON.parse(body), null, '  '))
+}
+
 
 ## Running the application
 
