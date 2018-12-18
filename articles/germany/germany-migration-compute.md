@@ -209,7 +209,7 @@ For more information:
 
 - Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
 - Learn how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-- Review the [App Service overview](../app-service/app-service-web-overview.md).
+- Review the [App Service overview](../app-service/overview.md).
 - Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
