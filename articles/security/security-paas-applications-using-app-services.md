@@ -19,7 +19,7 @@ ms.author: terrylan
 ---
 # Best practices for securing PaaS web and mobile applications using Azure App Service
 
-In this article, we discuss a collection of [Azure App Service](../app-service/app-service-web-overview.md) security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
+In this article, we discuss a collection of [Azure App Service](../app-service/overview.md) security best practices for securing your PaaS web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
 Azure App Service is a platform-as-a-service (PaaS) offering that lets you create web and mobile apps for any platform or device and connect to data anywhere, in the cloud or on-premises. App Service includes the web and mobile capabilities that were previously delivered separately as Azure Websites and Azure Mobile Services. It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service brings a rich set of capabilities to web, mobile, and integration scenarios.
 

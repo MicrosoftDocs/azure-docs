@@ -26,18 +26,18 @@
 
 # Samples
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Concepts
 ## [Billing and subscriptions](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [Hosting comparisons](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [What is App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [What is App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Virtual machines
 ### [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/overview)

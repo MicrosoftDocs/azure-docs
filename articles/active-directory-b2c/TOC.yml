@@ -86,10 +86,22 @@
     href: active-directory-b2c-reference-mfa.md
   - name: Identity Experience Framework
     items:
-    - name: Create a custom policy
-      href: active-directory-b2c-get-started-custom.md
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Configure user input
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: Create a custom policy
+      href: active-directory-b2c-get-started-custom.md
+    - name: Customize the UI
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: Customize the UI dynamically
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Customize tokens
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: Define custom attributes
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: Enable keep me signed in
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: Integrate RESTful APIs
       items:
       - name: Validate user input
@@ -122,6 +134,10 @@
       href: page-contract.md
     - name: Pass through access token
       href: idp-pass-through-custom.md
+    - name: Password complexity
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: Password change
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: SAML providers
       items:
       - name: ADFS
@@ -130,24 +146,6 @@
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Track user behavior
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: User flows
-      items:
-      - name: Configure user input
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: Custom attributes
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: Customize the UI
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: Customize the UI dynamically
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: Customize tokens
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Password complexity
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: Password change
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: Enable keep me signed in
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: Reference
       items:
       - name: Claim resolvers

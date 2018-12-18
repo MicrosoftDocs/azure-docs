@@ -60,7 +60,7 @@ Azure HDInsight enables you to create an ML Services cluster. This option allows
 
     ![Set the storage account settings for HDInsight](./media/r-server-get-started/clustersummary.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > It can take up to 20 minutes to create the cluster.
 
 <a name="connect-to-rstudio-server"></a>
@@ -80,7 +80,7 @@ If you chose to install RStudio Server Community Edition as part of your HDInsig
 
     ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log ins only require the SSH credentials.
 
 Once you are connected, your screen should resemble the following screenshot:
