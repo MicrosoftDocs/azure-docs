@@ -15,7 +15,7 @@ ms.date: 07/16/2018
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
-By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
+In-Memory technologies in Azure SQL Database enable you to improve performance of your application, and potentially reduce cost of your database. By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
 - Transactional (online transactional processing (OLTP)) where most of the requests read or update smaller set of data (for example, CRUD operations).
 - Analytic (online analytical processing (OLAP)) where most of the queries have complex calculations for the reporting purposes, with a certain number of queries that load and append data to the existing tables (so called bulk load), or delete the data from the tables. 
 - Mixed (hybrid transaction/analytical processing (HTAP)) where both OLTP and OLAP queries are executed on the same set of data.
@@ -29,6 +29,8 @@ Azure SQL Database has the following In-Memory technologies:
 - *Memory-optimized clustered columnstore indexes* for HTAP enables you to perform very fast transaction processing, and to *concurrently* run analytics queries very quickly on the same data.
 
 Both columnstore indexes and In-Memory OLTP have been part of the SQL Server product since 2012 and 2014, respectively. Azure SQL Database and SQL Server share the same implementation of In-Memory technologies. Going forward, new capabilities for these technologies are released in Azure SQL Database first, before they are released in SQL Server.
+
+## Benefits of In-memory technology
 
 Because of the more efficient query and transaction processing, In-Memory technologies also help you to reduce cost. You typically don't need to upgrade the pricing tier of the database to achieve performance gains. In some cases, you might even be able reduce the pricing tier, while still seeing performance improvements with In-Memory technologies.
 
@@ -61,15 +63,14 @@ In-depth information about the technologies:
 - [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
 - Hybrid transactional/analytical processing (HTAP), also known as [real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
 
-A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
+## In-memory OLTP
+
+In-memory OLTP technology keeps data in memory, which enables fast data access in OLTP scenarios. It also uses specialized indexes, native compilation of queries, and latch-free data-acccess to improve performance of the OLTP workload. A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
 
 In-depth videos about the technologies:
 
 - [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (which contains a demo of performance benefits and steps to reproduce these results yourself)
 - [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
-- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
-
-## Storage and data size
 
 ### Data size and storage cap for In-Memory OLTP
 
@@ -93,6 +94,15 @@ With elastic pools, the In-Memory OLTP storage is shared across all databases in
 
 - Configure a `Max-eDTU` or `MaxvCore` for databases that is lower than the eDTU or vCore count for the pool as a whole. This maximum caps the In-Memory OLTP storage utilization, in any database in the pool, to the size that corresponds to the eDTU count.
 - Configure a `Min-eDTU` or `MinvCore` that is greater than 0. This minimum guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured `Min-eDTU` or `vCore`.
+
+## In-memory Columnstore
+
+Columnstore technology enabling you to store and query a large amount of data in the tables. Columnstore technology uses column-based data storage and query processing to achieve gains up to 10 times the query performance in OLAP workloads over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size.
+
+Columnstore technology also enables Hybrid Transactional-Analytic Processing (HTAP): the ability to run performant real-time analytics on a transactional workload.
+
+In-depth video about the technology:
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### Data size and storage for columnstore indexes
 
