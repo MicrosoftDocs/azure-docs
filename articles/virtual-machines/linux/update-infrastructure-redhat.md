@@ -35,6 +35,28 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 
 * Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
+### Version-locking a RHEL VM
+Some customers may want to lock their RHEL VMs to a certain RHEL minor release. This may be done if a customer has an active EUS subscription with Red Hat. Use the following instructions to lock a RHEL VM to a particular minor release.
+
+1. Disable non-EUS repos:
+    ```bash
+    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    ```
+1. Add EUS repos:
+    ```bash
+    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    ```
+1. Lock the releasever variable:
+    ```bash
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+    >[!NOTE]
+    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5
+1. Update your RHEL VM
+    ```bash
+    sudo yum update
+    ```
+
 ### The IPs for the RHUI content delivery servers
 
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Microsoft Azure Germany regions.
