@@ -47,7 +47,7 @@ Follow these steps to create a blank SQL database.
 
       After selecting the server tier, the number of DTUs, and the amount of storage, select **Apply**.
 
-   1. Enter a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations].(/sql/t-sql/statements/collations)
+   1. Enter a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](/sql/t-sql/statements/collations).
 
 1. Now that you've completed the **SQL Database** form, select **Create** to provision the database. This step can take up to a minute and a half to complete.
 
@@ -55,28 +55,28 @@ Follow these steps to create a blank SQL database.
 
      ![notification](../articles/sql-database/media/sql-database-design-first-database/notification.png)
 
-## Create a server-level firewall rule
+## Create a firewall rule
 
 The SQL database service creates a firewall at the server-level to prevent external applications and tools from connecting to the server or any databases on the server. Follow these steps to create a [SQL database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address. This enables external connectivity through the SQL database firewall for your IP address only.
 
 > [!NOTE]
 > SQL database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL database server unless your administrator opens port 1433.
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *myDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as *myserver.database.windows.net*) and provides options for further configuration.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *yourDatabase* on the **SQL databases** page. The **Overview** page for your database opens, showing you the fully qualified server name (such as *yourserver.database.windows.net*) and provides options for further configuration.
 
 1. Copy the fully qualified server name for use to connect to your server and its databases in later steps.
 
    ![server name](../articles/sql-database/media/sql-database-design-first-database/server-name.png)
 
-1. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL database server opens.
+1. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL database server opens.
 
    ![server firewall rule](../articles/sql-database/media/sql-database-design-first-database/server-firewall-rule.png)
 
-   1. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+   1. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-   1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+   1. Choose **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-   1. Click **OK** and then close the **Firewall settings** page.
+   1. Choose **OK** and then close the **Firewall settings** page.
 
 Your IP address can now pass through the firewall. You can now connect to the SQL database server and its databases using SQL Server Management Studio or another tool of your choice. Be sure to use the server admin account you created previously.
 

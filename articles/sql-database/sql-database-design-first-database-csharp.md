@@ -27,7 +27,7 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 
 ## Prerequisites
 
-An installation of [Visual Studio Community/Professional/Enterprise 2017](https://www.visualstudio.com/downloads/).
+An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -52,7 +52,7 @@ In this tutorial, you learned basic database tasks such as create a database and
 > * Insert, update, and delete data
 > * Query data
 
-Advance to the next tutorial to learn about migrating your data.
+Advance to the next tutorial to learn about data migration.
 
 > [!div class="nextstepaction"]
 > [Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)

@@ -8,15 +8,15 @@ ms.author: genemi
 
 ## C# program example
 
-The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL statements to the SQL database. The C# program demonstrates the following actions:
+The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL (T-SQL) statements to the SQL database. The C# program demonstrates the following actions:
 
 - [Connect to SQL database using ADO.NET](#cs_1_connect)
-- [Methods that return T-SQL statements](#cs_2_return) to:
+- [Methods that return T-SQL statements](#cs_2_return)
     - Create tables
-    - Populate tables with data, by issuing INSERT statements
-    - Update data by use of a join
-    - Delete data by use of a join
-    - Select data by use of a join
+    - Populate tables with data
+    - Update data
+    - Delete data
+    - Select data
 - [Submit T-SQL to the database](#cs_3_submit)
 
 > [!NOTE]
@@ -26,27 +26,48 @@ The next sections of this article present a C# program that uses ADO.NET to send
 
 This C# program is logically one .cs file. Here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following steps:
 
-1. Create a C# project in Visual Studio.
-    - The project type should be a *console* application, from something like the following hierarchy:
-    **Templates** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
+1. Create a C# project in Visual Studio. The project type should be a *Console* application, found under **Templates** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
 
-1. In the file *Program.cs*, erase the small starter lines of code.
+1. In the file *Program.cs*, erase the starter lines of code.
 
-1. In *Program.cs*, copy and paste each of the following blocks, in the same sequence they're presented here.
+    1. Copy and paste the following blocks code, in the same sequence they're presented here. [Connect to database](#cs_1_connect), [generate T-SQL](#cs_2_return), and [submit to database](#cs_3_submit)
 
-1. In *Program.cs*, edit the following values in the `Main` method:
+    1. Change the following values in the `Main` method:
 
-   - *cb.DataSource*
-   - *cb.UserID*
-   - *cb.Password*
-   - *cb.InitialCatalog*
+        - *cb.DataSource*
+        - *cb.UserID*
+        - *cb.Password*
+        - *cb.InitialCatalog*
 
-1. Verify that the assembly *System.Data.dll* is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
+1. Verify the assembly *System.Data.dll* is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
 
-1. To build and run the program from Visual Studio, click the **Start** button. The report output is displayed in a program window.
+1. To build and run the program from Visual Studio, select the **Start** button. The report output is displayed in a program window, though the GUID values will vary between test runs.
 
-> [!NOTE]
-> You have the option of editing the T-SQL to add a leading **#** to the table names, which creates them as temporary tables in *tempdb*. This can be useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically when the connection closes. Any references to foreign keys are not enforced for temporary tables.
+    ```Output
+    =================================
+    T-SQL to 2 - Create-Tables...
+    -1 = rows affected.
+
+    =================================
+    T-SQL to 3 - Inserts...
+    8 = rows affected.
+
+    =================================
+    T-SQL to 4 - Update-Join...
+    2 = rows affected.
+
+    =================================
+    T-SQL to 5 - Delete-Join...
+    2 = rows affected.
+
+    =================================
+    Now, SelectEmployees (6)...
+    8ddeb8f5-9584-4afe-b7ef-d6bdca02bd35 , Alison , 20 , acct , Accounting
+    9ce11981-e674-42f7-928b-6cc004079b03 , Barbara , 17 , hres , Human Resources
+    315f5230-ec94-4edd-9b1c-dd45fbb61ee7 , Carol , 22 , acct , Accounting
+    fcf4840a-8be3-43f7-a319-52304bf0f48d , Elle , 15 , NULL , NULL
+    View the report output here, then press any key to end the program...
+    ```
 
 <a name="cs_1_connect"/>
 
@@ -79,9 +100,11 @@ namespace csharp_db_test
 
                     Submit_Tsql_NonQuery(connection, "3 - Inserts", Build_3_Tsql_Inserts());
 
-                    Submit_Tsql_NonQuery(connection, "4 - Update-Join", Build_4_Tsql_UpdateJoin(), "@csharpParmDepartmentName", "Accounting");
+                    Submit_Tsql_NonQuery(connection, "4 - Update-Join", Build_4_Tsql_UpdateJoin(),
+                        "@csharpParmDepartmentName", "Accounting");
 
-                    Submit_Tsql_NonQuery(connection, "5 - Delete-Join", Build_5_Tsql_DeleteJoin(), "@csharpParmDepartmentName", "Legal");
+                    Submit_Tsql_NonQuery(connection, "5 - Delete-Join", Build_5_Tsql_DeleteJoin(),
+                        "@csharpParmDepartmentName", "Legal");
 
                     Submit_6_Tsql_SelectEmployees(connection);
                 }
@@ -99,14 +122,6 @@ namespace csharp_db_test
 <a name="cs_2_return"/>
 
 ### Methods that return T-SQL statements
-
-#### Entity Relationship Diagram (ERD)
-
-The CREATE TABLE statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables. If you're using *tempdb*, comment out the `--REFERENCES` keyword using a pair of leading dashes.
-
-Next is an ERD that displays the relationship between the two tables. The values in the **tabEmployee.DepartmentCode** *child* column are limited to values from the **tabDepartment.DepartmentCode** *parent* column.
-
-![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 ```csharp
 static string Build_2_Tsql_CreateTables()
@@ -212,11 +227,22 @@ static string Build_6_Tsql_SelectEmployees()
 }
 ```
 
+#### Entity Relationship Diagram (ERD)
+
+The `CREATE TABLE` statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables. If you're using *tempdb*, comment out the `--REFERENCES` keyword using a pair of leading dashes.
+
+The ERD displays the relationship between the two tables. The values in the **tabEmployee.DepartmentCode** *child* column are limited to values from the **tabDepartment.DepartmentCode** *parent* column.
+
+![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+
+> [!NOTE]
+> You have the option of editing the T-SQL to add a leading `#` to the table names, which creates them as temporary tables in *tempdb*. This is useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically after the connection closes and any reference to foreign keys are not enforced during their use.
+
 <a name="cs_3_submit"/>
 
 ### Submit T-SQL to the database
 
-The first method runs the T-SQL SELECT statement that is built by the **Build_6_Tsql_SelectEmployees** method. The second method modifies the data content of tables without returning any data rows.
+The first method runs the T-SQL `SELECT` statement that is built by the `Build_6_Tsql_SelectEmployees` method. The second method modifies the data content of tables without returning any data rows.
 
 ```csharp
 static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
@@ -270,34 +296,4 @@ static void Submit_Tsql_NonQuery(
 }
 } // EndOfClass
 }
-```
-
-### C# block 8: Actual test output to the console
-
-This section captures the output that the program sent to the console. Only the GUID values vary between test runs.
-
-```Output
-=================================
-T-SQL to 2 - Create-Tables...
--1 = rows affected.
-
-=================================
-T-SQL to 3 - Inserts...
-8 = rows affected.
-
-=================================
-T-SQL to 4 - Update-Join...
-2 = rows affected.
-
-=================================
-T-SQL to 5 - Delete-Join...
-2 = rows affected.
-
-=================================
-Now, SelectEmployees (6)...
-8ddeb8f5-9584-4afe-b7ef-d6bdca02bd35 , Alison , 20 , acct , Accounting
-9ce11981-e674-42f7-928b-6cc004079b03 , Barbara , 17 , hres , Human Resources
-315f5230-ec94-4edd-9b1c-dd45fbb61ee7 , Carol , 22 , acct , Accounting
-fcf4840a-8be3-43f7-a319-52304bf0f48d , Elle , 15 , NULL , NULL
-View the report output here, then press any key to end the program...
 ```
