@@ -56,7 +56,7 @@ Contained in the sample are example JSON files, which were originally text files
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Upload the sample data
 

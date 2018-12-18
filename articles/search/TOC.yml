@@ -275,7 +275,7 @@
     - name: Job listings app
       href: http://aka.ms/azjobsdemo
     - name: Search Analyzer demo
-      href: http://alice.unearth.ai/
+      href: https://alice.unearth.ai/
     - name: Search use cases
       href: https://searchsamples.azurewebsites.net/
   - name: FAQ

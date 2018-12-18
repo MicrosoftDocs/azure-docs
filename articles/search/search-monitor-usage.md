@@ -64,7 +64,7 @@ You can export the operation logs for your service and the raw data for the metr
 
 
 ### Enabling monitoring
-Open your Azure Search service in the [Azure portal](http://portal.azure.com) under the Enable Monitoring option.
+Open your Azure Search service in the [Azure portal](https://portal.azure.com) under the Enable Monitoring option.
 
 Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Log Analytics.
 
