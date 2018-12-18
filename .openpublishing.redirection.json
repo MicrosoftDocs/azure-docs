@@ -33080,7 +33080,7 @@
 			{
 			"source_path": "articles/application-insights/app-insights-analytics-import.md",
 			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
-			"redirect_document_id": true
+			"redirect_document_id": false
         }
     ]
 }
