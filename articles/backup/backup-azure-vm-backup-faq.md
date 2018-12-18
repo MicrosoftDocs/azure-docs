@@ -59,7 +59,7 @@ The snapshot on the Write Accelerator enabled disk is not supported today. Howev
 
 ### I have a VM with Write Accelerator(WA) disks with SAP HANA installed, how do I use Azure backup to backup this VM?
 * Azure VM backup with Write Accelerator(WA) disk exclusion is now available, see [here](backup-azure-vm-backup-faq.md#can-we-enable-azure-backup-service-for-a-vm-having-write-acceleratorwa-enabled-disk). However, VM backup doesn’t provide database consistency since information on WA disks is not backed up and DB is not consistent as part of backup. Hence this solution works if the user wants OS backup and backup of data present on non-WA disks.
-* **Azure backup for SAP HANA**: A separate solution is built by Azure backup for backup of SAP HANA with an RPO of 15 mins. It is built in similar model as that of SQL DB backup and uses the backInt interface for 3rd party backup solutions certified by SAP HANA. The solution is in private preview and you can email to [AskAzureBackupTeam@microsoft.com](AskAzureBackupTeam@microsoft.com) with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs** for onboarding to private preview.
+* **Azure backup for SAP HANA**: A separate solution is built by Azure backup for backup of SAP HANA with an RPO of 15 mins. It is built in similar model as that of SQL DB backup and uses the backInt interface for 3rd party backup solutions certified by SAP HANA. The solution is in private preview and you can email to ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs** for onboarding to private preview.
 
 The combination of these two solutions will provide both database backup and OS and important data backup in Azure VM with WA disks.
 
