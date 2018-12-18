@@ -12,7 +12,7 @@ ms.date: 12/17/2018
 #Customer intent: I want to analyze data using Jupyter Notebooks.
 ---
 
-# Analyzing data using Jupyter Notebook
+# Analyze data using Jupyter Notebook and Kqlmagic
 Jupyter Notebook is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. Usage includes data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
 [Jupyter Notebook](https://jupyter.org/) supports magic functions that extend the capabilities of the kernel by supporting additional commands. Kqlmagic is a function that extends the capabilities of the Python kernel in Jupyter Notebook so you can run Kusto query language queries natively. You can easily combine Python and Kusto query language to query and visualize data using rich Plot.ly library integrated with Kusto render commands. Data sources for running queries are supported. These data sources include Azure Data Explorer (Kusto) a fast and highly scalable data exploration service for log and telemetry data, as well as Log Analytics and Application Insights.
 
@@ -21,15 +21,15 @@ Jupyter Notebook is an open-source web application that allows you to create and
 - Jupyter Notebook installed on your local machine or use Azure Notebooks and clone the sample [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
 
 
-## Install kqlmagic library
+## Install Kqlmagic library
 
-1. Install Kqlmagic.
+1. Install Kqlmagic:
 
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
 
-2. Load Kqlmagic.
+2. Load Kqlmagic:
 
     ```python
     reload_ext Kqlmagic
@@ -74,13 +74,13 @@ StormEvents
 ### Customize the chart colors
 If you don’t like the default color palette, customize the charts using palette options. The available palettes can be found here: [Choose colors palette for your Kqlmagic query chart result](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
-1. For a list of palettes.
+1. For a list of palettes:
 
     ```python
     %kql --palettes -popup_window
     ```
 
-1. Select the `cool` color palette and render the query again.
+1. Select the `cool` color palette and render the query again:
 
     ```python
     %%kql -palette_name "cool"
@@ -97,7 +97,7 @@ Kqlmagic allows for simple interchange between Kusto query language and Python. 
 
 ### Use a Python variable in your KQL query
 
-You can use the value of a Python variable in your KQL query to filter the data.
+You can use the value of a Python variable in your KQL query to filter the data:
 
 ```python
 statefilter = ["TEXAS", "KANSAS"]
@@ -121,13 +121,11 @@ df = _kql_raw_result_.to_dataframe()
 df.head(10)
 ```
 
-### Chain up the queries using parameters 
+### Example 
 
 In many analytics scenarios, you may want to create reusable notebooks that contain many queries and feed the results from one query into subsequent queries. The example below uses the Python variable `statefilter` to filter the data.
 
-### Example
-
-1. Run a query to view the top 10 states with maximum `DamageProperty`.
+1. Run a query to view the top 10 states with maximum `DamageProperty`:
 
     ```python
     %%kql
@@ -137,7 +135,7 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     | limit 10
     ```
 
-1. Run a query to extract the top state and set it into a Python variable.
+1. Run a query to extract the top state and set it into a Python variable:
 
     ```python
     df = _kql_raw_result_.to_dataframe()
@@ -145,7 +143,7 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     statefilter
     ```
 
-1. Run a query using the `let` statement and the Python variable.
+1. Run a query using the `let` statement and the Python variable:
 
     ```python
     %%kql
@@ -156,7 +154,7 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     | render timechart title = "Trend"
     ```
 
-1. Run the help command. 
+1. Run the help command: 
 
     ```python
     %kql --help "help"
