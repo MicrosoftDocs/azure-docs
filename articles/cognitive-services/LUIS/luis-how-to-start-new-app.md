@@ -56,7 +56,7 @@ You can create a new app with the authoring APIs in a couple of ways:
 <!--
 
 ## Import new app
-You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
+You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/Examples-BookFlight).
 
 1. On **My Apps** page, select **Import new app**.
 2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
