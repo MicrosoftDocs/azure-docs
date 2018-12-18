@@ -21,26 +21,26 @@ ms.author: borisb
 This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace along with policies around their naming and retention
 
 ## Images available in the UI
-When you search for “Red Hat” in the Marketplace or when creating a resource in Azure Portal UI you will be presented with a subset of available RHEL images and related Red Hat products. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
+When you search for “Red Hat” in the Marketplace or when you create a resource in Azure portal UI, you'll see a subset of available RHEL images and related Red Hat products. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
 
-To obtain the full set of available Red Hat images in Azure, run the following command
+To see the full set of available Red Hat images in Azure, run the following command
 
 ```azurecli-interactive
 az vm image list --publisher RedHat --all
 ```
 
 ## Naming Convention
-VM images in Azure are organized by Publisher, Offer, SKU and Version. The combination of Publisher:Offer:SKU:Version is the image URN and uniquely identifies the image to be used.
+VM images in Azure are organized by Publisher, Offer, SKU, and Version. The combination of Publisher:Offer:SKU:Version is the image URN and uniquely identifies the image to be used.
 
 For example, `RedHat:RHEL:7-RAW:7.6.2018103108` refers to a RHEL 7.6 raw-partitioned image built on October 31, 2018.
 
-A sample of how to provision a RHEL 7.6 VM is shown below.
+A sample of how to create a RHEL 7.6 VM is shown below.
 ```azurecli-interactive
 az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:7.6.2018103108 --no-wait
 ```
 
 ### The "latest" moniker
-Azure REST API allows use of moniker “latest” for version instead of the specific version. This will provision the latest available image for the given Publisher, Offer and SKU.
+Azure REST API allows use of moniker "latest" for version instead of the specific version. Using "latest" will provision the latest available image for the given Publisher, Offer, and SKU.
 
 For example, `RedHat:RHEL:7-RAW:latest` refers to the latest RHEL 7 family raw-partitioned image available.
 
@@ -52,9 +52,9 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 > Note: In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
 
 ### Current naming convention
-All currently published RHEL images use the Pay-As-You-Go model and are connected to [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Due to a design limitation of RHUI, a new naming convention has been adopted for RHEL 7 family images. RHEL 6 family naming has not been changed at this time.
+All currently published RHEL images use the Pay-As-You-Go model and are connected to [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Due to a design limitation of RHUI, a new naming convention has been adopted for RHEL 7 family images. The RHEL 6 family naming hasn't been changed at this time.
 
-The limitation is in the fact that when a non-selective `yum update` is run against a VM connected to RHUI, the RHEL version gets updated to the latest in the current family. See [this link](https://aka.ms/rhui-udate) for more details. This created confusion if someone provisioned a RHEL 7.2 image which after such update would become a RHEL 7.6 image. The new RHEL 7 image naming convention reflects this behavior. You can still provision from an older image as illustrated in the examples above by specifying the required version explicitly. If the required version is not specified while provisioning a new RHEL 7 image, then the latest image will be provisioned.
+The limitation is in the fact that when a non-selective `yum update` is run against a VM connected to RHUI, the RHEL version gets updated to the latest in the current family. For more information, see [this link](https://aka.ms/rhui-udate). This may result in confusion when a provisioned RHEL 7.2 image becomes RHEL 7.6 after an update. You can still provision from an older image as illustrated in the examples above by specifying the required version explicitly. If the required version is not specified while provisioning a new RHEL 7 image, then the latest image will be provisioned.
 
 >[!NOTE]
 > In the RHEL for SAP set of images, the RHEL version remains fixed. As such, their naming convention includes a particular version in the SKU.
@@ -80,25 +80,25 @@ RHEL-SAP-APPS | 6.8 | RAW | Linux Agent | RHEL 6.8 for SAP Business Applications
 | | 7.3 | LVM | Linux Agent | RHEL 7.3 for SAP Business Applications
 
 ### Old Naming Convention
-SKUs for the RHEL 7 family of images and the RHEL 6 family of images used specific versions in its SKU up until the naming convention change explained above.
+The RHEL 7 family of images and the RHEL 6 family of images used specific versions in their SKUs up until the naming convention change explained above.
 
-If you are used to provisioning RHEL 7.3 VM from `RedHat:RHEL:7.3:7.3.2017090723`, it has been migrated to the new naming convention and is now available under 7-RAW or 7-LVM SKUs, as follows: `RedHat:RHEL:7-RAW:7.3.2017090723`. Note that the SKU name has changed while the version 7.3 is still available.
+If you're used to provisioning RHEL 7.3 VM from `RedHat:RHEL:7.3:7.3.2017090723`, it has been migrated to the new naming convention and is now available under 7-RAW or 7-LVM SKUs, as follows: `RedHat:RHEL:7-RAW:7.3.2017090723`. The SKU name has changed while the version 7.3 is still available.
 
-For the same reason you no longer will find 7.4 or 7.5 SKUs. These RHEL versions are under the new SKU for all RHEL 7 images (7-RAW, 7-LVM), for example, `RedHat:RHEL:7-RAW:7.4.2018010506`.
+For the same reason, you no longer will find 7.4 or 7.5 SKUs. These RHEL versions are under the new SKU for all RHEL 7 images (7-RAW, 7-LVM), for example, `RedHat:RHEL:7-RAW:7.4.2018010506`.
 
 ### Other available Offers and SKUs
-The full list of available offers and SKUs may include additional images beyond what is listed in the above table, for example, `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. These offers may be used for providing support of specific marketplace solutions, could be published for previews and testing purposes, and could be changed or removed at any time without warning. Do not use them unless their presence has been publicly documented by either Microsoft or Red Hat.
+The full list of available offers and SKUs may include additional images beyond what is listed in the above table, for example, `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. These offers may be used for providing support of specific marketplace solutions, or they could be published for previews and testing purposes. They may be changed or removed at any time without warning. Do not use them unless their presence has been publicly documented by either Microsoft or Red Hat.
 
 ## Publishing Policy
-Microsoft and Red Hat typically update images as new minor versions are released, as required to address specific CVEs, or for occasional configuration changes/updates. We strive to provide updated images as soon as possible, typically within 3 business days following a release or avaialbility of a CVE fix.
+Microsoft and Red Hat typically update images as new minor versions are released, as required to address specific CVEs, or for occasional configuration changes/updates. We strive to provide updated images as soon as possible, typically within three business days following a release or availability of a CVE fix.
 
-We only update the current released version in a given image family and with the release of a newer minor version the update of the older minor version stops. For example, with the release of RHEL 7.6, RHEL 7.5 images are no longer going to be updated.
+We only update the current minor release in a given image family. With the release of a newer minor version, we stop updating the older minor version. For example, with the release of RHEL 7.6, RHEL 7.5 images are no longer going to be updated.
 
 >[!NOTE]
 > Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to Azure RHUI (usually in less than 24 hours following the official release by Red Hat). Such VMs do not require a new published image for getting the updates and in full customer control to initiate the update.
 
 ## Image Retention Policy
-Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind (e.g. incorrect configuration due to subsequent platform or component updates, etc.). Typically, we notify customers who may still be using such images at least 30 days in advance of the image removal.
+Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind. For example, images with incorrect configurations due to subsequent platform or component updates may be removed. Typically, we notify customers who may still be using these images at least 30 days before image removal.
 
 ## Next Steps
 * Learn more about the Azure Red Hat Update Infrastructure [here](https://aka.ms/rhui-update).
