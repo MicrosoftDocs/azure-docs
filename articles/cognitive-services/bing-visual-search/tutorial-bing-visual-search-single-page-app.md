@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build a single-page Web app - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Shows how to use the Bing Visual Search API in a single-page Web application.
+description: Learn how to integrate the Bing Visual Search API into a single-page Web application.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
 ---
-# Tutorial: Visual Search Single-page Web app
+# Tutorial: Build a Visual Search web app 
 
 Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can specify an image and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. 
 
@@ -26,7 +26,10 @@ To start a subscription in Azure portal:
 5. Select `S9` pricing tier.
 6. Click `Enable` to start the subscription.
 
-This tutorial extends the single page web app from the Bing Image Search tutorial (see [Single-page Web app](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). For full source code to start this tutorial, see [Single-page Web app (source code)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). For the final source code of this tutorial, see [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app-source.md).
+
+This article shows how to extend a single-page web app for the Bing Image Search API. To view that tutorial or get the source code used here, see [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
+
+The full source code for this tutorial (after extending it to use the Bing Visual Search API), is available on GitHub.
 
 The tasks covered are:
 
@@ -121,5 +124,4 @@ With all the new JavaScript code and HTML elements in place, search results are 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visual Search Single-page Web app source](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)
+> [Crop and upload an image](tutorial-visual-search-crop-area-results.md)
