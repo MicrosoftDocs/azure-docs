@@ -5,75 +5,83 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/17/2018
 ms.author: victorh
 ms.custom: mvc
 ---
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
 
-With Azure Application Gateway, you can direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool.
-
-This quickstart shows you how to use the Azure portal to quickly create the application gateway with two virtual machines in its backend pool. You then test it to make sure it's working correctly.
+This quickstart shows you how to use the Azure portal to quickly create the application gateway with two virtual machines in its backend pool. You then test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by: assigning listeners to ports, creating rules, and adding resources to a backend pool.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
+A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and another for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-1. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
-2. Click **Networking** and then click **Application Gateway** in the Featured list.
+1. Select **Create a resource** on the left menu of the Azure portal.
+2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
 
 ### Basics
 
-1. Enter these values for the application gateway:
+1. On the **Basics** page, enter these values for the following application gateway settings:
 
-    - *myAppGateway* - for the name of the application gateway.
-    - *myResourceGroupAG* - for the new resource group.
+    - **Name**: Enter *myAppGateway* for the name of the application gateway.
+    - **Resource group**: Enter *myResourceGroupAG* for the new resource group.
 
     ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-2. Accept the default values for the other settings and then click **OK**.
+2. Accept the default values for the other settings and then select **OK**.
 
 ### Settings
 
-1. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
+1. On the **Settings** page, select **Choose a virtual network**, select **Create new**, and then enter values for the following virtual network settings:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address range.
+    - **Name**: Enter *myVNet* for the name of the virtual network.
+
+    - **Address space**: Enter *10.0.0.0/16* for the virtual network address space.
+
+    - **Subnet name**: Enter *myAGSubnet* for the subnet name.
+
+    - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.
 
     ![Create virtual network](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-6. Click **OK** to go back to the Settings page.
-7. Under **Frontend IP configuration** ensure **IP address type** is set to **public**, and under **Public IP address**, ensure **Create new** is selected. Type *myAGPublicIPAddress* for the public IP address name. Accept the default values for the other settings and then click **OK**.
+2. Select **OK** to return to the **Settings** page.
+
+3. Under **Frontend IP configuration**, make sure **IP address type** is set to **Public**. Under **Public IP address**, make sure **Create new** is selected. 
+
+4. Enter *myAGPublicIPAddress* for the public IP address name. 
+
+5. Accept the default values for the other settings and then select **OK**.
 
 ### Summary
 
-Review the settings on the summary page, and then click **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for the application gateway to be created. Wait until the deployment finishes successfully before moving on to the next section.
+Review the settings on the **Summary** page, and then select **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for the application gateway to be created. Wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add a subnet
 
-1. Click **All resources** in the left-hand menu, and then click **myVNet** from the resources list.
-2. Click **Subnets**, and then click **+ Subnet**.
+1. Select **All resources** on the left menu of the Azure portal and then enter *myVNet* in the search box (the name of the virtual network you just created).
+2. Select **Subnets** and then select **+ Subnet**. 
 
     ![Create subnet](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-3. Enter *myBackendSubnet* for the name of the subnet and then click **OK**.
+3. From the **Add subnet** page, enter *myBackendSubnet* for the **Name** of the subnet and then select **OK**.
 
 ## Create backend servers
 
-In this example, you create two virtual machines that are used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
+In this example, you create two virtual machines that Azure uses as backend servers for the application gateway. You also install IIS on the virtual machines to verify the application gateway was successfully created.
 
 ### Create a virtual machine
 
-1. On the Azure portal, click **Create a resource**.
-2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+1. On the Azure portal, select **Create a resource**.
+
+2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the **Featured** list.
+
 3. Enter these values for the virtual machine:
 
     - *myResourceGroupAG* for the resource group.
@@ -81,12 +89,18 @@ In this example, you create two virtual machines that are used as backend server
     - *azureuser* - for the administrator user name.
     - *Azure123456!* for the password.
 
-   Accept the other defaults and click **Next: Disks**.
-4. Accept the disk defaults and click **Next: Networking**.
+   Accept the other defaults and select **Next: Disks**.
+
+4. Accept the disk defaults and select **Next: Networking**.
+
 5. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.
-6. Accept the other defaults and click **Next: Management**.
-7. Click **Off** to disable boot diagnostics. Accept the other defaults and click **Review + create**.
-8. Review the settings on the summary page, and then click **Create**.
+
+6. Accept the other defaults and then select **Next: Management**.
+
+7. Select **Off** to disable boot diagnostics. Accept the other defaults and then select **Review + create**.
+
+8. Review the settings on the summary page, and then select **Create**.
+
 9. Wait for the virtual machine creation to complete before continuing.
 
 ### Install IIS
@@ -113,18 +127,23 @@ In this example, you create two virtual machines that are used as backend server
 
 ### Add backend servers
 
-1. Click **All resources**, and then click **myAppGateway**.
-4. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
-5. Under **Targets**, click **IP address or FQDN** select **Virtual machine**.
-6. Under **Virtual Machine**, add myVM and myVM2 virtual machines and their associated network interfaces.
+1. Select **All resources**, and then select **myAppGateway**.
+
+2. Select **Backend pools**. A default pool was automatically created with the application gateway. 
+
+3. Select **appGatewayBackendPool**.
+
+4. Under **Targets**, select **IP address or FQDN** select **Virtual machine**.
+
+5. Under **Virtual Machine**, add myVM and myVM2 virtual machines and their associated network interfaces.
 
     ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. Click **Save**.
+6. Select **Save**.
 
 ## Test the application gateway
 
-1. Find the public IP address for the application gateway on the Overview screen. Click **All resources** and then click **myAGPublicIPAddress**.
+1. Find the public IP address for the application gateway on the Overview screen. Select **All resources** and then select **myAGPublicIPAddress**.
 
     ![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
@@ -134,7 +153,8 @@ In this example, you create two virtual machines that are used as backend server
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, application gateway, and all related resources. To do so, select the resource group that contains the application gateway and click **Delete**.
+When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources.
+To remove the resource group, select it and then select **Delete**.
 
 ## Next steps
 
