@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your device's microphone. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this article, you develop a C# Universal Windows Platform (UWP; Windows version 1709 later) application by using the Cognitive Services [Speech SDK](speech-sdk.md). The program will transcribe speech to text in real time from your device's microphone. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -40,7 +40,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Screenshot of New Project dialog box](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. The Speed SDK requires that your application be built for the Windows 10 Fall Creators Update or later. In the **New Universal Windows Platform Project** window that pops up, choose **Windows 10 Fall Creators Update (10.0; Build 16299)** as **Minimum version**. In the **Target version** box, select this or any later version, and then click **OK**.
+1. The Speech SDK requires that you build your application for the Windows 10 Fall Creators Update or later. In the **New Universal Windows Platform Project** window that pops up, choose **Windows 10 Fall Creators Update (10.0; Build 16299)** as **Minimum version**. In the **Target version** box, select this or any later version, and then click **OK**.
 
     ![Screenshot of the New Universal Windows Platform Project window](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
@@ -66,7 +66,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.2.0' to helloworld
    ```
 
 1. Because the application uses the microphone for speech input, add the **Microphone** capability to the project. In Solution Explorer, double-click **Package.appxmanifest** to edit your application manifest. Then switch to the **Capabilities** tab, select the box for the **Microphone** capability, and save your changes.
