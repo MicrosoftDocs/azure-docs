@@ -1,6 +1,6 @@
 ---
-title: Best practices for managing U-SQL assemblies in a CI-CD pipeline for Azure Data Lake
-description: 'Learn the best practices for managing U-SQL C# assemblies in a CI-CD pipeline with Azure DevOps.'
+title: Best practices for managing U-SQL assemblies in a CI/CD pipeline for Azure Data Lake
+description: 'Learn the best practices for managing U-SQL C# assemblies in a CI/CD pipeline with Azure DevOps.'
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -12,9 +12,9 @@ ms.workload: big-data
 ms.date: 10/30/2018
 ---
 
-# Best practices for managing U-SQL assemblies in a CI-CD pipeline
+# Best practices for managing U-SQL assemblies in a CI/CD pipeline
 
-In this article, you learn how to manage U-SQL assembly source code with the newly introduced U-SQL database project. You also learn how to set up a continuous integration and deployment (CI-CD) pipeline for assembly registration by using Azure DevOps.
+In this article, you learn how to manage U-SQL assembly source code with the newly introduced U-SQL database project. You also learn how to set up a continuous integration and deployment (CI/CD) pipeline for assembly registration by using Azure DevOps.
 
 ## Use the U-SQL database project to manage assembly source code
 
@@ -83,10 +83,10 @@ You can deploy a U-SQL database by using a U-SQL database project or a `.usqldbp
 
 `PackageDeploymentTool.exe` provides the programming and command-line interfaces that help to deploy U-SQL databases. The SDK is included in the [U-SQL SDK Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at `build/runtime/PackageDeploymentTool.exe`.
 
-In Azure DevOps, you can use a command-line task and this SDK to set up an automation pipeline for the U-SQL database refresh. [Learn more about the SDK and how to set up a CI-CD pipeline for U-SQL database deployment](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-pipelines).
+In Azure DevOps, you can use a command-line task and this SDK to set up an automation pipeline for the U-SQL database refresh. [Learn more about the SDK and how to set up a CI/CD pipeline for U-SQL database deployment](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-pipelines).
 
 ## Next steps
 
-* [Set up a CI-CD pipeline for Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
+* [Set up a CI/CD pipeline for Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
 * [Test your Azure Data Lake Analytics code](data-lake-analytics-cicd-test.md)
 * [Run U-SQL script on your local machine](data-lake-analytics-data-lake-tools-local-run.md)
