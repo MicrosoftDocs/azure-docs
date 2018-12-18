@@ -20,7 +20,7 @@ In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a 
  [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 [!NOTE]
-* For more information on migrating using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
+* For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
 * For more information on various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## Prerequisites
@@ -34,7 +34,7 @@ This quickstart:
 
 
 > [!NOTE]
-> For more information about backing up and restoring a SQL Server database using Azure blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).
+> For more information on backing up and restoring a SQL Server database using Azure blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).
 
 ## Restore database from a backup file
 
@@ -89,4 +89,4 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
 - For troubleshooting backup to URL, see [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - For an overview of app connection options, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
-- To query using your favorite tools or languages, see [connect and query](sql-database-connect-query.md).
+- To query using your favorite tools or languages, see [Quickstarts: Azure SQL Database Connect and Query](sql-database-connect-query.md).
