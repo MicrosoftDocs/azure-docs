@@ -46,7 +46,7 @@ To check if your firewall or ISP is blocking port 445, use the [AzFileDiagnostic
 
 To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
 
-    ```PowerShell
+   
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -58,18 +58,18 @@ To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be in
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
-    ```  
+  
     
 If the connection was successful, you should see the following output:
     
-    ```
+  
     ComputerName     : <storage-account-host-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
     SourceAddress    : <your-ip-address>
     TcpTestSucceeded : True
-    ```
+ 
 
 > [!Note]  
 > The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration.
