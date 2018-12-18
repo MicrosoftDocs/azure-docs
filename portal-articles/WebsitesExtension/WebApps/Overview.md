@@ -50,7 +50,7 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
 Find scripts to manage common tasks.
 
 - [Azure CLI](/azure/app-service/app-service-cli-sample)
-- [Azure Powershell](/azure/app-service/app-service-powershell-samples)
+- [Azure Powershell](/azure/app-service/samples-powershell)
 
 ## More
 

@@ -54,6 +54,16 @@ Azure Backup now supports backup of virtual machines with up to 16 disks. To get
 ### Does Azure backup support Standard SSD managed disk?
 Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure Virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
 
+### Can we enable Azure backup service for a VM having Write Accelerator(WA) enabled disk?
+The snapshot on the Write Accelerator enabled disk is not supported today. However during the backup, Azure Backup service can exclude the Write Accelerator enabled disk attached with the VM. Exclude disk feature for WA enabled disk is now live in Japan East, South East Asia, West Central US and North Europe region and will soon support other regions as well. This is supported only for [VM backup stack v2](backup-upgrade-to-vm-backup-stack-v2.md) enabled subscriptions.
+
+
+### I have a VM with Write Accelerator(WA) disks with SAP HANA installed, how do I use Azure backup to backup this VM?
+* Azure VM backup with Write Accelerator(WA) disk exclusion is now available, see [here](backup-azure-vm-backup-faq.md#can-we-enable-azure-backup-service-for-a-vm-having-write-acceleratorwa-enabled-disk). However, VM backup doesn’t provide database consistency since information on WA disks is not backed up and DB is not consistent as part of backup. Hence this solution works if the user wants OS backup and backup of data present on non-WA disks.
+* **Azure backup for SAP HANA**: A separate solution is built by Azure backup for backup of SAP HANA with an RPO of 15 mins. It is built in similar model as that of [SQL DB backup](backup-azure-sql-database.md) and uses the backInt interface for 3rd party backup solutions certified by SAP HANA. The solution is in private preview and you can email to ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs** for onboarding to private preview.
+
+The combination of these two solutions will provide both database backup and OS and important data backup in Azure VM with WA disks.
+
 ## Restore
 ### How do I decide between restoring disks versus full VM restore?
 Think of Azure full VM restore as a quick create option. Restore VM option changes the names of disks, containers used by those disks, public IP addresses and network interface names. The change is required to maintain the uniqueness of resources created during VM creation. But it will not add the VM to availability set.

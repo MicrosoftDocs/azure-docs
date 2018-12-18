@@ -183,7 +183,7 @@ if($certSource -eq 0)
     $certBytes = $cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $certPassword);
     $certString = [System.Convert]::ToBase64String($certBytes)
 }
-elsif($certSource -eq 1)
+elseif($certSource -eq 1)
 {
 
     Write-Host "Reading the cert file from path $certFilePath"
@@ -191,7 +191,7 @@ elsif($certSource -eq 1)
     $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($certFilePath, $certPassword)
     $certString = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes($certFilePath))
 }
-elsif($certSource -eq 2)
+elseif($certSource -eq 2)
 {
 
     Write-Host "Reading the cert file from Azure Key Vault $KeyVaultName"
