@@ -76,7 +76,7 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 The complete application returns:
 
 
-|ActionType  |URL  |Column3  |
+|ActionType  |URL  | |
 |---------|---------|---------|
 |PagesIncluding WebSearchURL     |         |         
 |MoreSizes WebSearchURL     |         |         
