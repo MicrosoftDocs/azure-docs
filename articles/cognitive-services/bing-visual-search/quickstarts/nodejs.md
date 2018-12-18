@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a visual search query, Node.js - Bing Visual Search"
+title: "Quickstart: Get image insights using the Bing Visual Search REST API and Node.js"
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
@@ -65,30 +65,36 @@ To start a subscription in Azure portal:
     var imagePath = "path-to-your-image";
     ```
 
-## Construct the search request
+3. Create a function called `requestCallback()` to print the response from the API.
+
+    ```javascript
+    function requestCallback(err, res, body) {
+        console.log(JSON.stringify(JSON.parse(body), null, '  '))
+    }
+    ```
+
+## Construct and send the search request
 
 1. Create a new form-data using `FormData()`, and append your image path to it, using `fs.createReadStream()`.
     
-    ```java
+    ```javascript
     var form = new FormData();
     form.append("image", fs.createReadStream(imagePath));
     ```
 
-2. Use the request library to 
+2. Use the request library to upload the image, calling `requestCallback()` to print the response. Be sure to add your subscription key to the request header. 
 
-form.getLength(function(err, length){
-  if (err) {
-    return requestCallback(err);
-  }
+    ```javascript
+    form.getLength(function(err, length){
+      if (err) {
+        return requestCallback(err);
+      }
+      var r = request.post(baseUri, requestCallback);
+      r._form = form; 
+      r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
+    });
+    ```
 
-  var r = request.post(baseUri, requestCallback);
-  r._form = form; 
-  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
-});
-
-function requestCallback(err, res, body) {
-    console.log(JSON.stringify(JSON.parse(body), null, '  '))
-}
 
 
 ## Running the application
