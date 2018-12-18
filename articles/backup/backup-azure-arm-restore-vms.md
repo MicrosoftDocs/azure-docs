@@ -54,33 +54,21 @@ Restoring a VM or all disks from VM backup involves two steps:
     ![List of VMs in vault](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault1.png)
 
 7. From the list, select a VM to open the dashboard. The VM dashboard opens to the monitoring area, which contains the **Recovery points**. All VM level operations like **Backup now**, **File recovery**, **Stop backup** can be performed from this blade.
-Restore can be performed in many ways from this blade. Note that This blade lists only the last 30 days recovery points.
+Restore can be performed in many ways from this blade. Note that this blade lists only the last 30 days recovery points.
 
-    a) Right click on the recovery point in this blade (less than 30 days) and initiate **Restore VM**.
-
-    b) To restore recovery points greater than 30 days Click here provided in the blade can be used.
-
-    c) **Restore VM** in the menu header provides an option to list and filter the VMs in customized dates as preferred.
-
-    Use the Filter to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the All restore points filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#consistency-types).
-
-    Restore point consistency options:
-    - Crash consistent restore points
-    - Application consistent restore points
-    - File-system consistent restore points
-    - All restore points
-
+    - To restore using a restore point from the last 30 days, right-click the VM > **Restore VM**.
+    - To restore using a restore point older than 30 days, click the link under **Restore Points**.
+    - To list and filter VMs with customized dates, click **Restore VM** in the menu. Use the filter to modify the time range for the displayed restore points. You can also filter on different types of data consistency.
+8. Review the restore point settings:
+    - Data consistency shows the [type of consistency]backup-azure-vms-introduction.md#consistency-types) in the recovery point.
+    - The **Recovery Type** shows where the point is stored (in a storage account, in the vault, or both. [Learn more](https://azure.microsoft.com/blog/large-disk-support/) about instant recovery points.
+    
   ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
-
-    >  [!NOTE]
-    > Recovery Type represent if it is in customer storage account, in vault or both. Learn more about [Instant recovery point](https://azure.microsoft.com/blog/large-disk-support/).
-
-8. On the **Restore** blade, select **Restore point**.
+9. Select a restore point 
 
     ![Select restore point](./media/backup-azure-arm-restore-vms/select-recovery-point1.png)
 
-    The **Restore** blade shows that the restore point is set on clicking **OK**.
-9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+10. Select **Restore configuration**. The **Restore configuration** blade opens.
 
 ## Choose a VM restore configuration
 After you select the restore point, choose a VM restore configuration. To configure the restored VM, you can use the Azure portal or PowerShell.
