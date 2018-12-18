@@ -59,7 +59,7 @@ Avere vFXT is a cache. It doesn't specifically store data. It uses a combination
 
 ### What regions are supported?
 
-As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores as well as the VM instances needed to create the Avere vFXT cluster.
+As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores and the VM instances needed to create the Avere vFXT cluster.
 
 ### How do I get help with Avere vFXT?
 
@@ -104,7 +104,7 @@ No. You can scale the cluster size up and down, but adding or removing cluster n
 
 ### Can I run the Avere vFXT cluster as a virtual machine scale set?
 
-Avere vFXT does not deployment of a virtual machine scale set. Several built-in availability support mechanisms are designed only for atomic VMs participating in a cluster.  
+Avere vFXT does not support deployment of a virtual machine scale set. Several built-in availability support mechanisms are designed only for atomic VMs participating in a cluster.  
 
 ### Can I run the Avere vFXT cluster on low-priority VMs?
 
