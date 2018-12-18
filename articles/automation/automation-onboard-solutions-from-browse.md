@@ -55,7 +55,7 @@ If the workspace selected is not linked to an Automation Account, you'll see the
 
 When enabling solutions, only certain regions are supported for linking a Log Analytics Workspace and an Automation Account.
 
-The following table shows the supported mapping for linking of a Log Analytics Workspace to an Automation Account:
+The following table shows the supported mappings:
 
 |**Log Analytics Workspace Region**|**Azure Automation Region**|
 |---|---|
@@ -92,13 +92,13 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
 
-1. On the Unlink workspace page, click **Unlink workspace**.
+2. On the Unlink workspace page, click **Unlink workspace**.
 
    ![Unlink workspace page](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    You will receive a prompt verifying you wish to proceed.
 
-1. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 

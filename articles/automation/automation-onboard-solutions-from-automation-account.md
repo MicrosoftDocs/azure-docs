@@ -28,7 +28,7 @@ Choose the Log analytics workspace and Automation account and click **Enable** t
 
 When enabling solutions, only certain regions are supported for linking a Log Analytics Workspace and an Automation Account.
 
-The following table shows the supported mapping for linking of a Log Analytics Workspace to an Automation Account:
+The following table shows the supported mappings:
 
 |**Log Analytics Workspace Region**|**Azure Automation Region**|
 |---|---|
@@ -43,7 +43,6 @@ The following table shows the supported mapping for linking of a Log Analytics W
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
-
 
 The Change Tracking and Inventory solution provides the ability to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solution on a virtual machine.
 
