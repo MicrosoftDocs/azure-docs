@@ -74,11 +74,17 @@ Add metadata pairs by selecting the metadata icon
 
 ## Manage large knowledge bases
 
-1. The QnAs are **grouped** by the data source from which they were extracted. You can expand or collapse the data source.
-2. You can **search** the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
-3. **Pagination** allows you to manage large knowledge bases
+* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. You can expand or collapse the data source.
 
-    ![Search, Paginate, Group](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
+
+    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Pagination**: Quickly move through data sources to manage large knowledge bases
+
+    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## Delete knowledge bases
 
