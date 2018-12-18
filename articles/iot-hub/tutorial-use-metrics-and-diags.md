@@ -146,13 +146,13 @@ Next, create a device identity and save its key for later use. This device ident
 
    ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
-4. Now click **Turn on diagnostics**. The Diagnostics Settings screen is displayed. Specify the name of your diagnostic logs settings as "diags-hub".
+4. Now click **Turn on diagnostics**. The Diagnostics settings pane is displayed. Specify the name of your diagnostic logs settings as "diags-hub".
 
 5. Check **Archive to a storage account**. 
 
    ![Screenshot showing setting the diagnostics to archive to a storage account.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-    Click **Configure** to see the **Select a storage account** screen, select the right one (*contosostoragemon*), and click **OK** to return to the Diagnostics Settings pane. 
+    Click **Configure** to see the **Select a storage account** screen, select the right one (*contosostoragemon*), and click **OK** to return to the Diagnostics settings pane. 
 
    ![Screenshot showing setting the diagnostic logs to archive to a storage account.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
@@ -193,11 +193,11 @@ Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources
 
 IoT Hub has not been migrated to the [metrics in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
 
-1. Under **Monitoring**, click **Alerts**. 
+1. Under **Monitoring**, click **Alerts** This shows the main alert screen. 
 
    ![Screenshot showing how to find classic alerts.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
 
-2. Click **View classic alerts**. 
+2. To get to the classic alerts from here, click **View classic alerts**. 
 
     ![Screenshot showing the classic alerts screen.](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
 
@@ -213,9 +213,7 @@ IoT Hub has not been migrated to the [metrics in Azure Monitor](https://docs.mic
 
     **Resource**: Select your IoT hub, *ContosoTestHub*.
 
-3. Click **Add metric alert (classic)**. 
-
-    ![Screenshot showing setting up a classic alert for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
+3. Click **Add metric alert (classic)** to set up a new alert.
 
     Fill in the fields:
 
@@ -228,6 +226,8 @@ IoT Hub has not been migrated to the [metrics in Azure Monitor](https://docs.mic
     **Subscription**, **Resource group**, and **Resource** should be set to the values you selected on the **View classic alerts** screen. 
 
     Set **Metric** to *Telemetry messages sent*.
+
+    ![Screenshot showing setting up a classic alert for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
 
 4. After the chart, set the following fields:
 
@@ -323,16 +323,15 @@ Click on the alert for telemetry messages. It shows the metric result and a char
 
 ### See the diagnostic logs
 
-Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see messages showing the device connecting to and disconnecting from the hub.  (THIS DOESN'T WORK FOR ME, WHAT DO I NEED ENABLED?)
-
-You can see your diagnostic logs in the storage account. Go to your resource group and select your storage account *contosostoragemon*. Select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. 
+You set up your diagnostic logs to be exported to blob storage. Go to your resource group and select your storage account *contosostoragemon*. Select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. 
 
    ![Screenshot of drilling down into the storage container to see the diagnostic logs.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
 Click **Download** to download it and open it. You see the logs of the device connecting and disconnecting as it sends messages to the hub. Here a sample:
 
 ``` json
-{ "time": "2018-12-17T18:11:25Z", 
+{ 
+  "time": "2018-12-17T18:11:25Z", 
   "resourceId": 
     "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
   "operationName": "deviceConnect", 
@@ -347,7 +346,8 @@ Click **Download** to download it and open it. You see the logs of the device co
        }, 
   "location": "westus"
 }
-{ "time": "2018-12-17T18:19:25Z", 
+{ 
+   "time": "2018-12-17T18:19:25Z", 
    "resourceId": 
      "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
     "operationName": "deviceDisconnect", 
