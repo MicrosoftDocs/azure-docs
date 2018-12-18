@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Deploy PaaS FHIR Service
-    -items:
+    - items:
       - name: Azure Portal
         href: documentation-fhir-quickstart-paas-portal.md
       - name: PowerShell
@@ -16,7 +16,7 @@
       - name: CLI
         href: documentation-fhir-quickstart-paas-cli.md
   - name: Deploy Open Source FHIR Server
-    -items:
+    - items:
       - name: Azure Portal
         href: documentation-fhir-quickstart-oss-portal.md
       - name: PowerShell
@@ -24,12 +24,12 @@
       - name: CLI
         href: documentation-fhir-quickstart-oss-cli.md
 - name: How-to guides
-  expanded: true
+  expanded: false
   items:
   - name: Azure AD Resource Application
     href: documentation-aad-resource-application-registration.md
   - name: Azure AD Confidential Client Application
-    href: documentation-aad-confidential-application-registration.md
+    href: documentation-aad-confidential-client-application-registration.md
   - name: Azure AD Public Client Application
     href: documentation-aad-public-client-application-registration.md
   - name: Azure AD Service Client Application
