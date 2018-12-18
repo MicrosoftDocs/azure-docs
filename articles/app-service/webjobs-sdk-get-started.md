@@ -50,7 +50,7 @@ The instructions tell how to create a WebJobs SDK version 2.x project. The lates
 
 ## Prerequisites
 
-This article assumes you have [an Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) and experience with [apps in Azure App Service](app-service-web-overview.md). To complete the steps in this article:
+This article assumes you have [an Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) and experience with [apps in Azure App Service](overview.md). To complete the steps in this article:
 
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) with the **Azure development** workload. If you already have Visual Studio but don't have that workload, add the workload by selecting **Tools > Get Tools and Features**.
 * [Create an App Service app](app-service-web-get-started-dotnet-framework.md). If you already have one that you can deploy a WebJob to, you can use that instead of creating a new one.

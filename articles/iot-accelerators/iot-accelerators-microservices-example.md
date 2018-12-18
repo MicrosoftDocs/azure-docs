@@ -1,5 +1,5 @@
 ---
-title: Change and redeploy a microservice | Microsoft Docs
+title: Change and redeploy a microservice - Azure | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
 author: dominicbetts
 ms.author: dobett
@@ -73,7 +73,7 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
     
     or on Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

@@ -42,7 +42,7 @@ To demonstrate these options, let's use a local cluster with five nodes and the 
 Service Fabric Explorer provides a visual view of the cluster. In the image below, you can see that:
 
 * The application **fabric:/WordCount** is red (in error) because it has an error event reported by **MyWatchdog** for the property **Availability**.
-* One of its services, **fabric:/WordCount/WordCountService** is yellow (in warning). The service is configured with seven replicas and the cluster has five nodes, so two repicas can't be placed. Although it's not shown here, the service partition is yellow because of a system report from `System.FM` saying that `Partition is below target replica or instance count`. The yellow partition triggers the yellow service.
+* One of its services, **fabric:/WordCount/WordCountService** is yellow (in warning). The service is configured with seven replicas and the cluster has five nodes, so two replicas can't be placed. Although it's not shown here, the service partition is yellow because of a system report from `System.FM` saying that `Partition is below target replica or instance count`. The yellow partition triggers the yellow service.
 * The cluster is red because of the red application.
 
 The evaluation uses default policies from the cluster manifest and application manifest. They are strict policies and do not tolerate any failure.
@@ -460,7 +460,7 @@ To get service health through the API, create a `FabricClient` and call the [Get
 
 The following example gets the health of a service with specified service name (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 

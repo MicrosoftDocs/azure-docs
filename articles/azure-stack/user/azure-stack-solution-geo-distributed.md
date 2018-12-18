@@ -238,7 +238,7 @@ Azure DevOps and Azure DevOps Server provide a highly configurable and manageabl
 
 ## Part 2: Update web app options
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) provides a highly scalable, self-patching web hosting service. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service. 
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
