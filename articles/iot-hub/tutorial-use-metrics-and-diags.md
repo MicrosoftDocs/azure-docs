@@ -129,7 +129,7 @@ Next, create a device identity and save its key for later use. This device ident
    
 4. Now that the device has been created, click on it to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
 
-   ![Screenshot showing the device details, including the keys.](./media/tutorial-use-metrics-and-diags/00-device-identity-keys.md)
+   ![Screenshot showing the device details, including the keys.](./media/tutorial-use-metrics-and-diags/00-device-identity-keys.png)
 
 ## Enable the diagnostic logs 
 
@@ -370,7 +370,7 @@ Click **Download** to download it and open it. You see the logs of the device co
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**.
 
-To remove the resource group, use the [az group delete](cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
