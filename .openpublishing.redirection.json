@@ -3992,7 +3992,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-changes-existing-services.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -4082,7 +4082,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-enterprise-offerings.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -4502,7 +4502,12 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-overview.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-overview.md",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -5152,7 +5157,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-how-works-readme.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -5172,7 +5177,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-value-prop-what-is.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -5197,7 +5202,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-apps-why-best-platform.md",
-            "redirect_url": "/azure/app-service/app-service-web-overview",
+            "redirect_url": "/azure/app-service/overview",
             "redirect_document_id": false
         },
         {
@@ -13755,6 +13760,16 @@
             "source_path": "articles/cognitive-services/Translator/languages.md",
             "redirect_url": "/azure/cognitive-services/Translator/language-support",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/index.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/translator-speech-how-to-signup.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
@@ -32712,6 +32727,21 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-log-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alert-log-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-rest-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/metrics-store-custom-rest-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-classic-retirement.md",
+            "redirect_url":  "/azure/azure-monitor/platform/monitoring-classic-retirement",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
@@ -33121,6 +33151,11 @@
             "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
             "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
             "redirect_document_id": false            
+        },
+			{
+			"source_path": "articles/application-insights/app-insights-analytics-import.md",
+			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+			"redirect_document_id": false
         }
     ]
 }
