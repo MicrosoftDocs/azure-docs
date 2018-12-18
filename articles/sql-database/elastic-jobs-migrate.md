@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
 ---
