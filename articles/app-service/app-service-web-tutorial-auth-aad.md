@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
 
-[Azure App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](app-service-authentication-overview.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end, but it is only for an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](app-service-authentication-overview.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end, but it is only for an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
 The tutorial uses the sample app to show you how to secure a self-contained app (in [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -443,4 +443,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
