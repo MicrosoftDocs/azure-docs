@@ -129,7 +129,7 @@ Next, create a device identity and save its key for later use. This device ident
    
 4. Now that the device has been created, click on it to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
 
-   ![Screenshot showing the device details, including the keys.](./media/tutorial-routing/00-device-identity-keys.md)
+   ![Screenshot showing the device details, including the keys.](./media/tutorial-use-metrics-and-diags/00-device-identity-keys.md)
 
 ## Enable the diagnostic logs 
 
