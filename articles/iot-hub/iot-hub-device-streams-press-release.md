@@ -17,4 +17,4 @@ To learn more, see the documentation page [here] or watch the IoT show recordin
 
 ## FAQ
 - **How much will IoT Hub device streams cost?**<br/>
-  The final pricing for device streams will be announced when the feature is generally available. But as a general frame of reference, each unit of S1, S2, S3 SKU would provide sufficient streaming capacity to remotely access  100, 1000, and 10000 devices, respectively, for 1 hour per month per device. This available stream capacity can be used for other application scenarios such as file transfer or remote debugging as well.
+  The final pricing for device streams will be announced when the feature is generally available. But as a general frame of reference, each unit of S1, S2, S3 SKU would provide sufficient streaming capacity to remotely access  100, 1000, and 10000 devices, respectively, for 1 hour per month per device. This available stream capacity can be used for other application scenarios such as file transfer, remote debugging, or your custom application protocols as well.
