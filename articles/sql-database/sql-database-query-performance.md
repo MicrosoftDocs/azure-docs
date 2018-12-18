@@ -92,13 +92,13 @@ Query Performance Insight by default shows the top 5 CPU consuming queries when 
    * Number of queries.
    * Aggregation function.
   
-  ![settings](./media/sql-database-query-performance/custom-tab.png)
+     ![settings](./media/sql-database-query-performance/custom-tab.png)
   
 5. Click on the "Go >" button to see the customized view.
 
-  > [!IMPORTANT]
-  >**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5-20 consuming queries, depending on your selection. Your database could execute many more queries beyond the top shown and these queries will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU, while this would not be visible on the chart. This tool is intended to be a basic database performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance issues such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
-  >
+     > [!IMPORTANT]
+     >**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5-20 consuming queries, depending on your selection. Your database could execute many more queries beyond the top shown and these queries will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU, while this would not be visible on the chart. This tool is intended to be a basic database performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance issues such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
+     >
 
 ## Viewing individual query details
 To view query details:
@@ -119,9 +119,9 @@ To view query details:
      
 4. Optionally, use sliders, zoom buttons or click **Settings** to customize how query data is displayed, or to pick a different time range.
 
-  > [!IMPORTANT]
-  > **Product limitation:** Query Performance Insight does not capture any DDL queries, and in some cases may not capture all ad-hoc queries.
-  >
+   > [!IMPORTANT]
+   > **Product limitation:** Query Performance Insight does not capture any DDL queries, and in some cases may not capture all ad-hoc queries.
+   >
 
 ## Review top queries per duration
 In the recent update of Query Performance Insight, we introduced two new metrics that can help you identify potential bottlenecks: duration and execution count.
