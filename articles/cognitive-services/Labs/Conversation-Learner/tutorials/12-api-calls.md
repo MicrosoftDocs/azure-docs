@@ -14,7 +14,7 @@ ms.author: v-jaswel
 
 # How to add API calls to a Conversation Learner model
 
-This tutorial shows how to add API calls to your model. API calls are functions that you define and write in your bot, and which Conversation Learner can call.
+This tutorial shows how to add API calls to your model. API calls are functions that you define and write in your Bot, and which Conversation Learner can call.
 
 ## Video
 
@@ -33,11 +33,11 @@ This tutorial requires that the "tutorialAPICalls.ts" bot is running.
 
 ### Open the demo
 
-In the Model list of the web UI, click on Tutorial-12-APICalls. 
+In the Model list of the samples, click on Tutorial-12-APICalls. 
 
 ### Entities
 
-We have defined one entity in the model called number.
+We have defined one entity in the Model called `number`.
 
 ![](../media/tutorial12_entities.PNG)
 
@@ -58,28 +58,27 @@ We have created four Actions. Three of them are "Non-Wait" API Actions, with the
 1. On the left panel, click "Actions", then click on one of the four actions listed in the grid.
 2. Notice the values of each field on the form that pops up.
 3. Notice the `Refresh` button next to the API field.
-	- If we were to stop the bot and make change to the APIs while the UI page is up, then you can click the `Refresh` button to pick up the latest changes.
+	- If we were to stop the Bot and make change to the APIs while the UI page is up, then you can click the `Refresh` button to pick up the latest changes.
 
 ![](../media/tutorial12_actions.PNG)
 
-#### ClearEntities
-#### Multiply
-#### RandomGreeting
+#### ClearEntities, Multiply and RandomGreeting
 All three of these Actions are API Type. They each rely on the API callback functions to perform some work and possibly return a value to be presented to the user.
 
 #### "What number do you want to multiply by 12"
-This is the "Text" Action and it simply asks a question of the user. While this Action does not actually interact with an API, it prompts the user to respond with a number that will go into the memory of an Entity that can then be used by the "Multiply" Action which does use one of the API callbacks.
+This is the "Text" Action and it simply asks a question of the user. While this Action does not actually interact with one of the API callbacks, it prompts the user to respond with a number that will go into the memory of an Entity that can then be used by the "Multiply" Action which does use one of the API callbacks.
 
 
 ### Train Dialog
 
-Let's walk through a teaching dialog.
+Let's walk through a "Training Dialog".
 
 1. On the left panel, click `Train Dialogs`, then the `New Train Dialog` button.
 2. Type "hello".
 3. Click the `Score Actions` button.
 4. Select `RandomGreeting`. 
 	- This will execute the Random Greeting API call.
+	- This will NOT wait for a user response.
 5. Select `What number to do you want to multiply by 12?`
 6. Type in a number, any number and only a number.
 	- Notice that your number was automatically labeled as the `number` entity.
@@ -87,7 +86,7 @@ Let's walk through a teaching dialog.
 8. Select the `Multiply` Action.
 	- Notice the result of the multiplication by 12.
 	- Notice that memory still contains the value you entered for `number`
-9. Select the `Clear Entities` Action.
+9. Select the `ClearEntities` Action.
 	- Notice that the Entity value for `number` has been cleared from memory.
 10. Click the `Save` button.
 
