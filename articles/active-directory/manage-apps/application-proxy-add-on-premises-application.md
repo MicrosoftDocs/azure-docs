@@ -114,7 +114,7 @@ If your organization uses proxy servers to connect to the internet, you need to 
 
 For information about connectors, capacity planning, and how they stay up-to-date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md). 
 
-If your application uses WebSockets to connect, make sure that you have installed the latest connector.  WebSockets are supported on connector versions 1.5.612.0 or later.
+If you're using the Qlik Sense application, always install the latest connector. Qlik Sense uses WebSockets, which is only supported on connector versions 1.5.612.0 or later.
 
 
 ## Verify the connector installed and registered correctly
