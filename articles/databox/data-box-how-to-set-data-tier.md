@@ -48,13 +48,13 @@ Once the data from Data Box is uploaded to the default tier, you may want to mov
 
 Following steps describe how you can set the blob tier to Archive using an Azure PowerShell script.
 
-1. Open an elevated Windows PowerShell session. Sign into the Azure PowerShell.
+1. Open an elevated Windows PowerShell session. Make sure that your running PowerShell 5.0 or higher. Type:
 
-     `Login-AzureRmAccount`
+   `$PSVersionTable.PSVersion`     
 
-2.  Make sure that your running PowerShell 5.0 or higher. Type:
+2. Sign into the Azure PowerShell. 
 
-    `$PSVersionTable.PSVersion`
+   `Login-AzureRmAccount`  
 
 3. Define the variables for storage account, access key, container, and the storage context.
 
@@ -81,7 +81,11 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     ```
     Windows PowerShell
     Copyright (C) Microsoft Corporation. All rights reserved.
+    PS C:\WINDOWS\system32> $PSVersionTable.PSVersion
 
+    Major  Minor  Build  Revision
+    -----  -----  -----  --------
+    5      1      17763  134
     PS C:\WINDOWS\system32> Login-AzureRmAccount
 
     Account          : gus@contoso.com
@@ -90,11 +94,7 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     TenantId         : tenant-id
     Environment      : AzureCloud
 
-    PS C:\WINDOWS\system32> $PSVersionTable.PSVersion
 
-    Major  Minor  Build  Revision
-    -----  -----  -----  --------
-    5      1      17763  134
 
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
