@@ -38,11 +38,11 @@
   - name: Visualize data in Log Analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Archive platform metric and log data 
-    href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-archive-data.md
   - name: Alert on log data
     href: learn/tutorial-response.md
   - name: Autoscale on performance and schedule
-    href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Find application run-time exceptions
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
   - name: Find application performance issues
@@ -366,8 +366,6 @@
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
           href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
-        - name: More platforms
-          href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
       - name: Smart Detection
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
@@ -446,9 +444,9 @@
       - name: Store diagnostic logs
         href: platform/diagnostic-logs-stream-log-store.md
       - name: Stream activity log to Event Hubs
-        href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/activity-logs-stream-event-hubs.md
       - name: Logs and metrics to Event Hub
-        href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostic logs to Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
@@ -537,7 +535,7 @@
       - name: Monitor Docker applications
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor resource groups
-      href: ../monitoring-and-diagnostics/resource-group-insights.md?toc=/azure/azure-monitor/toc.json
+      href: insights/resource-group-insights.md
     - name: Monitor databases
       items:
       - name: Azure SQL
@@ -658,7 +656,7 @@
     - name: View events in activity log
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: View service notifications
-      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      href: platform/service-notifications.md
     - name: Query log data
       items:
       - name: Query language Documentation
@@ -799,7 +797,7 @@
       - name: Walkthrough of autoscale
         href: platform/autoscale-get-started.md
       - name: Understand Autoscale settings
-        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
       - name: Common metrics
@@ -817,7 +815,7 @@
     - name: Service notifications
       items:
       - name: View service notifications
-        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-notifications.md
       - name: Configure alerts on service notifications
         href: platform/alerts-activity-log-service-notifications.md
     - name: IT Service Management
@@ -845,7 +843,7 @@
     - name: PowerShell
       items:  
       - name: Azure PowerShell samples
-        href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powershell-quickstart-samples.md
       - name: PowerShell cmdlets
         href: platform/powershell-workspace-configuration.md
       - name: Applications
@@ -914,6 +912,8 @@
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: NuGet packages
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+    - name: Platform support
+      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview
@@ -953,7 +953,7 @@
     - name: Supported metrics
       href: platform/metrics-supported.md
     - name: Supported metrics for newer alerts
-      href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-near-real-time.md
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
