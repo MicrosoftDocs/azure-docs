@@ -24,15 +24,15 @@ ms.reviewer: hirsin
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we're planning to replace this functionality with a new feature in Azure Active Directory Conditional Access.  Once the new feature is complete, this functionality will eventually be deprecated after a notification period.  If you use the Configurable Token Lifetime policy, be prepared to switch to the new Conditional Access feature once it's available. 
+> After hearing from customers during the preview, we're planning to replace this functionality with a new feature in Azure Active Directory Conditional Access.  Once the new feature is complete, this functionality will eventually be deprecated after a notification period. If you use the Configurable Token Lifetime policy, be prepared to switch to the new Conditional Access feature once it's available.
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
 You can designate a policy as the default policy for your organization. The policy is applied to any application in the organization, as long as it is not overridden by a policy with a higher priority. You also can assign a policy to specific applications. The order of priority varies by policy type.
 
 > [!NOTE]
-> Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
->* The default lifetime for the SharePoint Online access token is 1 hour. 
+> Configurable token lifetime policy is not supported for SharePoint Online. Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
+>* The default lifetime for the SharePoint Online access token is 1 hour.
 >* The default max inactive time of the SharePoint Online refresh token is 90 days.
 
 ## Token types
@@ -41,10 +41,10 @@ You can set token lifetime policies for refresh tokens, access tokens, session t
 
 ### Access tokens
 
-Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token. 
+Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token. The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
 
 ### Refresh tokens
-When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be [revoked at any time](access-tokens.md#token-revocation), and the token's validity is checked every time the token is used.  
+When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. A refresh token is bound to a combination of user and client. A refresh token can be [revoked at any time](access-tokens.md#token-revocation), and the token's validity is checked every time the token is used.
 
 It's important to make a distinction between confidential clients and public clients, as this impacts how long refresh tokens can be used. For more information about different types of clients, see [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -82,8 +82,8 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor<sup>3</sup> |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
-* <sup>2</sup>If  **MaxAgeSessionSingleFactor** is not set, this value takes the **MaxAgeSingleFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
-* <sup>3</sup>If  **MaxAgeSessionMultiFactor** is not set, this value takes the **MaxAgeMultiFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
+* <sup>2</sup>If **MaxAgeSessionSingleFactor** is not set, this value takes the **MaxAgeSingleFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
+* <sup>3</sup>If **MaxAgeSessionMultiFactor** is not set, this value takes the **MaxAgeMultiFactor** value. If neither parameter is set, the property takes the default value (until-revoked).
 
 ### Exceptions
 | Property | Affects | Default |
@@ -106,13 +106,13 @@ For more information about the relationship between application objects and serv
 
 A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
 
-All timespans used here are formatted according to the C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
+All timespans used here are formatted according to the C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS. So 80 days and 30 minutes would be `80.00:30:00`. The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.
 
 > [!NOTE]
 > Here's an example scenario.
 >
 > A user wants to access two web applications: Web Application A and Web Application B.
-> 
+>
 > Factors:
 > * Both web applications are in the same parent organization.
 > * Token Lifetime Policy 1 with a Session Token Max Age of eight hours is set as the parent organization’s default.
@@ -199,7 +199,7 @@ In the examples, you can learn how to:
 * Manage an advanced policy
 
 ### Prerequisites
-In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.  
+In the following examples, you create, update, link, and delete policies for apps, service principals, and your overall organization. If you are new to Azure AD, we recommend that you learn about [how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
 To get started, do the following steps:
 
@@ -222,7 +222,7 @@ In this example, you create a policy that lets your users sign in less frequentl
 
 1. Create a token lifetime policy.
 
-    1.  Set the Single-Factor Refresh Token to "until-revoked." The token doesn't expire until access is revoked. Create the following policy definition:
+    1. Set the Single-Factor Refresh Token to "until-revoked." The token doesn't expire until access is revoked. Create the following policy definition:
 
         ```PowerShell
         @('{
@@ -234,13 +234,13 @@ In this example, you create a policy that lets your users sign in less frequentl
         }')
         ```
 
-    2.  To create the policy, run the following command:
+    2. To create the policy, run the following command:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    3. To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```PowerShell
         Get-AzureADPolicy
@@ -262,23 +262,23 @@ In this example, you create a policy that requires users to authenticate more fr
 
     This policy, for web sign-in, sets the access/ID token lifetime and the max single-factor session token age to two hours.
 
-    1.  To create the policy, run this command:
+    1. To create the policy, run this command:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  To see your new policy, and to get the policy **ObjectId**, run the following command:
+    2. To see your new policy, and to get the policy **ObjectId**, run the following command:
 
         ```PowerShell
         Get-AzureADPolicy
         ```
 
-2.  Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal. 
+2. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1. To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
 
-    2.  When you have the **ObjectId** of your service principal, run the following command:
+    2. When you have the **ObjectId** of your service principal, run the following command:
 
         ```PowerShell
         Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
@@ -290,13 +290,13 @@ In this example, you create a policy that requires users to authenticate less fr
 
 1. Create a token lifetime policy.
 
-    1.  To create a strict policy for a web API, run the following command:
+    1. To create a strict policy for a web API, run the following command:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  To see your new policy, and to get the policy **ObjectId**, run the following command:
+    2. To see your new policy, and to get the policy **ObjectId**, run the following command:
 
         ```PowerShell
         Get-AzureADPolicy
@@ -316,13 +316,13 @@ In this example, you create a few policies, to learn how the priority system wor
 
 1. Create a token lifetime policy.
 
-    1.  To create an organization default policy that sets the Single-Factor Refresh Token lifetime to 30 days, run the following command:
+    1. To create an organization default policy that sets the Single-Factor Refresh Token lifetime to 30 days, run the following command:
 
         ```PowerShell
         New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    2. To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```PowerShell
         Get-AzureADPolicy
@@ -332,14 +332,14 @@ In this example, you create a few policies, to learn how the priority system wor
 
     Now, you have a policy that applies to the entire organization. You might want to preserve this 30-day policy for a specific service principal, but change the organization default policy to the upper limit of "until-revoked."
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1. To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
 
-    2.  When you have the **ObjectId** of your service principal, run the following command:
+    2. When you have the **ObjectId** of your service principal, run the following command:
 
-            ```PowerShell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-            ```
-        
+        ```PowerShell
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        ```
+
 3. Set the `IsOrganizationDefault` flag to false:
 
     ```PowerShell
@@ -376,8 +376,6 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;Type</code> |Type of policy. For token lifetimes, always use "TokenLifetimePolicy." | `-Type "TokenLifetimePolicy"` |
 | <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
 
-</br></br>
-
 #### Get-AzureADPolicy
 Gets all Azure AD policies or a specified policy.
 
@@ -389,8 +387,6 @@ Get-AzureADPolicy
 | --- | --- | --- |
 | <code>&#8209;Id</code> [Optional] |**ObjectId (Id)** of the policy you want. |`-Id <ObjectId of Policy>` |
 
-</br></br>
-
 #### Get-AzureADPolicyAppliedObject
 Gets all apps and service principals that are linked to a policy.
 
@@ -401,8 +397,6 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 | Parameters | Description | Example |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the policy you want. |`-Id <ObjectId of Policy>` |
-
-</br></br>
 
 #### Set-AzureADPolicy
 Updates an existing policy.
@@ -420,8 +414,6 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | <code>&#8209;Type</code> [Optional] |Type of policy. For token lifetimes, always use "TokenLifetimePolicy." |`-Type "TokenLifetimePolicy"` |
 | <code>&#8209;AlternativeIdentifier</code> [Optional] |Sets an alternative ID for the policy. |`-AlternativeIdentifier "myAltId"` |
 
-</br></br>
-
 #### Remove-AzureADPolicy
 Deletes the specified policy.
 
@@ -433,10 +425,8 @@ Deletes the specified policy.
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the policy you want. | `-Id <ObjectId of Policy>` |
 
-</br></br>
-
 ### Application policies
-You can use the following cmdlets for application policies.</br></br>
+You can use the following cmdlets for application policies.
 
 #### Add-AzureADApplicationPolicy
 Links the specified policy to an application.
@@ -450,8 +440,6 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** of the policy. | `-RefObjectId <ObjectId of Policy>` |
 
-</br></br>
-
 #### Get-AzureADApplicationPolicy
 Gets the policy that is assigned to an application.
 
@@ -462,8 +450,6 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 | Parameters | Description | Example |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
-
-</br></br>
 
 #### Remove-AzureADApplicationPolicy
 Removes a policy from an application.
@@ -476,8 +462,6 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
 
 ### Service principal policies
 You can use the following cmdlets for service principal policies.
@@ -494,8 +478,6 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** of the policy. | `-RefObjectId <ObjectId of Policy>` |
 
-</br></br>
-
 #### Get-AzureADServicePrincipalPolicy
 Gets any policy linked to the specified service principal.
 
@@ -506,8 +488,6 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 | Parameters | Description | Example |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
-
-</br></br>
 
 #### Remove-AzureADServicePrincipalPolicy
 Removes the policy from the specified service principal.
