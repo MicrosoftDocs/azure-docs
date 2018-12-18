@@ -423,8 +423,6 @@
         href: platform/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: platform/create-pipeline-datacollector-api.md
-      - name: Application data
-        href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: Metrics store REST API
         href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
       - name: GuestOS to metrics store Linux VM (Telegraf)
