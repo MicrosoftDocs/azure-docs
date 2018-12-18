@@ -114,10 +114,10 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
     ![Workplace by Facebook Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<instancename>.facebook.com`.
+    `https://<instancename>.facebook.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://www.facebook.com/company/<instanceID>`.
+    `https://www.facebook.com/company/<instanceID>`
 
 	> [!NOTE] 
 	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community.
