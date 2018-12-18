@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use a domain model - REST, Python - Computer Vision"
+title: "Quickstart: Domain-specific image content - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you use domain models to identify celebrities and landmarks in  an image using the Computer Vision API with Python.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Use a domain model using the REST API and Python in Computer Vision
 
