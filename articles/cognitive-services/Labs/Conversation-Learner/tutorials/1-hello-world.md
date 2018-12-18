@@ -18,7 +18,7 @@ This tutorial shows how to get started with Conversation Learner, including crea
 
 ## Video
 
-[![Tutorial 1 Preview](https://aka.ms/cl-tutorial-01-preview)](https://aka.ms/blis-tutorial-01)
+[![Hello World Tutorial Preview](https://aka.ms/cl_Tutorial_v3_HelloWorld_Preview)](https://aka.ms/cl_tutorial_v3_helloworld)
 
 
 ## Requirements
