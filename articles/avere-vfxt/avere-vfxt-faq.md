@@ -210,7 +210,7 @@ In general terms, Avere vFXT for Azure supports the following systems as core fi
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0, and 8.1) 
 * NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3) 
-* Azure blob containers (LRS only) 
+* Azure blob containers (locally redundant storage only) 
 * AWS S3 buckets 
 * Google Cloud buckets
 
@@ -236,7 +236,7 @@ Your storage account must be a general-purpose v2 (GPv2) account and configured 
 
 ### Can I use archive blob storage?
 
-No. The SLA for archive storage is not compatible with the real-time directory and file access needs of the Avere vFXT system. 
+No. The service-level agreement (SLA) for archive storage is not compatible with the real-time directory and file access needs of the Avere vFXT system. 
 
 ### Can I use cool blob storage?
 
