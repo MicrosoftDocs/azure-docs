@@ -127,7 +127,10 @@ Like all extensions, Backup extensions need access to the public internet to wor
 * Backup operations like disk snapshot can fail.
 * Displaying the status of the backup operation can fail.
 
-The need to resolve public internet addresses is discussed in [this Azure Support blog](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Check the DNS configurations for the VNET and make sure the Azure URIs can be resolved.
+The need to resolve public internet addresses is discussed in [this Azure Support blog](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Check the DNS configurations for the VNET and make sure the Azure URIs can be resolved.  Ports 443 (TCP) and 8443 (TCP) should be allowed outbound to the internet.
+
+> [!NOTE]
+> For Azure VM backups, TCP ports 443 and 8443 are only for command orchestration, data transfer is in background.  For SQL backups, data transfer does flow over the specified ports.  For customers forcing the flow of internet traffic back to on-premises or via a virtual appliance, it is recommeneded to leverage [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview) for Azure Storage to help ensure traffic stays within Azure.
 
 After name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
 
@@ -138,6 +141,8 @@ After name resolution is done correctly, access to the Azure IPs also needs to b
 - Create a path for HTTP traffic to flow:
    1. If you have some network restriction in place, deploy an HTTP proxy server to route the traffic. An example is a network security group. See the steps to deploy an HTTP proxy server in [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    1. Add rules to the NSG, if you have one in place, to allow access to the internet from the HTTP proxy.
+
+
 
 > [!NOTE]
 > DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
