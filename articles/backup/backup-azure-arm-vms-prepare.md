@@ -15,7 +15,7 @@ This article describes how to prepare for backing up an Azure VM using an [Azure
 
 
 > [!div class="checklist"]
-> * Before you start, eview supported scenarios and limitations.
+> * Before you start, review supported scenarios and limitations.
 > * Verify prerequisites, including Azure VM requirements and network connectivity.
 > * Create a vault.
 > * Select how storage replicates.
