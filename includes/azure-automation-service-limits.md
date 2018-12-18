@@ -30,6 +30,7 @@ ms.custom: "include file"
 | Max Runbook parameters   | 50|You can pass a JSON or XML string to a parameter and parse it with the runbook if you hit the 50 parameter limit|
 | Max webhook payload size |  512 kb|
 | Max days that job data is retained|30 days|
+| Max PowerShell Workflow state size |5 MB| Applies to PowerShell Workflow runbooks when checkpointing workflow.|
 
 **<sup>1</sup>** A sandbox is a shared environment that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox.
 

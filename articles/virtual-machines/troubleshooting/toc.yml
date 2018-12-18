@@ -7,6 +7,7 @@
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
 - name: RDP
+  href: rdp.md
   items:
   - name: Reset RDP
     href: reset-rdp.md

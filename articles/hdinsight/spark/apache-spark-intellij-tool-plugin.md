@@ -20,7 +20,7 @@ Use the Azure Toolkit for IntelliJ plug-in to develop [Apache Spark](https://spa
 
 To create your project, view the [Create Apache Spark Applications with the Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > You can use this plug-in to create and submit applications only for an HDInsight Spark cluster on Linux.
 > 
 
@@ -186,7 +186,7 @@ After creating a Scala application, you can submit it to the cluster.
 
       ![The Spark Submission dialog box jar files meaning](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
+       > [!NOTE]  
        > To upload your Referenced JARs and Referenced Files, refer to: [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
     * **Upload Path**: You can indicate the storage location for the Jar or Scala project resources submission. There are three storage types supported: **Azure Blob**, **Use Spark interactive session to upload artifacts**, and **Use cluster default storage account**, and **ADLS Gen1**. Below screenshot is an example for Azure Blob.
@@ -355,7 +355,7 @@ If you have any suggestions or feedback, or if you encounter any problems when y
 
 ### Creating and running applications
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

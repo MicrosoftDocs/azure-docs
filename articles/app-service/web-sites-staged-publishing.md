@@ -57,7 +57,7 @@ The app must be running in the **Standard**, **Premium**, or **Isolated* tier in
     ![Deployment Slot Title][StagingTitle]
 5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](app-service-deploy-local-git.md).
+There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 
@@ -183,7 +183,7 @@ When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions
 
 ## Monitor swap progress
 
-Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the [Azure portal](https://portal.azure.com).
+Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../azure-monitor/platform/activity-logs-overview.md) in the [Azure portal](https://portal.azure.com).
 
 In your app page of the portal, in the left-hand navigation, select **Activity log**.
 

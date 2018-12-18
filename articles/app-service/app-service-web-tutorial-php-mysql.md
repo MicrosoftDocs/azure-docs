@@ -25,7 +25,7 @@ ms.custom: seodec18
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a PHP and MySQL web app in Azure App Service on Linux](./containers/tutorial-php-mysql-app.md).
 >
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a PHP web app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service Web Apps.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a PHP web app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service Web Apps.
 
 ![PHP app running in Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -634,4 +634,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to map a custom DNS name to a web app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)

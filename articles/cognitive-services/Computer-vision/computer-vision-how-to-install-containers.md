@@ -1,19 +1,19 @@
 ---
-title: Install and run containers
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: How to install and run containers - Computer Vision
+titlesuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
+ms.custom: seodec18
 ---
 
-# Install and run containers
+# Install and run Recognize Text containers
 
 Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You must meet the following prerequisites before using the Recognize Text container:
 
-**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker must be configured to allow the containers to connect with and send billing data to Azure.
 

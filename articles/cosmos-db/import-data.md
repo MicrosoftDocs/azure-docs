@@ -18,7 +18,7 @@ Which API are you going to use with Azure Cosmos DB?
 
 * **[SQL API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
 * **[Table API](table-introduction.md)** - You can use the Data Migration tool or AzCopy to import data. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md).
-* **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool doesn't currently support Azure Cosmos DB MongoDB API either as a source or as a target. If you want to migrate the data in or out of MongoDB API collections in Azure Cosmos DB, refer to [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
+* **[Azure Cosmos DB API for MongoDB](mongodb-introduction.md)** - The Data Migration tool doesn't currently support Azure Cosmos DB API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to [How to migrate data for the Azure Cosmos DB API for MongoDB](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
 * **[Gremlin API](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for Gremlin API accounts at this time.
 
 This tutorial covers the following tasks:
