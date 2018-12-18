@@ -37,16 +37,16 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is QnA Maker?
-        - href: /azure/cognitive-services/qnamaker/how-to/create-knowledge-base
-          html: <p>Learn how to create a new knowledge base.</p>
+        - href: /azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base
+          html: <p>Learn how to create, train, and publish a knowledge base.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Create a new knowledge base
-        - href: /azure/cognitive-services/qnamaker/how-to/publish-knowledge-base
+          title: Create, train, and publish a knowledge base
+        - href: /azure/cognitive-services/qnamaker/concepts/data-sources-supported
           html: <p>Learn how to publish a knowledge base.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Publish a knowledge base
+          title: Understand data sources
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
