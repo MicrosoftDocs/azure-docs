@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure IoT solution accelerators | Microsoft Docs
+title: Introduction to IoT solution accelerators - Azure | Microsoft Docs
 description: Learn about the Azure IoT solution accelerators. IoT solution accelerators are complete, end-to-end, ready to deploy IoT solutions.
 author: dominicbetts
 ms.author: dobett

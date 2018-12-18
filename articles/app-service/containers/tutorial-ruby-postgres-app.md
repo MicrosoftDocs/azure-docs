@@ -504,4 +504,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to map a custom DNS name to a web app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)
