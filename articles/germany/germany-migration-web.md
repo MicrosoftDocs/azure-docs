@@ -28,7 +28,7 @@ For more information:
 - Get information about how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md).
 - Learn how to [export an Azure Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Review the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
-- Review the [App Service overview](../app-service/app-service-web-overview.md).
+- Review the [App Service overview](../app-service/overview.md).
 - Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
 

@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/09/2017
+ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ---
@@ -50,11 +50,19 @@ As telemetry comes into Application Insights from your web app, Smart Detection 
 
 When an analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
 
-When your service is instrumented with these telemetry calls, the analyser looks for an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+When your service is instrumented with these telemetry calls, the analyzer looks for an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
 
 The resulting analysis is sent to you as alert, unless you have configured it not to.
 
 Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure Smart Detection. If you want, you can disable it or change its target email addresses.
+
+### Alert logic details
+
+The alerts are triggered by our proprietary machine learning algorithm so we can't share the exact implementation details. With that said, we understand that you sometimes need to know more about how the underlying logic works. The primary factors that are evaluated to determine if an alert should be triggered are: 
+
+* Analysis of the failure percentage of requests/dependencies in a rolling time window of 20 minutes.
+* A comparison of the failure percentage of the last 20 minutes to the rate in the last 40 minutes and the past seven days, and looking for significant deviations that exceed X-times that standard deviation.
+* Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
 
 ## Configure alerts
 You can disable Smart Detection, change the email recipients, create a webhook, or opt in to more detailed alert messages.

@@ -423,10 +423,8 @@
         href: platform/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: platform/create-pipeline-datacollector-api.md
-      - name: Application data
-        href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: Metrics store REST API
-        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/metrics-store-custom-rest-api.md
       - name: GuestOS to metrics store Linux VM (Telegraf)
         href: platform/collect-custom-metrics-linux-telegraf.md  
     - name: System Center
@@ -751,7 +749,7 @@
         - name: Webhook actions for log alerts
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting log alerts
-          href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alert-log-troubleshoot.md
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
@@ -974,7 +972,7 @@
     - name: Classic autoscale & metrics API
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
-      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
+      href: platform/monitoring-classic-retirement.md
     - name: Extend alerts from Log Analytics to Azure
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
