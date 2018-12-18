@@ -100,7 +100,7 @@ The directory structure that the logs are stored in is as follows:
 
 ### FTP
 
-To open an FTP connection to your app's FTP server, see [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
+To open an FTP connection to your app's FTP server, see [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
 
 Once connected to your web app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
 

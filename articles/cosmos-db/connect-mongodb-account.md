@@ -24,7 +24,7 @@ This tutorial provides two ways to retrieve connection string information:
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now. 
-- An Azure Cosmos DB account. For instructions, see [Build a MongoDB API web app with .NET and the Azure portal](create-mongodb-dotnet.md).
+- An Azure Cosmos DB account. For instructions, see [Build a Azure Cosmos DB API for MongoDB web app with .NET and the Azure portal](create-mongodb-dotnet.md).
 
 ## <a id="QuickstartConnection"></a>Get the MongoDB connection string by using the quick start
 1. In an Internet browser, sign in to the [Azure portal](https://portal.azure.com).
