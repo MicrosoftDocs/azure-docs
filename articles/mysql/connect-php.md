@@ -18,7 +18,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install PHP
-Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
+Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
 
 ### MacOS
 - Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).

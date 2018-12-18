@@ -24,7 +24,7 @@ ms.custom: seodec18
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database web app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-[App Service](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
 
 ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -394,4 +394,4 @@ What you learned:
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)

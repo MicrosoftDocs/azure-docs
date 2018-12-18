@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 
 ---
-# Tutorial: Map an existing custom DNS name to Azure Web Apps
+# Tutorial: Map an existing custom DNS name to Azure App Service
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure Web Apps.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure App Service.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -153,7 +153,7 @@ It might take some time for the new hostname to be reflected in the app's **Cust
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
@@ -228,7 +228,7 @@ It might take some time for the new hostname to be reflected in the app's **Cust
 ![A record added](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
@@ -283,7 +283,7 @@ Select the **+** icon again to add another hostname that matches the wildcard do
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+> To add an SSL binding, see [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## Test in browser
 
@@ -360,4 +360,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to bind a custom SSL certificate to a web app.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md)

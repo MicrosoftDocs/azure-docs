@@ -412,7 +412,7 @@ Now that your application is migrated to App Service, there are even more featur
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Auto-scale]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Azure Classic Portal]: https://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/

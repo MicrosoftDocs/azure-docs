@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # OS and runtime patching in Azure App Service
 
-This article shows you how to get certain version information regarding the OS or software in [App Service](app-service-web-overview.md). 
+This article shows you how to get certain version information regarding the OS or software in [App Service](overview.md). 
 
 App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available you in [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
 
