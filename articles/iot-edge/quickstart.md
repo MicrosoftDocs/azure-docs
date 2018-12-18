@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/17/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -55,18 +55,15 @@ Cloud resources:
 IoT Edge device:
 
 * A Windows computer or virtual machine to act as your IoT Edge device. Use a supported Windows version:
-  * Windows 10 or newer
-  * Windows Server 2016 or newer
-* If it's a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V.
-* If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
-* Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and make sure it's running.
-
-> [!TIP]
-> There is an option during Docker setup to use Windows containers or Linux containers. This quickstart describes how to configure the IoT Edge runtime for use with Linux containers.
+  * Windows 10 or IoT Core with October 2018 update (build 17763)
+  * Windows Server 2019
+* Enable virtualization so that your device can host containers
+   * If it's a Windows computer, enable the containers feature. In the start bar, navigate to **Turn Windows features on or off** and check the box next to **Containers**.
+   * If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT hub with Azure CLI.
+Start the quickstart by creating an IoT hub with Azure CLI.
 
 ![Diagram - Create an IoT hub in the cloud](./media/quickstart/create-iot-hub.png)
 
@@ -103,7 +100,9 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section.
+3. Copy the connection string from the JSON output and save it. You'll use this value to configure the IoT Edge runtime in the next section.
+
+   ![Retrieve connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
 
 ## Install and start the IoT Edge runtime
 
@@ -112,13 +111,15 @@ Install the Azure IoT Edge runtime on your IoT Edge device and configure it with
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
+The installation script also includes a container engine called Moby that manages the container images on your IoT Edge device. 
+
 During the runtime installation, you're asked for a device connection string. Use the string that you retrieved from the Azure CLI. This string associates your physical device with the IoT Edge device identity in Azure.
 
-The instructions in this section configure the IoT Edge runtime with Linux containers. If you want to use Windows containers, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md).
+The instructions in this section configure the IoT Edge runtime with Windows containers. If you want to use Linux containers, see [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows-with-linux.md) for those prerequisites and installation steps.
 
 ### Connect to your IoT Edge device
 
-The steps in this section all take place on your IoT Edge device. If you're using your own machine as the IoT Edge device, you can skip this part. If you're using a virtual machine or secondary hardware, you want to connect to that machine now. 
+The steps in this section all take place on your IoT Edge device. If you're using a virtual machine or secondary hardware, you want to connect to that machine now via SSH or remote desktop. If you're using your own machine as the IoT Edge device, you can continue to the next section. 
 
 ### Download and install the IoT Edge service
 
@@ -130,7 +131,7 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
@@ -213,25 +214,13 @@ Remove the **IoTEdgeResources** group.
 
 ### Remove the IoT Edge runtime
 
-If you plan on using the IoT Edge device for future testing, but want to stop the tempSensor module from sending data to your IoT hub while not in use, use the following command to stop the IoT Edge service.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-You can restart the service when you're ready to start testing again
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 If you want to remove the installations from your device, use the following commands.  
 
-Remove the IoT Edge runtime.
+Remove the IoT Edge runtime. If you plan on reinstalling IoT Edge, leave out the `-DeleteConfig` and `-DeleteMobyDataRoot` parameters so that you can reinstall with the same configuration that you just set up.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.

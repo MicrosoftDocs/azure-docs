@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract printed text (OCR) - REST, Python - Computer Vision"
+title: "Quickstart: Extract printed text - REST, Python"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Python.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Extract printed text (OCR) using the REST API and Python in Computer Vision
 
