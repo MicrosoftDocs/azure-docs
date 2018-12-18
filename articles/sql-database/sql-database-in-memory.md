@@ -305,7 +305,7 @@ end
 To make the *_ondisk* version of the preceding T-SQL script for ostress.exe, you would replace both occurrences of the *_inmem* substring with *_ondisk*. These replacements affect the names of tables and stored procedures.
 
 
-### Install RML utilities and ostress
+### Install RML utilities and `ostress`
 
 
 Ideally, you would plan to run ostress.exe on an Azure virtual machine (VM). You would create an [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
@@ -335,7 +335,7 @@ whereas for SQL 2016+
 ### Run the *_inmem* stress workload first
 
 
-You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command-line parameters direct ostress to:
+You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command-line parameters direct `ostress` to:
 
 - Run 100 connections concurrently (-n100).
 - Have each connection run the T-SQL script 50 times (-r50).
@@ -365,7 +365,7 @@ To run the preceding ostress.exe command line:
 #### Result is a duration
 
 
-When ostress.exe finishes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
+When `ostress.exe` finishes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
@@ -390,7 +390,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Expected comparison results
 
-Our In-Memory tests have shown that performance improved by **nine times** for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
+Our In-Memory tests have shown that performance improved by **nine times** for this simplistic workload, with `ostress` running on an Azure VM in the same Azure region as the database.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
