@@ -316,7 +316,7 @@ The following are post-installation known issues for this build version.
 <!-- 2664148 - IS ASDK --> 
 -	In scenarios where the tenant is accessing their virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the Local Network Gateway after gateway was already created. 
 
-- In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states `The virtual machine associated with this network interface will be restarted to utilize the new private IP address`. You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
+- In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`. You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
 - In the portal, on the **Networking Properties** blade there is a link for **Effective Security Rules** for each network adapter. If you select this link, a new blade opens that shows the error message `Not Found.` This error occurs because Azure Stack does not yet support **Effective Security Rules**.
 
