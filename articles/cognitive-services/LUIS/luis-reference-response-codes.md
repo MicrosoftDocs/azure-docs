@@ -13,7 +13,8 @@ ms.date: 11/27/2018
 ms.author: diberry
 ---
 
-# LUIS API HTTP response codes
+# Common API response codes and their meaning
+
 The [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
 
 ## Common status codes
