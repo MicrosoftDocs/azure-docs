@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
+ms.date: 12/17/2018
 ---
 # Tutorial: Secure a single database in Azure SQL Database
 
@@ -131,6 +131,9 @@ Provision an Azure Active Directory administrator for your Azure SQL server in t
 
 2. On **SQL Server** page, select **Active Directory admin**, and on the **Active Directory admin** page, select **Set admin**.
     ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > You need to be a "Company Administrator" or a "Global Administrator" to perform this task.
 
 3. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
     ![select admin](./media/sql-database-aad-authentication/select-admin.png)  

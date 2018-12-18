@@ -192,13 +192,8 @@ The following Log Analytics features behave differently in Azure Government:
     2. Unzip the file that you downloaded.
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](https://technet.microsoft.com/library/hh212691.aspx).
     4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../azure-monitor/platform/om-agents.md).
-<<<<<<< HEAD
-
-* To use [computer groups from System Center Configuration Manager 2016](../log-analytics/log-analytics-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
-=======
 
 * To use [computer groups from System Center Configuration Manager 2016](../azure-monitor/platform/collect-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
->>>>>>> 1bf0d1865a70d7efda8f38d5bf8d94b09f05a430
 
 ### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
