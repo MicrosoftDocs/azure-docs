@@ -29,7 +29,7 @@ This tutorial requires that the "tutorialAPICalls.ts" bot is running.
 
 - API calls can read and manipulate entities.
 - API calls have access to the memory manager object.
-- API calls can also take arguments -- this allows re-using the same API call to serve different purposes.
+- API calls can take arguments.
 
 ### Open the demo
 
@@ -46,30 +46,29 @@ The code for the API calls is defined in the this file: C:\<installedpath\>\src\
 
 ![](../media/tutorial12_apicalls.PNG)
 
-- The first API Callback is RandomGreeting. It returns a random greeting defined in the greeting variable.
-- The Multiply API callback: It will multiply two numbers provided by the user. It then returns the result of the multiplication of the two numbers. This shows that API callbacks can take inputs. Note that memory manager is the first argument. 
-- The ClearEntities API callback: clears the number entity to let the user enter the next number. This illustrates how API calls can manipulate entities.
+- The `RandomGreeting` callback returns a random greeting defined in the `greeting` array.
+- The `Multiply` callback will multiply two numbers passed in by the Action that calls it and returns a result that can be rendered in the UI.
+	- Notice that memory manager is the first argument. 
+	- Notice that API callbacks can take multiple inputs, in this case `num1string` and `num2string`.
+- The `ClearEntities` callback clears the number Entity so that the user can enter another number. 
+	- Illustrates how API calls can manipulate Entities.
 
 ### Actions
-![](../media/tutorial12_actions.PNG)
-
 We have created four Actions. Three of them are "Non-Wait" API Actions, with the fourth is a "Text" Action that asks the user a question similar to what we have seen in other tutorials. To see how each was created do the following:
 1. On the left panel, click "Actions", then click on one of the four actions listed in the grid.
 2. Notice the values of each field on the form that pops up.
 3. Notice the `Refresh` button next to the API field.
-	- If we were to stop the bot and make change to the APIs while the UI page is up, then you click `Refresh` to pick up the latest changes.
+	- If we were to stop the bot and make change to the APIs while the UI page is up, then you can click the `Refresh` button to pick up the latest changes.
+
+![](../media/tutorial12_actions.PNG)
 
 #### ClearEntities
-This Action uses an API call to clear Entity Memory of our one and only `number` Entity.
-
 #### Multiply
-This Action uses an API call to multiply 2 numbers. The Action is setup to pass the value of the `number` Entity and the number 12 to the `Multiply` call back API.
-
 #### RandomGreeting
-This API call creates a formatted textual random greeting that also includes a photograph.
+All three of these Actions are API Type. They each rely on the API callback functions to perform some work and possibly return a value to be presented to the user.
 
 #### "What number do you want to multiply by 12"
-This is the "Text" Action and it simply asks a question of the user. While this Action does not actually interact with an API, it prompts the user to respond with a number that will go into the memory of an Entity that can then be used by the "Multiply" action.
+This is the "Text" Action and it simply asks a question of the user. While this Action does not actually interact with an API, it prompts the user to respond with a number that will go into the memory of an Entity that can then be used by the "Multiply" Action which does use one of the API callbacks.
 
 
 ### Train Dialog
