@@ -45,6 +45,7 @@ Query Performance Insight is easy to use:
 
 * Open [Azure portal](https://portal.azure.com/) and find a database that you would like to examine. 
   * From the left-hand side menu, open **Intelligent Performance** > **Query performance insight**
+  ![qpi_menu](./media/sql-database-query-performance/tile.png)
 * On the first tab, review the list of top resource-consuming queries.
 * Select an individual query to view its details.
 * Open **Intelligent Performance** > **Performance recommendations** and check if any performance improvement recommendations are available. For more information on built-in performance recommendations, see [SQL Azure Database Advisor](sql-database-advisor.md).
@@ -57,19 +58,14 @@ Query Performance Insight is easy to use:
   > 
 
 ## Review top CPU consuming queries
-In Azure portal, do the following:
 
-1. Browse to a SQL database and click **Intelligent Performance** > **Query performance insight**. 
-   
-    ![qpi_menu](./media/sql-database-query-performance/tile.png)
-   
-    The top queries view opens and the top CPU consuming queries are listed.
-    
-2. Click at the chart features for details.
+Query Performance Insight by default shows the top 5 CPU consuming queries when first accessed.
+
+1. Select or clear individual queries to include or exclude them from the chart using checkboxes.
 
     The top line shows overall DTU% for the database, while the bars show CPU% consumed by the selected queries during the selected interval (for example, if "**Past week**" is selected, each bar represents a single day).
    
-   ![top queries](./media/sql-database-query-performance/top-queries.png)
+    ![top queries](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
    >**Product limitation:** DTU line shown is aggregated to a maximum consumption value within one hour periods. For example, if there was a query that maxed out DTU to 100% for a few minutes only, the DTU line will show the entire hour of consumption as 100% (the consequence of the max. aggregated value). To understand database DTU consumption with more granularity (up to one minute), consider creating a custom chart in Azure portal by clicking on 1. Azure SQL Database > Monitoring, 2. Click on Metrics, 3. Click on +Add chart, 4. select DTU percentage on the chart. In addition, click on “Last 24 hours” on the top left hand side menu and change to one minute. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced performance monitoring and troubleshooting.
@@ -82,35 +78,35 @@ In Azure portal, do the following:
    * Duration per query (depends on aggregation function).
    * Total number of executions for a specific query.
      
-2. Select or clear individual queries to include or exclude them from the chart using checkboxes.
-     
-3. If your data becomes stale, click the **Refresh** button.
+2. If your data becomes stale, click the **Refresh** button.
 
-4. You can use sliders and zoom buttons to change observation interval and investigate spikes:
+3. Use sliders and zoom buttons to change observation interval and investigate consumption spikes:
 
    ![settings](./media/sql-database-query-performance/zoom.png)
 
-5. Optionally, if you would like to see a different view, you can select **Custom** tab and set:
+4. Optionally, you can select **Custom** tab to customize the view for:
    
    * Metric (CPU, duration, execution count)
    * Time interval (Last 24 hours, Past week, Past month). 
    * Number of queries.
    * Aggregation function.
-     
+
+  Click on the "Go >" button to see the customized view.
+  
      ![settings](./media/sql-database-query-performance/custom-tab.png)
 
-> [!IMPORTANT]
->**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5-20 consuming queries, depending on your selection. Your database could execute many more queries beyond the top shown and these queries will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU, while this would not be visible on the chart. This tool is intended to be a basic database performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance issues such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
->
+  > [!IMPORTANT]
+  >**Product limitation:** It is important to note that Query Performance Insight is limited to displaying a maximum of the top 5-20 consuming queries, depending on your selection. Your database could execute many more queries beyond the top shown and these queries will not be included on the chart. There could exist a database workload type in which lots of smaller queries, beyond the top shown, are executed very frequently and using majority of DTU. Consequently, this could not be seen from the Query Performance Insight chart. For example, a very small query (beyond the top queries shown) could be executed several million of times and consume 99% of your database DTU, while this would not be visible on the chart. This tool is intended to be a basic database performance monitoring tool suited for a majority of the most common performance issues, however it is not suited to monitor advanced performance issues such is this one. To upgrade your monitoring experience, consider using [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) for advanced database performance monitoring and troubleshooting.
+  >
 
 ## Viewing individual query details
 To view query details:
 
-1. Click any query in the list of top queries.
+1. Click on any query in the list of the top queries shown.
    
     ![details](./media/sql-database-query-performance/details.png)
 
-2. The details view opens and the queries CPU consumption/Duration/Execution count is broken down over time.
+2. Detailed view opens, and the query CPU consumption, duration and execution count breakdown are shown over time.
 
 3. Click at the chart features for details.
    
@@ -142,7 +138,7 @@ To identify long running queries:
    * **Max** finds queries which execution time was maximum at whole observation interval.
    * **Avg** finds average execution time of all query executions and show you the top out of these averages. 
 
-5. Click on the "Go >" button
+  Click on the "Go >" button to see the customized view.
 
    ![query_duration](./media/sql-database-query-performance/top-duration.png)
 
@@ -153,7 +149,7 @@ To identify long running queries:
 ## Review top queries per execution count
 High number of executions might not be affecting database itself and resources usage can be low, but overall application might get slow.
 
-In some cases, very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
+In some cases, a very high execution count may lead to increase of network round trips. Round trips significantly affect performance. They are subject to network latency and to downstream server latency. 
 
 For example, many data-driven Web sites heavily access the database for every user request. While connection pooling helps, the increased network traffic and processing load on the database server can adversely affect performance.  General advice is to keep round trips to an absolute minimum.
 
@@ -162,6 +158,8 @@ To identify frequently executed (“chatty”) queries:
 1. Open **Custom** tab in Query Performance Insight for selected database
 2. Change metrics to be **execution count**
 3. Select number of queries and observation interval
+   
+   Click on the "Go >" button to see the customized view.
    
    ![query execution count](./media/sql-database-query-performance/top-execution.png)
 
@@ -181,18 +179,18 @@ While exploring your workload in Query Performance Insight, you might notice ico
 
 In some cases, due to the zoom level it is possible that annotations close one to another are collapsed into a single annotation. This will be represented by a group annotation icon. Clicking on the group annotation icon will open a new blade where list of grouped annotations will be shown.
 
-Correlating queries and performance tuning actions can help to better understand your workload. 
+Correlating queries and performance tuning actions may help you to better understand your workload. 
 
 ## Optimizing the Query Store configuration for Query Performance Insight
 
-While using the Query Performance Insight, you might encounter the following Query Store messages:
+While using the Query Performance Insight, you might encounter the following Query Store error messages:
 
 * "Query Store is not properly configured on this database. Click here to learn more."
 * "Query Store is not properly configured on this database. Click here to change settings." 
 
 These messages usually appear when Query Store is not able to collect new data. 
 
-The first case happens when Query Store is in the Read-Only state and parameters are set optimally. You can fix this by increasing the size of Query Store, or by clearing Query Store (in this case all previously collected telemetry will be lost). 
+The first case happens when Query Store is in the Read-Only state and parameters are set optimally. You can fix this by increasing the size of data store, or by clearing Query Store (in this case all previously collected telemetry will be lost). 
 
    ![qds details](./media/sql-database-query-performance/qds-off.png)
 
@@ -210,8 +208,9 @@ Capture policy could be set to:
 * **Auto** - Infrequent queries and queries with insignificant compile and execution duration are ignored. Thresholds for execution count, compile and runtime duration are internally determined. This is the default option.
 * **None** - Query Store stops capturing new queries, however runtime stats for already captured queries are still collected.
 
-We recommend setting all policies to AUTO and clean policy to 30 days:
+We recommend setting all policies to AUTO and clean policy to 30 days by executing the following commands from SSMS, or Azure portal (replace "YourDB" with database name):
 
+```T-SQL
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
 
@@ -220,19 +219,24 @@ We recommend setting all policies to AUTO and clean policy to 30 days:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
+```
 
-Increase size of Query Store. This could be performed by connecting to a database and issuing following query:
+Increase size of Query Store. This could be performed by connecting to a database using SSMS, or Azure portal and executing the following query (replace "YourDB" with database name):
 
+```T-SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
+```
 
-Applying these settings will eventually make Query Store collect telemetry for new queries, however if you need Query Store operational right way, you may choose to clear Query Store (with the consequence of deleting all previously collected telemetry). 
+Applying these settings will eventually make Query Store collect telemetry for new queries. In case you need Query Store operational right way, you may optionally choose to clear Query Store (with the consequence of deleting all previously collected telemetry) by execuring the query below using SSMS, or Azure portal (replace "YourDB" with database name):
 
 > [!NOTE]
 > Executing the following query will delete all previously collected monitored telemetry in Query Store. 
 > 
 
+```T-SQL
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
+```
 
 ## Summary
 Query Performance Insight helps you understand the impact of query workload and how it relates to the database resource consumption. With this feature, you will learn about the top consuming queries on your database, and easily identify queries to optimize before they become a problem.
