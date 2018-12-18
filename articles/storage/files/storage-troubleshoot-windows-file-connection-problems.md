@@ -58,10 +58,10 @@ To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be in
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
-    ```
-
-    If the connection was successful, you should see the following output:
-
+    ```  
+    
+If the connection was successful, you should see the following output:
+    
     ```
     ComputerName     : <storage-account-host-name>
     RemoteAddress    : <storage-account-ip-address>
@@ -71,8 +71,8 @@ To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be in
     TcpTestSucceeded : True
     ```
 
-    > [!Note]  
-    > The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration.
+> [!Note]  
+> The above command returns the current IP address of the storage account. This IP address is not guaranteed to remain the same, and may change at any time. Do not hardcode this IP address into any scripts, or into a firewall configuration.
 
 ### Solution for cause 2
 
