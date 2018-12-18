@@ -266,15 +266,11 @@ Microsoft provides partners with a view of customer deployments of their templat
 
 **Who can add a GUID to a template?**
 
-The tracking resource is intended to connect the partner's solution to the customer's Azure usage. The usage data is tied to a partner's Microsoft Partner Network identity (MPN ID). Reporting is available to partners in the CPP.
+The tracking resource is intended to connect the partner's solution to the customer's Azure usage. The usage data is tied to a partner's Microsoft Partner Network identity (MPN ID). 
 
 **After a GUID is added, can it be changed?**
  
 Yes, a customer or implementation partner may customize the template and can change or remove the GUID. We suggest that partners proactively describe the role of the resource and GUID to their customers and partners to prevent removal or edits to the tracking GUID. Changing the GUID affects only new, not existing, deployments, and resources.
-
-**When will reporting be available?**
-
-A beta version of reporting should be available soon. Reporting will be integrated into the CPP.
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 
