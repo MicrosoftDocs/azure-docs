@@ -27,9 +27,9 @@ After they're provisioned, HSM devices are connected directly to a customer’s 
 
 ## Why use Azure Dedicated HSM?
 
-### FIPS 140-2 Level 3 compliance
+### FIPS 140-2 Level-3 compliance
 
-Many organizations have stringent industry regulations that dictate that cryptographic key storage meets [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) requirements. Microsoft’s multi-tenant Azure Key Vault service currently only provides FIPS 140-2 Level 2 certification. Azure Dedicated HSM fulfills a real need for the financial services industry, government agencies, and others who must meet FIPS 140-2 Level 3 requirements.
+Many organizations have stringent industry regulations that dictate that cryptographic key storage meets [FIPS 140-2 Level-3](https://csrc.nist.gov/publications/detail/fips/140/2/final) requirements. Microsoft’s multi-tenant Azure Key Vault service currently only provides FIPS 140-2 Level-2 certification. Azure Dedicated HSM fulfills a real need for the financial services industry, government agencies, and others who must meet FIPS 140-2 Level-3 requirements.
 
 ### Single-tenant devices
 
@@ -37,19 +37,19 @@ Many of our customers have a requirement for single tenancy of the cryptographic
 
 ### Full administrative control
 
-As well as single-tenant devices, many customers require full administrative control and sole access to their device for administrative purposes. After a device is provisioned, only the customer has administrative or application-level access to the device.
+Many customers require full administrative control and sole access to their device for administrative purposes. After a device is provisioned, only the customer has administrative or application-level access to the device.
 
  Microsoft has no administrative control after the customer accesses the device for the first time, at which point the customer changes the password. From that point, the customer is a true single-tenant with full administrative control and application-management capability. Microsoft does maintain monitor-level access (not an admin role) for telemetry via serial port connection. This access covers hardware monitors such as temperature, power supply health, and fan health. 
  
- The customer is free to disable this if needed. However, if they disable it, they won't receive proactive health alerts from Microsoft.
+ The customer can free to disable this monitoring needed. However, if they disable it, they won't receive proactive health alerts from Microsoft.
 
 ### High performance
 
-The Gemalto device was selected for this service due to its broad range of cryptographic algorithm support, the variety of operating systems that are supported, and the broad API support. The specific model that's deployed offers excellent performance with 10,000 operations per second for RSA-2048. It supports 10 partitions that can be used for unique application instances. This is a low latency, high capacity, and high throughput device.
+The Gemalto device was selected for this service for a variety of reasons. It offers a broad range of cryptographic algorithm support, a variety of supported operating systems, and broad API support. The specific model that's deployed offers excellent performance with 10,000 operations per second for RSA-2048. It supports 10 partitions that can be used for unique application instances. This device is a low latency, high capacity, and high throughput device.
 
 ### Unique cloud-based offering
 
-Microsoft recognized a specific need for a unique set of customers and is the only cloud provider that offers new customers a dedicated HSM service that is FIPS 140-2 Level 3-validated and offers such an extent of cloud-based and on-premises application integration.
+Microsoft recognized a specific need for a unique set of customers. It is the only cloud provider that offers new customers a dedicated HSM service that is FIPS 140-2 Level 3-validated and offers such an extent of cloud-based and on-premises application integration.
 
 ## Is Azure Dedicated HSM right for you?
 
@@ -69,7 +69,7 @@ Microsoft cloud services that support encryption with customer-managed keys (suc
 
 ### It depends
 
-Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement, which is often mandated and for which Dedicated HSM is currently the only option.  If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Dedicated HSM. You need to assess your requirements before making a decision. Examples include:
+Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement. This requirement is common, and Dedicated HSM is currently the only option for meeting it. If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Dedicated HSM. Assess your requirements before making a decision. Examples include:
 
 - New code running in a customer’s Azure virtual machine
 - SQL Server TDE in an Azure virtual machine
@@ -78,9 +78,9 @@ Whether Azure Dedicated HSM will work for you depends on a potentially complex m
 
 ## Next steps
 
-Considering the highly specialized nature of this service, we recommend that you fully understand the key concepts in this documentation set, including pricing, support, and service-level agreements. 
+This is a highly specialized service. Therefore, we recommend that you fully understand the key concepts in this documentation set, including pricing, support, and service-level agreements. 
 
-The [Gemalto integration guides](https://safenet.gemalto.com/partners/microsoft/)help you facilitate the provisioning of HSMs into an existing virtual network environment, and there are how-to guides for helping you determine how to set up your deployment architecture.
+The [Gemalto integration guides](https://safenet.gemalto.com/partners/microsoft/)help you facilitate the provisioning of HSMs into an existing virtual network environment. There are also are how-to guides for helping you determine how to set up your deployment architecture.
 
 * [High availability](high-availability.md)
 * [Physical security](physical-security.md)
