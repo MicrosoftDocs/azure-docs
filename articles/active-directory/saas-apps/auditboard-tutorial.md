@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with AuditBoard, perform the following step
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
-    c. Click **set additional URLs** and perform the following step if you wish to configure the application in **Sp initiated** mode:
+    c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP initiated** mode:
 
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.auditboardapp.com/`
