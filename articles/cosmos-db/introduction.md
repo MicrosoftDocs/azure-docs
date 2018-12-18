@@ -78,7 +78,7 @@ Cosmos DB is the first and only service to offer [industry-leading comprehensive
 
 You can run [Spark](spark-connector.md) on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB.
 
-## Native wire-compatible MongoDB, Cassandra, Gremlin, and Azure Table Storage APIs
+### Native wire-compatible MongoDB, Cassandra, Gremlin, and Azure Table Storage APIs
 
 Cosmos DB offers a choice of APIs to update and query your data stored in your Cosmos database. By default, [you can use SQL](how-to-sql-query.md) to update and query your data in your Cosmos database.
 
