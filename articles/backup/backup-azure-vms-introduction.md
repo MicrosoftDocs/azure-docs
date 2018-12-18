@@ -122,11 +122,10 @@ Backup consists of two phases, taking snapshots and transferring the snapshots t
 Situations that can affect backup time include the following:
 
 
-- **Initial backup for a newly added disk to an already protected VM** <br>
-    If a VM is undergoing incremental backup, when a new disk is added then the backup might miss the one day SLA, depending on the size of the new disk.
+- **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup, when a new disk is added then the backup might miss the one day SLA, depending on the size of the new disk.
 - **Fragmented app**: If an app is poorly configured it might not be optimal for storage:
     - If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications.
-    - - For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is effected.
+    - For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is effected.
 - **Storage account overloaded**: A backup could be scheduled when the app is running in production, or if more than five to ten disks are hosted from the same storage account.
 -  **Consistency check (CC) mode**: For disks greater than 1TB disks the backup could be in CC mode for a couple of reasons:
     - The managed disk moves as part of customer VM reboot.
@@ -142,7 +141,7 @@ A restore operation consists of two main tasks: copying data back from the vault
 
 ## Best practices
 
-We suggest following these practices while configuring VM backups
+We suggest following these practices while configuring VM backups:
 
 - Don't schedule backups for more than 100 VMs from one vault, at the same time.
 - Schedule VM backups during non-peak hours. This way the Backup service uses IOPS for transferring data from the customer storage account to the vault.
