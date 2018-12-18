@@ -88,8 +88,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
     ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
-2. Install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure. 
-    
+2. Install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure.    
     1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack-mounting holes.   
 
     2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes, and then release the trigger.
@@ -148,6 +147,6 @@ In this tutorial, you learned about Data Box Edge topics such as how to:
 Advance to the next tutorial to learn how to connect, set up, and activate your device.
 
 > [!div class="nextstepaction"]
-> [Connect and set up your Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
+> [Connect and set up Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
 
 
