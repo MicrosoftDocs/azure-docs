@@ -12,6 +12,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/bing-visual-search/sdk.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
             "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
             "redirect_document_id": false
