@@ -82,14 +82,12 @@ function acquireTokenRedirectAndCallMSGraph() {
     });
 }
 
-function acquireTokenRedirectCallBack(errorDesc, token, error, tokenType)
-{
- if(tokenType === "access_token")
- {
-     callMSGraph(applicationConfig.graphEndpoint, token, graphAPICallback);
- } else {
-     console.log("token type is:"+tokenType);
- }
+function acquireTokenRedirectCallBack(errorDesc, token, error, tokenType) {
+    if (tokenType === "access_token") {
+        callMSGraph(applicationConfig.graphEndpoint, token, graphAPICallback);
+    } else {
+        console.log("token type is:"+tokenType);
+    }
 }
 
 
@@ -108,8 +106,7 @@ if (!isIE) {
         showWelcomeMessage();
         acquireTokenPopupAndCallMSGraph();
     }
-}
-else {
+} else {
     document.getElementById("SignIn").onclick = function () {
         myMSALObj.loginRedirect(applicationConfig.graphScopes);
     };
