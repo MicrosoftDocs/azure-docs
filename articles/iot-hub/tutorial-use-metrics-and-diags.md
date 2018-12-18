@@ -1,6 +1,6 @@
 ---
-title: Set up and use metrics and diagnostics with an IoT hub | Microsoft Docs
-description: Set up and use metrics and diagnostics with an IoT hub 
+title: Set up and use metrics and diagnostic logs with an IoT hub | Microsoft Docs
+description: Set up and use metrics and diagnostic logs with an IoT hub 
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/15/2018
 ms.author: robinsh
 ms.custom: mvc
-#Customer intent: As a developer, I want to know how to set up and check metrics and diagnostics, to help me troubleshoot when there is a problem with an IoT hub. 
+#Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an IoT hub. 
 ---
 
-# Tutorial: Set up and use metrics and diagnostics with an IoT hub
+# Tutorial: Set up and use metrics and diagnostic logs with an IoT hub
 
-If you have an IoT Hub solution running in production, you want to set up some metrics and enable diagnostics. Then if a problem occurs, you have data to look at that will help you diagnose the problem and fix it more quickly. In this article, you'll see how to enable diagnostics, and how to check the diagnostics for errors. You'll also set up some metrics to watch, and alerts that fire when the metrics hit a certain boundary. For example, you could have an e-mail sent to you when the number of telemetry messages sent exceeds a specific boundary, or when the number of messages used gets close to the quota of messages allowed per day for the IoT Hub. 
+If you have an IoT Hub solution running in production, you want to set up some metrics and enable diagnostic logs. Then if a problem occurs, you have data to look at that will help you diagnose the problem and fix it more quickly. In this article, you'll see how to enable the diagnostic logs, and how to check them for errors. You'll also set up some metrics to watch, and alerts that fire when the metrics hit a certain boundary. For example, you could have an e-mail sent to you when the number of telemetry messages sent exceeds a specific boundary, or when the number of messages used gets close to the quota of messages allowed per day for the IoT Hub. 
 
 An example use case is a gas station where the pumps are IoT devices that send communicate with an IoT hub. Credit cards are validated, and the final transaction is written to a data store. If the IoT devices stop connecting to the hub and sending messages, it is much more difficult to fix if you have no visibility into what's going on.
 
@@ -24,12 +24,12 @@ In this tutorial, you perform the following tasks:
 
 > [!div class="checklist"]
 > * Using Azure CLI, create an IoT hub, a simulated device, and a storage account.  
-> * Enable diagnostics. 
+> * Enable diagnostic logs.
 > * Enable metrics.
 > * Set up alerts for those metrics. 
 > * Download and run an app that simulates an IoT device sending messages to the hub. 
 > * Run the app until the alerts begin to fire. 
-> * View the metrics results and check the diagnostics results. 
+> * View the metrics results and check the diagnostic logs. 
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this tutorial, you perform the following tasks:
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
 
-- An Office 365 account to send notification e-mails. 
+- An email account capable of receiving mail.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -55,7 +55,7 @@ These are the required steps.
 
 4. Create a device identity for the simulated device that sends messages to your hub. Save the key for the testing phase.
 
-### Set up your resources using Azure CLI
+### Set up resources using Azure CLI
 
 Copy and paste this script into Cloud Shell. Assuming you are already logged in, it runs the script one line at a time. The new resources are created in the resource group ContosoResources.
 
@@ -82,7 +82,7 @@ az group create --name $resourceGroup \
     --location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
-iotHubName=ContosoTestHub  #ROBIN $RANDOM
+iotHubName=ContosoTestHub$RANDOM
 echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub in the Free tier.
@@ -91,7 +91,7 @@ az iot hub create --name $iotHubName \
     --sku F1 --location $location
 
 # The storage account name must be globally unique, so add a random number to the end.
-storageAccountName=contosostoragemon   #ROBIN $RANDOM
+storageAccountName=contosostoragemon$RANDOM
 echo "Storage account name = " $storageAccountName
 
 # Create the storage account.
@@ -100,6 +100,8 @@ az storage account create --name $storageAccountName \
 	--location $location \
     --sku Standard_LRS
 
+```
+<!-- no idea how to fix this yet
 # this gives an error: No keys found for policy iothubowner of IoT Hub ContosoTestHub  ROBIN
 # Create the IoT device identity to be used for testing.
 az iot hub device-identity create --device-id $iotDeviceName \
@@ -109,15 +111,29 @@ az iot hub device-identity create --device-id $iotDeviceName \
 #   Notepad. You need this to run the device simulation during the testing phase.
 az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
+-->
 
-```
-Robin Key
-8rWNCoq1jcp0DV/woEl4/ZmWGvTZHGIuPyrogY4qI+Y=
-Contoso-Test-Device
+### Create a device identity for the simulated device
 
-## Enable diagnostics 
+Next, create a device identity and save its key for later use. This device identity is used by the simulation application to send messages to the IoT hub. 
 
-Diagnostics are disabled by default when you create a new IoT hub. In this section, enable the diagnostics for your hub.
+1. Click on **Resource groups** and select your resource group *ContosoResources*. If the group does not appear, refresh the list.
+
+2. In the list of resources, click the IoT hub *ContosoTestHub*. Select **IoT Devices** from the Hub pane.
+
+3. Click **+ Add**. On the Add Device pane, fill in the device ID. This tutorial uses **Contoso-Test-Device**. Leave the keys empty, and check **Auto Generate Keys**. Make sure **Connect device to IoT hub** is enabled. 
+
+   ![Screenshot showing the add-device screen.](./media/tutorial-use-metrics-and-diags/00-add-device-identity.png)
+
+   Click **Save**.
+   
+4. Now that the device has been created, click on it to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
+
+   ![Screenshot showing the device details, including the keys.](./media/tutorial-routing/00-device-identity-keys.md)
+
+## Enable the diagnostic logs 
+
+[Diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
 
 1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. Select the hub from the list of resources displayed. 
 
@@ -130,23 +146,23 @@ Diagnostics are disabled by default when you create a new IoT hub. In this secti
 
    ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
-4. Now click **Turn on diagnostics**. The Diagnostics Settings screen is displayed. Specify the name of your diagnostics as "diags-hub".
+4. Now click **Turn on diagnostics**. The Diagnostics Settings screen is displayed. Specify the name of your diagnostic logs settings as "diags-hub".
 
 5. Check **Archive to a storage account**. 
 
    ![Screenshot showing setting the diagnostics to archive to a storage account.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-    Click **Configure** to see the **Select a storage account** screen, select the right one (*contosostoragemon*), and click **OK** to return to the Diagnostics Settings screen. 
+    Click **Configure** to see the **Select a storage account** screen, select the right one (*contosostoragemon*), and click **OK** to return to the Diagnostics Settings pane. 
 
-   ![Screenshot showing setting the diagnostics to archive to a storage account.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
+   ![Screenshot showing setting the diagnostic logs to archive to a storage account.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
 6. Under **LOG**, check **Connections** and **Device Telemetry**, and set the **Retention (days)** to 7 days for each. Your Diagnostic settings screen should now look like this image:
 
-   ![Screenshot showing the final diagnostics settings.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
+   ![Screenshot showing the final diagnostic log settings.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
 
 7. Click **Save** to save the settings. Close the Diagnostics settings pane.
 
-Later, when you look at the diagnostics logs, you'll be able to see the connect and disconnect diagnostics for the device. 
+Later, when you look at the diagnostic logs, you'll be able to see the connect and disconnect logging for the device. 
 
 ## Set up metrics 
 
@@ -160,9 +176,14 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
 3. There is one metric entry by default. Leave the resource group as the default, and the metric namespace. In the **Metric** dropdown list, select **Telemetry messages sent**. Set **Aggregation** to **Sum**.
 
-   ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-added.png)
+   ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png)
 
-4. Click **Add metric** to add another metric to the chart. Select your resource group (**ContosoTestHub**). Under **Metric**, select **Total number of messages used**. For **Aggregation**, select **Avg**. 
+
+4. Now click **Add metric** to add another metric to the chart. Select your resource group (**ContosoTestHub**). Under **Metric**, select **Total number of messages used**. For **Aggregation**, select **Avg**. 
+
+   Now your screen shows the minimized metric for *Telemetry messages sent*, plus the new metric for *Total number of messages used*.
+
+   ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
 5. Click **Pin to dashboard** or you'll never see your metrics again. It will pin it to the dashboard of your Azure portal so you can access it again. 
 
@@ -170,7 +191,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
 Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources*, then select IoT Hub *ContosoTestHub*. 
 
-IoT Hub has not been migrated to Azure Alerts yet (product name?); you have to use classic alerts. 
+IoT Hub has not been migrated to the [metrics in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-collection#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
 
 1. Under **Monitoring**, click **Alerts**. 
 
@@ -277,12 +298,12 @@ Double-click on the solution file (SimulatedDevice.sln) to open the code in Visu
 In Program.cs, comment out the following line of code, which puts a pause of 1 second in between each message sent. Removing that pause will increase the number of messages sent. 
 
 ```csharp
-await Task.Delay(1000);
+await Task.Delay(10);
 ```
 
 Run the console application. Wait a few minutes (10-15). You can see the messages being sent from the simulated device to the hub on the console screen of the application.
 
-### See the metrics in the portal.
+### See the metrics in the portal
 
 Open your metrics from the Dashboard. Change the time values to *Last 30 minutes* with a time granularity of *1 minute*. It shows the telemetry messages sent and the total number of messages used on the chart, with the most recent numbers at the bottom of the chart. 
 
@@ -300,38 +321,50 @@ Click on the alert for telemetry messages. It shows the metric result and a char
 
    ![Screenshot of the e-mail showing the alerts have fired.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
 
-### See the diagnostic logs. 
+### See the diagnostic logs
 
 Go to the hub in the portal and click **Logs** under the **Monitoring** section. You can see messages showing the device connecting to and disconnecting from the hub.  (THIS DOESN'T WORK FOR ME, WHAT DO I NEED ENABLED?)
 
-You can see your diagnostics logs in the storage account. Go to your resource group and select your storage account *contosostoragemon*. Select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. 
+You can see your diagnostic logs in the storage account. Go to your resource group and select your storage account *contosostoragemon*. Select Blobs, then open container *insights-logs-connections*. Drill down until you get to the current date and select the most recent file. 
 
    ![Screenshot of drilling down into the storage container to see the diagnostic logs.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
-Click **Download** to download it and open it. You see the logs of the device connecting and disconnecting as it sends messages to the hub. Here a sample: (ROBIN - CLEAN THIS UP)
+Click **Download** to download it and open it. You see the logs of the device connecting and disconnecting as it sends messages to the hub. Here a sample:
 
 ``` json
 { "time": "2018-12-17T18:11:25Z", 
   "resourceId": 
-    "/SUBSCRIPTIONS/A4295411-5EFF-4F81-B77E-276AB1CCDA12/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
+    "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
   "operationName": "deviceConnect", 
   "category": "Connections", 
   "level": "Information", 
-  "properties": "{\"deviceId\":\"Contoso-Test-Device\",\"protocol\":\"Mqtt\",\"authType\":null,\"maskedIpAddress\":\"73.162.215.XXX\",\"statusCode\":null}", 
+  "properties": 
+      {"deviceId":"Contoso-Test-Device",
+       "protocol":"Mqtt",
+       "authType":null,
+       "maskedIpAddress":"73.162.215.XXX",
+       "statusCode":null
+       }, 
   "location": "westus"
 }
 { "time": "2018-12-17T18:19:25Z", 
    "resourceId": 
-     "/SUBSCRIPTIONS/A4295411-5EFF-4F81-B77E-276AB1CCDA12/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
+     "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
     "operationName": "deviceDisconnect", 
     "category": "Connections", 
     "level": "Error", 
     "resultType": "404104", 
     "resultDescription": "DeviceConnectionClosedRemotely", 
-    "properties": "{\"deviceId\":\"Contoso-Test-Device\",\"protocol\":\"Mqtt\",\"authType\":null,\"maskedIpAddress\":\"73.162.215.XXX\",\"statusCode\":\"404\"}", 
+    "properties": 
+        {"deviceId":"Contoso-Test-Device",
+         "protocol":"Mqtt",
+         "authType":null,
+         "maskedIpAddress":"73.162.215.XXX",
+         "statusCode":"404"
+         }, 
     "location": "westus"
 }
-``'
+```
 
 ## Clean up resources 
 
@@ -345,16 +378,16 @@ az group delete --name $resourceGroup
 
 ## Next steps
 
-In this tutorial, you learned how to use metrics and diagnostics by performing the following tasks:
+In this tutorial, you learned how to use metrics and diagnostic logs by performing the following tasks:
 
 > [!div class="checklist"]
 > * Using Azure CLI, create an IoT hub, a simulated device, and a storage account.  
-> * Enable diagnostics. 
+> * Enable diagnostic logs. 
 > * Enable metrics.
 > * Set up alerts for those metrics. 
 > * Download and run an app that simulates an IoT device sending messages to the hub. 
 > * Run the app until the alerts begin to fire. 
-> * View the metrics results and check the diagnostics results. 
+> * View the metrics results and check the diagnostic logs. 
 
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
