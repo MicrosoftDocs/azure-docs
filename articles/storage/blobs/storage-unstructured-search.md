@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-#Customer intent: As a < type of user >, I want to set up a search service on my set of data, so that I can quickly and easily retrieve information or otherwise analyze it.
+#Customer intent: As a developer, I want to set up a search service on my set of data, so that I can quickly and easily retrieve information or otherwise analyze it.
 ---
 
 # Tutorial: Search unstructured data in cloud storage
