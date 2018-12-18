@@ -69,8 +69,6 @@
     items:
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
-    - name: Connect from other tools using ODBC
-      href: connect-with-odbc.md
     - name: Visualize data in Grafana
       href: grafana.md
   - name: Troubleshoot
