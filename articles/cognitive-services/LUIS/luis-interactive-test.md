@@ -46,11 +46,11 @@ You inspect details of the test result in the **Inspect** panel.
  
 1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-    ![Inspect button](./media/luis-how-to-interactive-test/inspect.png)
+    ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
 2. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-    ![Inspect button](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## Correct top scoring intent
 
