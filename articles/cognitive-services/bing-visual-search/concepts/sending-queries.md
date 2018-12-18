@@ -1,12 +1,30 @@
+---
+title: "Sending search queries to the Bing Visual Search API"
+titlesuffix: Azure Cognitive Services
+description: Learn about the REST API parameters used in the Bing Visual Search API.
+services: cognitive-services
+author: aahi
+manager: cgronlun
 
-## The request
+ms.service: cognitive-services
+ms.component: bing-visual-search
+ms.topic: article
+ms.date: 12/18/2018
+ms.author: aahill
+---
 
-The following are the options for getting insights about an image. 
+# Sending search queries to the Bing Visual Search API
 
-- Send an insights token that you get from an image in a previous call to one of the [Bing Images API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints
-- Send the URL of an image
-- Upload an image (binary)
+This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
 
+You can get get insights about an image in three ways: 
+
+- using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
+- Sending the URL of an image.
+- Uploading an image (in binary)
+
+
+## Bing Visual Search Requests
 
 If you send Visual Search an image token or URL, the following shows the JSON object that you must include in the body of the POST. 
 
@@ -43,7 +61,7 @@ If you want to get insights about a local copy of an image, upload the image as 
 For details about including these options in the body of the POST, see [Content form types](#content-form-types).
 
 
-### Endpoint
+### Search endpoint
 
 The Visual Search endpoint is: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
 
@@ -61,7 +79,7 @@ The following are the query parameters your request should specify. At a minimum
 | <a name="safesearch" />safeSearch | A filter used to filter adult content. The following are the possible case-insensitive filter values.<br /><ul><li>Off&mdash;Return webpages with adult text or images.<br /><br/></li><li>Moderate&mdash;Return webpages with adult text, but not adult images.<br /><br/></li><li>Strict&mdash;Do not return webpages with adult text or images.</li></ul><br /> The default is Moderate.<br /><br /> **NOTE:** If the request comes from a market that Bing's adult policy requires that `safeSearch` be set to Strict, Bing ignores the `safeSearch` value and uses Strict.<br/><br/>**NOTE:** If you use the `site:` query operator, there is the chance that the response may contain adult content regardless of what the `safeSearch` query parameter is set to. Use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.                                    | String | No       |
 | <a name="setlang" />setLang       | The language to use for user interface strings. Specify the language using the ISO 639-1 2-letter language code. For example, the language code for English is EN. The default is EN (English).<br /><br /> Although optional, you should always specify the language. Typically, you set `setLang` to the same language specified by `mkt` unless the user wants the user interface strings displayed in a different language.<br /><br /> This parameter and the [Accept-Language](#acceptlanguage) header are mutually exclusive&mdash;do not specify both.<br /><br /> A user interface string is a string that's used as a label in a user interface. There are few user interface strings in the JSON response objects. Also, any links to Bing.com properties in the response objects apply the specified language.                                                                                                            | String | No       |
 
-### Headers
+## Headers
 
 The following are the headers that your request should specify. The Content-Type and Ocp-Apim-Subscription-Key headers are the only required headers but you should also include User-Agent, X-MSEdge-ClientID, X-MSEdge-ClientIP, and X-Search-Location.
 
@@ -181,7 +199,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 
-## The response
+## Bing Visual Search responses
 
 If there are insights available for the image, the response contains one or more `tags` that contain the insights. The `image` field contains the insights token for the input image.
 
@@ -392,3 +410,7 @@ If the image contains a recognized entity such as a person, place, or thing, one
     }
 ```
 
+## See also
+
+* [What is the Bing Visual Search API](overview.md)
+* [Tutorial: Build a single-page Web app - Bing Visual Search](tutorial-bing-visual-search-single-page-app.md)
