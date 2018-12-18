@@ -13,9 +13,9 @@ ms.author: tamram
 
 # Tutorial: Simulate a failure in accessing read-access redundant storage
 
-This tutorial is part two of a series.
+This tutorial is part two of a series. In it, you learn about the benefits of a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) by simulating a failure.
 
-In this tutorial, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route) to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, and have the application read from the secondary endpoint.
+In order to simulate a failure, you can use either [Fiddler](#simulate-a-failure-with-fiddler) or [Static Routing](#simulate-a-failure-with-an-invalid-static-route). Either method will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -30,7 +30,7 @@ In part two of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you must have completed the previous tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
+Before you begin this tutorial, complete the previous tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
 
 To simulate a failure using Fiddler: 
 
@@ -202,7 +202,7 @@ Replace  `<destination_ip>` with your storage account IP address, and `<gateway_
 
 To resume the application, press **any key**.
 
-Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint 5 times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
+Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint five times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
 
 #### Java v10
 
