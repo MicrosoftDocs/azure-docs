@@ -67,4 +67,4 @@ In the AutoML configuration, the property `spark_context` should be set for Auto
 
 ## Next Steps
 
-For more information on the motivation behind Auto ML, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/en-us/blog/release-models-at-pace-using-microsoft-s-automl/).
+For more information on the motivation behind AutoML, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/en-us/blog/release-models-at-pace-using-microsoft-s-automl/).
