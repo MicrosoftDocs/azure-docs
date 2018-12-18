@@ -56,11 +56,11 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: app-service-cli-samples.md
+    href: samples-cli.md
   - name: Azure PowerShell
-    href: app-service-powershell-samples.md
+    href: samples-powershell.md
   - name: Resource Manager templates
-    href: app-service-rm-template-samples.md
+    href: samples-resource-manager-templates.md
 - name: Concepts
   items:
   - name: How App Service works

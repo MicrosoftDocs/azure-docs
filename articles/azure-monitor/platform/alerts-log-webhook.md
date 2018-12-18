@@ -68,7 +68,7 @@ This example payload would resolve to something like the following when sent to 
 ```
 As all variables in a custom webhook have to specified within JSON enclosure like "#searchinterval", the resultant webhook will also have variable data inside enclosure like "00:05:00".
 
-To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top-level property in the json payload. 
+To include search results in a custom payload, ensure that **IncludeSearchResults** is set as a top-level property in the json payload. 
 
 ## Sample payloads
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.

@@ -102,7 +102,7 @@ async function testCache() {
     console.log("Cache response : " + await cacheConnection.setAsync("Message",
         "Hello! The cache is working from Node.js!"));    
 
-    // Demostrate "SET Message" executed as expected...
+    // Demonstrate "SET Message" executed as expected...
     console.log("\nCache command: GET Message");
     console.log("Cache response : " + await cacheConnection.getAsync("Message"));    
 

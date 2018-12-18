@@ -31,7 +31,7 @@ To complete the local deployment, you need the following tools installed on your
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10.
 
 > [!NOTE]
@@ -96,7 +96,7 @@ Set up a reverse proxy server to link the web application and microservices runn
 * Copy the **nginx.conf** file from the **webui\scripts\localhost** folder to the **nginx\conf** install directory.
 * Run **nginx**.
 
-For more information about running **nginx**, see [nginx for Windows](http://nginx.org/en/docs/windows.html).
+For more information about running **nginx**, see [nginx for Windows](https://nginx.org/en/docs/windows.html).
 
 ### Connect to the dashboard
 
