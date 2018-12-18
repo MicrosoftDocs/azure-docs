@@ -11,3 +11,11 @@
     items:
       - name: PowerShell 
         href: documentation-fhir-quickstart-oss-powershell.md
+- name: Resources
+  items:
+  - name: Common questions
+    href: documentation-fhir-faq.md
+  - name: Supported Features
+    href: documentation-fhir-supported-features.md    
+  - name: Features Roadmap
+    href: documentation-fhir-roadmap-features.md
