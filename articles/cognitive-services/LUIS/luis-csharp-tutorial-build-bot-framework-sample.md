@@ -166,7 +166,7 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 
 <!-- Links -->
 [GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[GitHub-LUIS-Samples]: https://github.com/Azure-Samples/cognitive-services-language-understanding
 [GitHub-LUIS-Samples-cs-hotel-bot]: https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/bot-integration-samples/hotel-finder/csharp
 [GitHub-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
 [BFPortal]: https://dev.botframework.com/

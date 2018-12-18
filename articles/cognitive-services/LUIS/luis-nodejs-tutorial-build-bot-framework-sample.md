@@ -297,7 +297,7 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 
 <!-- Old Links -->
 [GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[GitHub-LUIS-Samples]: https://github.com/Azure-Samples/cognitive-services-language-understanding
 [GitHub-LUIS-Samples-node-hotel-bot]: https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
