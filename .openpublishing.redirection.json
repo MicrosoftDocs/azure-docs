@@ -7,6 +7,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/bing-visual-search/tutorial-image-post-source.md",
+            "redirect_url": "/azure/cognitive-services/bing-visual-search/tutorial-image-post",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
             "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
             "redirect_document_id": false

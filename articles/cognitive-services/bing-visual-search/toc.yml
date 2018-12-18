@@ -32,8 +32,6 @@
     href: tutorial-visual-search-image-upload.md
   - name: Single-page Web app
     href: tutorial-bing-visual-search-single-page-app.md
-  - name: Single-page Web app (source code)
-    href: tutorial-bing-visual-search-single-page-app-source.md
   - name: Bing Visual Search SDK image crop area and results
     href: tutorial-visual-search-crop-area-results.md
   - name: Bing Visual Search SDK ImageInsightsToken and results
