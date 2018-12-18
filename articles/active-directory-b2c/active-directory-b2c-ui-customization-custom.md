@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -45,9 +45,6 @@ Create HTML content with your product's brand name in the title.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >For security reasons, the use of JavaScript is currently blocked for customization.
 
 2. Paste the copied snippet in a text editor, and then save the file as *customize-ui.html*.
 
