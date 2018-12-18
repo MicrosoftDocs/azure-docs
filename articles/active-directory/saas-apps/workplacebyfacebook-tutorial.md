@@ -52,7 +52,8 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Workplace by Facebook supports **SP** initiated SSO
-* [Configure User Provisioning](workplacebyfacebook-provisioning-tutorial.md)
+* Workplace by Facebook supports **just-in-time provisioning**
+* Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**
 
 ## Adding Workplace by Facebook from the gallery
 
@@ -142,7 +143,7 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
    > [!NOTE] 
    > As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
-2. In the **Admin Panel**, go to the **Security** tab, then **Authentication**.
+2. In the **Company Dashboard**, go to the **Authentication** tab.
 
 3. Under **SAML Authentication**, select **SSO Only** from the drop-down list.
 
@@ -249,3 +250,5 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Configure User Provisioning](workplacebyfacebook-provisioning-tutorial.md)
