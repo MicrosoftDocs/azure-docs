@@ -32712,6 +32712,21 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/monitoring-and-diagnostics/alert-log-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/platform/alert-log-troubleshoot",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/metrics-store-custom-rest-api.md",
+            "redirect_url":  "/azure/azure-monitor/platform/metrics-store-custom-rest-api",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/monitoring-and-diagnostics/monitoring-classic-retirement.md",
+            "redirect_url":  "/azure/azure-monitor/platform/monitoring-classic-retirement",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
