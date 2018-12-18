@@ -20,10 +20,6 @@ This article explains how to restore a VM to a new VM or restore all backed-up d
 
 ![Three ways to restore from VM backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
-> [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures used to restore deployed VMs by using the Resource Manager model.
->
->
 
 Restoring a VM or all disks from VM backup involves two steps:
 
@@ -91,11 +87,7 @@ Specify the restore setting as follows:
 1. In **Restore**, select a [restore point](#select-a-restore-point-for-restore) > **Restore configuration**. 
 2. In **Restore configuration**, select how you want to restore the VM in accordance with the settings summarized in the table above.
 
- ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new.png)
-
-
-
-![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
+    ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
 
 ## Create new-Create a VM
