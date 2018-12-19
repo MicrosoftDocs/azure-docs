@@ -20,7 +20,7 @@ ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 
 Azure AD Privileged Identity Management (PIM) enables you to manage almost all roles in Azure. There are a few roles that you can't manage in PIM. This article describes the roles you can manage.
 
-## Azure AD directory roles you can manage in PIM
+## Azure AD directory roles
 
 PIM enables you to manage all Azure AD directory roles. Here is a partial list:
 
@@ -37,7 +37,7 @@ Privileged Role Administrator is role you use to manage PIM and updates role ass
 
 For a complete list of Azure AD directory roles you can manage in PIM, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
-## Azure resource roles you can manage in PIM
+## Azure resource roles
 
 PIM enables you to manage all Azure resource roles (also known as Azure role-based access control (RBAC) roles). This includes built-in roles and your custom roles. Here is a partial list:
 
