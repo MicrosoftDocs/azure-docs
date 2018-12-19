@@ -1,5 +1,5 @@
 ---
-title: "Virtual Network service endpoints and rules for Azure SQL Database | Microsoft Docs"
+title: "Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse | Microsoft Docs"
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your Azure SQL Database. You SQL Database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
@@ -11,11 +11,11 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 12/13/2018
 ---
-# Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
+# Use Virtual Network service endpoints and rules for Azure SQL
 
-*Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
+*Virtual network rules* are one firewall security feature that controls whether your Azure [SQL Database](sql-database-technical-overview.md) or [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
@@ -342,7 +342,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
@@ -364,7 +364,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-<!-- Link references, to text, Outside this Github repo (HTTP). -->
+<!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 

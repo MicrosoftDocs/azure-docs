@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure web app performance | Microsoft Docs
+title: Monitor Azure App Service performance | Microsoft Docs
 description: Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance.
 services: application-insights
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.date: 10/25/2018
 ms.author: mbullwin
 
 ---
-# Monitor Azure web app performance
-In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your [Azure web apps](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
+# Monitor Azure App Service performance
+In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your web apps, mobile back ends, and API apps in [Azure App Service](../app-service/overview.md). [Azure Application Insights](app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
 ## Run time or build time
 You can configure monitoring by instrumenting the app in either of two ways:
@@ -95,9 +95,9 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 ## Next steps
 * [Run the profiler on your live app](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
-* [Enable Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) to be sent to Application Insights.
+* [Enable Azure diagnostics](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../azure-monitor/platform/data-collection.md) to make sure your service is available and responsive.
-* [Receive alert notifications](../monitoring-and-diagnostics/monitoring-overview-alerts.md) whenever operational events happen or metrics cross a threshold.
+* [Receive alert notifications](../azure-monitor/platform/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](app-insights-javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Set up Availability web tests](app-insights-monitor-web-app-availability.md) to be alerted if your site is down.
 

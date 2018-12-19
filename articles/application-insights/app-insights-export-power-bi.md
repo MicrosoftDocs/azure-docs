@@ -115,7 +115,7 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
  ```
 
 ## About sampling
-If your application sends a lot of data, you might want to use the adaptive sampling feature, which sends only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling](app-insights-sampling.md).
+Depending on the amount of data sent by your application, you might want to use the adaptive sampling feature, which sends only a percentage of your telemetry. The same is true if you have manually set sampling either in the SDK or on ingestion. [Learn more about sampling](app-insights-sampling.md).
 
 ## Power BI adapter (deprecated)
 This method creates a complete dashboard of telemetry for you. The initial dataset is predefined, but you can add more data to it.

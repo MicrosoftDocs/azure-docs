@@ -3,8 +3,6 @@ title: Configure SSL connectivity to securely connect to Azure Database for Mari
 description: Instructions for how to properly configure Azure Database for MariaDB and associated applications to correctly use SSL connections
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018

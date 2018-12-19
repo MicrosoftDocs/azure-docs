@@ -1,6 +1,6 @@
 ---
-title: Upload, encode, and stream using Azure Media Services - REST | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Azure Media Services using REST.
+title: Encode a remote file based on URL and stream using Azure Media Services - REST | Microsoft Docs
+description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/17/2018
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, and stream videos with REST
+# Tutorial: Encode a remote file based on URL and stream the video - REST
 
 Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
 
-This tutorial shows you how to upload, encode, and stream video files with Azure Media Services using REST. 
+This tutorial shows you how to encode a file based on a URL and stream the video with Azure Media Services using REST. 
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 

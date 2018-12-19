@@ -263,6 +263,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
     compute.wait_for_completion(show_output=True)
+    ```
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 

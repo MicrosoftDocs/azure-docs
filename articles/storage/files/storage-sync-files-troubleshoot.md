@@ -463,20 +463,17 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 | **Error string** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Remediation required** | Yes |
 
-This error commonly occurs because the server time is incorrect or the certificate used for authentication is expired. If the server time is correct, perform the following steps to delete the expired certificate (if expired) and reset the server registration state:
+This error commonly occurs because the server time is incorrect or the certificate used for authentication is expired. If the server time is correct, perform the following steps to renew the expired certificate:
 
 1. Open the Certificates MMC snap-in, select Computer Account and navigate to Certificates (Local Computer)\Personal\Certificates.
-2. Delete the client authentication certificate if expired and close the Certificates MMC snap-in.
-3. Open Regedit and delete the ServerSetting key in the registry: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. In the Azure portal, navigate to the Registered Servers section of the Storage Sync Service. Right-click on the server with the expired certificate and click "Unregister Server."
-5. Run the following PowerShell commands on the server:
+2. Check if the client authentication certificate is expired. If the certificate is expired, close the Certificates MMC snap-in and proceeed with the remaining steps. 
+3. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
+4. Run the following PowerShell commands on the server:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Re-register the server by running ServerRegistration.exe (the default location is C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 | | |

@@ -24,7 +24,7 @@ Azure HDInsight supports multiple Hadoop cluster versions that can be deployed a
 
 The component versions associated with HDInsight cluster versions are listed in the following table: 
 
-> [!NOTE]
+> [!NOTE]  
 > The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure Classic CLI.
 
 | Component | HDInsight 4.0 (Preview) | HDInsight 3.6 (Default) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
@@ -56,9 +56,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 
 The Hadoop ecosystem component versions associated with HDInsight cluster versions can change with updates to HDInsight. To check the Hadoop components and to verify which versions are being used for a cluster, use the Ambari REST API. The **GetComponentInformation** command retrieves information about service components. For details, see the [Apache Ambari documentation][ambari-docs].
 
-For Windows clusters, another way to check the component version is to log in to a cluster by using Remote Desktop and examine the contents of the C:\apps\dist\ directory.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [Windows retirement on HDInsight](#hdinsight-windows-retirement).
 
 ### Release notes
@@ -80,7 +78,7 @@ The following table lists the versions of HDInsight that are available in the Az
 
 *&ast; HDInsight 3.5 support was extended only for Spark cluster types*
 
-> [!NOTE]
+> [!NOTE]  
 > After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) command and the .NET SDK until the version retirement date.
 >
 
@@ -100,7 +98,7 @@ The following table lists the versions of HDInsight that are **not** available i
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |October 28, 2013 |May 12, 2014 |May 31, 2015 |Yes |No |
 | HDInsight 1.6 |HDP 1.1 | |October 28, 2013 |April 26, 2014 |May 31, 2015 |No |No |
 
-> [!NOTE]
+> [!NOTE]  
 > Highly available clusters with two head nodes are deployed by default for HDInsight version 2.1 and later. They are not available for HDInsight version 1.6 clusters.
 
 ## Enterprise Security Package for HDInsight
@@ -194,7 +192,7 @@ The service level agreement (SLA) is defined in terms of a _support window_. The
 
 The _retirement date_ is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize an HDInsight cluster after its retirement date. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight Windows clusters (including versions 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family version 4, which uses the 64-bit version of Windows Server 2012 R2. Azure Guest OS Family version 4 supports the .NET Framework versions 4.0, 4.5, 4.5.1, and 4.5.2.
 
 ## Hortonworks release notes associated with HDInsight versions
@@ -218,41 +216,36 @@ The section provides links to release notes for the Hortonworks Data Platform di
 
 
 
-
-
-
 ## Default node configuration and virtual machine sizes for clusters
-The following tables list the default virtual machine (VM) sizes for HDInsight clusters.
+The following tables list the default virtual machine (VM) sizes for HDInsight clusters.  This chart is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
-> 
-> 
 
 * All supported regions except Brazil South and Japan West:
 
-  | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server |
+  | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | Head: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: default VM size |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Worker: recommended VM sizes |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Head: default VM size |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | Head: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
+  | Worker: default VM size |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Worker: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
   | ZooKeeper: default VM size | |A4 v2 | |A2 v2 | | |
-  | ZooKeeper: recommended VM sizes | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
-  | Edge: default VM size | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: recommended VM size | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: recommended VM sizes | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
+  | Edge: default VM size | | | | | |D4 v2 |
+  | Edge: recommended VM size | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
 * Brazil South and Japan West only (no v2 sizes):
 
   | Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | Head: recommended VM sizes |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Worker: default VM size |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker: recommended VM sizes |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Head: default VM size |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | Head: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | Worker: default VM size |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Worker: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: default VM size | |A2 | | A2 | | |
-  | ZooKeeper: recommended VM sizes | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Edge: default VM sizes | | | | | |Windows: D12; Linux: D4 |
-  | Edge: recommended VM sizes | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: recommended VM sizes | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
+  | Edge: default VM sizes | | | | | |D4 |
+  | Edge: recommended VM sizes | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - Head is known as *Nimbus* for the Storm cluster type.

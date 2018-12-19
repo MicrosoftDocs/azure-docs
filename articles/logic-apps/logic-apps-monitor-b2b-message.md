@@ -150,8 +150,8 @@ select your Log Analytics workspace and the data you want to log.
 Along with Azure Log Analytics, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 
 
-* [Archive Azure Diagnostics Logs in Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
-* [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
+* [Stream Azure Diagnostics Logs to Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
 You can then get real-time monitoring by using telemetry 
 and analytics from other services, like 

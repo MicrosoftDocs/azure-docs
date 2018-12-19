@@ -1,5 +1,5 @@
 ---
-title: Change and redeploy a microservice | Microsoft Docs
+title: Change and redeploy a microservice - Azure | Microsoft Docs
 description: This tutorial shows you how to change and redeploy a microservice in Remote Monitoring
 author: dominicbetts
 ms.author: dobett
@@ -67,8 +67,14 @@ Now change the status message of the Iot Hub Manager microservice to "New Edits 
  "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. To build your new docker image, type
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    or on Windows:
+    
+    ```cmd
+    ./build.cmd
     ```
 
 7. To verify your new image was successfully created, type

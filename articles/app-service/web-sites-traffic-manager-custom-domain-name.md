@@ -1,5 +1,5 @@
 ---
-title: Configure custom DNS name for apps that use Traffic Manager - Azure App Service
+title: Configure DNS names for apps that use Traffic Manager - Azure App Service
 description: Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing.
 services: app-service\web
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.custom: seodec18
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-This article provides generic instructions for using a custom domain name with an [App Service](app-service-web-overview.md) app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
+This article provides generic instructions for using a custom domain name with an [App Service](overview.md) app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -67,8 +67,6 @@ Once you have finished adding or modifying DNS records at your domain provider, 
 
 ## Next steps
 For more information, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

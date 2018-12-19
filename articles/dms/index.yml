@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/30/2018
+  ms.date: 12/12/2018
   ms.author: rajpo
 abstract:
   description: Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. The service uses the Data Migration Assistant to generate assessment reports that provide recommendations to guide you through the changes required prior to performing a migration. When you're ready to begin the migration process, the Azure Database Migration Service performs all of the required steps.
@@ -64,7 +64,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: <a href="/azure/dms/resource-scenario-status">Status of migration scenarios supported by the Azure Database Migration Service</a>
     - html: <a href="/azure/dms/pre-reqs">Overview of prerequisites for using the Azure Database Migration Service</a>
     - html: <a href="/azure/dms/faq">FAQ about using the Azure Database Migration Service</a>
     - html: <a href="/azure/dms/known-issues-azure-sql-online">Known issues/migration limitations with online migrations to Azure SQL DB</a>
-    
+    - html: <a href="/azure/dms/dms-tools-matrix">Services and tools for data migration scenarios</a>

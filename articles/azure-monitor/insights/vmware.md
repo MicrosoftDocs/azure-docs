@@ -158,7 +158,7 @@ Saving search queries is a standard feature in Log Analytics and can help you ke
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### Create alerts from queries
-After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog post.
+After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog post.
 
 ## Frequently asked questions
 ### What do I need to do on the ESXi host setting? What impact will it have on my current environment?
@@ -201,4 +201,4 @@ There can be multiple reasons:
 ## Next steps
 * Use [Log Searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to view detailed VMware host data.
 * [Create your own dashboards](../../azure-monitor/platform/dashboards.md) showing VMware host data.
-* [Create alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) when specific VMware host events occur.
+* [Create alerts](../../azure-monitor/platform/alerts-overview.md) when specific VMware host events occur.

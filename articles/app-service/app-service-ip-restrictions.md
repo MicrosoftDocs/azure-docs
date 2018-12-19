@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
 

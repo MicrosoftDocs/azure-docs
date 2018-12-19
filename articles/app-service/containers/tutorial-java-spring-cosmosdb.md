@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Azure CLI](http://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
+* [Azure CLI](https://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
 * [Git](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)

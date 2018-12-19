@@ -69,6 +69,18 @@ For more information about the schema, see [Interpret the Azure AD audit logs sc
 
 ---
 
+### Identity Protection improvements to the supervised machine learning model and the risk score engine
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Risk Scores
+
+Improvements to the Identity Protection-related user and sign-in risk assessment engine can help to improve user risk accuracy and coverage. Administrators may notice that user risk level is no longer directly linked to the risk level of specific detections, and that there's an increase in the number and level of risky sign-in events.
+
+Risk detections are now evaluated by the supervised machine learning model, which calculates user risk by using additional features of the user’s sign-ins and a pattern of detections. Based on this model, the administrator might find users with high risk scores, even if detections associated with that user are of low or medium risk. 
+
+---
+
 ### Administrators can reset their own password using the Microsoft Authenticator app (Public preview)
 
 **Type:** Changed feature  
