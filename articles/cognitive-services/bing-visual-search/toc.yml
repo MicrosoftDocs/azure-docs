@@ -42,6 +42,8 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Concepts
   items:
+    - name: Sending queries
+      href: concepts/sending-queries.md
     - name: Default image insights
       href: default-insights-tag.md
     - name: Bing insights usage
