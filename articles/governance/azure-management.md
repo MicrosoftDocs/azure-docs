@@ -1,5 +1,5 @@
 ---
-title: Azure Management
+title: Azure Management Overview
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
 author: DCtheGeek
 manager: carmonm
@@ -52,7 +52,7 @@ and resources](../monitoring/monitoring-overview.md).
 Configure refers to the initial deployment and configuration of applications and resources and
 their ongoing maintenance with patches and updates. Automation of these tasks through script and
 policy allows you to eliminate redundancy, minimizing your time and effort and increasing your
-accuracy and efficiency. [Azure Automation](..\automation\automation-intro.md) provides the bulk of
+accuracy and efficiency. [Azure Automation](../automation/automation-intro.md) provides the bulk of
 services for automating configuration tasks. In addition to runbooks for automating processes, it
 provides configuration and update management, which assist you in managing configuration through
 policy and in identifying and deploying updates.
@@ -73,7 +73,7 @@ your Azure resources and other cloud providers including AWS and Google.
 Managing security of your applications, resources, and data involves a combination of assessing
 threats, collecting and analyzing security data, and ensuring that your applications and resources
 are designed and configured in a secure fashion. Security monitoring and threat analysis are
-provided by [Azure Security Center](../security-center/security-center-intro.md) which includes
+provided by Azure Security Center, which includes 
 unified security management and advanced threat protection across hybrid cloud workloads. You
 should also see [Introduction to Azure Security](../security/azure-security.md) for comprehensive
 information on security in Azure and guidance on securely configuring Azure resources.

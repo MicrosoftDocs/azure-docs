@@ -36,7 +36,8 @@ The following table describes the purpose and content of these fields.
 | **Description**           | Description of solution.  Maximum length of 3000 characters, supports simple HTML formatting. |
 | **Marketing Identifier**  | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters.  For example: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Preview Subscription IDs** | Add one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to the offer once it's published, before it goes live. |
-| **Useful Links**          | Multi-selection of business and technical categories that offer can be best associated with.  Maximum five allowed.  |
+| **Useful Links**          | Add URLs to the documentations, release notes, FAQs, and so on. |
+| **Suggested Categories (Max 5)** | Multi-selection of business and technical categories that offer can be best associated with.  Maximum five allowed.  |
 |  |  |
 
 

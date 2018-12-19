@@ -90,7 +90,7 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 ### Duplicate detection
 
-If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender re-send the same message, and the queue or topic discards any duplicate copies.
+If an error occurs that causes the client to have any doubt about the outcome of a send operation, [duplicate detection](duplicate-detection.md) takes the doubt out of these situations by enabling the sender to re-send the same message, and the queue or topic discards any duplicate copies.
 
 ### SAS, RBAC, and Managed identities for Azure resources
 

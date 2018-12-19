@@ -24,7 +24,7 @@ The Azure portal is a web-based management tool for services and resources hoste
 * **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ## Create clusters
-The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide many details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide many details. For more information, see [Create Linux-based Apache Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -61,7 +61,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
     * Click **Next**.
 
-4. In **Security and Networking**, you can connect your cluster to a virtual network using the provided dropdown. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). If you want to use the **Enterprise Security Package**, you can also follow instructions here: [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+4. In **Security and Networking**, you can connect your cluster to a virtual network using the provided dropdown. Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). If you want to use the **Enterprise Security Package**, you can also follow instructions here: [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
 5. For **Storage**, specify whether you want Azure Storage (WASB) or Data Lake Storage as your default storage. Look at the table below for more information.
 
@@ -132,23 +132,23 @@ If you run into issues with creating HDInsight clusters, see [access control req
 ## Next steps
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster:
 
-### Hadoop clusters
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+### Apache Hadoop clusters
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [UseApache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### HBase clusters
-* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+### Apache HBase clusters
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### Storm clusters
-* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+### Apache Storm clusters
+* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### Spark clusters
+### Apache Spark clusters
 * [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
 

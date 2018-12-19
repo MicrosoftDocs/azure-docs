@@ -87,7 +87,7 @@ These are the available HDInsight solutions:
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-For the instructions to install a management solution, see [Management solutions in Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For the instructions to install a management solution, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
 ![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

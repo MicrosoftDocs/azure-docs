@@ -10,7 +10,6 @@ tags: ''
 
 ms.assetid:
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na

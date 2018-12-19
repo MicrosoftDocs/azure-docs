@@ -15,7 +15,7 @@ ms.date: 09/20/2018
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 
-This page provides information on Azure SQL Database and Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. The diagnostic log telemetry can be streamed to [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. The diagnostic log telemetry can be streamed to [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick SQL Database performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.

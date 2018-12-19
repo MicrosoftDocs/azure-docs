@@ -26,6 +26,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 ## Create and initialize the application
 
 To run this application, follow these steps.

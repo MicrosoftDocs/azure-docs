@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2018
+ms.date: 12/05/2018
 ms.topic: troubleshooting
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom:
 ---
 

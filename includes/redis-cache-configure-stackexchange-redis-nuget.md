@@ -1,3 +1,10 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: wesmc
+---
 .NET applications can use the **StackExchange.Redis** cache client, which can be configured in Visual Studio using a NuGet package that simplifies the configuration of cache client applications. 
 
 > [!NOTE]

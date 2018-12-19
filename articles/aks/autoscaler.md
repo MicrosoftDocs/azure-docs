@@ -228,7 +228,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:

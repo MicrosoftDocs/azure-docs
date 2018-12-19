@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ---
 
@@ -24,7 +24,6 @@ Azure Media Services enables you to encode your media files into formats that ca
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
 > * Examine the code that uploads, encodes, and streams
@@ -36,7 +35,14 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+
+- [Create a Media Services account](create-account-cli-how-to.md).
+
+    Make sure to remember the values that you used for the resource group name and Media Services account name
 
 ## Download the sample
 
@@ -47,10 +53,6 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
  ```
 
 The sample is located in the [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) folder.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -68,7 +70,7 @@ The sample performs the following actions:
 6. Creates a StreamingLocator.
 7. Builds streaming URLs.
 
-### Start using Media Services APIs with .NET SDK
+### <a id="start_using_dotnet" />Start using Media Services APIs with .NET SDK
 
 To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
 
@@ -181,11 +183,11 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier.
 
-In the **CloudShell**, execute the following command:
+Execute the following CLI command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

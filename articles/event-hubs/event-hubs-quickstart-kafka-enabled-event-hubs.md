@@ -1,20 +1,13 @@
 ---
-title: Stream into Azure Event Hubs for Apache Kafka | Microsoft Docs
+title: Stream into Azure Event Hubs for Apache Kafka
 description: Stream into Event Hubs using the Kafka protocol and APIs.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
-
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-
 ---
 
 # Stream into Event Hubs for the Apache Kafka
@@ -44,7 +37,7 @@ To complete this quickstart, make sure you have the following prerequisites:
  
 3. Provide a unique name and enable Kafka on the namespace. Click **Create**.
     
-    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Once the namespace is created, on the **Settings** tab click **Shared access policies** to get the connection string.
 

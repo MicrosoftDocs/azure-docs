@@ -1,6 +1,6 @@
 ---
-title: Java user-defined function (UDF) with Hive in HDInsight - Azure 
-description: Learn how to create a Java-based user-defined function (UDF) that works with Hive. This example UDF converts a table of text strings to lowercase.
+title: Java user-defined function (UDF) with Apache Hive in HDInsight - Azure 
+description: Learn how to create a Java-based user-defined function (UDF) that works with Apache Hive. This example UDF converts a table of text strings to lowercase.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -12,9 +12,9 @@ ms.date: 05/16/2018
 ms.author: hrasheed
 
 ---
-# Use a Java UDF with Hive in HDInsight
+# Use a Java UDF with Apache Hive in HDInsight
 
-Learn how to create a Java-based user-defined function (UDF) that works with Hive. The Java UDF in this example converts a table of text strings to all-lowercase characters.
+Learn how to create a Java-based user-defined function (UDF) that works with Apache Hive. The Java UDF in this example converts a table of text strings to all-lowercase characters.
 
 ## Requirements
 
@@ -25,9 +25,9 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 
     Most steps in this document work on both Windows- and Linux-based clusters. However, the steps used to upload the compiled UDF to the cluster and run it are specific to Linux-based clusters. Links are provided to information that can be used with Windows-based clusters.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * A text editor or Java IDE
 

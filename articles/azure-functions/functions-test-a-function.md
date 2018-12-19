@@ -114,7 +114,7 @@ The recommended tool to test most of your functions is Postman, which integrates
 > [!TIP]
 > Use the HTTP testing tool that you are most comfortable with. Here are some alternatives to Postman:  
 >
-> * [Fiddler](http://www.telerik.com/fiddler)  
+> * [Fiddler](https://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
 >
 >
@@ -177,7 +177,7 @@ In the portal **Logs** window, output similar to the following is logged in exec
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
 ### Test a blob trigger by using Storage Explorer
-You can test a blob trigger function by using [Azure Storage Explorer](http://storageexplorer.com/).
+You can test a blob trigger function by using [Azure Storage Explorer](https://storageexplorer.com/).
 
 1. In the [Azure portal] for your function app, create a C#, F# or JavaScript blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
@@ -186,7 +186,7 @@ You can test a blob trigger function by using [Azure Storage Explorer](http://st
 3. Create a text file with the following text, and save it:
 
         A text file for blob trigger function testing.
-4. Run [Azure Storage Explorer](http://storageexplorer.com/), and connect to the blob container in the storage account being monitored.
+4. Run [Azure Storage Explorer](https://storageexplorer.com/), and connect to the blob container in the storage account being monitored.
 5. Click **Upload** to upload the text file.
 
     ![Screenshot of Storage Explorer](./media/functions-test-a-function/azure-storage-explorer-test.png)

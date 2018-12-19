@@ -13,77 +13,90 @@ ms.author: v-jansko
 ---
 # Language and region support for the Translator Text API
 
-The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category.
+The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. 
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
-| Language    | Translation Type |Language code |
-|:----------- |:-------:|:-------------:|
-| Afrikaans      | Statistical |`af`          |
-| Arabic      | Neural | `ar`          |
-| Arabic, Levantine    | Neural | `apc`
-| Bangla      | Neural |`bn`          |
-| Bosnian (Latin)      | Statistical |`bs`          |
-| Bulgarian     |  Neural |`bg`          |
-| Cantonese (Traditional)      | Statistical |`yue`          |
-| Catalan      | Statistical |`ca`          |
-| Chinese Simplified        |  Neural |`zh-Hans`          |
-| Chinese Traditional        |  Neural |`zh-Hant`          |
-| Croatian      | Neural |`hr`          |
-| Czech        |  Neural |`cs`          |
-| Danish        |  Neural |`da`          |
-| Dutch        |  Neural |`nl`          |
-| English       |  Neural |`en`          |
-| Estonian      | Neural |`et`          |
-| Fijian      | Statistical |`fj`          |
-| Filipino      | Statistical |`fil`          |
-| Finnish      | Neural |`fi`          |
-| French        |  Neural |`fr`          |
-| German       |  Neural |`de`          |
-| Greek      | Neural |`el`          |
-| Haitian Creole      | Statistical |`ht`          |
-| Hebrew      | Neural |`he`          |
-| Hindi        |  Neural |`hi`          |
-| Hmong Daw      | Statistical |`mww`          |
-| Hungarian      | Neural |`hu`          |
-| Icelandic      |  Neural |`is`           |
-| Indonesian      | Statistical |`id`          |
-| Italian        |  Neural |`it`          |
-| Japanese        |  Neural |`ja`          |
-| Kiswahili      | Statistical |`sw`          |
-| Klingon      | Statistical |`tlh`          |
-| Klingon (plqaD)      | Statistical |`tlh-Qaak`          |
-| Korean        |  Neural |`ko`          |
-| Latvian      | Neural |`lv`          |
-| Lithuanian      | Neural |`lt`          |
-| Malagasy      | Statistical |`mg`          |
-| Malay      | Statistical |`ms`          |
-| Maltese      | Statistical |`mt`          |
-| Norwegian        |  Neural |`nb`          |
-| Persian      | Statistical |`fa`          |
-| Polish        |  Neural |`pl`          |
-| Portuguese        |  Neural |`pt`          |
-| Queretaro Otomi      | Statistical |`otq`          |
-| Romanian        |  Neural |`ro`          |
-| Russian        |  Neural |`ru`          |
-| Samoan      | Statistical |`sm`          |
-| Serbian (Cyrillic)      | Statistical |`sr-Cyrl`          |
-| Serbian (Latin)      | Statistical |`sr-Latn`          |
-| Slovak     | Neural |`sk`          |
-| Slovenian      | Neural |`sl`          |
-| Spanish        |  Neural |`es`          |
-| Swedish        |  Neural |`sv`          |
-| Tahitian      | Statistical |`ty`          |
-| Tamil      | Statistical |`ta`          |
-| Telugu   | Neural   | `te` |
-| Thai      | Neural |`th`          |
-| Tongan      | Statistical |`to`          |
-| Turkish       |  Neural |`tr`          |
-| Ukrainian      | Neural |`uk`          |
-| Urdu      | Statistical |`ur`          |
-| Vietnamese      | Neural |`vi`          |
-| Welsh      | Neural |`cy`          |
-| Yucatec Maya      | Statistical |`yua`          |
+**V2 Translator API**
+
+> [!NOTE]
+> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+
+* Statistical only: No neural system is available for this language.
+* Neural available: A neural system is available. Use the parameter `category=generalnn` to access the neural system.
+* Neural default: Neural is the default translation system. Use the parameter `category=smt` to access the statistical system for use with the Microsoft Translator Hub.
+* Neural only: Only neural translation is available.
+
+**V3 Translator API**
+The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. Custom Translator can only be used with neural languages. 
+
+|Language|	Language code|	V2 API|	V3 API|
+|:-----|:-----:|:-----|:-----|
+|Afrikaans|	`af`	|Statistical only|	Neural|
+|Arabic|	`ar`	|Neural available|	Neural|
+|Arabic, Levantine|	`apc`	|Neural available|	Neural|
+|Bangla|	`bn`	|Neural available|	Neural|
+|Bosnian (Latin)|	`bs`	|Statistical only|	Statistical|
+|Bulgarian|	`bg`	|Neural available|	Neural|
+|Cantonese (Traditional)|	`yue`	|Statistical only|	Statistical|
+|Catalan|	`ca`	|Statistical only|	Statistical|
+|Chinese Simplified|	`zh-Hans`	|Neural default	|Neural|
+|Chinese Traditional|	`zh-Hant`	|Neural default	|Neural|
+|Croatian|	`hr`	|Neural available|	Neural|
+|Czech|	`cs`	|Neural available|	Neural|
+|Danish|	`da`	|Neural available	|Neural|
+|Dutch|	`nl`	|Neural available|	Neural|
+|English|	`en`	|Neural available|	Neural|
+|Estonian|	`et`	|Neural available|	Neural|
+|Fijian|	`fj`	|Statistical only|	Statistical|
+|Filipino|	`fil`	|Statistical only|	Statistical|
+|Finnish|	`fi`	|Neural available|	Neural|
+|French|	`fr`	|Neural available|	Neural|
+|German|	`de`	|Neural available|	Neural|
+|Greek|	`el`	|Neural available|	Neural|
+|Haitian Creole|	`ht`	|Statistical only	|Statistical|
+|Hebrew	|`he`	|Neural available	|Neural|
+|Hindi|	`hi`	|Neural default|	Neural|
+|Hmong Daw|	`mww`	|Statistical only|	Statistical|
+|Hungarian|	`hu`	|Neural available|	Neural|
+|Icelandic|	`is`	|Neural only|	Neural|
+|Indonesian|	`id`	|Statistical only|	Statistical|
+|Italian|	`it`	|Neural available|	Neural|
+|Japanese|	`ja`	|Neural available|	Neural|
+|Kiswahili|	`sw`	|Statistical only|	Statistical|
+|Klingon|	`tlh`	|Statistical only|	Statistical|
+|Klingon (plqaD)|	`tlh-Qaak`	|Statistical only|	Statistical|
+|Korean	|`ko`	|Neural available|	Neural|
+|Latvian|	`lv`	|Neural available|	Neural|
+|Lithuanian|	`lt`	|Neural available|	Neural|
+|Malagasy|	`mg`	|Statistical only|	Statistical|
+|Malay|	`ms`	|Statistical only	|Statistical|
+|Maltese|	`mt`	|Statistical only|	Statistical|
+|Norwegian|	`nb`	|Neural available|	Neural|
+|Persian|	`fa`	|Statistical only|	Statistical|
+|Polish|	`pl`	|Neural available|	Neural|
+|Portuguese|	`pt`	|Neural available|	Neural|
+|Queretaro Otomi|	`otq`	|Statistical only|	Statistical|
+|Romanian|	`ro`	|Neural available|	Neural|
+|Russian|	`ru`	|Neural available|	Neural|
+|Samoan|	`sm`	|Statistical only|	Statistical|
+|Serbian (Cyrillic)|	`sr-Cyrl`	|Statistical only|	Statistical|
+|Serbian (Latin)|	`sr-Latn`	|Statistical only	|Statistical|
+|Slovak|	`sk`	|Neural available|	Neural|
+|Slovenian|	`sl`	|Neural available|	Neural|
+|Spanish|	`es`	|Neural available|	Neural|
+|Swedish|	`sv`	|Neural available	|Neural|
+|Tahitian|	`ty`	|Statistical only|	Statistical|
+|Tamil|	`ta`	|Statistical only|	Statistical|
+|Telugu|	`te`	|Neural only|	Neural|
+|Thai|	`th`	|Neural available|	Neural|
+|Tongan|	`to`	|Statistical only|	Statistical|
+|Turkish|	`tr`	|Neural available	|Neural|
+|Ukrainian|	`uk`	|Neural available|	Neural|
+|Urdu|	`ur`	|Statistical only|	Statistical|
+|Vietnamese|	`vi`	|Neural available|	Neural|
+|Welsh|	`cy`	|Neural available|	Neural|
+|Yucatec Maya|	`yua`	|Statistical only|	Statistical|
 
 ## Transliteration
 

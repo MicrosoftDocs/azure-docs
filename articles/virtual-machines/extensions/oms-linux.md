@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: roiyz
 
 ---
@@ -35,13 +35,13 @@ The Log Analytics Agent extension can be run against these Linux distributions.
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 6 and 7 (x86/x64) |
-| Amazon Linux | 2017.09 | 
+| CentOS Linux | 6 (x86/x64) and 7 (x64) |
+| Amazon Linux | 2017.09 (x64) | 
 | Oracle Linux | 6 and 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 6 and 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 (x86/x64) and 7 (x64) |
 | Debian GNU/Linux | 8 and 9 (x86/x64) |
-| Ubuntu | 14.04 LTS, 16.04 LTS, and 18.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 12 (x86/x64) |
+| Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64) |
+| SUSE Linux Enterprise Server | 12 (x64) |
 
 >[!NOTE]
 >OpenSSL lower than version 1.x is not supported on any platform, and version 1.10 is only supported on x86_64 platforms (64-bit).  
@@ -52,6 +52,8 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
+| 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -215,7 +217,7 @@ Extension execution output is logged to the following file:
 | 51 | This extension is not supported on the VM's operation system | |
 | 55 | Cannot connect to the Log Analytics service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
 
-Additional troubleshooting information can be found on the [Log Analytics-Agent-for-Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Additional troubleshooting information can be found on the [Log Analytics-Agent-for-Linux Troubleshooting Guide](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### Support
 

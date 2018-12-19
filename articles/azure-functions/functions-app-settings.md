@@ -77,7 +77,7 @@ The path to the root directory where the *host.json* file and function folders a
 
 ## AzureWebJobsSecretStorageType
 
-Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 1 and file system in version 2. Note that in version 1 file system will only work for functions running in an app service plan.
+Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 2 and file system in version 1.
 
 |Key|Sample value|
 |---|------------|

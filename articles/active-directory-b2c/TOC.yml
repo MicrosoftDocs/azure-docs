@@ -44,7 +44,7 @@
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
-  - name: Built-in policies
+  - name: User flows
     href: active-directory-b2c-reference-policies.md
   - name: Identity Experience Framework
     items:
@@ -70,6 +70,8 @@
   items:
   - name: Access audit logs 
     href: active-directory-b2c-reference-audit-logs.md
+  - name: Age gating
+    href: basic-age-gating.md
   - name: Configure tokens
     href: active-directory-b2c-token-session-sso.md
   - name: Customize language
@@ -116,12 +118,16 @@
         href: active-directory-b2c-custom-setup-msa-idp.md
       - name: Twitter
         href: active-directory-b2c-custom-setup-twitter-idp.md
+      - name: Pass through access token
+        href: idp-pass-through-custom.md
     - name: SAML providers
       items:
       - name: ADFS
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Track user behavior
+      href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: User flows
       items:
       - name: Configure user input
@@ -237,14 +243,8 @@
       href: active-directory-b2c-setup-li-app.md
     - name: OpenID Connect 
       href: active-directory-b2c-setup-oidc-idp.md
-    - name: QQ
-      href: active-directory-b2c-setup-qq-app.md
     - name: Twitter
       href: active-directory-b2c-setup-twitter-app.md
-    - name: WeChat
-      href: active-directory-b2c-setup-wechat-app.md
-    - name: Weibo
-      href: active-directory-b2c-setup-weibo-app.md
   - name: Migrate users
     href: active-directory-b2c-user-migration.md
   - name: Migrate users with social identities
@@ -257,14 +257,14 @@
       href: active-directory-b2c-devquickstarts-android.md
   - name: Obtain access tokens
     href: active-directory-b2c-access-tokens.md
+  - name: Pass through access token
+    href: idp-pass-through-user-flow.md
   - name: Register your application
     href: active-directory-b2c-app-registration.md
   - name: Report usage
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Resource owner password credentials
     href: configure-ropc.md
-  - name: Set up age gating
-    href: basic-age-gating.md
   - name: Set up direct sign-in
     href: direct-signin.md
   - name: Set up self-serve-password reset
@@ -273,8 +273,6 @@
     href: b2clogin.md
   - name: Use the Azure AD Graph API
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Track user behavior
-    href: active-directory-b2c-custom-guide-eventlogger-appins.md
   - name: Web apps
     items:
     - name: ASP.NET
@@ -284,8 +282,7 @@
     - name: ASP.NET
       href: active-directory-b2c-devquickstarts-api-dotnet.md
     - name: Call a .NET Web API
-      href: active-directory-b2c-devquickstarts-web-api-dotnet.md
-  
+      href: active-directory-b2c-devquickstarts-web-api-dotnet.md 
   - name: Reference
     items:
     - name: Code samples
@@ -300,6 +297,8 @@
       href: active-directory-b2c-support-create-directory.md
     - name: Extensions app
       href: active-directory-b2c-reference-extensions-app.md
+    - name: User flow versions
+      href: user-flow-versions.md
 - name: Resources
   items:
   - name: Azure Roadmap

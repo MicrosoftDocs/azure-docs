@@ -22,16 +22,16 @@ ms.custom: aaddev
 
 On November 2017, we announced that Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), is being retired on November 7, 2018.
 
-Since then, we've sent multiple emails to the ACS subscriptions’ admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
+Since then, we've sent emails to the ACS subscriptions’ admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
 
-On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who can't finish their migration before November 7, 2018. The announcement also contained instructions for requesting the extension.
+On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who can't finish their migration before November 7, 2018. The announcement also had instructions for requesting the extension.
 
 ## Why your namespace is disabled
 
-If you haven't opted in for the extension, we will start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
+If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
 
 > [!NOTE]
-> You must be an administrator of the subscription to run the PowerShell commands and request an extension.
+> You must be a service administrator or co-administrator of the subscription to run the PowerShell commands and request an extension.
 
 ## Find and enable your ACS namespaces
 
@@ -58,6 +58,9 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
         ```
     
         where `[Command-Name]` is the name of the ACS command.
+1. Connect to ACS using the **Connect-AcsAccount** cmdlet. 
+
+    You may need to change your execution policy by running **Set-ExecutionPolicy** before you can run the command.
 1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
 1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 1. Confirm that the namespaces are disabled by confirming that `State` is `Disabled`.

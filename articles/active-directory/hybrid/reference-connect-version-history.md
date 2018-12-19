@@ -32,6 +32,28 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.2.68.0
+
+### Release status 
+
+11/30/2018:  Released for download
+
+### Fixed issues
+
+This hotfix build fixes a conflict where an authentication error might occur due to the independent presence of the MSOnline PowerShell Gallery module on the synchronization server.
+
+
+
+## 1.2.67.0
+
+### Release status 
+
+11/19/2018:  Released for download
+
+### Fixed issues
+
+This hotfix build fixes a regression in the previous build where Password Writeback fails when using an ADDS Domain Controller on Windows Server 2008/R2.
+
 ## 1.2.65.0 
 
 ### Release status 

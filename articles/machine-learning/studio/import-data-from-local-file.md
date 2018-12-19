@@ -4,11 +4,11 @@ description: Learn how to upload a training data file from your hard drive to Az
 keywords: import data,data format,data types,data sources,training data
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
 ms.service: machine-learning
 ms.component: studio
@@ -17,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-
 ---
 # Import training data from a file on your hard drive into Machine Learning Studio
 

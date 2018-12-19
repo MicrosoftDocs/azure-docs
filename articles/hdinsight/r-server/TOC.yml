@@ -4,7 +4,7 @@
   items:
   - name: Overview
     href: r-server-overview.md
-  - name: Hadoop components on HDInsight
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -70,10 +70,10 @@
     - name: Install or update Mono
       href: ../hdinsight-hadoop-install-mono.md
       maintainContext: true
-    - name: Add Hive libraries
+    - name: Add Apache Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: Use Giraph
+    - name: Use Apache Giraph
       href: ../hdinsight-hadoop-giraph-install-linux.md
       maintainContext: true
     - name: Use Hue
@@ -82,10 +82,10 @@
     - name: Use R
       href: ../hdinsight-hadoop-r-scripts-linux.md
       maintainContext: true
-    - name: Use Solr
+    - name: Use Apache Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: Use Zeppelin
+    - name: Use Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
     - name: Use empty edge nodes
@@ -127,7 +127,7 @@
     - name: Restrict access to data
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: Authorize users for Ambari Views
+    - name: Authorize users for Apache Ambari Views
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: Manage
@@ -170,14 +170,14 @@
       - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
-    - name: Manage clusters using the Ambari web UI
+    - name: Manage clusters using the Apache Ambari web UI
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
-      - name: Optimize clusters with the Ambari web UI
+      - name: Optimize clusters with the Apache Ambari web UI
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Use Ambari REST API
+      - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
     - name: Manage logs for an HDInsight cluster
@@ -186,13 +186,13 @@
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Upload data for Hadoop jobs
+    - name: Upload data for Apache Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Multiple HDInsight clusters with Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Import and export data with Sqoop
+    - name: Import and export data with Apache Sqoop
       href: ../hadoop/hdinsight-use-sqoop.md
       items:
       - name: Connect with SSH
@@ -203,10 +203,10 @@
         href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
       - name: Run using Azure PowerShell
         href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
-    - name: Use Oozie for workflows
+    - name: Use Apache Oozie for workflows
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Use time-based Oozie coordinators
+    - name: Use time-based Apache Oozie coordinators
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Cluster and service ports and URIs
@@ -231,13 +231,13 @@
     - name: Troubleshoot a slow or failing HDInsight cluster
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS troubleshooting
+    - name: Apache Hadoop HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: HIVE troubleshooting
+    - name: Apache HIVE troubleshooting
       href: ../hdinsight-troubleshoot-hive.md
       maintainContext: true
-    - name: YARN troubleshooting
+    - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Resources
@@ -245,25 +245,25 @@
       - name: Information about using HDInsight on Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop memory and performance
+      - name: Apache Hadoop memory and performance
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Access Hadoop YARN application logs on Linux
+      - name: Access Apache Hadoop YARN application logs on Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Enable heap dumps for Hadoop services
+      - name: Enable heap dumps for Apache Hadoop services
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: Understand and resolve WebHCat errors
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: Hive settings fix Out of Memory error
+      - name: Apache Hive settings fix Out of Memory error
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Use Ambari Views to debug Tez Jobs
+      - name: Use Apache Ambari Views to debug Apache TEZ Jobs
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Optimize Hive queries
+      - name: Optimize Apache Hive queries
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
 - name: Enterprise readiness
@@ -304,13 +304,13 @@
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Resources
   items:

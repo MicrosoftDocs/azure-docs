@@ -52,7 +52,7 @@ In this tutorial, you do the following actions:
 
 ### Configure GCM setting for the notification hub
 
-1. Select **Google (GCM)** in **NOTIFICATON SETTINGS**. 
+1. Select **Google (GCM)** in **NOTIFICATION SETTINGS**. 
 2. Enter **API Key** you got from the Google Cloud Console. 
 3. Select **Save** on the toolbar. 
 
@@ -659,7 +659,7 @@ Normally, you would send notifications using a backend server. For some cases, y
                         bodyStream.write(json.getBytes());
                         bodyStream.close();
 
-                        // Get reponse
+                        // Get response
                         urlConnection.connect();
                         int responseCode = urlConnection.getResponseCode();
                         if ((responseCode != 200) && (responseCode != 201)) {

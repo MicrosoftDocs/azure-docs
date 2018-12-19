@@ -92,7 +92,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### Step 4: Cache the groups identifiers
-Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching] to send a single Http request with multiple users and build the cache.
+Optionally, to reduce network latency, you can cache the user-group associations so that when a search request is issued, groups are returned from the cache, saving a roundtrip to AAD. You can use [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) to send a single Http request with multiple users and build the cache.
 
 Microsoft Graph is designed to handle a high volume of requests. If an overwhelming number of requests occur, Microsoft Graph fails the request with HTTP status code 429. For more information, see [Microsoft Graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

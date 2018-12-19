@@ -57,7 +57,7 @@ When you train the same model in a different app, and the scores are not this sa
 If your chatbot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
 
 ## Punctuation
-Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns}(luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
 
 ## Next steps
 

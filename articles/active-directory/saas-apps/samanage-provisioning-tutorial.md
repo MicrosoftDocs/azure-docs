@@ -137,7 +137,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Define the users and/or groups that you would like to provision to Samanage by choosing the desired values in **Scope** in the **Settings** section.
+15. Define the users and/or groups that you would like to provision to Samanage by choosing the desired values in **Scope** in the **Settings** section. When choosing the **Sync all users and groups** option, consider the limitations as described in the **Connector limitations** section below.
 
 	![Samanage Provisioning](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -149,6 +149,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Samanage.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+
+## Connector limitations
+
+* If the **Sync all users and groups** option is selected and a default value is configured for the Samanage **roles** attribute, ensure that the desired value under the **Default value if null (is optional)** field is expressed in the following format **{"displayName":"role"}** where role is the desired default value.
 
 ## Additional resources
 

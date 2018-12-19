@@ -72,12 +72,16 @@ Before installing the required version, make sure that you uninstall any previou
 
 1. To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions, and run the following cmdlets:
 
-  ````PowerShell
-    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force
-    Uninstall-Module -Name AzureRM.AzureStackStorage -Force
-    Uninstall-Module -Name AzureStack -Force
-    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force
-  ````
+    ````PowerShell
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force 
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force 
+    Uninstall-Module -Name AzureStack -Force -Verbose
+    Uninstall-Module -Name AzureRM -Force -Verbose
+    Uninstall-Module -Name Azure.Storage -Force -Verbose
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name AzureRM.* -ListAvailable | Uninstall-Module -Force -Verbose
+    ````
+    If you hit any error like 'The module is already in use', please close the PowerShell sessions that are using the modules and rerun the above script.
 
 2. Delete all the folders that start with `Azure` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
 

@@ -62,7 +62,7 @@
   - name: Monitoring
     items:
     - name: Azure AD logs in Azure Monitor
-      href: concept-activity-logs-in-azure-monitor.md
+      href: concept-activity-logs-azure-monitor.md
 
 - name: How-to guides
   expanded: true
@@ -71,6 +71,8 @@
     items:
     - name: Find activity reports
       href: howto-find-activity-reports.md
+    - name: Troubleshoot sign-in errors for a user
+      href: howto-troubleshoot-sign-in-errors.md
     - name: Remediate users flagged for risk
       href: howto-remediate-users-flagged-for-risk.md
     - name: Use Power BI Content Pack for Azure AD reports
@@ -88,6 +90,8 @@
       href: howto-install-use-log-analytics-views.md
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md
+    - name: Integrate activity logs with ArcSight
+      href: howto-integrate-activity-logs-with-arcsight.md
 
   - name: Troubleshoot
     items:
@@ -105,6 +109,10 @@
   items:
   - name: Reports
     items:
+    - name: Audit logs API reference
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    - name: Sign-in logs API reference
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
     - name: Audit activities
       href: reference-audit-activities.md
     - name: Data retention policies

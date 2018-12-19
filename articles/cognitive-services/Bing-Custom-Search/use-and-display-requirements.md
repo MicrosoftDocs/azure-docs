@@ -3,7 +3,7 @@ title: Use and display requirements - Bing Custom Search API
 titlesuffix: Azure Cognitive Services
 description: Use data from the Bing Custom Search APIs to improve results from searches on the web.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services

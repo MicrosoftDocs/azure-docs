@@ -1,3 +1,10 @@
+---
+author: wesmc7777
+ms.service: redis-cache 
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: wesmc
+---
 
 ### cacheSKUName
 The pricing tier of the new Azure Redis Cache.

@@ -216,6 +216,6 @@ The various resource health statuses and their descriptions are listed in the fo
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn more about your [Load balancer outbound connectivity](https://aka.ms/lboutbound).
 - Learn about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Learn about the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) and [how to retrieve metrics via REST API](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list).
+- Learn about the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) and [how to retrieve metrics via REST API](/rest/api/monitor/metrics/list).
 
 

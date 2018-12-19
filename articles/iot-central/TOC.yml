@@ -81,7 +81,10 @@
         href: howto-export-data.md
       - name: Visualize your data in Power BI
         href: howto-connect-powerbi.md
-  - name : Adminstration
+      - name: Connect other IoT clouds
+        href: howto-build-iotc-device-bridge.md
+
+  - name : Administration
     items:
       - name: Administer your application
         href: howto-administer.md  

@@ -7,7 +7,7 @@ manager: cshepard
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
 ---
 
@@ -23,11 +23,11 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 **Error message**: VM Agent unable to communicate with Azure Backup<br>
 
 After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:<br>
-**Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
-**Cause 2: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 4: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 5: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -52,9 +52,15 @@ To resolve this issue, remove the lock on the resource group and retry the opera
 > [!NOTE]
 	> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
-
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
+
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+
+**Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
+
+For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
@@ -62,13 +68,13 @@ To resolve this issue, remove the lock on the resource group and retry the opera
 **Error message**: Snapshot operation failed due to no network connectivity on the virtual machine<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:    
-**Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
-**Cause 2: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 3: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot extension operation failed
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
-**Error code**: ExtentionOperationFailed <br>
+**Error code**: ExtentionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
@@ -83,12 +89,12 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error message**: Backup failed with an internal error - Please retry the operation in a few minutes <br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
-**Cause 1: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**  
-**Cause 2: [The agent installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 4: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 6: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+**Cause 1: [The agent installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 5: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
 ## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB
 
@@ -145,11 +151,11 @@ Furthermore, if your subnet doesn't have a route for internet outbound traffic, 
 #### Solution
 The VM agent might have been corrupted, or the service might have been stopped. Reinstalling the VM agent helps get the latest version. It also helps restart communication with the service.
 
-1. Determine whether the Windows Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Guest Agent service and initiate the backup.    
-2. If the Windows Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Guest Agent service is installed.
-4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
+1. Determine whether the Windows Azure Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Azure Guest Agent service and initiate the backup.    
+2. If the Windows Azure Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
+4. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Azure Guest Agent.
 5. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
-6. Verify that the Windows Guest Agent services appear in services.
+6. Verify that the Windows Azure Guest Agent services appear in services.
 7. Run an on-demand backup:
 	* In the portal, select **Backup Now**.
 
@@ -194,7 +200,7 @@ The following conditions might cause the snapshot task to fail:
 | Cause | Solution |
 | --- | --- |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it’s not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
-| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Set a static internal private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure Portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. For more information, on how to setup a static IP through the PowerShell, see [Classic VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) and [Resource Manager VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
 
 ### The backup extension fails to update or load
 If extensions can't load, backup fails because a snapshot can't be taken.

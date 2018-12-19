@@ -13,11 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 11/27/2018
 ms.author: apimpm
 
 ---
+
 # Add caching to improve performance in Azure API Management
+
 Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
  
 For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
@@ -29,6 +31,11 @@ What you'll learn:
 > [!div class="checklist"]
 > * Add response caching for your API
 > * Verify caching in action
+
+## Availability
+
+> [!NOTE]
+> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Redis cache](api-management-howto-cache-external.md) instead.
 
 ## Prerequisites
 
@@ -47,11 +54,11 @@ With caching policies shown in this example, the first request to the **GetSpeak
 4. Click **Demo Conference API** from your API list.
 5. Select **GetSpeakers**.
 6. On the top of the screen, select **Design** tab.
-7. In the **Inbound processing** window, click the triangle (next to the pencil).
+7. In the **Inbound processing** section, click the **</>** icon.
 
-    ![code editor](media/api-management-howto-cache/code-editor.png)
-8. Select **Code editor**.
-9. In the **inbound** element, add the following policy:
+    ![code editor](media/api-management-howto-cache/code-editor.png) 
+
+8. In the **inbound** element, add the following policy:
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -59,11 +66,14 @@ With caching policies shown in this example, the first request to the **GetSpeak
             <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
 
-10. In the **outbound** element, add the following policy:
+9. In the **outbound** element, add the following policy:
 
         <cache-store caching-mode="cache-on" duration="20" />
 
     **Duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
+
+> [!TIP]
+> If you are using an external cache, as described in [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `cache-preference` attribute of the caching policies. See [API Management caching policies](api-management-caching-policies.md) for more details.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 To see the caching in action, call the operation from the developer portal.
@@ -78,6 +88,7 @@ To see the caching in action, call the operation from the developer portal.
 ## <a name="next-steps"> </a>Next steps
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+* For more information about using external Redis cache, see [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

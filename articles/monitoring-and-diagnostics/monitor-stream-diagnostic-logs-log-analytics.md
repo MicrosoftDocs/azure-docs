@@ -90,7 +90,7 @@ The `--resource-group` argument is only required if `--workspace` is not an obje
 
 ## How do I query the data in Log Analytics?
 
-In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../monitoring/monitoring-solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
+In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
 
 ## Next steps
 

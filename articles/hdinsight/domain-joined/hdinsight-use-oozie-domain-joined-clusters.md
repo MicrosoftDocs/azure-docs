@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 # Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package
-Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
+Apache Oozie is a workflow and coordination system that manages Apache Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 - Apache MapReduce
 - Apache Pig
 - Apache Hive

@@ -132,6 +132,10 @@ No, when the new disk is created it is a full standalone copy of that blob at th
 
 For managed disks you cannot rename them. However, you may rename an unmanaged disk as long as it is not currently attached to a VHD or VM.
 
+**Can I use GBT partitioning on an Azure Disk?**
+
+GBT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
+
 ## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
@@ -295,7 +299,7 @@ The partition type that Azure supports for an operating system disk is the maste
 
 **What is the largest page blob size that's supported?**
 
-The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
+The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blob size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
 
 **Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TiB?**
 

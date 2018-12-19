@@ -40,7 +40,7 @@ Once the pipeline is designed, there is often more fine-tuning around the traini
 
 With Azure Machine Learning, you can use various toolkits and frameworks such as Microsoft Cognitive Toolkit or TensorFlow for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use so that your intermediate data can be shared with the downstream compute targets easily. 
 
-You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) directly in the Azure portal. 
+You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in the Azure portal. 
 
 ## Key advantages
 
@@ -65,8 +65,10 @@ Check out the [Python SDK reference docs for pipelines](https://docs.microsoft.c
 
 ## Example notebooks
  
-The following notebook demonstrates pipelines with Azure Machine Learning:  [pipeline/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb).
- 
-Get this notebook:
+The following notebooks demonstrate pipelines with Azure Machine Learning:  [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+
+## Next steps
+
+Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).

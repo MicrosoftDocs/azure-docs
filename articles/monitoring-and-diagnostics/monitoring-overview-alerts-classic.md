@@ -51,7 +51,7 @@ There are two types of classic alerts available -  metric alerts and activity lo
 
 * **Classic activity log alerts** - A streaming log alert that triggers when an Activity Log event is generated that matches filter criteria that you have assigned. These alerts have only one state, "Activated," since the alert engine simply applies the filter criteria to any new event. These alerts can be used to become notified when a new Service Health incident occurs or when a user or application performs an operation in your subscription, for example, "Delete virtual machine."
 
-For Diagnostic Log data available through Azure Monitor, route the data into Log Analytics (formerly OMS) and use a Log Analytics query alert. Log Analytics now uses the [new alerting method](monitoring-overview-unified-alerts.md) 
+For Diagnostic Log data available through Azure Monitor, route the data into Log Analytics (formerly OMS) and use a Log Analytics query alert. Log Analytics now uses the [new alerting method](monitoring-overview-alerts.md) 
 
 The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
 
@@ -85,7 +85,7 @@ Webhooks enables automation and remediation, for example, using:
 ## Next steps
 Get information about alert rules and configuring them by using:
 
-* Learn more about [Metrics](../monitoring/monitoring-data-collection.md)
+* Learn more about [Metrics](../azure-monitor/platform/data-collection.md)
 * Configure [classic Metric Alerts via Azure portal](alert-metric-classic.md)
 * Configure [classic Metric Alerts PowerShell](alert-metric-classic.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alert-metric-classic.md)

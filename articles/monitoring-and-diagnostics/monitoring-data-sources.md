@@ -40,6 +40,6 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 
 ## Next steps
 
-- Learn more about [Azure Monitor metrics](../monitoring/monitoring-data-collection.md)
+- Learn more about [Azure Monitor metrics](../azure-monitor/platform/data-collection.md)
 - Learn more about [the Azure Activity Log](monitoring-overview-activity-logs.md)
 - Learn more about [Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

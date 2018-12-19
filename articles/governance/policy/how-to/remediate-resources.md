@@ -144,7 +144,7 @@ To add a role to the assignment's managed identity, follow these steps:
 
 1. Navigate to the resource or the resources parent container (resource group, subscription, management group) that needs the role definition manually added.
 
-1. Click the **Access control (IAM)** link in the resources page and click **+ Add** at the top of the access control page.
+1. Click the **Access control (IAM)** link in the resources page and click **+ Add role assignment** at the top of the access control page.
 
 1. Select the appropriate role that matches a **roleDefinitionIds** from the policy definition. Leave **Assign access to** set to the default of 'Azure AD user, group, or application'. In the **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the search completes, click the object with the same name to select id and click **Save**.
 

@@ -5,16 +5,13 @@ services: application-insights
 documentationcenter: .net
 author: nikmd23
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-
 ---
 
 # Dependency auto-collection
@@ -47,7 +44,7 @@ Below is the currently supported list of dependency calls that are automatically
 |-------------|----------|
 | [Tomcat](https://tomcat.apache.org/) | 7, 8 | 
 | [JBoss EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
-| [Jetty](http://www.eclipse.org/jetty/) | 9 |
+| [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>App frameworks </b> |  |
 | [Spring](https://spring.io/) | 3.0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9+<sup>*</sup> |
@@ -56,7 +53,7 @@ Below is the currently supported list of dependency calls that are automatically
 | [Apache Http Client](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Storage clients</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [Oracle]( http://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
+| [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Logging libraries</b> | |
 | [Logback](https://logback.qos.ch/) | 1+ |

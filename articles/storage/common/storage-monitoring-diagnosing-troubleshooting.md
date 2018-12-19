@@ -637,7 +637,7 @@ The **PercentSuccess** metric captures the percent of operations that were succe
 It is important to note that these operations have completed successfully and therefore do not affect other metrics such as availability. Some examples of operations that execute successfully but that can result in unsuccessful HTTP status codes include:
 
 * **ResourceNotFound** (Not Found 404), for example from a GET request to a blob that does not exist.
-* **ResouceAlreadyExists** (Conflict 409), for example from a **CreateIfNotExist** operation where the resource already exists.
+* **ResourceAlreadyExists** (Conflict 409), for example from a **CreateIfNotExist** operation where the resource already exists.
 * **ConditionNotMet** (Not Modified 304), for example from a conditional operation such as when a client sends an **ETag** value and an HTTP **If-None-Match** header to request an image only if it has been updated since the last operation.
 
 You can find a list of common REST API error codes that the storage services return on the page [Common REST API Error Codes](https://msdn.microsoft.com/library/azure/dd179357.aspx).

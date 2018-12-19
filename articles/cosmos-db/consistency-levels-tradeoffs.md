@@ -1,12 +1,11 @@
 ---
-title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB | Microsoft Docs
+title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
 description: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB.
 keywords: consistency, performance, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: markjbrown
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
@@ -15,40 +14,38 @@ ms.author: mjbrown
 
 # Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
 
-Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency and throughput. Azure Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes of strong and eventual consistency. Cosmos DB empowers developers to choose among the five well-defined consistency models from the consistency spectrum (strongest to weakest) – **strong**, **bounded staleness**, **session**, **consistent prefix**, and **eventual**. Each of the five consistency models provides availability and performance tradeoffs and are backed by comprehensive SLAs.
+Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput. 
+
+Azure Cosmos DB approaches data consistency as a spectrum of choices. This approach includes more options than the two extremes of strong and eventual consistency. You can choose from five well-defined models on the consistency spectrum. From strongest to weakest, the models are:
+
+- Strong 
+- Bounded staleness 
+- Session 
+- Consistent prefix 
+- Eventual 
+
+Each model provides availability and performance tradeoffs and is backed by a comprehensive SLA.
 
 ## Consistency levels and latency
 
-- The **read latency** for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile and is backed by the SLA. The average (at the 50th percentile) read latency is typically 2 milliseconds or less.
+- The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This read latency is backed by the SLA. The average read latency, at the 50th percentile, is typically 2 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
 
-- Except for the Cosmos accounts that span several regions and are configured with the strong consistency, the **write latency** for the remaining consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. The average (at the 50th percentile) write latency is usually 5 milliseconds or less.
+-  The write latency for the remaining consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. The average write latency, at the 50th percentile, is usually 5 milliseconds or less.
 
-- For the Cosmos accounts that have several regions configured with strong consistency (currently in preview), the **write latency** is guaranteed to be less than < (2 * Round-trip time/RTT) + 10 milliseconds at the 99th percentile. The RTT between any of the two farthest regions associated with your Cosmos account. The exact RTT latency is a function of speed-of-light-distance and the exact Azure networking topology. Azure Networking doesn't provide any latency SLAs for the RTT between any two Azure regions. Cosmos DB replication latencies are displayed in Azure portal for your Cosmos account, allowing you to monitor the replication latencies between various regions associated with your Cosmos account.
+Some Azure Cosmos accounts might have several regions configured with strong consistency. In this case, the write latency is guaranteed to be less than two times round-trip time (RTT) plus 10 milliseconds at the 99th percentile. The RTT between any of the two farthest regions is associated with your Azure Cosmos account. It's equal to the RTT between any of the two farthest regions associated with your Azure Cosmos account. This option is currently in preview. 
+
+The exact RTT latency is a function of speed-of-light distance and the Azure networking topology. Azure networking doesn't provide any latency SLAs for the RTT between any two Azure regions. For your Azure Cosmos account, replication latencies are displayed in the Azure portal. You can use the Azure portal to monitor the replication latencies between various regions that are associated with your account.
 
 ## Consistency levels and throughput
 
-- For the same number of request units, the session, consistent prefix, and eventual consistency levels provide approximately 2X read throughput when compared with strong and bounded staleness.
+- For the same number of request units, the session, consistent prefix, and eventual consistency levels provide about two times the read throughput when compared with strong and bounded staleness.
 
-- For a given type of write operation such as insert, replace, upsert, delete, etc. the write throughput for request units is identical for all consistency levels.
-
-## Consistency levels and durability
-
-Before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. Moreover, if the container is configured with consistent indexing policy, the index is also synchronously updated, replicated, and durably committed by the quorum of replicas before the acknowledgement of write operation is sent to the client.
-
-The following table summarizes the potential data loss window in the event of a regional disaster for the Cosmos accounts that span several regions.
-
-| **Consistency level** | **Potential data loss window in the event of a regional disaster** |
-| - | - |
-| Strong | Zero |
-| Bounded Staleness | Confined to the “staleness window” you configure on the Cosmos account. |
-| Session | Up to 5 seconds |
-| Consistent Prefix | Up to 5 seconds |
-| Eventual | Up to 5 seconds |
+- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels.
 
 ## Next steps
 
-Next you can learn more about global distribution and general consistency tradeoffs in distributed systems using the following articles:
+Learn more about global distribution and general consistency tradeoffs in distributed systems. See the following articles:
 
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [High availability](high-availability.md)
-* [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

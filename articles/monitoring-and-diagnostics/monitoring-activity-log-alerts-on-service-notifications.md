@@ -65,7 +65,7 @@ For information on how to configure service health notification alerts by using 
 
 1. Define a list of receivers by providing the receiver's:
 
-    a. **Name**: Enter the receiver’s name, alias, or identifier.
+    a. **Name**: Enter the receiver's name, alias, or identifier.
 
     b. **Action Type**: Select SMS, email, webhook, Azure app, and more.
 

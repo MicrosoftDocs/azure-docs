@@ -54,6 +54,6 @@ Your Azure for Students credit expires at the end of 12 months. Once your credit
 
 If you have accidentally canceled your Azure for Students subscription, you can reactivate it by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Once you reactivate, you still have access to the remaining credit and free services for 12 months from your sign-up date.
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

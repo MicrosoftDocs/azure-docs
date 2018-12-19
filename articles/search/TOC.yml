@@ -173,6 +173,8 @@
         href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
       - name: Field mappings
         href: search-indexer-field-mappings.md
+      - name: Troubleshooting common issues
+        href: search-indexer-troubleshooting.md
   - name: Query data
     items:
     - name: Query types & composition
@@ -240,6 +242,8 @@
       href: cognitive-search-skill-language-detection.md
     - name: Named Entity Recognition
       href: cognitive-search-skill-named-entity-recognition.md
+    - name: Enity Recognition
+      href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
       href: cognitive-search-skill-textmerger.md
     - name: Text Split
@@ -252,6 +256,8 @@
       href: cognitive-search-skill-ocr.md
     - name: Shaper
       href: cognitive-search-skill-shaper.md
+    - name: Deprecated Skills
+      href: cognitive-search-skill-deprecated.md
 - name: Resources
   items:
   - name: Azure Community Support

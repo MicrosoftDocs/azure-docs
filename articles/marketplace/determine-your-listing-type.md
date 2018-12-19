@@ -60,26 +60,18 @@ The storefront where your offer will be presented, Azure Marketplace and/or AppS
 
 The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [Go-To-Market benefits](https://partner.microsoft.com/en-US/reach-customers/gtm). Select from three possible publishing options before using the Cloud Partner Portal to create a marketplace offer. Note the calls-to-action that correspond with the publishing option:
 
-**List** – Simple listing of your application or service that enables a marketplace user to request you to connect with the customer via the **Contact Me** call-to-action.
+| **Publishing option**    | **Description**  |
+| :------------------- | :-------------------|
+| **List** | Simple listing of your application or service that enables a marketplace user to request you to connect with the customer via the **Contact Me** call-to-action. |
+| **Trial** | Use marketplace to enhance discoverability and automate provisioning of your application’s trial experience, enabling prospective users to use your SaaS, IaaS, or Microsoft in-app experience at no cost for a limited time before they buy. The calls-to-action used for the trial publishing option are either: **Free Trial** or **Test Drive**. |
+| **Transact** | Your application runs on Azure and can be provisioned as a resource directly into the customer’s Azure subscription when the customer selects the Get it Now call to action. Your software license fees can optionally be purchased and billed via the customer’s choice of payment instrument and terms, and you can choose to offer time-limited access to your **Free Software Trial** (only available for Azure Marketplace.) |
 
-**Trial** – Use marketplace to enhance discoverability and automate provisioning of your application’s trial experience, enabling prospective users to use your SaaS, IaaS, or Microsoft in-app experience at no cost for a limited time before they buy. The calls-to-action used for the trial publishing option are either: **Free Trial** or **Test Drive**.
-
-**Transact** – Your application runs on Azure and can be provisioned as a resource directly into the customer’s Azure subscription when the customer selects the Get it Now call to action. Your software license fees can optionally be purchased and billed via the customer’s choice of payment instrument and terms, and you can choose to offer time-limited access to your **Free Software Trial** (only available for Azure Marketplace.) 
-
-## Select an offer type
-
-Once you decide on a publishing option, you are ready to select the offer type that will be used to present your offer. 
-
-The offer is the publishing object that you will create, publish, and manage in the Cloud Partner Portal. The offer structure including the metadata, artifacts, and other content used to present the offer in the marketplace is defined by the offer type.
-
-Before you can create an offer, you must choose an offer type. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services. 
-
-A single offer type can be configured differently in the Cloud Partner Portal to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements. 
-
-Be sure to review the storefront and offer type eligibility requirements in this [Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and the technical publishing requirements before creating your offer.
+>[!Note]
+>When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## Next Steps
 
+*   Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
 *	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 *	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
 *	Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.

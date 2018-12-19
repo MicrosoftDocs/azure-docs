@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ---
 
@@ -166,6 +166,9 @@ VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with a
 --- | --- | ---
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
+
+> [!NOTE]
+> When replicating Hyper-VMs (managed with/without SCVMM) from on-premises to Azure, you can replicate to only one AD tenant from one specific environment - Hyper-V site or SCVMM as applicable.
 
 
 ## Provider and agent

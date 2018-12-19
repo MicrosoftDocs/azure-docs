@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -20,25 +20,27 @@ Azure Event Grid has three types of authentication:
 
 ## WebHook Event delivery
 
-Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, EventGrid service POSTs an HTTP request to the configured endpoint with the event in the request body.
+Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, Event Grid service POSTs an HTTP request to the configured endpoint with the event in the request body.
 
-Like many other services that support webhooks, EventGrid requires you to prove "ownership" of your Webhook endpoint before it starts delivering events to that endpoint. This requirement is to prevent an unsuspecting endpoint from becoming the target endpoint for event delivery from EventGrid. However, when you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
+Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
 * Azure Logic Apps,
 * Azure Automation,
-* Azure Functions for EventGrid Trigger.
+* Azure Functions for Event Grid Trigger.
 
-If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with EventGrid. EventGrid supports two different validation handshake models:
+If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with Event Grid. Event Grid supports two ways of validating the subscription.
 
-1. **ValidationCode handshake**: At the time of event subscription creation, EventGrid POSTs a "subscription validation event" to your endpoint. The schema of this event is similar to any other EventGridEvent, and the data portion of this event includes a `validationCode` property. Once your application has verified that the validation request is for an expected event subscription, your application code needs to respond by echoing back the validation code to EventGrid. This handshake mechanism is supported in all EventGrid versions.
+1. **ValidationCode handshake (programmatic)**: If you control the source code for your endpoint, this method is recommended. At the time of event subscription creation, Event Grid sends a subscription validation event to your endpoint. The schema of this event is similar to any other Event Grid event. The data portion of this event includes a `validationCode` property. Your application verifies that the validation request is for an expected event subscription, and echoes the validation code to Event Grid. This handshake mechanism is supported in all Event Grid versions.
 
-2. **ValidationURL handshake (Manual handshake)**: In certain cases, you may not have control of the source code of the endpoint to implement the ValidationCode based handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond back with the validation code. Starting with version 2018-05-01-preview, EventGrid now supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, EventGrid sends a `validationUrl` property as part of the data portion of the subscription validation event. To complete the handshake, just do a GET request on that URL, either through a REST client or using your web browser. The provided validation URL is valid only for about 10 minutes. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 10 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
+2. **ValidationURL handshake (manual)**: In certain cases, you can't access the source code of the endpoint to implement the ValidationCode handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond with the validation code.
 
-This mechanism of manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you're using the REST API, make sure you're using `api-version=2018-05-01-preview`.
+   Starting with version 2018-05-01-preview, Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and manually send a GET request to it. You can use either a REST client or your web browser.
+
+   The provided URL is valid for 10 minutes. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 10 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
 
 ### Validation details
 
-* At the time of event subscription creation/update, Event Grid posts a Subscription Validation Event to the target endpoint. 
+* At the time of event subscription creation/update, Event Grid posts a subscription validation event to the target endpoint. 
 * The event contains a header value "aeg-event-type: SubscriptionValidation".
 * The event body has the same schema as other Event Grid events.
 * The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
@@ -75,7 +77,7 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 
 Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
 
-You can find C# Sample that shows how to handle the subscription validation handshake at https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### Checklist
 

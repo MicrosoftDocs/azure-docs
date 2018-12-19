@@ -55,11 +55,13 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-    - name: Migrate Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md
+  - name: Move Azure VMs
+    items:
+    - name: Move Azure VMs to another region
+      href: azure-to-azure-tutorial-migrate.md 
 - name: Concepts
   items:
-  - name: Frequently asked questions (FAQ)
+  - name: Common questions about Site Recovery
     href: site-recovery-faq.md
   - name: About Azure VM disaster recovery to Azure
     items:
@@ -79,6 +81,8 @@
       href: vmware-azure-common-questions.md
     - name: Support matrix
       href: vmware-physical-azure-support-matrix.md
+    - name: Support requirements for configuration server deployment
+      href: vmware-azure-configuration-server-requirements.md
     - name: VMware to Azure architecture
       href: vmware-azure-architecture.md
     - name: Failback location options from Azure to VMware
@@ -133,9 +137,9 @@
       items:
       - name: Prepare networking for Azure VM disaster recovery
         href: azure-to-azure-about-networking.md
-      - name: Prepare network mapping for Azure VM disaster recovery
+      - name: Set up network mapping and retain IP addresses after failover
         href: azure-to-azure-network-mapping.md
-      - name: Set up IP addressing for failover
+      - name: Examples for retaining IP addresses after failover
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrate ExpressRoute with Azure VM disaster recovery
         href: azure-vm-disaster-recovery-with-expressroute.md
@@ -147,14 +151,6 @@
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Reprotect Azure VMs after failover 
         href: azure-to-azure-how-to-reprotect.md
-    - name: Troubleshooting
-      items:
-      - name: Troubleshoot Azure to Azure replication
-        href: azure-to-azure-troubleshoot-errors.md
-      - name: Troubleshoot ongoing replication
-        href: azure-to-azure-troubleshoot-replication.md
-      - name: Troubleshoot Azure Site Recovery extension
-        href: site-recovery-extension-troubleshoot.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
     - name: Manage
@@ -189,7 +185,7 @@
       items:
       - name: Set up the source environment
         href: vmware-azure-set-up-source.md
-      - name: Deploy the configuration server for VMware VMs
+      - name: Deploy the configuration server
         href: vmware-azure-deploy-configuration-server.md
       - name: Set up the target environment 
         href: vmware-azure-set-up-target.md
@@ -389,14 +385,18 @@
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Azure VMs
     items:
-    - name: Troubleshoot Azure to Azure replication
+    - name: Troubleshoot replication errors for Azure VMs
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Troubleshoot ongoing replication for Azure VMs
+      href: azure-to-azure-troubleshoot-replication.md
     - name: Troubleshoot the Mobility service for Azure VMs
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/physical server
     items: 
     - name: Troubleshoot VMware to Azure replication
       href: vmware-azure-troubleshoot-replication.md
+    - name: Troubleshoot the configuration server
+      href: vmware-azure-troubleshoot-configuration-server.md
     - name: Troubleshoot push installation of the Mobility service for VMware VMs/physical servers
       href: vmware-azure-troubleshoot-push-install.md
     - name: Troubleshoot failover to Azure

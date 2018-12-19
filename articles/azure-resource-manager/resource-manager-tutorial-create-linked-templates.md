@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/30/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -209,7 +209,7 @@ For more information, see [Use linked and nested templates when deploying Azure 
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
 ## Clean up resources
 

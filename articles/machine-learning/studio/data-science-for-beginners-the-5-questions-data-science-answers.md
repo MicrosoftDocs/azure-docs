@@ -1,14 +1,14 @@
 ---
-title: The 5 data science questions - Data Science for Beginners - Azure Machine Learning | Microsoft Docs
+title: The 5 data science questions - Data Science for Beginners - Azure Machine Learning Studio | Microsoft Docs
 description: Data Science for Beginners is teaches basic concepts in 5 short videos, starting with The 5 Questions Data Science Answers. From Azure Machine Learning.
 keywords: doing data science,data science beginners,data science for beginners,data science basics,data science questions,data science video,data science introduction
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
-
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
 ms.component: studio
@@ -17,7 +17,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-
 ---
 # Data Science for Beginners video 1: The 5 questions data science answers
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos from a top data scientist. These videos are basic but useful, whether you're interested in doing data science or you work with data scientists.

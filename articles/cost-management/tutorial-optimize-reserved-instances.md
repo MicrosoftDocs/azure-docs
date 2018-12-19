@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom:
-manager: dougeby
+manager: benshy
 ---
 
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage

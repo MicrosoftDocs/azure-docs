@@ -9,6 +9,8 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
+ms.custom: seodec18
+
 ---
 # Collect data for models in production
 
@@ -43,7 +45,7 @@ The path to the output data in the blob follows this syntax:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 - An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
@@ -129,7 +131,7 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-    [![Edit Service](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![Edit option](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
@@ -165,7 +167,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data through Power BI
 
-1. Download and Open [PowerBi Desktop](http://www.powerbi.com)
+1. Download and Open [PowerBi Desktop](https://www.powerbi.com)
 
 1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
@@ -224,8 +226,6 @@ To quickly access the data from your blob:
 
 ## Example notebook
 
-The [00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) notebook demonstrates concepts in this article.  
+The [how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) notebook demonstrates concepts in this article.  
 
-Get this notebook:
- 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

@@ -1,13 +1,11 @@
 ---
-title: Server-side JavaScript programming for Azure Cosmos DB | Microsoft Docs
+title: Server-side JavaScript programming for Azure Cosmos DB
 description: Learn how to use Azure Cosmos DB to write stored procedures, database triggers, and user defined functions (UDFs) in JavaScript. Get database programing tips and more.
 keywords: Database triggers, stored procedure, stored procedure, database program, sproc, azure, Microsoft azure
 services: cosmos-db
 author: aliuy
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
@@ -729,7 +727,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-And the following example shows how to create a user-defined function (UDF) and use it in a [SQL query](sql-api-sql-query.md).
+And the following example shows how to create a user-defined function (UDF) and use it in a [SQL query](how-to-sql-query.md).
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()

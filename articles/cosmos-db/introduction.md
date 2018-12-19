@@ -1,12 +1,10 @@
 ---
-title: Introduction to Azure Cosmos DB | Microsoft Docs
+title: Introduction to Azure Cosmos DB
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
@@ -46,7 +44,7 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
 
 * **Build highly responsive and mission-critical applications**
     * Azure Cosmos DB guarantees end-to-end low latency at the 99th percentile to its customers. 
-    * For a typical 1KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
+    * For a typical 1KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 10 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
 * **Ensure "always on" availability**
     * 99.99% availability SLA for all single region database accounts, and all 99.999% read availability on all multi-region database accounts.
@@ -75,9 +73,9 @@ Azure Cosmos DB provides the best capabilities of traditional relational and non
 | --- | --- | --- | --- |
 | Global distribution | No | No | Yes, turnkey distribution in 30+ regions, with multi-homing APIs|
 | Horizontal scale | No | Yes | Yes, you can independently scale storage and throughput | 
-| Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <15 ms | 
+| Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <10 ms | 
 | High availability | No | Yes | Yes, Azure Cosmos DB is always on, has well-defined PACELC tradeoffs, and offers automatic and manual failover options|
-| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
+| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API |
 | SLAs | Yes | No | Yes, comprehensive SLAs for latency, throughput, consistency, availability |
 
 ## Solutions that benefit from Azure Cosmos DB

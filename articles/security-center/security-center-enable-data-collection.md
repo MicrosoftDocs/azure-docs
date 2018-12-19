@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/2/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
 
 ---
@@ -44,7 +44,7 @@ When automatic provisioning is On, Security Center provisions the Microsoft Moni
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 1. Under the Security Center main menu, select **Security policy**.
-2. Select the subscription.
+2. Click **Edit settings** in the Settings column of the desired subscription in the list.
 
   ![Select subscription][7]
 
@@ -78,7 +78,7 @@ To select a workspace created by Security Center:
 2. Click **Save**.<br>
 	Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
 **Workspace: DefaultWorkspace-[subscription-ID]-[geo]<br>
-Resource Group: DefaultResouceGroup-[geo]**
+Resource Group: DefaultResourceGroup-[geo]**
 
    If a subscription contains VMs from multiple geolocations, then Security Center creates multiple workspaces. Multiple workspaces are created to maintain data privacy rules.
 -	Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
@@ -132,7 +132,7 @@ To select an existing Log Analytics workspace:
 
     a.  In the Security Center main menu, select **Security policy**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
+    b.	Select the desired Workspace in which you intend to connect the agent by clicking **Edit settings** in the Settings column of the desired subscription in the list.
         ![Select workspace][8]
     c. Set the pricing tier.
         ![Select pricing tier][9] 

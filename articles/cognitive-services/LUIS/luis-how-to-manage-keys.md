@@ -27,8 +27,10 @@ After you create a LUIS resource in the Azure portal, assign the resource to the
 <a name="authoring-key"></a>
 <a name="create-and-use-an-endpoint-key"></a>
 <a name="assign-endpoint-key"></a>
+<a name="assign-resource"></a>
 
-## Assign resource
+
+## Assign resource in LUIS Portal
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating an endpoint key using Azure](luis-how-to-azure-subscription.md).
  
@@ -55,12 +57,12 @@ After you create a LUIS resource in the Azure portal, assign the resource to the
 <a name="publishing-to-europe"></a>
 <a name="publishing-to-australia"></a>
 
-## Unassign resource
+### Unassign resource
 When you unassign the endpoint key, it is not deleted from Azure. It is only unlinked from LUIS. 
 
 When an endpoint key is unassigned, or not assigned to the app, any request to the endpoint URL returns an error: `401 This application cannot be accessed with the current subscription`. 
 
-## Include all predicted intent scores
+### Include all predicted intent scores
 The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
 
 This setting allows your chatbot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chatbot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
@@ -88,7 +90,7 @@ The intents and their scores are also included the endpoint logs. You can [expor
 }
 ```
 
-## Enable Bing spell checker 
+### Enable Bing spell checker 
 In the **Endpoint url settings**, the **Bing spell checker** toggle allows LUIS to correct misspelled words before prediction. Create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
 Add the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** . Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
@@ -106,9 +108,42 @@ Add the **spellCheck=true** querystring parameter and the **bing-spell-check-sub
 ```
 
 
-## Publishing regions
+### Publishing regions
 
 Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). Publishing regions are different from authoring regions. Create an app in the authoring region corresponding to the publishing region you want for the query endpoint.
+
+## Assign resource without LUIS portal
+
+For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS resource to a LUIS app. In order to that, you need to perform the following steps:
+
+1. Get an Azure Resource Manager token from this [website](https://resources.azure.com/api/token?plaintext=true). This token does expire so use it immediately. The request returns an Azure Resource Manager token.
+
+    ![Request  Azure Resource Manager token and receive  Azure Resource Manager token](./media/luis-manage-keys/get-arm-token.png)
+
+1. Use the token to request the LUIS resources across subscriptions, from the [Get LUIS azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), your user account has access to. 
+
+    This POST API requires the following settings:
+
+    |Header|Value|
+    |--|--|
+    |`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.| 
+    |`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+
+    This API returns an array of JSON objects of your LUIS subscriptions including subscription ID, resource group, and resource name, returned as account name. Find the one item in the array that is the LUIS resource to assign to the LUIS app. 
+
+1. Assign the token to the LUIS resource with the [Assign a LUIS azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API. 
+
+    This POST API requires the following settings:
+
+    |Type|Setting|Value|
+    |--|--|--|
+    |Header|`Authorization`|The value of `Authorization` is `Bearer {token}`. Notice that the token value must be preceded by the word `Bearer` and a space.|
+    |Header|`Ocp-Apim-Subscription-Key`|Your [authoring key](luis-how-to-account-settings.md).|
+    |Header|`Content-type`|`application/json`|
+    |Querystring|`appid`|The LUIS app ID. 
+    |Body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+
+    When this API is successful, it returns a 201 - created status. 
 
 ## Next steps
 

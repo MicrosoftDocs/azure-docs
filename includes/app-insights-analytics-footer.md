@@ -1,3 +1,10 @@
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+---
 
 ## Analytics
 * [Overview](../articles/application-insights/app-insights-analytics.md)

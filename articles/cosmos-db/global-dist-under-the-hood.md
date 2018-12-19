@@ -69,7 +69,7 @@ For the Cosmos databases configured with multiple write regions, the system offe
 
 Whether you configure your Cosmos database with a single or multiple write regions, you can choose from five well-defined consistency models. With the newly added support for enabling multiple write regions, the following are a few notable aspects of the consistency levels:  
 
-As before, the bounded staleness consistency guarantees that all reads will be within k prefixes or t seconds from the latest write in any of the regions. Furthermore, reads with bounded staleness consistency are guaranteed to be monotonic and with consistent-prefix guarantees. The anti-entropy protocol operates in a rate-limited manner and ensures that the prefixes do not accumulate and the backpressure on the writes does not have to be applied. As before, session consistency guarantees monotonic read, monotonic write, read your own writes, write-follows-read, and consistent-prefix guarantees worldwide. For the databases configured with strong consistency, the system switches back to a single write region by designating a leader within each of the partition-sets. 
+As before, the bounded staleness consistency guarantees that all reads will be within k prefixes or t seconds from the latest write in any of the regions. Furthermore, reads with bounded staleness consistency are guaranteed to be monotonic and with consistent-prefix guarantees. The anti-entropy protocol operates in a rate-limited manner and ensures that the prefixes do not accumulate and the backpressure on the writes does not have to be applied. As before, session consistency guarantees monotonic read, monotonic write, read your own writes, write-follows-read, and consistent-prefix guarantees worldwide. For the databases configured with strong consistency, the benefits of multi-mastering (low write latency, high write availability) does not apply because of synchronous replication across regions.
 
 The semantics of the five consistency models in Cosmos DB are described [here](consistency-levels.md) and mathematically shown using a high-level TLA+ specifications [here](https://github.com/Azure/azure-cosmos-tla).
 
@@ -78,5 +78,5 @@ The semantics of the five consistency models in Cosmos DB are described [here](c
 Next learn how to configure global distribution by using the following articles:
 
 * [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [How to add/remove regions from your database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

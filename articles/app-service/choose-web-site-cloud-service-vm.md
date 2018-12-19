@@ -172,7 +172,7 @@ To get started with the chosen options for your application, see the following r
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+[WebJobs]: https://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps
 [scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites

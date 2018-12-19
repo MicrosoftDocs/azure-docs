@@ -5,11 +5,11 @@ metadata:
   title: Azure Dev Spaces | Microsoft Docs
   meta.description: Rapid Kubernetes development with containers and microservices on Azure.
   services: azure-dev-spaces
-  author: iainfoulds
+  author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
   ms.date: 08/23/2018
-  ms.author: iainfou
+  ms.author: zarhoads
 sections:
 - title: A rapid, iterative Kubernetes development experience for teams
   items:

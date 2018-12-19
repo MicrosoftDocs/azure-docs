@@ -1,4 +1,3 @@
-
 ---
 title: Bing Local Business Search API v7 Reference | Microsoft Docs
 description: Describes the programming elements of the Bing Local Business Search API.

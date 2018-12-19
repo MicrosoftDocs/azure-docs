@@ -1,6 +1,6 @@
 ---
-title: Use Hadoop Hive on the Query Console in HDInsight - Azure 
-description: Learn how to use the web-based Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
+title: Use Apache Hive on the Query Console in HDInsight - Azure 
+description: Learn how to use the web-based Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -12,10 +12,10 @@ ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Run Hive queries using the Query Console
+# Run Apache Hive queries using the Query Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
+In this article, you will learn how to use the HDInsight Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 
 > [!IMPORTANT]
 > The HDInsight Query Console is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -83,15 +83,15 @@ If you are using Tez with Hive, see the following documents for debugging inform
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -107,7 +107,7 @@ If you are using Tez with Hive, see the following documents for debugging inform
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

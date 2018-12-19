@@ -44,7 +44,7 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
 	![Create custom image pane](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep run when a VM is created from this custom image.
+1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep to be run on the VM when the custom image is created.
 
 1. Select **OK** when finished to create the custom image.
 

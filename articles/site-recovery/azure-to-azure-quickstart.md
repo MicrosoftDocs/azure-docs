@@ -48,10 +48,10 @@ After the replication job has finished, you can check the replication status, mo
 
 The VM in the primary region stops replicating when you disable replication for it:
 
-- The source replication settings are cleaned up automatically.
+- The source replication settings are cleaned up automatically. Please note that the Site Recovery extension that is installed as part of the replication isnt removed and needs to be removed manually. 
 - Site Recovery billing for the VM also stops.
 
-Stop replication as follows:
+Stop replication as follows
 
 1. Select the VM.
 2. In **Disaster recovery**, click **Disable Replication**.

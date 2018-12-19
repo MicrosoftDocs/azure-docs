@@ -3,7 +3,7 @@ title: Create and manage elastic jobs using PowerShell | Microsoft Docs
 description: PowerShell used to manage Azure SQL Database pools
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: pwershell
 ms.topic: conceptual
@@ -28,7 +28,7 @@ The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a
 * **Elastic Database jobs** PowerShell package: See [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md)
 
 ### Select your Azure subscription
-To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). If you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the result set. Once you have your subscription information, run the following commandlet to set this subscription as the default, namely the target for creating and managing jobs:
+To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). If you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the result set. Once you have your subscription information, run the following cmdlet to set this subscription as the default, namely the target for creating and managing jobs:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 

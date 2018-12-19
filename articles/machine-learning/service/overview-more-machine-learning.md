@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # What are the machine learning product options from Microsoft?
@@ -18,22 +18,22 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 
 | Machine learning product | What it is | What you can do with it |
 |-|-|-|
-| In the cloud | | |
+| ***In the cloud*** | | |
 | [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag-and-drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms |
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
-| On-premises | | |
+| ***On-premises***<br>*(on-premises servers also may be run in a virtual machine in the cloud)* | | |
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
-| Developer tools | | |
+| ***Developer tools*** | | |
 | [ML.NET](#mlnet) | Open-source, cross-platform ML SDK | Develop ML solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 ML platform | Evaluate trained models on a Windows 10 device |
 
 ## Azure Machine Learning service
 
-[Azure Machine Learning service](overview-what-is-azure-ml.md) (preview) is a fully managed cloud service used to train, deploy, and manage ML models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+[Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service used to train, deploy, and manage ML models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
 Use Azure Machine Learning service to train, deploy, and manage ML models using Python and CLI at cloud scale.
 
@@ -70,9 +70,10 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 ## Azure Data Science Virtual Machine
 
 The [Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md) is a customized virtual machine environment on the Microsoft Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
-The Data Science Virtual Machine is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning service is not supported on Linux CentOS).
-For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
+
 The Data Science Virtual Machine is supported as a target for Azure Machine Learning service.
+It is available in versions for both Windows and Linux Ubuntu (Azure Machine Learning service is not supported on Linux CentOS).
+For specific version information and a list of what’s included, see [Introduction to the Azure Data Science Virtual Machine](../data-science-virtual-machine/overview.md).
 
 Use the Data Science VM when you need to run or host your jobs on a single node. Or if you need to remotely scale up your processing on a single machine.
 

@@ -220,7 +220,7 @@ We will now verify that the users that we had in our on-premises directory have 
 
 ## Test signing in with one of our users
 
-1.  Browse to [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Browse to [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.</br>
 ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 

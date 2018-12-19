@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
 # Tune hyperparameters for your model
@@ -31,8 +31,6 @@ In deep learning / machine learning scenarios, model performance depends heavily
 
 Azure Machine Learning allows you to automate hyperparameter exploration in an efficient manner, saving you significant time and resources. You specify the range of hyperparameter values and a maximum number of training runs. The system then automatically launches multiple simultaneous runs with different parameter configurations and finds the configuration that results in the best performance, measured by the metric you choose. Poorly performing training runs are automatically early terminated, reducing wastage of compute resources. These resources are instead used to explore other hyperparameter configurations.
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.168 
 
 ## Define search space
 
@@ -306,7 +304,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 The Azure Machine Learning SDK provides a Notebook widget that visualizes the progress of your training runs. The following snippet visualizes all your hyperparameter tuning runs in one place in a Jupyter notebook:
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -343,10 +341,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## Sample notebook
-Refer to 
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) for a tutorial on tuning hyperparameters for a Tensorflow model. 
-
-Get this notebook:
+Refer to these notebooks:
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

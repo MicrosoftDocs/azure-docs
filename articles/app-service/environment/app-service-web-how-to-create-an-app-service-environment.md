@@ -82,8 +82,8 @@ To get started with App Service Environment v1, see [Introduction to the App Ser
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

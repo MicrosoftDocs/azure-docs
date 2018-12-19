@@ -114,6 +114,10 @@ The following table shows the gateway types and the estimated aggregate throughp
 *Note (2)* - Max tunnels is the total per Azure Stack deployment for ALL subscriptions.  
 *Note (3)* - BGP routing isn't supported for the Basic SKU.
 
+>[!NOTE]
+>Only one Site-to-Site VPN Connection can be created between two Azure Stack deployments.  This is due to a limitation in the platform that will only allow a single VPN connection to the same IP address.  Since Azure Stack leverages the multi-tenant gateway which uses a single Public IP for all VPN Gateways in the Azure Stack system, there can be only one VPN Connection between two Azure Stack systems.  This limitation also applies to connecting more than one Site-to-Site VPN connections to any VPN Gateway that uses a single IP address.  Azure Stack will not allow more than one Local Network Gateway resource to be created using the same IP address.
+
+
 ## Next steps
 
 [VPN gateway configuration settings for Azure Stack](azure-stack-vpn-gateway-settings.md)

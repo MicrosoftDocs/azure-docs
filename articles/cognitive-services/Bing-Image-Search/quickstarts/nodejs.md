@@ -28,6 +28,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 * The [JavaScript Request Library](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 ## Create and initialize the application
 
 1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.

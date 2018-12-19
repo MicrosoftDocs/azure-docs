@@ -64,7 +64,7 @@ These steps are shown in the Azure App Service repository as [an example](https:
     	&& echo "root:Docker!" | chpasswd
     ```
 
-1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > The *sshd_config* file must include the following or the connection fails: 

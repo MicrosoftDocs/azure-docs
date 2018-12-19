@@ -2,21 +2,15 @@
 title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution technical guide | Microsoft Docs
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
-documentationcenter: ''
-author: fboylu
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: fboylu
-
+ms.author: tdsp
+ms.custom: "(previous author=fboylu, ms.author=fboylu)"
 ---
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 
@@ -411,7 +405,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      right side of the screen.
 3. Once you have the data flowing into Power BI, you can start visualizing the streaming data. Below is an example dashboard with some hot path visualizations pinned to it. You can create other dashboard tiles based on appropriate datasets. Depending on how long you run your data generator, your numbers on the visualizations may be different.
 
-    ![Dashboard view](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Dashboard view](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Here are some steps to create one of the tiles above –  the "Fleet View of Sensor 11 vs. Threshold 48.26" tile:
    

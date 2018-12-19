@@ -105,6 +105,8 @@
   items:
   - name: Tagging images
     href: concept-tagging-images.md
+  - name: Detecting objects
+    href: concept-object-detection.md
   - name: Categorizing images
     href: concept-categorizing-images.md
   - name: Describing images
@@ -139,6 +141,12 @@
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      href: computer-vision-how-to-install-containers.md
+    - name: Configure containers
+      href: computer-vision-resource-container-config.md
   - name: Use the Computer Vision Connected Service
     href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
@@ -177,11 +185,11 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+  - name: Category taxonomy
+    href: Category-Taxonomy.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Category taxonomy
-    href: Category-Taxonomy.md
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services

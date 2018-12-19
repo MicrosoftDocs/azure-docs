@@ -12,22 +12,22 @@ ms.component: files
 ---
 
 # Create a file share in Azure Files
-You can create Azure File shares using [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. In this tutorial, you will learn:
+You can create Azure File shares using the [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. In this tutorial, you will learn:
 * [How to create an Azure file share using the Azure portal](#create-file-share-through-the-azure-portal)
 * [How to create an Azure file share using Powershell](#create-file-share-through-powershell)
-* [How to create an Azure file share using CLI](#create-file-share-through-command-line-interface-cli)
+* [How to create an Azure file share using the CLI](#create-file-share-through-command-line-interface-cli)
 
 ## Prerequisites
-To create an Azure file share, you can use a Storage Account that already exists, or [create a new Azure Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). To create an Azure file share with PowerShell, you will need the account key and name of your storage account. You will need Storage account key if you plan to use Powershell or CLI.
+To create an Azure file share, you can use a Storage Account that already exists, or [create a new Azure Storage Account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). To create an Azure file share with PowerShell, you will need the account key and name of your storage account. You will need a Storage account key if you plan to use Powershell or the CLI.
 
-## Create file share through the Azure portal
-1. **Go to Storage Account blade on Azure portal**:    
+## Create a file share through the Azure portal
+1. **Go to the Storage Account blade on the Azure portal**:    
     ![Storage Account blade](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Click on add File Share button**:    
     ![Click the add file share button](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Provide Name and Quota. Quota currently can be maximum 5 TiB**:    
+3. **Provide Name and Quota. The Quota's current maximum value is 5 TiB**:    
     ![Provide a name and a desired quota for the new file share](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **View your new file share**:
@@ -63,7 +63,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 > The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ## Create file share through Command Line Interface (CLI)
-1. **To prepare to use a Command Line Interface (CLI), download and install the Azure CLI.**  
+1. **To prepare to use the Command Line Interface (CLI), download and install the Azure CLI.**  
     See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Create a connection string to the storage account where you want to create the share.**  
@@ -77,7 +77,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
     fi
     ```
 
-3. **Create file share**
+3. **Create the file share**
     ```azurecli
     az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
     ```

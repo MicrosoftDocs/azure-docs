@@ -123,6 +123,9 @@ The following settings are configured on the **Advanced settings** blade.
 #### Access Ports
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
+> [!NOTE]
+> SSL access to Redis Cache supports TLS 1.0 by default. The minimum supported TLS version can be raised up to TLS 1.2 if desired by using the **Minimum TLS version** dropdown on the **Advanced settings** blade and then click **Save**.
+
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
@@ -226,7 +229,7 @@ For more information, see [How to configure persistence for a Premium Azure Redi
 
 
 > [!IMPORTANT]
-> Redis data persistence is only available for Premium caches. 
+> Redis data persistence is only available for Premium caches.
 > 
 > 
 
@@ -240,7 +243,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 ![Schedule updates](./media/cache-configure/redis-schedule-updates.png)
 
-To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
+To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. The maintenance window time is in UTC.
 
 > [!IMPORTANT]
 > The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Schedule updates](cache-administration.md#schedule-updates).
@@ -350,7 +353,7 @@ Click **Alert rules** to configure alerts based on Redis Cache metrics. For more
 
 ### Diagnostics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../monitoring/monitoring-data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
@@ -482,7 +485,7 @@ To access the Redis Console, click **Console** from the **Redis Cache** blade.
 
 ![Redis console](./media/cache-configure/redis-console-menu.png)
 
-To issue commands against your cache instance, simply type the desired command into the console.
+To issue commands against your cache instance, type the desired command into the console.
 
 ![Redis console](./media/cache-configure/redis-console.png)
 

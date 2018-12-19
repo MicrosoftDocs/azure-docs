@@ -98,6 +98,6 @@ To publish an HDInsight application:
 * Learn how to [install HDInsight applications](hdinsight-apps-install-applications.md) in your clusters.
 * Learn how to [install custom HDInsight applications](hdinsight-apps-install-custom-applications.md) and deploy an unpublished HDInsight application to HDInsight.
 * Learn how to [use Script Action to customize Linux-based HDInsight clusters](hdinsight-hadoop-customize-cluster-linux.md) and add more applications. 
-* Learn how to [create Linux-based Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Learn how to [create Linux-based Apache Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Learn how to [use an empty edge node in HDInsight](hdinsight-apps-use-edge-node.md) to access HDInsight clusters, test HDInsight applications, and host HDInsight applications.
 

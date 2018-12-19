@@ -30,16 +30,17 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 **To add the Owner role to the Azure AD application**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left menu, select **Resource Group**.
+2. In the left menu, select **Resource groups**.
 3. Select the resource group that has the HDInsight cluster on which you will run your Hive query later in this tutorial. If you have a large number of resource groups, you can use the filter to find the one you want.
 4. On the resource group menu, select **Access control (IAM)**.
-5. Under **Users**, select **Add**.
-6. Follow the instructions to add the Owner role to your Azure AD application. After you successfully add the role, the application is listed under **Users**, with the Owner role. 
+5. Select the **Role assignments** tab to see the current role assignments.
+6. At the top of the page, select **Add role assignment**.
+7. Follow the instructions to add the Owner role to your Azure AD application. After you successfully add the role, the application is listed under the Owner role. 
 
 ## Develop an HDInsight client application
 
 1. Create a C# console application.
-2. Add the following NuGet packages:
+2. Add the following [NuGet](https://www.nuget.org/) packages:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre

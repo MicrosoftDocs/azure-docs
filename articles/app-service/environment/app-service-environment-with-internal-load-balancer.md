@@ -98,7 +98,7 @@ If you want to try the flow with your own certificates and test both HTTP and HT
 4. Create a web app in ASE after creation. 
 5. Create a VM if you don't have one in that VNET (Not in the same subnet as the ASE or things break).
 6. Set DNS for your subdomain. You can use a wildcard with your subdomain in your DNS or if you want to do some simple tests, edit the hosts file on your VM to set web app name to VIP IP address. If your ASE had the subdomain name .ilbase.com and you made the web app mytestapp so that it would be addressed at mytestapp.ilbase.com, set that in your hosts file. (On Windows, the hosts file is at C:\Windows\System32\drivers\etc\)
-7. Use a browser on that VM and go to http://mytestapp.ilbase.com (or whatever your web app name is with your subdomain).
+7. Use a browser on that VM and go to https://mytestapp.ilbase.com (or whatever your web app name is with your subdomain).
 8. Use a browser on that VM and go to https://mytestapp.ilbase.com. You must accept the lack of security if using a self-signed certificate. 
 
 The IP address for your ILB is listed in your Properties as the Virtual IP Address.
@@ -147,8 +147,8 @@ To get started with App Service Environments, see [Introduction to App Service E
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ---
 # Data Sync Agent for Azure SQL Data Sync
 
@@ -25,8 +25,14 @@ To download the Data Sync Agent, go to [SQL Azure Data Sync Agent](https://www.m
 
 To install the Data Sync Agent silently from the command prompt, enter a command similar to the following example. Check the file name of the downloaded .msi file, and provide your own values for the **TARGETDIR** and **SERVICEACCOUNT** arguments.
 
+- If you don't provide a value for **TARGETDIR**, the default value is `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
+
+- If you provide `LocalSystem` as the value of **SERVICEACCOUNT**, use SQL Server authentication when you configure the agent to connect to the on-premises SQL Server.
+
+- If you provide a domain user account or a local user account as the value of **SERVICEACCOUNT**, you also have to provide the password with the **SERVICEPASSWORD** argument. For example, `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## Sync data with SQL Server on-premises
@@ -85,10 +91,10 @@ If you want to run the local agent from a different computer than it is currentl
 
 - **Cause**. Many scenarios might cause this failure. To determine the specific cause for this failure, look at the logs.
 
-- **Resolution**. To find the specific cause of the failure, generate and look at the Windows Installer logs. You can turn on logging at a command prompt. For example, if the downloaded AgentServiceSetup.msi file is LocalAgentHost.msi, generate and examine log files by using the following command lines:
+- **Resolution**. To find the specific cause of the failure, generate and look at the Windows Installer logs. You can turn on logging at a command prompt. For example, if the downloaded installation file is `SQLDataSyncAgent-2.0-x86-ENU.msi`, generate and examine log files by using the following command lines:
 
-    -   For installs: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   For installs: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   For uninstalls: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     You can also turn on logging for all installations that are performed by Windows Installer. The Microsoft Knowledge Base article [How to enable Windows Installer logging](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of the logs.
 
@@ -270,6 +276,8 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 ### Unregister a database
 
+When you use this command to unregister a database, it deprovisions the database completely. If the database participates in other sync groups, this operation breaks the other sync groups.
+
 #### Usage
 
 ```cmd
@@ -302,6 +310,15 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 For more info about SQL Data Sync, see the following articles:
 
-- [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
-
-- [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md)
+-   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Set up Data Sync
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - With PowerShell
+        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Update the sync schema
+    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)

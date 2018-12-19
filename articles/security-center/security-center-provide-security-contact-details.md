@@ -3,7 +3,7 @@ title: Provide security contact details in Azure Security Center | Microsoft Doc
 description: This document shows you how to provide security contact details in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Provide security contact details in Azure Security Center
@@ -44,7 +44,7 @@ An email notification is sent on the first daily occurrence of an alert and only
 ## See also
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.

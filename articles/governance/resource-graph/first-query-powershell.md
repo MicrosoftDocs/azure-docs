@@ -4,7 +4,7 @@ description: This article walks you through the steps to enable the Resource Gra
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
@@ -37,9 +37,6 @@ The Azure Resource Graph module requires the following software:
   - For PowerShell Core, use the **Az** version of the Azure PowerShell module.
 
   - For Windows PowerShell, use the **AzureRm** version of the Azure PowerShell module.
-
-  > [!NOTE]
-  > It is currently not recommended to install the module in Cloud Shell.
 
 - PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
 

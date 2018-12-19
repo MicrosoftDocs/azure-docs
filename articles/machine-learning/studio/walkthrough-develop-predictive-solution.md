@@ -1,12 +1,12 @@
 ---
-title: A predictive solution for credit risk with Machine Learning | Microsoft Docs
+title: Predictive solution for credit risk - Azure Machine Learning Studio | Microsoft Docs
 description: A detailed walkthrough showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio.
 keywords: credit risk, predictive analytics solution,risk assessment
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,9 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-
 ---
-# Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning
+# Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio
 
 In this walkthrough, we take an extended look at the process of developing a predictive analytics solution in Machine Learning Studio. We develop a simple model in Machine Learning Studio, and then deploy it as an Azure Machine Learning web service where the model can make predictions using new data. 
 

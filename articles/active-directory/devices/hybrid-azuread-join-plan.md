@@ -126,9 +126,9 @@ You can configure hybrid Azure AD join for the following scenarios:
 
 If your environment has managed domains, hybrid Azure AD join supports:
 
-- Pass Through Authentication (PTA) with Seamless Single Sign On (SSO) 
+- Pass Through Authentication (PTA)
 
-- Password Hash Sync (PHS) with Seamless Single Sign On (SSO) 
+- Password Hash Sync (PHS)
 
 Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. For more information, see:
 

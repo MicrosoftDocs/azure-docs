@@ -4,14 +4,13 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ---
 
 # Dependency visualization
 
 The [Azure Migrate](migrate-overview.md) services assesses groups of on-premises machines for migration to Azure. You can use the dependency visualization functionality in Azure Migrate to create groups. This article provides information about this feature.
-
 
 ## Overview
 
@@ -26,8 +25,14 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
 
     ![Associate Log Analytics workspace](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-- The associated workspace is tagged with the key **Migration Project**, and value **project name**, which you can use to search in the Azure portal.
+- While associating a workspace, you will get the option to create a new workspace or attach an existing one:
+      - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
+      - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
+
+  > [!NOTE]
+  > Once you have attached a workspace to a project, you cannot change it later.
+
+- The associated workspace is tagged with the key **Migration Project**, and value **Project name**, which you can use to search in the Azure portal.
 - To navigate to the workspace associated with the project, you can go to **Essentials** section of the project **Overview** page and access the workspace
 
     ![Navigate Log Analytics workspace](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -58,7 +63,7 @@ Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricin
 
 ## How do I manage the workspace?
 
-You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../log-analytics/log-analytics-manage-access.md) manually.
+You can use the Log Analytics workspace outside Azure Migrate. It's not deleted if you delete the migration project in which it was created. If you no longer need the workspace, [delete it](../azure-monitor/platform/manage-access.md) manually.
 
 Don't delete the workspace created by Azure Migrate, unless you delete the migration project. If you do, the dependency visualization functionality will not work as expected.
 

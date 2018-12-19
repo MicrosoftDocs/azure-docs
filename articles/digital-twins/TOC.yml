@@ -52,6 +52,10 @@
     href: how-to-user-defined-functions.md
   - name: How to route events and messages via endpoints
     href: how-to-egress-endpoints.md
+  - name: How to configure Postman
+    href: how-to-configure-postman.md
+  - name: How to add blobs to objects
+    href: how-to-add-blobs.md
   - name: How to use Digital Twins Swagger
     href: how-to-use-swagger.md
   - name: How to debug user-defined functions

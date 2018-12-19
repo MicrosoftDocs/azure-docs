@@ -16,19 +16,19 @@ ms.reviewer:
 ---
 # Azure Active Directory Premium P2 licensing feature checklist
 
-It can seem daunting to deploy Azure Active Directory (Azure AD) for your organization and keep it secure. This article identifies some common tasks that customers find helpful to complete over the course of 30 days, 90 days, or beyond to enhance their security posture. Even organizations who have already deployed Azure AD can use this checklist to ensure they are getting the most out of their investment.
+It can seem overwhelming to deploy Azure Active Directory (Azure AD) for your organization and keep it secure. This article identifies some common tasks that customers find helpful. Customers typically complete these tasks over the course of 30 days, 90 days, or beyond to enhance their security posture. Even organizations who have already deployed Azure AD can use this checklist to make sure they're getting the most out of their investment.
 
 A well-planned and executed identity infrastructure paves the way for more secure access to your productivity workloads and data only by authenticated users and devices.
 
 ## Prerequisites
 
-This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + Security E5, Microsoft 365 E5, or an equivalent license bundle.
+This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + Security E5, Microsoft 365 E5, or a similar license bundle.
 
 [Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## Plan and deploy: Day 1-30
 
@@ -68,7 +68,7 @@ This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + 
    - [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md)
    - [Grant B2B users in Azure AD access to your on-premises applications](../b2b/hybrid-cloud-to-on-premises.md)
 - Make decisions about user lifecycle management strategy
-- [Decide on device managment strategy](../devices/overview.md)
+- [Decide on device management strategy](../devices/overview.md)
    - [Usage scenarios and deployment considerations for Azure AD Join](../devices/azureadjoin-plan.md)
 - [Manage Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 

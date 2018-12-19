@@ -12,9 +12,9 @@ ms.date: 09/24/2018
 
 # Azure Data Explorer data ingestion
 
-Data ingestion is the process used to load data records from one or more sources to create or update a table in Azure Data Explorer. Once ingested, the data becomes available for query. The diagram below shows the end-to-end flow for working in Azure Data Explorer, including data ingestion **(2)**.
+Data ingestion is the process used to load data records from one or more sources to create or update a table in Azure Data Explorer. Once ingested, the data becomes available for query. The diagram below shows the end-to-end flow for working in Azure Data Explorer, including data ingestion.
 
-![Overall data flow](media/ingest-data-overview/overall-data-flow.png)
+![Data flow](media/ingest-data-overview/data-flow.png)
 
 The Azure Data Explorer data management service, which is responsible for data ingestion, provides the following functionality:
 
@@ -30,16 +30,16 @@ The Azure Data Explorer data management service, which is responsible for data i
 
 1. **Commit the data ingest**: Makes the data available for query.
 
-> [!NOTE]
-> The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
-
 ## Ingestion methods
 
-Azure Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Azure Data Explorer offers connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
+Azure Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Azure Data Explorer offers pipelines and connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
 
-### Ingestion using connectors
+### Ingestion using pipelines
 
-Azure Data Explorer currently supports the Event Hub connector, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
+Azure Data Explorer currently supports the Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
+
+### Ingestion using connectors and plugins
+Azure Data Explorer currently supports the Logstash plugin. For more information, see [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
 
 ### Programmatic ingestion
 
@@ -49,21 +49,21 @@ Azure Data Explorer provides SDKs that can be used for query and data ingestion.
 
 Kusto offers client SDK that can be used to ingest and query data with :
 
-* [Python SDK](https://docs.microsoft.com/azure/kusto/api/python/kusto-python-client-library)
+* [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
-* [.NET SDK](https://docs.microsoft.com/azure/kusto/api/netfx/about-the-sdk)
+* [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
-* [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+* [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [Node SDK]
+* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatic ingestion techniques**:
 
-* Ingesting data through the Azure Data Explorer data management service (high-throughput and reliable ingestion)
+* Ingesting data through the Azure Data Explorer data management service (high-throughput and reliable ingestion):
 
-  * [**Batch ingestion**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable and cheap data ingestion.
+  * [**Batch ingestion**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable and cheap data ingestion.
 
 * Ingesting data directly into the Azure Data Explorer engine (most appropriate for exploration and prototyping):
 
@@ -113,16 +113,22 @@ For all ingestion methods other than ingest from query, the data must be formatt
 > [!NOTE]
 > When data is being ingested, data types are inferred based on the target table columns. If a record is incomplete or a field cannot be parsed as the required data type, the corresponding table columns will be populated with null values.
 
-## Schema Mapping
+## Ingestion recommendations and limitations
+* The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
+* Ingestion supports a maximum file size of 5GB. The recommendation is to ingest files between 100MB and 1GB.
+
+## Schema mapping
 
 Schema mapping helps deterministically bind source data fields to destination table columns.
 
-* [CSV Mapping](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats and can be passed as the ingest command parameter or [pre-created on the table](https://docs.microsoft.com/azure/kusto/management/tables?branch=master#create-ingestion-mapping) and referenced from the ingest command parameter.
-* [JSON Mapping](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be passed as the ingest command parameter or [pre-created on the table](https://docs.microsoft.com/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
+* [CSV Mapping](/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats and can be passed as the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) and referenced from the ingest command parameter.
+* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be passed as the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
 
 ## Next steps
 
 [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
 [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+
+[Quickstart: Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
 

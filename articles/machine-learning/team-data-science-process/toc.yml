@@ -47,16 +47,6 @@
 - name: Worked-out examples
   href: walkthroughs.md
   items:
-  - name: Azure Machine Learning
-    href: walkthroughs-aml-with-tdsp.md
-    items:
-    - name: Sentiment classification using Keras & Scikit Learn
-      href: predict-twitter-sentiment.md
-    - name: Sentiment classification using AML text analytics package
-      href: predict-twitter-sentiment-amltextpackage.md
-    - name: Skin cancer image classification using AML vision package
-      href: isic-image-classification.md
-      maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:

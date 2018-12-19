@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -26,7 +26,9 @@ In this tutorial, you learn how to:
 Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**. There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
+    - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+    - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
 3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
 4. You have received one grounded power cord to use with your 100-TB storage device.
 5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must

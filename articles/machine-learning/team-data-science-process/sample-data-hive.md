@@ -1,22 +1,16 @@
 ---
 title: Sample data in Azure HDInsight Hive tables | Microsoft Docs
 description: Down sampling data in Azure HDInsight  (Hadopop) Hive Tables
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 # Sample data in Azure HDInsight Hive tables
 This article describes how to down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce it to a size more manageable for analysis. It cover three popularly used sampling methods:
@@ -28,7 +22,7 @@ This article describes how to down-sample data stored in Azure HDInsight Hive ta
 **Why sample your data?**
 If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Down-sampling facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## How to submit Hive queries
 Hive queries can be submitted from the Hadoop Command-Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command-Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command-Line console, see [How to Submit Hive Queries](move-hive-tables.md#submit).

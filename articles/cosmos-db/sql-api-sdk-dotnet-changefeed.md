@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 services: cosmos-db
 author: ealsur
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -39,8 +38,18 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.4"/>2.2.4
+* Added new property ChangeFeedProcessorOptions.StartContinuation to support starting change feed from request continuation token. This is only used when lease collection is empty or a lease does not have ContinuationToken set. For leases in lease collection that have ContinuationToken set, the ContinuationToken is used and ChangeFeedProcessorOptions.StartContinuation is ignored.
+
+### <a name="2.2.3"/>2.2.3
+* Added support for using custom store to persist continuation tokens per partition.
+  * For example, a custom lease store can be Azure Cosmos DB lease collection partitioned in any custom way.
+  * Custom lease stores can use new extensibility point ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) and ILeaseStoreManager public interface.
+  * Refactored the ILeaseManager interface into multiple role interfaces.
+* Minor breaking change: removed extensibility point ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), use ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) instead.
+
 ### <a name="2.2.2"/>2.2.2
-* Fixed an issue that may occur during processing split when lease collection is partitioned. The issue may lead to leases for gone partitions not being deleted from lease collection. The issue is fixed with this release.
+* This release fixes an issue that occurs during processing a split in monitored collection and using a partitioned lease collection. When processing a lease for split partition, the lease corresponding to that partition may not be deleted. The issue is fixed in this release.
 
 ### <a name="2.2.1"/>2.2.1
 * Fixed Estimator calculation for Multi Master accounts and new Session Token format.
@@ -89,7 +98,7 @@ ms.author: maquaran
   * IChangeFeedObserver.ProcessChangesAsync now takes CancellationToken.
   * IRemainingWorkEstimator - the remaining work estimator can be used separately from the processor.
   * New extensibility points:
-    * IParitionLoadBalancingStrategy - for custom load-balancing of partitions between instances of the processor.
+    * IPartitionLoadBalancingStrategy - for custom load-balancing of partitions between instances of the processor.
     * ILease, ILeaseManager - for custom lease management.
     * IPartitionProcessor - for custom processing changes on a partition.
 * Logging - uses [LibLog](https://github.com/damianh/LibLog) library.

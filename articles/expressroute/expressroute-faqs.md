@@ -2,12 +2,12 @@
 title: Azure ExpressRoute FAQ | Microsoft Docs
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details.
 services: expressroute
-author: cherylmc
+author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: cherylmc
+ms.date: 10/28/2018
+ms.author: jaredro;cherylmc
 
 ---
 # ExpressRoute FAQ
@@ -64,8 +64,8 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
-* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
-  The following services are NOT supported:
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>
+  **The following services are NOT supported**:
     * CDN
     * Multi-factor Authentication
     * Traffic Manager
@@ -77,7 +77,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Power BI
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
-* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
     * CDN
     * Multi-factor Authentication
     * Traffic Manager

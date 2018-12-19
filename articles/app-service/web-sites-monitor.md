@@ -192,8 +192,8 @@ is over-provisioned. You can learn more about auto scale here: [How to Scale](..
 > 
 > 
 
-[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
 
 
 

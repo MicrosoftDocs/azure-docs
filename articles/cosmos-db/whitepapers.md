@@ -1,16 +1,12 @@
 ---
-title: Azure Cosmos DB whitepapers 
-description: Whitepapers allow you to explore Azure Cosmos DB concepts at a deeper level.
+title: Azure Cosmos DB whitepapers
+description: These whitepapers describe Azure Cosmos DB concepts in depth.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: sngun
-
 ---
 
 # Azure Cosmos DB whitepapers 

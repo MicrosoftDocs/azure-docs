@@ -1,4 +1,13 @@
-# Container Service frequently asked questions
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+---
+# (DEPRECATED) Container Service frequently asked questions
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## Orchestrators
 

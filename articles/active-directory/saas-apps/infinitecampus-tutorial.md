@@ -44,6 +44,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- At minimum, you need to be an Azure Active Directory administrator to complete the configuration.
 
 ## Scenario description
 
@@ -107,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-5. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+5. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** (step **11.b**), perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -121,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
 
-	d. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+	d. In the **Sign-on URL** textbox, type a URL using the following pattern (the domain will vary with Hosting Model): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
 	> [!NOTE]
 	> You get the **Service Provider metadata file** on the Infinite Campus SSO Service Provider Configuration page which is explained later in the tutorial.
@@ -140,7 +141,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. On the **Set up Infinite Campus** section, copy the appropriate URL as per your requirement.
+7. On the **Set up Infinite Campus** section, use the following values to validate when uploading or utilizing the Azure metadata file/URL.
 
 	a. Login URL
 
@@ -166,7 +167,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **Enable SAML Single Sign On**.
 
-	b. Click on **Service Provider Metadata** link  to save the **Service Provider metadata file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	b. Click on **Service Provider Metadata** link  to save the **Service Provider metadata file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal (refer to step 5).
 
 	c. On the **Select an option to retrieve Identity Provider (IDP) server data** section, select **Metadata URL** and paste the **App Federation Metadata Url** in the textbox and then click on **Sync**.
 
@@ -176,7 +177,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 ### Creating an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a _single_ test user in the Azure portal called Britta Simon.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
@@ -231,8 +232,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Infinite Campus tile in the Access Panel, you should get automatically signed-on to your Infinite Campus application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Infinite Campus tile in the Access Panel, you should get automatically signed-on to your Infinite Campus application. If you are logging into the Infinite Camnpus application in the same browser you are administering Azure AD, ensure you are logged into Azure AD as the test user. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

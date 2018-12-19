@@ -29,7 +29,7 @@ Specifically, this Blob storage connector supports:
 
 - Copying blobs to and from general-purpose Azure storage accounts and hot/cool blob storage. 
 - Copying blobs by using account key, service shared access signature, service principal or managed identities for Azure resources authentications.
-- Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
+- Copying blobs from block, append, or page blobs and copying data to only block blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
@@ -203,7 +203,7 @@ To use managed identities for Azure resources authentication, follow these steps
 
 1. [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity) by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
 
-2. Grant the service principal proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
+2. Grant the managed identity proper permission in Azure Blob storage. Refer to [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md) with more details on the roles.
 
     - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
     - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.

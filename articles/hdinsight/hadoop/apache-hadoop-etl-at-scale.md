@@ -1,6 +1,6 @@
 ---
 title: Extract, transform, and load (ETL) at Scale - Azure HDInsight 
-description: Learn how ETL is used in HDInsight with Hadoop.
+description: Learn how ETL is used in HDInsight with Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -13,7 +13,7 @@ ms.author: ashishth
 ---
 # Extract, transform, and load (ETL) at scale
 
-Extract, transform, and load (ETL) is the process by which data is acquired from various sources, collected in a standard location, cleaned and processed, and ultimately loaded into a datastore from which it can be queried. Legacy ETL processes import data, clean it in place, and then store it in a relational data engine. With HDInsight, a wide variety of Hadoop ecosystem components support performing ETL at scale. 
+Extract, transform, and load (ETL) is the process by which data is acquired from various sources, collected in a standard location, cleaned and processed, and ultimately loaded into a datastore from which it can be queried. Legacy ETL processes import data, clean it in place, and then store it in a relational data engine. With HDInsight, a wide variety of Apache Hadoop ecosystem components support performing ETL at scale. 
 
 The use of HDInsight in the ETL process can be summarized by this pipeline:
 

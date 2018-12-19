@@ -2,7 +2,7 @@
 title: How to install Azure IoT Edge on Linux | Microsoft Docs
 description: Azure IoT Edge installation instructions on Linux
 author: kgremban
-manager: timlt
+manager: philmea
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge

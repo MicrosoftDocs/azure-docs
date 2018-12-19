@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 12/04/2018
 ---
 # Quickstart: Import a BACPAC file to a new Azure SQL Database
 
@@ -41,6 +41,9 @@ To monitor the progress of the import operation, open the page for the logical s
    ![import status](./media/sql-database-import/import-status.png)
 
 To verify the database is live on the server, click **SQL databases** and verify the new database is **Online**.
+
+> [!IMPORTANT]
+> If an import operation becomes stuck for any reason, you must open a support ticket to clean the incomplete import operation.
 
 ## Import from a BACPAC file using SQLPackage
 

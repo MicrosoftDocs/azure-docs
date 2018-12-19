@@ -148,7 +148,7 @@ Add the following configuration to enable the Diagnostics extension on a Windows
             "properties": { 
             "publisher": "Microsoft.Azure.Diagnostics", 
             "type": "IaaSDiagnostics", 
-            "typeHandlerVersion": "1.4", 
+            "typeHandlerVersion": "1.12", 
             "autoUpgradeMinorVersion": true, 
             "settings": { 
                 "WadCfg": { 

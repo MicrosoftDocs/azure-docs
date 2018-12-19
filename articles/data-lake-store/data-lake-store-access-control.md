@@ -124,9 +124,11 @@ The user who created the item is automatically the owning user of the item. An o
 
 In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-**Assiging the owning group for a new file or folder**
+Because there is no “primary group” associated to users in Data Lake Storage Gen1, the owning group is assigned as below.
 
-* **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
+**Assigning the owning group for a new file or folder**
+
+* **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to an all-zero GUID.  This value does not permit any access.  It is a placeholder until such time a group is assigned.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
 
 **Changing the owning group**
@@ -136,7 +138,9 @@ The owning group can be changed by:
 * The owning user, if the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning group *cannot* change the ACLs of a file or folder.  While the owning group is set to the user who created the account in the case of the root folder, **Case 1** above, a single user account is not valid for providing permissions via the owning group.  You can assign this permission to a valid user group if applicable.
+> The owning group *cannot* change the ACLs of a file or folder.
+>
+> For accounts created on or before September 2018, the owning group was set to the user who created the account in the case of the root folder for **Case 1**, above.  A single user account is not valid for providing permissions via the owning group, thus no permissions are granted by this default setting. You can assign this permission to a valid user group.
 
 
 ## Access check algorithm

@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 12/05/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -26,27 +26,14 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
+Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
 
-
-|**Scope**|**Defined at**|**Required access to analyze costs on scope**|**Prerequisite EA setting**|**Consolidates billing data to**|
-|---                |---                  |---                   |---            |---           |
-|Billing account<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Enterprise Admin|None|All subscriptions from the enterprise agreement|
-|Department|[https://ea.azure.com ](https://ea.azure.com )|Department Admin|DA view charges enabled|All subscriptions belonging to an enrollment account that is linked to the department|
-|Enrollment account<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from the enrollment account|
-|Management group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All subscriptions below the management group|
-|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources/resource groups in the subscription|
-|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources in the resource group|
-
-<sup>1</sup>The billing account is often referred to as the Enterprise Agreement or Enrollment.
-
-<sup>2</sup>The enrollment account is often referred to as the account owner.
-
-For more information about configuring **DA view charges** and **AO view charges** settings, see [Enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Billing account
+- Department
+- Enrollment account
+- Management group
+- Subscription
+- Resource group
 
 ## Sign in to Azure
 
@@ -91,17 +78,17 @@ There's also the **daily** view showing costs for each day. The daily view doesn
 
 ![Daily view](./media/quick-acm-cost-analysis/daily-view.png)
 
-You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by resource type. Here's a view of Azure service costs for a view of the last month.
+You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by and you'll see costs broken down by each value for that tag, with an extra segment for resources which don't have that tag applied. Note Cost Management only supports resource tags from the date the tags are applied directly to the resource. Resource group tags are not supported today. Here's a view of Azure service costs for a view of the last month.
 
 ![Grouped daily accumulated view](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Pivot charts under the top Total view show views for different grouping and filtering categories. When you select any group category, the full set of data for total view is at the bottom of the view. Here's an example for resource groups.
+Pivot charts under the main chart show different groupings to give you a broader picture of your overall costs for the selected time period and filters. Select a property or tag to view aggregated costs by any dimension. The full set of data for total view is at the bottom of the screen by expanding the **Data** drawer or by selecting **Export > Download CSV** at the top of the screen. Here's an example of the data drawer for resource groups.
 
 ![Full data for current view](./media/quick-acm-cost-analysis/full-data-set.png)
 
-The preceding image shows resource group names. Viewing tags for resources aren't available in any of the cost analysis views, filters, or groupings.
+The preceding image shows resource group names. While you can group by tag to view total costs per tag, viewing all tags per resource or resource group isn't available in any of the cost analysis views.
 
-When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together.
+When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together. When grouping by tags, you may also see an **Untagged** group for costs which do not have the tag key applied. **Untagged** is always last, even if there are more untagged costs than tagged costs. If there are 10 or more tag values, untagged costs will be part of **Others**.
 
 *Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources do not share detailed billing data. They are merged as **Classic services** when grouping costs.
 

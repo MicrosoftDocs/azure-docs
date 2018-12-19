@@ -1,13 +1,13 @@
 ---
-title: Manage experiment iterations in Machine Learning Studio | Microsoft Docs
+title: Manage experiment iterations in Machine Learning Studio - Azure | Microsoft Docs
 description: How to manage experiment iterations in Azure Machine Learning Studio
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-
 ---
 # Manage experiment iterations in Azure Machine Learning Studio
 Developing a predictive analysis model is an iterative process - as you modify the various functions and parameters of your experiment, your results converge until you are satisfied that you have a trained, effective model. Key to this process is tracking the various iterations of your experiment parameters and configurations.

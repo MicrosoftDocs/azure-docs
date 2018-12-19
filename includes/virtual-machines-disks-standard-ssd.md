@@ -41,9 +41,9 @@ The following table contains disk sizes, which are currently offered for Standar
 |E70 *    |16,384 GiB      |Up to 2,000       |Up to 500 MiB per second        |
 |E80 *    |32,767 GiB      |Up to 2,000       |Up to 500 MiB per second        |
 
-Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
+Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table 99% of the time. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 
-Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance. It is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage.
+Premium SSDs on the other hand, perform better than Standard SSDs, with low latencies, high IOPS/throughput, and even better consistency with provisioned disk performance. Premium SSD is the recommended disk type for critical production workloads. If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage.
 
 Like the Premium SSDs, Standard SSDs also use IO Unit size of 256 KiB. If the data being transferred is less than 256 KiB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KiB. For example, a 1,100 KiB I/O is counted as five I/O units.
 

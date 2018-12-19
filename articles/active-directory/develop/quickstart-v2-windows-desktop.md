@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2018
+ms.date: 11/15/2018
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Azure AD v2.0 endpoint.
@@ -30,21 +30,22 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
-> [!div renderon="docs" class="sxs-lookup"]
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - Application Registration](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)
+> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
 > ### Option 2: Register and manually configure your application and code sample
-> [!div renderon="docs"]
+>
 > #### Step 1: Register your application
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+> To register your application and add the app's registration information to your solution manually, follow these steps:
+>
+> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
@@ -55,8 +56,8 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 > 1. In the **Redirect URIs** section, locate the **Suggested Redirect URIs for public clients (mobile, desktop)** section, and select **"urn:ietf:wg:oauth:2.0:oob**.
 > 1. Select **Save**.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> #### Step 1: Configure your application
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure your application in Azure portal
 > For the code sample for this quickstart to work, you need to add a reply URL as **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()

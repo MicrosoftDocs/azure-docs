@@ -213,4 +213,4 @@ Try modifying either of the following samples to include ETags or AccessConditio
 
   [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
   [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
-  [Index operations (REST API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations)
+  [Index operations (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

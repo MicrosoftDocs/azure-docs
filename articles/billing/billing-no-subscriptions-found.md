@@ -4,7 +4,7 @@ description: Provides the solution for a problem in which No subscriptions found
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -49,6 +49,6 @@ Check whether the account that you used is the Account Administrator. To verify 
 1. Select the subscription you want to check, and then look under **Settings**.
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

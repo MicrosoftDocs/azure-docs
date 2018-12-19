@@ -4,13 +4,11 @@ description: This quickstart shows how to create a Standard Load Balancer using 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: qucikstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
@@ -197,10 +195,10 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 Create a network security group with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 
 ```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup`
+$nsg = New-AzureRmNetworkSecurityGroup `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'myNetworkSecurityGroup'`
+-Name 'myNetworkSecurityGroup' `
 -SecurityRules $rule1,$rule2
 ```
 

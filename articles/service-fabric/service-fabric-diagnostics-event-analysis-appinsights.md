@@ -13,18 +13,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
 
 ---
 
 # Event analysis and visualization with Application Insights
 
-Microsoft Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services. This article helps address the following common questions
+Part of Azure Monitor, Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. Application Insights's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal, as well as Service Fabric specific metrics, providing a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you with Application Insights, we recommend that you add further custom logging to your applications to create a richer diagnostics experience.
 
-* How do I know what is going on inside my application and services and gather telemetry
-* How do I troubleshoot my application, especially services communicating with one another
-* How do I get metrics about how my services are performing, for example, page load time, http requests
+This article helps address the following common questions:
+
+* How do I know what is going on inside my application and services and gather telemetry?
+* How do I troubleshoot my application, especially services communicating with one another?
+* How do I get metrics about how my services are performing, for example, page load time, HTTP requests?
 
 The purpose of this article is to show how to gain insights and troubleshoot from within Application Insights. If you'd like to learn how to set up and configure Application Insights with Service Fabric, check out this [tutorial](service-fabric-tutorial-monitoring-aspnet.md).
 
@@ -107,7 +109,7 @@ Make sure to make the required changes in your filters, as well as include any o
 
 It is recommended to use EventFlow and WAD as aggregation solutions, because they allow for a more modular approach to diagnostics and monitoring, i.e. if you want to change your outputs from EventFlow, it requires no change to your actual instrumentation, just a simple modification to your config file. If, however, you decide to invest in using Application Insights and are not likely to change to a different platform, you should look into using Application Insights' new SDK for aggregating events and sending them to Application Insights. This means that you will no longer have to configure EventFlow to send your data to Application Insights, but instead will install the ApplicationInsight's Service Fabric NuGet package. Details on the package can be found [here](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights support for Microservices and Containers](https://azure.microsoft.com/blog/app-insights-microservices/) shows you some of the new features that are being worked on (currently still in beta), which allow you to have richer out-of-the-box monitoring options with Application Insights. These include dependency tracking (used in building an AppMap of all your services and applications in a cluster and the communication between them), and better correlation of traces coming from your services (helps in better pinpointing an issue in the workflow of an app or service).
+[Application Insights support for Microservices and Containers](https://azure.microsoft.com/blog/app-insights-microservices/) shows you some of the new features that are being worked on (currently still in beta), which allow you to have richer out-of-the-box monitoring options with Application Insights. These include dependency tracking (used in building an AppMap of all your services and applications in a cluster and the communication between them), and better correlation of traces coming from your services (helps in better pinpointing an issue in the workflow of an application or service).
 
 If you are developing in .NET and will likely be using some of Service Fabric's programming models, and are willing to use Application Insights as your platform for visualizing and analyzing event and log data, then we recommend that you go via the Application Insights SDK route as your monitoring and diagnostics workflow. Read [this](../application-insights/app-insights-asp-net-more.md) and [this](../application-insights/app-insights-asp-net-trace-logs.md) to get started with using Application Insights to collect and display your logs.
 

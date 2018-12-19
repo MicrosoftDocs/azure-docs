@@ -3,7 +3,7 @@ title: 'Manage Azure SQL Database long-term backup retention | Microsoft Docs'
 description: "Learn how to store automated backups in the SQL Azure storage and then restore them"
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

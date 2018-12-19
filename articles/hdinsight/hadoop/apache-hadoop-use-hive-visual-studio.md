@@ -1,5 +1,5 @@
 ---
-title: Hive with Data Lake (Hadoop) tools for Visual Studio - Azure HDInsight 
+title: Apache Hive with Data Lake (Apache Hadoop) tools for Visual Studio - Azure HDInsight 
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -12,13 +12,13 @@ ms.date: 05/16/2018
 ms.author: hrasheed
 
 ---
-# Run Hive queries using the Data Lake tools for Visual Studio
+# Run Apache Hive queries using the Data Lake tools for Visual Studio
 
-Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The Data Lake tools allow you to easily create, submit, and monitor Hive queries to Hadoop on Azure HDInsight.
+Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The Data Lake tools allow you to easily create, submit, and monitor Hive queries to Apache Hadoop on Azure HDInsight.
 
 ## <a id="prereq"></a>Prerequisites
 
-* An Azure HDInsight (Hadoop on HDInsight) cluster
+* An Azure HDInsight (Apache Hadoop on HDInsight) cluster
 
   > [!IMPORTANT]
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -120,15 +120,15 @@ For more information about the HDInsight tools for Visual Studio:
 
 * [Getting started with HDInsight tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -143,7 +143,7 @@ For more information about the HDInsight tools for Visual Studio:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

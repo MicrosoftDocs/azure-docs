@@ -1,13 +1,11 @@
 ---
-title: Azure Cosmos DB Gremlin support | Microsoft Docs
+title: Azure Cosmos DB Gremlin support
 description: Learn about the Gremlin language from Apache TinkerPop. Learn which features and steps are available in Azure Cosmos DB 
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq

@@ -1,12 +1,10 @@
 ---
-title: Learn how to secure access to data in Azure Cosmos DB | Microsoft Docs
+title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
 services: cosmos-db
 author: rafats
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
@@ -36,7 +34,7 @@ Each account consists of two Master keys: a primary key and secondary key. The p
 
 In addition to the two master keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
-Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-account.md#keys).
+Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
 
 ![Access control (IAM) in the Azure portal - demonstrating NoSQL database security](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -176,8 +174,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 To add Azure Cosmos DB account reader access to your user account, have a subscription owner perform the following steps in the Azure portal.
 
 1. Open the Azure portal, and select your Azure Cosmos DB account.
-2. Click the **Access control (IAM)** tab, and then click  **+ Add**.
-3. In the **Add permissions** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
+2. Click the **Access control (IAM)** tab, and then click  **+ Add role assignment**.
+3. In the **Add role assignment** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
 4. In the **Assign access to box**, select **Azure AD user, group, or application**.
 5. Select the user, group, or application in your directory to which you wish to grant access.  You can search the directory by display name, email address, or object identifiers.
     The selected user, group, or application appears in the selected members list.
@@ -193,5 +191,4 @@ Each multi-model API (SQL API, MongoDB API, Gremlin API, Cassandra API, Table AP
 
 ## Next steps
 * To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
-* To learn about managing master and read-only keys, see [How to manage an Azure Cosmos DB account](manage-account.md#keys).
 * To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

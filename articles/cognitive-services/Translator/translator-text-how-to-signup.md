@@ -43,6 +43,8 @@ When you sign up for Translator Text, you get a personalized access key unique t
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
 
+Microsoft Translator will generally let your first couple of requests pass before it has verified the subscription account status. If the first few Microsoft Translator API requests succeed then the calls fail, the error response will indicate the problem. Please log the API response so you can see the reason.
+
 ## Pricing options
 
 - [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

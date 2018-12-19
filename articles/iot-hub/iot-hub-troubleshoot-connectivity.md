@@ -13,36 +13,36 @@ ms.author: jlian
 
 # Detect and troubleshoot disconnects with Azure IoT Hub
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Device-side application logic, physical networks, protocols, hardware, and Azure IoT Hub can all cause problems. This document provides recommendations on how to detect and troubleshoot device connectivity issues from the cloud-side (as opposed to device-side).
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failure. Device-side application logic, physical networks, protocols, hardware, and Azure IoT Hub can all cause problems. This article provides recommendations on how to detect and troubleshoot device connectivity issues from the cloud side (as opposed to device side).
 
 ## Get alerts and error logs
 
 Use Azure Monitor to get alerts and write logs when device connections drop.
 
-### Turn on Diagnostic Logs 
+### Turn on diagnostic logs
 
-To log device connection events and errors, turn on diagnostics for IoT Hub. 
+To log device connection events and errors, turn on diagnostics for IoT Hub.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your IoT hub.
+1. Browse to your IoT hub.
 1. Select **Diagnostics settings**.
-1. Then select **Turn on diagnostics**.
-1. Make sure you enable **Connections** logs to be collected. 
-1. To make analysis easier, you should turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). An example later in the article uses Log Analytics.
+1. Select **Turn on diagnostics**.
+1. Enable **Connections** logs to be collected.
+1. For easier analysis, turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#Resolve-connectivity-errors).
 
    ![Recommended settings][2]
 
 To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md).
 
-### Set up alerts for the connected devices count metric
+### Set up alerts for the _connected devices_ count metric
 
-To get alerts when devices disconnect, configure alerts on the *Connected devices* metric. 
+To get alerts when devices disconnect, configure alerts on the **connected devices** metric.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your IoT Hub.
+1. Browse to your IoT hub.
 1. Select **Alerts (classic)**.
-1. Click **Add metric alert (classic)**.
-1. Fill in the form and select **OK**. 
+1. Select **Add metric alert (classic)**.
+1. Fill in the form and select **OK**.
 
    ![Recommended metric alert][3]
 
@@ -50,11 +50,11 @@ To learn more, see [What are classic alerts in Microsoft Azure?](../monitoring-a
 
 ## Resolve connectivity errors
 
-When diagnostic logs and alerts for connected devices are turned on, you get alerts when things go wrong. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Log Analytics for your diagnostic logs. 
+When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to resolve common issues when you receive an alert. The steps below assume you've set up Azure Log Analytics for your diagnostic logs.
 
-1. Go your workspace for **Log Analytics** in Azure portal.
-1. Click **Log Search**.
-1. To isolate connectivity error logs for IoT Hub, enter this query in the box, then press **Run**.
+1. Go your workspace for **Log Analytics** in the Azure portal.
+1. Select **Log Search**.
+1. To isolate connectivity error logs for IoT Hub, enter the following query and then select **Run**:
 
     ```
     search *
@@ -62,7 +62,7 @@ When diagnostic logs and alerts for connected devices are turned on, you get ale
     | where ( Category == "Connections" and Level == "Error")
     ```
 
-1. If there are results, look for the `OperationName`, `ResultType` (error code), and `ResultDescription` (error message) to get more detail on the error.
+1. If there are results, look for `OperationName`, `ResultType` (error code), and `ResultDescription` (error message) to get more detail on the error.
 
    ![Example of error log][4]
 
@@ -70,21 +70,21 @@ When diagnostic logs and alerts for connected devices are turned on, you get ale
 
     | Error | Root cause | Resolution |
     |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | 404104 DeviceConnectionClosedRemotely | The connection was closed by the device but IoT Hub doesn't know why. Common causes include MQTT/AMQP timeout and internet connectivity loss. | Make sure the device can connect to IoT Hub by [testing the connection](tutorial-connectivity.md). If the connection is fine but the device disconnects intermittently, make sure to implement proper keep alive device logic for your choice of protocol (MQTT/AMPQ). |
+    | 404104 DeviceConnectionClosedRemotely | The connection was closed by the device, but IoT Hub doesn't know why. Common causes include MQTT/AMQP timeout and internet connectivity loss. | Make sure the device can connect to IoT Hub by [testing the connection](tutorial-connectivity.md). If the connection is fine, but the device disconnects intermittently, make sure to implement proper keep alive device logic for your choice of protocol (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | IoT Hub couldn't authenticate the connection. | Make sure that the SAS or other security token you use isn't expired. [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically generate tokens without requiring special configuration. |
-    | 409002 LinkCreationConflict | There are more than one connections for the same device. When a new connection request comes for a device, IoT Hub closes the previous one with this error. | In the most common case, a device detects a disconnect and tries to reestablish the connection, but IoT Hub hasn't considered it disconnected yet so it closes the previous connection and logs this error. This error usually appears as a side effect of a different transient issue, so look for other errors in the logs to troubleshoot further. Otherwise, Make sure to issue a new connection request only if the connection drops. |
-    | 500001 ServerError | IoT Hub ran into a server-side issue. Most likely, the issue is transient. While IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error. | To mitigate the transient fault, issue a retry from the device. To [automatically manage retries](iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md).<br><br>For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).  <br><br>If the problem persists after retries, check [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) and [Azure Status](https://azure.microsoft.com/status/history/) to see if IoT Hub has a known problem. If there's no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation. |
-    | 500008 GenericTimeout | IoT Hub couldn't complete the connection request before timing out. Like 500001 ServerError, this error is likely transient. | Follow troubleshooting steps for 500001 ServerError to root cause and resolve this error.|
+    | 409002 LinkCreationConflict | A device has more than one connection. When a new connection request comes for a device, IoT Hub closes the previous one with this error. | In the most common case, a device detects a disconnect and tries to reestablish the connection, but IoT Hub still considers the device connected. IoT Hub closes the previous connection and logs this error. This error usually appears as a side effect of a different, transient issue, so look for other errors in the logs to troubleshoot further. Otherwise, make sure to issue a new connection request only if the connection drops. |
+    | 500001 ServerError | IoT Hub ran into a server-side issue. Most likely, the issue is transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error. | To mitigate the transient fault, issue a retry from the device. To [automatically manage retries](iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md).<br><br>For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).  <br><br>If the problem persists after retries, check [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) and [Azure Status](https://azure.microsoft.com/status/history/) to see if IoT Hub has a known problem. If there's no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation. |
+    | 500008 GenericTimeout | IoT Hub couldn't complete the connection request before timing out. Like a 500001 ServerError, this error is likely transient. | Follow troubleshooting steps for a 500001 ServerError to the root cause and resolve this error.|
 
 ## Other steps to try
 
-If the steps above didn't help, here are few more things to try:
+If the previous steps didn't help, you can try:
 
 * If you have access to the problematic devices, either physically or remotely (like SSH), follow the [device-side troubleshooting guide](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) to continue troubleshooting.
-* Verify that your devices are **Enabled** in the Azure portal > your IoT Hub > IoT devices.
+* Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 * Get help from [Azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
-To help improve the documentation for everyone, leave a comment below if this guide didn't help you.
+To help improve the documentation for everyone, leave a comment in the feedback section below if this guide didn't help you.
 
 ## Next steps
 

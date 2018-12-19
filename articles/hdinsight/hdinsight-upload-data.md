@@ -289,7 +289,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 * [Use Pig with HDInsight][hdinsight-use-pig]
 
 [azure-management-portal]: https://porta.azure.com
-[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[azure-powershell]: https://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]:../storage/common/storage-create-storage-account.md

@@ -139,7 +139,7 @@ In the Cloud Shell, create a server in Azure Database for MySQL with the [`az my
 In the following command, substitute a unique server name for the *\<mysql_server_name>* placeholder, a user name for the *\<admin_user>*, and a password for the *\<admin_password>*  placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<mysql_server_name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>--location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 > [!NOTE]
@@ -268,7 +268,7 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 In the Cloud Shell, set up the Java runtime configuration that your app needs with the  [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) command.
 
-The following command configures the web app to run on a recent [Java 8 JDK](https://aka.ms/azure-jdks) and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+The following command configures the web app to run on a recent [Java 8 JDK](https://aka.ms/azure-jdks) and [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0

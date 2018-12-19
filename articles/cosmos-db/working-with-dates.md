@@ -1,16 +1,12 @@
 ---
-title: Working with dates in Azure Cosmos DB | Microsoft Docs
+title: Working with dates in Azure Cosmos DB
 description: Learn about how to work with dates in Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: sngun
-
 ---
 # Working with Dates in Azure Cosmos DB
 Azure Cosmos DB delivers schema flexibility and rich indexing via a native [JSON](http://www.json.org) data model. All Azure Cosmos DB resources including databases, containers, documents, and stored procedures are modeled and stored as JSON documents. As a requirement for being portable, JSON (and Azure Cosmos DB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
@@ -64,7 +60,7 @@ Range queries are common with DateTime values. For example, if you need to find 
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-You can learn more about how to configure indexing policies at [Azure Cosmos DB Indexing Policies](indexing-policies.md).
+You can learn more about how to configure indexing policies at [Azure Cosmos DB Indexing Policies](index-policy.md).
 
 ## Querying DateTimes in LINQ
 The SQL .NET SDK automatically supports querying data stored in Azure Cosmos DB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last three days.
@@ -75,11 +71,11 @@ The SQL .NET SDK automatically supports querying data stored in Azure Cosmos DB 
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB](sql-api-sql-query.md).
+You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB](how-to-sql-query.md).
 
 In this article, we looked at how to store, index, and query DateTimes in Azure Cosmos DB.
 
 ## Next Steps
 * Download and run the [Code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Learn more about [SQL queries](sql-api-sql-query.md)
-* Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)
+* Learn more about [SQL queries](how-to-sql-query.md)
+* Learn more about [Azure Cosmos DB Indexing Policies](index-policy.md)

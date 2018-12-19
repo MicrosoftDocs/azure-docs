@@ -2,7 +2,7 @@
 title: Understand Azure IoT Edge certificates | Microsoft Docs 
 description: Learn about Azure IoT Edge certificates and how they are used.
 author: stevebus
-manager: timlt
+manager: philmea
 ms.author: stevebus
 ms.date: 09/13/2018
 ms.topic: conceptual
@@ -46,7 +46,7 @@ In any case, the manufacturer uses an intermediate CA certificate at the end of 
 
 ### Device CA certificate
 
-The device CA certificate is generated from and signed by the final intermediate CA certificate in the process. This certificate is installed on the Edge device itself, preferably in secure storage such as a hardware security module (HSM). In addition, a device CA certificate uniquely identifies an IoT Edge device. For IoT Edge, the device CA certificate is capable of issuing other certificates. For example, the device CA certificate issues leaf device certificates which are used to authenticate devices to the [Azure IoT Device Provisioning Service](..\iot-dps\about-iot-dps.md).
+The device CA certificate is generated from and signed by the final intermediate CA certificate in the process. This certificate is installed on the Edge device itself, preferably in secure storage such as a hardware security module (HSM). In addition, a device CA certificate uniquely identifies an IoT Edge device. For IoT Edge, the device CA certificate is capable of issuing other certificates. For example, the device CA certificate issues leaf device certificates which are used to authenticate devices to the [Azure IoT Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ### IoT Edge Workload CA
 

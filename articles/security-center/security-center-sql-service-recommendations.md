@@ -3,7 +3,7 @@ title: Protecting Azure SQL service and data in Azure Security Center  | Microso
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Protecting Azure SQL service and data in Azure Security Center
@@ -75,6 +75,6 @@ To learn more about recommendations that apply to other Azure resource types, se
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

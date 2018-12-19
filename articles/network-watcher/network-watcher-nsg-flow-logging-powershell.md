@@ -29,6 +29,9 @@ ms.author: jdial
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
+> [!NOTE] 
+> Flow Logs Version 2 are only availble in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
+
 ## Register Insights provider
 
 In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.

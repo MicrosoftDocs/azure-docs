@@ -176,6 +176,6 @@ You may also find the **Helm** package manager useful for installing and deployi
 
 ## Next steps
 
-[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

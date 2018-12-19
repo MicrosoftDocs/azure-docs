@@ -7,13 +7,13 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ---
 # Limitations in Azure Database for MariaDB
-The Azure Database for MariaDB service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
+The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
 
 ## Maximum connections
-The maximum number of connections per pricing tier and vCores during preview are as follows:
+The maximum number of connections per pricing tier and vCores are as follows:
 
 |**Pricing Tier**|**vCore(s)**| **Max Connections**|
 |---|---|---|

@@ -78,6 +78,9 @@ Enter the following Azure CLI command, using the resource group that contains yo
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
+
 ## Get Kubernetes debugging for VS Code
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
 

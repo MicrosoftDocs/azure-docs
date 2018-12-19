@@ -41,7 +41,7 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 | HDInsight version 3.2 | No | Yes | |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
-[!WARNING]
+> [!WARNING]
 > HDInsight HBase is not supported with Azure Data Lake Storage Gen 1
 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
@@ -199,7 +199,7 @@ For more information, see:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

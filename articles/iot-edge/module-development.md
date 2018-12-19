@@ -2,7 +2,7 @@
 title: Develop modules for Azure IoT Edge | Microsoft Docs 
 description: Learn how to create custom modules for Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual

@@ -12,24 +12,27 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 
 ---
+
 # Find activity reports in the Azure portal
 
-In this article, we describe how to find Azure Active Directory user activity reports in the Azure portal.
+In this article, you learn how to find Azure Active Directory (Azure AD) user activity reports in the Azure portal.
 
-## Activity and integrated app reports
+## Audit logs report
 
-For context-based reporting in the Azure portal, existing reports are merged into a single view. A single, underlying API provides the data to the view.
+The audit logs report combines several reports around application activities into a single view for context-based reporting. To access the audit logs report:
 
-To see this view, on the **Azure Active Directory** blade, under **ACTIVITY**, select **Audit logs**.
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Select your directory from the top-right corner, then select the **Azure Active Directory** blade from the left navigation pane.
+3. Select **Audit logs** from the **Activity** section of the Azure Active Directory blade. 
 
-![Audit logs](./media/howto-find-activity-reports/482.png "Audit logs")
+    ![Audit logs](./media/howto-find-activity-reports/482.png "Audit logs")
 
-The following reports are consolidated in this view:
+The audit logs report consolidates the following reports:
 
 * Audit report
 * Password reset activity
@@ -40,26 +43,11 @@ The following reports are consolidated in this view:
 * Password rollover status
 * Account provisioning errors
 
+### Filtering on audit logs
 
-The Application Usage report has been enhanced and is included in the **Sign-ins** view. To see this view, on the **Azure Active Directory** blade, under **ACTIVITY**, select **Sign-ins**.
+You can use advanced filtering in the audit report to access a specific category of audit data, by specifying it in the **Activity category** filter. For example, to view all activities related to self-service password reset, select the **Self-service password management** category. 
 
-![Sign-ins view](./media/howto-find-activity-reports/483.png "Sign-ins view")
-
-The **Sign-ins** view includes all user sign-ins. You can use this information to get application usage information. You also can view application usage information in the **Enterprise applications** overview, in the **MANAGE** section.
-
-![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
-
-## Access a specific report
-
-Although the Azure portal offers a single view, you also can look at specific reports.
-
-### Audit logs
-
-In response to customer feedback, in the Azure portal, you can use advanced filtering to access the data you want. One filter you can use is an *activity category*, which lists the different types of activity logs in Azure AD. To narrow results to what you are looking for, you can select a category.
-
-For example, if you are interested only in activities related to self-service password resets, you can choose the **Self-service Password Management** category. The categories you see are based on the resource you are working in.  
-
-![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
+    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
 
 Activity categories include:
 
@@ -68,19 +56,37 @@ Activity categories include:
 - Self-service Group Management
 - Account Provisioning
 
-### Application usage
 
-To view details about application usage for all apps or for a single app, under **ACTIVITY**, select **Sign-ins**. To narrow the results, you can filter on user name or application name.
+## Sign-ins report 
+
+The **Sign-ins** view includes all user sign-ins, as well as the **Application Usage** report. You also can view application usage information in the **Manage** section of the **Enterprise applications** overview.
+
+    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
+
+To access the sign-ins report:
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Select your directory from the top-right corner, then select the **Azure Active Directory** blade from the left navigation pane.
+3. Select **Signins** from the **Activity** section of the Azure Active Directory blade. 
+
+    ![Sign-ins view](./media/howto-find-activity-reports/483.png "Sign-ins view")
+
+
+### Filtering on application name
+
+You can use the sign-ins report to view details about application usage, by filtering on user name or application name.
 
 ![Filter Sign-In Events page](./media/howto-find-activity-reports/07.png "Filter Sign-In Events page")
 
-### Security reports
+## Security reports
 
-#### Azure AD anomalous activity reports
+### Anomalous activity reports
 
-Azure AD anomalous activity security reports are consolidated to provide you with one central view. This view shows all security-related risk events that Azure AD can detect and report on.
+Anomalous activity reports provide information on security-related risk events that Azure AD can detect and report on.
 
-The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal.
+The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal. For more information, see
+[Azure Active Directory risk events](concept-risk-events.md).  
+
 
 | Azure AD anomalous activity report |  Identity protection risk event type|
 | :--- | :--- |
@@ -96,30 +102,18 @@ The following Azure AD anomalous activity security reports are not included as r
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
 
-For more information, see
-[Azure Active Directory risk events](concept-risk-events.md).  
 
+### Detected risk events
 
-#### Detected risk events
+You can access reports about detected risk events in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk events are tracked in the following reports:   
 
-In the Azure portal, you can access reports about detected risk events on the **Azure Active Directory** blade, under **SECURITY**. Detected risk events are tracked in the following reports:   
+- [Users at risk](concept-user-at-risk.md)
+- [Risky sign-ins](concept-risky-sign-ins.md)
 
-- Users at Risk
-- Risky Sign-ins
-
-![Security reports](./media/howto-find-activity-reports/04.png "Security reports")
-
-For more information about security reports, see:
-
-- [Users at Risk security report in the Azure Active Directory portal](concept-user-at-risk.md)
-- [Risky Sign-ins report in the Azure Active Directory portal](concept-risky-sign-ins.md)
-
-
-To view the **Application Usage** report, on the **Azure Active Directory** blade, under **MANAGE**, select **Enterprise Applications**, and then select **Sign-ins**.
-
-
-![Enterprise Applications Sign-Ins report](./media/howto-find-activity-reports/199.png)
+    ![Security reports](./media/howto-find-activity-reports/04.png "Security reports")
 
 ## Next steps
 
-For an overview of reporting, see the [Azure Active Directory reporting](overview-reports.md).
+* [Audit logs overview](concept-audit-logs.md)
+* [Sign-ins overview](concept-sign-ins.md)
+* [Risky events overview](concept-risk-events.md)

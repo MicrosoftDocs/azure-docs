@@ -1,6 +1,6 @@
 ---
-title: Use Hadoop Sqoop with Curl in HDInsight - Azure 
-description: Learn how to remotely submit Sqoop jobs to HDInsight using Curl.
+title: Use Apache Sqoop with Curl in HDInsight - Azure 
+description: Learn how to remotely submit Apache Sqoop jobs to HDInsight using Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -12,10 +12,10 @@ ms.date: 05/16/2018
 ms.author: hrasheed
 
 ---
-# Run Sqoop jobs with Hadoop in HDInsight with Curl
+# Run Apache Sqoop jobs with Hadoop in HDInsight with Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Curl to run Sqoop jobs on a Hadoop cluster in HDInsight.
+Learn how to use Curl to run Apache Sqoop jobs on an Apache Hadoop cluster in HDInsight.
 
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Sqoop jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
@@ -23,8 +23,8 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 To complete the steps in this article, you will need the following:
 
 * Complete [Use Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) to configure an environment with a HDInsight cluster and a Azure SQL database.
-* [Curl](http://curl.haxx.se/). Curl is a tool to transfer data from or to a HDInsight cluster.
-* [jq](http://stedolan.github.io/jq/). The jq utility is used to process the JSON data returned from REST requests.
+* [Curl](https://curl.haxx.se/). Curl is a tool to transfer data from or to a HDInsight cluster.
+* [jq](https://stedolan.github.io/jq/). The jq utility is used to process the JSON data returned from REST requests.
 
 ## Submit Sqoop jobs by using Curl
 > [!NOTE]
@@ -32,7 +32,7 @@ To complete the steps in this article, you will need the following:
 > 
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
 > 
-> The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+> The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 > 
 > 
 

@@ -93,7 +93,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
-| LUIS Portal | https://luis.azure.us | https://luis.ai
+| LUIS Portal | https://luis.azure.us | https://www.luis.ai/home
 
 ## Next steps
 For more information about Azure Government, see the following resources:

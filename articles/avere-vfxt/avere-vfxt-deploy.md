@@ -86,6 +86,7 @@ Under **TERMS AND CONDITIONS**:
   > [!NOTE] 
   > If you are not a subscription owner, have an owner accept the terms for you by following the prerequisite steps in [Accept software terms in advance](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
+
 Click **Purchase** when finished. After five or six minutes, your controller node will be up and running.
 
 Visit the outputs page to gather the controller information that you need to create the cluster. Read [Information needed to create the cluster](#information-needed-to-create-the-cluster) to learn more.
@@ -220,7 +221,9 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 ## Create the cluster node access role
 
 > [!NOTE] 
-> If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md).
+> * If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md).
+> 
+> * Microsoft internal users should use the existing role named "Avere Cluster Runtime Operator" instead of attempting to create one. 
 
 [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC)  gives the vFXT cluster nodes authorization to perform necessary tasks.  
 
@@ -278,7 +281,7 @@ RESOURCE_GROUP=
 * Subnet name
 * Azure AD runtime role name - if you followed the example in [Create the cluster node access role](#create-the-cluster-node-access-role), use ``avere-cluster``. 
 * Storage account name (if creating a new Blob container)
-* Cluster name - You cannot have two vFXT clusters with the same name in the same resource group. 
+* Cluster name - You cannot have two vFXT clusters with the same name in the same resource group. Give each cluster a unique name for the best practice.
 * Administrative password - Choose a secure password for monitoring and administering the cluster. This password is assigned to the user ``admin``. 
 * Node instance type - see [vFXT node sizes](avere-vfxt-deploy-plan.md#vfxt-node-sizes) for information
 * Node cache size - see [vFXT node sizes](avere-vfxt-deploy-plan.md#vfxt-node-sizes) for information
@@ -298,6 +301,15 @@ When the script completes, copy the management IP address, which is needed for c
 
 ![Command line output of the script displaying the management IP address near the end](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> If you created a new Blob container, it might be encrypted with a default key that is not saved outside of the cluster. Before you store data on the container, you must either download the key recovery file or create your own encryption key and save its recovery file in a persistent location. 
+> 
+> If you use the default key without downloading the recovery file, it is possible to lose access to the encrypted data in the Blob core filer if the vFXT cluster is destroyed or lost.
+>
+> If your script shows `WARNING` messages like those circled in the screenshot below, follow instructions in [Configure storage](avere-vfxt-add-storage.md) to download the key file or create a new key for your Blob container. Use the cluster configuration tool, Avere Control Panel.
+
+![Command line output of the script displaying warning messages about creating a new encryption key](media/avere-vfxt-key-warning.png)
+
 ## Next step
 
-Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support and add storage if needed.
+Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support, add storage if needed, or address the default encryption key on your new Blob storage.

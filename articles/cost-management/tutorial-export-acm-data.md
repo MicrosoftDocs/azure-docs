@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
@@ -14,7 +14,7 @@ ms.custom:
 
 # Tutorial: Create and manage exported data
 
-If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a daily recurring task that automatically exports your Cost Management data daily to Azure storage. Exported data is in CSV format and it contains all the information that's collected by Cost Management. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
+If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, weekly, or monthly basis. Exported data is in CSV format and it contains all the information that's collected by Cost Management. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
 
 The examples in this tutorial walk you though exporting your cost management data and then verify that the data was successfully exported.
 
@@ -43,11 +43,17 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 Cost Management + Billing &gt; Cost Management &gt; select a subscription or resource group in a subscription &gt; Export &gt; **Add**.
 
-Type a name for the export and specify the subscription, Azure storage account, container, and the file storage directory or blob container, then click **Create**.
+Type a name for the export and select the "Daily export of month-to-date costs" option. Click **Next**.
 
-![New export](./media/tutorial-export-acm-data/new-export01.png)
+![New export: export type](./media/tutorial-export-acm-data/basics_exports.png)
 
-Your new export appears in the list of exports. By default, new exports are enabled, and they run daily. If you want to disable or delete a scheduled export, click any item in the list and then click either **Disable** or **Delete**.
+Specify the subscription for your Azure storage account, then select your storage account.  Specify the storage container and the directory path that you'd like the export file to go to.  Click **Next**.
+
+![New export: storage](./media/tutorial-export-acm-data/storage_exports.png)
+
+Review your export details and click **Create**.
+
+Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, click any item in the list and then click either **Disable** or **Delete**.
 
 Initially, it can take one to two hours before the export runs. However, it can take up to four hours before data is shown in exported files.
 

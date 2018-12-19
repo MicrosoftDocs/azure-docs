@@ -3,7 +3,7 @@ title: Azure Security Center and Azure SQL Database service | Microsoft Docs
 description: This article shows how Security Center can help you secure your databases in Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 # Azure Security Center and Azure SQL Database service
@@ -56,7 +56,7 @@ You can set a policy to show recommendations for SQL auditing and SQL transparen
 To set a security policy, select the **Policy** tile on the Security Center blade. On the **Security policy** blade, select the subscription on which you want to enable the security policy. Select **Prevention policy** and turn **On** the security recommendations that you want to use on this subscription.
 ![Security policy][3]
 
-To learn more, see [Set security policies](security-center-policies.md).
+To learn more, see [Set security policies](security-center-azure-policy.md).
 
 ## Manage security recommendation
 Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
@@ -81,7 +81,7 @@ Follow the steps in [SQL Database threat detection in the Azure portal](../sql-d
 To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
 ## Monitor security health
-After you enable [security policies](security-center-policies.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources in the **Resource security health** tile. When you click **Data** in the **Resource security health** tile, the **Data Resources** blade opens with SQL recommendations for issues such as auditing and transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
+After you enable [security policies](security-center-azure-policy.md) for a subscription’s resources, Security Center will analyze the security of your resources to identify potential vulnerabilities.  You can view the security state of your resources in the **Resource security health** tile. When you click **Data** in the **Resource security health** tile, the **Data Resources** blade opens with SQL recommendations for issues such as auditing and transparent data encryption not being enabled. It also has recommendations for the general health state of the database.
 ![Resource security health][6]
 
 To learn more, see [Security health monitoring](security-center-monitoring.md).

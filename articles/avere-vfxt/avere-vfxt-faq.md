@@ -273,4 +273,4 @@ To get started with Avere vFXT for Azure, read these links to learn how to plan 
 * [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md)
 * [Deploy the vFXT cluster](avere-vfxt-deploy.md)
 
-To learn more about Avere vFXT's capabilities and use cases, visit [Avere vFXT for Azure (preview)](https://azure.microsoft.com/services/storage/avere-vfxt/).
+To learn more about Avere vFXT's capabilities and use cases, visit [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

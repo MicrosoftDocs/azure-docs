@@ -11,9 +11,9 @@ ms.date: 04/18/2018
 ---
 # How to configure Apache Kafka on HDInsight to automatically create topics
 
-By default, Kafka on HDInsight does not enable automatic topic creation. You can enable auto topic creation for existing clusters using Ambari. You can also enable auto topic creation when creating a new Kafka cluster using an Azure Resource Manager template.
+By default, [Apache Kafka](https://kafka.apache.org/) on HDInsight does not enable automatic topic creation. You can enable auto topic creation for existing clusters using [Apache Ambari](https://ambari.apache.org/). You can also enable auto topic creation when creating a new Kafka cluster using an Azure Resource Manager template.
 
-## Ambari Web UI
+## Apache Ambari Web UI
 
 To enable automatic topic creation on an existing cluster through the Ambari Web UI, use the following steps:
 
@@ -50,7 +50,7 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
     ![Image of restart selection](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]
-> You can also set Ambari values through the Ambari REST API. This is generally more difficult, as you have to make multiple REST calls to retrieve the current configuration, modify it, etc. For more information, see the [Manage HDInsight clusters using the Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
+> You can also set Ambari values through the Ambari REST API. This is generally more difficult, as you have to make multiple REST calls to retrieve the current configuration, modify it, etc. For more information, see the [Manage HDInsight clusters using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.
 
 ## Resource Manager templates
 
@@ -73,7 +73,7 @@ When creating a Kafka cluster using an Azure Resource Manager template, you can 
 
 ## Next Steps
 
-In this document, you learned how to enable automatic topic creation for Kafka on HDInsight. To learn more about working with Kafka, see the following links:
+In this document, you learned how to enable automatic topic creation for Apache Kafka on HDInsight. To learn more about working with Kafka, see the following links:
 
-* [Analyze Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Kafka clusters](apache-kafka-mirroring.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)

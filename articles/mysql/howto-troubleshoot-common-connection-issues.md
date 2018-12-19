@@ -3,7 +3,7 @@ title: Troubleshoot connection issues to Azure Database for MySQL | Microsoft Do
 description: Learn how to troubleshoot connection issues to Azure Database for MySQL.
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell

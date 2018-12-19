@@ -43,10 +43,14 @@
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Call named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
-   - name: Work with Visual Studio
+   - name: Use containers
      items:
-      - name: Use the Text Analytics Connected Service
-        href: vs-text-connected-service.md
+      - name: Install and run containers
+        href: how-tos/text-analytics-how-to-install-containers.md
+      - name: Configure containers
+        href: text-analytics-resource-container-config.md
+   - name: Use the Text Analytics Connected Service
+     href: vs-text-connected-service.md
 - name: Reference
   items:
   - name: CLI reference

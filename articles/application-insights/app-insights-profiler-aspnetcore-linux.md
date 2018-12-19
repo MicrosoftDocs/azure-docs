@@ -5,15 +5,12 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-
 ---
 
 # Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler

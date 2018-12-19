@@ -61,11 +61,11 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use the **deviceId**.
 
-* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where `{iothubhostname}` is the full CName of the IoT hub.
+* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2018-06-30`, where `{iothubhostname}` is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 

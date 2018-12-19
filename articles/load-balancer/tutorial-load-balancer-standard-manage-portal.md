@@ -1,5 +1,5 @@
 ---
-title: Tutorial:Create and manage a Standard Load Balancer - Azure portal | Microsoft Docs
+title: Tutorial:Load balance internet traffic to VMs - Azure portal | Microsoft Docs
 description: This tutorial shows how to create and manage a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -20,9 +20,9 @@ ms.author: kumud
 ms.custom: mvc
 ---
 
-# Tutorial: Create and manage Standard Load Balancer using the Azure portal
+# Tutorial: Load balance internet traffic to VMs using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure Standard Load Balancer that distribute traffic and provide high availability. You learn how to:
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure Standard Load Balancer that distribute internet traffic to VMs and provide high availability. You learn how to:
 
 
 > [!div class="checklist"]

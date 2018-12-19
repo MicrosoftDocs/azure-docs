@@ -4,8 +4,8 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: "05/11/2018"
 ms.topic: "article"
 ms.technology: "azds-kubernetes"

@@ -41,11 +41,11 @@ You are only impacted by this change if you:
  
 To identify if you have resource diagnostic settings that are sending data to an Azure storage account, you can navigate to the **Monitor** section of the portal, click on **Diagnostic Settings**, and identify any resources that have **Diagnostic Status** set to **Enabled**:
 
-![Azure Monitor Diagnostic Settings blade](./media/monitor-diagnostic-logs-append-blobs\portal-diag-settings.png)
+![Azure Monitor Diagnostic Settings blade](./media/monitor-diagnostic-logs-append-blobs/portal-diag-settings.png)
 
 If Diagnostic Status is set to enabled, you have an active diagnostic setting on that resource. Click on the resource to see if any diagnostic settings are sending data to a storage account:
 
-![Storage account enabled](./media/monitor-diagnostic-logs-append-blobs\portal-storage-enabled.png)
+![Storage account enabled](./media/monitor-diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
 If you do have resources sending data to a storage account using these resource diagnostic settings, the format of the data in that storage account will be impacted by this change. Unless you have custom tooling that operates off of these storage accounts, the format change will not impact you.
 

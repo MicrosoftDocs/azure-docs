@@ -34,7 +34,7 @@ This article provides answers to some of the most common questions about running
 
 1. **What SQL Server virtual machine gallery images are available?**
 
-   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more details, see the complete list of [Windows VM images](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) and [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
+   Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) and [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
 1. **Are existing SQL Server virtual machine gallery images updated?**
 
@@ -66,16 +66,48 @@ This article provides answers to some of the most common questions about running
 
 1. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
-   There are two ways to do this. You can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). Another option is to copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. However, if you install SQL Server manually, there is no portal integration and the SQL Server IaaS Agent Extension is not supported, so features such as Automated Backup and Automated Patching will not work in this scenario. For this reason, we recommend to use one of the BYOL gallery images. To use BYOL or your own SQL Server media on an Azure VM, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
+   There are two ways to do this. You can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). Another option is to copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. However, if you install SQL Server manually, there is no portal integration and the SQL Server IaaS Agent Extension is not supported, so features such as Automated Backup and Automated Patching will not work in this scenario. For this reason, we recommend using one of the BYOL gallery images. To use BYOL or your own SQL Server media on an Azure VM, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
-
-   No. You cannot switch from pay-per-second licensing to using your own license. Create a new Azure virtual machine using one of the [BYOL images](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
-   If you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](https://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
+   If you have Software Assurance and use License Mobility as described in Virtual Machine Licensing FAQ,](https://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
 
+1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
+
+   Yes. You can move easily move between the two licensing models, regardless of the image that was originally deployed. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
+
+1. **Should I use BYOL images or SQL VM RP to create new SQL VM?**
+
+   Bring-your-own-license (BYOL) images are only available for EA customers. Other customers who have Software Assurance should use the SQL VM resource provider to create a SQL VM with [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
+
+1. **Will switching licensing models require any downtime for SQL Server?**
+
+   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. 
+
+1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
+
+   Yes. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) is available for CSP subscriptions. 
+
+1. **Will registering my VM with the new SQL VM resource provider bring additional costs?**
+
+   No. The SQL VM resource provider just enables additional manageability for SQL Server on Azure VM with no additional charges. 
+
+1. **Is the SQL VM resource provider available for all customers?**
+ 
+   Yes. All customers are able to register with the new SQL VM resource provider. However, only customers with Software Assurance Benefit can activate the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (or BYOL) on a SQL Server VM. 
+
+1. **What happens to the  _*Microsoft.SqlVirtualMachine_* resource if the VM resource is moved or dropped?** 
+
+   When the Microsoft.Compute/VirtualMachine resource is dropped or moved, then the associated Microsoft.SqlVirtualMachine resource is notified to asynchronously replicate the operation.
+
+1. **What happens to the VM if the  _*Microsoft.SqlVirtualMachine_* resource is dropped?**
+
+   The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
+
+1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
+
+   Yes. If you deployed SQL Server from your own media, you can register your SQL VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to PAYG. 
 
 ## Administration
 

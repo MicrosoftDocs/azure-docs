@@ -24,7 +24,9 @@ You also need the Azure CLI version 2.0.46 or later installed and configured. Ru
 
 ## Create a static IP address
 
-When you create a static public IP address for use with AKS, the IP address resource must be created in the **node** resource group. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+When you create a static public IP address for use with AKS, the IP address resource should be created in the **node** resource group. If you want to separate the resources, see [Use a static IP address outside of the node resource group](#use-a-static-ip-address-outside-of-the-node-resource-group).
+
+Get the node resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

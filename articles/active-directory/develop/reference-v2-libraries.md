@@ -56,7 +56,7 @@ Client authentication libraries are used to acquire a token to call a protected 
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular(Preview) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET (Preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Desktop app](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![iOS / Objective C or swift](media/sample-v2-code/logo_iOS.png) | MSAL obj_c (Preview) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS app](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
-|![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL (Preview) | [ Central repository](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android app](quickstart-v2-android.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
+|![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL (Preview) | [ Central repository](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android app](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
 
 ## Microsoft-supported server middleware libraries
 
@@ -93,7 +93,7 @@ For more information about the Azure AD v2.0 endpoint, see the [Azure AD app mod
 
 <!--Reference style links -->
 [AAD-App-Model-V2-Overview]: v2-overview.md
-[ClientLib-NET-Lib]: http://www.nuget.org/packages/Microsoft.Identity.Client
+[ClientLib-NET-Lib]: https://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
@@ -109,12 +109,12 @@ For more information about the Azure AD v2.0 endpoint, see the [Azure AD app mod
 [ClientLib-Js-Repo]:/
 [ClientLib-Js-Sample]:/
 
-[Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
+[Microsoft-SDL]: https://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
-[ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
+[ServerLib-Net4-Owin-Oidc-Repo]: https://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
-[ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
+[ServerLib-Net4-Owin-Oauth-Repo]: https://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet

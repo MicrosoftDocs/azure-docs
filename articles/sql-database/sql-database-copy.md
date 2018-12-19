@@ -21,6 +21,9 @@ Azure SQL Database provides several methods for creating a transactionally consi
 
 A database copy is a snapshot of the source database as of the time of the copy request. You can select the same server or a different server, its service tier and compute size, or a different compute size within the same service tier (edition). After the copy is complete, it becomes a fully functional, independent database. At this point, you can upgrade or downgrade it to any edition. The logins, users, and permissions can be managed independently.  
 
+> [!NOTE]
+> [Automated database backups](sql-database-automated-backups.md) are used when you create a database copy.
+
 ## Logins in the database copy
 
 When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  

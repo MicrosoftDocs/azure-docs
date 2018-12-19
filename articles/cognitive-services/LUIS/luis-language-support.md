@@ -27,10 +27,10 @@ LUIS understands utterances in the following languages:
 | Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
-| Canadian French |`fr-CA` |-|   -   |-|✔|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |-|  -   |-|✔|
 | French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| French (Canada) |`fr-CA` |-|   -   |-|✔|
 | German |`de-DE` |-| ✔ |✔ |✔|
 | Italian |`it-IT` |-| ✔ |✔|✔|
 | *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|

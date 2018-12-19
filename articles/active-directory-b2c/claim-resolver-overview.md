@@ -29,10 +29,10 @@ In the following example, a claim type named `correlationId` is defined with a *
 </ClaimType>
 ```
 
-In the technical profile, map the claim resolver to the claim type. Azure AD B2C populates the value of the claim resolver `{context:corelationId}` into the claim `correlationId` and sends the claim to the technical profile.
+In the technical profile, map the claim resolver to the claim type. Azure AD B2C populates the value of the claim resolver `{Context:CorrelationId}` into the claim `correlationId` and sends the claim to the technical profile.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## Claim resolver types

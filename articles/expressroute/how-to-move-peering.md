@@ -53,7 +53,7 @@ Verify that the Microsoft peering is enabled and the advertised public prefixes 
 
 By default, new Microsoft peerings do not advertise any prefixes until a route filter is attached to the circuit. When you create a route filter rule, you can specify the list of service communities for Azure regions that you want to consume for Azure PaaS services, as shown in the following screenshot:
 
-![Merge public peering](.\media\how-to-move-peering\public.png)
+![Merge public peering](./media/how-to-move-peering/public.png)
 
 Configure route filters using any of the following articles:
 

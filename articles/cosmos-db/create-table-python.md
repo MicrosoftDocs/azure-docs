@@ -1,9 +1,8 @@
 ---
-title: 'Quickstart: Table API with Python - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Table API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Python
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-table

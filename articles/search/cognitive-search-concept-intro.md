@@ -84,8 +84,19 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 **Step 1: Create a search service in a region providing the APIs** 
 
++ West Central US
 + South Central US
++ East US
++ East US 2
++ West US 2
++ Canada Central
 + West Europe
++ UK South
++ North Europe
++ Brazil South
++ Southeast Asia
++ Central India
++ Australia East
 
 **Step 2: Hands-on experience to master the workflow**
 

@@ -2,22 +2,18 @@
 title: Assign a user or group to an enterprise app in Azure Active Directory | Microsoft Docs
 description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-
 ---
+
 # Assign a user or group to an enterprise app in Azure Active Directory
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
 
@@ -28,7 +24,7 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 > For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
 
 
-## How do I assign user access to an enterprise app in the Azure portal?
+## Assign a user to an app - portal
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
 3. Select **Enterprise applications**.
@@ -47,7 +43,25 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 10. On the **Add Assignment** blade, select **Role**. Then, on the **Select Role** blade, select a role to apply to the selected users or groups, and then select the **OK** button at the bottom of the blade.
 11. On the **Add Assignment** blade, select the **Assign** button at the bottom of the blade. The assigned users or groups have the permissions defined by the selected role for this enterprise app.
 
-## How do I assign a user to an enterprise app using PowerShell?
+## Allow all users to access an app - portal
+To allow all users to access an application:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2. Select **All services**, enter Azure Active Directory in the text box, and then select **Enter**.
+3. Select **Enterprise applications**.
+4. On the **Enterprise applications** blade, select **All applications**. This lists the apps you can manage.
+5. On the **Enterprise applications - All applications** blade, select an app.
+6. On the ***appname*** blade, select **Properties**.
+7. On the ***appname* - Properties** blade, set the **User assignment required?** setting to **No**. 
+
+The **User assignment required?** option:
+
+- Does not affect whether or not an application appears on the application access panel. To show the application on the access panel, you need to assign an appropriate user or group to the application.
+- Only functions with the cloud applications that are configured for SAML single sign-on, and on-premises applications configured with Application Proxy. See [Single sign-on for applications](what-is-single-sign-on.md).
+- Requires that users consent to an application. An admin can grant consent for all users.  See [Configure the way end-users consent to an application](configure-user-consent.md).
+
+
+## Assign a user to an app - PowerShell
 
 1. Open an elevated Windows PowerShell command prompt.
 

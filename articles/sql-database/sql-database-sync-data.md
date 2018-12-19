@@ -76,6 +76,7 @@ Data Sync is not the preferred solution for the following scenarios:
 ### Set up Data Sync in the Azure portal
 
 -   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 
 ### Set up Data Sync with PowerShell
 

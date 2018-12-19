@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Operational Security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure Operational Security.
@@ -53,38 +53,38 @@ Customers build an end-to-end network in Azure by combining network resources li
 
 The following are best practices for network monitoring and available tools.
 
-**Best practice**: Automate remote network monitoring with packet capture.   
+**Best practice**: Automate remote network monitoring with packet capture.  
 **Detail**: Monitor and diagnose networking issues without logging in to your VMs by using Network Watcher. Trigger [packet capture](../network-watcher/network-watcher-alert-triggered-packet-capture.md) by setting alerts and gain access to real-time performance information at the packet level. When you see an issue, you can investigate in detail for better diagnoses.
 
-**Best practice**: Gain insight into your network traffic by using flow logs.   
+**Best practice**: Gain insight into your network traffic by using flow logs.  
 **Detail**: Build a deeper understanding of your network traffic patterns by using [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Information in flow logs helps you gather data for compliance, auditing, and monitoring your network security profile.
 
-**Best practice**: Diagnose VPN connectivity issues.   
+**Best practice**: Diagnose VPN connectivity issues.  
 **Detail**: Use Network Watcher to [diagnose your most common VPN Gateway and connection issues](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). You can not only identify the issue but also use detailed logs to further investigate.
 
 ## Secure deployment by using proven DevOps tools
 Use the following DevOps best practices to ensure that your enterprise and teams are productive and efficient.
 
-**Best practice**: Automate the build and deployment of services.   
-**Detail**: [Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_Code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
+**Best practice**: Automate the build and deployment of services.  
+**Detail**: [Infrastructure as code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
 
 You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) to provision your applications by using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application in every stage of the application lifecycle.
 
-**Best practice**: Automatically build and deploy to Azure web apps or cloud services.   
-**Detail**: You can configure your Visual Studio Team Services (VSTS) team projects to [automatically build and deploy](https://www.visualstudio.com/docs/build/overview) to Azure web apps or cloud services. VSTS automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
+**Best practice**: Automatically build and deploy to Azure web apps or cloud services.  
+**Detail**: You can use Azure Pipelines to [automatically build and deploy](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) to Azure web apps or cloud services. Azure Pipelines automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
 
-**Best practice**: Automate release management.   
-**Detail**: Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
+**Best practice**: Use continuous deployment.  
+**Detail**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Azure Pipelines, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 
-**Best practice**: Check your app's performance before you launch it or deploy updates to production.   
-**Detail**: Run cloud-based [load tests](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) by using VSTS to:
+**Best practice**: Check your app's performance before you launch it or deploy updates to production.  
+**Detail**: Run cloud-based [load tests](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) by using Azure Test Plans to:
 
 - Find performance problems in your app.
 - Improve deployment quality.
 - Make sure that your app is always available.
 - Make sure that your app can handle traffic for your next launch or marketing campaign.
 
-**Best practice**: Monitor application performance.   
+**Best practice**: Monitor application performance.  
 **Detail**: [Azure Application Insights](../application-insights/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 ## Mitigate and protect against DDoS
@@ -94,19 +94,19 @@ Designing and building for DDoS resiliency requires planning and designing for a
 
 Following are best practices for building DDoS-resilient services on Azure.
 
-**Best practice**: Ensure that security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of requests to use a lot of resources, resulting in a service outage.    
+**Best practice**: Ensure that security is a priority throughout the entire lifecycle of an application, from design and implementation to deployment and operations. Applications can have bugs that allow a relatively low volume of requests to use a lot of resources, resulting in a service outage.  
 **Detail**: To help protect a service running on Microsoft Azure, you should have a good understanding of your application architecture and focus on the [five pillars of software quality](https://docs.microsoft.com/azure/architecture/guide/pillars). You should know typical traffic volumes, the connectivity model between the application and other applications, and the service endpoints that are exposed to the public internet.
 
 Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
 
-**Best practice**: Design your applications to [scale horizontally](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.   
+**Best practice**: Design your applications to [scale horizontally](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.  
 **Detail**: For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) that offers multiple instances.
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md).
 
 For [Azure Virtual Machines](../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../virtual-machines/virtual-machines-windows-manage-availability.md). We recommend using virtual machine scale sets for autoscaling capabilities.
 
-**Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.   
+**Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.  
 **Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) and [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
 
 [Network security groups](../virtual-network/security-overview.md) are another way to reduce the attack surface. You can use [service tags](../virtual-network/security-overview.md#service-tags) and [application security groups](../virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.

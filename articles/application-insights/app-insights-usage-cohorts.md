@@ -1,5 +1,5 @@
 ---
-title:  Azure Application Insights usage cohorts | Microsoft Docs
+title: Azure Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 services: application-insights
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
@@ -20,7 +19,7 @@ ms.author: daviste
 
 A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
 
-![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
+![Cohorts pane](./media/app-insights-usage-cohorts/001.png)
 
 ## Cohorts versus basic filters
 
@@ -44,18 +43,18 @@ Your team defines an engaged user as anyone who uses your app five or more times
     There are three parameters for this cohort:
     * **Activities**, where you choose which events and page views count as “usage.”
     * **Period**, the definition of a month.
-    * **UsedAtleastCustom**, the number of times users need to use something within a period to count as engaged.
+    * **UsedAtLeastCustom**, the number of times users need to use something within a period to count as engaged.
 
-4. Change **UsedAtleastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
+4. Change **UsedAtLeastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
 
-    ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
+    ![Engaged users](./media/app-insights-usage-cohorts/003.png)
 
     Now this cohort represents all user IDs sent with any custom event or page view on 5 separate days in the past 28.
 
 5. Select **Save**.
 
    > [!TIP]
-   >  Give your cohort a name, like “Engaged Users (5+ Days).” Save it to “My reports” or “Shared reports,” depending on whether you want other people who have access to this Application Insights resource to see this cohort.
+   > Give your cohort a name, like “Engaged Users (5+ Days).” Save it to “My reports” or “Shared reports,” depending on whether you want other people who have access to this Application Insights resource to see this cohort.
 
 6. Select **Back to Gallery**.
 
@@ -65,9 +64,10 @@ Open the Users tool. In the **Show** drop-down box, choose the cohort you create
 
 Now the Users tool is filtered to this cohort of users:
 
-![Users pane filtered to a particular cohort](.\media\app-insights-usage-cohorts\004.png)
+![Users pane filtered to a particular cohort](./media/app-insights-usage-cohorts/004.png)
 
 A few important things to notice:
+
 * You can't create this set through normal filters. The date logic is more advanced.
 * You can further filter this cohort by using the normal filters in the Users tool. So although the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days.
 
@@ -83,7 +83,7 @@ You can also make cohorts of events. In this section, you define a cohort of the
 
 3. Select **Events Picker**.
 
-    ![Screenshot of events picker](.\media\app-insights-usage-cohorts\006.png)
+    ![Screenshot of events picker](./media/app-insights-usage-cohorts/006.png)
 
 4. In the **Activities** drop-down box, select the events you want to be in the cohort.
 
@@ -93,11 +93,11 @@ You can also make cohorts of events. In this section, you define a cohort of the
 
 The previous two cohorts were defined by using drop-down boxes. But you can also define cohorts by using analytics queries for total flexibility. To see how, create a cohort of users from the United Kingdom.
 
-![Animated image walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Animated image walking through use of Cohorts tool](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Open the Cohorts tool, select the **Template Gallery** tab, and select **Blank Users cohort**.
 
-    ![Blank users cohort](.\media\app-insights-usage-cohorts\001.png)
+    ![Blank users cohort](./media/app-insights-usage-cohorts/001.png)
 
     There are three sections:
     * A Markdown text section, where you describe the cohort in more detail for others on your team.
@@ -132,7 +132,8 @@ Cohorts and filters are different. Suppose you have a cohort of users from the U
 * The filters version only shows events from the United Kingdom. But if you split by country or region, you see only the United Kingdom.
 
 ## Learn more
-- [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Users, sessions, events](app-insights-usage-segmentation.md)
-- [User flows](app-insights-usage-flows.md)
-- [Usage overview](app-insights-usage-overview.md)
+
+* [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Users, sessions, events](app-insights-usage-segmentation.md)
+* [User flows](app-insights-usage-flows.md)
+* [Usage overview](app-insights-usage-overview.md)
