@@ -85,7 +85,7 @@ Look for this sample in the `quickstart/python` folder.
    ![Open Folder](media/sdk/qs-python-vscode-python-open-folder.png)
 1. Create a new Python source file `speechsdk.py`, by clicking on the new file icon.
    ![Create File](media/sdk/qs-python-vscode-python-newfile.png)
-1. Copy, paste, and save the [Python code](quickstart-code) to the newly created file.
+1. Copy, paste, and save the [Python code](#quickstart-code) to the newly created file.
 1. Insert your Speech Service subscription information.
 1. If a Python interpreter has already been selected, it will be displayed on the left side of the status bar at the bottom of the window.
    Otherwise, you can bring up a list of available Python interpreters by opening the **Command Palette** (`Ctrl+Shift+P`) and typing **Python: Select Interpreter**, and choose an appropriate one.
