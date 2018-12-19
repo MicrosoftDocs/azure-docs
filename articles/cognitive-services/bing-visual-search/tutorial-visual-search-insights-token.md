@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
 ---
-# Tutorial: Find similar images from previous searches using ImageInsightsToken and the Bing Visual Search SDK for C#
+# Tutorial: Find similar images from previous searches using ImageInsightsToken
 
 The Visual Search SDK enables you to find images online from previous searches that return an `ImageInsightsToken`.  This application gets an `ImageInsightsToken` and uses the token in a subsequent search. It then sends the `ImageInsightsToken` to Bing and returns results that include Bing Search URLs, and URLs of similar images found online.
 

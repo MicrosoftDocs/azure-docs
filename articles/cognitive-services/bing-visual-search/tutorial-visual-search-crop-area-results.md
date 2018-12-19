@@ -1,6 +1,5 @@
 ---
 title: "Tutorial: Image crop area and results - Bing Visual Search"
-Crop an image to get focused insights
 description: Use the Bing Visual Search SDK to get insights from specific image areas.
 services: cognitive-services
 author: mikedodaro

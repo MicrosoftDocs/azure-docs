@@ -30,8 +30,9 @@ The tasks covered are:
 > * Call Bing Visual Search API with an image insights token
 > * Display similar images
 
-## Call Bing Visual Search
-Edit the Bing Image Search tutorial and add the following code to the end of the script element at line 409. This code calls the Bing Visual Search API and displays the results.
+## Call the Bing Visual Search API and handle the response
+
+Edit the Bing Image Search tutorial and add the following code to the end of the `<script>` element (and before the closing `</script>` tag). The following code handles a visual search response from the API, iterates through the results, and displays them.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -61,7 +62,12 @@ function handleVisualSearchResponse(){
         }
     }
 }
+```
 
+The following code sends a search request to the API, using an event listener to call `handleVisualSearchResponse()`.
+
+
+```javascript
 function bingVisualSearch(insightsToken){
     let visualSearchBaseURL = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch',
         boundary = 'boundary_ABC123DEF456',
@@ -96,13 +102,15 @@ function bingVisualSearch(insightsToken){
 ```
 
 ## Capture insights token
-Add the following code into the `searchItemsRenderer` object at line 151. This code adds a **find similar** link that calls the `bingVisualSearch` function when clicked. The function receives the imageInsightsToken as an argument.
+
+Add the following code into the `searchItemsRenderer` object. This code adds a **find similar** link that calls the `bingVisualSearch` function when clicked. The function receives the imageInsightsToken as an argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## Display similar images
+
 Add the following HTML code at line 601. This markup code adds an element used to display the results of the Bing Visual Search API call.
 
 ``` html

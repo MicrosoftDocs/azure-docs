@@ -88,60 +88,6 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     });
     ```
 
-
-
-## Running the application
-
-The following shows how to send the message using FormData in Node.js.
-
-To run this application, follow these steps:
-
-1. Create a folder for your project (or use your favorite IDE or editor).
-2. From a command prompt or terminal, navigate to the folder you just created.
-3. Install the request modules:  
-  ```  
-  npm install request  
-  ```  
-3. Install the form-data modules:  
-  ```  
-  npm install form-data  
-  ```  
-4. Create a file named GetVisualInsights.js and add the following code to it.
-5. Replace the `subscriptionKey` value with your subscription key.
-6. Replace the `imagePath` value with the path of the image to upload.
-7. Run the program.  
-  ```
-  node GetVisualInsights.js
-  ```
-
-```javascript
-var request = require('request');
-var FormData = require('form-data');
-var fs = require('fs');
-
-var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
-var subscriptionKey = '<yoursubscriptionkeygoeshere>';
-var imagePath = "<pathtoyourimagegoeshere>";
-
-var form = new FormData();
-form.append("image", fs.createReadStream(imagePath));
-
-form.getLength(function(err, length){
-  if (err) {
-    return requestCallback(err);
-  }
-
-  var r = request.post(baseUri, requestCallback);
-  r._form = form; 
-  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
-});
-
-function requestCallback(err, res, body) {
-    console.log(JSON.stringify(JSON.parse(body), null, '  '))
-}
-```
-
-
 ## Next steps
 
 > [!div class="nextstepaction"]

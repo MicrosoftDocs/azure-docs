@@ -48,138 +48,54 @@ When uploading a local image, the form data must include the Content-Disposition
     using System.Collections.Generic;
     ```
 
-## Running the application
+2. Add variables for your subscription key, endpoint, and the path for the image you want to upload.
 
-The following shows how to send the message using HttpWebRequest. For an example that uses HttpClient, HttpRequestMessage, and MultipartFormDataContent, see [Using HttpClient](#using-httpclient).
-
-To run this application, follow these steps:
-
-1. Create a new Console solution in Visual Studio.
-1. Replace the contents of `Program.cs` with the code shown in this quickstart.
-2. Replace the `accessKey` value with your subscription key.
-2. Replace the `imagePath` value with the path of the image to upload.
-3. Run the program.
-
-
-```csharp
-using System;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Collections.Generic;
-
-namespace VisualSearchUpload
-{
-
-    class Program
-    {
-        // **********************************************
-        // *** Update and verify the following values. ***
-        // **********************************************
-
-        // Replace the accessKey string value with your valid subscription key.
+    ```csharp
         const string accessKey = "<yoursubscriptionkeygoeshere>";
-
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
-
-        // Set the path to the image that you want to get insights of. 
         static string imagePath = @"<pathtoimagegoeshere>";
+    ```
 
-        // Boundary strings for form data in body of POST.
-        const string CRLF = "\r\n";
-        static string BoundaryTemplate = "batch_{0}";
-        static string StartBoundaryTemplate = "--{0}";
-        static string EndBoundaryTemplate = "--{0}--";
+3. POST calls to the Bing Visual Search API require formatted form data. The following variables will be used later to construct the form data.
+    ```csharp
+    // Boundary strings for form data in body of POST.
+    const string CRLF = "\r\n";
+    static string BoundaryTemplate = "batch_{0}";
+    static string StartBoundaryTemplate = "--{0}";
+    static string EndBoundaryTemplate = "--{0}--";
+    ```
 
-        const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
-        const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
+4. The following variables will be used to add the proper parameters to the form data. 
+
+    ```csharp
+    const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
+    const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
+    ```
 
 
-        static void Main()
-        {
-            try
+1. Create a method called `GetImageFileName()` to get the path for your image
+    
+    ```csharp
+    static string GetImageFileName(string path)
             {
-                Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-                if (accessKey.Length == 32)
-                {
-                    if (IsImagePathSet(imagePath))
-                    {
-                        var filename = GetImageFileName(imagePath);
-                        Console.WriteLine("Getting image insights for image: " + filename);
-                        var imageBinary = GetImageBinary(imagePath);
-
-                        // Set up POST body.
-                        var boundary = string.Format(BoundaryTemplate, Guid.NewGuid());
-                        var startFormData = BuildFormDataStart(boundary, filename);
-                        var endFormData = BuildFormDataEnd(boundary);
-                        var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
-
-                        var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
-
-                        Console.WriteLine("\nJSON Response:\n");
-                        Console.WriteLine(JsonPrettyPrint(json));
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Bing Visual Search API subscription key!");
-                    Console.WriteLine("Please paste yours into the source code.");
-                }
-
-                Console.Write("\nPress Enter to exit ");
-                Console.ReadLine();
+                return new FileInfo(path).Name;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+    ```
 
+2. Create a method to get the binary characters of the image.
 
+    ```csharp
+    static byte[] GetImageBinary(string path)
+    {
+        return File.ReadAllBytes(path);
+    }
+    ```
 
-        /// <summary>
-        /// Verify that imagePath exists.
-        /// </summary>
-        static Boolean IsImagePathSet(string path)
-        {
-            if (string.IsNullOrEmpty(path))
-                throw new ArgumentException("Image path is null or empty.");
+## Build the form data
 
-            if (!File.Exists(path))
-                throw new ArgumentException("Image path does not exist.");
-
-            var size = new FileInfo(path).Length;
-
-            if (size > 1000000)
-                throw new ArgumentException("Image is greater than the 1 MB maximum size.");
-
-            return true;
-        }
-
-
-
-        /// <summary>
-        /// Get the binary characters of an image.
-        /// </summary>
-        static byte[] GetImageBinary(string path)
-        {
-            return File.ReadAllBytes(path);
-        }
-
-
-        /// <summary>
-        /// Get the image's filename.
-        /// </summary>
-        static string GetImageFileName(string path)
-        {
-            return new FileInfo(path).Name;
-        }
-
-
-        /// <summary>
-        /// Build the beginning part of the form data.
-        /// </summary>
+1. Create a function to create the beginning part of the required form data.
+    
+    ```csharp
         static string BuildFormDataStart(string boundary, string filename)
         {
             var startBoundary = string.Format(StartBoundaryTemplate, boundary);
@@ -189,21 +105,26 @@ namespace VisualSearchUpload
 
             return requestBody;
         }
+    ```
 
-
-        /// <summary>
-        /// Build the ending part of the form data.
-        /// </summary>
+2. Create a function to create the ending part of the required form data.
+    
+    ```csharp
         static string BuildFormDataEnd(string boundary)
         {
             return CRLF + CRLF + string.Format(EndBoundaryTemplate, boundary) + CRLF;
         }
+    ```
 
+## Call the Bing Visual Search API
 
+1. Create a function to call the Bing Visual Search endpoint, and return the json response. The function should take the beginning and ending parts fo the form data, a byte array containing the image data, and a contentType value.
 
-        /// <summary>
-        /// Calls the Bing visual search endpoint and returns the JSON response.
-        /// </summary>
+2. Use a `WebRequest` to store your URI, contentType value, and headers.  
+
+3. Use `request.GetRequestStream()` to write your form and image data. Then get the response. This function should look like the code below:
+        
+    ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
         {
             WebRequest request = HttpWebRequest.Create(uriBase);
@@ -230,83 +151,39 @@ namespace VisualSearchUpload
 
             return json;
         }
+    ```
 
+## Create the main method
 
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
+1. In the main method of your application, get the filename and image binary for your image. 
 
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+    ```csharp
+    var filename = GetImageFileName(imagePath);
+    var imageBinary = GetImageBinary(imagePath);
+    ```
 
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 2;
+2. Set up the POST body by formatting the boundary for it. Then call `startFormData()` and `endFormData` to create the form data. 
 
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
+    ```csharp
+    // Set up POST body.
+    var boundary = string.Format(BoundaryTemplate, Guid.NewGuid());
+    var startFormData = BuildFormDataStart(boundary, filename);
+    var endFormData = BuildFormDataEnd(boundary);
+    ```
 
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
+3. Create the ContentType value by formatting `CONTENT_TYPE_HEADER_PARAMS` and the form data boundary.
 
-            return sb.ToString().Trim();
-        }
-    }
-}
-```
+    ```csharp
+    var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
+    ```
 
+4. Get the API response by calling `BingImageSearch()`. Then print the response.
+
+    ```csharp
+    var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
+    Console.WriteLine(json);
+    Console.readKey("enter any key to continue")
+    ```
 
 ## Using HttpClient
 
