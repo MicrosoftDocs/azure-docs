@@ -56,7 +56,7 @@ In this quickstart, you generate sample data and send it to an event hub. The fi
     |---|---|---|
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your event hub.|
     | Resource group | *test-hub-rg* | Create a new resource group. |
-    | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs. Create the event hub namespace in the same *Location* as the Kusto cluster for best performance (most important for event hub namespaces with high throughput).
+    | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs. Create the event hub namespace in the same Location as the Kusto cluster for best performance (most important for event hub namespaces with high throughput).
     | Namespace name | A unique namespace name | Choose a unique name that identifies your namespace. For example, *mytestnamespace*. The domain name *servicebus.windows.net* is appended to the name you provide. The name can contain only letters, numbers, and hyphens. The name must start with a letter, and it must end with a letter or number. The value must be between 6 and 50 characters long.
     | Event hub name | *test-hub* | The event hub sits under the namespace, which provides a unique scoping container. The event hub name must be unique within the namespace. |
     | Consumer group name | *test-group* | Consumer groups enable multiple consuming applications to each have a separate view of the event stream. |
