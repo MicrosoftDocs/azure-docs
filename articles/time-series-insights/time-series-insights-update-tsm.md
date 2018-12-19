@@ -139,7 +139,7 @@ Depending on the *instance fields*, the hierarchy attributes and values appear a
 | ID2 | “building” = “1000”, “room” = “55” |
 | ID3 | “floor” = “10” |
 | ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | |
+| ID5 | None of “building”, “floor” or “room” is set |
 
 In the preceding example, ID1 shows as part of hierarchy H1 in the UI/UX, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
 
