@@ -61,7 +61,7 @@ In the following diagram, green lines are requests for resources that end in the
 
 To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
-> [!NOTE]
+> [!NOTE]  
 > The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the following documents:
 >
 > * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
@@ -113,7 +113,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
     Replace `sshuser` with the SSH user account you specified when creating the cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
 	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
@@ -154,7 +154,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 				listen-on { any; };
 		};
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace the values in the `goodclients` section with the IP address range of the virtual network and on-premises network. This section defines the addresses that this DNS server accepts requests from.
     >
     > Replace the `192.168.0.1` entry in the `forwarders` section with the IP address of your on-premises DNS server. This entry routes DNS requests to your on-premises DNS server for resolution.
@@ -187,7 +187,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 			forwarders {168.63.129.16;}; # The Azure recursive resolver
 		};
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > You must replace the `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` with the DNS suffix you retrieved earlier.
 
     To edit this file, use the following command:
@@ -211,7 +211,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
     nslookup dns.mynetwork.net 10.0.0.4
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace `dns.mynetwork.net` with the fully qualified domain name (FQDN) of a resource in your on-premises network.
     >
     > Replace `10.0.0.4` with the __internal IP address__ of your custom DNS server in the virtual network.
@@ -264,7 +264,7 @@ This example uses the on-premises DNS server at 196.168.0.4 to resolve the name 
 
 You can use network security groups (NSG) or user-defined routes (UDR) to control network traffic. NSGs allow you to filter inbound and outbound traffic, and allow or deny the traffic. UDRs allow you to control how traffic flows between resources in the virtual network, the internet, and the on-premises network.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
 
 1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
@@ -278,7 +278,7 @@ For an example of using Azure PowerShell or the Azure CLI to create NSGs, see th
 
 ## Create the HDInsight cluster
 
-> [!WARNING]
+> [!WARNING]  
 > You must configure the custom DNS server before installing HDInsight in the virtual network.
 
 Use the steps in the [Create an HDInsight cluster using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md) document to create an HDInsight cluster.
@@ -320,7 +320,7 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 2. To determine the port that a service is available on, see the [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it fails, switch to the other head node.
     >
     > For example, Apache Ambari is only active on one head node at a time. If you try accessing Ambari on one head node and it returns a 404 error, then it is running on the other head node.

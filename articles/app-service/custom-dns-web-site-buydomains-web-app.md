@@ -18,11 +18,11 @@ ms.author: cephalin
 ms.custom: seodec18
 
 ---
-# Buy a custom domain name for Azure Web Apps
+# Buy a custom domain name for Azure App Service
 
-App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure Web Apps.
+App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure App Service.
 
-This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps). For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). For Cloud Services, see 
+For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). For Cloud Services, see 
 [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## Prerequisites
@@ -36,7 +36,7 @@ To complete this tutorial:
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-To use custom domains in Azure Web Apps, your web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the web app is in the supported pricing tier.
+To use custom domains in Azure App Service, your app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the app is in the supported pricing tier.
 
 ### Sign in to Azure
 
@@ -83,7 +83,7 @@ For pricing information on Azure App Service Domains, please visit the [App Serv
 Open the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
 
 ### Launch Buy domains
-In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
+In the **App Services** tab, click the name of your app, select **Settings**, and then select **Custom domains**
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -116,7 +116,7 @@ Next, select the desired options for your domain. See the following table for ex
 | Setting | Suggested Value | Description |
 |-|-|-|
 |Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_. Some top-level domains are managed by registrars that do not support privacy protection, and they are listed on the **Privacy protection** page. |
-| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your web app can be accessed at the selected hostnames. If the web app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
+| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your app can be accessed at the selected hostnames. If the app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
 
 ### Accept terms and purchase
 
@@ -135,7 +135,7 @@ Back in the **App Service Domain** page, click **OK**. While the operation is in
 
 ### Test the hostnames
 
-If you have assigned default hostnames to your web app, you also see a success notification for each selected hostname. 
+If you have assigned default hostnames to your app, you also see a success notification for each selected hostname. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
@@ -145,17 +145,17 @@ You also see the selected hostnames in the **Custom domains** page, in the **Cus
 
 To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www.kontoso.net_.
 
-## Assign hostnames to web app
+## Assign hostnames to app
 
-If you choose not to assign one or more default hostnames to your web app during the purchase process, or if you need to assign a hostname not listed, you can assign a hostname at anytime.
+If you choose not to assign one or more default hostnames to your app during the purchase process, or if you need to assign a hostname not listed, you can assign a hostname at anytime.
 
-You can also assign hostnames in the App Service Domain to any other web app. The steps depend on whether the App Service Domain and the web app belong to the same subscription.
+You can also assign hostnames in the App Service Domain to any other app. The steps depend on whether the App Service Domain and the app belong to the same subscription.
 
-- Different subscription: Map custom DNS records from the App Service Domain to the web app like an externally purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external purchased domain to a web app, see [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md). 
+- Different subscription: Map custom DNS records from the App Service Domain to the app like an externally purchased domain. For information on adding custom DNS names to an App Service Domain, see [Manage custom DNS records](#custom). To map an external purchased domain to an app, see [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md). 
 - Same subscription: Use the following steps.
 
 ### Launch add hostname
-In the **App Services** page, select the name of your web app that you want to assign hostnames to, select **Settings**, and then select **Custom domains**.
+In the **App Services** page, select the name of your app that you want to assign hostnames to, select **Settings**, and then select **Custom domains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
@@ -164,7 +164,7 @@ Make sure that your purchased domain is listed in the **App Service Domains** se
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
 > [!NOTE]
-> All App Service Domains in the same subscription are shown in the web app's **Custom domains** page. If your domain is in the web app's subscription, but you cannot see it in the web app's **Custom domains** page, try reopening the **Custom domains** page or refresh the webpage. Also, check the notification bell at the top of the Azure portal for progress or creation failures.
+> All App Service Domains in the same subscription are shown in the app's **Custom domains** page. If your domain is in the app's subscription, but you cannot see it in the app's **Custom domains** page, try reopening the **Custom domains** page or refresh the webpage. Also, check the notification bell at the top of the Azure portal for progress or creation failures.
 >
 >
 
@@ -186,7 +186,7 @@ When the operation is complete, you see a success notification for the assigned 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
 ### Close add hostname
-In the **Add hostname** page, assign any other hostname to your web app, as desired. When finished, close the **Add hostname** page.
+In the **Add hostname** page, assign any other hostname to your app, as desired. When finished, close the **Add hostname** page.
 
 You should now see the newly assigned hostname(s) in your app's **Custom domains** page.
 
@@ -200,7 +200,7 @@ Navigate to the listed hostnames in the browser. In the example in the preceding
 
 The App Service domain you bought is valid for one year from the time of purchase. By default, the domain is configured to renew automatically by charging your payment method for the next year. If you want to turn off automatic renewal, or if you want to manually renew your domain, follow the steps here.
 
-In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**.
+In the **App Services** tab, click the name of your app, select **Settings**, and then select **Custom domains**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
