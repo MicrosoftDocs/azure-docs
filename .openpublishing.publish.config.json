@@ -142,7 +142,7 @@
     },
     {
       "path_to_root": "samples-luis",
-      "url": "https://github.com/azure-samples/cognitive-services-language-understanding",
+      "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master",
       "branch_mapping": {}
     },
