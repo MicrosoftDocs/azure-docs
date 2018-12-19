@@ -35,15 +35,15 @@ This solution is divided between this article and a Jupyter notebook that you up
 
 The following remaining steps are covered in the Jupyter notebook.
 
-- Load sample images into a Spark Resiliant Distributed Dataset or RDD
-   - Load modules and define presets
-   - Download the dataset locally on the Spark cluster
-   - Convert the dataset into an RDD
-- Score the images using a trained Cognitive Toolkit model
-   - Download the trained Cognitive Toolkit model to the Spark cluster
-   - Define functions to be used by worker nodes
-   - Score the images on worker nodes
-   - Evaluate model accuracy
+- Load sample images into a Spark Resiliant Distributed Dataset or RDD.
+   - Load modules and define presets.
+   - Download the dataset locally on the Spark cluster.
+   - Convert the dataset into an RDD.
+- Score the images using a trained Cognitive Toolkit model.
+   - Download the trained Cognitive Toolkit model to the Spark cluster.
+   - Define functions to be used by worker nodes.
+   - Score the images on worker nodes.
+   - Evaluate model accuracy.
 
 
 ## Install Microsoft Cognitive Toolkit
@@ -94,7 +94,7 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 
 ### Create and run applications
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)

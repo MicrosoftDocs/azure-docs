@@ -30,10 +30,10 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Deploys an App Service app certificate from an Azure Key Vault secret and uses it for SSL binding. |
 | [App with a custom domain](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Deploys an App Service app with a custom host name. |
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Deploys an App Service app with a custom host name, and gets an app certificate from Key Vault for SSL binding. |
-| [Web app with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Deploys an Azure web app with the Golang site extension. You can then run web applications developed on Golang on Azure. |
-| [Web app with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Deploys an Azure web app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
-|**Linux web app with connected resources**||
-| [Web app on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Deploys an Azure web app on Linux with Azure Database for MySQL. |
+| [App with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Deploys an App Service app with the Golang site extension. You can then run web applications developed on Golang on Azure. |
+| [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Deploys an App Service app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
+|**Linux app with connected resources**||
+| [App on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Deploys an App Service app on Linux with Azure Database for MySQL. |
 | [Web app on Linux with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Deploys an Azure web app on Linux with Azure Database for PostgreSQL. |
 |**Web app with connected resources**||
 | [Web app with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Deploys an Azure web app on Windows with Azure Database for MySQL. |

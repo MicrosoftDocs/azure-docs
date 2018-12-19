@@ -1768,6 +1768,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-migrate-your-sql-server-database.md",
+            "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-implementation-daxko.md",
             "redirect_url": "http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services",
             "redirect_document_id": false
@@ -13692,11 +13697,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
-            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
@@ -13705,11 +13705,6 @@
             "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-api-languages.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/language-support",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/Emotion/index.md",
