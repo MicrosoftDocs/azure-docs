@@ -22,6 +22,14 @@ This article provides information about how you can manage your token, session, 
 To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
 ```XML
+<BuildingBlocks>
+  <ClaimsSchema>
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+  </ClaimsSchema>
+</BuildingBlocks>
 <ClaimsProviders>
    <ClaimsProvider>
       <DisplayName>Token Issuer</DisplayName>
