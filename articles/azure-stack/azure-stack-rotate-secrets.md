@@ -161,8 +161,10 @@ To rotate only Azure Stack's internal secrets:
 
 1. Create a PowerShell session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. In the Privileged Endpoint session, run **Start-SecretRotation -Internal**.
+
     > [!Note]  
     > Azure Stack environments on pre-1811 versions will not require the **-Internal** flag. **Start-SecretRotation** will rotate only internal secrets.
+
 3. Wait while your secrets rotate.  
 When secret rotation successfully completes, your console will display **Overall action status: Success**. 
     > [!Note]  
