@@ -242,7 +242,7 @@ Extended policy with WHERE clause support for additional filtering:
 
 ## <a id="subheading-10"></a>Manage SQL database auditing using ARM templates
 
-You can also manage Azure SQL database auditing using Azure Resource Manager templates, as shown in these examples:
+You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
@@ -257,6 +257,7 @@ You can also manage Azure SQL database auditing using Azure Resource Manager tem
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
