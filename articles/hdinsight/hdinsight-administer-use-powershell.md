@@ -69,10 +69,8 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
->
->
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -100,7 +98,7 @@ The impact of changing the number of data nodes for each type of cluster support
   * Storm web UI
   * Command-line interface (CLI) tool
 
-    Refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+    Refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
     The Storm web UI is available on the HDInsight cluster:
 
@@ -154,10 +152,8 @@ $credential = New-Object System.Management.Automation.PSCredential($hadoopUserNa
 Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > By granting/revoking the access, you reset the cluster user name and password.
->
->
 
 Granting and revoking access can also be done via the portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
@@ -203,9 +199,9 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## Submit jobs
-**To submit Apache Hadoop MapReduce jobs**
+**To submit MapReduce jobs**
 
-See [Run the Apache Hadoop MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **To submit Apache Hive jobs**
 
