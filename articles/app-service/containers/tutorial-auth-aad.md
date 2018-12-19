@@ -82,7 +82,7 @@ In this step, you deploy the project to two App Service apps. One is the front-e
 
 ### Create Azure resources
 
-In the Cloud Shell, run the following commands to create two web apps. Replace _&lt;front\_end\_app\_name>_ and _&lt;back\_end\_app\_name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md).
+In the Cloud Shell, run the following commands to create two App Service apps. Replace _&lt;front\_end\_app\_name>_ and _&lt;back\_end\_app\_name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core app in App Service on Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -139,7 +139,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### Browse to the Azure web apps
+### Browse to the Azure apps
 
 Navigate to the following URLs in a browser and see the two apps working.
 
@@ -449,7 +449,7 @@ What you learned:
 > * Use access tokens from server code
 > * Use access tokens from client (browser) code
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

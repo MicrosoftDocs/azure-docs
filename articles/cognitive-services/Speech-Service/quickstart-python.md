@@ -35,7 +35,7 @@ Before you get started, here's a list of prerequisites:
 
 * On Windows, you also need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
 
-## Get the Speech SDK Python Package
+## Get the Speech SDK Python package
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -47,7 +47,7 @@ pip install azure-cognitiveservices-speech
 
 The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
-## Support and Updates
+## Support and updates
 
 Updates to the Speech SDK Python package will be distributed via PyPI, and announced on the [Release Notes](./releasenotes.md) page.
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
@@ -55,11 +55,11 @@ You can check which version is currently installed by inspecting the `azure.cogn
 
 If you have a problem or are missing a feature, have a look at our [support page](./support.md).
 
-## Create a Python Application using the Speech SDK
+## Create a Python application using the Speech SDK
 
-### Running the Sample in a Terminal
+### Running the sample in a terminal
 
-You can either copy the code from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console
+You can either copy the [code](#quickstart-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console
 
 ```sh
 python quickstart.py
@@ -67,7 +67,14 @@ python quickstart.py
 
 or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
 
-### Installing the Speech SDK Python Package and Running the Sample in Visual Studio Code
+### Quickstart code
+
+[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
+
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Look for this sample in the `quickstart/python` folder.
+
+### Installing the Speech SDK Python package and running the sample in Visual Studio Code
 
 1. [Download](https://www.python.org/downloads/) and install a 64-bit version (3.5 or later) of Python on your computer.
 1. [Download](https://code.visualstudio.com/Download) and install Visual Studio Code.
@@ -78,7 +85,7 @@ or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    ![Open Folder](media/sdk/qs-python-vscode-python-open-folder.png)
 1. Create a new Python source file `speechsdk.py`, by clicking on the new file icon.
    ![Create File](media/sdk/qs-python-vscode-python-newfile.png)
-1. Copy, paste, and save the Python code below to the newly created file.
+1. Copy, paste, and save the [Python code](#quickstart-code) to the newly created file.
 1. Insert your Speech Service subscription information.
 1. If a Python interpreter has already been selected, it will be displayed on the left side of the status bar at the bottom of the window.
    Otherwise, you can bring up a list of available Python interpreters by opening the **Command Palette** (`Ctrl+Shift+P`) and typing **Python: Select Interpreter**, and choose an appropriate one.
@@ -90,13 +97,6 @@ or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    ![Run Sample](media/sdk/qs-python-vscode-python-run.png)
 
 If there are issues following these instructions, refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
-
-### Quickstart code
-
-[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
-
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/python` folder.
 
 ## Next steps
 
