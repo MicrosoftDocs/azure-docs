@@ -70,7 +70,7 @@ Before you start training and deploying ML models using VS Code, you need to cre
 
 1. Click the Azure icon in the Visual Studio Code activity bar. The Azure Machine Learning sidebar appears.
 
-   [![install](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![install](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
 
 1. Right-click your Azure subscription and select **Create Workspace**. A list appears. In the animated image, the subscription name is 'Free Trial' and the workspace is 'TeamWorkspace'. 
 
@@ -86,11 +86,11 @@ Before you start training and deploying ML models using VS Code, you need to cre
  
 1. Hit enter and the new experiment is created. It appears in the tree below the workspace name.
 
-1. Right-click the experiment name and choose **Attach Folder to Experiment**. This folder should contain your local Python scripts. The folder is then linked to the experiment in the cloud. 
+1. You can right-click on an Experiment in a Workspace and select 'Set as Active Experiment'. The **'Active'** experiment is the experiment you are currently using and your open folder in VS Code will be linked to this experiment in the cloud. This folder should contain your local Python scripts.
 
-   Now each of your experiment runs with your experiment so all of your key metrics will be stored in the experiment history and the models you train will get automatically uploaded to Azure Machine Learning and stored with your experiment metrics and logs.
+   Now each of your experiment runs with your experiment, so all of your key metrics will be stored in the experiment history and the models you train will get automatically uploaded to Azure Machine Learning and stored with your experiment metrics and logs.
 
-   [![Attach a folder in VS Code](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![Attach a folder in VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### Use keyboard shortcuts
 
