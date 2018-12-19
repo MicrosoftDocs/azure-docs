@@ -142,7 +142,7 @@ You now have the necessary packages and compute resources to train a model in th
 
 ## Explore data
 
-Before you train a model, you need to understand the data that you use to train it. You also need to copy the data into the cloud, so it can be accessed by your cloud training environment. In this section, you learn how to take the following actions:
+Before you train a model, you need to understand the data that you use to train it. You also need to copy the data into the cloud. Then it can be accessed by your cloud training environment. In this section, you learn how to take the following actions:
 
 * Download the MNIST dataset.
 * Display some sample images.
@@ -265,7 +265,7 @@ os.makedirs(script_folder, exist_ok=True)
 
 ### Create a training script
 
-To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you just created. This training adds a regularization rate to the training algorithm. So it produces a slightly different model than the local version:
+To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you created. This training adds a regularization rate to the training algorithm. So it produces a slightly different model than the local version:
 
 ```python
 %%writefile $script_folder/train.py
@@ -425,7 +425,7 @@ You now have a model trained on a remote cluster. Retrieve the accuracy of the m
 ```python
 print(run.get_metrics())
 ```
-The output shows the remote model has an accuracy slightly higher than the local model because of the addition of the regularization rate during training:  
+The output shows the remote model has accuracy slightly higher than the local model because of the addition of the regularization rate during training:  
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 

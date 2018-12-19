@@ -339,7 +339,9 @@
     - name: Configure geo-replication - Portal
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
-      href: sql-database-geo-replication-security-config.md  
+      href: sql-database-geo-replication-security-config.md
+    - name: Try in-memory features
+      href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
     - name: Enable e-mail notifications for automatic tuning

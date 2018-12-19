@@ -185,7 +185,7 @@ This category contains the record of any service health incidents that have occu
   }
 }
 ```
-Refer to the [service health notifications](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) article for documentation about the values in the properties.
+Refer to the [service health notifications](./../../azure-monitor/platform/service-notifications.md) article for documentation about the values in the properties.
 
 ## Resource health
 This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
@@ -671,4 +671,4 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 
 ## Next steps
 * [Learn more about the Activity Log (formerly Audit Logs)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

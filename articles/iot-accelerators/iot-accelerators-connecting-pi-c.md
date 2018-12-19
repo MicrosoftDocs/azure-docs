@@ -31,7 +31,7 @@ A desktop computer to enable you to connect remotely to the command line on the 
 
 You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
+- Windows does not include an SSH client. We recommend using [PuTTY](https://www.putty.org/).
 - Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### Required Raspberry Pi software
