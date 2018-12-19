@@ -292,7 +292,7 @@ Use this method when your AD FS was initially configured using Azure AD Connect.
    > At this point all your federated domains will be changed to Managed authentication which will now leverage Password Hash Synchronization as the method for authentication.
        
    7. Open the Azure AD portal, select Azure Active Directory, and then select Azure AD Connect.
-   8. Verify that that Federation is Disabled while Seamless single sign-on and Password Sync are Enabled.  
+   8. Verify that Federation is Disabled while Seamless single sign-on and Password Sync are Enabled.  
   ![Picture 37](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)</br>
    9. Go to [Testing and Next Steps](#testing-and-next-steps).
    
@@ -334,7 +334,7 @@ As part of this process, you will enable Seamless SSO and switch your domains fr
    > [!IMPORTANT]
    > No changes will be made to the way users sign in at this point.  
    
-   7. On the Azure AD Portal, verify that that Federation continues to be Enabled and now Seamless single sign-on is Enabled.
+   7. On the Azure AD Portal, verify that Federation continues to be Enabled and now Seamless single sign-on is Enabled.
    ![Picture 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### Convert domains from federated to managed

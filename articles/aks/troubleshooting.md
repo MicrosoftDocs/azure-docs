@@ -26,7 +26,7 @@ You need to [request cores](https://docs.microsoft.com/azure/azure-supportabilit
 ## What is the maximum pods-per-node setting for AKS?
 
 The maximum pods-per-node setting is 30 by default if you deploy an AKS cluster in the Azure portal.
-The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster in the Azure CLI. (Make sure you're using the latest version of the Azure CLI). This default setting can be changed by using the `–max-nodes-per-pod` flag in the `az aks create` command.
+The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster in the Azure CLI. (Make sure you're using the latest version of the Azure CLI). This default setting can be changed by using the `–-max-pods` flag in the `az aks create` command.
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
@@ -39,7 +39,9 @@ There might be various reasons for the pod being stuck in that mode. You might l
 * The pod itself, by using `kubectl describe pod <pod-name>`.
 * The logs, by using `kubectl log <pod-name>`.
 
-## I'm trying to enable RBAC on an existing cluster. How can I do that?
+For more information on how to troubleshoot pod issues, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+
+### I'm trying to enable RBAC on an existing cluster. How can I do that?
 
 Unfortunately, enabling role-based access control (RBAC) on existing clusters isn't supported at this time. You must explicitly create new clusters. If you use the CLI, RBAC is enabled by default. If you use the AKS portal, a toggle button to enable RBAC is available in the creation workflow.
 

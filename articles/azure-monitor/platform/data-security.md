@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/17/2018
 ms.author: magoedte
 ---
 # Log Analytics data security
@@ -54,7 +54,7 @@ After your data is ingested by the Log Analytics service, the data is kept logic
 ## Data retention
 Indexed log search data is stored and retained according to your pricing plan. For more information, see [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When the data is deleted, we also delete the Azure Storage Account where the data resides.  When customer data is removed, no physical drives are destroyed.  
+As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When customer data is removed, no physical drives are destroyed.  
 
 The following table lists some of the available solutions and provides examples of the type of data they collect.
 

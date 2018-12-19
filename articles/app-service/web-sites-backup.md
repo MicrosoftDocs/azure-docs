@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 ---
 # Back up your app in Azure
-The Backup and Restore feature in [Azure App Service](app-service-web-overview.md) lets you easily
+The Backup and Restore feature in [Azure App Service](overview.md) lets you easily
 create app backups manually or on a schedule. You can restore the app to a snapshot of a previous state by overwriting the existing app or restoring to another app. 
 
 For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
@@ -140,7 +140,7 @@ Create a file called `_backup.filter` and put the preceding list in the file, bu
     \site\wwwroot\Images\2013
 ```
 
-Upload `_backup.filter` file to the `D:\home\site\wwwroot\` directory of your site using [ftp](app-service-deploy-ftp.md) or any other method. If you wish, you can create the file directly using Kudu  `DebugConsole` and insert the content there.
+Upload `_backup.filter` file to the `D:\home\site\wwwroot\` directory of your site using [ftp](deploy-ftp.md) or any other method. If you wish, you can create the file directly using Kudu  `DebugConsole` and insert the content there.
 
 Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups). Now, any files and folders that are specified in `_backup.filter` is excluded from the future backups scheduled or manually initiated. 
 
@@ -169,8 +169,8 @@ You can automate backup management with scripts, using the [Azure CLI](/cli/azur
 
 For samples, see:
 
-- [Azure CLI samples](app-service-cli-samples.md)
-- [Azure PowerShell samples](app-service-powershell-samples.md)
+- [Azure CLI samples](samples-cli.md)
+- [Azure PowerShell samples](samples-powershell.md)
 
 <a name="nextsteps"></a>
 

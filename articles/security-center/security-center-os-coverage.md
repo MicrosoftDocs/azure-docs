@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
 
 ---
@@ -26,7 +26,7 @@ Security state monitoring and recommendations are available for virtual machines
 >
 >
 
-## Supported platforms 
+## Platforms that support the data collection agent 
 
 This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
 
@@ -39,6 +39,10 @@ The following Windows operating systems are supported:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
+>
+>
 
 ### Supported platforms for Linux computers and VMs
 The following Linux operating systems are supported:
@@ -51,11 +55,6 @@ The following Linux operating systems are supported:
 * Oracle Linux versions 5, 6, and 7.
 * Amazon Linux 2012.09 through 2017.
 * OpenSSL 1.1.0 is only supported on x86_64 platforms, 64 bit.
-
-> [!NOTE]
-> Virtual machine behavioral analytics aren't yet available for Linux operating systems.
->
->
 
 ## VMs and Cloud Services
 VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).

@@ -65,7 +65,7 @@ IoT Edge device:
 
 ## Create an IoT hub
 
-Start the quickstart by creating your IoT hub with Azure CLI.
+Start the quickstart by creating an IoT hub with Azure CLI.
 
 ![Diagram - Create an IoT hub in the cloud](./media/quickstart-linux/create-iot-hub.png)
 
@@ -102,7 +102,9 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
+3. Copy the connection string from the JSON output and save it. You'll use this value to configure the IoT Edge runtime in the next section.
+
+   ![Retrieve connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
 
 ## Install and start the IoT Edge runtime
 
@@ -115,7 +117,7 @@ During the runtime configuration, you provide a device connection string. Use th
 
 ### Connect to your IoT Edge device
 
-The steps in this section all take place on your IoT Edge device. If you're using your own machine as the IoT Edge device, you can skip this part. If you're using a virtual machine or secondary hardware, you want to connect to that machine now. 
+The steps in this section all take place on your IoT Edge device. If you're using your own machine as the IoT Edge device, you can continue to the next section. If you're using a virtual machine or secondary hardware, you want to connect to that machine now. 
 
 If you created an Azure virtual machine for this quickstart, retrieve the public IP address that was output by the creation command. You can also find the public IP address on your virtual machine's overview page in the Azure portal. Use the following command to connect to your virtual machine. Replace **{publicIpAddress}** with your machine's address. 
 
