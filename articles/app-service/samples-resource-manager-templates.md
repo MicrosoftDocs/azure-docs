@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager template samples - App Service | Microsoft Docs
-description: Azure Resource Manager template samples for the Web Apps feature of App Service
+description: Azure Resource Manager template samples for App Service
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
@@ -17,12 +17,12 @@ ms.custom: mvc
 ---
 # Azure Resource Manager templates for App Service
 
-The following table includes links to Azure Resource Manager templates for the Web Apps feature of Azure App Service. For recommendations about avoiding common errors when you're creating web app templates, see [Guidance on deploying web apps with Azure Resource Manager templates](web-sites-rm-template-guidance.md).
+The following table includes links to Azure Resource Manager templates for Azure App Service. For recommendations about avoiding common errors when you're creating app templates, see [Guidance on deploying apps with Azure Resource Manager templates](web-sites-rm-template-guidance.md).
 
 | | |
 |-|-|
-|**Deploying a web app**||
-| [App Service plan and basic Lninux app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
+|**Deploying an app**||
+| [App Service plan and basic Linux app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
 | [App Service plan and basic Wnindows app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Deploys an App Service app that is configured for Windows. |
 | [App linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Deploys an App Service app that pulls code from GitHub. |
 | [App with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Deploys an App Service app with custom deployment slots/environments. |
