@@ -32,7 +32,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     Otherwise, check the box next to **Desktop development with C++**.
 
-1. Make sure the **NuGet package manager** component is available. Switch to the **Individual components** tab of the Visual Studio installer dialog box, and select **NuGet package manager** if it is not already enabled.
+1. Make sure the **NuGet package manager** component is available. Switch to the **Individual components** tab of the Visual Studio installer dialog box. Select **NuGet package manager** if it is not already enabled.
 
       ![Screenshot of Visual Studio Individual components tab](media/sdk/vs-enable-nuget-package-manager.png)
 
@@ -42,7 +42,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
     ![Screenshot of New Project dialog box](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-1. If you're running 64-bit Windows, you may switch your build platform to `x64` by using the drop-down menu in the Visual Studio toolbar. (64-bit versions of Windows can run 32-bit applications, so this is not a requirement.)
+1. If you're running 64-bit Windows, you may switch your build platform to `x64` by using the drop-down menu in the Visual Studio toolbar. (64-bit versions of Windows can run 32-bit applications directly.)
 
     ![Screenshot of Visual Studio toolbar, with x64 option highlighted](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
@@ -55,7 +55,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
     ![Screenshot of Manage Packages for Solution dialog box](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > The current version of the Cognitive Services Speech SDK is `1.1.0`.
+    > The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
 1. Accept the displayed license to begin installation of the NuGet package.
 

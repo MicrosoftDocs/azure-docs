@@ -97,7 +97,7 @@ Source IP address ranges
     - 13.106.38.148
     - 13.106.57.196
 
-To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) which monitors for Informational notifications about the Action Groups service.
+To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert](./../../azure-monitor/platform/service-notifications.md) which monitors for Informational notifications about the Action Groups service.
 
 
 ## Next steps ##

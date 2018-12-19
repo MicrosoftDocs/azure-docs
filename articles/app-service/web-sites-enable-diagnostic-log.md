@@ -1,5 +1,5 @@
 ---
-title: Enable diagnostics logging for web apps - Azure App Service
+title: Enable diagnostics logging for apps - Azure App Service
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 services: app-service
 documentationcenter: .net
@@ -18,16 +18,14 @@ ms.author: cephalin
 ms.custom: seodec18
 
 ---
-# Enable diagnostics logging for web apps in Azure App Service
+# Enable diagnostics logging for apps in Azure App Service
 ## Overview
-Azure provides built-in diagnostics to assist with debugging an [App Service web app](https://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging an [App Service app](https://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
-App Service web apps provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
+App Service provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
 
 ### Web server diagnostics
 You can enable or disable the following kinds of logs:
@@ -41,12 +39,12 @@ Application diagnostics allows you to capture information produced by a web appl
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-At runtime, you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+At runtime, you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure App Service in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-App Service web apps also log deployment information when you publish content to a web app. It happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
+App Service also log deployment information when you publish content to an app. It happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 ## <a name="enablediag"></a>How to enable diagnostics
-To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the page for your web app and click **Settings > Diagnostics logs**.
+To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the page for your app and click **Settings > Diagnostics logs**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
@@ -88,7 +86,7 @@ While both storage locations provide the same basic information for logged event
 >
 
 ## <a name="download"></a> How to: Download logs
-Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure CLI.
+Diagnostic information stored to the app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure CLI.
 
 The directory structure that the logs are stored in is as follows:
 
@@ -96,20 +94,20 @@ The directory structure that the logs are stored in is as follows:
 * **Failed Request Traces** - /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred.
 * **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments. You can also find deployment logs under D:\home\site\deployments.
+* **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure App Service, as well as logs for Git deployments. You can also find deployment logs under D:\home\site\deployments.
 
 ### FTP
 
 To open an FTP connection to your app's FTP server, see [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
 
-Once connected to your web app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
+Once connected to your app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
 
 ### Download with Azure CLI
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    az webapp log download --resource-group resourcegroupname --name webappname
+    az webapp log download --resource-group resourcegroupname --name appname
 
-This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
+This command saves the logs for the app named 'appname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
 > If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -142,17 +140,17 @@ While developing an application, it is often useful to see logging information i
 ### Streaming with Azure CLI
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    az webapp log tail --name webappname --resource-group myResourceGroup
+    az webapp log tail --name appname --resource-group myResourceGroup
 
-This command connects to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) is streamed to the local console.
+This command connects to the app named 'appname' and begin streaming information to the window as log events occur on the app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) is streamed to the local console.
 
 To filter specific events, such as errors, use the **--Filter** parameter. For example:
 
-    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
+    az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
 To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
 
-    az webapp log tail --name webappname --resource-group myResourceGroup --path http
+    az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
@@ -185,8 +183,8 @@ When logging to blob storage, data is stored in comma-separated values (CSV) for
 | --- | --- |
 | Date |The date and time that the event occurred |
 | Level |Event level (for example, error, warning, information) |
-| ApplicationName |The web app name |
-| InstanceId |Instance of the web app that the event occurred on |
+| ApplicationName |The app name |
+| InstanceId |Instance of the app that the event occurred on |
 | EventTickCount |The date and time that the event occurred, in Tick format (greater precision) |
 | EventId |The event ID of this event<p><p>Defaults to 0 if none specified |
 | Pid |Process ID |
@@ -215,16 +213,11 @@ Detailed error logs are HTML documents that provide more detailed information on
 The web server logs are formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
-> The logs produced by Azure web apps do not support the **s-computername**, **s-ip**, or **cs-version** fields.
+> The logs produced by Azure App Service do not support the **s-computername**, **s-ip**, or **cs-version** fields.
 >
 >
 
 ## <a name="nextsteps"></a> Next steps
-* [How to Monitor Web Apps](web-sites-monitor.md)
-* [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analyze web app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
-
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
->
->
+* [How to Monitor Azure App Service](web-sites-monitor.md)
+* [Troubleshooting Azure App Service in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

@@ -32,5 +32,5 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |**High availability, disaster recovery, backup and restore**||
 | [Configure failover policy](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Sets the failover priority of each region in which the account is replicated.|
 |**Connect Azure Cosmos DB to resources**||
-| [Connect a web app to Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos DB database and an Azure web app.|
+| [Connect a web app to Azure Cosmos DB](../app-service/scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos DB database and an Azure web app.|
 |||
