@@ -10,7 +10,7 @@ ms.author: johnkem
 ms.component: activitylog
 ---
 # Stream the Azure Activity Log to Event Hubs
-You can stream the [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md) in near real time to any application by either:
+You can stream the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) in near real time to any application by either:
 
 * Using the built-in **Export** option in the portal
 * Enabling the Azure Service Bus rule ID in a log profile via the Azure PowerShell cmdlets or Azure CLI
@@ -33,15 +33,15 @@ To update the Activity Log log profile to include streaming, the user who's maki
 ### Via the Azure portal
 1. Browse to the **Activity Log** section by using the **All services** search on the left side of the portal.
    
-   ![Selecting Activity Log from the list of services in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+   ![Selecting Activity Log from the list of services in the portal](./media/activity-logs-stream-event-hubs/activity-logs-portal-navigate-v2.png)
 2. Select the **Export to Event Hub** button at the top of the log.
    
-   ![Export button in the portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
+   ![Export button in the portal](./media/activity-logs-stream-event-hubs/activity-logs-portal-export-v2.png)
 
    Note that the filter settings you had applied while viewing the Activity Log in the previous view have no impact on your export settings. Those are only for filtering what you see while browsing through your Activity Log in the portal.
 3. In the section that appears, select **All regions**. Do not select particular regions.
    
-   ![Export section](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+   ![Export section](./media/activity-logs-stream-event-hubs/export-audit.png)
 
    > [!WARNING]  
    > If you select anything other than **All regions**, you'll miss key events that you expect to receive. The Activity Log is a global (non-regional) log, so most events do not have a region associated with them. 
@@ -90,10 +90,10 @@ If a log profile already exists, you first need to remove the existing log profi
    ```
 
 ## Consume the log data from Event Hubs
-The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md). Each event is in an array of JSON blobs called *records*.
+The schema for the Activity Log is available in [Monitor subscription activity with the Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). Each event is in an array of JSON blobs called *records*.
 
 ## Next steps
-* [Archive the Activity Log to a storage account](../azure-monitor/platform/archive-activity-log.md)
-* [Read the overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md)
-* [Set up an alert based on an Activity Log event](../azure-monitor/platform/alerts-log-webhook.md)
+* [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md)
+* [Read the overview of the Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
+* [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md)
 

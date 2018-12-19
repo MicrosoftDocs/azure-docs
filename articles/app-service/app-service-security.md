@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Security in Azure App Service and Azure Functions
 
-This article shows you how [Azure App Service](app-service-web-overview.md) helps secure your web app, mobile app back end, API app, and [Azure Functions](/azure/azure-functions/). It also shows how you can further secure your app with the built-in App Service features.
+This article shows you how [Azure App Service](overview.md) helps secure your web app, mobile app back end, API app, and [Azure Functions](/azure/azure-functions/). It also shows how you can further secure your app with the built-in App Service features.
 
 The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that:
 
@@ -40,7 +40,7 @@ The following sections show you how to further protect your App Service app from
 App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name (\<app_name>.azurewebsites.net) is already accessible using HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), you should also [secure it with a custom certificate](app-service-web-tutorial-custom-ssl.md) so that client browsers can make secured HTTPS connections to your custom domain. There are two ways to do it:
 
 - **App Service certificate** - Create a certificate directly in Azure. The certificate is secured in [Azure Key Vault](/azure/key-vault/), and can be imported into your App Service app. For more information, see [Buy and Configure an SSL Certificate for your Azure App Service](web-sites-purchase-ssl-web-site.md).
-- **Third-party certificate** - Upload a custom SSL certificate that you purchased from a trusted certificate authority and bind it to your App Service app. App Service supports both single-domain certificates and wildcard certificates. It also supports self-signed certificates for testing purposes. For more information, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+- **Third-party certificate** - Upload a custom SSL certificate that you purchased from a trusted certificate authority and bind it to your App Service app. App Service supports both single-domain certificates and wildcard certificates. It also supports self-signed certificates for testing purposes. For more information, see [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## Insecure protocols (HTTP, TLS 1.0, FTP)
 

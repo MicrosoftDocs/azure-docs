@@ -18,7 +18,7 @@ ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
-# Azure PowerShell Samples
+# PowerShell samples for Azure App Service
 
 The following table includes links to PowerShell scripts built using the Azure PowerShell.
 
