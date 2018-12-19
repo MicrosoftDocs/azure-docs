@@ -32,15 +32,8 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * [Python 3.x](https://www.python.org/)
 
-For this quickstart, you will need to start a subscription at S9 price tier as shown in [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
-To start a subscription in Azure portal:
-1. Enter 'BingSearchV7' in the text box at the top of the Azure portal that says `Search resources, services, and docs`.  
-2. Under Marketplace in the drop-down list, select `Bing Search v7`.
-3. Enter `Name` for the new resource.
-4. Select `Pay-As-You-Go` subscription.
-5. Select `S9` pricing tier.
-6. Click `Enable` to start the subscription.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Initialize the application
 
@@ -97,10 +90,5 @@ To start a subscription in Azure portal:
 
 ## Next steps
 
-[Get insights about an image using an insights token](../use-insights-token.md)  
-[Bing Visual Search image upload tutorial](../tutorial-visual-search-image-upload.md)
-[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search overview](../overview.md)  
-[Try it](https://aka.ms/bingvisualsearchtryforfree)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)
+> [!div class="nextstepaction"]
+> [Build a Custom Search web app](../tutorial-bing-visual-search-single-page-app.md)

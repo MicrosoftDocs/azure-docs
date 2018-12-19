@@ -4,35 +4,37 @@
   items:
     - name: What is Bing Visual Search API?
       href: overview.md
-- name: REST API Quickstarts
-  expanded: true
+- name: Quickstarts
   items:
-  - name: First query in C#
-    href: quickstarts/csharp.md
-  - name: First query in Java
-    href: quickstarts/java.md
-  - name: First query for Node.js
-    href: quickstarts/nodejs.md
-  - name: First query in Python
-    href: quickstarts/python.md
-- name: SDK
-  expanded: true
-  items:
-  - name: SDK in C#
-    href: visual-search-sdk-c-sharp.md
-  - name: SDK in Node
-    href: visual-search-sdk-node.md
-  - name: SDK in Python
-    href: visual-search-sdk-python.md
+    - name: REST API 
+      expanded: true
+      items:
+      - name: Using C#
+        href: quickstarts/csharp.md
+      - name: Using Java
+        href: quickstarts/java.md
+      - name: Using Node.js
+        href: quickstarts/nodejs.md
+      - name: Using Python
+        href: quickstarts/python.md
+    - name: SDK
+      expanded: true
+      items:
+      - name: Using C#
+        href: visual-search-sdk-c-sharp.md
+      - name: Using Node.js
+        href: visual-search-sdk-node.md
+      - name: Using Python
+        href: visual-search-sdk-python.md
 - name: Tutorials
   items:
-  - name: Image upload web app
+  - name: Uploading an image
     href: tutorial-visual-search-image-upload.md
-  - name: Single-page Web app
+  - name: Create a Single-page Web app
     href: tutorial-bing-visual-search-single-page-app.md
-  - name: Bing Visual Search SDK image crop area and results
+  - name: Crop and search an area of an image
     href: tutorial-visual-search-crop-area-results.md
-  - name: Bing Visual Search SDK ImageInsightsToken and results
+  - name: Search for an image Using image insight tokens
     href: tutorial-visual-search-insights-token.md
 - name: Samples
   items:
