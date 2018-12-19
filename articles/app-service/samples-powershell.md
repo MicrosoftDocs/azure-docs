@@ -25,11 +25,11 @@ The following table includes links to PowerShell scripts built using the Azure P
 | | |
 |-|-|
 |**Create app**||
-| [Create an app with deployment from GitHub](./scripts/powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app that pulls code from GitHub. |
-| [Create an app with continuous deployment from GitHub](./scripts/powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app that continuously deploys code from GitHub. |
-| [Create an app and deploy code with FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app and upload files from a local directory using FTP. |
-| [Create an app and deploy code from a local Git repository](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app and configures code push from a local Git repository. |
-| [Create an app and deploy code to a staging environment](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an Azure web app with a deployment slot for staging code changes. |
+| [Create an app with deployment from GitHub](./scripts/powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an App Service app that pulls code from GitHub. |
+| [Create an app with continuous deployment from GitHub](./scripts/powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an App Service app that continuously deploys code from GitHub. |
+| [Create an app and deploy code with FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app and upload files from a local directory using FTP. |
+| [Create an app and deploy code from a local Git repository](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app and configures code push from a local Git repository. |
+| [Create an app and deploy code to a staging environment](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app with a deployment slot for staging code changes. |
 |**Configure app**||
 | [Map a custom domain to an app](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app and maps a custom domain name to it. |
 | [Bind a custom SSL certificate to an app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure web app and binds the SSL certificate of a custom domain name to it. |

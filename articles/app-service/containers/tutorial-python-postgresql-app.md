@@ -1,5 +1,5 @@
 ---
-title: Build a Python web app with PostgreSQL on Linux - Azure App Service | Microsoft Docs
+title: Build a Python app with PostgreSQL on Linux - Azure App Service | Microsoft Docs
 description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
 services: app-service\web
 documentationcenter: python
@@ -14,9 +14,9 @@ ms.author: beverst;cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Build a Python and PostgreSQL web app in Azure App Service
+# Build a Python and PostgreSQL app in Azure App Service
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python web app, using PostgreSQL as the database back end. When you are done, you have a Django application running in App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python app, using PostgreSQL as the database back end. When you are done, you have a Django application running in App Service on Linux.
 
 ![Python Django app in App Service on Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -366,9 +366,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 The App Service deployment server sees _requirements.txt_ in the repository root and runs Python package management automatically after `git push`.
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
-Browse to the deployed web app. It takes some time to start because the container needs to be downloaded and run when the app is requested for the first time. If the page times out or displays an error message, wait a few minutes and refresh the page.
+Browse to the deployed app. It takes some time to start because the container needs to be downloaded and run when the app is requested for the first time. If the page times out or displays an error message, wait a few minutes and refresh the page.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -398,15 +398,15 @@ Once container logging is turned on, run the following command to see the log st
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## Manage your web app in the Azure Portal
+## Manage your app in the Azure Portal
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+From the left menu, click **App Services**, then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/tutorial-python-postgresql-app/app-resource.png)
+![Portal navigation to Azure app](./media/tutorial-python-postgresql-app/app-resource.png)
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -423,7 +423,7 @@ In this tutorial, you learned how to:
 > * View diagnostic logs
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)
