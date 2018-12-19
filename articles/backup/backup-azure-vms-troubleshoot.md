@@ -63,11 +63,11 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 | The type of storage account specified for the restore operation isn't online: <br>Make sure that the storage account specified in the restore operation is online. |This error might happen because of a transient error in Azure Storage or because of an outage. Choose another storage account. |
 | The resource group quota has been reached: <br>Delete some resource groups from the Azure portal or contact Azure Support to increase the limits. |None |
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
-| The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) to create a full VM from restored disks. |
+| The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#create-new-restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## Backup or restore takes time
 If your backup takes more than 12 hours, or restore takes more than 6 hours:
-* Understand [factors that contribute to backup time](backup-azure-vms-introduction.md#total-vm-backup-time) and [factors that contribute to restore time](backup-azure-vms-introduction.md#total-restore-time).
+* Understand [factors that contribute to backup time](backup-azure-vms-introduction.md#time-considerations) and [factors that contribute to restore time](backup-azure-vms-introduction.md#restore-considerations).
 * Make sure that you follow [backup best practices](backup-azure-vms-introduction.md#best-practices).
 
 ## VM Agent

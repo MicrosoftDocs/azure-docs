@@ -35,7 +35,7 @@ Before you get started, here's a list of prerequisites:
 
 * On Windows, you also need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
 
-## Get the Speech SDK Python Package
+## Get the Speech SDK Python package
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -47,7 +47,7 @@ pip install azure-cognitiveservices-speech
 
 The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
-## Support and Updates
+## Support and updates
 
 Updates to the Speech SDK Python package will be distributed via PyPI, and announced on the [Release Notes](./releasenotes.md) page.
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
@@ -55,9 +55,9 @@ You can check which version is currently installed by inspecting the `azure.cogn
 
 If you have a problem or are missing a feature, have a look at our [support page](./support.md).
 
-## Create a Python Application using the Speech SDK
+## Create a Python application using the Speech SDK
 
-### Running the Sample in a Terminal
+### Running the sample in a terminal
 
 You can either copy the [code](#quickstart-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console
 
@@ -74,7 +74,7 @@ or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/python` folder.
 
-### Installing the Speech SDK Python Package and Running the Sample in Visual Studio Code
+### Installing the Speech SDK Python package and running the sample in Visual Studio Code
 
 1. [Download](https://www.python.org/downloads/) and install a 64-bit version (3.5 or later) of Python on your computer.
 1. [Download](https://code.visualstudio.com/Download) and install Visual Studio Code.
