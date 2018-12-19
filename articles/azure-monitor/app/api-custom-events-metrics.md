@@ -1136,7 +1136,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 ## Limits
 
-[!INCLUDE [application-insights-limits](../../../../includes/application-insights-limits.md)]
+[!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
 To avoid hitting the data rate limit, use [sampling](../../application-insights/app-insights-sampling.md).
 
