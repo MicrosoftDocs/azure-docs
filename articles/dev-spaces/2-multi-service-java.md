@@ -88,7 +88,7 @@ webfrontend.856bb3af715744c6810b.eastus.aksapp.io <-ytv-- webfrontend:8080:
    Hello from webfrontend and
    Hello from mywebapi
 ```
-This is one of the "free" benefits you get from DevSpaces instrumentation. We insert components that track HTTP requests as they go through the system to make it easier for you to track complex multi-service calls during development.
+This is one of the "free" benefits you get from Dev Spaces instrumentation. We insert components that track HTTP requests as they go through the system to make it easier for you to track complex multi-service calls during development.
 
 ### Well done!
 You now have a multi-container application where each container can be developed and deployed separately.
@@ -97,4 +97,4 @@ You now have a multi-container application where each container can be developed
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about continuous integration and continuous development in DevSpaces](3-team-development-java.md)
+> [Learn about continuous integration and continuous development in Dev Spaces](3-team-development-java.md)

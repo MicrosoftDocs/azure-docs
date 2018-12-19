@@ -41,7 +41,7 @@ To test your new version of `mywebapi` with `webfrontend`, open your browser to 
 
 Now, remove the "scott.s." part of the URL, and refresh the browser. You should see the old behavior (with the `mywebapi` version running in `dev`).
 
-Once you have a 'dev' space which always contains your "latest" changes, and assuming your application is designed to take advantage of DevSpace's space-based routing as described in this tutorial section, hopefully it becomes easy to see how DevSpaces can greatly assist in testing new features within the context of the larger application. Rather than having to deploy _all_ services to your private space, you can simply create a private space that derives from 'dev', and only "up" the services you're actually working on. The DevSpaces routing infrastructure will handle the rest by utilizing as many services out of your private space as it can find, while defaulting back to the "latest" version running in the 'dev' space. And better still, _multiple_ developers can actively develop different services at the same time in their own space without disrupting each other.
+Once you have a 'dev' space which always contains your "latest" changes, and assuming your application is designed to take advantage of DevSpace's space-based routing as described in this tutorial section, hopefully it becomes easy to see how Dev Spaces can greatly assist in testing new features within the context of the larger application. Rather than having to deploy _all_ services to your private space, you can simply create a private space that derives from 'dev', and only "up" the services you're actually working on. The Dev Spaces routing infrastructure will handle the rest by utilizing as many services out of your private space as it can find, while defaulting back to the "latest" version running in the 'dev' space. And better still, _multiple_ developers can actively develop different services at the same time in their own space without disrupting each other.
 
 ### Well done!
 You've completed the getting started guide! You learned how to:
@@ -51,7 +51,7 @@ You've completed the getting started guide! You learned how to:
 > * Iteratively develop code in containers.
 > * Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 > * Productively develop and test your code in a team environment.
-> * Leverage CI/CD together with DevSpaces to easily test isolated changes within the context of a larger microservice application
+> * Leverage CI/CD together with Dev Spaces to easily test isolated changes within the context of a larger microservice application
 
 Now that you've explored Azure Dev Spaces, [share your dev space with a team member](../articles/dev-spaces/how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
 

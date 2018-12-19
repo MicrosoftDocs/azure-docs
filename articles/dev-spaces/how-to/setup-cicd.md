@@ -15,7 +15,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 
 # Sample app CI/CD on an Azure Dev Spaces-enabled cluster
 
-In this how-to, we will guide you on setting up a simple CI/CD (continuous integration/continuous deployment) pipeline for our sample application using Azure DevOps Pipelines, on the same DevSpaces-enabled cluster you've been using for inner-loop development.
+In this how-to, we will guide you on setting up a simple CI/CD (continuous integration/continuous deployment) pipeline for our sample application using Azure DevOps Pipelines, on the same Dev Spaces-enabled cluster you've been using for inner-loop development.
 
 ## Prerequisites
 ### Download sample code
@@ -39,18 +39,18 @@ You'll need an Azure DevOps organization, with a project created inside it, in o
 
 ## CI/CD strategy
 
-After using DevSpaces and getting used to how easy it is to convert code into a running Kubernetes service, it may be tempting to try and use the DevSpaces tooling in your CI/CD system to "up" your projects to avoid having to build & push a Docker image to a repository, set per-release Helm chart variables, etc. However, for a variety of reasons, we don't recommend going with that approach.
+After using Dev Spaces and getting used to how easy it is to convert code into a running Kubernetes service, it may be tempting to try and use the Dev Spaces tooling in your CI/CD system to "up" your projects to avoid having to build & push a Docker image to a repository, set per-release Helm chart variables, etc. However, for a variety of reasons, we don't recommend going with that approach.
 
-The biggest reason being that one of the primary goals of Azure DevSpaces is to make inner-loop development scenarios run as _closely_ as possible to a Production environment. This provides more predictability & confidence for developers, by avoiding the addition of development-only configuration or runtimes.
+The biggest reason being that one of the primary goals of Azure Dev Spaces is to make inner-loop development scenarios run as _closely_ as possible to a Production environment. This provides more predictability & confidence for developers, by avoiding the addition of development-only configuration or runtimes.
 
-So, a CI/CD system in a DevSpaces-enabled environment ideally shouldn't look much different than CI/CD in a non-DevSpaces environment. This tutorial will guide you on how to create a simple CI/CD system for our sample applications, but none of the components or strategies used should look much different than what you may already be used to.
+So, a CI/CD system in a Dev Spaces-enabled environment ideally shouldn't look much different than CI/CD in a non-Dev Spaces environment. This tutorial will guide you on how to create a simple CI/CD system for our sample applications, but none of the components or strategies used should look much different than what you may already be used to.
 
-### DevSpaces setup
+### Dev Spaces setup
 Before we begin, execute the following:
 ```cmd
 azds space select -n dev -y
 ```
-This will create/configure a new space called "dev" in your cluster. The CI/CD pipeline you're about to deploy will automatically push all changes you make to your forked `azds_updates` branch into this space. The idea will be that "dev" will always contain the latest state of the repository, a "baseline", so that developers can create "child spaces" from "dev" to test their isolated changes within the context of the larger app. (This is discussed in more detail in the DevSpaces tutorials.)
+This will create/configure a new space called "dev" in your cluster. The CI/CD pipeline you're about to deploy will automatically push all changes you make to your forked `azds_updates` branch into this space. The idea will be that "dev" will always contain the latest state of the repository, a "baseline", so that developers can create "child spaces" from "dev" to test their isolated changes within the context of the larger app. (This is discussed in more detail in the Dev Spaces tutorials.)
 
 The proposed hierarchy is visualized below:
 
@@ -104,7 +104,7 @@ Once loaded, you should be presented with the release definition edit page, and 
 
 ![Release definition setup](../media/common/release-setup-tasks.png)
 
-13. Specify the subscription, resource group, cluster you're using with Azure DevSpaces.
+13. Specify the subscription, resource group, cluster you're using with Azure Dev Spaces.
 1. There should be only 1 more section showing red at this point; the "Agent job" section. Go there and specify "Hosted Ubuntu 1604" as the agent pool for this stage.
 1. Hover over the 'Tasks' selector at the top, select "prod", and repeat steps 13 & 14 for the prod stage.
 1. Click 'Save' in the upper-right, and 'OK'
@@ -117,9 +117,9 @@ An automated release process will now begin, deploying the *mywebapi* and *webfr
 After deployment, the 'dev' version of *webfrontend* can be accessed with a public URL like: `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
 
 ### Well done!
-You now have a fully automated CI/CD pipeline for your Github fork of the DevSpaces sample apps. Each time you checkin, the build pipeline will build and push the *mywebapi* and *webfrontend* images to your custom ACR instance. Then the release pipeline will deploy the Helm chart for each app into the 'dev' space on your DevSpaces-enabled cluster.
+You now have a fully automated CI/CD pipeline for your Github fork of the Dev Spaces sample apps. Each time you checkin, the build pipeline will build and push the *mywebapi* and *webfrontend* images to your custom ACR instance. Then the release pipeline will deploy the Helm chart for each app into the 'dev' space on your Dev Spaces-enabled cluster.
 
-In the DevSpaces tutorials, we talk about how a CI/CD system like this helps to establish a "baseline" of your services which can be leveraged together with DevSpaces functionality to assist with team development of complex microservice applications.
+In the Dev Spaces tutorials, we talk about how a CI/CD system like this helps to establish a "baseline" of your services which can be leveraged together with Dev Spaces functionality to assist with team development of complex microservice applications.
 
 # Deploying to Production
 While completing the tutorial above you may have noticed a 'prod' stage has been defined for you:
@@ -138,15 +138,15 @@ To manually promote a particular release to 'prod' using the CI/CD system we've 
 ### Accessing your 'prod' services
 Our CI/CD pipeline example makes use of variables to change the DNS prefix for *webfrontend* depending on which environment is being deployed. So to access your 'prod' services, you can use a URL like: `http://prod.webfrontend.<hash>.<region>.aksapp.io`.
 
-### DevSpaces instrumentation in production
-Although DevSpaces instrumentation has been designed _not_ to get in the way of normal operation of your application, we recommend running your production workloads in a non-DevSpaces-enabled Kubernetes namespace. This means you should either create your production namespace using the `kubectl` CLI, or allow your CI/CD system to create it during the first Helm deployment. (Note that "selecting" or otherwise creating a space using DevSpaces tooling will add DevSpaces instrumentation to that namespace.)
+### Dev Spaces instrumentation in production
+Although Dev Spaces instrumentation has been designed _not_ to get in the way of normal operation of your application, we recommend running your production workloads in a non-Dev Spaces-enabled Kubernetes namespace. This means you should either create your production namespace using the `kubectl` CLI, or allow your CI/CD system to create it during the first Helm deployment. (Note that "selecting" or otherwise creating a space using Dev Spaces tooling will add Dev Spaces instrumentation to that namespace.)
 
 Here is an example namespace structure that supports feature development, the 'dev' environment, _and_ production, all in a single Kubernetes cluster:
 ![Example namespace structure](../media/common/cicd-namespaces.png)
 
 > [!Tip]
-> If you've already created a `prod` space, and would simply like to exclude it from DevSpaces instrumentation (without deleting it!), you can do so with the following DevSpaces CLI command:
+> If you've already created a `prod` space, and would simply like to exclude it from Dev Spaces instrumentation (without deleting it!), you can do so with the following Dev Spaces CLI command:
 >
 > `azds space remove -n prod --no-delete`
 >
-> You may need to delete all pods in the `prod` namespace after doing this so they can be recreated without DevSpaces instrumentation.
+> You may need to delete all pods in the `prod` namespace after doing this so they can be recreated without Dev Spaces instrumentation.
