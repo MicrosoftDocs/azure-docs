@@ -30,13 +30,13 @@ Before you begin, make sure that:
 2. You have received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted. 
+    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted. 
 
 ## Connect to Data Box
 
 Based on the storage account selected, Data Box creates upto:
 - Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium or blob storage account. 
+- One share for premium or blob storage account.
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -75,11 +75,11 @@ If you are using a Windows Server host computer, perform the following steps to 
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer.
+4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. You should now be able to see the shares as folders.
+    You should now be able to see the shares as folders.
     
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
     
@@ -87,7 +87,7 @@ If you are using a Windows Server host computer, perform the following steps to 
 
 ## Copy data to Data Box
 
-Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
+Once you are connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
