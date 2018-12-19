@@ -93,7 +93,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Create or attach an existing AMlCompute
 
-By using Azure Machine Learning Managed Compute (AmlCompute), a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create AmlCompute as your training environment. This code creates the compute clusters for you if they don't already exist in your workspace.
+By using Azure Machine Learning Compute (AmlCompute), a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create AmlCompute as your training environment. This code creates the compute clusters for you if they don't already exist in your workspace.
 
  **Creation of the compute takes about five minutes.** If the compute is already in the workspace, this code uses it and skips the creation process:
 
@@ -453,11 +453,11 @@ print(model.name, model.id, model.version, sep = '\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You can also delete just the Azure Managed Compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
+You can also delete just the Azure Machine Learning Compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
 
 
 ```python
-# optionally, delete the Azure Managed Compute cluster
+# optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 
