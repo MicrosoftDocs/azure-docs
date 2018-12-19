@@ -34,13 +34,13 @@ To get started quickly, see one of the following tutorials:
 
 ## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
 In **Action to take when request is not authenticated**, select **Allow Anonymous requests (no action)**.
 
-In the sign-in page, or the navigation bar, or any other location of your web app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
+In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -183,15 +183,15 @@ When your provider's access token expires, you need to reauthenticate the user. 
 - **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](configure-authentication-provider-microsoft.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
-    1. Click **Edit**.
-    1. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    3. Click **Edit**.
+    4. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Click **Put**. 
+    5. Click **Put**. 
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 

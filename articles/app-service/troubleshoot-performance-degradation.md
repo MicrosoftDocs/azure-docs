@@ -110,10 +110,10 @@ You can enable the Application Insights Profiler to start capturing detailed per
 
 Application Insights Profiler provides statistics on response time for each web call and traces that indicates which line of code caused the slow responses. Sometimes the App Service app is slow because certain code is not written in a performant way. Examples include sequential code that can be run in parallel and undesired database lock contentions. Removing these bottlenecks in the code increases the app's performance, but they are hard to detect without setting up elaborate traces and logs. The traces collected by Application Insights Profiler helps identifying the lines of code that slows down the application and overcome this challenge for App Service apps.
 
- For more information, see [Profiling live Azure web apps with Application Insights](../application-insights/app-insights-profiler.md).
+ For more information, see [Profiling live apps in Azure App Service with Application Insights](../application-insights/app-insights-profiler.md).
 
 ##### Use Remote Profiling
-In Azure App Service, Web Apps, API Apps, and WebJobs can be remotely profiled. Choose this option if you have access to the web app resource and you know how to reproduce the issue, or if you know the exact time interval the performance issue happens.
+In Azure App Service, web apps, API apps, mobile back ends, and WebJobs can be remotely profiled. Choose this option if you have access to the app resource and you know how to reproduce the issue, or if you know the exact time interval the performance issue happens.
 
 Remote Profiling is useful if the CPU usage of the process is high and your process is running slower than expected, or the latency of HTTP requests are higher than normal, you can remotely profile your process and get the CPU sampling call stacks to analyze the process activity and code hot paths.
 
@@ -122,15 +122,15 @@ For more information, see [Remote Profiling support in Azure App Service](https:
 ##### Set up diagnostic traces manually
 If you have access to the web application source code, Application diagnostics enables you to capture information produced by a web application. ASP.NET applications can use the `System.Diagnostics.Trace` class to log information to the application diagnostics log. However, you need to change the code and redeploy your application. This method is recommended if your app is running on a testing environment.
 
-For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
+For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for apps in Azure App Service](web-sites-enable-diagnostic-log.md).
 
 #### Use the diagnostics tool
-App Service provides an intelligent and interactive experience to help you troubleshoot your web app with no configuration required. When you do run into issues with your web app, the diagnostics tool will point out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
+App Service provides an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, the diagnostics tool will point out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
 
 To access App Service diagnostics, navigate to your App Service app or App Service Environment in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
 
 #### Use the Kudu Debug Console
-Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This console is called the *Kudu Console* or the *SCM Dashboard* for your web app.
+App Service comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This console is called the *Kudu Console* or the *SCM Dashboard* for your app.
 
 You can access this dashboard by going to the link **https://&lt;Your app name>.scm.azurewebsites.net/**.
 
@@ -141,7 +141,7 @@ Some of the things that Kudu provides are:
 * diagnostic dump
 * debug console in which you can run Powershell cmdlets and basic DOS commands.
 
-Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
+Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your app.
 
 For more information on features available in Kudu, see
 [Azure DevOps tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
@@ -149,24 +149,24 @@ For more information on features available in Kudu, see
 <a name="mitigate" />
 
 ### 3. Mitigate the issue
-#### Scale the web app
-In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
+#### Scale the app
+In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up an app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-For more information on scaling, see [Scale a web app in Azure App Service](web-sites-scale.md).
+For more information on scaling, see [Scale an app in Azure App Service](web-sites-scale.md).
 
 Additionally, you can choose to run your application on more than one instance. Scaling out not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instances continue to serve requests.
 
 You can set the scaling to be Manual or Automatic.
 
 #### Use AutoHeal
-AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure portal, AutoHeal does it automatically for you. All you need to do is add some triggers in the root web.config for your web app. These settings would work in the same way even if your application is not a .Net app.
+AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the app from directly within the Azure portal, AutoHeal does it automatically for you. All you need to do is add some triggers in the root web.config for your app. These settings would work in the same way even if your application is not a .Net app.
 
 For more information, see [Auto-Healing Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
-#### Restart the web app
-Restarting is often the simplest way to recover from one-time issues. On the [Azure portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
+#### Restart the app
+Restarting is often the simplest way to recover from one-time issues. On the [Azure portal](https://portal.azure.com/), on your app’s blade, you have the options to stop or restart your app.
 
- ![restart web app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![restart app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-You can also manage your web app using Azure Powershell. For more information, see
+You can also manage your app using Azure Powershell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
