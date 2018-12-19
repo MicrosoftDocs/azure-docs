@@ -17,7 +17,7 @@ ms.date: 12/14/2018
 
 In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure blob storage into an Azure SQL Database [Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance). 
 
- [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
 > * For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
