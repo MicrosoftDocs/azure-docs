@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.author: diberry
 ---
 
-# Install and run containers
+# Install and run LUIS docker containers
  
 The Language Understanding (LUIS) container loads your trained or published Language Understanding model, also know as a [LUIS app](https://www.luis.ai), into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the Azure Language Understanding model to improve the app's prediction accuracy.
 

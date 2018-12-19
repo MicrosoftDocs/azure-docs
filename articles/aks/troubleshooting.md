@@ -39,6 +39,8 @@ There might be various reasons for the pod being stuck in that mode. You might w
 * The pod itself using `kubectl describe pod <pod-name>`
 * The logs using  `kubectl log <pod-name>`
 
+For more information on how to troubleshoot pod issues, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+
 ### I am trying to enable RBAC on an existing cluster. Can you tell me how I can do that?
 
 Unfortunately enabling RBAC on existing clusters is not supported at this time. You will need to explicitly create new clusters. If you use the CLI, RBAC is enabled by default whereas a toggle button to enable it is available in the AKS portal create workflow.

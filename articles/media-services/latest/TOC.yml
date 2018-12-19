@@ -11,20 +11,14 @@
     href: stream-files-dotnet-quickstart.md
 - name: Tutorials
   items:
-  - name: Upload, encode, and stream
-    items:
-    - name: With .NET
-      href: stream-files-tutorial-with-api.md
-    - name: With REST
-      href: stream-files-tutorial-with-rest.md
-  - name: Stream live
-    items:
-    - name: With .NET Core
-      href: stream-live-tutorial-with-api.md
-  - name: Analyze your video
-    items:
-    - name: With .NET
-      href: analyze-videos-tutorial-with-api.md
+  - name: Encode remote file and stream video – REST
+    href: stream-files-tutorial-with-rest.md
+  - name: Encode uploaded file and stream video - .NET
+    href: stream-files-tutorial-with-api.md
+  - name: Stream live - .NET
+    href: stream-live-tutorial-with-api.md
+  - name: Analyze your video - .NET
+    href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
   - name: Azure code samples

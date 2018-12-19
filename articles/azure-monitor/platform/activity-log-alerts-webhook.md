@@ -155,7 +155,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
-For specific schema details on service health notification activity log alerts, see [Service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
+For specific schema details on service health notification activity log alerts, see [Service health notifications](../../azure-monitor/platform/service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
 
 For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/activity-logs-overview.md).
 

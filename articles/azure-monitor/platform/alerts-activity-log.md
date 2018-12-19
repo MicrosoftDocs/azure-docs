@@ -218,4 +218,4 @@ The *sampleActivityLogAlert.parameters.json* file has the values provided for th
 - [Webhook schema for Activity logs](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Overview of Activity logs](../../azure-monitor/platform/activity-log-alerts.md) 
 - Learn more about [action groups](../../azure-monitor/platform/action-groups.md).  
-- Learn about [service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Learn about [service health notifications](../../azure-monitor/platform/service-notifications.md).
