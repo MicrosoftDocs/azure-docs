@@ -78,13 +78,13 @@ Cosmos DB is the first and only service to offer [industry-leading comprehensive
 
 You can run [Spark](spark-connector.md) on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB.
 
-### Natively wire-compatible for NoSQL APIs
+### Develop applications for Cosmos DB using popular NoSQL APIs
 
 Cosmos DB offers a choice of APIs to update and query your data stored in your Cosmos database. By default, [you can use SQL](how-to-sql-query.md) to update and query your data in your Cosmos database.
 
-Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), and [Gremlin](graph-introduction.md) wire protocols directly on the service. This enables you to point client drivers (and tools) for the commonly used NoSQL APIs directly to your Cosmos database. By supporting wire protocols of commonly used NoSQL APIs, Cosmos DB allows you to:
+Cosmos DB also implements [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md) wire protocols directly on the service. This enables you to point client drivers (and tools) for the commonly used NoSQL APIs directly to your Cosmos database. By supporting wire protocols of commonly used NoSQL APIs, Cosmos DB allows you to:
 
-* Easily migrate your application to Cosmos DB while preserving significant portions of your application logic unchanged.
+* Easily migrate your application to Cosmos DB while preserving significant portions of your application logic.
 * Keep your application portable and continue to remain cloud vendor-agnostic.
 * Get industry leading, financially backed SLAs for the common NoSQL APIs. 
 * Elastically scale the provisioned throughput and storage for your databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
