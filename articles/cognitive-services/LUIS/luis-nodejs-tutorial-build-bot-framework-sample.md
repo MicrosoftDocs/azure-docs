@@ -1,7 +1,7 @@
 ﻿---
 title: Bot - Node.js - v3  
 titleSuffix: Azure Cognitive Services
-description: Build a bot integrated with a LUIS application using the Bot Framework.
+description: Build a bot integrated with a LUIS application with the Bot Framework 3.x and the Azure Web app bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -33,11 +33,11 @@ The bot responds to intents from the HomeAutomation domain that are in the LUIS 
 
 1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and select **See all**.
 
-    ![Create new resource](./media/luis-tutorial-node-bot/bot-service-creation.png)
+    ![See all resources in the Azure portal](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
 2. In the search box, search for **Web App Bot**. 
 
-    ![Create new resource](./media/luis-tutorial-node-bot/bot-service-selection.png)
+    ![Select web app bot to begin the resource creation process](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. In the **Bot Service** blade, provide the required information, and select **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
     * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
