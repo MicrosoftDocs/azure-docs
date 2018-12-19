@@ -14,23 +14,29 @@ The next sections of this article present a C# program that uses ADO.NET to send
 - [Methods that return T-SQL statements](#cs_2_return)
     - Create tables
     - Populate tables with data
-    - Update data
-    - Delete data
-    - Select data
+    - Update, delete, and select data
 - [Submit T-SQL to the database](#cs_3_submit)
 
+### Entity Relationship Diagram (ERD)
+
+The `CREATE TABLE` statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables. If you're using *tempdb*, comment out the `--REFERENCES` keyword using a pair of leading dashes.
+
+The ERD displays the relationship between the two tables. The values in the **tabEmployee.DepartmentCode** *child* column are limited to values from the **tabDepartment.DepartmentCode** *parent* column.
+
+![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
+
 > [!NOTE]
-> The connection is automatically closed when the program finishes running. Any data from temporary tables, or *tempdb* is dropped.
+> You have the option of editing the T-SQL to add a leading `#` to the table names, which creates them as temporary tables in *tempdb*. This is useful for demonstration purposes, when no test database is available. Any reference to foreign keys are not enforced during their use and temporary tables are deleted automatically when the connection closes after the program finishes running.
 
 ### To compile and run
 
-This C# program is logically one .cs file. Here the program is physically divided into several code blocks, to make each block easier to see and understand. To compile and run this program, do the following steps:
+The C# program is logically one .cs file, and is physically divided into several code blocks, to make each block easier to understand. To compile and run the program, do the following steps:
 
-1. Create a C# project in Visual Studio. The project type should be a *Console* application, found under **Templates** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
+1. Create a C# project in Visual Studio. The project type should be a *Console*, found under **Templates** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
 
-1. In the file *Program.cs*, erase the starter lines of code.
+1. In the file *Program.cs*, replace the starter lines of code with the following:
 
-    1. Copy and paste the following blocks code, in the same sequence they're presented here. [Connect to database](#cs_1_connect), [generate T-SQL](#cs_2_return), and [submit to database](#cs_3_submit)
+    1. Copy and paste the following code blocks, in the same sequence they're presented, see [Connect to database](#cs_1_connect), [Generate T-SQL](#cs_2_return), and [Submit to database](#cs_3_submit).
 
     1. Change the following values in the `Main` method:
 
@@ -41,7 +47,7 @@ This C# program is logically one .cs file. Here the program is physically divide
 
 1. Verify the assembly *System.Data.dll* is referenced. To verify, expand the **References** node in the **Solution Explorer** pane.
 
-1. To build and run the program from Visual Studio, select the **Start** button. The report output is displayed in a program window, though the GUID values will vary between test runs.
+1. To build and run the program from Visual Studio, select the **Start** button. The report output is displayed in a program window, though GUID values will vary between test runs.
 
     ```Output
     =================================
@@ -227,22 +233,9 @@ static string Build_6_Tsql_SelectEmployees()
 }
 ```
 
-#### Entity Relationship Diagram (ERD)
-
-The `CREATE TABLE` statements involve the **REFERENCES** keyword to create a *foreign key* (FK) relationship between two tables. If you're using *tempdb*, comment out the `--REFERENCES` keyword using a pair of leading dashes.
-
-The ERD displays the relationship between the two tables. The values in the **tabEmployee.DepartmentCode** *child* column are limited to values from the **tabDepartment.DepartmentCode** *parent* column.
-
-![ERD showing foreign key](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
-
-> [!NOTE]
-> You have the option of editing the T-SQL to add a leading `#` to the table names, which creates them as temporary tables in *tempdb*. This is useful for demonstration purposes, when no test database is available. Temporary tables are deleted automatically after the connection closes and any reference to foreign keys are not enforced during their use.
-
 <a name="cs_3_submit"/>
 
 ### Submit T-SQL to the database
-
-The first method runs the T-SQL `SELECT` statement that is built by the `Build_6_Tsql_SelectEmployees` method. The second method modifies the data content of tables without returning any data rows.
 
 ```csharp
 static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)

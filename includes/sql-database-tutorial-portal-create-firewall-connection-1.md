@@ -60,7 +60,7 @@ Follow these steps to create a blank SQL database.
 The SQL database service creates a firewall at the server-level to prevent external applications and tools from connecting to the server or any databases on the server. Follow these steps to create a [SQL database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address. This enables external connectivity through the SQL database firewall for your IP address only.
 
 > [!NOTE]
-> SQL database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL database server unless your administrator opens port 1433.
+> SQL database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to the Azure SQL database server unless your administrator opens port 1433.
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *yourDatabase* on the **SQL databases** page. The **Overview** page for your database opens, showing you the fully qualified server name (such as *yourserver.database.windows.net*) and provides options for further configuration.
 
@@ -76,9 +76,9 @@ The SQL database service creates a firewall at the server-level to prevent exter
 
    1. Choose **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-   1. Choose **OK** and then close the **Firewall settings** page.
+   1. Select **OK** and then close the **Firewall settings** page.
 
-Your IP address can now pass through the firewall. You can now connect to the SQL database server and its databases using SQL Server Management Studio or another tool of your choice. Be sure to use the server admin account you created previously.
+Your IP address can now pass through the firewall and can now connect to the SQL database server and its databases using SSMS or another tool of your choice. Be sure to use the server's admin account you created previously.
 
 > [!IMPORTANT]
 > By default, access through the SQL database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.

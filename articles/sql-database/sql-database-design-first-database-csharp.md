@@ -16,18 +16,18 @@ ms.date: 12/10/2018
 Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to:
 
 > [!div class="checklist"]
-> * Create a database in the Azure portal*
+> * Create a database in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
 > * Connect to the database with ADO.NET and Visual Studio
 > * Create tables with ADO.NET
 > * Insert, update, and delete data with ADO.NET
 > * Query data ADO.NET
 
-*If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -49,8 +49,7 @@ In this tutorial, you learned basic database tasks such as create a database and
 > * Set up a firewall rule
 > * Connect to the database with [Visual Studio and C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Create tables
-> * Insert, update, and delete data
-> * Query data
+> * Insert, update, delete, and query data
 
 Advance to the next tutorial to learn about data migration.
 
