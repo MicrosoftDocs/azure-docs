@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/07/2018
 ---
