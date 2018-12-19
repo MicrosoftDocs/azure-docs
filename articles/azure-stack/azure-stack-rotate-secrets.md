@@ -29,16 +29,16 @@ All the certificates, passwords, secure strings, and keys used by the Azure Stac
 
 - **External secrets**  
 Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services: 
-    - Administrator Portal 
-    - Public Portal 
-    - Administrator Azure Resource Manager 
-    - Global Azure Resource Manager 
-    - Administrator Keyvault 
-    - Keyvault
-    - Admin Extension Host 
-    - ACS (including blob, table, and queue storage) 
-    - ADFS<sup>*</sup>
-    - Graph<sup>*</sup>
+    - Administrator Portal  
+    - Public Portal  
+    - Administrator Azure Resource Manager  
+    - Global Azure Resource Manager  
+    - Administrator Keyvault  
+    - Keyvault  
+    - Admin Extension Host  
+    - ACS (including blob, table, and queue storage)  
+    - ADFS<sup>*</sup>  
+    - Graph<sup>*</sup>  
 
    <sup>*</sup> Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
 
@@ -66,7 +66,7 @@ Azure Stack supports secret rotation with external certificates from a new Certi
 |From Public<sup>*</sup>|To Self-Signed|Not Supported||
 |From Public<sup>*</sup>|To Public<sup>*</sup>|Supported|1803 & Later|
 
-<sup>*</sup> Here Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup>Indicates that the Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list in the article [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
 ## Alert remediation
 
@@ -144,7 +144,7 @@ $PEPCreds = Get-Credential
 $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint 
 
 #Run Secret Rotation
-$CertPassword = ConvertTo-SecureString "Certpasswordhere" -AsPlainText -Force
+$CertPassword = ConvertTo-SecureString "Certpasswordhere" -Force
 $CertShareCred = Get-Credential 
 $CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -session $PEPsession -ScriptBlock { 
@@ -281,7 +281,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
-    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force
     $NewBMCuser = "<New BMC User name>" 
