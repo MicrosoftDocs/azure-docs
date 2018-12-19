@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You learn how to run the microservices in Visual Studio. A local microservices deployment uses the following cloud services: IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You learn how to run the microservices in Visual Studio Code. A local microservices deployment uses the following cloud services: IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights.
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ To complete the local deployment, you need the following tools installed on your
 * [Git](https://git-scm.com/)
 * [.Net Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [C# Extension](https://code.visualstudio.com/docs/languages/csharp)
 * [Nginx](http://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
+* [VS Code's C# extension](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10
 
 > [!NOTE]
@@ -50,16 +50,17 @@ Run the following command to launch the Docker container for the device simulati
 ```cmd
 azure-iot-pcs-remote-monitoring-dotnet\services\device-simulation\scripts\docker\run.cmd
 ```
+
 > [!NOTE]
-> Check out [Troubleshoot-Docker](https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization) for any issues with running Docker.
+> For any issues running Docker on Windows, see [Logs and troubleshooting](https://docs.docker.com/docker-for-windows/troubleshoot/).
 
 ### Build the code
 
 Navigate to azure-iot-pcs-remote-monitoring-dotnet\services in the command prompt and run the following commands to build the code.
 
 ```cmd
-dontnet restore
-dontne build -c Release
+dotnet restore
+dotnet build -c Release
 ```
 
 ### Deploy all other microservices on local machine
