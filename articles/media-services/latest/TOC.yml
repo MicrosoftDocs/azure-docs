@@ -89,6 +89,8 @@
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
+    - name: From a local file - REST
+      href: upload-files-rest-how-to.md
   - name: Create filters
     items:
     - name: With .NET
