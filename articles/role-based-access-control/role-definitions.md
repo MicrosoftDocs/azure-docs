@@ -168,6 +168,10 @@ To view and work with data operations, you must have the correct versions of the
 | [Azure for Python](/python/azure) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
 
+The Azure portal also allows users to browse and manage the contents of Queues and Blob containers via the Azure AD preview experience. To see and manage the contents of a Queue or Blob container click the link "Explore data using Azure AD preview" on the storage account Overview.
+
+![Explore Queues and Blob containers using Azure AD preview](./media/role-definitions/rbac-dataactions-browsing.png)
+
 ## Actions
 
 The `Actions` permission specifies the management operations that the role allows to be performed. It is a collection of operation strings that identify securable operations of Azure resource providers. Here are some examples of management  operations that can be used in `Actions`.
