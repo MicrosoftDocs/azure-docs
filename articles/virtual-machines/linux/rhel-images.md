@@ -71,6 +71,11 @@ RHEL | 7-RAW | RAW | Linux Agent | RHEL 7 family of images
 | | 6.7 | RAW | Linux Agent | RHEL 6.7 images, old naming convention
 | | 6.8 | RAW | Linux Agent | Same as above for RHEL 6.8
 | | 6.9 | RAW | Linux Agent | Same as above for RHEL 6.9
+| | 6.10 | RAW | Linux Agent | Same as above for RHEL 6.10
+| | 7.2 | RAW | Linux Agent | Same as above for RHEL 7.2
+| | 7.3 | RAW | Linux Agent | Same as above for RHEL 7.3
+| | 7.4 | RAW | Linux Agent | Same as above for RHEL 7.4
+| | 7.5 | RAW | Linux Agent | Same as above for RHEL 7.5
 RHEL-SAP | 7.4 | LVM | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps
 | | 7.5 | LVM | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps
 RHEL-SAP-HANA | 6.7 | RAW | Linux Agent | RHEL 6.7 for SAP HANA
@@ -82,15 +87,13 @@ RHEL-SAP-APPS | 6.8 | RAW | Linux Agent | RHEL 6.8 for SAP Business Applications
 ### Old Naming Convention
 The RHEL 7 family of images and the RHEL 6 family of images used specific versions in their SKUs up until the naming convention change explained above.
 
-If you're used to provisioning RHEL 7.3 VM from `RedHat:RHEL:7.3:7.3.2017090723`, it has been migrated to the new naming convention and is now available under 7-RAW or 7-LVM SKUs, as follows: `RedHat:RHEL:7-RAW:7.3.2017090723`. The SKU name has changed while the version 7.3 is still available.
-
-For the same reason, you no longer will find 7.4 or 7.5 SKUs. These RHEL versions are under the new SKU for all RHEL 7 images (7-RAW, 7-LVM), for example, `RedHat:RHEL:7-RAW:7.4.2018010506`.
+You will find numeric SKUs in the full image list. Microsoft and Red Hat will create new numeric SKUs when a new minor release comes out.
 
 ### Other available Offers and SKUs
 The full list of available offers and SKUs may include additional images beyond what is listed in the above table, for example, `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. These offers may be used for providing support of specific marketplace solutions, or they could be published for previews and testing purposes. They may be changed or removed at any time without warning. Do not use them unless their presence has been publicly documented by either Microsoft or Red Hat.
 
 ## Publishing Policy
-Microsoft and Red Hat typically update images as new minor versions are released, as required to address specific CVEs, or for occasional configuration changes/updates. We strive to provide updated images as soon as possible, typically within three business days following a release or availability of a CVE fix.
+Microsoft and Red Hat update images as new minor versions are released, as required to address specific CVEs, or for occasional configuration changes/updates. We strive to provide updated images as soon as possible -  within three business days following a release or availability of a CVE fix.
 
 We only update the current minor release in a given image family. With the release of a newer minor version, we stop updating the older minor version. For example, with the release of RHEL 7.6, RHEL 7.5 images are no longer going to be updated.
 
@@ -98,7 +101,7 @@ We only update the current minor release in a given image family. With the relea
 > Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to Azure RHUI (usually in less than 24 hours following the official release by Red Hat). Such VMs do not require a new published image for getting the updates and in full customer control to initiate the update.
 
 ## Image Retention Policy
-Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind. For example, images with incorrect configurations due to subsequent platform or component updates may be removed. Typically, we notify customers who may still be using these images at least 30 days before image removal.
+Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind. For example, images with incorrect configurations due to subsequent platform or component updates may be removed. Images that may be removed will follow the current Marketplace policy to provide notifications up to 30 days before image removal.
 
 ## Next Steps
 * Learn more about the Azure Red Hat Update Infrastructure [here](https://aka.ms/rhui-update).
