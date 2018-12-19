@@ -16,7 +16,7 @@ ms.date: 12/06/2018
 ---
 # Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates using Visual Studio Code to connect to an Azure SQL database and then running Transact-SQL statements to query, insert, update, and delete data.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. In this quickstart, you'll use Visual Studio Code to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
@@ -97,7 +97,7 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 ## Query data
 
-Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query for the top 20 products by category.
+Run the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement to query for the top 20 products by category.
 
 1. In the editor window, paste the following SQL query.
 
@@ -114,7 +114,7 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 ## Insert data
 
-Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to add a new product into the `SalesLT.Product` table.
+Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement to add a new product into the `SalesLT.Product` table.
 
 1. Replace the previous query with this one.
 
@@ -142,7 +142,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update the added product.
+Run the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement to update the added product.
 
 1. Replace the previous query with this one:
 
@@ -156,7 +156,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
 
 ## Delete data
 
-Use the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement to remove the new product.
+Run the following [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement to remove the new product.
 
 1. Replace the previous query with this one:
 
