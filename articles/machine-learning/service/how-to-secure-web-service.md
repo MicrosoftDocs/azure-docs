@@ -80,27 +80,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
 
 + **Deploy on Field Programmable Gate Arrays (FPGAs)**
 
-  The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. Provide values for SSL-related parameters as shown in the code snippet:
-
-    ```python
-    from amlrealtimeai import DeploymentClient
-    
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your AzureML Model Management Account Name>"
-    location = "eastus2"
-    
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-    
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-    
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-    ```
+  The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. 
 
 ## Update your DNS
 

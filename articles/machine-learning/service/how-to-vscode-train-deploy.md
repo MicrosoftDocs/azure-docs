@@ -67,7 +67,7 @@ This is a snippet from the default run configuration file.
 If you want to install all of your libraries/dependencies yourself, set `userManagedDependencies: True` and then local experiment runs will use your default Python environment as specified by the VS Code Python extension.
 
 ```yaml
-# user_managed_dependencies=True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+# user_managed_dependencies=True indicates that the environment will be user managed. False indicates that Azure Machine Learning service will manage the user environment.
     userManagedDependencies: False
 # The python interpreter path
     interpreterPath: python
@@ -100,7 +100,7 @@ dependencies:
 - python=3.6.2
 
 - pip:
-    # Required packages for AzureML execution, history, and data preparation.
+    # Required packages for Azure Machine Learning service execution, history, and data preparation.
 
   - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
   - --extra-index-url https://pypi.python.org/simple
