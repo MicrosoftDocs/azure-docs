@@ -160,14 +160,14 @@ Additionally, the **Container engine** makes calls to container registries over 
 
 This checklist is a starting point for firewall rules:
 
-   | URL (* = wildcard) | Outbound TCP Ports | Usage |
+   | URL (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft container registry |
    | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
-   | *.azurecr.io | 443 | Personal and 3rd party container registries |
-   | *.blob.core.windows.net | 443 | Download of image deltas | 
-   | *.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
-   | *.docker.io  | 443 | Docker access (optional) |
+   | \*.azurecr.io | 443 | Personal and 3rd party container registries |
+   | \*.blob.core.windows.net | 443 | Download of image deltas | 
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
+   | \*.docker.io  | 443 | Docker access (optional) |
 
 ### Configure communication through a proxy
 
