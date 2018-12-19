@@ -37,7 +37,7 @@ pip install azure-storage-queue
 
 > [!NOTE]
 > If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
-c
+
 For alternative installation methods, visit the [Azure Storage SDK for Python on GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## How To: Create a Queue
