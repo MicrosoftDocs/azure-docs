@@ -11,7 +11,7 @@ ms.date: 12/17/2018
 ---
 # Run Azure ML workloads with AutoML on Apache Spark in Azure HDInsight
 
-Azure Machine Learning (Azure ML) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure ML publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. AutoML helps create high quality machine learning models using intelligent automation and optimization. AutoML decides the right algorithm and hyper parameters to use for specific problem types.
+Azure Machine Learning (Azure ML) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure ML publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. AutoML helps create high-quality machine learning models using intelligent automation and optimization. AutoML decides the right algorithm and hyper parameters to use for specific problem types.
 
 ## Install AzureML on an HDInsight cluster
 
@@ -28,7 +28,7 @@ For more information about script actions, read [Customize Linux-based HDInsight
 
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals). An [Azure AD user](https://docs.microsoft.com/en-us/python/azure/python-sdk-azure-authenticate?view=azure-python) can also be used to generate the required authentication token, if multi-factor authentication is not enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals). An [Azure AD user](https://docs.microsoft.com/en-us/python/azure/python-sdk-azure-authenticate?view=azure-python) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
 
 The following code snippet creates an authentication token using an **Azure AD application**.
 
@@ -49,7 +49,7 @@ credentials = UserPassCredentials('user@domain.com','my_smart_password')
 
 ## Loading dataset
 
-AutoML on Spark uses **Dataflows**, which are lazily evaluated, immutable operations on data.  A Dataflow can load a dataset from a blob with public read access or from a blob URL with a SAS token.
+AutoML on Spark uses **Dataflows**, which are lazily evaluated, immutable operations on data.  A Dataflow can load a dataset from a blob with public read access, or from a blob URL with a SAS token.
 
 ```python
 import azureml.dataprep as dprep
@@ -63,7 +63,7 @@ You can also register the datastore with the workspace using a one-time registra
 
 ## Experiment submission
 
-In the AutoML configuration, the property `spark_context` should be set for AutoML to run on distributed mode. The property `concurrent_iterations`, which represents the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
+In the AutoML configuration, the property `spark_context` should be set for AutoML to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
 
 ## Next Steps
 
