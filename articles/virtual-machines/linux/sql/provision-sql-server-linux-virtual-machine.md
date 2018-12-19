@@ -59,9 +59,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Under **Select a deployment model**, choose a deployment model that fits your workload needs.
 
     > [!Note]
-    > For new  workloads, use **Resource Manager**. To connect to an existing virtual network, select the virtual network's deployment method for your workload. For more information about deployment models, see [Azure Resource Manager and classic deployment models](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model).
+    > For new  workloads, use **Resource Manager**. To connect to an existing virtual network, select the virtual network's deployment method for your workload. For more information about deployment models, see [Azure Resource Manager and classic deployment models](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-1. Click **Create**.
+1. Select **Create**.
 
 ### Set up your Linux VM
 
