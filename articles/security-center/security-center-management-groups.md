@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
 
 ---
@@ -68,7 +68,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
    ![Azure AD Properties - screenshot](./media/security-center-management-groups/aad-properties.png)
 
-3. Under **Global admin can manage Azure Subscriptions and Management Groups**, set the switch to **Yes**.
+3. Under **Access management for Azure resources**, set the switch to **Yes**.
 
    ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
