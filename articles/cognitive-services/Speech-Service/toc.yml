@@ -37,10 +37,15 @@
         displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
       - name: 'JavaScript (Browser)'
         href: quickstart-js-browser.md
+      - name: 'Node.js'
+        href: quickstart-js-node.md
         displayName: recognize speech, speech recognition, speech to text, stt
       - name: 'Objective-C (iOS)'
         href: quickstart-objectivec-ios.md
         displayName: recognize speech, speech recognition, speech to text, stt, xcode
+      - name: 'Python'
+        href: quickstart-python.md
+        displayName: recognize speech, speech recognition, speech to text, stt, python
     - name: Translate speech
       items:
       - name: 'C# (.NET Core Windows)'
@@ -59,6 +64,8 @@
       items:
       - name: 'C# (.NET Core)'
         href: quickstart-dotnet-text-to-speech.md
+      - name: 'Node.js'
+        href: quickstart-nodejs-text-to-speech.md
       - name: 'Python'
         href: quickstart-python-text-to-speech.md
   - name: Speech Devices SDK

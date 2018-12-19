@@ -26,11 +26,11 @@ To get started quickly, see one of the following tutorials:
 
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
-* [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [How to configure your app to use Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [How to configure your app to use Google login](app-service-mobile-how-to-configure-google-authentication.md)
-* [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [How to configure your app to use Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+* [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)
+* [How to configure your app to use Google login](configure-authentication-provider-google.md)
+* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
+* [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 
 ## Use multiple sign-in providers
 
@@ -180,7 +180,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
+- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](configure-authentication-provider-microsoft.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
     1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 

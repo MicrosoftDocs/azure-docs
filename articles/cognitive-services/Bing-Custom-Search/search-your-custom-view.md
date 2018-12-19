@@ -13,38 +13,37 @@ ms.date: 09/28/2017
 ms.author: maheshb
 ---
 
-# Call your custom search
+# Call your Bing Custom Search instance from the Portal
 
-Before making your first call to the Custom Search API to get search results for your instance, you need to get a Cognitive Services subscription key. To get a key for Custom Search API, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
+
+![a screenshot of the bing custom search portal](media/portal-search-screen.png)
+## Create a search query 
+
+After you've signed into the Bing Custom Search [portal](https://customsearch.ai), select your search instance and click the **Production** tab. Under **Endpoints**, select an API endpoint (for example, Web API). Your subscription determines what endpoints are shown.
+
+To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the[Custom Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) for more information. 
+
+Some important parameters are below:
 
 
-## Try it out
+|Parameter  |Description  |
+|---------|---------|
+|Query     | The search term to search for. Only available for Web, Image, Video, and Autosuggest endpoints |
+|Custom Configuration ID | The configuration ID of the selected Custom Search instance. This field is read only. |
+|Market     | The market that results will originate from. Only available for the Web, Image, Video, and Hosted UI endpoints.        |
+|Subscription Key | The subscription key to test with. You can select a key from the dropdown list or enter one manually.          |
 
-After you've configured your custom search experience, you can test the configuration from within the Custom Search portal. 
+Clicking **Additional Parameters** reveals the following parameters:  
 
-1. Sign into [Custom Search](https://customsearch.ai).
-2. Click a Custom Search instance from your list of instances.
-3. Click the **Production** tab. 
-4. Under the **Endpoints** tab, select an endpoint (for example, Web API). Your subscription determines which endpoints are shown (see [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) for subscription options). 
-5. Specify the parameter values. 
-
-    The following are the possible parameters you can set (the actual list depends on the selected endpoint). For additional information about these parameters, see [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) reference.
-
-    - **Query**: The search term to search for. Only available for Web, Image, Video, and Autosuggest endpoints.
-    - **Custom Configuration ID**: The configuration ID of the selected Custom Search instance. This field is read only.
-    - **Market**: The market where the results come from. Only available for Web, Image, Video, and Hosted UI endpoints.
-    - **Subscription Key**: The subscription key to test with. You may select a key from the dropdown list or enter one manually.  
-      
-    Clicking **Additional Parameters** reveals the following parameters:  
-      
-    - **Safe Search**: A filter used to filter webpages for adult content. Available only for Web, Image, Video, and Hosted UI endpoints.
-    - **User Interface Language**: The language used for user interface strings. For example, if you enable images and videos in Hosted UI, the **Image** and **Video** tabs use the specified language.
-    - **Count**: The number of search results to return in the response. Available only for Web, Image, and Video endpoints.
-    - **Offset**: The number of search results to skip before returning results. Available only for Web, Image, and Video endpoints.
-
-6. After you've specified all required options, click **Call** to view the JSON response in the right pane. 
-
-If you select the Hosted UI endpoint, you can test the search experience in the bottom pane.
+|Parameter  |Description  |
+|---------|---------|
+|Safe Search     | A filter used to filter webpages for adult content. Only available for the Web, Image, Video, and Hosted UI endpoints.        |
+|User Interface Language    | The language used for user interface strings. For example, if you enable images and videos in Hosted UI, the **Image** and **Video** tabs use the specified language.        |
+|Count     | The number of search results to return in the response. Available only for Web, Image, and Video endpoints.         |
+|Offset    | The number of search results to skip before returning results. Available only for Web, Image, and Video endpoints.        |
+    
+After you've specified all required options, click **Call** to view the JSON response in the right pane. If you select the Hosted UI endpoint, you can test the search experience in the bottom pane.
 
 ## Next steps
 

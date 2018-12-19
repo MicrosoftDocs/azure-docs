@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/12/2018
+ms.date: 12/18/2018
 ms.author: fmegen
 ---
 
@@ -36,9 +36,6 @@ If you're running Ubuntu 16.04, make sure these dependencies are installed befor
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 ```
-
-> [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
 
 ## Create and configure project
 

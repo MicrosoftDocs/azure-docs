@@ -13,7 +13,7 @@ ms.date: 01/19/2018
 
 Realtime big data solutions  act on data that is in motion. Typically, this data is most valuable at its time of arrival. If the incoming data stream becomes greater than can be handled at that moment, you may need to throttle down resources. Alternatively, an HDInsight cluster can   scale up to meet your streaming solution by adding nodes on demand.
 
-In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer, such as [Storm](storm/apache-storm-overview.md) or [Spark Streaming](spark/apache-spark-streaming-overview.md). The processed data can be stored in long-term storage systems, like [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
+In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Apache Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer, such as [Apache Storm](storm/apache-storm-overview.md) or [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). The processed data can be stored in long-term storage systems, like [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
 
 ![HDInsight Streaming Patterns](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -33,7 +33,7 @@ For more information, see [What is Apache Storm on Azure HDInsight?](storm/apach
 
 Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Storm, Spark Streaming provides stateful exactly-once processing semantics. When used in combination with the [Kafka Direct API](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data is received by Spark Streaming exactly once, it is possible to achieve end-to-end exactly-once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
 
-For more information, see [What is Spark Streaming?](hdinsight-spark-streaming-overview.md).
+For more information, see [What is Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## Scaling a cluster
 
@@ -59,5 +59,5 @@ These three  parameters can be configured at the cluster level, for all applicat
 
 * [Get started with Apache Storm on HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
 * [Example topologies for Apache Storm on HDInsight](storm/apache-storm-example-topology.md)
-* [Introduction to Spark on HDInsight](spark/apache-spark-overview.md)
+* [Introduction to Apache Spark on HDInsight](spark/apache-spark-overview.md)
 * [Start with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)

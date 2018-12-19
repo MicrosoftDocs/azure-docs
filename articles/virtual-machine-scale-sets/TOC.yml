@@ -69,6 +69,9 @@
   - name: Regions and availability
     href: ../virtual-machines/windows/regions-and-availability.md
     maintainContext: true
+    items:
+    - name: Manage fault domains in scale sets
+      href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: VM types and sizes
     href: ../virtual-machines/windows/sizes.md
     maintainContext: true
@@ -85,7 +88,7 @@
       maintainContext: true
     - name: Memory optimized
       href: ../virtual-machines/windows/sizes-memory.md
-      maintainContext: true 
+      maintainContext: true
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
@@ -99,7 +102,7 @@
       items:
       - name: Setup GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
-        maintainContext: true 
+        maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/windows/sizes-hpc.md
       maintainContext: true
@@ -108,7 +111,7 @@
       maintainContext: true
     - name: Benchmark scores
       href: ../virtual-machines/windows/compute-benchmark-scores.md
-      maintainContext: true        
+      maintainContext: true
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true

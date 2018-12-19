@@ -1,6 +1,6 @@
 ---
-title: Indexing in Azure Cosmos DB MongoDB API
-description: Presents an overview of the indexing capabilities in Azure Cosmos DB MongoDB API.
+title: Indexing in Azure Cosmos DB API for MongoDB
+description: Presents an overview of the indexing capabilities in Azure Cosmos DB API for MongoDB.
 services: cosmos-db
 author: orestis-ms
 
@@ -14,9 +14,9 @@ ms.author: orkostak
 ---
 
 
-# Indexing in the Azure Cosmos DB: MongoDB API
+# Indexing in the Azure Cosmos DB API for MongoDB
 
-Azure Cosmos DB MongoDB API leverages automatic index management capabilities of Azure Cosmos DB. As a result, users have access to the default indexing policies of Azure Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into the collection. For most scenarios, we recommend using the default indexing policy set on the account.
+Azure Cosmos DB API for MongoDB leverages automatic index management capabilities of Azure Cosmos DB. As a result, users have access to the default indexing policies of Azure Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into the collection. For most scenarios, we recommend using the default indexing policy set on the account.
 
 ## Dropping the default indexes
 

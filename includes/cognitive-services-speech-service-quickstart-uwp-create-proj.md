@@ -19,7 +19,7 @@
    ![Screenshot of Visual Studio toolbar, with x64 highlighted](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > The Speech SDK supports Intel-compatible processors only. ARM is currently not supported.
+   > The Speech SDK only supports Intel-compatible processors. ARM is currently not supported.
 
 1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In Solution Explorer, right-click the solution, and select **Manage NuGet Packages for Solution**.
 
@@ -36,7 +36,7 @@
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.2.0' to helloworld
    ```
 
 1. Because the application uses the microphone for speech input, add the **Microphone** capability to the project. In Solution Explorer, double-click **Package.appxmanifest** to edit your application manifest. Then switch to the **Capabilities** tab, select the box for the **Microphone** capability, and save your changes.
