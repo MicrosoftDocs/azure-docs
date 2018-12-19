@@ -44,4 +44,3 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 ## Next steps
 - Learn more about [availability and redundancy features](../virtual-machines/windows/regions-and-availability.md) for Azure environments.
-- Learn more about Azure [availability best practices](../architecture/checklist/availability.md).
