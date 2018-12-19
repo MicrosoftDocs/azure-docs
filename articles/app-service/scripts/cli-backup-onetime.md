@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Back up a web app | Microsoft Docs
-description: Azure CLI Script Sample - Back up a web app
+title: Azure CLI Script Sample - Back up an app | Microsoft Docs
+description: Azure CLI Script Sample - Back up an app
 services: app-service\web
 documentationcenter: 
 author: msangapu
@@ -18,9 +18,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Back up a web app using CLI
+# Back up an app using CLI
 
-This sample script creates a web app in App Service with its related resources, and then creates a one-time backup for it. 
+This sample script creates an app in App Service with its related resources, and then creates a one-time backup for it. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-onetime/backup-onetime.sh?highlight=3-7 "Back up a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-onetime/backup-onetime.sh?highlight=3-7 "Back up an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

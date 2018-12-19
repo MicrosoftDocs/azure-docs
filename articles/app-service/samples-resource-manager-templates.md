@@ -22,10 +22,10 @@ The following table includes links to Azure Resource Manager templates for the W
 | | |
 |-|-|
 |**Deploying a web app**||
-| [App Service plan and basic Linux web app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Deploys an Azure web app that is configured for Linux. |
-| [App Service plan and basic Windows web app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Deploys an Azure web app that is configured for Windows. |
-| [Web app linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Deploys an Azure web app that pulls code from GitHub. |
-| [Web app with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Deploys an Azure web app with custom deployment slots/environments. |
+| [App Service plan and basic Lninux app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
+| [App Service plan and basic Wnindows app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Deploys an App Service app that is configured for Windows. |
+| [Web app linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Deploys an App Service app that pulls code from GitHub. |
+| [Web app with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Deploys an App Service app with custom deployment slots/environments. |
 |**Configuring a web app**||
 | [Web app certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Deploys an Azure web app certificate from an Azure Key Vault secret and uses it for SSL binding. |
 | [Web app with a custom domain](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Deploys an Azure web app with a custom host name. |
