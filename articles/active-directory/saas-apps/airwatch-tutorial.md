@@ -159,7 +159,7 @@ To configure Azure AD single sign-on with AirWatch, perform the following steps:
 
     a. As **Request Binding Type**, select **POST**.
 
-    b. In the Azure portal, on the **Configure single sign-on at Airwatch** dialog page, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **Identity Provider Single Sign On URL** textbox.
+    b. In the Azure portal, on the **Configure single sign-on at Airwatch** dialog page, copy the **Login URL** value, and then paste it into the **Identity Provider Single Sign On URL** textbox.
 
     c. As **NameID Format**, select **Email Address**.
 
