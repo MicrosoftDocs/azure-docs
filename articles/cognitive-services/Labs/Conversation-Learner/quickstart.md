@@ -173,4 +173,4 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)
