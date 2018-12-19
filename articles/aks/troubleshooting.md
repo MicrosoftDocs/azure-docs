@@ -30,7 +30,7 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based upon 2) above, the subnet size should be greater than the product of the number of nodes and the maximum pods per node. The relationship can be expressed in this way: subnet size > number of nodes in the cluster * maximum pods per node.
+In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based on the preceding section, the subnet size should be greater than the product of the number of nodes and the maximum pods per node. The relationship can be expressed in this way: subnet size > number of nodes in the cluster * maximum pods per node.
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -39,7 +39,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 * The pod itself, by using `kubectl describe pod <pod-name>`.
 * The logs, by using `kubectl log <pod-name>`.
 
-For more information on how to troubleshoot pod issues, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
 ### I'm trying to enable RBAC on an existing cluster. How can I do that?
 
@@ -61,7 +61,7 @@ Make sure that the default network security group (NSG) isn't modified and that 
 
 ## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error.  How do I fix this problem?
 
-You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the SLO.
+You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
 
 ## How do I renew the service principal secret on my AKS cluster?
 
