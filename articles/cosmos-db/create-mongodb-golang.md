@@ -1,5 +1,5 @@
 ---
-title: "Build a console app with Golang and the Azure portal using Azure Cosmos DB API for MongoDB"
+title: "Build a console app with Golang and the Azure portal using Azure Cosmos DB for MongoDB API"
 description: Presents a Golang code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 author: slyons
@@ -12,7 +12,7 @@ ms.author: sclyon
 ms.custom: mvc
 ---
 
-# Build a console app with Golang and the Azure portal using Azure Cosmos DB API for MongoDB
+# Build a console app with Golang and the Azure portal using Azure Cosmos DB for MongoDB API
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -25,9 +25,9 @@ ms.custom: mvc
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
-This quick-start demonstrates how to use an existing MongoDB app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the Azure Cosmos DB API for MongoDB.
+This quick-start demonstrates how to use an existing MongoDB app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections by using the Azure Cosmos DB for MongoDB API.
 
-In other words, your Golang application only knows that it's connecting to a database using Azure Cosmos DB API for MongoDB. It is transparent to the application that the data is stored in Azure Cosmos DB.
+In other words, your Golang application only knows that it's connecting to a database using Azure Cosmos DB for MongoDB API. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ The following snippets are all taken from the main.go file.
 
 Azure Cosmos DB supports the SSL-enabled MongoDB. To connect to an SSL-enabled MongoDB, you need to define the **DialServer** function in [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
-The following Golang code snippet connects the Go app with Azure Cosmos DB API for MongoDB. The *DialInfo* class holds options for establishing a session with a MongoDB cluster.
+The following Golang code snippet connects the Go app with Azure Cosmos DB for MongoDB API. The *DialInfo* class holds options for establishing a session with a MongoDB cluster.
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -249,4 +249,4 @@ Go back to the Azure portal to see your document in Data Explorer.
 In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Golang app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB API for MongoDB](mongodb-migrate.md)
+> [Import data into Azure Cosmos DB for MongoDB API database](mongodb-migrate.md)

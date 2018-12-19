@@ -9,9 +9,9 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
 ---
-# Expire data in Azure Cosmos DB API for MongoDB
+# Expire data in Azure Cosmos DB for MongoDB API
 
-Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB API for MongoDB utilizes Azure Cosmos DB's TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in MongoDB  API is the [same as in Azure Cosmos DB](../cosmos-db/mongodb-indexing.md).
+Time-to-live (TTL) functionality allows the database to automatically expire data. Azure Cosmos DB for MongoDB API utilizes Azure Cosmos DB's TTL capabilities. Two modes are supported: setting a default TTL value on the whole collection, and setting individual TTL values for each document. The logic governing TTL indexes and per-document TTL values in MongoDB  API is the [same as in Azure Cosmos DB](../cosmos-db/mongodb-indexing.md).
 
 ## TTL indexes
 To enable TTL universally on a collection, a ["TTL index" (time-to-live index)](../cosmos-db/mongodb-indexing.md) needs to be created. The TTL index is an index on the _ts field with an "expireAfterSeconds" value.
@@ -72,4 +72,4 @@ The per-document TTL feature can be activated via the Azure Cosmos DB API accoun
 
 ## Next steps
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
-* [Indexing in the Azure Cosmos DB API for MongoDB](../cosmos-db/mongodb-indexing.md)
+* [Indexing in the Azure Cosmos DB for MongoDB API](../cosmos-db/mongodb-indexing.md)

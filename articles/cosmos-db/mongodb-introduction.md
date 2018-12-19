@@ -1,7 +1,7 @@
 ---
-title: 'Introduction to Azure Cosmos DB API for MongoDB'
+title: 'Introduction to Azure Cosmos DB for MongoDB API'
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of JSON documents with low latency using the popular OSS MongoDB API.
-keywords: Azure Cosmos DB API for MongoDB
+keywords: Azure Cosmos DB for MongoDB API
 services: cosmos-db
 author: SnehaGunda
 
@@ -23,7 +23,7 @@ Cosmos DB implements wire protocols of common NoSQL databases including Cassandr
 
 By default, the Azure Cosmos DB for MongoDB API is compatible with version 3.2 of the wire protocol. Features or query operators added in version 3.4 of the wire protocol are currently available as a preview feature. Any client driver that understands these protocol versions for the MongoDB API should be able to natively connect to Azure Cosmos DB.
 
-![Azure Cosmos DB API for MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![Azure Cosmos DB for MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 ## Key benefits
 

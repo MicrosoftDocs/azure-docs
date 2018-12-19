@@ -13,15 +13,15 @@ ms.author: sngun
 ms.custom: mvc
 
 ---
-# Set up Azure Cosmos DB global distribution using the Azure Cosmos DB API for MongoDB
+# Set up Azure Cosmos DB global distribution using the Azure Cosmos DB for MongoDB API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Azure Cosmos DB API for MongoDB.
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the Azure Cosmos DB for MongoDB API.
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [Azure Cosmos DB API for MongoDB](mongodb-introduction.md)
+> * Configure global distribution using the [Azure Cosmos DB for MongoDB API](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -62,7 +62,7 @@ Example results:
 
 ## Connecting to a preferred region 
 
-The Azure Cosmos DB API for MongoDB enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
+The Azure Cosmos DB for MongoDB API enables you to specify your collection's read preference for a globally distributed database. For both low latency reads and global high availability, we recommend setting your collection's read preference to *nearest*. A read preference of *nearest* is configured to read from the closest region.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

@@ -1,6 +1,6 @@
 ---
 title: Use Robomongo for Azure Cosmos DB
-description: 'Learn how to use Robomongo with an Azure Cosmos DB: API for MongoDB account'
+description: 'Learn how to use Robomongo with an Azure Cosmos DB for MongoDB API account'
 keywords: robomongo
 services: cosmos-db
 author: SnehaGunda
@@ -12,16 +12,16 @@ ms.date: 05/23/2017
 ms.author: sngun
 
 ---
-# Use Robomongo with an Azure Cosmos DB: API for MongoDB account
-To connect to an Azure Cosmos DB: API for MongoDB account using Robomongo, you must:
+# Use Robomongo with an Azure Cosmos DB for MongoDB API account
+To connect to an Azure Cosmos DB for MongoDB API account using Robomongo, you must:
 
 * Download and install [Robomongo](https://robomongo.org/)
-* Have your Azure Cosmos DB: API for MongoDB account [connection string](connect-mongodb-account.md) information
+* Have your Azure Cosmos DB for MongoDB API account [connection string](connect-mongodb-account.md) information
 
 ## Connect using Robomongo
-To add your Azure Cosmos DB: API for MongoDB account to the Robomongo MongoDB Connections, perform the following steps.
+To add your Azure Cosmos DB for MongoDB API account to the Robomongo MongoDB Connections, perform the following steps.
 
-1. Retrieve your Azure Cosmos DB: API for MongoDB account connection information using the instructions [here](connect-mongodb-account.md).
+1. Retrieve your Azure Cosmos DB for MongoDB API account connection information using the instructions [here](connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/mongodb-robomongo/connectionstringblade.png)
 2. Run *Robomongo.exe*
@@ -41,4 +41,4 @@ Both **User Name** and **Password** can be found in your connection information 
 7. Finally, click **Test** to verify that you are able to connect, then **Save**.
 
 ## Next steps
-* Explore Azure Cosmos DB: API for MongoDB [samples](mongodb-samples.md).
+* Explore Azure Cosmos DB for MongoDB API [samples](mongodb-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: Using MongoDB Read Preference with the Azure Cosmos DB API for MongoDB 
-description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB API for MongoDB
+title: Using MongoDB Read Preference with the Azure Cosmos DB for MongoDB API 
+description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB for MongoDB API
 services: cosmos-db
 author: vidhoonv
 ms.author: sclyon
@@ -10,9 +10,9 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ---
-# How to globally distribute reads using Read Preference with the Azure Cosmos DB API for MongoDB
+# How to globally distribute reads using Read Preference with the Azure Cosmos DB for MongoDB API
 
-This article shows how to globally distribute read operations using [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings with Azure Cosmos DB API for MongoDB.
+This article shows how to globally distribute read operations using [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings with Azure Cosmos DB for MongoDB API.
 
 ## Prerequisites 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
@@ -131,7 +131,7 @@ Refer to the corresponding sample application repos for other platforms, such as
 
 ## Read using tags
 
-In addition to the Read Preference mode, MongoDB allows use of tags to direct read operations. In Azure Cosmos DB API for MongoDB, the `region` tag is included by default as a part of the `isMaster` response:
+In addition to the Read Preference mode, MongoDB allows use of tags to direct read operations. In Azure Cosmos DB for MongoDB API, the `region` tag is included by default as a part of the `isMaster` response:
 
 ```json
 "tags": {
@@ -154,7 +154,7 @@ The following snippet from the sample application shows how to configure the Rea
 
 Refer to the corresponding sample application repos for other platforms, such as [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) and [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).
 
-In this article, you've learned how to globally distribute read operations using Read Preference with Azure Cosmos DB API for MongoDB.
+In this article, you've learned how to globally distribute read operations using Read Preference with Azure Cosmos DB for MongoDB API.
 
 ## Clean up resources
 
