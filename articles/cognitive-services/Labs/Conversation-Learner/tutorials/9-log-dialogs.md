@@ -32,7 +32,9 @@ Log Dialogs are recorded logs of your bot's interaction with end users. By harne
 
 ## Steps
 
-Import the existing weather model into the Conversation Learner UI. This Model contains one Entity named "city", and Actions designed to respond to inquires about weather in that city. Two Train Dialogs were used to train the Model so performance expectations are somewhat low. The Model would improve with additional training and exposure to real world user interactions.
+In the web UI, click on "Import Tutorials" and select the model named "Tutorial-11-LogDialogs".
+
+This Model contains one Entity named "city", and Actions designed to respond to inquires about weather in that city. Two Train Dialogs were used to train the Model so performance expectations are somewhat low. The Model would improve with additional training and exposure to real world user interactions.
 
 ### Create a new Conversation
 

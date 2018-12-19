@@ -34,7 +34,7 @@ Cards are UI elements that allow the user to select an option in the conversatio
 
 ### Open the demo
 
-In the Model list of the web UI, click on Tutorial-13-Cards-1. 
+In the web UI, click on "Import Tutorials" and select the model named "Tutorial-15-Cards".
 
 ### The Card
 

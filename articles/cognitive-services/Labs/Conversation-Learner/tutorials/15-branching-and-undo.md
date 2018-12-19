@@ -31,10 +31,7 @@ This tutorial requires that the Bot that takes pizza orders is running:
 
 ### Open or Import the Demo
 
-If you've already worked through the pizza ordering tutorial then simply open that Model from the list in the web UI. Otherwise you will need to do the following to get started:
-1. From the Model List Page, click the `Import Model` button.
-2. Type in "Pizza Demo" as the New Model Name.
-3. Click the `Locate File` buton, select this file: `<your-repo-path>\models\Demo-PizzaOrder.cl`
+If you've already worked through the pizza ordering tutorial then simply open that Model from the list in the web UI. Otherwise you will need to click on "Import Tutorials" and select the model named "Demo-PizzaOrder".
 
 ## Undo
 

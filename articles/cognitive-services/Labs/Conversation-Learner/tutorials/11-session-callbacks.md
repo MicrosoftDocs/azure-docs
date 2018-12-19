@@ -34,7 +34,7 @@ This long period of inactivity will cause the bot to create a new session and re
 
 ### Load the Demo Model
 
-In the Model list, click on Tutorial-11-SessionCallbacks. 
+In the web UI, click on "Import Tutorials" and select the model named "Tutorial-13-SessionCallbacks".
 
 ### Code for the callbacks
 

@@ -33,7 +33,7 @@ This tutorial requires that the "tutorialAPICalls.ts" bot is running.
 
 ### Open the demo
 
-In the Model list of the samples, click on Tutorial-12-APICalls. 
+In the web UI, click on "Import Tutorials" and select the model named "Tutorial-14-APICalls".
 
 ### Entities
 
@@ -42,7 +42,7 @@ We have defined one entity in the Model called `number`.
 ![](../media/tutorial12_entities.PNG)
 
 ### API Calls
-The code for the API calls is defined in the this file: C:\<installedpath\>\src\demos\tutorialAPICalls.ts.
+The code for the API calls is defined in the this file: `C:\<installedpath>\src\demos\tutorialAPICalls.ts`.
 
 ![](../media/tutorial12_apicalls.PNG)
 
