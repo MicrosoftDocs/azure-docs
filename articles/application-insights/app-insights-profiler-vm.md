@@ -17,7 +17,7 @@ ms.author: mbullwin
 
 # Profile web apps running on an Azure virtual machine or virtual machine scale set with Application Insights Profiler
 You can also deploy Application Insights profiler on these services:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

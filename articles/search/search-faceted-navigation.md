@@ -6,7 +6,7 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -28,7 +28,7 @@ In your application development, writing code that constructs queries constitute
 ## Sample code and demo
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
--   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -366,7 +366,7 @@ You can find filter examples in [OData expression syntax (Azure Search)](https:/
 ## Try the demo
 The Azure Search Job Portal Demo contains the examples referenced in this article.
 
--   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -391,12 +391,12 @@ As you work with search results, watch the URL for changes in query construction
 <a name="nextstep"></a>
 
 ## Learn more
-Watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
+Watch [Azure Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
 
 For more insights on design principles for faceted navigation, we recommend the following links:
 
 * [Designing for Faceted Search](http://www.uie.com/articles/faceted_search/)
-* [Design Patterns: Faceted Navigation](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Design Patterns: Faceted Navigation](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -426,7 +426,7 @@ For more insights on design principles for faceted navigation, we recommend the 
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
