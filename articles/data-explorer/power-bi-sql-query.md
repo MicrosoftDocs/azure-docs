@@ -50,7 +50,7 @@ You typically use the native query language with Azure Data Explorer, but it als
     |---|---|---|
     | Server | *help.kusto.windows.net* | The URL for the help cluster (without *https://*). For other clusters, the URL is in the form *\<ClusterName\>.\<Region\>.kusto.windows.net*. |
     | Database | *Samples* | The sample database that is hosted on the cluster you're connecting to. |
-    | Data connectivity mode | *Import* | Determines whether Power BI imports the data or connects directly to the data source. |
+    | Data connectivity mode | *Import* | Determines whether Power BI imports the data or connects directly to the data source. You can use either option with this connector. |
     | Command timeout | Leave blank | How long the query runs before it throws a timeout error. |
     | SQL statement | Copy the query below this table | The SQL statement that Azure Data Explorer translates into a native query. |
     | Other options | Leave as default values | Options don't apply to Azure Data Explorer clusters. |

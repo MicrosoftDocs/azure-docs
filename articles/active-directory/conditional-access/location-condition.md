@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -56,7 +56,7 @@ A named location has the following components:
 
 - **Name** - The display name of a named location.
 
-- **IP ranges** - One or more IP address ranges in CIDR format.
+- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an Ipv6 address rage is not supported.
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

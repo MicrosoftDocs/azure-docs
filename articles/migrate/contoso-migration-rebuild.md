@@ -490,7 +490,7 @@ Now Contoso admins configure the Web App to use Contoso resources.
 
     ![Json settings](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the storage blog they created earlier.
+5. After the file is updated, they rename it **smarthotelsettingsurl**, and upload it to the blob storage they created earlier.
 
     ![Rename and upload](./media/contoso-migration-rebuild/configure-webapp3.png)
 

@@ -20,6 +20,7 @@ The Bing Entity Search API contains the functionality of the REST API for entity
 The [source code for C# Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) is available on Git Hub.
 
 ## Application dependencies
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 To set up a console application using the Bing Entity Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.EntitySearch` package.
 

@@ -76,7 +76,7 @@ The following steps should be performed from a command line, such as PowerShell 
     * Replace `groupname` with the resource group name.
     * Replace `storagename` with the name of the storage account.
 
-     In the data that is returned, save the `key` value for `key1`.
+      In the data that is returned, save the `key` value for `key1`.
 
 6. Create an HDInsight cluster.
 
@@ -86,8 +86,8 @@ The following steps should be performed from a command line, such as PowerShell 
 
     * Replace `Hadoop` with the cluster type that you wish to create. For example, `Hadoop`, `HBase`, `Kafka`, `Spark`, or `Storm`.
 
-     > [!IMPORTANT]
-     > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
+      > [!IMPORTANT]
+      > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 
     * Replace `location` with the same location used in previous steps.
 
@@ -101,12 +101,12 @@ The following steps should be performed from a command line, such as PowerShell 
 
     * Replace `sshuser` and `sshuserpassword` with the username and password you wish to use when accessing the cluster using SSH
 
-    > [!IMPORTANT]
-    > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
-    >
-    > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-    It may take several minutes for the cluster creation process to finish. Usually around 15.
+      > [!IMPORTANT]
+      > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
+      >
+      > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+      
+      It may take several minutes for the cluster creation process to finish. Usually around 15.
 
 ## Troubleshoot
 
@@ -116,19 +116,19 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 Now that you have successfully created an HDInsight cluster using the classic CLI, use the following to learn how to work with your cluster:
 
-### Hadoop clusters
+### Apache Hadoop clusters
 
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### HBase clusters
+### Apache HBase clusters
 
-* [Get started with HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for Apache HBase on HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### Storm clusters
+### Apache Storm clusters
 
-* [Develop Java topologies for Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Use Python components in Apache Storm on HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)

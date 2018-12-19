@@ -1,14 +1,15 @@
 ---
-title: "Tutorial 5: Parent/Child relationships - LUIS Hierarchical entity for contextually learned data"
+title: Hierarchical entity
 titleSuffix: Azure Cognitive Services
 description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 --- 
@@ -28,7 +29,6 @@ The hierarchical entity is a good fit for this type of data because the two piec
 
 **In this tutorial, you learn how to:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Use existing tutorial app
 > * Add intent 
@@ -51,9 +51,9 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `hier`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
 
 ## Remove prebuilt number entity from app
-In order to see the entire utterance and mark the hierarchical children, temporarily remove the prebuilt number entity.
+In order to see the entire utterance and mark the hierarchical children, [temporarily remove the prebuilt number entity](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left menu.
 
@@ -79,14 +79,14 @@ In order to see the entire utterance and mark the hierarchical children, tempora
 
     In the [list entity](luis-quickstart-intent-and-list-entity.md) tutorial, an employee is designated by name, email address, phone extension, mobile phone number, or U.S. federal social security number. These employee numbers are used in the utterances. The previous example utterances include different ways to note the origin and destination locations, marked in bold. A couple of the utterances only have destinations on purpose. This helps LUIS understand how those locations are placed in the utterance when the origin is not specified.     
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Create a location entity
 LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
 
 Consider the following utterance:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -96,19 +96,19 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 1. In the utterance, `Displace 425-555-0000 away from g-2323 toward hh-2345`, select the word `g-2323`. A drop-down menu appears with a text box at the top. Enter the entity name `Locations` in the text box then select **Create new entity** in the drop-down menu. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Screenshot of creating new entity on intent page](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
+    ![Screenshot of entity creation pop-up dialog for new Location entity](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
 
 3. The label for `g-2323` is marked as `Locations` because LUIS doesn't know if the term was the origin or destination, or neither. Select `g-2323`, then select **Locations**, then follow the menu to the right and select `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Screenshot of entity labeling pop-up dialog to change locations entity child](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Label the other locations in all the other utterances by selecting the building and office in the utterance, then selecting Locations, then following the menu to the right to select `Origin` or `Destination`. When all locations are labeled, the utterances in **Tokens View** begin to look like a pattern. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Screenshot of Locations entity labeled in utterances](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## Add prebuilt number entity to app
 Add the prebuilt number entity back to the application.
@@ -136,7 +136,7 @@ Add the prebuilt number entity back to the application.
 
 2. Go to the end of the URL in the address bar and enter `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the hierarchical entity extracted.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

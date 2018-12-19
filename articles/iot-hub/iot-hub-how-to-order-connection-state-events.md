@@ -197,11 +197,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
 
-  * Choose a value: **eventType**
-  * Change "is equal to" to **ends with**
-  * Choose a value: **nected**
+   * Choose a value: **eventType**
+   * Change "is equal to" to **ends with**
+   * Choose a value: **nected**
 
-   ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. If the condition is true, click on **Add an action**.
   
@@ -312,7 +312,7 @@ You can see results of the executed stored procedure in your Cosmos DB document.
 
 ## Use the Azure CLI
 
-Instead of using the [Azure portal](http://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/iot/device).
+Instead of using the [Azure portal](http://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## Clean up resources
 

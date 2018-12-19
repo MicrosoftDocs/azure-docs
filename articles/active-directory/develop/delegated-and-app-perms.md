@@ -27,4 +27,4 @@ ms.author: celested
 - For more depth, learn how resource applications expose [scopes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) and [application roles](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

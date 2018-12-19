@@ -155,7 +155,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 4. Define an IP Range for your DCHP Server (for example, 192.168.0.100 to 192.168.0.200).
   
-5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway.
+5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway, then click **Add**.
   
 6. Click **Next** until the wizard completes, leaving all default values, then click **Finish**.
     

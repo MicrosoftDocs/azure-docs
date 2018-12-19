@@ -69,4 +69,4 @@ To require end users to consent to an application each time they authenticate, a
 
 [Consent and Permissioning for AzureAD v2.0 converged Apps](../develop/active-directory-v2-scopes.md)
 
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ---
@@ -27,7 +27,7 @@ To create a policy for Azure management, you select **Microsoft Azure Management
 
 ![Conditional access for Azure management](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-The policy you create applies to all Azure management endpoints, including classic Azure portal, Azure portal, Azure Resource Manager provider, classic Service Management APIs, and Azure PowerShell.
+The policy you create applies to all Azure management endpoints, including classic Azure portal, Azure portal, Azure Resource Manager provider, classic Service Management APIs, and Azure PowerShell. Note that the policy applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), which calls Microsoft Graph.
 
 > [!CAUTION]
 > Make sure you understand how conditional access works before setting up a policy to manage access to Azure management. Make sure you don't create conditions that could block your own access to the portal.

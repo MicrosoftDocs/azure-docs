@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -29,6 +29,47 @@ This section lists all the security alerts for directory roles, along with how t
 * **Medium**: Does not require immediate action but signals a potential policy violation.
 * **Low**: Does not require immediate action but suggests a preferable policy change.
 
+### Administrators aren't using their privileged roles
+
+| | |
+| --- | --- |
+| **Severity** | Low |
+| **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
+| **How to fix?** | Review the users in the list and remove them from privileged roles they do not need. |
+| **Prevention** | Only assign privileged roles to users that have a business justification. </br>Schedule regular [access reviews](pim-how-to-start-security-review.md) to verify that users still need their access. |
+| **In-portal mitigation action** | Removes the account from their privileged role. |
+| **Trigger** | Triggered if a user goes a certain amount of time without activating a role. |
+| **Number of days** | This setting specifies the number of days, from 0 to 100, that a user can go without activating a role.|
+
+### Roles don't require multi-factor authentication for activation
+
+| | |
+| --- | --- |
+| **Severity** | Low |
+| **Why do I get this alert?** | Without MFA, compromised users can activate privileged roles. |
+| **How to fix?** | Review the list of roles and [require MFA](pim-how-to-change-default-settings.md) for every role. |
+| **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
+| **In-portal mitigation action** | Makes MFA required for activation of the privileged role. |
+
+### The tenant doesn't have Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Severity** | Low |
+| **Why do I get this alert?** | The current tenant does not have Azure AD Premium P2. |
+| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
+
+### Potential stale accounts in a privileged role
+
+| | |
+| --- | --- |
+| **Severity** | Medium |
+| **Why do I get this alert?** | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers. |
+| **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
+| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
+| **In-portal mitigation action** | Removes the account from their privileged role. |
+| **Best practices** | Shared, service, and emergency access accounts that authenticate using a password and are assigned to highly privileged administrative roles such as Global Administrator or Security Administrator should have their passwords rotated for the following cases:<ul><li>After a security incident involving misuse or compromise of administrative access rights</li><li>After any user's privileges are changed so that they are no longer an administrator (for example, after an employee who was an administrator leaves IT or leaves the organization)</li><li>At regular intervals (for example, quarterly or yearly), even if there was no known breach or change to IT staffing</li></ul>Since multiple people have access to these accounts' credentials, the credentials should be rotated to ensure that people that have left their roles can no longer access the accounts. [Learn more](https://aka.ms/breakglass) |
+
 ### Roles are being assigned outside of PIM
 
 | | |
@@ -38,28 +79,6 @@ This section lists all the security alerts for directory roles, along with how t
 | **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of PIM. |
 | **Prevention** | Investigate where users are being assigned privileged roles outside of PIM and prohibit future assignments from there. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
-
-### Potential stale accounts in a privileged role
-
-| | |
-| --- | --- |
-| **Severity** | Medium |
-| **Why do I get this alert?** | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers. |
-| **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
-| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using access reviews and remove role assignments that are no longer needed. |
-| **In-portal mitigation action** | Removes the account from their privileged role. |
-
-### Users aren't using their privileged roles
-
-| | |
-| --- | --- |
-| **Severity** | Low |
-| **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
-| **How to fix?** | Review the users in the list and remove them from privileged roles they do not need. |
-| **Prevention** | Only assign privileged roles to users that have a business justification. </br>Schedule regular access reviews to verify that users still need their access. |
-| **In-portal mitigation action** | Removes the account from their privileged role. |
-| **Trigger** | Triggered if a user goes a certain amount of time without activating a role. |
-| **Number of days** | This setting specifies the number of days, from 0 to 100, that a user can go without activating a role.|
 
 ### There are too many global administrators
 
@@ -86,16 +105,6 @@ This section lists all the security alerts for directory roles, along with how t
 | **Trigger** | Triggered if a user activates the same privileged role multiple times within a specified period. You can configure both the time period and the number of activations. |
 | **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, that you consider worthy of alert, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
-
-### Roles don't require MFA for activation
-
-| | |
-| --- | --- |
-| **Severity** | Low |
-| **Why do I get this alert?** | Without MFA, compromised users can activate privileged roles. |
-| **How to fix?** | Review the list of roles and [require MFA](pim-how-to-change-default-settings.md) for every role. |
-| **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
-| **In-portal mitigation action** | Makes MFA required for activation of the privileged role. |
 
 ## Configure security alert settings
 

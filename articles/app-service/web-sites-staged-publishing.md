@@ -1,5 +1,5 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
+title: Set up staging environments for web apps - Azure App Service | Microsoft Docs 
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Set up staging environments in Azure App Service
@@ -54,9 +55,9 @@ The app must be running in the **Standard**, **Premium**, or **Isolated* tier in
 4. In your app's resource blade, click  **Deployment slots**, then click a deployment slot to open that slot's resource blade, with a set of metrics and configuration just like any other app. The name of the slot is shown at the top of the blade to remind you that you are viewing the deployment slot.
    
     ![Deployment Slot Title][StagingTitle]
-5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](app-service-deploy-local-git.md).
+There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 
@@ -71,6 +72,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Handler mappings
 * Monitoring and diagnostic settings
 * WebJobs content
+* Hybrid connections
 
 **Settings that are not swapped**:
 
@@ -170,18 +172,18 @@ If any errors are identified in production after a slot swap, roll the slots bac
 <a name="Warm-up"></a>
 
 ## Custom warm-up before swap
-Some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
+When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation waits for this custom warm-up to complete. Here is a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
             <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostname="[app hostname]" />
+            <add initializationPage="/Home/About" hostName="[app hostname]" />
         </applicationInitialization>
     </system.webServer>
 
 ## Monitor swap progress
 
-Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the [Azure portal](https://portal.azure.com).
+Sometimes, the swap operation takes some time to complete, such as when the app that is swapped has a long warm-up time. You can get more information on swap operations in the [Activity Log](../azure-monitor/platform/activity-logs-overview.md) in the [Azure portal](https://portal.azure.com).
 
 In your app page of the portal, in the left-hand navigation, select **Activity log**.
 
@@ -260,7 +262,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Next steps
-[Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Azure App Service Web App – block web access to non-production deployment slots](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Introduction to App Service on Linux](../app-service/containers/app-service-linux-intro.md)  
 [Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 

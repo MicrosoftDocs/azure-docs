@@ -52,7 +52,7 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
     | Database | Leave blank | A database that is hosted on the cluster you're connecting to. We'll select this in a later step. |
     | Table name | Leave blank | One of the tables in the database, or a query like `StormEvents | take 1000`. We'll select this in a later step. |
     | Advanced options | Leave blank | Options for your queries, such as result set size. |
-    | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. |
+    | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. You can use either option with this connector. |
     | | | |
 
 1. If you don't already have a connection to the help cluster, sign in. Sign in with an organizational account, then select **Connect**.

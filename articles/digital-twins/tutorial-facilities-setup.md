@@ -1,9 +1,9 @@
 ---
-title: Deploy Azure Digital Twins | Microsoft Docs
+title: 'Tutorial: Deploy Azure Digital Twins | Microsoft Docs'
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources by using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
-
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 10/15/2018
@@ -161,13 +161,20 @@ The **provisionSample.yaml** file contains the following nodes:
 
 Save and close the provisionSample.yaml file. In the next tutorial, you'll add more information to this file, and then provision your Azure Digital Twins sample building.
 
+> [!TIP]
+> You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
+
 
 ## Clean up resources
 
 If you want to stop exploring Azure Digital Twins at this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and select **Delete**.
-2. If necessary, delete the sample application on your work machine. 
+   
+    > [!TIP]
+    > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
+
+1. If necessary, delete the sample application on your work machine. 
 
 
 ## Next steps

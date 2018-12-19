@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
@@ -30,7 +29,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
 ### Step 1: Create a flow
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
-1. Click **Create a flow from blank**.
+2. Click **Create a flow from blank**.
 
 ### Step 2: Create a trigger for your flow
 1. Select **Schedule**, and then select **Schedule - Recurrence**.
@@ -120,7 +119,7 @@ When the flow runs, the recipients you have specified in the email list receive 
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
+- Learn more about creating [Analytics queries](../azure-monitor/log-query/get-started-queries.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

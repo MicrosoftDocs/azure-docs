@@ -1,15 +1,15 @@
 ---
-title: "Tutorial 3: Regular-expression matched data - extract well-formated data"
+title: Regular-expression entity
 titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
@@ -21,14 +21,13 @@ The purpose of an entity is to extract important data contained within the utter
 
 **Example utterances include:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Example utterances|
+|--|
+|Where is HRF-123456?|
+|Who authored HRF-123234?|
+|HRF-456098 is published in French?|
+|HRF-456098|
+|HRF-456098 date?|
  
 A regular expression is a good choice for this type of data when:
 
@@ -45,7 +44,7 @@ A regular expression is a good choice for this type of data when:
 > * Publish
 > * Get intents and entities from endpoint
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
 Continue with the app created in the last tutorial, named **HumanResources**. 
@@ -60,7 +59,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## FindForm intent
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Create new intent**. 
 
@@ -87,7 +86,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
     The application has prebuilt number entity added from the previous tutorial, so each form number is tagged. This may be enough for your client application but the number won't be labeled with the type of number. Creating a new entity with an appropriate name allows the client application to process the entity appropriately when it is returned from LUIS.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## Regular expression entity 
 The regular expression entity to match the form number is `hrf-[0-9]{6}`. This regular expression matches the literal characters `hrf-` but ignores case and culture variants. It matches digits 0-9, for 6 digits exactly.
@@ -126,7 +125,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published in the last year?`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

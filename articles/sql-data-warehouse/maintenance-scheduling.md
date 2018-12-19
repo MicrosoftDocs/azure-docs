@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ---
 
 # Use maintenance schedules to manage service updates and maintenance
 
-Azure SQL Data Warehouse maintenance scheduling is now in preview. This feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
+Maintenance schedules is now available in all Azure SQL Data Warehouse regions. This feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and the Azure SQL Data Warehouse maintenance scheduling service.
 
 You use maintenance scheduling to choose a time window when it's convenient to receive new features, upgrades, and patches. You choose a primary and a secondary maintenance window within a seven-day period. An example is a primary window of Saturday 22:00 to Sunday 01:00 and a secondary window of Wednesday 19:00 to 22:00. If SQL Data Warehouse can't perform maintenance during your primary maintenance window, it will try the maintenance again during your secondary maintenance window.
 
@@ -46,6 +46,7 @@ Even if maintenance scheduling isn't available in your selected region, you can 
 - [Learn more](changing-maintenance-schedule.md) about changing a maintenance schedule.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts by using Azure Monitor.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about webhook actions for log alert rules.
+- [Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) Creating and managing Action Groups.
 - [Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health.
 
 

@@ -2,16 +2,14 @@
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
-
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
+ms.custom: seodec18
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -20,7 +18,7 @@ ms.author: cshoe
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
-This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 > [!NOTE]
 > This article is for Azure Functions 1.x.  For information about how to use these bindings in Functions 2.x, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -30,11 +28,11 @@ This article explains how to work with [Azure Cosmos DB](..\cosmos-db\serverless
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [MongoDB API](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB API for MongoDB](../cosmos-db/mongodb-introduction.md)](../cosmos-db/mongodb-introduction.md), [Azure Cosmos DB API for Cassandra](../cosmos-db/cassandra-introduction.md), [Azure Cosmos DB API for Gremlin](../cosmos-db/graph-introduction.md), and [Azure Cosmos DB API for Table](../cosmos-db/table-introduction.md).
 
 ## Packages - Functions 1.x
 
-The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
+The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -891,7 +889,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 This section contains the following examples:
 
-* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-javascript)
 * [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1174,7 +1172,7 @@ The following table explains the binding configuration properties that you set i
 
 In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted. 
 
-In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#input---javascript-example).
+In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#input---javascript-examples).
 
 ## Output
 
@@ -1193,7 +1191,7 @@ See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
 [Skip output examples](#output---attributes)
 
-### Ouput - C# examples
+### Output - C# examples
 
 This section contains the following examples:
 
@@ -1569,7 +1567,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---c-examples).
 
 ## Output - configuration
 
@@ -1604,7 +1602,7 @@ By default, when you write to the output parameter in your function, a document 
 
 ## Next steps
 
-* [Learn more about serverless database computing with Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Learn more about serverless database computing with Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 <!---

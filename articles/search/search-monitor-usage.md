@@ -1,5 +1,5 @@
 ---
-title: Monitor usage and statistics in an Azure Search service | Microsoft Docs
+title: Monitor usage and statistics for an search service - Azure Search
 description: Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,9 +10,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
-# Monitoring an Azure Search service
+# Monitor an Azure Search service in Azure portal
 
 Azure Search offers various resources for tracking usage and performance of search services. It gives you access to metrics, logs, index statistics, and extended monitoring capabilities on Power BI. This article describes how to enable the different monitoring strategies and how to interpret the resulting data.
 
@@ -64,7 +64,7 @@ You can export the operation logs for your service and the raw data for the metr
 
 
 ### Enabling monitoring
-Open your Azure Search service in the [Azure portal](http://portal.azure.com) under the Enable Monitoring option.
+Open your Azure Search service in the [Azure portal](https://portal.azure.com) under the Enable Monitoring option.
 
 Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Log Analytics.
 
@@ -100,6 +100,7 @@ Each blob has records on all the operation that took place during the same hour.
 | properties |object |see the following table |Object containing operation-specific data |
 
 **Properties schema**
+
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
@@ -108,6 +109,7 @@ Each blob has records on all the operation that took place during the same hour.
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 
 #### Metrics schema
+
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource id |

@@ -10,6 +10,7 @@ ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
+
 # Tutorial: Deploy and configure Azure Firewall using the Azure portal
 
 Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites, or the outbound IP addresses and ports that can be accessed.
@@ -35,7 +36,7 @@ In this tutorial, you learn how to:
 > * Set up a test network environment
 > * Deploy a firewall
 > * Create a default route
-> * Configure an application to allow access to github.com
+> * Configure an application to allow access to msn.com
 > * Configure a network rule to allow access to external DNS servers
 > * Test the firewall
 
@@ -73,7 +74,7 @@ This VNet will contain three subnets.
 11. Use the other default settings, and then click **Create**.
 
 > [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /25.
+> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
@@ -131,7 +132,7 @@ Deploy the firewall into the VNet.
 2. Click **Networking**, and after **Featured**, click **See all**.
 3. Click **Firewall** > **Create**. 
 4. On the **Create a Firewall** page, use the following table to configure the firewall:
-   
+
    |Setting  |Value  |
    |---------|---------|
    |Name     |Test-FW01|
@@ -141,12 +142,12 @@ Deploy the firewall into the VNet.
    |Choose a virtual network     |**Use existing**: Test-FW-VN|
    |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
 
-2. Click **Review + create**.
-3. Review the summary, and then click **Create** to create the firewall.
+5. Click **Review + create**.
+6. Review the summary, and then click **Create** to create the firewall.
 
    This will take a few minutes to deploy.
-4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
-6. Note the private IP address. You'll use it later when you create the default route.
+7. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
+8. Note the private IP address. You'll use it later when you create the default route.
 
 ## Create a default route
 
@@ -177,7 +178,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 
 ## Configure an application rule
 
-This is the application rule that allows outbound access to github.com.
+This is the application rule that allows outbound access to msn.com.
 
 1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
 2. On the **Test-FW01** page, under **Settings**, click **Rules**.
@@ -189,7 +190,7 @@ This is the application rule that allows outbound access to github.com.
 8. Under **Rules**, **Target FQDNs**, for **Name**, type **AllowGH**.
 9. For **Source Addresses**, type **10.0.2.0/24**.
 10. For **Protocol:port**, type **http, https**.
-11. For **Target FQDNS**, type **github.com**
+11. For **Target FQDNS**, type **msn.com**
 12. Click **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
@@ -199,17 +200,17 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 This is the network rule that allows outbound access to two IP addresses at port 53 (DNS).
 
 1. Click the **Network rule collection** tab.
-1. Click **Add network rule collection**.
-2. For **Name**, type **Net-Coll01**.
-3. For **Priority**, type **200**.
-4. For **Action**, select **Allow**.
+2. Click **Add network rule collection**.
+3. For **Name**, type **Net-Coll01**.
+4. For **Priority**, type **200**.
+5. For **Action**, select **Allow**.
 
 6. Under **Rules**, for **Name**, type **AllowDNS**.
-8. For **Protocol**, select **UDP**.
-9. For **Source Addresses**, type **10.0.2.0/24**.
-10. For Destination address, type **209.244.0.3,209.244.0.4**
-11. For **Destination Ports**, type **53**.
-12. Click **Add**.
+7. For **Protocol**, select **UDP**.
+8. For **Source Addresses**, type **10.0.2.0/24**.
+9. For Destination address, type **209.244.0.3,209.244.0.4**
+10. For **Destination Ports**, type **53**.
+11. Click **Add**.
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
@@ -230,12 +231,12 @@ Now test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and from there open a remote desktop connection to the **Srv-Work** private IP address.
 
-5. Open Internet Explorer and browse to http://github.com.
-6. Click **OK** > **Close** on the security alerts.
+3. Open Internet Explorer and browse to http://msn.com.
+4. Click **OK** > **Close** on the security alerts.
 
-   You should see the GitHub home page.
+   You should see the MSN home page.
 
-7. Browse to http://www.msn.com.
+5. Browse to http://www.msn.com.
 
    You should be blocked by the firewall.
 

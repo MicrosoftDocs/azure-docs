@@ -5,9 +5,9 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-#Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 # Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
 
@@ -19,7 +19,7 @@ For this tutorial, you create three virtual networks:
 
 - **VNet-Hub** - the firewall is in this virtual network.
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
-- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
+- **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
 ![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -49,6 +49,12 @@ There are three key requirements for this scenario to work correctly:
 - Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
 
 See the [Create Routes](#create-routes) section in this tutorial to see how these routes are created.
+
+>[!NOTE]
+>Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need to configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.
+
+>[!NOTE]
+>Traffic between directly peered VNets is routed directly even if UDE points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -305,9 +311,6 @@ Next, create a couple routes:
 
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
-
-> [!NOTE]
-> Azure Firewall learns your on-premises networks using BGP. This may include a default route, which routes Internet traffic back through your on-premises network. In a production deployment, you might want Internet traffic to be sent directly from the firewall to the Internet. You could add a user-defined default route (0.0.0.0/0) on the AzureFirewallSubnet with next hop type **Internet**. Your on-premises destined traffic is still forced-tunneled through the VPN/ExpressRoute gateway using the more specific routes learned from BGP.
 
 ```azurepowershell
 #Create a route table

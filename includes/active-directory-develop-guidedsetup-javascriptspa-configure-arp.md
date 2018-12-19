@@ -44,7 +44,8 @@ Configure the `Redirect URL` field with the URL for your index.html page based o
 
 ```javascript
 var applicationConfig = {
-    clientID: "[Enter the application Id here]",
+    clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/common",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };

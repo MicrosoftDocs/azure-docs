@@ -64,13 +64,13 @@ There are certain tradeoffs when using a fire-and-forget style of request. If fo
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](http://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](https://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. Some authorization servers create what are called [reference tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a callback to the authorization server.
 
 ### Standardized introspection
 In the past, there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.
 
 ### Extracting the token
-The first step is to extract the token from the Authorization header. The header value should be formatted with the `Bearer` authorization scheme, a single space, and then the authorization token as per [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Unfortunately there are cases where the authorization scheme is omitted. To account for this when parsing, API Management splits the header value on a space and selects the last string from the returned array of strings. This provides a workaround for badly formatted authorization headers.
+The first step is to extract the token from the Authorization header. The header value should be formatted with the `Bearer` authorization scheme, a single space, and then the authorization token as per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Unfortunately there are cases where the authorization scheme is omitted. To account for this when parsing, API Management splits the header value on a space and selects the last string from the returned array of strings. This provides a workaround for badly formatted authorization headers.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -114,7 +114,7 @@ You can use a `<choose>` policy to detect if the token is invalid and if so, ret
 </choose>
 ```
 
-As per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) which describes how `bearer` tokens should be used, API Management also returns a `WWW-Authenticate` header with the 401 response. The WWW-Authenticate is intended to instruct a client on how to construct a properly authorized request. Due to the wide variety of approaches possible with the OAuth2 framework, it is difficult to communicate all the needed information. Fortunately there are efforts underway to help [clients discover how to properly authorize requests to a resource server](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+As per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) which describes how `bearer` tokens should be used, API Management also returns a `WWW-Authenticate` header with the 401 response. The WWW-Authenticate is intended to instruct a client on how to construct a properly authorized request. Due to the wide variety of approaches possible with the OAuth2 framework, it is difficult to communicate all the needed information. Fortunately there are efforts underway to help [clients discover how to properly authorize requests to a resource server](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### Final solution
 At the end, you get the following policy:

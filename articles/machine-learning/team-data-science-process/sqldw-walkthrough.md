@@ -1,27 +1,21 @@
 ---
-title: 'The Team Data Science Process in action: using SQL Data Warehouse | Microsoft Docs'
-description: Advanced Analytics Process and Technology in Action
+title: Build and deploy a model using SQL Data Warehouse - Team Data Science Process
+description: Build and deploy a machine learning model using SQL Data Warehouse with a publicly available dataset.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action: using SQL Data Warehouse
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip, and models for multiclass classification and regression are also discussed that predict the distribution for the tip amounts paid.
 
-The procedure follows the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
+The procedure follows the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
 The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
@@ -117,7 +111,7 @@ Open a Windows PowerShell command console. Run the following PowerShell commands
 
 After successful execution, your current working directory changes to *-DestDir*. You should be able to see screen like below:
 
-![][19]
+![Current working directory changes][19]
 
 In your *-DestDir*, execute the following PowerShell script in administrator mode:
 
@@ -321,7 +315,7 @@ You will have to decide what do if you have duplicate source and destination fil
 > 
 > 
 
-![Plot #21][21]
+![Output from AzCopy][21]
 
 You can use your own data. If your data is in your on-premises machine in your real life application, you can still use AzCopy to upload on-premises data to your private Azure blob storage. You only need to change the **Source** location, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, in the AzCopy command of the PowerShell script file to the local directory that contains your data.
 
@@ -334,7 +328,7 @@ This Powershell script also plugs in the Azure SQL DW information into the data 
 
 After a successful execution, you will see screen like below:
 
-![][20]
+![Output of a successful script execution][20]
 
 ## <a name="dbexplore"></a>Data exploration and feature engineering in Azure SQL Data Warehouse
 In this section, we perform data exploration and feature generation by running SQL queries against Azure SQL DW directly using **Visual Studio Data Tools**. All SQL queries used in this section can be found in the sample script named *SQLDW_Explorations.sql*. This file has already been downloaded to your local directory by the PowerShell script. You can also retrieve it from [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). But the file in GitHub does not have the Azure SQL DW information plugged in.
@@ -572,16 +566,16 @@ If you have already set up an AzureML workspace, you can directly upload the sam
 
 1. Log in to your AzureML workspace, click "Studio" at the top, and click "NOTEBOOKS" on the left side of the web page.
    
-    ![Plot #22][22]
+    ![Click Studio then NOTEBOOKS][22]
 2. Click "NEW" on the left bottom corner of the web page, and select "Python 2". Then, provide a name to the notebook and click the check mark to create the new blank IPython Notebook.
    
-    ![Plot #23][23]
+    ![Click NEW then select Python 2][23]
 3. Click the "Jupyter" symbol on the left top corner of the new IPython Notebook.
    
-    ![Plot #24][24]
+    ![Click Jupyter symbol][24]
 4. Drag and drop the sample IPython Notebook to the **tree** page of your AzureML IPython Notebook service, and click **Upload**. Then, the sample IPython Notebook will be uploaded to the AzureML IPython Notebook service.
    
-    ![Plot #25][25]
+    ![Click Upload][25]
 
 In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
 
@@ -686,7 +680,7 @@ Next we look at the box plot for the trip distance to visualize the quantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Plot #1][1]
+![Box plot output][1]
 
 ### Visualization: Distribution plot example
 Plots that visualize the distribution and a histogram for the sampled trip distances.
@@ -697,7 +691,7 @@ Plots that visualize the distribution and a histogram for the sampled trip dista
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Plot #2][2]
+![Distribution plot output][2]
 
 ### Visualization: Bar and line plots
 In this example, we bin the trip distance into five bins and visualize the binning results.
@@ -711,13 +705,13 @@ We can plot the above bin distribution in a bar or line plot with:
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Plot #3][3]
+![Bar plot output][3]
 
 and
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Plot #4][4]
+![Line plot output][4]
 
 ### Visualization: Scatterplot examples
 We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
@@ -725,13 +719,13 @@ is any correlation
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Plot #6][6]
+![Scatterplot output of relationship between time and distance][6]
 
 Similarly we can check the relationship between **rate\_code** and **trip\_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Plot #8][8]
+![Scatterplot output of relationship between code and distance][8]
 
 ### Data exploration on sampled data using SQL queries in IPython notebook
 In this section, we explore data distributions using the sampled data which is persisted in the new table we created above. Note that similar explorations can be performed using the original tables.

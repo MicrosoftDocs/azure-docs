@@ -1,11 +1,11 @@
 ---
-title: "Tutorial 2: Prebuilt intents and entities - use prebuilt common utterances - extract common data in LUIS"
+title: Prebuilt intents and entities
 titleSuffix: Azure Cognitive Services
 description: Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
@@ -44,7 +44,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 ## Add prebuilt intents
 LUIS provides several prebuilt intents to help with common user intentions.  
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Add prebuilt intent**. 
 
@@ -86,7 +86,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
 2. Go to the end of the URL in the browser address bar and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

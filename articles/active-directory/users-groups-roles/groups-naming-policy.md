@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/11/2018
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -55,6 +55,7 @@ We recommend that you use attributes that have values filled in for all users in
 A blocked word list is a comma-separated list of phrases to be blocked in group names and aliases. No sub-string searches are performed. An exact match between the group name and one or more of the custom blocked words is required to trigger a failure. Sub-string search isn't performed so that users can use common words like ‘Class’ even if ‘lass’ is a blocked word.
 
 Blocked word list rules:
+
 - Blocked words are not case sensitive.
 - When a user enters a blocked word as part of a group name, they see an error message with the blocked word.
 - There are no character restrictions on blocked words.
@@ -117,7 +118,7 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   
 ### Set the naming policy and custom blocked words
 
-1. Set the group name prefixes and suffixes in Azure AD PowerShell.
+1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -163,6 +164,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## Remove the naming policy
+
+1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Empty the custom blocked words. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Save the settings.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## Naming policy experiences across Office 365 apps
 

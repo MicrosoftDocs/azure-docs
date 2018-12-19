@@ -1,12 +1,10 @@
 ---
-title: Serverless database computing - Azure Functions and Azure Cosmos DB| Microsoft Docs
+title: Serverless database computing - Azure Functions and Azure Cosmos DB
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
@@ -27,7 +25,7 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Bind a function to an Azure Cosmos DB container using an **output binding**. Output bindings write data to a container when a function completes.
 
 > [!NOTE]
-> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including MongoDB API, Cassandra API, Gremlin API, and Table API.
+> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including Azure Cosmos DB API account for MongoDB, Cassandra, Gremlin, and Table.
 
 
 The following diagram illustrates each of these three integrations: 
@@ -120,7 +118,7 @@ Azure Functions provides the ability to create scalable units of work, or concis
 
 Azure Cosmos DB is the recommended database for your serverless computing architecture for the following reasons:
 
-* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](indexing-policies.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
+* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](index-policy.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
 
 * **Schemaless**. Azure Cosmos DB is schemaless - so it's uniquely able to handle any data output from an Azure Function. This "handle anything" approach makes it straightforward to create a variety of Functions that all output to Azure Cosmos DB.
 

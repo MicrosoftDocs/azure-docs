@@ -40,7 +40,7 @@ This topic gives you an overview of the sign-ins report.
 * In addition, any user (non-admins) can access their own sign-ins 
 
 ### What Azure AD license do you need to access sign-in activity?
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report
+* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
 
 ## Sign-ins report
 
@@ -53,6 +53,9 @@ The user sign-ins report provides answers to the following questions:
 You can access the sign-ins report by selecting **Sign-ins** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com).
 
 ![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
+
+> [!IMPORTANT]
+> The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
 
 A sign-ins log has a default list view that shows:
 

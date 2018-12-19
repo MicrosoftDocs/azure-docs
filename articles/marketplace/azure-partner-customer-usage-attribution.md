@@ -13,21 +13,22 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
 
 ---  
 # Azure partner customer usage attribution
 
-As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs.   
+As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs. 
 
 Microsoft now offers a method to help partners better track Azure usage of customer deployments of their software on Azure. The new method uses Azure Resource Manager to orchestrate the deployment of Azure services.
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources that you provision on a customer's behalf. You can form the association via the Azure Marketplace, the Quickstart repository, private GitHub repositories, and one-on-one customer engagement. To enable tracking, two approaches are available:
 
 - Azure Resource Manager templates: Resource Manager templates or solution templates to deploy the Azure services to run the partner's software. Partners can create a Resource Manager template to define the infrastructure and configuration of their Azure solution. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent state. 
-
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs directly to deploy a Resource Manager template or to generate the API calls to directly provision Azure services. 
+
+Customer usage attribution is required on all [solution templates](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) published to Azure Marketplace. 
 
 ## Use Resource Manager templates
 
@@ -265,15 +266,11 @@ Microsoft provides partners with a view of customer deployments of their templat
 
 **Who can add a GUID to a template?**
 
-The tracking resource is intended to connect the partner's solution to the customer's Azure usage. The usage data is tied to a partner's Microsoft Partner Network identity (MPN ID). Reporting is available to partners in the CPP.
+The tracking resource is intended to connect the partner's solution to the customer's Azure usage. The usage data is tied to a partner's Microsoft Partner Network identity (MPN ID). 
 
 **After a GUID is added, can it be changed?**
  
 Yes, a customer or implementation partner may customize the template and can change or remove the GUID. We suggest that partners proactively describe the role of the resource and GUID to their customers and partners to prevent removal or edits to the tracking GUID. Changing the GUID affects only new, not existing, deployments, and resources.
-
-**When will reporting be available?**
-
-A beta version of reporting should be available soon. Reporting will be integrated into the CPP.
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 

@@ -1,5 +1,5 @@
 ---
-title: Scale up an app in Azure | Microsoft Docs
+title: Scale up features and capacities - Azure App Service | Microsoft Docs
 description: Learn how to scale up an app in Azure App Service to add capacity and features.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Scale up an app in Azure
@@ -109,7 +110,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 

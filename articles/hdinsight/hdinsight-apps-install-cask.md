@@ -14,7 +14,7 @@ ms.author: ashish
 ---
 # Install published application - Cask Data Application Platform (CDAP)
 
-This article describes how to install and run the [CDAP](http://cask.co/products/cdap/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [CDAP](https://cask.co/products/cdap/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Apache Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About CDAP
 
@@ -26,7 +26,7 @@ The Cask Data Application Platform (CDAP) is an integration platform for Big Dat
 
 CDAP uses high-level concepts and abstractions that are familiar to developers. These abstractions hide the complexities of internal systems and encourage reusability of solutions.
 
-A CDAP extension called [Cask Hydrator](http://cask.co/products/hydrator/) provides a user interface to develop and manage data pipelines. A data pipeline is composed of various *plugins that perform tasks like data acquisition, transformation, analysis, and post-run operations.
+A CDAP extension called [Cask Hydrator](https://cask.co/products/hydrator/) provides a user interface to develop and manage data pipelines. A data pipeline is composed of various *plugins that perform tasks like data acquisition, transformation, analysis, and post-run operations.
 
 Each CDAP plugin has a well-defined interface so that evaluating different technologies is just a matter of replacing one plugin with another one, without having to touch the rest of the application.
 
@@ -38,7 +38,7 @@ The following example of a data pipeline ingests twitter data in real time, then
 
 This end-to-end pipeline is built using the **Cask Hydrator UI**, using its plugin interface and drag-and-drop functionality to form connections between each stage. You can isolate and modify the functionality of each plugin independently. Using CDAP, similar pipelines can be built and validated in hours. In the typical Hadoop world, constructing such solutions might take several days.
 
-CDAP also provides an extension called [Cask Tracker](http://cask.co/products/tracker/) to visually trace data as it flows through the application. Cask Tracker adds *data governance* to the system so that data assets are formally managed throughout the application. You can track each data point's lineage, collect relevant metrics, and audit the data trail throughout the process.
+CDAP also provides an extension called [Cask Tracker](https://cask.co/products/tracker/) to visually trace data as it flows through the application. Cask Tracker adds *data governance* to the system so that data assets are formally managed throughout the application. You can track each data point's lineage, collect relevant metrics, and audit the data trail throughout the process.
 
 Here is an illustration of how data is flowing in the above pipeline:
 
@@ -122,7 +122,7 @@ For step-by-step instructions on installing this and other available ISV applica
 
 ## Next steps
 
-* [Cask documentation](http://cask.co/resources/documentation/).
+* [Cask documentation](https://cask.co/resources/documentation/).
 * [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to deploy an unpublished HDInsight application to HDInsight.
 * [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.

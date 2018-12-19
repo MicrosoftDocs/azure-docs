@@ -10,7 +10,6 @@ ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
@@ -65,8 +64,8 @@ In Solution Explorer, right-click your project and choose **Application Insights
 ## <a name="NuGetBuild"></a> "NuGet package(s) are missing" on my build server
 *Everything builds OK when I'm debugging on my development machine, but I get a NuGet error on the build server.*
 
-Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
-and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Please see [NuGet Package Restore](https://docs.nuget.org/Consume/Package-Restore)
+and [Automatic Package Restore](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## Missing menu command to open Application Insights from Visual Studio
 *When I right-click my project Solution Explorer, I don't see any Application Insights commands, or I don't see an Open Application Insights command.*
@@ -138,7 +137,7 @@ Fix:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In the [Microsoft Azure home dashboard](https://portal.azure.com), look at the Service Health map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-* Check also [our status blog](https://blogs.msdn.com/b/applicationinsights-status/).
+* Check also [our status blog](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Did you write any code for the [server-side SDK](app-insights-api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](app-insights-api-filtering-sampling.md) that might be filtering out too much?
 * If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](app-insights-api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
 
@@ -172,8 +171,14 @@ If your application sends a lot of data and you are using the Application Insigh
 
 You can disable it, but this is not recommended. Sampling is designed so that related telemetry is correctly transmitted, for diagnostic purposes. 
 
-## Client IP address is 0.0.0.0 
-On February 2018, we [announced](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) that we removed logging of the Client IP address. This does not affect Geo Location.
+## Client IP address is 0.0.0.0
+
+On February 5 2018, we announced that we removed logging of the Client IP address. This does not affect Geo Location.
+
+> [!NOTE]
+> If you need the first 3 octets of the IP address, you can use a [telemetry initializer](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) to add a custom attribute.
+> This does not affect data collected prior to February 5, 2018.
+
 
 ## Wrong geographical data in user telemetry
 The city, region, and country dimensions are derived from IP addresses and aren't always accurate. These IP addresses are processed for location first and then changed to 0.0.0.0 to be stored.

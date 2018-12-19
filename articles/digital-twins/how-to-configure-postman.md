@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
 ---
 
@@ -26,7 +26,7 @@ Configure your Azure AD app to use the OAuth 2.0 implicit grant flow.
 
 1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type Native. Or you can reuse an existing Native app registration.
 
-1. Under **Required permissions**, enter `Azure Digital Twins` and select **Delegated Permissions**. Then select **Grant Permissions**.
+1. Under **Required permissions**, select **Add** and enter **Azure Digital Twins** under **Add API access**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Grant Permissions > Delegated Permissions** and **Done**.
 
     ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -48,13 +48,12 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
 1. Ensure that your **Authorization URL** is correct. It should take the format:
 
     ```plaintext
-    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
     | Name  | Replace with | Example |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
-    | YOUR_RESOURCE_ID | The resource ID | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
 
 1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
 

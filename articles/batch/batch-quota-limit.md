@@ -1,9 +1,9 @@
 ---
-title: Service quotas and limits for Azure Batch | Microsoft Docs
+title: Service quotas and limits - Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Batch service quotas and limits
@@ -52,7 +52,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | Dedicated nodes | 2000 |
 | Low-priority nodes | 1000 |
 
-<sup>1</sup> For pools that are note inter-node communication enabled.
+<sup>1</sup> For pools that are not inter-node communication enabled.
 
 ## Other limits
 

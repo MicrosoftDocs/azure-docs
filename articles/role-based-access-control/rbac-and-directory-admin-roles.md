@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
@@ -73,13 +73,13 @@ The rest of the built-in roles allow management of specific Azure resources. For
 
 Only the Azure portal and the Azure Resource Manager APIs support RBAC. Users, groups, and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
 
-In the Azure portal, role assignments using RBAC appear on the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
+In the Azure portal, role assignments using RBAC appear on the **Access control (IAM)** blade. This blade can found throughout the portal, such as management groups, subscriptions, resource groups, and various resources.
 
-![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control.png)
+![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 When you click the **Roles** option, you will see the list of built-in and custom roles.
 
-![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## Azure AD administrator roles
 

@@ -1,10 +1,8 @@
 ---
-title: "MongoDB, React, and Node.js tutorial for Azure | Microsoft Docs"
+title: "MongoDB, React, and Node.js tutorial for Azure"
 description: Learn how to create a MongoDB app with React and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series. 
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -17,7 +15,7 @@ ms.custom: mvc
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  
 
-This multi-part video tutorial demonstrates how to create a hero tracking app with a React front-end. The app used Node and Express for the server, connects to Azure Cosmos DB with the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point-and-click scaling of Azure Cosmos DB in the Azure portal and how to deploy the app to the internet so everyone can track their favorite heroes. 
+This multi-part video tutorial demonstrates how to create a hero tracking app with a React front-end. The app used Node and Express for the server, connects to Azure Cosmos DB with the [Azure Cosmos DB API account for MongoDB](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point-and-click scaling of Azure Cosmos DB in the Azure portal and how to deploy the app to the internet so everyone can track their favorite heroes. 
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps; but with added benefits such as simple cloud deployment, scaling, and super-fast reads and writes.  
 

@@ -1,5 +1,5 @@
 ---
-title:  Create an Azure Media Services account with the Azure CLI | Microsoft Docs
+title: Create a Media Services account with the Azure CLI - Azure | Microsoft Docs
 description: Follow the steps of this quickstart to create an Azure Media Services account.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,16 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 11/11/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # Create an Azure Media Services account
 
 To start encrypting, encoding, analyzing, managing, and streaming media content in Azure, you need to create a Media Services account. At the time, you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
-
+Azure
 This article describes steps for creating a new Azure Media Services account using the Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

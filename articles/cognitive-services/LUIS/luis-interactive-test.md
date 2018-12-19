@@ -1,10 +1,11 @@
 ---
-title: Test your LUIS app inside the LUIS portal
-titleSuffix: Azure Cognitive Services
+title: Test app in LUIS portal
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
@@ -12,7 +13,7 @@ ms.date: 09/06/2018
 ms.author: diberry
 ---
 
-# Test your LUIS app
+# Test your LUIS app in the LUIS portal
 <a name="train-your-app"></a>
 [Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
@@ -45,11 +46,11 @@ You inspect details of the test result in the **Inspect** panel.
  
 1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-    ![Inspect button](./media/luis-how-to-interactive-test/inspect.png)
+    ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
 2. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-    ![Inspect button](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## Correct top scoring intent
 

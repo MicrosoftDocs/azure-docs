@@ -248,7 +248,7 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes
 
 ##  <a name="LimitConcurrency"></a> Limit concurrency
- The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+ The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
 
 ###  <a name="LimitConcurrencyStatement"></a> Policy statement
 
@@ -644,7 +644,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribute|Description|Required|Default|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determines whether this is a new request or a copy of the current request. In outbound mode, mode=copy does not initialize the request body.|No|New|
-|response-variable-name="string"|The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon succesful execution of the policy and will become accesible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.|Yes|N/A|
+|response-variable-name="string"|The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon successful execution of the policy and will become accesible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.|Yes|N/A|
 |timeout="integer"|The timeout interval in seconds before the call to the URL fails.|No|60|
 |ignore-error|If true and the request results in an error:<br /><br /> -   If response-variable-name was specified it will contain a null value.<br />-   If response-variable-name was not specified, context.Request will not be updated.|No|false|
 |name|Specifies the name of the header to be set.|Yes|N/A|
@@ -871,7 +871,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

@@ -1,19 +1,20 @@
 # [Azure Marketplace and AppSource documentation](index.md)
-## [Rating and review policies](./rating-review-policies.md)   
+
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
 
 ### [Become a publisher on the marketplace](./become-publisher.md)  
 #### [Create a Microsoft account](./guidelines.md)
 #### [Register in Dev Center](./register-dev-center.md) 
-#### [Billing options for Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md)
-#### [Lead management for cloud marketplace](./lead-management-for-cloud-marketplace.md)
 
-### [Storefronts](./comparing-appsource-azure-marketplace.md)  
+### [One marketplace, two storefronts](./comparing-appsource-azure-marketplace.md)  
 
-### [Determine the publishing option for your solution](./determine-your-listing-type.md)  
+### [Publishing options and considerations](./determine-your-listing-type.md)
+#### [Lead management](./lead-management-for-cloud-marketplace.md)
+#### [Transacting in Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [Private Offers](./private-offers.md)
 
-### Publishing guide by offer type 
+### [Publishing guide by offer type](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure Applications: solution templates](./marketplace-solution-templates.md)
 #### [Azure Applications: managed applications](./marketplace-managed-apps.md)
@@ -27,6 +28,7 @@
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred solutions](./preferred-solutions.md) 
 #### [Marketplace content validation](./marketplace-criteria-content-validation.md)
+#### [Rating and review policies](./rating-review-policies.md)   
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
@@ -34,6 +36,16 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## [Portal Tour](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [Portal navigation](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [New offer menu](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [All offers page](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [Approvals page](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [All publishers page](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [Users page](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [Audit history page](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [Insights page](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
 ## Portal management
 ### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
@@ -56,42 +68,66 @@
 #### [Common VHD creation issues](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 #### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Deployment Template (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Windows Remote Management](./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md) 
+##### [Configure WinRM after VM creation](./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md)
+#### [Deploy VM](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Create a user VM image](./cloud-partner-portal/virtual-machine/cpp-create-user-image.md)
+##### [Create key vault certificate](./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md)
+###### [Key vault deployment template](./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md)
+#### [Deploy VM from user VHD](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md)
+##### [VHD Deployment Template](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [Deploy a VM from marketplace](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 #### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 ### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 ### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-<!-- Following legacy VM section was replaced.  -->
-<!-- 
-## Virtual machines
-### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Author virtual machine offer](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
-### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
-### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
-### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
-### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
--->
+## [Azure application offer](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [Prerequisites](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Create Azure application offer](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [SKUs tab](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [Marketplace tab](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [Support tab](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
+### [Publish Azure application offer](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [Update existing offer](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
+<!-- Legacy Azure App section replaced
 ## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
 ### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
 ### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
 
+<!-- new for SaaS 12/05/2018 -->
+## [SaaS application offer](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+### [Prerequisites](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
+### [Create SaaS application offer](./cloud-partner-portal/saas-app/cpp-create-offer.md)
+#### [Offer Settings tab](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
+#### [Technical Info tab](./cloud-partner-portal/saas-app/cpp-technical-info-tab.md)
+#### [Plans tab](./cloud-partner-portal/saas-app/cpp-plans-tab.md)
+#### [Channel Info tab](./cloud-partner-portal/saas-app/cpp-channel-info-tab.md)
+#### [Test Drive tab](./cloud-partner-portal/saas-app/cpp-testdrive-tab.md)
+#### [Storefront Details tab](./cloud-partner-portal/saas-app/cpp-storefront-tab.md)
+#### [Contacts tab](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
+### [Publish offer](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
+### [Update existing offer](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+
+<!-- Legacy SaaS Offer replaced
 ## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [Containers offer](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [Prerequisites](./cloud-partner-portal/containers/cpp-prerequisites.md)
@@ -150,7 +186,16 @@
 ### [BPM and methodologies](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [Help wiki](./cloud-partner-portal-orig/help-wiki.md)
 
+<!--
 ## [Consulting services](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+-->
+## [Consulting services](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
+### [Prerequisites](./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md)
+### [Create a consulting service offer](./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md)
+#### [Offer settings tab](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
+#### [Storefront details tab](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
+### [Publish consulting service offer](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
+
 ## [Manage publisher profile](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ## [Manage users](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
 ## [GDPR compliance](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)

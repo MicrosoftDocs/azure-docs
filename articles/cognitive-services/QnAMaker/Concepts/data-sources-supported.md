@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
 ---
 
@@ -20,10 +20,14 @@ The table below summarizes the types of content and file formats that are suppor
 
 |Source Type|Content Type| Examples|
 |--|--|--|
-|URL|FAQs (Flat, with sections or with a topics homepage)|[Plain FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [FAQ with links](https://www.microsoft.com/software-download/faq), [FAQ with topics homepage](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC|FAQs, Product Manual, Brochures, Paper, Flyer Policy, Support guide, Structured QnA, etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Structured QnA file (including RTF, HTML support)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL|FAQs<br> (Flat, with sections or with a topics homepage)<br>Support pages <br> (Single page how-to articles, troubleshooting articles etc.)|[Plain FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[FAQ with links](https://www.microsoft.com/software-download/faq),<br> [FAQ with topics homepage](https://support.microsoft.com/products/windows?os=windows-10)<br>[Support article](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOC|FAQs,<br> Product Manual,<br> Brochures,<br> Paper,<br> Flyer Policy,<br> Support guide,<br> Structured QnA,<br> etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Structured QnA file<br> (including RTF, HTML support)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Structured QnA file|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+## Data source locations
+
+Only public URLs are valid for all data sources. Don't submit data sources that require authentication. You can download the file from the authenticated site, then use the file-upload option to extract questions and answers.
 
 ## FAQ URLs
 
@@ -35,7 +39,7 @@ This is the most common type of FAQ page, in which the answers immediately follo
 
 Below is an example of a plain FAQ page:
 
-![Plain FAQ page](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Plain FAQ page example for a knowledge base](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### FAQ pages with links 
@@ -44,7 +48,7 @@ In this type of FAQ page, questions are aggregated together and are linked to an
 
 Below is an example of an FAQ page with links in sections that are on the same page:
 
- ![Section Link FAQ page](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Section Link FAQ page example for a knowledge base](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### FAQ pages with a Topics homepage
@@ -53,7 +57,17 @@ This type of FAQ has a home page with the Topics where each Topic is a link to i
 
 Below is an example of an FAQ page where a topics homepage has links to FAQ sections in different pages. 
 
- ![Deep link FAQ page](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Deep link FAQ page example for a knowledge base](../media/qnamaker-concepts-datasources/topics-faq.png) 
+
+
+### Support Urls
+
+QnA Maker can process semi-structured support web pages, such as web articles that would describe how to perform a given task, how to diagnose and resolve a given problem, and what are the best practices for a given process. Extraction works best on content that has a clear structure with hierarchical headings.
+
+> [!NOTE]
+> Extraction for support articles is a new feature and is in early stages. It works best for simple pages, that are well structured, and do not contain complex headers/footers.
+
+![QnA Maker supports extraction from semi-structured web pages where a clear structure is presented with hierarchical headings](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 
 ## PDF/ DOC files
@@ -68,7 +82,7 @@ A manual is typically guidance material that accompanies a product. It helps the
 
 Below is an example of a manual with an index page, and hierarchical content
 
- ![Product Manual example](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Product Manual example for a knowledge base](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
@@ -97,7 +111,7 @@ Answer2
 
 Below is an example of a structured QnA word document:
 
- ![Structured QnA document](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Structured QnA document example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## Structured *TXT*, *TSV* and *XLS* Files
 
@@ -112,7 +126,7 @@ Any additional columns in the source file are ignored.
 
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
- ![Structured QnA excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## Structured data format through import
 

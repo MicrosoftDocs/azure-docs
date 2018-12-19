@@ -81,7 +81,7 @@ All settings are optional. The default behavior is to not update the kernel if n
 | Name | Description | Default Value | Valid Values | Data Type |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Update the kernel even if not required for driver installation | false | true, false | boolean |
-| driverVersion | NV: GRID driver version<br> NC/ND: CUDA toolkit version. The latest drivers for the chosen CUDA are installed automatically. | latest | GRID: "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: GRID driver version<br> NC/ND: CUDA toolkit version. The latest drivers for the chosen CUDA are installed automatically. | latest | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Install CUDA toolkit. Only relevant for NC/ND series VMs. | true | true, false | boolean |
 
 

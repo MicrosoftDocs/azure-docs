@@ -29,7 +29,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 Install *azure-kusto-data*.
 
 ```
-pip install azure-kusto-data==0.0.13
+pip install azure-kusto-data
 ```
 
 ## Add import statements and constants

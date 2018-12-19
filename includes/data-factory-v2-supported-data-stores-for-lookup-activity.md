@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -13,7 +13,7 @@ ms.custom: include file
 | Category | Data store |
 |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/connector-azure-blob-storage.md) |
-| &nbsp; |[Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db.md) |
+| &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
@@ -61,6 +61,7 @@ ms.custom: include file
 | &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur (Preview)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
+| &nbsp; |[Dynamics AX (Preview)](../articles/data-factory/connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Google AdWords (Preview)](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot (Preview)](../articles/data-factory/connector-hubspot.md) |
