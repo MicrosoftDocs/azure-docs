@@ -1,7 +1,7 @@
 ---
 title: Predict intentions
 titleSuffix: Azure Cognitive Services
-description: Create a custom app that predicts a user's intention. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. 
+description: In this tutorial, create a custom app that predicts a user's intention. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -14,7 +14,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial 1: Build custom app to determine user intentions
+# Tutorial: Build custom app to determine user intentions
 
 In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). 
 
@@ -33,17 +33,8 @@ In this tutorial, you create a custom Human Resources (HR) app that predicts a u
 
 ## Create a new app
 
-1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-2. Select **Create new app**.  
-
-    [![Screenshot of Language Understanding (LUIS) My Apps page](media/luis-quickstart-intents-only/app-list.png "Screenshot of Language Understanding (LUIS) My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
-
-3. In the pop-up dialog, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
-
-    ![Create LUIS new HumanResources app](./media/luis-quickstart-intents-only/create-app.png)
-
-    Next, the app shows the **Intents** page with the **None** Intent.
 
 ## User intentions as intents
 

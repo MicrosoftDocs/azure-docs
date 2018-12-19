@@ -1,0 +1,25 @@
+---
+title: include file
+description: include file 
+services: cognitive-services
+author: diberry
+manager: cjgronlund
+ms.service: cognitive-services
+ms.component: luis
+ms.topic: include
+ms.custom: include file
+ms.date: 12/21/2018
+ms.author: diberry
+--- 
+
+1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
+
+2. Select **Create new app**.  
+
+    [![Screenshot of Language Understanding (LUIS) My Apps page](media/luis-quickstart-intents-only/app-list.png "Screenshot of Language Understanding (LUIS) My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+
+3. In the pop-up dialog, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
+
+    ![Create LUIS new HumanResources app](./media/luis-quickstart-intents-only/create-app.png)
+
+    Next, the app shows the **Intents** page with the **None** Intent.

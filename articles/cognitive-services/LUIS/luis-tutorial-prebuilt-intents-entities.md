@@ -1,7 +1,7 @@
 ---
 title: Prebuilt intents and entities
 titleSuffix: Azure Cognitive Services
-description: Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
+description: In this tutorial, add prebuilt intents and entities to an app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,19 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 --- 
 
 # Tutorial 2: Identify common intents and entities
-In this tutorial,  modify the Human Resources app. Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities because the entity is detected automatically.
 
-Prebuilt models of common subject domains and data types help you build your model quickly as well as provide an example of what a model looks like. 
+In this tutorial, add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities because the entity is detected automatically.
+
+Prebuilt models (domains, intents, and entities) help you build your model quickly as well as provide an example of what a model looks like.
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Create new app
 > * Add prebuilt intents 
 > * Add prebuilt entities 
 > * Train 
@@ -30,18 +31,13 @@ Prebuilt models of common subject domains and data types help you build your mod
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
-Continue with the app created in the last tutorial, named **HumanResources**. 
+## Create a new app
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
 
-2. Import the JSON into a new app.
+## Add prebuilt intents to help with common user intentions
 
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
-
-## Add prebuilt intents
 LUIS provides several prebuilt intents to help with common user intentions.  
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
@@ -60,27 +56,32 @@ LUIS provides several prebuilt intents to help with common user intentions.
     * Utilities.StartOver
     * Utilities.Stop
 
+    These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
 
-## Add prebuilt entities
+
+## Add prebuilt entities to help with common data type extraction
+
 LUIS provides several prebuilt entities for common data extraction. 
 
 1. Select **Entities** from the left navigation menu.
 
 2. Select **Manage prebuilt entity** button.
 
-3. Select **number** and **datetimeV2** from the list of prebuilt entities then select **Done**.
+3. Select **[PersonName](luis-reference-prebuilt-person.md)** and **[GeographyV2](luis-reference-prebuilt-geographyV2.md)** from the list of prebuilt entities then select **Done**.
 
     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## Train
+    These entities will help you add name and place recognition to your client application.
+
+## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish
+## Publish the app so the trained model is queryable from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Get intent and entities from endpoint
+## Get intent and entity prediction from endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -169,9 +170,15 @@ LUIS provides several prebuilt entities for common data extraction.
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## Learn more about prebuilt models
+
+* [Prebuilt domains](luis-reference-prebuilt-domains.md): these are common domains that reduce overall LUIS app authoring
+* Prebuilt intents: these are the individual intents of the common domains. You can add intents individually instead of adding the entire domain.
+* [Prebuilt entities](luis-prebuilt-entities.md): these are common data types useful to most LUIS apps.
+
 ## Next steps
 
-By adding prebuilt intents and entities, the client application can determine common user intentions and extract common datatypes. 
+By adding prebuilt intents and entities, the client application can determine common user intentions and extract common datatypes.  
 
 > [!div class="nextstepaction"]
 > [Add a regular expression entity to the app](luis-quickstart-intents-regex-entity.md)
