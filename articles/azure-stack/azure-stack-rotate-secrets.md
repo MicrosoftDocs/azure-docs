@@ -37,10 +37,10 @@ Infrastructure service certificates for external-facing services that are provid
     - Keyvault  
     - Admin Extension Host  
     - ACS (including blob, table, and queue storage)  
-    - ADFS<sup>*</sup>  
-    - Graph<sup>*</sup>  
+    - ADFS*  
+    - Graph*  
 
-   <sup>*</sup> Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
+   **\*** Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
 
 > [!Note]  
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
@@ -84,7 +84,7 @@ Running secret rotation using the instructions below will remediate these alerts
 ## Pre-steps for secret rotation
 
    > [!IMPORTANT]  
-   > Ensure secret rotation hasn't been successfully executed on your environment. If secret rotation has already been performed, update Azure Stack to version 1807 or later before you execute secret rotation. 
+   > If secret rotation has already been performed on your Azure Stack environment then you must update the system to version 1811 or later before you execute secret rotation again. Secret Rotation must be executed by via the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) and requires Azure Stack Operator credentials. If your environment Azure Stack Operator(s) do not know whether secret rotation has been run on your environment, update to 1811 before executing secret rotation again.
 
 1. It is highly recommended that you update your Azure Stack instance to version 1811.
 
@@ -283,7 +283,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
-    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -Force
     $NewBMCuser = "<New BMC User name>" 
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
