@@ -1,5 +1,5 @@
 ---
-title: Create Node.js web app on Linux - Azure App Service | Microsoft Docs
+title: Create Node.js app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Create a Node.js web app in Azure App Service on Linux
+# Create a Node.js app in Azure App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a Node.js web app in Azure](../app-service-web-get-started-nodejs.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a Node.js app in Azure](../app-service-web-get-started-nodejs.md).
 >
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
@@ -132,17 +132,17 @@ The `az webapp up` command does the following actions:
 
 - Create an app with the specified name.
 
-- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the web app.
+- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the app.
 
 ## Browse to the app
 
-Browse to the deployed application using your web browser. Replace <app_name> with your web app name.
+Browse to the deployed application using your web browser. Replace <app_name> with your app name.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-The Node.js sample code is running in a web app with built-in image.
+The Node.js sample code is running in App Service on Linux with a built-in image.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -162,7 +162,7 @@ response.end("Hello Azure!");
 
 Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
-You'll now redeploy the app. Substitute `<app_name>` with your web app.
+You'll now redeploy the app. Substitute `<app_name>` with your app.
 
 ```bash
 az webapp up -n <app_name>
@@ -172,15 +172,15 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app running in Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## Manage your new Azure web app
+## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Portal navigation to Azure app](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-You see your web app's Overview page. Here, you can complete basic management tasks like browse, stop, start, restart, and delete.
+You see your app's Overview page. Here, you can complete basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service page in Azure portal](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 
