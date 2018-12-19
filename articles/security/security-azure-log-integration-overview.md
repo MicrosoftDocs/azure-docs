@@ -25,7 +25,7 @@ ms.custom: azlog
 
 Azure Log Integration was made available to simplify the task of integrating Azure logs with your on-premises Security Information and Event Management (SIEM) system.
 
- The recommended method for integrating Azure logs is to use your SIEM vendor’s connectors. Azure Monitor provides the ability to stream the logs into event hubs, and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
+ The recommended method for integrating Azure logs is to use your SIEM vendor’s connectors. Azure Monitor provides the ability to stream the logs into event hubs, and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
 
 > [!IMPORTANT]
 > If your primary interest is collecting virtual machine logs, most SIEM vendors include this option in their solution. Using the SIEM vendor's connector is always the preferred alternative.
@@ -56,7 +56,7 @@ If no other options are available, consider using Azure Log Integration. The fol
 |SIEM | Customer already uses the Azure log integrator | Customer is investigating SIEM integration options|
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Begin migrating to the [Azure Monitor add-on for Splunk](https://splunkbase.splunk.com/app/3534/). | Use the [Splunk connector](https://splunkbase.splunk.com/app/3534/). |
-|**QRadar** | Migrate to or begin using the QRadar connector that's documented in the last section of [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). | Use the QRadar connector that's documented in the last section of [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). |
+|**QRadar** | Migrate to or begin using the QRadar connector that's documented in the last section of [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Use the QRadar connector that's documented in the last section of [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
 |**ArcSight** | Continue to use the Azure log integrator until a connector is available, and then migrate to the connector-based solution.  | Consider using Azure Log Analytics as an alternative. Don't onboard to Azure Log Integration unless you are willing to go through the migration process when the connector becomes available. |
 
 > [!NOTE]
@@ -70,7 +70,7 @@ This article introduced you to Azure Log Integration. To learn more about Azure 
 
 * [Get started with Azure Log Integration](security-azure-log-integration-get-started.md). This tutorial walks you through the installation of Azure Log Integration. It also describes how to integrate logs from Windows Azure Diagnostics (WAD) storage, Azure activity logs, Azure Security Center alerts, and Azure Active Directory audit logs.
 * [Azure Log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md). This FAQ answers common questions about Azure Log Integration.
-* Learn more about how to [stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+* Learn more about how to [stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
 
 ---
@@ -27,8 +27,9 @@ This topic shows how to define a filter for a Video on Demand asset and use REST
 To complete the steps described in this topic, you have to:
 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
-- [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
+
+    Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## Define a filter  
 
@@ -82,7 +83,9 @@ In the Postman's collection that you downloaded, select **Account Filters**->**C
 
 The **PUT** HTTP request method is similar to:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Select the **Body** tab and paste the json code you [defined earlier](#define-a-filter).
 
@@ -94,11 +97,13 @@ For more information, see [Create or update](https://docs.microsoft.com/rest/api
 
 ## Create asset filters  
 
-In the "Media Services v3" Postman collection that you downloaded, select **Assets**->**Create or update Asset Filter.
+In the "Media Services v3" Postman collection that you downloaded, select **Assets**->**Create or update Asset Filter**.
 
 The **PUT** HTTP request method is similar to:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Select the **Body** tab and paste the json code you [defined earlier](#define-a-filter).
 
