@@ -48,7 +48,7 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 | Azure Page blobs  | `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`   | `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt` |
 | Azure Files       |`\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`        | `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`     |
 
-If you are using a Windows Server host computer, perform the following steps to connect to the Data Box.
+If you are using a Windows Server host computer, follow these steps to connect to the Data Box.
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
@@ -89,8 +89,8 @@ If you are using a Windows Server host computer, perform the following steps to 
 
 Once you are connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
-- Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
--  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
+- Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
+-  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 - Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
