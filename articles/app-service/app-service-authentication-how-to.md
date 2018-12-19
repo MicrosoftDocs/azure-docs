@@ -1,5 +1,5 @@
 ---
-title: Advanced usage of authentication and authorization in Azure App Service | Microsoft Docs
+title: Advanced usage of authentication and authorization - Azure App Service | Microsoft Docs
 description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service
@@ -24,21 +26,21 @@ To get started quickly, see one of the following tutorials:
 
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
-* [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [How to configure your app to use Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [How to configure your app to use Google login](app-service-mobile-how-to-configure-google-authentication.md)
-* [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [How to configure your app to use Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
+* [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)
+* [How to configure your app to use Google login](configure-authentication-provider-google.md)
+* [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
+* [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
 
 ## Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your web app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
 In **Action to take when request is not authenticated**, select **Allow Anonymous requests (no action)**.
 
-In the sign-in page, or the navigation bar, or any other location of your web app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
+In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -177,19 +179,19 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
+- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](configure-authentication-provider-microsoft.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
-    1. Click **Edit**.
-    1. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    3. Click **Edit**.
+    4. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Click **Put**. 
+    5. Click **Put**. 
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 

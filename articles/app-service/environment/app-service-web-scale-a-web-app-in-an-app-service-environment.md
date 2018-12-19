@@ -1,5 +1,5 @@
 ---
-title: How to Scale an App in an App Service Environment
+title: How to Scale an App in an App Service Environment - Azure
 description: Scaling an app in an App Service Environment
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Scaling apps in an App Service Environment

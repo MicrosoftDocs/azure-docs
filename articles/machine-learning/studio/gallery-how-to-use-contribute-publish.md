@@ -4,9 +4,9 @@ description: Share and discover analytics resources and more in the Azure AI Gal
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
@@ -22,7 +22,7 @@ ms.date: 03/31/2017
 **[Azure AI Gallery](http://gallery.cortanaintelligence.com)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## What can I find in the Gallery?
 The Azure AI Gallery contains a variety of resources that you can use to develop your own analytics solutions.

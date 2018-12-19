@@ -42,7 +42,7 @@ You can view and configure the following settings using the **Resource Menu**.
 * [Settings](#settings)
 	* [Access keys](#access-keys)
 	* [Advanced settings](#advanced-settings)
-	* [Azure Cache for Redis Advisor](#redis-cache-advisor)
+	* [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 	* [Scale](#scale)
 	* [Redis cluster size](#cluster-size)
 	* [Redis data persistence](#redis-data-persistence)
@@ -94,7 +94,7 @@ The **Settings** section allows you to access and configure the following settin
 
 * [Access keys](#access-keys)
 * [Advanced settings](#advanced-settings)
-* [Azure Cache for Redis Advisor](#redis-cache-advisor)
+* [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 * [Scale](#scale)
 * [Redis cluster size](#cluster-size)
 * [Redis data persistence](#redis-data-persistence)
@@ -356,7 +356,7 @@ Click **Alert rules** to configure alerts based on Azure Cache for Redis metrics
 By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 
@@ -477,7 +477,7 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 
 > [!IMPORTANT]
 > - The Redis Console does not work with [VNET](cache-how-to-premium-vnet.md). When your cache is part of a VNET, only clients in the VNET can access the cache. Because Redis Console runs in your local browser, which is outside the VNET, it can't connect to your cache.
-> - Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-redis-cache) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
+> - Not all Redis commands are supported in Azure Cache for Redis. For a list of Redis commands that are disabled for Azure Cache for Redis, see the previous [Redis commands not supported in Azure Cache for Redis](#redis-commands-not-supported-in-azure-cache-for-redis) section. For more information about Redis commands, see [http://redis.io/commands](http://redis.io/commands).
 > 
 > 
 

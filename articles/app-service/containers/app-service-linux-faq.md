@@ -1,5 +1,5 @@
 ---
-title: Azure App Service on Linux FAQ | Microsoft Docs
+title: App Service on Linux FAQ - Azure | Microsoft Docs
 description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
+ms.custom: seodec18
 ---
 # Azure App Service on Linux FAQ
 

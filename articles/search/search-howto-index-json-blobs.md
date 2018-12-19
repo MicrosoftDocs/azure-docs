@@ -1,6 +1,6 @@
 ---
-title: Indexing JSON blobs with Azure Search blob indexer
-description: Indexing JSON blobs with Azure Search blob indexer
+title: Index JSON blobs from Azure Blob indexer for full text search - Azure Search
+description: Crawl Azure JSON blobs for text content using the Azure Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
 ms.date: 10/17/2018
 author: mgottein 
@@ -11,6 +11,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
+ms.custom: seodec2018
 ---
 
 # Indexing JSON blobs with Azure Search blob indexer
@@ -173,7 +174,7 @@ Assume a search index with the following fields: `text` of type `Edm.String`, `d
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-The source field names in the mappings are specified using the [JSON Pointer](http://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then pick the desired property (at arbitrary level of nesting) by using forward slash-separated path.
+The source field names in the mappings are specified using the [JSON Pointer](https://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then pick the desired property (at arbitrary level of nesting) by using forward slash-separated path.
 
 You can also refer to individual array elements by using a zero-based index. For example, to pick the first element of the "tags" array from the above example, use a field mapping like this:
 

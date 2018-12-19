@@ -1,5 +1,5 @@
 ---
-title: How To Create an ILB ASE Using Azure Resource Manager Templates | Microsoft Docs
+title: Create ILB ASE Using Azure Resource Manager Templates - App Service | Microsoft Docs
 description: Learn how to create an internal load balancer ASE using Azure Resource Manager templates.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # How To Create an ILB ASE Using Azure Resource Manager Templates

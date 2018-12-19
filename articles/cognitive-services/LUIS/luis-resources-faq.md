@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
 ---
-# Language Understanding FAQ
+# Language Understanding Frequently Asked Questions (FAQ)
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 

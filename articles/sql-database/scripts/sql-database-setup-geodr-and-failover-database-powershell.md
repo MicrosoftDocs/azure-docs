@@ -7,11 +7,11 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.date: 09/07/2018
-ms.author: carlrab
-ms.reviewer:
+author: mashamsft
+ms.author: mathoma
+ms.reviewer: carlrab
 manager: craigg
+ms.date: 09/07/2018
 ---
 # Use PowerShell to configure active geo-replication for a single Azure SQL database
 

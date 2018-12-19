@@ -1,6 +1,6 @@
 ---
 title: Creating charts and diagrams from Azure Log Analytics queries | Microsoft Docs
-description: Describes various visualizations in Azure Log Analytics to display your data in different ways. 
+description: Describes various visualizations in Azure Log Analytics to display your data in different ways.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren

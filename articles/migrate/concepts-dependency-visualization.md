@@ -4,13 +4,16 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
 # Dependency visualization
 
 The [Azure Migrate](migrate-overview.md) services assesses groups of on-premises machines for migration to Azure. You can use the dependency visualization functionality in Azure Migrate to create groups. This article provides information about this feature.
+
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ## Overview
 

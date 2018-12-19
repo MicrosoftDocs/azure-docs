@@ -1,5 +1,5 @@
 ---
-title: Manage Web App for Containers using Azure CLI | Microsoft Docs
+title: Manage Web App for Containers using Azure CLI - Azure App Service | Microsoft Docs
 description: Manage Web App for Containers using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
+ms.custom: seodec18
 
 ---
 # Manage Web App for Containers using Azure CLI

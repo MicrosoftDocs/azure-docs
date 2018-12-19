@@ -74,6 +74,8 @@
         href: operator-best-practices-cluster-security.md
       - name: Container image management
         href: operator-best-practices-container-image-management.md
+      - name: Networking
+        href: operator-best-practices-network.md
       - name: Storage
         href: operator-best-practices-storage.md
       - name: Business continuity (BC) and disaster recovery (DR)

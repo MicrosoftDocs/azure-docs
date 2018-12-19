@@ -10,12 +10,9 @@ ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-
-
 ---
 # Management solutions in Azure Monitor
 Management solutions leverage services in Azure to provide additional insight into the operation of a particular application or service. This article provides a brief overview of management solutions in Azure and details on using and installing them.

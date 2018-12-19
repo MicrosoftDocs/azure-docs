@@ -1,5 +1,5 @@
 ---
-title: How to Configure an App Service Environment v1
+title: How to Configure an App Service Environment v1 - Azure
 description: Configuration, management, and monitoring of the App Service Environment v1
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Configuring an App Service Environment v1

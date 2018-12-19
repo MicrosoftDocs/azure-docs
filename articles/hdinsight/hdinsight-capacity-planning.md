@@ -2,14 +2,13 @@
 title: Cluster capacity planning in Azure HDInsight 
 description: 'How to specify an HDInsight cluster for capacity and performance.'
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
+ms.date: 12/04/2018
+ms.author: hrasheed
 ---
 # Capacity planning for HDInsight clusters
 
@@ -27,7 +26,7 @@ The key questions to ask for capacity planning are:
 
 The Azure region determines where your cluster is physically provisioned. To minimize the latency of reads and writes, the cluster should be near your data.
 
-HDInsight is available in many Azure regions. To find the closest region, see the *HDInsight Linux* entry under *Data + Analytics* in [Azure Products Available by Region](https://azure.microsoft.com/regions/services/).
+HDInsight is available in many Azure regions. To find the closest region, see the *HDInsight* entry under *Analytics* in [Products Available by Region](https://azure.microsoft.com/regions/services/).
 
 ## Choose storage location and size
 
@@ -55,7 +54,7 @@ cluster.
 * When you want to isolate different parts of the storage for reasons of security, or to simplify
 administration.
 
-For a 48-node cluster we recommend 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When you have multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
+For a 48-node cluster, we recommend 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When you have multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
 
 ## Choose a cluster type
 
@@ -93,15 +92,35 @@ You are charged for a cluster's lifetime. If there are only specific times that 
 
 ### Isolate cluster job errors
 
-Sometimes errors can occur due to the parallel execution of multiple map and reduce components on a multi-node cluster. To help isolate the issue, try distributed testing by running concurrent multiple jobs on a single-node cluster, then expand this approach to run multiple jobs concurrently on clusters containing more than one node. To create a single-node HDInsight cluster in Azure, use the *advanced* option.
+Sometimes errors can occur due to the parallel execution of multiple maps and reduce components on a multi-node cluster. To help isolate the issue, try distributed testing by running concurrent multiple jobs on a single-node cluster, then expand this approach to run multiple jobs concurrently on clusters containing more than one node. To create a single-node HDInsight cluster in Azure, use the *advanced* option.
 
 You can also install a single-node development environment on your local computer and test the solution there. Hortonworks provides a single-node local development environment for Hadoop-based solutions that is useful for initial development, proof of concept, and testing. For more information, see [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
-To identify the issue on a single-node local cluster you can re-run failed jobs and adjust the input data, or use smaller datasets. How you run those jobs depends on the platform and type of application.
+To identify the issue on a single-node local cluster you can rerun failed jobs and adjust the input data, or use smaller datasets. How you run those jobs depends on the platform and type of application.
 
 ## Quotas
 
-After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The most common quota limit reached is the CPU Cores quota that exists at the subscription, region, and VM series levels. For example, your subscription may have a 200 core total limit, with a 30 core limit in your region, and a 30 core limit on VM instances. You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. If you need to request a quota increase, do the following steps:
+
+1. Go to the Azure portal
+1. Click on **Help and Support** on the bottom-left side of the page.
+1. Click on **New support request**.
+1. On the **New support request** page, under **Basics** tab, select the following options:
+    - **Issue type**: **Service and subscription limits (quotas)**
+    - **Subscription**: the subscription you want to modify
+    - **Quota type**: **HDInsight**
+    
+    ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Click **Next**.
+1. On the **Details** page, enter a description of the issue, select the severity of the issue, and select your preferred contact method.
+1. Click **Next: Review + create**.
+1. On the **Review + create** tab, click **Create**.
+
+> [!Note]
+> If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
+
+You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 

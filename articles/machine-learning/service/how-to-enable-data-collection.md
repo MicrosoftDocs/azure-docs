@@ -1,5 +1,5 @@
 ---
-title: Enable data collection for models in production
+title: Collect data on your production models 
 titleSuffix: Azure Machine Learning service
 description: Learn how to collect Azure Machine Learning input model data in an Azure Blob storage.
 services: machine-learning
@@ -46,7 +46,7 @@ The path to the output data in the blob follows this syntax:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 - An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 

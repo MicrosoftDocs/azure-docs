@@ -5,7 +5,7 @@ services: machine-learning
 author: ericlicoding
 ms.custom:  seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
+
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio

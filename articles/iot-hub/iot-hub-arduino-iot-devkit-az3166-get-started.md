@@ -227,9 +227,9 @@ The sample application is running successfully when you see the following result
 
 ### View the telemetry received by Azure IoT Hub
 
-You can use [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) to monitor device-to-cloud (D2C) messages in IoT Hub.
+You can use [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit) to monitor device-to-cloud (D2C) messages in IoT Hub.
 
-1. In Visual Studio Code, look for **Azure IoT Toolkit** in the extension marketplace and install it.
+1. In Visual Studio Code, look for **Azure IoT Hub Toolkit** in the extension marketplace and install it.
 
 1. Log in [Azure portal](https://portal.azure.com/), find the IoT Hub you created.
     ![Azure portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)

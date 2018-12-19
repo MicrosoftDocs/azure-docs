@@ -6,16 +6,13 @@ documentationcenter: ''
 author: richrundmsft
 manager: ewinner
 editor: ''
-
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.component: 
 ---
 
 # Azure networking monitoring solutions in Log Analytics

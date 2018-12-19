@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: diberry
 ---
 # Phrase list features in your LUIS app
@@ -26,9 +26,17 @@ A phrase list adds to the vocabulary of the app domain as a second signal to LUI
 ## How to use phrase lists
 In the Human Resource app's [simple entity tutorial](luis-quickstart-primary-and-secondary-data.md), the app uses a **Job** phrase list of job types such as programmer, roofer, and secretary. If you label one of these values as a machine-learned entity, LUIS learns to recognize the others. 
 
-A phrase list may be interchangeable or non-interchangeable. An *interchangeable* phrase list is for values that are synonyms, and a *non-interchangeable* phrase list is intended for values that aren't synonyms but still need an additional signal in the app. 
+A phrase list may be interchangeable or non-interchangeable. An *interchangeable* phrase list is for values that are synonyms, and a *non-interchangeable* phrase list is intended as an app's specific vocabulary list. As you grow the app vocabulary phrase list, you may find some terms have many forms (synonyms). Break these out into another phrase list that is interchangeable. 
+
+|List type|Purpose|
+|--|--|
+|Interchangeable|Synonyms or words that, when changed to another word in the list, have the same intent, and entity extraction.|
+|Non-interchangeable|App vocabulary, specific to your app, more so than generally other words in that language.|
+
+Phrase lists not only help with entity detection but also intent classification where non-interchangeable makes sense like adding out of vocabulary words that are not known in the English language.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## Phrase lists help identify simple Interchangeable entities
 Interchangeable phrase lists are a good way to tune the performance of your LUIS app. If your app has trouble predicting utterances to the correct intent, or recognizing entities, think about whether the utterances contain unusual words, or words that might be ambiguous in meaning. These words are good candidates to include in a phrase list.
 
@@ -38,7 +46,7 @@ A phrase list is not an instruction to LUIS to perform strict matching or always
 Adding a phrase list is an alternative to adding more example utterances to an intent. 
 
 ## An interchangeable phrase list
-Use an interchangeable phrase list when the list of words or phases create a class or group. An example is a list of months like "January", "February", "March"; or names like "John", "Mary", "Frank".  These lists are interchangeable in that the utterance would be labeled with the same intent or entity if a different word in the phrase list were used. For example, if "show the calendar for January" has the same intent as "show the calendar for February", then the words should be on an interchangeable list. 
+Use an interchangeable phrase list when the list of words or phases creates a class or group. An example is a list of months like "January", "February", "March"; or names like "John", "Mary", "Frank".  These lists are interchangeable in that the utterance would be labeled with the same intent or entity if a different word in the phrase list were used. For example, if "show the calendar for January" has the same intent as "show the calendar for February", then the words should be on an interchangeable list. 
 
 ## A non-interchangeable phrase list
 Use a non-interchangeable phrase list for non-synonymous words or phrases that can be grouped in your domain. 
