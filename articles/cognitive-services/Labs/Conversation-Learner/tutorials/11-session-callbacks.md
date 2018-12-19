@@ -84,7 +84,7 @@ Four Actions are defined in the Model. The existing Actions are displayed in the
 13. Select the response, "Done"
 14. Click the "Save" button.
 
-### Trying out the Model
+### Testing the Model
 
 1. On the left panel, click "Log Dialogs", then the "New Log Dialog" button.
 2. In the chat panel, where it says "Type your message...", type in "hi"
