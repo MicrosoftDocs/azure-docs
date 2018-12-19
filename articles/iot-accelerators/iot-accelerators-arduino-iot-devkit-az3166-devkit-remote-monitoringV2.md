@@ -33,7 +33,7 @@ To open the Remote Monitoring sample in VS Code:
 
 1. Make sure your IoT DevKit isn't to your computer. Start VS Code first, and then connect the DevKit to your computer.
 
-1. Click `F1` to open the command palette, type and select **IoT Workbench: Examples**. Then select **IoT DevKit** as board.
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **IoT DevKit** as board.
 
 1. Find **Remote Monitoring** and click **Open Sample**. A new VS Code window opens showing the project folder:
 
@@ -60,9 +60,7 @@ To configure IoT Hub device connection string on your DevKit device:
 
 To build and upload the device code:
 
-1. Press **F1**`** to open the command palette, type and select **IoT Workbench: Device > Device Upload**:
-
-    ![IoT Workbench: Device - > Upload](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. Press `F1` to open the command palette, type and select **Azure IoT Device Workbench: Upload Device Code**:
 
 1. VS Code compiles and uploads the code to your DevKit device:
 
