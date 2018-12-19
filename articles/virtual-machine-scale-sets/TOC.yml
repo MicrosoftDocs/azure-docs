@@ -70,8 +70,8 @@
     href: ../virtual-machines/windows/regions-and-availability.md
     maintainContext: true
     items:
-    - name: Managing FDs in VMSS
-      href: virtual-machine-scale-sets-managing-fds.md
+    - name: Manage fault domains in scale sets
+      href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: VM types and sizes
     href: ../virtual-machines/windows/sizes.md
     maintainContext: true

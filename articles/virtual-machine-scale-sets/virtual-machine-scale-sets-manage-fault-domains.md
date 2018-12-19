@@ -1,5 +1,5 @@
 ---
-title: Managing Fault Domains (FD) in VMSS | Microsoft Docs
+title: Manage fault domains in Azure virtual machine scale sets | Microsoft Docs
 description: Learn how to choose the right number of FDs while creating a virtual machine scale set.
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -37,7 +37,11 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --platform-fault-domain-count 3\
-  --generate-ssh-keys  
+  --generate-ssh-keys
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
+
+## Next steps
+- Learn more about [availability and redundancy features](../virtual-machines/windows/regions-and-availability.md) for Azure environments.
+- Learn more about Azure [availability best practices](../architecture/checklist/availability.md).
