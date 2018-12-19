@@ -197,7 +197,7 @@ The following list provides a general summary of Azure services that can be move
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
-* Key Vault Limitations - see [Key Vault Limitations](#key-vault-limitations)
+* Key Vault - see [Key Vault Limitations](#key-vault-limitations)
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Log Analytics
 * Logic Apps
