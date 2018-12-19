@@ -19,7 +19,7 @@ In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a 
 
  [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-[!NOTE]
+> [!NOTE]
 > * For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
 > * For more information on various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
