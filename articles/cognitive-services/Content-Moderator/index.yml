@@ -43,7 +43,7 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: Text Moderation API
-        - href: /azure/cognitive-services/computer-vision/image-moderation-api
+        - href: /azure/cognitive-services/content-moderator/image-moderation-api
           html: <p>Learn about image moderation.</p>
           image:
             src: ../media/index/i_overview.svg

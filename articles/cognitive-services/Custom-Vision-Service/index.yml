@@ -33,17 +33,17 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: /azure/cognitive-services/custom-vision/home
+        - href: /azure/cognitive-services/Custom-Vision-Service/home
           html: <p>Learn about the Custom Vision API.</p>
           image:
             src: ../media/index/i_overview.svg
           title: What is Custom Vision?
-        - href: /azure/cognitive-services/custom-vision/getting-started-build-a-classifier
+        - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
           html: <p>Learn how to build a classifier.</p>
           image:
             src: ../media/index/i_tasks.svg
           title: Build a classifier
-        - href: /azure/cognitive-services/custom-vision/export-your-model
+        - href: /azure/cognitive-services/Custom-Vision-Service/export-your-model
           html: <p>Learn how to export a model to a mobile device.</p>
           image:
             src: ../media/index/i_tasks.svg
