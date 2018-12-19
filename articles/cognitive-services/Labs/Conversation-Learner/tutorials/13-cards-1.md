@@ -17,7 +17,7 @@ ms.author: v-jaswel
 This tutorial shows how to add and use a simple card in your bot.
 
 > [!NOTE]
-> Currently Conversation Learner expects your card definition files to be located in a directory called "cards" which is present in the directory where the bot is started. We will make this configurable in the future.
+> Conversation Learner currently expects your card definition files to be located in a directory called "cards" which is present in the directory where the Bot is started. We will make this configurable in the future.
 
 ## Video
 
@@ -40,48 +40,54 @@ In the Model list of the web UI, click on Tutorial-13-Cards-1.
 
 The card definition is at the following location: C:\<installedpath\>\src\cards\prompt.json.
 
-The system expects to find your card definitions in this cards directory.
+The system expects to find your card definitions in this "cards" directory.
 
 ![](../media/tutorial13_prompt.PNG)
 
 > [!NOTE]
-> Notice the body type `TextBlock` and the `{{question}}` placeholder in the text field.
+> Notice the body type "TextBlock" and the "{{question}}" placeholder in the text field.
 > There are two submit buttons and the text that gets submitted for each.
 
 ### Actions
 
-We have created three actions. As you see below, the first action is a card.
+We have created three Actions. As you see below, the first Action is a card.
 
 ![](../media/tutorial13_actions.PNG)
 
-Let's see how the card action type was created:
+Let's see how the card Action type was created:
 
 ![](../media/tutorial13_cardaction.PNG)
 
 > [!NOTE]
-> The question input, and buttons 1 and 2. Those are template references in the card where you enter the question and the respective answers. You can also reference and use entities or a mixture of text and entities.
+> The card contains three different parameters - question input, button 1 and button 2. These elements are template references in the card where you enter the question and the respective answers. You can also reference and use Entities or a mixture of text and Entities.
 
 The eye icon shows you what the card looks like.
 
-### Train Dialog
+### Practicing Creating Card Actions
 
-Let's walk through a teaching dialog.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. Select "CARD" for the "Action Type."
+3. Select "prompt" from the "Template" list.
+4. In the "question" field, type "Go left or right"
+5. In the "button1" field, type "left"
+6. In the "button2" field, type "right"
+7. Click the "Cancel" button.
 
-1. Click Train Dialogs, then New Train Dialog.
-1. Enter 'hi'.
-2. Click Score Action.
-3. Click to Select 'Prompt go left or right'.
-	- Clicking 'left' or 'right' is equivalent to user typing in 'left' or 'right' respectively. 
-4. Click Score Actions.
-4. Click to Select 'left'. This is a non-wait action.
-6. Click to Select 'Prompt go left or right'.
-4. Click 'right'.
-5. Click Score Actions.
-3. Click to Select 'Right'
-6. Click to Select 'Prompt go left or right'.
-4. Click Done Testing.
+### Train Dialog using an Adaptive Card
 
-You have now seen how cards work. They are defined in the cards directory as json templates. The templates will surface in the UI which you can populate using a string or an entity or a mix of both.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hi"
+3. Click the "Score Actions" button.
+4. Select the response, "prompt: question: Go left or right?"
+	- The eye icon can be used to preview the card
+5. In the chat panel click the "Left" button in the rendered prompt.
+6. Click the "Score Actions" button.
+7. Select the response, "Left"
+8. Click the "Save" button.
+9. Select the response, "prompt: question: Go left or right?"
+10. In the chat panel click the "Right" button in the rendered prompt.
+11. Click the "Score Actions" button.
+12. Select the response, "Right"
 
 ## Next steps
 

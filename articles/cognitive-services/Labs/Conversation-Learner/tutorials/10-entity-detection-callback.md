@@ -26,83 +26,73 @@ This tutorial requires that the `tutorialEntityDetectionCallback` bot is running
 	npm run tutorial-entity-detection
 
 ## Details
-Entity detection callback enables using custom code to handle business rules related to entities. This demo uses callbacks and Programmatic Entities to resolve the city name entered by the user to a canonical name -- for example, resolving "the big apple" to "new york".
+Entity Detection callbacks enable modification of the entity recognition behavior and entity manipulation through code. We will demonstrate this functionality by walking through a typical entity detection callback design pattern. For example, resolving "the big apple" to "new york".
 
-### Open the demo
+## Steps
 
-In the model list, click on Tutorial-10-EntityDetectionCallback. 
+### Create the Model
 
-### Entities
+1. In the Web UI, click "New Model."
+2. In the "Name" field, type "EntityDetectionCallback" and hit enter.
+3. Click the "Create" button.
 
-Three entities are defined in the model.
+Three entities are needed in this example, so let’s create the three.
 
-![](../media/tutorial10_entities.PNG)
+### Create the Custom Trained Entity
 
-1. City is a custom entity that the user will provide as text input.
-2. CityUnknown is a Programmatic Entity. This entity will get populated by the system. It will copy the user input if the system does not know which city it is.
-3. CityResolved is the city that the system does know about. This entity will be city's canonical name for example 'the big apple' will resolve to 'new york'.
+1. On the left panel, click "Entities", then the "New Entity" button.
+2. Select "Custom Trained" for the "Entity Type."
+3. Type "City" for the "Entity Name."
+4. Click the "Create" button.
 
-### Actions
+### Create the first Programmatic Entity
 
-Three actions are defined in the model.
+1. Click the "New Entity" button.
+2. Select "Programmatic" for the "Entity Type."
+3. Type "CityUnknown" for the "Entity Name."
+4. Click the "Create" button.
 
-![](../media/tutorial10_actions.PNG)
+### Create the first Programmatic Entity
 
-1. The first action is 'Which city do you want?'
-2. The second is 'I don't know this city, $CityUknown. Which city do you want?'
-3. The third is 'You said $City, and I resolved that to $CityResolved.'
+1. Click the "New Entity" button.
+2. Select "Programmatic" for the "Entity Type."
+3. Type "CityResolved" for the "Entity Name."
+4. Click the "Create" button.
 
-### Callback code
+Now, create three actions.
 
-Let's look at the code. You can find the EntityDetectionCallback method in the C:\<installedpath>\src\demos\tutorialSessionCallbacks.ts file.
+### Action Creation
+
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "Which city do you want?"
+3. In the "Expected Entity in User reply..." field, type "City."
+4. In the "Disqualifying Entities" field, type "City."
+5. Click the "Create" button.
+6. Click the "New Action" button.
+7. In the "Bot's response..." field, type "Which city do you want?"
+8. In the "Expected Entity in User reply..." field, type "I don't know this city."
+9. Click the "Create" button.
+10. Click the "New Action" button.
+11. In the "Bot's response..." field, type "$CityResolved is very nice."
+12. Click the "Create" button.
+
+Here's the callback code:
 
 ![](../media/tutorial10_callbackcode.PNG)
 
-This function gets called after entity resolution has occurred.
- 
-- The first thing it will do is clear $CityUknown. $CityUknown will only persist for a single turn as it always gets cleared at the beginning.
-- Then, get the list of cities that have been recognized. Take the first one, and attempt to resolve it.
-- The function that resolves it (resolveCity) is defined further above in the code. It has a list of canonical city names. It finds the city name in the list, it returns it. Else, it looks in 'cityMap' and returns the mapped name. If it cannot find a city, it returns null.
-- Finally, if the city has resolved to a name, we store it in $CityKnown entity. Else, clear what the user has said and populate $CityUknown entity.
+### Train the Model
 
-### Train Dialogs
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hi"
+3. Click the "Score Actions" button.
+4. Select the response, "Which city do you want?"
+5. In the chat panel, where it says "Type your message...", type in "big apple"
+6. Click the "Score Actions" button.
+	- Clicking the button triggers the entity detection callback
+	- The callback code sets the CityResolved Entity value correctly to "new york"
+7. Select the response, "new york is is very nice."
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'hello'.
-3. Click Score Actions, and Select 'Which city do you want?'
-2. Enter 'new york'.
-	- The text is recognized as a city entity.
-5. Click Score Actions
-	- `City` and `CityResolved` have been populated.
-6. Select 'You said $City, and I resolved that to $CityResolved'.
-7. Click Done Teaching.
-
-Add another example dialog:
-
-1. Click New Train Dialog.
-2. Type 'hello'.
-3. Click Score Actions, and Select 'Which city do you want?'
-2. Enter 'big apple'.
-	- The text is recognized as a city entity.
-5. Click Score Actions
-	- `CityResolved` shows the effect of code running.
-6. Select 'You said $City, and I resolved that to $CityResolved'.
-7. Click Done Teaching.
-
-Add another example dialog:
-
-1. Click New Train Dialog.
-2. Type 'hello'.
-3. Click Score Actions, and Select 'Which city do you want?'
-2. Enter 'foo'.
-	- This is an example of a city the system does not know. 
-5. Click Score Actions
-6. Select 'I don't know this city, $CityUknown. Which city do you want?'.
-7. Enter 'new york'.
-8. Click Score Actions.
-	- `CityUknown` has been cleared, and `CityResolved` is populated.
-6. Select 'You said $City, and I resolved that to $CityResolved'.
-7. Click Done Teaching.
+This pattern is typical of many bot scenarios. User utterances and extracted entities are supplied to your business logic, and that logic transforms the utterance into canonical form, which is then saved into programmatic entities, for subsequent turns of the dialog.
 
 ![](../media/tutorial10_bigapple.PNG)
 

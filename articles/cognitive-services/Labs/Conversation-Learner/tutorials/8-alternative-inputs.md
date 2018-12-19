@@ -26,109 +26,110 @@ This tutorial requires that the general tutorial bot is running
 	npm run tutorial-general
 
 ## Details
-Alternative inputs are alternate user utterances which the user might have said at a particular point in a training dialog. These alternative inputs allow you to more compactly specify variations of utterances, without having to address each variation in a separate training dialog.
+Alternative inputs are alternate, semantically equivalent user utterances which the user might have said at a particular point in a training dialog. These alternative inputs allow you to more compactly specify variations of utterances without having to address each variation in separate training dialogs.
 
 ## Steps
 
-### Create the model
+### Create the Model
 
-1. In the Web UI, click New Model
-2. Name this model AlternativeInputs.
-3. Click Create.
+1. In the Web UI, click "New Model."
+2. In the "Name" field, type "AlternativeInputs" and hit enter.
+3. Click the "Create" button.
 
-### Create an entity
+### Entity Creation
 
-1. Click Entities, then New Entity.
-2. In Entity Name, enter city.
-3. Click Create.
+1. On the left panel, click "Entities", then the "New Entity" button.
+2. Select "Custom Trained" for the "Entity Type."
+3. Type "city" for the "Entity Name."
+4. Click the "Create" button.
 
-### Create three actions
+Now, let's create three actions.
 
-1. Click Actions, then New Action.
-2. In Response, type 'Which city?'.
-3. Add city to both the Expected Entity and Disqualifying Entities lists.
-3. Click Create.
+### Create the First Action
 
-Then create the second action:
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "Which city?"
+3. In the "Expected Entity in User reply..." field, type "city."
+4. In the "Disqualifying Entitles" field, type "city."
+5. Click the "Create" button.
 
-1. Click Actions, then New Action.
-2. Type 'The weather in $city is probably sunny.' for the response.
-3. Click Create.
+### Create the Second Action
 
-Create the third action:
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "The weather in $city is probably sunny."
+3. Click the "Create" button.
 
-1. Click Actions, then New Action.
-2. Type 'Try asking for the weather.' for the response.
-	- In case the user ask 'what can the system do?'
-3. Add city to the list of Disqualifying Entities.
-4. Click Create.
+### Create the Third Action
+
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "Try asking for the weather."
+3. In the "Disqualifying Entitles" field, type "city."
+4. Click the "Create" button.
 
 You now have three actions.
 
-### Train the bot
+### Train the Model
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'what's the weather' in the chat window.
-3. Click Score Actions to select the best response. Select the response for 'which city?'
-4. Enter 'Denver' in the chat window.
-5. Double-click on 'Denver', and select 'city' to set Denver as an entity type of city.
-6. Click Score Actions.
-7. Select 'The weather in $city is probably sunny' as the best response for Denver now.
-8. Click Save.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "What's the weather?"
+3. Click the "Score Actions" button.
+4. Select the response, "Which city?"
+5. In the chat panel, where it says "Type your message...", type in "Denver"
+6. Click the "Score Actions" button.
+7. Select the response, "The weather in Denver is probably sunny."
+8. Click the "Save" button.
 
 Let's train the model more by creating another train dialog.
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'what can you do?' as the user's utterance in the the chat prompt.
-3. Click Score Actions, then select 'Try asking for the weather' for the bot's response.
-4. Enter 'What's the weather in Seattle?' for the user's next utterance.
-5. Double-click on 'Seattle' to mark Seattle as an entity of type city. Seattle is now shown in bot's memory.
-6. Click Score Actions.
-7. Today is a sunny day in Seattle so select 'The weather in $city is probably sunny' as the response.
-8. Click Save.
+### Second Model Train Dialog
 
-Let's create one more train dialog the model to illustrate where the alternative inputs are helpful in tuning the model for equivalent user utterances.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "What can you do?"
+3. Click the "Score Actions" button.
+4. Select the response, "Try asking for weather."
+5. In the chat panel, where it says "Type your message...", type in "What's the weather in Seattle?"
+6. Click "Seattle", then click "city" from the Entity List.
+7. Click the "Score Actions" button.
+8. Select the response, "The weather in Seattle is probably sunny."
+9. Click the "Save" button.
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'help' for the user's utterance.
-3. Click Score Actions to see the array of available responses. The model will choose the highest percentile action if the system is left in its current state.
-4. Click Abandon Teaching and Confirm.
+### Third Model Train Dialog Using Alternative Input
+
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "help"
+3. Click the "Score Actions" button.
+	- The Model is uncertain to the best option, so it would choose the highest percentile by default.
+4. Click the "Abandon Teaching" button, then "Confirm" button.
 
 ![](../media/tutorial8_closescores.png)
 
 Let's better tune the system using alternative inputs. You can add alternative input while teaching or later.
 
-1. Click Train Dialogs and select the first, 'What can you do?' Train Dialog we created earlier in this tutorial.
-2. In the Train Dialog, click on 'what can you do?' in the UI to select it.
-3. Locate the "Add alternative input..." field midway down the UI.
-4. Add the following example utterances, one by one, clicking Add between each different utterance:
-	1. Enter 'Tell me my choices'.
-	2. Enter 'What are my choices?'
-	3. Enter 'help'
-5. Click Submit Changes.
-
-The system uses these added alternative inputs to better tune itself and know to follow the same path in this dialog when presented with alternative, yet equivalent user utterances.
-
-Let's add another alternative input to handle Houston.
+5. On the left panel, click "Train Dialogs", then select "What can you do?" from the list of Train Dialogs.
+6. Click the "What can you do?" utterance in the chat panel.
+7. In the "Add alternative input..." field, type "help" and hit enter.
+8. Click the "Save Changes" button.
 
 ![](../media/tutorial8_helpalternates.png)
 
-1. Click the utterance asking 'what's the weather in Seattle?'
-2. Type "forecast for Houston" as the alternative input.  Conversation Learner displays an error as alternative inputs must be semantically equivalent and contain the same entities as the original utterance; not just the same values of entities. The presence of the same entities is required.
-3. Double-click on 'Houston' and select city for the entity.
-4. Enter 'forecast for Seattle' as another alternative input. Resolve the error by double-clicking Seattle and selecting city for the entity.
-5. click Submit Changes, then Save.
+Let's add another alternative input to handle Houston.
 
-Time to try the model out using a Log Dialog.
+9. Click the "What's the weather in Seattle?" utterance in the chat panel.
+10. In the "Add alternative input..." field, type "forecast for Houston" and hit enter.
+	- The error message highlights the fact alternative inputs must be semantically equivalent and contain the same entities as the original utterance; not just the same values of entities. The presence of the same entities is required.
+11. Click on "Houston" and select "city" from the Entities List.
+12. In the "Add alternative input..." field, type "forecast for Seattle" and hit enter.
+13. Click on "Seattle" and select "city" from the Entities List.
+14. Click the "Save Changes" button.
+15. Click the "Save Edit" button.
 
-1. Click Log Dialogs, then New Log Dialog.
-2. Enter 'help me' for the user utterance.
-3. The bot responds more accurately and appropriately thanks to the alternative inputs.
-4. Enter 'forecast for Denver' and the bot responds accordingly.
+### Testing the Model
+
+1. On the left panel, click "Log Dialogs", then the "New Log Dialog."
+2. In the chat panel, where it says "Type your message...", type in "help me"
+3. In the chat panel, where it says "Type your message...", type in "forecast for Denver"
 
 ![](../media/tutorial8_altcities.png)
-
-In summary, alternative inputs can be used to tune models to better process semantically equivalent utterances without having to create many different Training Dialogs.
 
 ## Next steps
 

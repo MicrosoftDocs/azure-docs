@@ -32,23 +32,22 @@ Log Dialogs are recorded logs of your bot's interaction with end users. By harne
 
 ## Steps
 
-Import the existing weather model into the Conversation Learner UI. This model contains one entity named city, and actions designed to respond to inquires about weather in that city. Two Train Dialogs only were used to train the model so you set performance expectations quite low. The model would improve with additional training and exposure to real world user interactions.
-
-### Create a new Log Dialog
-
-1. Click Log Dialogs, then New Log Dialog.
+Import the existing weather model into the Conversation Learner UI. This Model contains one Entity named "city", and Actions designed to respond to inquires about weather in that city. Two Train Dialogs were used to train the Model so performance expectations are somewhat low. The Model would improve with additional training and exposure to real world user interactions.
 
 ### Create a new Conversation
 
-1. Type "Austin weather forecast" for the utterance.
-2. Click Done Testing as the model could use more training based on the selection response.
-3. Click on the Austin weather forecast utterance and notice the lack of entity tagging. The model needs to be trained to recognize Austin as a city entity.
-4. Double-click on Austin and select city from the entity list.
-5. Click Submit Changes. Note, this change will cause downstream changes to the conversation since we have new entity values in memory. Later actions have likely become invalid especially ones involving the city entity.
-6. Click on the response mentioning sunshine to select this action as the best response to the utterance.
-7. Click Save As Train Dialog. The Log Dialog is converted, fed into the model, and kicks off model training.
-
-Log dialogs support adding brand new actions and enable you to completely train a new flow of the dialog from actual user interactions. 
+1. On the left panel, click "Log Dialogs", then the "New Log Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "Austin weather forecast"
+3. Click the "Done Testing" button.
+4. Click the "Austin weather forecast" log dialog from the list.
+5. Click the "Austin weather forecast" utterance in the chat panel.
+6. Click "Austin", then click "city" from the Entity List.
+7. Click the "Submit Changes" button.
+	- This change in Entity value cause downstream changes to the conversation since we have new entity values in memory. Later actions have likely become invalid especially ones involving the "city" entity.
+8. Click the "Which city?" utterance in the chat panel.
+9. Select the response, "The weather in Austin is probably sunny."
+10. Click the "Save As Train Dialog" button.
+	- Training is kicked off immediately
 
 One last note. Depending on business needs, the conversation logging feature can be turned off by going to Settings and unchecking “Log Conversations.”
 

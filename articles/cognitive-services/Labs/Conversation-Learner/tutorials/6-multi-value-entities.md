@@ -33,66 +33,63 @@ Entities marked as Multi-value will have each recognized instance of the Entity 
 
 ### Create the Model
 
-1. In the Web UI, click New Model
-2. In Name, enter MultiValueEntities. Then click Create.
+1. In the Web UI, click "New Model."
+2. In the "Name" field, type "MultiValueEntities" and hit enter.
+3. Click the "Create" button.
 
-### Create an Entity
+### Entity Creation
 
-1. Click Entities, then New Entity.
-2. In Entity Name, enter Toppings.
-3. Check Multi-valued.
+1. On the left panel, click "Entities", then the "New Entity" button.
+2. Select "Custom Trained" for the "Entity Type."
+3. Type "toppings" for the "Entity Name."
+4. Check the "Multi-valued" check-box.
 	- Multi-value entities accumulate one or more values in the Entity.
-2. Check Negatable.  
-    - This will allow the user to remove toppings from the accumulated list of their pizza toppings.
-3. Click Create.
+5. Check the "Negatable" check-box.
+	- The "Negatable" property was covered in another tutorial.
+6. Click the "Create" button.
 
 ![](../media/tutorial6_entities.PNG)
 
-### Create two Actions
+### Create the First Action
 
-1. Click Actions, then New Action.
-2. Type 'Here are your toppings: $toppings' for the Bot's Response.
-3. Click Create.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "Here are your toppings: $toppings"
+	- The leading dollar sign indicates an Entity reference
+3. Click the "Create" button.
 
-Then create the second Action.
+### Create the Second Action
 
-1. Click Actions, then New Action to create a second Action.
-2. Type 'What toppings would you like?' for the Bot's Response.
-3. Add toppings to the Disqualifying Entities.
-4. Click Create.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "What toppings would you like?"
+3. In the "Disqualifying Entitles" field, type "toppings."
+4. Click the "Create" button.
 
 Now you have two actions.
 
 ![](../media/tutorial6_actions.PNG)
 
-### Train the Bot
+### Train the Model
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'hi'.
-3. Click Score Actions, and select 'What toppings do you want?'
-4. Enter 'mushrooms and cheese'. 
-	- You can label zero, one or more than one of the entities.
-5. Click 'cheese', and select +Toppings.
-6. Click 'mushrooms', and select +Toppings.
-5. Click Score Actions.
-	- The two values are now present in the Toppings entity. 
-6. Select 'Here are your toppings: $Toppings'.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hi."
+3. Click the "Score Actions" button.
+4. Select the response, "What toppings would you like?"
+	- The percentile is 100%, as the only valid Action based on the constraints.
+5. In the chat panel, where it says "Type your message...", type in "cheese and mushrooms"
+6. Click 'cheese', and choose the label "+toppings"
+7. Click 'mushrooms', and choose the label "+toppings"
+8. Click the "Score Actions" button.
+9. Select the response, "Here are your toppings: $toppings"
+10. In the chat panel, where it says "Type your message...", type in "add pepper"
+11. Click 'pepper', and choose the label "+toppings"
+12. Click the "Score Actions" button.
+13. Select the response, "Here are your toppings: $toppings"
+14. In the chat panel, where it says "Type your message...", type in "remove cheese"
+15. Click 'cheese', and choose the label "-toppings"
+16. Click the "Score Actions" button.
+17. Select the response, "Here are your toppings: $toppings"
 
-Now, it's add some more toppings.
-
-7. Type 'add peppers' from the user.
-	- Click on 'peppers' under Entity Detection, and select Toppings.
-8. Click Score Actions.
-	- 'peppers' now shows up as an additional value in Toppings.
-9. Select 'Here are your toppings: $Toppings'.
-
-Let's remove a topping and add one:
-
-2. Type 'remove peppers and add sausage'.
-1. Click on 'cheese' and click on the -toppings to remove it.
-3. Click Score Actions.
-	- Notice 'cheese' has been deleted.
-6. Select 'Here are your toppings: $Toppings' from the available responses.
+![](../media/tutorial5_dialogs.PNG)
 
 ## Next steps
 

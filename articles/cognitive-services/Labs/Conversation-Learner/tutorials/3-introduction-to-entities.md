@@ -28,68 +28,65 @@ This tutorial requires that the general tutorial Bot is running
 
 ## Details
 
-One key capability of Entities is their ability to hold substrings from user messages (or "utterances").  For example an Entity named "city" stores "Seattle" as extracted from "What's the weather in Seattle?".
-
-A second, powerful capability of Entities is their ability to constrain Actions by being explicitly set as "Required" or "Disqualifying."
+Entities capture the pieces of information that the Bot needs to perform its task, either through extraction from user utterances or assignment by custom code. Entities themselves can also constrain Action availability by being explicitly be classified as "Required" or "Disqualifying."
 
 - Required Entities must be present in the Model's memory in order for the Action to be available
 - Disqualifying Entities must *not* be present in the Model's memory in order for the action to be available
 
-Pre-Trained, Multi-Value, Negatable Entities and Programmatic Entities are covered in other tutorials. Manipulating entities is covered several other tutorials.
+This tutorial focuses on Custom Entities. Pre-Trained, Multi-Value, Negatable Entities and Programmatic Entities are introduced in other tutorials.
 
 ## Steps
 
 ### Create the Model
 
-1. In the Web UI, click New Model
-2. In Name, enter IntroToEntities. Then click Create.
+1. In the Web UI, click "New Model."
+2. In the "Name" field, type "IntroToEntities" and hit enter.
+3. Click the "Create" button.
 
-### Create Entity
+### Entity Creation
 
-1. Click Entities, then New Entity.
-2. In Entity Name, enter city.
-3. Click Create
+1. On the left panel, click "Entities", then the "New Entity" button.
+2. Select "Custom Trained" for the "Entity Type."
+3. Type "city" for the "Entity Name."
+4. Click the "Create" button.
 
 > [!NOTE]
-> The Entity Type is 'Custom' -- this means that the Entity can be trained.  There are also Pre-Trained Entities, meaning that their behavior cannot be adjusted. Pre-Trained Entities are covered in another tutorial.
+> The 'Custom Trained' entity type means this entity can be trained, unlike other types of Entities.
 
-### Create two Actions
+### Create the Actions
 
-1. Click Actions, then New Action.
-2. Enter 'I don't know what city you want' for the Bot's response.
-3. In Disqualifying Entities, enter city. Click Save.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "I don't know what city you want."
+3. In the "Disqualifying Entities" field, type "city."
+4. Click the "Create" button.
 
-Disqualifying this Entity removes this Action from consideration by the Bot if this Entity is defined in Bot's memory.
+> [!NOTE]
+> Adding the "city" Entity to "Disqualifying Entities" would disqualify this Action from the Bot's consideration when the "city" Entity is defined in the Bot's memory.
 
 Now, create a second Action.
 
-2. Click Actions, then New Action.
-3. Type 'The weather in the $city is probably sunny' for the Bot's Response.
-4. Notice how city Entity has been added automatically in the Required Entities list by reference in the response.
-5. Click Save.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "The weather in the $city is probably sunny."
+3. Click the "Create" button.
 
-Now you have two actions.
+> [!NOTE]
+> The "city" Entity has been added automatically in the Required Entities list by reference in the response.
 
 ![](../media/tutorial3_actions.PNG)
 
 ### Train the Model
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'hello'.
-3. Click Score Actions, and Select 'I don't know what city you want?'
-	- The Action where the city Entity is required cannot be selected because the city Entity is not defined in the Model's memory.
-2. Select 'I don't know what city you want'.
-4. Enter 'Seattle'. Highlight Seattle, then click city from the list of existing Entities.
-5. Click Score Actions
-	- City value is now in the Model's memory.
-	- 'Weather in $city is probably sunny' is now available as a response. 
-6. Select the 'Weather in $city is probably sunny' Action.
-
-Imagine the user enters 'repeat that' as they missed the most recent response. So type "repeat that" to mimic the user, then enter. Click Score Action and select the Action that includes the city Entity. Notice the city Entity retains the value Seattle.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hello."
+	- This simulates the user's side of the conversation.
+3. Click the "Score Actions" button.
+4. Select the response, "I don't know what city you want."
+5. As the user, respond with, "Seattle".
+6. Click the "Score Actions" button.
+7. Select the response, "Weather in $city is probably sunny."
+8. Click the "Save" button.
 
 ![](../media/tutorial3_entities.PNG)
-
-You have now created an Entity and labeled instances of Entities in user utterances.  You've also used the presence/absence of the entity in the Bot's memory to control when Actions are available, via the Action's Disqualifying and Required Entities properties.
 
 ## Next steps
 

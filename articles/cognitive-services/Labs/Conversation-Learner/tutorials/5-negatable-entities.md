@@ -26,73 +26,67 @@ This tutorial requires that the general tutorial bot is running
 	npm run tutorial-general
 
 ## Details
-Mark an Action as "Negatable" if the user can "clear" an Entity value, as in "No, I do not want $entity" or "no, not $entity." For example, "No, I do not want to leave from Boston."
-
-The "Negatable" property of an Entity:
-
-- Enables you to label both normal (positive) and a "negative" instances of the entity
-- Teach LUIS both positive and negative entity Models
-- Enables you to clear the value of an existing Entity
+The "Negatable" property of an Entity enables you to label both normal (positive) and negative instances of the Entity, teach based on positive and negative models and clear the value of an existing Entity. Entities with their "Negatable" property set are called Negatable Entities in Conversation Leaner.
 
 ## Steps
 
 ### Create the Model
 
-1. In the Web UI, click New Model
-2. In Name, enter NegatableEntity. Then click Create.
+1. In the Web UI, click "New Model."
+2. In the "Name" field, type "NegatableEntity" and hit enter.
+3. Click the "Create" button.
 
-### Create an Entity
+### Entity Creation
 
-1. Click Entities, then New Entity.
-2. In Entity Name, enter name.
-3. Check Negatable.
-	- This property indicates the user will be able to provide a value for the entity, or say something is *not* the value of the entity. In the latter case, this will result in deleting a matching value of the entity.
-3. Click Create.
+1. On the left panel, click "Entities", then the "New Entity" button.
+2. Select "Custom" for the "Entity Type."
+3. Type "name" for the "Entity Name."
+4. Check the "Negatable" check-box.
+	- Checking this property enables the user to provide an entity value, or say something is *not* an entity value. In the latter case, the result is deletion of the matching entity value.
+5. Click the "Create" button.
 
 ![](../media/tutorial5_entities.PNG)
 
-### Create two Actions
+### Create the First Action
 
-1. Click Actions, then New Action.
-2. Type 'I don't know your name' for the Bot's Response. 
-3. In Disqualifying Entities, enter name.
-3. Click Create.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "I don't know your name."
+3. In the "Disqualifying Entitles" field, type "name."
+4. Click the "Create" button.
 
-Then create the second action.
+### Create the Second Action
 
-1. Click Actions, then New Action to create a second action.
-3. Type 'I know your name. It is $name' for the Bot's Response.
-4. Click Create.
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "I know your name. It is $name."
+3. Click the "Create" button.
+
+> [!NOTE]
+> The "name" Entity was automatically added as a "Required Entities" by reference in the response.
 
 Now you have two actions.
 
 ![](../media/tutorial5_actions.PNG)
 
-### Train the Bot
+### Train the Model
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'hello'.
-3. Click Score Actions, and Select 'I don't know your name'
-	- The score is 100% because it is the only valid action.
-2. Enter 'my name is Frank'
-3. Select 'Frank', and choose the label '+name'
-	- There are two instances of 'name': '+name' and '-name'.  (+) Plus adds or overwrites the value. (-) Minus removes the value.
-5. Click Score Actions.
-	- The name value is now in the Bot's memory.
-	- 'I know your name. It is $name' is the only available response. 
-6. Select 'I know your name. It is $name'.
-
-Let's try clearing the negatable entity:
-
-1. Enter 'my name is not Frank'.
-	- Notice 'not' is selected as name based on the previous pattern. This label is incorrect.
-2. Click on '-name'. 
-3. Click Score Actions.
-4. Click 'I don't know your name" from the listed responses.
-5. Type 'my name is susan'.
-	- This is now a Negative Entity communicating that this is not the value of the name Entity.
-6. Click Score Actions.
-7. Select 'I know your name. It is $name'.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hello."
+3. Click the "Score Actions" button.
+4. Select the response, "I don't know your name."
+	- The percentile is 100%, as the only valid Action based on the constraints.
+5. In the chat panel, where it says "Type your message...", type in "My name is Frank"
+6. Select 'Frank', and choose the label "+name"
+	- There are two instances for the "name" Entity: "+name" and "-name".  (+) Plus adds or overwrites the value. (-) Minus removes the value.
+7. Click the "Score Actions" button.
+	- The "name" Entity now is defined as "Frank" in the Model's memory, so the "I know your name. It is $name" Action is available.
+8. Select the response, "I know your name. It is $name."
+9. In the chat panel, where it says "Type your message...", type in "My name is not Frank."
+10. Select "Frank", and choose the label "-name"
+	- We are selecting "-name" to clear the Entity's current value.
+11. Click the "Score Actions" button.
+12. Select the response, "I don't know your name."
+13. In the chat panel, where it says "Type your message...", type in "My name is Susan."
+14. Select 'Susan', and choose the label "+name"
 
 ![](../media/tutorial5_dialogs.PNG)
 

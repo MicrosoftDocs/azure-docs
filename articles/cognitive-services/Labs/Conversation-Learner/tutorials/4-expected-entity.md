@@ -38,33 +38,40 @@ When adding Entities to the "Expected Entity" property of an Action, the system 
 
 ### Create the Model
 
-1. In the Web UI, click New Model
-2. In Name, enter ExpectedEntities. Then click Create.
+1. In the Web UI, click "New Model."
+2. In the "Name" field, type "ExpectedEntities" and hit enter.
+3. Click the "Create" button.
 
-### Create an Entity
+### Entity Creation
 
-1. Click Entities, then New Entity.
-2. In Entity Name, enter name.
-3. Click Create
+1. On the left panel, click "Entities", then the "New Entity" button.
+2. Select "Custom Trained" for the "Entity Type."
+3. Type "name" for the "Entity Name."
+4. Click the "Create" button.
 
 > [!NOTE]
-> The Entity type is 'Custom'. This value means that the Entity can be trained.  There are also Pre-Trained Entities, meaning that their behavior cannot be adjusted.  These Entities are covered in the [Pre-Trained Entities tutorial](./7-built-in-entities.md).
+> The 'Custom Trained' entity type means this entity can be trained, unlike other types of Entities.
 
 ![](../media/tutorial4_entities.PNG)
 
-### Create two Actions
+### Create the First Action
 
-1. Click Actions, then New Action.
-2. In Response, type 'What's your name?'
-3. In Expected Entities, enter "name". Click Create.
-	- This saves the user's response to $name if this Action is chosen. If no Entities are detected in the response, the Bot saves the entire response into $name.
-	- And automatically adds the Entity to the list of Disqualifying Entities. 
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "What's your name?"
+3. In the "Expected Entities" field, type "name."
+4. Click the "Create" button.
 
-Now create a second Action.
+> [!NOTE]
+> Entities detected and extracted from the user's response will be saved to the "name" entity if this Action is chosen. If no entities are detected, the entire response will be saved to this entity.
 
-1. Click Actions, then New Action.
-2. Type 'Hi $name' for the response. Notice the Entity is automatically added as a Required Entity.
-4. Click Create.
+### Create the Second Action
+
+1. On the left panel, click "Actions", then the "New Action" button.
+2. In the "Bot's response..." field, type "Hi $name!"
+3. Click the "Create" button.
+
+> [!NOTE]
+> The "name" Entity was automatically added as a "Required Entities" by reference in the response.
 
 Now you have two actions.
 
@@ -72,24 +79,28 @@ Now you have two actions.
 
 ### Train the Model
 
-1. Click Train Dialogs, then New Train Dialog.
-2. Type 'hi'.
-3. Click Score Actions, and Select 'What's your name?'
-	- The response 'Hi $name!' cannot be selected, because it requires the Entity $name to be defined, and $name is not in the Model's memory.
-2. Enter 'Frank'. 
-	- The name is highlighted as an Entity due to the heuristic we set up earlier to select the response as the Entity.
-5. Click Score Actions
-	- The name value is now in the Model's memory.
-	- 'Hello $name' is now available as a response. 
-6. Select 'Hi Frank!'.
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hi."
+	- This simulates the user's side of the conversation.
+3. Click the "Score Actions" button.
+4. Select the response, "What's your name?"
+	- The "Hi $name!" response cannot be selected as this response requires the "name" Entity to be defined in the Model's memory now.
+5. In the chat panel, where it says "Type your message...", type in "Frank."
+	- "Frank" is highlighted as an Entity based on the heuristic we set up earlier to save the response as the Entity.
+6. Click the "Score Actions" button.
+	- The "name" Entity now is defined as "Frank" in the Model's memory, so the "Hello $name" action is selectable as an Action.
+7. Select the response, "Hi $name!"
+8. Click the "Save" button.
 
-Here is a second example, based on alternative input that engages the heuristics to further train the Model.
+Adding alternative inputs further trains the Model.
 
-1. Enter "I'm Jose" as alternative input. Note the Model does not recognize the name as an Entity so it selects the entire text block
-2. Highlight the full "I'm Jose" text block and click the Delete icon to undo the Model's heuristics selection.
-3. Highlight just "Jose" and click "name" from the Entity list.
-3. Click Score Actions.
-4. Select the "Hi Frank!" response.
+1. In the "Add alternative input..." field, type "I'm Jose."
+	- The Model does not recognize the name as an Entity so it selects the entire text block as the entity's value
+2. Click on the "I'm Jose" phrase, then click the trash can icon.
+3. Click on "Jose", then click "name" from the Entity list.
+4. Click Score Actions.
+5. Select the response, "Hi Frank!"
+6. Click the "Save" button.
 
 ![](../media/tutorial4_dialogs.PNG)
 
