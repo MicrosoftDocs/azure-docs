@@ -31,13 +31,13 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create an app with continuous deployment from GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app with continuous publishing from a GitHub repository you own. |
 | [Create an app and deploy code from a local Git repository](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and configures code push from a local Git repository. |
 | [Create an app and deploy code to a staging environment](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app with a deployment slot for staging code changes. |
-| [Create an ASP.NET Core web app in a Docker container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
+| [Create an ASP.NET Core app in a Docker container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app on Linux and loads a Docker image from Docker Hub. |
 |**Configure app**||
-| [Map a custom domain to a web app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and maps a custom domain name to it. |
-| [Bind a custom SSL certificate to a web app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and binds the SSL certificate of a custom domain name to it. |
+| [Map a custom domain to an app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and maps a custom domain name to it. |
+| [Bind a custom SSL certificate to an app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and binds the SSL certificate of a custom domain name to it. |
 |**Scale app**||
-| [Scale a web app manually](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and scales it across 2 instances. |
-| [Scale a web app worldwide with a high-availability architecture](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two Azure web apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
+| [Scale an app manually](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and scales it across 2 instances. |
+| [Scale an app worldwide with a high-availability architecture](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two App Service apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
 |**Connect app to resources**||
 | [Connect a web app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and a SQL database, then adds the database connection string to the app settings. |
 | [Connect a web app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
