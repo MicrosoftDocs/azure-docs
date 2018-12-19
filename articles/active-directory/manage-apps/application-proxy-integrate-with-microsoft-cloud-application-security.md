@@ -41,7 +41,7 @@ Configure Application Proxy:
 
 ## Add on-premises application to Azure AD
 
-Use the quickstart, [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to add the on-premises application to Azure AD. When you fill in the application information, choose the following two settings that are required for the application to work with MCAS:
+Add an on-premises application to Azure AD. For a quickstart, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). When adding the application, be sure to set the following two settings which are required for the application to work with MCAS:
 
 - Pre-authentication method: Enter **Azure Active Directory**.
 - Full body link translation: Choose **Yes**.
