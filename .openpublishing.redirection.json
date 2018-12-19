@@ -1768,6 +1768,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-migrate-your-sql-server-database.md",
+            "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-implementation-daxko.md",
             "redirect_url": "http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services",
             "redirect_document_id": false
@@ -13692,11 +13697,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
-            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
@@ -13705,11 +13705,6 @@
             "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-api-languages.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/language-support",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/Emotion/index.md",
@@ -13760,6 +13755,16 @@
             "source_path": "articles/cognitive-services/Translator/languages.md",
             "redirect_url": "/azure/cognitive-services/Translator/language-support",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/index.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/translator-speech/translator-speech-how-to-signup.md",
+            "redirect_url": "/azure/cognitive-services/translator-speech/overview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-solution-build-system.md",
@@ -33141,6 +33146,11 @@
             "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
             "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
             "redirect_document_id": false            
+        },
+			{
+			"source_path": "articles/application-insights/app-insights-analytics-import.md",
+			"redirect_url": "/azure/azure-monitor/platform/data-collector-api",
+			"redirect_document_id": false
         }
     ]
 }

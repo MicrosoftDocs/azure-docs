@@ -1,7 +1,7 @@
 ---
 title: Reviewing endpoint utterances
 titleSuffix: Azure Cognitive Services
-description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
+description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/18/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 

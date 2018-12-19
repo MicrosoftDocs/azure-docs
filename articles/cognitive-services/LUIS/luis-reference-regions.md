@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
 ---
-# Regions and keys
+# Authoring and publishing regions and the associated keys
 
 The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./luis-how-to-publish-app.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
 
