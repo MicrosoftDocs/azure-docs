@@ -13,7 +13,7 @@ ms.author: sngun
 ms.custom: mvc
 ---
 
-# Tutorial: Migrate your data to Azure Cosmos DB API account for MongoDB
+# Tutorial: Migrate your data to Azure Cosmos DB for MongoDB API account
 
 This tutorial provides instructions on how to migrate data stored in MongoDB to Azure Cosmos DB for MongoDB API. If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import data.
 
@@ -55,7 +55,7 @@ Before migrating data to Azure Cosmos DB for MongoDB API, make sure that you hav
 
 1. Calculate the approximate RU charge for a single document write:
 
-   a. Connect to your Azure Cosmos DB for MongoDB API from the MongoDB Shell. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
+   a. Connect to your Azure Cosmos DB for MongoDB API account from the MongoDB Shell. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
     
    b. Run a sample insert command by using one of your sample documents from the MongoDB Shell:
    

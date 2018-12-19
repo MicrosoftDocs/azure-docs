@@ -11,9 +11,9 @@ ms.topic: sample
 ms.date: 05/29/2018
 ---
 
-# Create a Azure Cosmos DB API account for MongoDB using PowerShell
+# Create a Azure Cosmos DB for MongoDB API account using PowerShell
 
-This sample PowerShell script creates an Azure Cosmos DB API account for MongoDB. 
+This sample PowerShell script creates an Azure Cosmos DB for MongoDB API account. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

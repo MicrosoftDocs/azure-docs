@@ -1,6 +1,6 @@
 ---
 title: MongoDB per-document TTL feature in Azure Cosmos DB
-description: Learn how to set time to live value in Azure Cosmos DB API accounts for MongoDB to automatically purge them from the system after a period of time.
+description: Learn how to set time to live value for documents in Azure Cosmos DB for MongoDB API accounts to automatically purge them from the system after a period of time.
 services: cosmos-db
 author: orestis-ms
 ms.author: orkostak
@@ -66,7 +66,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## How to activate the per-document TTL feature
-The per-document TTL feature can be activated via the Azure Cosmos DB API account for MongoDB. 
+The per-document TTL feature can be activated via the Azure Cosmos DB for MongoDB API account. 
 
 ![Screen shot of the Per-document TTL feature activation in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 

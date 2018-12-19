@@ -34,5 +34,3 @@ For more help writing queries, see the following articles:
 * For MongoDB queries, see [Query using the Azure Cosmos DB for MongoDB API](tutorial-query-mongodb.md) and [Azure Cosmos DB for MongoDB API support for MongoDB features and syntax](mongodb-feature-support.md)
 * For Gremlin API queries, see [Query using the Gremlin API](tutorial-query-graph.md) and [Azure Cosmos DB Gremlin graph support](gremlin-support.md)
 * For Table API queries, see [Query using the Table API](tutorial-query-table.md)
-
-

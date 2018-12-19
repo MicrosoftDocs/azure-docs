@@ -166,5 +166,5 @@ If you're not going to continue to use this app, delete all resources created by
 ## Next steps
 
 * [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
-* [Setup a globally replicated Azure Cosmos DB account for MongoDB](tutorial-global-distribution-mongodb.md)
+* [Setup a globally replicated Azure Cosmos DB for MongoDB API account](tutorial-global-distribution-mongodb.md)
 * [Develop locally with the emulator](local-emulator.md)

@@ -303,7 +303,7 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 ## Next steps
 
-Learn more about the MongoDB operations, operators, stages, commands and options supported by the Azure Cosmos DB for MongoDB API in the [MongoDB features and syntax](mongodb-feature-support.md) article.
+Learn more about the MongoDB operations, operators, stages, commands and options supported by the Azure Cosmos DB for MongoDB API in the [Azure Cosmos DB for MongoDB API features and syntax](mongodb-feature-support.md) article.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
