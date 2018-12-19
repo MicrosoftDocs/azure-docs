@@ -28,20 +28,16 @@ Copy the appropriate string and use your SSH client or Cloud Shell to connect to
 
 ## Submit a Job
 
-Check the status of the job queue with the following commands:
-
-```CMD
-$ qstat
-$ qstat -f
-```
-The output should confirm that no jobs are running and no execute nodes are provisioned:
+Check the status of the job queue with the `qstat -Q` command and the provisioned execute nodes with `pbsnodes -Sa`. The output should confirm that no jobs are running and no execute nodes are provisioned:
 
 ``` output
-[name@ip-0A000404 ~]$ qstat -Q
+[name@ip-00000000 ~]$ qstat -Q
 Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
 ---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
 workq                0     0 yes yes     0     0     0     0     0     0 Exec
-[name@ip-0A000404 ~]$
+[name@ip-00000000 ~]$ pbsnodes -Sa
+vnode           state           OS       hardware host            queue        mem     ncpus   nmics   ngpus  comment
+--------------- --------------- -------- -------- --------------- ---------- -------- ------- ------- ------- ---------
 ```
 
 Change to the "demo" directory and submit the LAMMPS job using the existing `runpi.sh` script:
@@ -53,13 +49,18 @@ cd demo
 
 The `runpi.sh` script prepares a sample job that contains 1000 individual tasks, and submits that job using the `qsub` command. You can view the contents of the script by running the `cat` command.
 
-Verify that the job is now in the queue with `qstat -Q`:
+Verify that the job is now in the queue with `qstat -Q` and that execute nodes are provisioned with `pbsnodes -Sa`:
 
 ``` output
-[name@ip-0A000404 ~]$ qstat -Q
+[name@ip-00000000 ~]$ qstat -Q
 Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
 ---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
 workq                0     1 yes yes     1     0     0     0     0     0 Exec
+[name@ip-00000000 ~]$ pbsnodes -Sa
+vnode           state           OS       hardware host            queue        mem     ncpus   nmics   ngpus  comment
+--------------- --------------- -------- -------- --------------- ---------- -------- ------- ------- ------- ---------
+ip-0000000A     job-busy        --       --       ip-0000000a     --              4gb       2       0       0 --
+ip-0000000B     job-busy        --       --       ip-0000000b     --              4gb       2       0       0 --
 ```
 
 ## Auto Scale
