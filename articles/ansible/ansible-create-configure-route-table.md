@@ -1,5 +1,5 @@
 ---
-title: Create, change or delete a route table using Ansible
+title: Create, change, or delete a route table using Ansible
 description: Learn how to use Ansible to create, change or delete a route table using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ---
 
-# Create, change or delete a route table using Ansible
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a [route table](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+# Create, change, or delete a route table using Ansible
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of default routing on Azure, you do so by creating a [route table](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to create, change or delete an Azure route table, and attach the route table to a subnet as well. It means you can use Ansible to automatically routes traffic between Azure subnets, virtual networks and on-premises networks.
+Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to create, change or delete an Azure route table, and attach the route table to a subnet as well. It means you can use Ansible to automatically routes traffic between Azure subnets, virtual networks, and on-premises networks.
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -37,9 +37,7 @@ This section presents a sample Ansible playbook that creates a route table. Ther
         resource_group: "{{ resource_group }}"
 ```
 
-Save this playbook as `route_table_create.yml`.
-
-To run the playbook,  use the **ansible-playbook** command as follows:
+Save this playbook as `route_table_create.yml`. To run the playbook,  use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook route_table_create.yml
@@ -48,7 +46,7 @@ ansible-playbook route_table_create.yml
 ## Associate a route table to a subnet
 A subnet can have zero or one route table associated to it. A route table can be associated to zero or multiple subnets. Since route tables are not associated to virtual networks, you must associate a route table to each subnet you want the route table associated to. All traffic leaving the subnet is routed based on routes you've created within route tables, [default routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default), and routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute, or VPN, if using BGP with a VPN gateway). You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
 
-This section presents a sample Ansible playbook that creates a virtual network and a submit, then asscociates a route table to the subnet.
+This section presents a sample Ansible playbook that creates a virtual network and a submit, then associates a route table to the subnet.
 
 ```yml
 - hosts: localhost
@@ -77,9 +75,7 @@ This section presents a sample Ansible playbook that creates a virtual network a
         route_table: "{ route_table_name }"
 ```
 
-Save this playbook as `route_table_associate.yml`.
-
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Save this playbook as `route_table_associate.yml`. To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook routetable_associate.yml
@@ -103,9 +99,7 @@ When you dissociate a route table from a subnet, you just need to set the `route
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Save this playbook as `route_table_dissociate.yml`.
-
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Save this playbook as `route_table_dissociate.yml`. To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook route_table_dissociate.yml
@@ -131,8 +125,14 @@ Below is a sample ansible playbook.
          var: query.route_tables[0]
 ```
 
+Save this playbook as `route_table_facts.yml`. To run the Ansible playbook, use the **ansible-playbook** command as follows:
+
+```bash
+ansible-playbook route_table_facts.yml
+```
+
 ## Delete a route table
-If a route table is associated to any subnets, it cannot be deleted. [Dissociate](#dissociate-a-route table-from-a-subnet) a route table from all subnets before attempting to delete it.
+If a route table is associated to any subnets, it cannot be deleted. [Dissociate](#dissociate-a-route-table-from-a-subnet) a route table from all subnets before attempting to delete it.
 
 You can delete the route table together with all routes. Below is a sample ansible playbook. 
 
@@ -149,16 +149,14 @@ You can delete the route table together with all routes. Below is a sample ansib
         state: absent
 ```
 
-Save this playbook as `route_table_delete.yml`.
-
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Save this playbook as `route_table_delete.yml`. To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook route_table_delete.yml
 ```
 
 ## Create a route
-This section presents a sample Ansible playbook that creates a route under the route table. It defines  `virtual_network_gateway` as `next_hop_type` and `10.1.0.0/16` as `address_prefix`. The prefix cannot be duplicated in more than one route within the route table, though the prefix can be within another prefix. To learn more about how Azure selects routes and a detailed description of all next hop types, see [Routing overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)
+This section presents a sample Ansible playbook that creates a route under the route table. It defines  `virtual_network_gateway` as `next_hop_type` and `10.1.0.0/16` as `address_prefix`. The prefix cannot be duplicated in more than one route within the route table, though the prefix can be within another prefix. To learn more about how Azure selects routes and a detailed description of all next hop types, see [Routing overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 ```yml
 - hosts: localhost
@@ -175,9 +173,7 @@ This section presents a sample Ansible playbook that creates a route under the r
         address_prefix: "10.1.0.0/16"
         route_table_name: "{{ route_table_name }}"
 ```
-Save this playbook as `route_create.yml`.
-
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Save this playbook as `route_create.yml`. To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook route_create.yml
@@ -201,9 +197,7 @@ This section presents a sample Ansible playbook that deletes a route from a rout
         state: absent
 ```
 
-Save this playbook as `route_delete.yml`.
-
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Save this playbook as `route_delete.yml`. To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook route_delete.yml
