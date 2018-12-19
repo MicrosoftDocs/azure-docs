@@ -17,7 +17,7 @@ ms.author: scottwhi
 
 This tutorial describes the process of uploading an image to Bing and getting back insights within a web application. It also shows how to access and display the insights in the JSON response. Note that this application does not adhere to all [Bing Use and Display Requirements](./use-and-display-requirements.md) for using the API.
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create an HTML page
 

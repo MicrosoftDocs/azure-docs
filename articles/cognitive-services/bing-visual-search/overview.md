@@ -60,4 +60,4 @@ To get started quickly with your first request, see the quickstarts: [C#](quicks
 
 * The [Bing Visual Search reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) documentation contains definitions and information on the endpoints, headers, API responses, and query parameters that you can use to request image-based search results.
 
-* The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
+* The [Bing Use and Display Requirements](./use-and-display-requirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.

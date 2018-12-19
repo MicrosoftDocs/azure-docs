@@ -246,7 +246,7 @@ The `tags` field contains a display name and list of actions (insights). One of 
 }
 ```
 
-For a list of the default insights, see [Default insights](./default-insights-tag.md).
+For a list of the default insights, see [Default insights](../default-insights-tag.md).
 
 
 
@@ -412,5 +412,5 @@ If the image contains a recognized entity such as a person, place, or thing, one
 
 ## See also
 
-* [What is the Bing Visual Search API](overview.md)
-* [Tutorial: Build a single-page Web app - Bing Visual Search](tutorial-bing-visual-search-single-page-app.md)
+* [What is the Bing Visual Search API](../overview.md)
+* [Tutorial: Build a single-page Web app - Bing Visual Search](../tutorial-bing-visual-search-single-page-app.md)

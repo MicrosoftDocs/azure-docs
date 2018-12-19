@@ -27,7 +27,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 
 ## Create and initialize the application
