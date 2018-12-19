@@ -195,7 +195,7 @@ The following video covers the preceding steps:<br /><br />
 ## If data isn't showing up in the Forwarded Events folder
 If data isn't showing up in the Forwarded Events folder after an hour, complete these steps:
 
-1. Check the machine that's running the Azure Log Integration service. Confirm that it can access Azure. To test connectivity, in a browser, try to go to the [Azure portal](http://portal.azure.com).
+1. Check the machine that's running the Azure Log Integration service. Confirm that it can access Azure. To test connectivity, in a browser, try to go to the [Azure portal](https://portal.azure.com).
 2. Make sure that the user account Azlog has write permission for the folder users\Azlog.
   1. Open File Explorer.
   2. Go to C:\users.

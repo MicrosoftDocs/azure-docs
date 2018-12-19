@@ -119,6 +119,8 @@
         href: redirect-external-site-cli.md
     - name: HTTP to HTTPS
       items:
+      - name: Azure portal
+        href: redirect-http-to-https-portal.md
       - name: Azure PowerShell
         href: redirect-http-to-https-powershell.md
       - name: Azure CLI

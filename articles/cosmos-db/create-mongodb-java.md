@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build a console app with Java and the MongoDB API'
-description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB MongoDB API
+title: 'Build a console app with Java and the Azure Cosmos DB API for MongoDB'
+description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB API for MongoDB
 services: cosmos-db
 author: slyons
 
@@ -13,7 +13,7 @@ ms.date: 05/10/2017
 ms.author: sclyon
 
 ---
-# Azure Cosmos DB: Build a MongoDB API console app with Java and the Azure portal
+# Build a console app with Java and the Azure Cosmos DB API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -26,7 +26,7 @@ ms.author: sclyon
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [MongoDB API](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
+This quick start demonstrates how to create an [Azure Cosmos DB API for MongoDB](mongodb-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Name your new database, **db**, and your new collection, **coll**.
 
 ## Clone the sample application
 
-Now let's clone a MongoDB API app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Azure Cosmos DB API for MongoDB app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

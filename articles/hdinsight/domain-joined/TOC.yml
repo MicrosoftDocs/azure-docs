@@ -25,7 +25,7 @@
   - name: Use Eclipse to link to ESP cluster
     href: ../spark/apache-spark-eclipse-tool-plugin.md
     maintainContext: true
-  - name: Use Oozie in ESP clusters
+  - name: Use Apache Oozie in ESP clusters
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Securing data
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
@@ -38,10 +38,10 @@
   - name: Connect HDInsight with on-premises network
     href: ../connect-on-premises-network.md
     maintainContext: true
-  - name: Create HBase cluster in Azure VNet
+  - name: Create Apache HBase cluster in Azure VNet
     href: ../hbase/apache-hbase-provision-vnet.md
     maintainContext: true
-  - name: HBase cluster replication in Azure VNet
+  - name: Apache HBase cluster replication in Azure VNet
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
 - name: Monitoring using Log Analytics
@@ -69,13 +69,13 @@
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Resources
   items:

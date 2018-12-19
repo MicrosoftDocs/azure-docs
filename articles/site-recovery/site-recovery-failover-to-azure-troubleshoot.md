@@ -12,7 +12,7 @@ ms.service: site-recovery
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
 ---
 # Troubleshoot errors when failing over a virtual machine to Azure
@@ -108,9 +108,6 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 When booting up a Windows VM post failover, if you receive an unexpected shutdown message on the recovered VM, it indicates that a VM shutdown state was not captured in the recovery point used for failover. This happens when you recover to a point when the VM had not been fully shut down.
 
 This is normally not a cause for concern and can usually be ignored for unplanned failovers. In the case of a planned failover, ensure that the VM is properly shut down prior to failover and provide sufficient time for pending replication data on-premises to be sent to Azure. Then use the **Latest** option on the [Failover screen](site-recovery-failover.md#run-a-failover) so that any pending data on Azure is processed into a recovery point, which is then used for VM failover.
-
-## Retaining drive letter after failover
-To retain the drive letter on virtual machines after failover, you can set the **SAN Policy** for the virtual machine on-premises to **OnlineAll**. [Read more](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## Next steps
 - Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)

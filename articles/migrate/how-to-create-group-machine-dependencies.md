@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -13,6 +13,8 @@ ms.author: raynew
 
 This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment by visualizing dependencies of machines. You typically use this method when you want to assess groups of VMs with higher levels of confidence by cross-checking machine dependencies, before you run an assessment. Dependency visualization can help you effectively plan your migration to Azure. It helps you ensure that nothing is left behind and surprise outages do not occur when you are migrating to Azure. You can discover all interdependent systems that need to migrate together and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.
 
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ## Prepare for dependency visualization
 Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
@@ -85,7 +87,7 @@ Learn more about the Dependency agent support for the [Windows](../azure-monitor
     - Processes running inside the machine, you can expand each machine box to view the processes
     - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
- ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.

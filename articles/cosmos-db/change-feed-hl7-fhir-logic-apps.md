@@ -20,7 +20,7 @@ This article walks through the change feed notification solution created for thi
 
 ## Project requirements
 - Providers send HL7 Consolidated-Clinical Document Architecture (C-CDA) documents in XML format. C-CDA documents encompass just about every type of clinical document, including clinical documents such as family histories and immunization records, as well as administrative, workflow, and financial documents. 
-- C-CDA documents are converted to [HL7 FHIR Resources](http://hl7.org/fhir/2017Jan/resourcelist.html) in JSON format.
+- C-CDA documents are converted to [HL7 FHIR Resources](https://hl7.org/fhir/2017Jan/resourcelist.html) in JSON format.
 - Modified FHIR resource documents are sent by email in JSON format.
 
 ## Solution workflow 

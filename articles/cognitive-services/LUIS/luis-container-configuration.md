@@ -1,10 +1,11 @@
 ---
-title: Docker container settings for Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Docker container settings
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.   
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual 
@@ -12,7 +13,7 @@ ms.date: 12/04/2018
 ms.author: diberry 
 ---
 
-# Configure containers
+# Configure Language Understanding docker containers 
 
 The Language Understanding (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
 
@@ -78,7 +79,7 @@ The `Eula` setting indicates that you've accepted the license for the container.
 |--|------|-----------|-------------|
 |Yes| `Eula` | String | License acceptance<br><br>Example:<br>`Eula=accept` |
 
-Cognitive Services containers are licensed under your agreement governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the Microsoft Online Subscription Agreement (which incorporates the Online Services Terms). For previews, you also agree to the Supplemental Terms of Use for Microsoft Azure Previews. By using the container you agree to these terms.
+Cognitive Services containers are licensed under [your agreement](https://go.microsoft.com/fwlink/?linkid=2018657) governing your use of Azure. If you do not have an existing agreement governing your use of Azure, you agree that your agreement governing use of Azure is the [Microsoft Online Subscription Agreement](https://go.microsoft.com/fwlink/?linkid=2018755), which incorporates the [Online Services Terms](https://go.microsoft.com/fwlink/?linkid=2018760). For previews, you also agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://go.microsoft.com/fwlink/?linkid=2018815). By using the container you agree to these terms.
 
 ## Fluentd settings
 

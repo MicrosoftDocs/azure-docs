@@ -4,9 +4,9 @@ description: Use this article to plan capacity and scale when setting up disaste
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: nisoneji
+ms.author: mayg
 ---
 
 # Plan capacity and scaling for VMware disaster recovery to Azure
@@ -76,7 +76,7 @@ After you've used the [the Deployment Planner tool](site-recovery-deployment-pla
 
 ### Throttle bandwidth
 
-1. Open the Azure Backup MMC snap-in on the machine acting as the process server. By default, a shortcut for Backup is available on the desktop, or in the following folder: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+1. Open the Azure Backup MMC snap-in on the machine acting as the process server. By default, a shortcut for Backup is available on the desktop, or in the following folder: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
 2. In the snap-in, click **Change Properties**.
 
     ![Screenshot of Azure Backup MMC snap-in option to change properties](./media/site-recovery-vmware-to-azure/throttle1.png)

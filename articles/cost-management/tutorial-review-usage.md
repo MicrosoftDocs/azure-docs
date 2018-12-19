@@ -5,10 +5,10 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
+ms.custom: seodec18
 manager: benshy
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
@@ -45,15 +45,15 @@ You track actual money spent for usage and costs with Over Time reports to ident
 
 Here is an example report:
 
-![example report](./media/tutorial-review-usage/actual-cost01.png)
+![Example Actual Cost Over Time report](./media/tutorial-review-usage/actual-cost01.png)
 
 The report shows all spending over the last 30 days. To view only spending for Azure services, apply the Service group and then filter for all Azure services. The following image shows the filtered services.
 
-![filtered services](./media/tutorial-review-usage/actual-cost02.png)
+![Example showing filtered Azure services](./media/tutorial-review-usage/actual-cost02.png)
 
 In the preceding example, less money was spent starting on 2018-10-29. But, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The following image shows the trend more clearly.
 
-![trend in report](./media/tutorial-review-usage/actual-cost03.png)
+![Example showing a decreasing Azure VM cost trend](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuing with the example, you can see that the cost for Azure VM dropped. Costs for other Azure services also started dropping on that day. So, what caused that reduction in spending? In this example, a large work project was completed so consumption of many Azure services also dropped.
 
@@ -71,15 +71,15 @@ The Cost Effective Sizing Recommendations report identifies potential annual sav
 
 On the menu at the top of the portal, click **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. If useful, apply a filter to reduce results. Here’s an example image.
 
-![Azure VMs](./media/tutorial-review-usage/sizing01.png)
+![Cost effective sizing recommendation report for Azure VMs](./media/tutorial-review-usage/sizing01.png)
 
 In this example, $2,382 could be saved by following the recommendations to change the VM instance types. Click the plus symbol (+) under **Details** for the first recommendation. Here are details about the first recommendation.
 
-![recommendation details](./media/tutorial-review-usage/sizing02.png)
+![Example showing recommendation details](./media/tutorial-review-usage/sizing02.png)
 
 View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
-![List of Candidates](./media/tutorial-review-usage/sizing03.png)
+![Example showing a list of VM candidates to resize](./media/tutorial-review-usage/sizing03.png)
 
 To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704).
 
@@ -93,7 +93,7 @@ You create an alert for any spending using any Cost report. In this example, use
 
 In the Save or Schedule this report box, use the **Scheduling** tab to send yourself an email of the report using the frequency that you want. Be sure to select **Send via email**. Any tags, grouping, and filtering you used are included in the emailed report. Click the **Threshold** tab and select choose **Actual Cost vs. Threshold**. If you had a total budget of $20,000 and you wanted notification when costs near about half, create a **Red alert** at $10,000 and a **Yellow alert** at $9,000. Don't include commas in values that you enter. Then, choose the number of consecutive alerts. When you receive the total number of alerts that you specified, no additional alerts are sent. Save the scheduled report.
 
-![example report](./media/tutorial-review-usage/schedule-alert01.png)
+![Example showing red and yellow alerts based on spending thresholds](./media/tutorial-review-usage/schedule-alert01.png)
 
 You can also choose the Cost Percentage vs. Budget threshold metric to create alerts. By using that metric, you can use budget percentages instead of currency values.
 

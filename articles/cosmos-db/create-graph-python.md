@@ -38,7 +38,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 In addition:
 * [Python](https://www.python.org/downloads/) version v3.5 or newer
 * [pip package manager](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## Create a database account
@@ -97,7 +97,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Keys**. 
 
     Copy the first portion of the URI value.
 

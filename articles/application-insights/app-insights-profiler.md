@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Profile live Azure web apps with Application Insights
 
-Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on Web Apps. The Basic service tier or higher is required to use Profiler.
+Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on Web Apps. The Basic service tier or higher is required to use Profiler. Enabling Profiler on Linux is currently only possible via [this method](app-insights-profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Enable Profiler for your Web Apps
 To enable Profiler for a web app, follow the instructions below. If you are running a different type of Azure service, here are instructions for enabling Profiler on other supported platforms:
@@ -23,11 +23,10 @@ To enable Profiler for a web app, follow the instructions below. If you are runn
 * [Service Fabric Applications](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler is pre-installed as part of the App Services runtime, but you need to turn it on to get profiles for your Azure Web Apps. Once you have deployed a Web App, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.
 
 1. Go to the **App Services** pane in the Azure portal.
-1. Navigate to **Settings > Monitoring** pane.
+1. Navigate to **Settings > Application Insights** pane.
 
    ![Enable App Insights on App Services portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 

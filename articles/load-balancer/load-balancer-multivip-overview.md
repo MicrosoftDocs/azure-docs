@@ -1,10 +1,12 @@
 ---
-title: Multiple Frontends for Azure Load Balancer | Microsoft Docs
+title: Multiple Frontends for Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Overview of Multiple Frontends on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

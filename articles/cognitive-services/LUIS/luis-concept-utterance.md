@@ -1,17 +1,18 @@
 ---
-title: Utterances in LUIS apps
-titleSuffix: Azure Cognitive Services
+title: Good example utterances 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 ms.author: diberry
 ---
-# Utterances in LUIS
+# Understand what good utterances are for your LUIS app
 
 **Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
 

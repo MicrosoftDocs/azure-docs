@@ -1,6 +1,7 @@
 ---
-title: Export or delete workspace data - Azure Machine Learning  | Microsoft Docs
-description: In Azure Machine Learning, you can export or delete your workspace with the Azure portal, CLI, SDK, and authenticated REST APIs. This article shows you how.
+title: Export or delete workspace data
+titleSuffix: Azure Machine Learning service
+description: Learn how to export or delete your workspace with the Azure portal, CLI, SDK, and authenticated REST APIs.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,6 +11,7 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
+ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 
 

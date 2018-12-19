@@ -81,7 +81,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### AI and deep learning
 
-* [Batch AI](../articles/batch-ai/overview.md) training for deep learning models
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Deep Learning VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -163,7 +162,6 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 
 ### AI and machine learning
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### Networking

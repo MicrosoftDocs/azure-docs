@@ -32,8 +32,10 @@ Use the following steps to deploy the Domain-joined HDInsight cluster:
 - Enable LDAPS for AAD DS.
 - Create a service account in Azure Active Directory with delegated read & write admin permission to the OU, so that it can. This service account can then join machines to the domain and place machine principals within the OU. It can also create service principals within the OU that you specify during cluster creation.
 
+
     > [!Note]
     > The service account does not need to be AD domain admin account.
+
 
 - Deploy HDInsight ESP cluster by setting the following parameters:
     - **Domain name**: The domain name that's associated with Azure AD DS.
@@ -46,7 +48,8 @@ Use the following steps to deploy the Domain-joined HDInsight cluster:
 For more information, see the following articles:
 
 - [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](../domain-joined/apache-domain-joined-introduction.md)
-- [Plan Azure domain-joined Hadoop clusters in HDInsight](../domain-joined/apache-domain-joined-architecture.md)
+
+- [Plan Azure domain-joined Apache Hadoop clusters in HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 - [Synchronize Azure Active Directory users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
 - [Configure Apache Hive policies in Domain-joined HDInsight](../domain-joined/apache-domain-joined-run-hive.md)

@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Guidance for personal data stored in Log Analytics and Application Insights

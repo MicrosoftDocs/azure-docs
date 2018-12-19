@@ -11,9 +11,8 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/17/2018
 ms.author: magoedte
-ms.component: 
 ---
 # Log Analytics data security
 This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -55,7 +54,7 @@ After your data is ingested by the Log Analytics service, the data is kept logic
 ## Data retention
 Indexed log search data is stored and retained according to your pricing plan. For more information, see [Log Analytics Pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When the data is deleted, we also delete the Azure Storage Account where the data resides.  When customer data is removed, no physical drives are destroyed.  
+As part of your [subscription agreement](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft will retain your data per the terms of the agreement.  When customer data is removed, no physical drives are destroyed.  
 
 The following table lists some of the available solutions and provides examples of the type of data they collect.
 
@@ -175,7 +174,7 @@ The retention period of collected data stored in the database depends on the sel
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 ## Next steps
-* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../../log-analytics/log-analytics-quick-collect-linux-computer.md) or [Quickstart for Windows computers](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../../azure-monitor/learn/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../../azure-monitor/learn/quick-collect-windows-computer.md)
 

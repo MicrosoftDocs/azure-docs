@@ -35,14 +35,15 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 2. In **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
-    | Setting                 | Value                                              |
+    
+	| Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net that is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Multivalue** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select *myResourceGroupTM1*. |
     | Location                | This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
-    |
+    
   
     ![Create a Traffic Manager profile](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 

@@ -1,17 +1,18 @@
 ---
-title: Modeling document data for a NoSQL database
-description: Learn about modeling data for NoSQL databases
-keywords: modeling data
-services: cosmos-db
+title: Modeling document data in a NoSQL database
+titleSuffix: Azure Cosmos DB
+description: Learn about data modeling in NoSQL databases, differences between modeling data in a relational database and a document database.
 author: aliuy
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2016
+ms.date: 12/06/2018
 ms.author: andrl
+ms.custom: seodec18
 
 ---
 # Modeling document data for NoSQL databases
+
 While schema-free databases, like Azure Cosmos DB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data. 
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read heavy, or write heavy? 
@@ -27,13 +28,13 @@ After reading this article, you will be able to answer the following questions:
 ## Embedding data
 When you start modeling data in a document store, such as Azure Cosmos DB, try to treat your entities as **self-contained documents** represented in JSON.
 
-Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database. 
+Before we dive in too much further, let us take back a few steps and have a look at how we might model something in a relational database, a subject many of us are already familiar with. The following example shows how a person might be stored in a relational database. 
 
 ![Relational database model](./media/sql-api-modeling-data/relational-data-model.png)
 
 When working with relational databases, we've been taught for years to normalize, normalize, normalize.
 
-Normalizing your data typically involves taking an entity, such as a person, and breaking it down in to discrete pieces of data. In the example above, a person can have multiple contact detail records as well as multiple address records. We even go one step further and break down contact details by further extracting common fields like a type. Same for address, each record here has a type like *Home* or *Business* 
+Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete pieces of data. In the example above, a person can have multiple contact detail records as well as multiple address records. We even go one step further and break down contact details by further extracting common fields like a type. Same for address, each record here has a type like *Home* or *Business* 
 
 The guiding premise when normalizing data is to **avoid storing redundant data** on each record and rather refer to data. In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively aggregate your data at run time.
 
@@ -76,7 +77,7 @@ By denormalizing data, your application may need to issue fewer queries and upda
 ### When to embed
 In general, use embedded data models when:
 
-* There are **contains** relationships between entities.
+* There are contained** relationships between entities.
 * There are **one-to-few** relationships between entities.
 * There is embedded data that **changes infrequently**.
 * There is embedded data won't grow **without bound**.
@@ -88,7 +89,7 @@ In general, use embedded data models when:
 > 
 
 ### When not to embed
-While the rule of thumb in a document database is to denormalize everything and embed all data in to a single document, this can lead to some situations that should be avoided.
+While the rule of thumb in a document database is to denormalize everything and embed all data into a single document, this can lead to some situations that should be avoided.
 
 Take this JSON snippet.
 
@@ -112,7 +113,7 @@ This might be what a post entity with embedded comments would look like if we we
 
 As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.
 
-In this case it would be better to consider the following model.
+In this case, it would be better to consider the following model.
 
     Post document:
     {
@@ -169,12 +170,12 @@ Take this JSON snippet.
 
 This could represent a person's stock portfolio. We have chosen to embed the stock information in to each portfolio document. In an environment where related data is changing frequently, like a stock trading application, embedding data that changes frequently is going to mean that you are constantly updating each portfolio document every time a stock is traded.
 
-Stock *zaza* may be traded many hundreds of times in a single day and thousands of users could have *zaza* on their portfolio. With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale very well. 
+Stock *zaza* may be traded many hundreds of times in a single day and thousands of users could have *zaza* on their portfolio. With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale well. 
 
 ## <a id="Refer"></a>Referencing data
 So, embedding data works nicely for many cases but it is clear that there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now? 
 
-Relational databases are not the only place where you can create relationships between entities. In a document database you can have information in one document that actually relates to data in other documents. Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be very useful. 
+Relational databases are not the only place where you can create relationships between entities. In a document database, you can have information in one document that actually relates to data in other documents. Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be useful. 
 
 In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it. This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document. 
 
@@ -335,9 +336,9 @@ Consider the following JSON.
         "countOfBooks": 3,
          "books": ["b1", "b2", "b3"],
         "images": [
-            {"thumbnail": "http://....png"}
-            {"profile": "http://....png"}
-            {"large": "http://....png"}
+            {"thumbnail": "https://....png"}
+            {"profile": "https://....png"}
+            {"large": "https://....png"}
         ]
     },
     {
@@ -347,7 +348,7 @@ Consider the following JSON.
         "countOfBooks": 1,
         "books": ["b1"],
         "images": [
-            {"thumbnail": "http://....png"}
+            {"thumbnail": "https://....png"}
         ]
     }
 
@@ -356,30 +357,30 @@ Consider the following JSON.
         "id": "b1",
         "name": "Azure Cosmos DB 101",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
         ]
     },
     {
         "id": "b2",
         "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
         ]
     }
 
 Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced. 
 
-If you look at the book document, we can see a few interesting fields when we look at the array of authors. There is an *id* field which is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have *name* and *thumbnailUrl*. We could've just stuck with *id* and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
+If you look at the book document, we can see a few interesting fields when we look at the array of authors. There is an *id* field that is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have *name* and *thumbnailUrl*. We could have stuck with *id* and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
 
-Sure, if the author's name changed or they wanted to update their photo we'd have to go an update every book they ever published but for our application, based on the assumption that authors don't change their names very often, this is an acceptable design decision.  
+Sure, if the author's name changed or they wanted to update their photo we'd have to go an update every book they ever published but for our application, based on the assumption that authors don't change their names often, this is an acceptable design decision.  
 
-In the example there are **pre-calculated aggregates** values to save expensive processing on a read operation. In the example, some of the data embedded in the author document is data that is calculated at run-time. Every time a new book is published, a book document is created **and** the countOfBooks field is set to a calculated value based on the number of book documents that exist for a particular author. This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.
+In the example, there are **pre-calculated aggregates** values to save expensive processing on a read operation. In the example, some of the data embedded in the author document is data that is calculated at run-time. Every time a new book is published, a book document is created **and** the countOfBooks field is set to a calculated value based on the number of book documents that exist for a particular author. This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.
 
 The ability to have a model with pre-calculated fields is made possible because Azure Cosmos DB supports **multi-document transactions**. Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation. With Azure Cosmos DB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction. Now you don't **have** to embed everything in to one document just to be sure that your data remains consistent.
 
 ## <a name="NextSteps"></a>Next steps
-The biggest takeaways from this article is to understand that data modeling in a schema-free world is just as important as ever. 
+The biggest takeaways from this article are to understand that data modeling in a schema-free world is as important as ever. 
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily. 
 

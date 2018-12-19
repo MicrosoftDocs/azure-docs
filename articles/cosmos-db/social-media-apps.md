@@ -43,14 +43,14 @@ This article guides you into modeling your social platform's data with Azure's N
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 

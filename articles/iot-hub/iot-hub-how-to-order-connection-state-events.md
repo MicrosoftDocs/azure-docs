@@ -197,11 +197,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
 
-  * Choose a value: **eventType**
-  * Change "is equal to" to **ends with**
-  * Choose a value: **nected**
+   * Choose a value: **eventType**
+   * Change "is equal to" to **ends with**
+   * Choose a value: **nected**
 
-   ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. If the condition is true, click on **Add an action**.
   

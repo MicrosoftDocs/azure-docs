@@ -1,5 +1,5 @@
 ---
-title: Introduction to App Service Environment v1
+title: Introduction to App Service Environment v1 - Azure
 description: Learn about the App Service Environment v1 feature that provides secure, VNet-joined, dedicated scale units for running all of your apps.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Introduction to App Service Environment v1
@@ -24,7 +25,7 @@ ms.author: ccompy
 > 
 
 ## Overview
-An App Service Environment is a [Premium][PremiumTier] service plan option of [Azure App Service](../app-service-web-overview.md) that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including Web Apps, Mobile Apps, and API Apps.  
+An App Service Environment is a [Premium][PremiumTier] service plan option of [Azure App Service](../overview.md) that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including Web Apps, Mobile Apps, and API Apps.  
 
 App Service Environments are ideal for application workloads requiring:
 

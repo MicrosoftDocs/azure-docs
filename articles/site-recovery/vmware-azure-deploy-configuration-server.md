@@ -6,8 +6,8 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 12/11/2018
+ms.author: mayg
 ---
 
 # Deploy a configuration server
@@ -143,6 +143,9 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 7. Where can I download vault registration keys?
 
     In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
+8. Can I clone an existing Configuration Server and use it for replication orchestration?
+
+    **No**, use of a cloned Configuration Server component is not supported. 
 
 ## Troubleshoot deployment issues
 

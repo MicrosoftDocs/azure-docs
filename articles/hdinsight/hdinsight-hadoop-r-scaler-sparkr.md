@@ -14,7 +14,7 @@ ms.date: 06/19/2017
 
 This document shows how to predict flight arrival delays using a **ScaleR** logistic regression model. The example uses flight delay and weather data, joined using **SparkR**.
 
-Although both packages run on Hadoop’s Spark execution engine, they are blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
+Although both packages run on Apache Hadoop’s Spark execution engine, they are blocked from in-memory data sharing as they each require their own respective Spark sessions. Until this issue is addressed in an upcoming version of ML Server, the workaround is to maintain non-overlapping Spark sessions, and to exchange data through intermediate files. The instructions here show that these requirements are straightforward to achieve.
 
 This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and Roni Burd. You can find this talk at [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
@@ -501,7 +501,7 @@ plot(logitRoc)
 
 ## Scoring elsewhere
 
-We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as SQL Server R Services. It is important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
+We can also use the model for scoring data on another platform. By saving it to an RDS file and then transferring and importing that RDS into a destination scoring environment such as MIcrosoft SQL Server R Services. It is important to ensure that the factor levels of the data to be scored match those on which the model was built. That match can be achieved by extracting and saving the column information associated with the modeling data via ScaleR’s `rxCreateColInfo()` function and then applying that column information to the input data source for prediction. In the following we save a few rows of the test dataset and extract and use the column information from this sample in the prediction script:
 
 ```
 # save the model and a sample of the test dataset 
@@ -530,7 +530,7 @@ In this article, we’ve shown how it’s possible to combine use of SparkR for 
 
 ## Next steps and more information
 
-- For more information on use of ML Server on Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- For more information on use of ML Server on Apache Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - For general information on ML Server, see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
 

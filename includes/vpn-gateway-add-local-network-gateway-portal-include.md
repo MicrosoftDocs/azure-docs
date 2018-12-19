@@ -12,7 +12,7 @@
 1. In the portal, click **+Create a resource**.
 2. In the search box, type **Local network gateway**, then press **Enter** to search. This will return a list of results. Click **Local network gateway**, then click the **Create** button to open the **Create local network gateway** page.
 
-  ![Create the local network gateway](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Create the local network gateway")
+   ![Create the local network gateway](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Create the local network gateway")
 
 3. On the **Create local network gateway page**, specify the values for your local network gateway.
 

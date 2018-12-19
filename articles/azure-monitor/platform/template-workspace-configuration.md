@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: json
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates

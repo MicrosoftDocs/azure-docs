@@ -1,9 +1,10 @@
 ---
-title: FAQ - Frequently asked questions - Language Understanding (LUIS)
+title: Frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
@@ -11,7 +12,7 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
 ---
-# Language Understanding FAQ
+# Language Understanding Frequently Asked Questions (FAQ)
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
@@ -214,7 +215,7 @@ Videos:
 * [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projects:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on GitHub
 
 ## Next steps
 

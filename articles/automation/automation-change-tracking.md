@@ -166,6 +166,17 @@ The following table shows the data collection frequency for the types of changes
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 
+The following table shows the tracked item limits per machine for Change Tracking.
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|File|500||
+|Registry|250||
+|Windows software|250|Does not include software updates|
+|Linux packages|1250||
+|Services|250||
+|Daemon|250||
+
 ### Windows service tracking
 
 The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.

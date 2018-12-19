@@ -85,8 +85,8 @@ Before you configure Application Proxy, make sure you have a supported [Azure Ac
 
 Get started with Application Proxy in two steps:
 
-1. [Enable Application Proxy and configure the connector](application-proxy-enable.md).    
-2. [Publish applications](application-proxy-publish-azure-portal.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
+1. [Enable Application Proxy and configure the connector](application-proxy-add-on-premises-application.md).    
+2. [Publish applications](application-proxy-add-on-premises-application.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 Once you publish your first app, there's a lot more you can do with Application Proxy:

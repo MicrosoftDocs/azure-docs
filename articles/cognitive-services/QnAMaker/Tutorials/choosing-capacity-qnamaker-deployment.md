@@ -1,7 +1,7 @@
 ---
 title: Resource capacity for deployment - QnA Maker
 titleSuffix: Azure Cognitive Services 
-description: A guide to choosing capacity for your QnA Maker deployment
+description: Before you create your QnA Maker service, you should decide which tier of the above services is appropriate for you. 
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
 # Choosing capacity for your QnA Maker deployment

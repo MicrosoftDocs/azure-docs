@@ -1,13 +1,13 @@
 ---
 title: What is Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
-description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications.
+description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 12/10/2018
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
@@ -90,7 +90,7 @@ After a LUIS model is published and receives real user utterances, LUIS provides
 
 <a name="using-luis"></a>
 
-## Development Lifecycle
+## Development lifecycle
 LUIS provides tools, versioning, and collaboration with other LUIS authors to integrate into the full development life cycle at the level of the client application and the language model. 
 
 ## Implementing LUIS

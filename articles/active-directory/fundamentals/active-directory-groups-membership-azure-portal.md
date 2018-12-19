@@ -1,6 +1,6 @@
 ---
-title: How to add or remove a group from another group in Azure Active Directory | Microsoft Docs
-description: Learn how to add or remove a group from another group using Azure Active Directory.
+title: Add or remove a group from another group - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add or remove a group from another group using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,11 +11,11 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
 ---
 
-# How to: Add or remove a group from another group using Azure Active Directory
+# Add or remove a group from another group using Azure Active Directory
 This article helps you to add and remove a group from another group using Azure Active Directory.
 
 >[!Note]

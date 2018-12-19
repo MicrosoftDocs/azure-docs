@@ -1,6 +1,7 @@
 ---
-title: Enable Application Insights for the Azure Machine Learning service 
-description: Learn how to set Application Insights for services deployed through Azure Machine Learning service 
+title: Monitor models with Application Insights
+titleSuffix: Azure Machine Learning service
+description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -22,7 +23,9 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 
 
 ## Prerequisites
-* An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
+
+* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
@@ -43,7 +46,7 @@ In this article, you learn how to set up Azure Application Insights for your Azu
     ```
 
 ### Log custom traces in your service
-If you want to log custom traces, follow the standard deployment process for [AKS](how-to-deploy-to-aks.md) or [ACI](how-to-deploy-to-aci.md) . Then:
+If you want to log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then use the following steps:
 
 1. Update the scoring file by adding print statements.
     

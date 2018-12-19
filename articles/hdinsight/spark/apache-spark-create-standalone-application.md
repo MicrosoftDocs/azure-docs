@@ -23,7 +23,7 @@ In this tutorial, you learn how to create an [Apache Spark](https://spark.apache
 * Generate a jar file that can be submitted to HDInsight Spark clusters.
 * Run the application on Spark cluster using Livy.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight also provides an IntelliJ IDEA plugin tool to ease the process of creating and submitting applications to an HDInsight Spark cluster on Linux. For more information, see [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Apache Spark applications](apache-spark-intellij-tool-plugin.md).
 > 
 
