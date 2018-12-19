@@ -40,7 +40,7 @@ Based on the storage account selected, Data Box creates upto:
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
-The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be dervied from the UNC share path.
+The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
 |                   | File server UNC path                                                           | Azure Storage path URL                                                         |
 |-------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
