@@ -4,7 +4,9 @@ HTTP headers allow the client and the server to pass additional information with
 
 Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard (defined in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) as well as non-standard header fields.
 
-> [!NOTE] The HTTP header rewrite support is only available for the [new SKU [Standard_V2\]](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+> [!NOTE] 
+>
+> The HTTP header rewrite support is only available for the [new SKU [Standard_V2\]](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Application Gateway header rewrite support offers:
 
@@ -32,15 +34,21 @@ You can rewrite the value in the headers to:
 
    Example 1: $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
 
-> [!Note] In order to specify a request header, you need to use the syntax: {http_req_<header name>}
+> [!Note] 
+>
+> In order to specify a request header, you need to use the syntax: {http_req_<header name>}
 
 ​	Example 2: $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
 
-> [!Note] In order to specify a response header, you need to use the syntax: {http_resp_<header name>}
+> [!Note] 
+>
+> In order to specify a response header, you need to use the syntax: {http_resp_<header name>}
 
 1. Value from supported server variables. Example: $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ssl_cipher}"
 
-> [!Note] In order to specify a server variable, you need to use the syntax: {var_<server variable>}
+> [!Note] 
+>
+> In order to specify a server variable, you need to use the syntax: {var_<server variable>}
 
 1. A combination of the above.
 
