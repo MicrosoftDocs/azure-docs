@@ -41,9 +41,9 @@
     items:
     - name: Determine user intentions with intents
       href: luis-quickstart-intents-only.md
-    - name: Identify common user intentions and data types with prebuilt intents and entities
+    - name: Identify common user intentions and data types
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: Extract positive, negative, and neutral sentiment from user utterances
+    - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: 3. Extract well-formatted data
       href: luis-quickstart-intents-regex-entity.md

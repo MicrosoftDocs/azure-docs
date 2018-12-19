@@ -54,7 +54,7 @@ This app has a few intents.
 
 Determining which job-related intent may be tricky due to word choice and word order.
 
-## Create the GetJobInformation intent to hold example utterances about job information
+## Create intent for job information
 
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
 
@@ -86,7 +86,7 @@ Determining which job-related intent may be tricky due to word choice and word o
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
-## Add example utterances that are outside the scope of the app to the None intent 
+## Add example utterances to the None intent 
 
 The client application needs to know if an utterance is not meaningful or appropriate for the application. The **None** intent is added to each application as part of the creation process to determine if an utterance can't be answered by the client application.
 
@@ -105,11 +105,11 @@ If LUIS returns the **None** intent for an utterance, your client application ca
     |Penguins in the ocean|
 
 
-## Train the app so the changes to the intent can be tested 
+## Train the app before testing or publishing
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish the app so the trained model is queryable from the endpoint
+## Publish the app to query from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
@@ -144,7 +144,7 @@ If LUIS returns the **None** intent for an utterance, your client application ca
 
     The JSON result identifies the top scoring intent as **`topScoringIntent`** property. All scores are between 1 and 0, with the better score being close to 1. 
 
-## Create the ApplyForJob intent to determine if a user is applying for a job
+## Create intent for job applications
 
 Return to the LUIS portal and create a new intent to determine if the user utterance is about applying for a job.
 
@@ -188,7 +188,7 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## Get intent again
+## Get intent prediction again
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
