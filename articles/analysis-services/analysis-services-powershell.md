@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
