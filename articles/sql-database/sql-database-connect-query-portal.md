@@ -126,7 +126,7 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Run** to update the specified row in the Product table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
+2. Select **Run** to update the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 ## Delete data
 
@@ -139,7 +139,7 @@ Use the following [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Run** to delete the specified row in the Product table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
+2. Select **Run** to delete the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
 ## Query editor considerations
