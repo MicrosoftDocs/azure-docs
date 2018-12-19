@@ -148,7 +148,7 @@ To support client certificate authentication in your custom policy, change the t
    >If you receive the error message, *The name is not valid, please provide a valid name*, it means that Azure AD B2C successfully called your RESTful service while it presented the client certificate. The next step is to validate the certificate.
 
 ## Step 6: Add certificate validation
-The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform, except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
+The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure App Service platform, except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
 
 In this section, you add sample ASP.NET code that validates the certificate properties for authentication purposes.
 

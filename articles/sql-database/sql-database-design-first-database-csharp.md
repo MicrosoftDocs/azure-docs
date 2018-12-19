@@ -57,4 +57,4 @@ In this tutorial, you learned basic database tasks such as create a database and
 Advance to the next tutorial to learn about migrating your data.
 
 > [!div class="nextstepaction"]
-> [Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+> [Migrate SQL Server to Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md)

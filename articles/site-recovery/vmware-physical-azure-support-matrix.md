@@ -43,12 +43,12 @@ Disk free space | 600 GB  of space required for retention drive.
 Operating system  | Windows Server 2012 R2 or Windows Server 2016 |
 Operating system locale | English (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") should be installed.
-Windows Server roles | Don't enable: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
-Group policies| Don't enable: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br> - Don't have preexisting website/app listening on port 443<br>
+Windows Server roles | Don't enable: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
+Group policies| Don't enable: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
-Ports | 443 used for control channel orchestration)<br>9443 used for data transport
+Ports | 443 used for control channel orchestration)<br/>9443 used for data transport
 
 ## Replicated machines
 
@@ -57,8 +57,8 @@ Site Recovery supports replication of any workload running on a supported machin
 **Component** | **Details**
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
-Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. </br></br>  [Windows Server 2008 with at least SP2 - 32 bit and 64 bit](migrate-tutorial-windows-server-2008.md) (migration only). </br></br> Windows 2016 Nano Server isn't supported.
-Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.5 <br/><br/>CentOS: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (supported kernel versions)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>-Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.</br></br> - [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open source technology in Azure. Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> - On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> - Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> - Servers running Red Hat Enterprise Linux 5.2-5.11 or CentOS 5.2-5.11 should have the [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed for the machines to boot in Azure.
+Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. <br/><br/>  [Windows Server 2008 with at least SP2 - 32 bit and 64 bit](migrate-tutorial-windows-server-2008.md) (migration only). <br/><br/> Windows 2016 Nano Server isn't supported.
+Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.5 <br/><br/>CentOS: 5.2 to 5.11<b>\*\*</b>, 6.1 to 6.10<b>\*\*</b>, 7.0 to 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (supported kernel versions)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1,SP2,SP3 [ (supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * <br/><br/>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/><br/>-Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.<br/><br/> - [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open source technology in Azure. Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> - On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> - Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> - Servers running Red Hat Enterprise Linux 5.2-5.11 or CentOS 5.2-5.11 should have the [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed for the machines to boot in Azure.
 
 
 
@@ -94,9 +94,9 @@ Debian 8 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.156-94.64-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default<br/><br/>SP3 4.4.73-5-default to 4.4.156-94.64-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default<br/><br/>SP3 4.4.73-5-default to 4.4.140-94.42-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.96-default<br/><br/> SP2 4.4.21-69-default to 4.4.120-92.70-default<br/><br/>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.85-default<br/><br/>SP3 4.4.73-5-default to 4.4.138-94.39-default |
 
 ## Linux file systems/guest storage
 
@@ -107,7 +107,7 @@ Volume manager | Before [9.20 version](https://support.microsoft.com/en-in/help/
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
-Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, above restrictions are not applicable.
+Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.<br/>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, above restrictions are not applicable.
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility Service version 9.10 onward. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
 
@@ -158,7 +158,7 @@ Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes
-Guest/server EFI/UEFI| Partial (migration to Azure for Windows Server 2012 and later) </br></br> See the note at the end of the table
+Guest/server EFI/UEFI| Partial (migration to Azure for Windows Server 2012 and later) <br/><br/> See the note at the end of the table
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 Guest/server NFS | No
@@ -167,7 +167,7 @@ Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB
 Guest/server disk with 4K logical and 4k physical sector size | Yes
 Guest/server disk with 4K logical and 512 bytes physical sector size | Yes
-Guest/server volume with striped disk >4 TB <br><br/>Logical volume management (LVM)| Yes
+Guest/server volume with striped disk >4 TB <br/><br/>Logical volume management (LVM)| Yes
 Guest/server - Storage Spaces | No
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
@@ -213,8 +213,8 @@ On-premises VMs that you replicate to Azure must meet the Azure VM requirements 
 Guest operating system | Verify [supported operating systems](#replicated-machines) for replicated machines. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
-Operating system disk count | 1 | Check fails if unsupported.  
-Data disk count | 64 or less. | Check fails if unsupported.  
+Operating system disk count | 1 | Check fails if unsupported.
+Data disk count | 64 or less. | Check fails if unsupported.
 Data disk size | Up to 4,095 GB | Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
