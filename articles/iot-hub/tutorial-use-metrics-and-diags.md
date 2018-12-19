@@ -100,9 +100,6 @@ az storage account create --name $storageAccountName \
 	--location $location \
     --sku Standard_LRS
 
-```
-<!-- no idea how to fix this yet
-# this gives an error: No keys found for policy iothubowner of IoT Hub ContosoTestHub  ROBIN
 # Create the IoT device identity to be used for testing.
 az iot hub device-identity create --device-id $iotDeviceName \
     --hub-name $iotHubName 
@@ -111,25 +108,17 @@ az iot hub device-identity create --device-id $iotDeviceName \
 #   Notepad. You need this to run the device simulation during the testing phase.
 az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
--->
 
-### Create a device identity for the simulated device
+```
 
-Next, create a device identity and save its key for later use. This device identity is used by the simulation application to send messages to the IoT hub. 
-
-1. Click on **Resource groups** and select your resource group *ContosoResources*. If the group does not appear, refresh the list.
-
-2. In the list of resources, click the IoT hub *ContosoTestHub*. Select **IoT Devices** from the Hub pane.
-
-3. Click **+ Add**. On the Add Device pane, fill in the device ID. This tutorial uses **Contoso-Test-Device**. Leave the keys empty, and check **Auto Generate Keys**. Make sure **Connect device to IoT hub** is enabled. 
-
-   ![Screenshot showing the add-device screen.](./media/tutorial-use-metrics-and-diags/00-add-device-identity.png)
-
-   Click **Save**.
-   
-4. Now that the device has been created, click on it to see the generated keys. Click the Copy icon on the Primary key and save it somewhere such as Notepad for the testing phase of this tutorial.
-
-   ![Screenshot showing the device details, including the keys.](./media/tutorial-use-metrics-and-diags/00-device-identity-keys.png)
+>[!NOTE]
+>When creating the device identity, you may get the following error: *No keys found for policy iothubowner of IoT Hub ContosoTestHub*. To fix this error, update the Azure CLI IoT Extension and then run the last two commands in the script again. 
+>
+>Here is the command to update the extension. Run this in your Cloud Shell instance.
+>
+>```cli
+>az extension update --name azure-cli-iot-ext
+>```
 
 ## Enable the diagnostic logs 
 
