@@ -26,11 +26,11 @@ The following table includes links to bash scripts built using the Azure CLI.
 | | |
 |-|-|
 |**Create app**||
-| [Create a web app and deploy files with FTP](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and deploys a file to it using FTP. |
-| [Create a web app and deploy code from GitHub](./scripts/cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and deploys code from a public GitHub repository. |
-| [Create a web app with continuous deployment from GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app with continuous publishing from a GitHub repository you own. |
-| [Create a web app and deploy code from a local Git repository](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and configures code push from a local Git repository. |
-| [Create a web app and deploy code to a staging environment](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app with a deployment slot for staging code changes. |
+| [Create an app and deploy files with FTP](./scripts/cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and deploys a file to it using FTP. |
+| [Create an app and deploy code from GitHub](./scripts/cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and deploys code from a public GitHub repository. |
+| [Create an app with continuous deployment from GitHub](./scripts/cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app with continuous publishing from a GitHub repository you own. |
+| [Create an app and deploy code from a local Git repository](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and configures code push from a local Git repository. |
+| [Create an app and deploy code to a staging environment](./scripts/cli-deploy-staging-environment.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app with a deployment slot for staging code changes. |
 | [Create an ASP.NET Core web app in a Docker container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app on Linux and loads a Docker image from Docker Hub. |
 |**Configure app**||
 | [Map a custom domain to a web app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and maps a custom domain name to it. |
