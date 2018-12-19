@@ -185,7 +185,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
    ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
-5. Click **Pin to dashboard** or you'll never see your metrics again. It will pin it to the dashboard of your Azure portal so you can access it again. 
+   Click **Pin to dashboard**. It will pin it to the dashboard of your Azure portal so you can access it again. If you don't pin it to the dashboard, your settings are not retained.
 
 ## Set up alerts
 
@@ -295,7 +295,7 @@ Double-click on the solution file (SimulatedDevice.sln) to open the code in Visu
 
 ## Run and test 
 
-In Program.cs, comment out the following line of code, which puts a pause of 1 second in between each message sent. Removing that pause will increase the number of messages sent. 
+In Program.cs, change the `Task.Delay` from 1000 to 10, which reduces the between sending messages from 1 second to .01 seconds. Shortening the delay increases the number of messages sent.
 
 ```csharp
 await Task.Delay(10);
