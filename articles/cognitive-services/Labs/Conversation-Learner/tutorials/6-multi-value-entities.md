@@ -17,7 +17,7 @@ This tutorial shows the Multi-value property of Entities.
 
 ## Video
 
-[![Tutorial 6 Preview](https://aka.ms/cl-tutorial-06-preview)](https://aka.ms/blis-tutorial-06)
+[![Multi Value Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

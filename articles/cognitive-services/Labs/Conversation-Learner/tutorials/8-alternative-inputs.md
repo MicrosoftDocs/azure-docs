@@ -18,7 +18,7 @@ This tutorial shows how to use the Alternative Inputs field for user utterances 
 
 ## Video
 
-[![Tutorial 8 Preview](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
+[![Alternative Inputs Tutorial Preview](https://aka.ms/cl_Tutorial_v3_AlternativeInputs_Preview)](https://aka.ms/cl_Tutorial_v3_AlternativeInputs)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

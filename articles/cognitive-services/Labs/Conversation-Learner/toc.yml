@@ -18,6 +18,8 @@
     href: quickstart.md
   - name: Hello world
     href: tutorials/1-hello-world.md
+  - name: Introduction to training
+    href: tutorials/2-IntroToTraining.md
   - name: Wait versus non-wait actions
     href: tutorials/2-wait-vs-nonwait-actions.md
   - name: Introduction to entities
@@ -28,8 +30,10 @@
     href: tutorials/5-negatable-entities.md
   - name: Multi-value entities
     href: tutorials/6-multi-value-entities.md
-  - name: Built-in entities
+  - name: Pre-Trained entities
     href: tutorials/7-built-in-entities.md
+  - name: Entity resolvers
+    href: tutorials/00-EntityResolvers.md
   - name: Alternative inputs
     href: tutorials/8-alternative-inputs.md
   - name: Log dialogs
@@ -42,8 +46,6 @@
     href: tutorials/12-api-calls.md
   - name: Cards part 1
     href: tutorials/13-cards-1.md
-  - name: Cards part 2
-    href: tutorials/14-cards-2.md
   - name: Branching and undo
     href: tutorials/15-branching-and-undo.md
   - name: Versioning and tagging
@@ -54,8 +56,6 @@
     href: tutorials/demo-password-reset.md
   - name: Demo - pizza order
     href: tutorials/demo-pizza-order.md
-  - name: Demo - VR app launcher
-    href: tutorials/demo-vr-app-launcher.md
   - name: Deploying a Conversation Learner bot
     href: deploy-to-bf.md
   - name: How to teach with Conversation Learner 

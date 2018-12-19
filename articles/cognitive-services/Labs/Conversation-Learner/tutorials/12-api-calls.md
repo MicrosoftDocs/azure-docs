@@ -18,7 +18,7 @@ This tutorial shows how to add API calls to your model. API calls are functions 
 
 ## Video
 
-[![Tutorial 12 Preview](https://aka.ms/cl-tutorial-12-preview)](https://aka.ms/blis-tutorial-12)
+[![API Calls Tutorial Preview](https://aka.ms/cl_Tutorial_v3_APICalls_Preview)](https://aka.ms/cl_Tutorial_v3_APICalls)
 
 ## Requirements
 This tutorial requires that the "tutorialAPICalls.ts" bot is running.

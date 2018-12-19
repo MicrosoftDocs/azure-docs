@@ -17,7 +17,7 @@ This tutorial showcases a simple technical support bot that can help with passwo
 
 ## Video
 
-[![Demo Password Preview](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
+[![Demo Password Preview](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
 ## Requirements
 This tutorial requires that the password reset bot is running

@@ -21,7 +21,7 @@ This demo illustrates a pizza ordering bot, supporting single pizza ordering by:
 
 ## Video
 
-[![Demo Pizza Preview](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
+[![Demo Pizza Preview](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
 ## Requirements
 This tutorial requires that the pizza order bot is running
@@ -98,3 +98,8 @@ Let's train the Model a bit more by creating another Train Dialog.
 ![](../media/tutorial_pizza_callbackcode.PNG)
 
 ![](../media/tutorial_pizza_apicalls.PNG)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploying a Conversation Learner bot](../deploy-to-bf.md)

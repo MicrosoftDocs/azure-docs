@@ -18,7 +18,7 @@ This tutorial demonstrates the "Negatable" property of Entities.
 
 ## Video
 
-[![Tutorial 5 Preview](https://aka.ms/cl-tutorial-05-preview)](https://aka.ms/blis-tutorial-05)
+[![Negatable Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

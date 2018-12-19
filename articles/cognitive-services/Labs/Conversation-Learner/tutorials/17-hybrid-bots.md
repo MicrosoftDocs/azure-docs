@@ -18,7 +18,7 @@ This tutorial covers how to use Conversation Learner with other bot building tec
 
 ## Video
 
-[![Tutorial 15 Preview](https://aka.ms/cl-tutorial-15-preview)](https://aka.ms/blis-tutorial-15)
+[![Hybrid Bots Tutorial Preview](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications_Preview)](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications)
 
 ## Requirements
 This tutorial requires using the bot emulator to create log dialogs, not the Log Dialog Web UI.  

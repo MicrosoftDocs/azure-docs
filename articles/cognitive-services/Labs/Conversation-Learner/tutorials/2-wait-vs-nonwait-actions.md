@@ -18,7 +18,7 @@ This tutorial shows the difference between wait actions and non-wait actions in 
 
 ## Video
 
-[![Tutorial 2 Preview](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
+[![Wait vs Non-Wait Tutorial Preview](https://aka.ms/cl_Tutorial_v3_WaitnonWait_Preview)](https://aka.ms/cl_Tutorial_v3_WaitnonWait)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
