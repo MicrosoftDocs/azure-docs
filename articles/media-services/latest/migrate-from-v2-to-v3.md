@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
 ---
 
@@ -83,7 +83,7 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
 
 > [!NOTE]
 > Please bookmark this article and keep checking for updates.
-
+ 
 ## Code differences
 
 The following table shows the code differences between v2 and v3 for common scenarios.
@@ -104,7 +104,7 @@ The following table shows the code differences between v2 and v3 for common scen
     * Channels and Programs created with v2 (which are mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop.<br/>Presently, you cannot migrate continuously running Channels.  
 
 > [!NOTE]
-> Please bookmark this article and keep checking for updates.
+> This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions.
 
 ## Next steps
 
