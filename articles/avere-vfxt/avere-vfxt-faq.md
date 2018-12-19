@@ -120,7 +120,7 @@ Yes. Make sure you have a sufficient quota in the region to support the cluster.
 
 ### Can I run the Avere vFXT cluster machines in different availability zones?
 
-No. The high-availability model in Avere vFXT currently does not support individual Avere vFXT cluster members located in different availability zones.
+No. The high availability model in Avere vFXT currently does not support individual Avere vFXT cluster members located in different availability zones.
 
 ### Can I clone Avere vFXT virtual machines?
 
@@ -224,7 +224,7 @@ Avere vFXT does not support private object storage.
 
 ### How can I get a specific storage product under support?
 
-Support is based on the amount of demand in the field. If there are enough revenue-based requests to support an NAS solution, we'll consider it. Make requests through Azure support.
+Support is based on the amount of demand in the field. If there are enough revenue-based requests to support a NAS solution, we'll consider it. Make requests through Azure support.
 
 ### Can I use Azure Blob storage as a core filer?
 
@@ -248,7 +248,7 @@ You can configure blob encryption either in Azure (preferred) or at the Avere vF
 
 ### Can I use my own encryption key for a blob core filer?
 
-By default, data is encrypted through Microsoft managed keys for Azure Blob, Table, and Queue storage, plus Azure Files. You can bring your own key for encryption for Blob storage and Azure Files. If you choose to use Avere vFXT encryption, you must use the Avere-generated key and store it locally. 
+By default, data is encrypted through Microsoft-managed keys for Azure Blob, Table, and Queue storage, plus Azure Files. You can bring your own key for encryption for Blob storage and Azure Files. If you choose to use Avere vFXT encryption, you must use the Avere-generated key and store it locally. 
 
 ## Purchasing
 
