@@ -20,6 +20,8 @@ ms.author: jgao
 
 Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
 
+This tutorial covers the following tasks:
+
 > [!div class="checklist"]
 > * Open a QuickStart template
 > * Edit the template
