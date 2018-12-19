@@ -1,20 +1,20 @@
 ---
-title: 'Analyze data using Jupyter Notebook and KQLmagic'
-description: This topic will show you  
+title: 'Analyze data using Jupyter Notebook and Kqlmagic'
+description: This topic will show you how to analyze data using Jupyter Notebook and KQLmagic
 services: data-explorer
 author: orspod
 ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 12/19/2018
 
-#Customer intent: I want to analyze data using Jupyter Notebooks.
+#Customer intent: I want to analyze data using Jupyter Notebooks and Kqlmagic.
 ---
 
 # Analyze data using Jupyter Notebook and Kqlmagic
 Jupyter Notebook is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. Usage includes data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
-[Jupyter Notebook](https://jupyter.org/) supports magic functions that extend the capabilities of the kernel by supporting additional commands. Kqlmagic is a function that extends the capabilities of the Python kernel in Jupyter Notebook so you can run Kusto query language queries natively. You can easily combine Python and Kusto query language to query and visualize data using rich Plot.ly library integrated with Kusto render commands. Data sources for running queries are supported. These data sources include Azure Data Explorer (Kusto) a fast and highly scalable data exploration service for log and telemetry data, as well as Log Analytics and Application Insights.
+[Jupyter Notebook](https://jupyter.org/) supports magic functions that extend the capabilities of the kernel by supporting additional commands. Kqlmagic is a function that extends the capabilities of the Python kernel in Jupyter Notebook so you can run Kusto query language queries natively. You can easily combine Python and Kusto query language to query and visualize data using rich Plot.ly library integrated with `render` commands. Data sources for running queries are supported. These data sources include Azure Data Explorer, a fast and highly scalable data exploration service for log and telemetry data, as well as Log Analytics and Application Insights.
 
 ## Prerequisites
 - Organizational email account that is a member of Azure Active Directory (AAD).
@@ -46,7 +46,7 @@ Use the following command to connect to the *Samples* database hosted on the *He
 
 ## Query and visualize
 
-Query data using the KQL [render operator](https://docs.microsoft.com/azure/kusto/query/renderoperator) and visualize data using the ploy.ly library. This query and visualization supplies an integrated experience that uses native KQL. Kqlmagic supports most charts except `timepivot`, `pivotchart`, and `ladderchart`. Render is supported with all attributes except `kind`, `ysplit`, and `accumulate`. 
+Query data using the [render operator](/azure/kusto/query/renderoperator) and visualize data using the ploy.ly library. This query and visualization supplies an integrated experience that uses native KQL. Kqlmagic supports most charts except `timepivot`, `pivotchart`, and `ladderchart`. Render is supported with all attributes except `kind`, `ysplit`, and `accumulate`. 
 
 ### Query and render piechart
 
@@ -97,7 +97,7 @@ Kqlmagic allows for simple interchange between Kusto query language and Python. 
 
 ### Use a Python variable in your KQL query
 
-You can use the value of a Python variable in your KQL query to filter the data:
+You can use the value of a Python variable in your query to filter the data:
 
 ```python
 statefilter = ["TEXAS", "KANSAS"]

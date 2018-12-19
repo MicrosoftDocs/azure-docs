@@ -69,7 +69,7 @@
     items:
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
-    - name: Analyze data using Jupyter Notebooks and KQLmagic
+    - name: Analyze data using Jupyter Notebooks and Kqlmagic
       href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
