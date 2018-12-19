@@ -13,8 +13,10 @@ ms.author: mihansen
 
 In this How-to guide, you'll learn how to register a Resource application in Azure Active Directory.
 
-## Clean up resources
+## Open the Azure portal's Active Directory section
 
-If you're not going to continue to use this application:
+Azure Active Directory applications can be registered and edited in the "App registrations" view of the Azure AD section of the Azure portal:
 
-1. Delete the Resource application in Azure AD.
+![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+
+Click the "+ New registration".
