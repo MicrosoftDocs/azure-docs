@@ -22,7 +22,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) on HDInsight to analy
 
 * Familiarity with creating a Linux-based HDInsight cluster. For more information, see [Create Apache Spark on HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A web browser.
@@ -45,7 +45,7 @@ Application Insights can be configured to continuously export telemetry informat
 
 * **Location**: If the Storage Account and HDInsight are in different locations, it may increase latency. It also increases cost, as egress charges are applied to data moving between regions.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Using a Storage Account in a different location than HDInsight is not supported.
 
 * **Blob type**: HDInsight only supports block blobs. Application Insights defaults to using block blobs, so should work by default with HDInsight.
@@ -105,7 +105,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
     The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use **SHIFT+ENTER** to run the cell again. This time, the results should display the directories that contain telemetry data.
 
-   > [!NOTE]
+   > [!NOTE]  
    > For the remainder of the steps in this section, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. Your directory structure may be different.
 
 6. In the next cell, enter the following code: Replace `WASB_PATH` with the path from the previous step.
@@ -194,7 +194,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
     This query returns the city information for the top 20 records where context.location.city is not null.
 
-   > [!NOTE]
+   > [!NOTE]  
    > The context structure is present in all telemetry logged by Application Insights. The city element may not be populated in your logs. Use the schema to identify other elements that you can query that may contain data for your logs.
 
     This query returns information similar to the following text:
@@ -246,7 +246,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
     The wasb path returned is the location of the Application Insights telemetry data. Change the `hdfs dfs -ls` line in the cell to use the wasb path returned, and then use **SHIFT+ENTER** to run the cell again. This time, the results should display the directories that contain telemetry data.
 
-   > [!NOTE]
+   > [!NOTE]  
    > For the remainder of the steps in this section, the `wasb://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests` directory was used. This directory may not exist unless your telemetry data is for a web app.
 
 6. In the next cell, enter the following code: Replace `WASB\_PATH` with the path from the previous step.
@@ -337,7 +337,7 @@ To add the Azure Storage Account to an existing cluster, use the information in 
 
     This query returns the city information for the top 20 records where context.location.city is not null.
 
-   > [!NOTE]
+   > [!NOTE]  
    > The context structure is present in all telemetry logged by Application Insights. The city element may not be populated in your logs. Use the schema to identify other elements that you can query that may contain data for your logs.
    >
    >
