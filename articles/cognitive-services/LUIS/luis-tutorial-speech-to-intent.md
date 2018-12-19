@@ -15,7 +15,7 @@ ms.author: diberry
 #dfb - verified this tutorial works on 6/26 using logitech wireless headset
 ---
 
-# Integrate Speech service
+# Integrate Speech service with your Language Understanding app
 The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package, already included as a reference. 
 
 For this article, you need a free [LUIS][LUIS] website account in order to import the application.
