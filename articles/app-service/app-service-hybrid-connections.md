@@ -174,7 +174,7 @@ There are periodic updates to the Hybrid Connection Manager to fix issues or pro
 
 ## Adding a Hybrid Connection to your app programmatically ##
 
-The APIs noted below can be used directly to manage the Hybrid Connections connected to your web apps. 
+The APIs noted below can be used directly to manage the Hybrid Connections connected to your apps. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -195,7 +195,7 @@ The JSON object associated with a Hybrid Connection looks like:
       }
     }
 
-One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] GitHub project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
+One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] GitHub project. Here is an example on attaching a pre-existing Hybrid Connection to your app. 
 Create a JSON file per the above schema like:
 
     {
@@ -228,7 +228,7 @@ In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) c
 
 ## BizTalk Hybrid Connections ##
 
-The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all web apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager, then you will see a status of Discontinued and display an End of Life statement at the bottom.
+The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager, then you will see a status of Discontinued and display an End of Life statement at the bottom.
 
 ![BizTalk Hybrid Connections in the HCM][12]
 

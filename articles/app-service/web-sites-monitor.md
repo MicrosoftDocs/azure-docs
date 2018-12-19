@@ -1,6 +1,6 @@
 ---
 title: Monitor apps - Azure App Service | Microsoft Docs
-description: Learn how to monitor Apps in Azure App Service by using the Azure portal.
+description: Learn how to monitor apps in Azure App Service by using the Azure portal.
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -18,14 +18,12 @@ ms.author: byvinyal
 ms.custom: seodec18
 
 ---
-# How to: Monitor Apps in Azure App Service
+# How to: Monitor apps in Azure App Service
 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
-built in monitoring functionality in the [Azure portal](https://portal.azure.com).
+built in monitoring functionality for web apps, mobile back ends, and API apps in the [Azure portal](https://portal.azure.com).
 The Azure portal includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Understanding Quotas and Metrics
 ### Quotas
@@ -187,11 +185,6 @@ support **autoscale**. Autoscale allows you to configure rules that monitor the
 App Service plan metrics. Rules can increase or decrease the instance count
 providing additional resources as needed. Rules can also help you save money when the application
 is over-provisioned. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md)
-
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-> 
-> 
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
