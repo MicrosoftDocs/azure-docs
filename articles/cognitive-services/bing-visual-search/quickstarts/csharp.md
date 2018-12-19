@@ -17,17 +17,6 @@ ms.author: scottwhi
 
 Use this quickstart to make your first call to the Bing Visual Search API and view the search results. This simple C# application uploads an image to the API, and displays the information returned about it.
 
-When uploading a local image, the form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB.
-
-    ```
-    --boundary_1234-abcd
-    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
-    
-    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
-    
-    --boundary_1234-abcd--
-    ```
-
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
@@ -56,16 +45,7 @@ When uploading a local image, the form data must include the Content-Disposition
         static string imagePath = @"<pathtoimagegoeshere>";
     ```
 
-3. POST calls to the Bing Visual Search API require formatted form data. The following variables will be used later to construct the form data.
-    ```csharp
-    // Boundary strings for form data in body of POST.
-    const string CRLF = "\r\n";
-    static string BoundaryTemplate = "batch_{0}";
-    static string StartBoundaryTemplate = "--{0}";
-    static string EndBoundaryTemplate = "--{0}--";
-    ```
-
-4. The following variables will be used to add the proper parameters to the form data. 
+3. The following variables will be used to add the proper parameters to the form data. 
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
@@ -93,7 +73,28 @@ When uploading a local image, the form data must include the Content-Disposition
 
 ## Build the form data
 
-1. Create a function to create the beginning part of the required form data.
+When uploading a local image, the form data sent to the API must be formatted correctly. It must include the Content-Disposition header, its `name` parameter must be set to "image", and the `filename` parameter may be set to any string. The contents of the form contain the binary of the image. The maximum image size you may upload is 1 MB.
+
+    ```
+    --boundary_1234-abcd
+    Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+    
+    ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+    
+    --boundary_1234-abcd--
+    ```
+
+1. To format the form data, Add boundary strings for formatting the POST form data correctly, which determine the beginning, end, and newline characters for the data.
+
+    ```csharp
+    // Boundary strings for form data in body of POST.
+    const string CRLF = "\r\n";
+    static string BoundaryTemplate = "batch_{0}";
+    static string StartBoundaryTemplate = "--{0}";
+    static string EndBoundaryTemplate = "--{0}--";
+    ```
+
+2. Create a function called `BuildFormDataStart()` to create the beginning part of the required form data, using the boundary strings and your image path.
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -107,7 +108,7 @@ When uploading a local image, the form data must include the Content-Disposition
         }
     ```
 
-2. Create a function to create the ending part of the required form data.
+3. Create a function called `BuildFormDataEnd()` to create the ending part of the required form data, using the boundary strings.
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -181,7 +182,8 @@ When uploading a local image, the form data must include the Content-Disposition
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
     Console.WriteLine(json);
-    Console.readKey("enter any key to continue")
+    Console.WriteLine("enter any key to continue");
+    Console.readKey();
     ```
 
 ## Using HttpClient
