@@ -16,71 +16,70 @@ ms.custom: seodec2018
 
 # Quickstart: Perform a news search using Ruby and the Bing News Search REST API
 
-This article shows you how use the Bing News Search API, part of Microsoft Cognitive Services on Azure. While this article employs Ruby, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+Use this quickstart to make your first call to the Bing News Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and processes the results.
 
-The example code was written to run under Ruby 2.4.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) for technical details about the APIs.
+While this application is written in Python, the API is a RESTful Web service compatible most programming languages.
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial. See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Ruby [2.4 or later](https://www.ruby-lang.org/downloads/)
 
-## Bing News search
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News results from the Bing search engine.
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-1. Create a new Ruby project in your favorite IDE or editor.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Run the program.
+## Create and initialize the application
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
+1. import the following packages into your code file.
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
+2. Create variables for the API endpoint, News search URL, your subscription key, and search term.
 
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
+    ```ruby
+    accessKey = "enter key here"
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/news/search"
+    term = "Microsoft"
+    ```
 
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/news/search"
+## Format and make an API request
 
-term = "Microsoft"
+Use the variables from the last step to format a search URL for the API request. Then send the request.
 
-uri = URI(uri + path + "?q=" + URI.escape(term))
-
-puts "Searching news for: " + term
-
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = accessKey
-
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
-
-puts "\nRelevant Headers:\n\n"
-response.each_header do |key, value|
-    # header names are coerced to lowercase
-    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
+    ```ruby
+    uri = URI(uri + path + "?q=" + URI.escape(term))
+    
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = accessKey
+    
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
     end
-end
+    ```
 
-puts "\nJSON Response:\n\n"
-puts JSON::pretty_generate(JSON(response.body))
-```
+## Process and print the JSON response
 
-**Response**
+After the response is received, you can parse the JSON, and print both the response body, and its headers:
+
+    ```ruby
+    puts "\nRelevant Headers:\n\n"
+    response.each_header do |key, value|
+       # header names are coerced to lowercase
+       if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+          puts key + ": " + value
+       end
+    end
+
+    puts "\nJSON Response:\n\n"
+    puts JSON::pretty_generate(JSON(response.body))
+    ```
+
+## JSON Response
 
 A successful response is returned in JSON, as shown in the following example:
 
