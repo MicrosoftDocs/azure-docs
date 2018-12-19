@@ -14,7 +14,7 @@ ms.component: blobs
 # Static website hosting in Azure Storage
 Azure Storage GPv2 accounts allow you to serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Taking advantage of hosting in Azure Storage allows you to use serverless architectures including [Azure Functions](/azure/azure-functions/functions-overview) and other PaaS services.
 
-In contrast to static website hosting, dynamic sites that depend on server-side code are best hosted using [Azure Web Apps](/azure/app-service/app-service-web-overview).
+In contrast to static website hosting, dynamic sites that depend on server-side code are best hosted using [Azure App Service](/azure/app-service/overview).
 
 ## How does it work?
 When you enable static website hosting on your storage account, you select the name of your default file and optionally provide a path to a custom 404 page. As the feature is enabled, a container named *$web* is created if it doesn't already exist. 
@@ -157,6 +157,6 @@ Yes, the web endpoint is case-sensitive just like the blob endpoint.
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
 * [Configure a custom domain name for your blob or web endpoint](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [Build your first serverless web app](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

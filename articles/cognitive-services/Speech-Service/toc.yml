@@ -20,7 +20,7 @@
       displayName: recognize speech, speech recognition, speech to text, stt
     - name: 'Using C# (Universal Windows Platform)'
       href: quickstart-csharp-uwp.md
-      displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
+      displayName: 'recognize speech, speech recognition, speech to text, stt, C#, UWP'
     - name: 'Using C++ (Windows)'
       href: quickstart-cpp-windows.md
       displayName: recognize speech, speech recognition, speech to text, stt
@@ -36,9 +36,15 @@
     - name: 'Using JavaScript (Browser)'
       href: quickstart-js-browser.md
       displayName: recognize speech, speech recognition, speech to text, stt
+    - name: 'Using JavaScript (Node.js)'
+      href: quickstart-js-node.md
+      displayName: recognize speech, speech recognition, speech to text, stt
     - name: 'Using Objective-C (iOS)'
       href: quickstart-objectivec-ios.md
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
+    - name: 'Using Python'
+      href: quickstart-python.md
+      displayName: recognize speech, speech recognition, speech to text, stt, python
   - name: Text-to-speech
     items:
     - name: 'Using C#, REST'
