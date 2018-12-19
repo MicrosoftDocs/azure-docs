@@ -119,9 +119,6 @@ The following information is required as input for the automation parameters:
 
 1. Open an elevated Windows PowerShell session, and run the following cmdlets:
 
-   > [!Note]  
-   > This example creates a self-signed certificate. When you run these cmdlets in a production deployment, use [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) to retrieve the certificate object for the certificate you want to use.
-
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $creds = Get-Credential
@@ -129,9 +126,13 @@ The following information is required as input for the automation parameters:
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+    # Import managed certificate
+    $mypwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below'
+    Import-PfxCertificate -filepath c:\myspncertificate.pfx -CertStoreLocation cert:\CurrentUser\My -Password $mypwd.Password
 
+    # Retrieve managed certificate
+    $cert = Get-Item cert:\CurrentUser\My\AAAF5C5FAADA9F3B235E4456FEBD6A2EF4960C0B
+    
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
@@ -166,8 +167,15 @@ The following information is required as input for the automation parameters:
     $ServicePrincipal
 
    ```
+   > [!Note]  
+   > For validation purposes a self-signed certificate can be created using the below example:
 
-2. After the automation finishes, it displays the required details to use the SPN. 
+   ```PowerShell  
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+   ```
+
+
+2. After the automation finishes, it displays the required details to use the SPN. It is recommended to store the output for later use.
 
    For example:
 
