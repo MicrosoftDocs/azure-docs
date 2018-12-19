@@ -126,12 +126,10 @@ The following information is required as input for the automation parameters:
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # Import managed certificate
-    $mypwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below'
-    Import-PfxCertificate -filepath c:\myspncertificate.pfx -CertStoreLocation cert:\CurrentUser\My -Password $mypwd.Password
-
-    # Retrieve managed certificate
-    $cert = Get-Item cert:\CurrentUser\My\AAAF5C5FAADA9F3B235E4456FEBD6A2EF4960C0B
+    # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
+    # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
+    # $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+    $cert = Get-Item "<yourcertificatelocation>"
     
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }

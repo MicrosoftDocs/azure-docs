@@ -277,6 +277,7 @@ The following languages are avaialble for customization using [Custom Translator
 | Czech      | `cs`          |
 | Danish      | `da`          |
 | Dutch      | `nl`          |
+| English    | `en`     |
 | Estonian      | `et`          |
 | Finnish      | `fi`          |
 | French      | `fr`          |
