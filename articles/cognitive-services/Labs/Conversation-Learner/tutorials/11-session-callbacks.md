@@ -14,95 +14,90 @@ ms.author: v-jaswel
 
 # How to use session callbacks with a Conversation Learner model
 
-This tutorial illustrates the onSessionStart and onSessionEnd callbacks.
+This tutorial introduces sessions, how they are handled and Conversation Learner's onSessionStart and onSessionEnd callbacks.
 
 ## Video
 
 [![Session Callbacks Tutorial Preview](https://aka.ms/cl_Tutorial_v3_SessionCallbacks_Preview)](https://aka.ms/cl_Tutorial_v3_SessionCallbacks)
 
 ## Requirements
-This tutorial requires that the `tutorialSessionCallbacks` bot is running.
+This tutorial requires that the "tutorialSessionCallbacks" bot is running.
 
 	npm run tutorial-session-callbacks
 
 ## Details
 This tutorial covers the concept of a session, how sessions are handled by default, and how you can override that behavior.
 
-A session is one conversation with the bot. It can have multiple turns, but there are no long breaks in the conversation (for example, 30 minutes).  See the help page on "Limits" for the default session timeout duration.
+In Conversation Learner a session represents one, uninterrupted interactive exchange with the bot. Sessions can have multiple turns, but be programmatically ended due to inactivity if greater than thirty minutes has lapsed.  See the help page on "Limits" for information on changing this default session timeout duration.
 
-If there are long breaks, then the bot will go to its next session.  Starting a new session puts the recurrent neural network into its initial state.  By default, it also clears all entity values, although this behavior can be changed (illustrated below).
+This long period of inactivity will cause the bot to create a new session and reset the recurrent neural network to its initial state. By default all entity values will be cleared. This default behavior of clearing entity values can be changed as seen below.
 
-### Open the demo
+### Load the Demo Model
 
 In the Model list, click on Tutorial-11-SessionCallbacks. 
 
-### Entities
-
-Four entities are defined in the model.
-
-![](../media/tutorial11_entities.PNG)
-
-One thing to note is that BotName is a Programmatic Entity.  This entity will be set by the bot at session start time.
-
-### Actions
-
-Four actions are defined in the model.
-
-![](../media/tutorial11_actions.PNG)
-
-First, this tutorial will show how to control entity values at the start of the session -- for example, setting the BotName entity before the user says anything.
-
-Second, this tutorial will show how to persist values from one session to the next.  In this tutorial, we assume the user's name and phone number remain the same from one session to the next, but that their location may change.  We therefore persist name and phone number across sessions, but clear user location.
-
-### Train Dialog
-
-Here is an example dialog. This is one session - that is, there are no long breaks in this dialog.
-
-![](../media/tutorial11_traindialog.PNG)
-
 ### Code for the callbacks
 
-The code for the callback methods is in the file: 
+Sample code for this Model's two callbacks is found in: 
 c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts.
 
 ![](../media/tutorial11_code.PNG)
 
-Both of these methods are optional.
-
 - OnSessionStartCallback: this method sets the BotName entity.
 - OnSessionEndCallback: you can specify what you want to preserve. This will clear all entities except user name and user phone.
 
-### Try the bot
+Each callback is optional.
 
-Switch to the Web UI, and click on Log Dialogs.
+### Actions
 
-1. Enter 'hello'.
-2. System: 'Hi, I'm Botty. What's your name?' which has the name Botty coming from the OnSessionStartCallback.
-3. Enter 'jason'.
-4. System: 'Hi jason. What's your phone number?'
-5. Enter '555-555-5555'.
-6. System: 'Can you tell Botty your location, jason?'
-7. Type 'Redmond'.
+Four Actions are defined in the Model. The existing Actions are displayed in the grid view for "Actions"
 
-This is one session. To start a new session, we need to end this session. 
+![](../media/tutorial11_actions.PNG)
 
-1. Click Session Timeout. This will move you to the next session.
-    - The "Session Timeout" button is provided for debugging purposes.  In an actual session, a long pause would need to occur, of approximately 30 minutes.  See the help page on "Limits" for the default session timeout duration.
-1. Enter 'hi'.
-2. System: 'Can you tell Botty your location, jason?'
-	- The system has remembered the name and phone number.
-2. Enter a new location: 'Seattle'.
-3. System: 'So, jason you are in Seattle'.
-4. Click Done Testing.
+### Creating An End Session Action (for callback invocation)
 
-Let's switch back to Log Dialogs. Notice the last conversation has split into two because each log dialog corresponds to one session.  
+1. On the left panel, click "Actions", then the "New Action" button.
+2. Select "ENDSESSION" for the "Entity Type."
+3. In the "Data..." field, type "Done"
+4. Click the "Create" button.
 
-![](../media/tutorial11_splitdialogs.PNG)
+### Edit an Existing Action
 
-- In the first interaction, Botty is set, but name and phone number are not.
-- The second interaction shows the name and phone number.
+1. Select the "So, $UserName, you are in $UserLocation" Action from the grid view.
+2. Un-check the "Wait for Response" check-box.
+3. Click the "Save" button.
 
-You have now seen how sessions are handled by default, and how you can override the default behavior. 
+### Chaining Actions
+
+1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hi."
+3. Click the "Score Actions" button.
+4. Select the response, "Hi, I'm Botty. What's your name?"
+5. In the chat panel, where it says "Type your message...", type in "Lars"
+6. Select the response, "Hi Lars. What is your phone number?"
+7. In the chat panel, where it says "Type your message...", type in "555-555-5555"
+8. Click the "Score Actions" button.
+9. Select the response, "Can you tell Botty your location, Lars?"
+10. In the chat panel, where it says "Type your message...", type in "Seattle"
+11. Click the "Score Actions" button.
+12. Select the response, "So, Lars, you are in Seattle"
+13. Select the response, "Done"
+14. Click the "Save" button.
+
+### Trying out the Model
+
+1. On the left panel, click "Log Dialogs", then the "New Log Dialog" button.
+2. In the chat panel, where it says "Type your message...", type in "hi"
+3. In the chat panel, where it says "Type your message...", type in "Lars"
+4. In the chat panel, where it says "Type your message...", type in "555-555-5555"
+5. In the chat panel, where it says "Type your message...", type in "Seattle"
+	- At this point all entity values excluding location should have been preserved.
+6. In the chat panel, where it says "Type your message...", type in "hello"
+7. In the chat panel, where it says "Type your message...", type in "Detroit"
+8. Click the "Session Timeout" button.
+	- Clicking this button exercises the bot's response to long periods of inactivity
+9. Click the "OK" button.
+10. Click the "Done Testing" button.
 
 ## Next steps
 
