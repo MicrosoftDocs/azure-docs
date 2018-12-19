@@ -105,10 +105,10 @@ To configure Azure AD single sign-on with ArcGIS Online, perform the following s
     ![ArcGIS Online Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.maps.arcgis.com`.
+    `https://<companyname>.maps.arcgis.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `<companyname>.maps.arcgis.com`.
+    `<companyname>.maps.arcgis.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [ArcGIS Online Client support team](https://support.esri.com/en/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with ArcGIS Online, perform the following s
 
 	![image](./media/arcgis-tutorial/install_extension.png)
 
-7. After adding extension to the browser, click on **setup ArcGIS Online** will direct you to the ArcGIS Online application. From there, provide the admin credentials to sign into ArcGIS Online. The browser extension will automatically configure the application for you and automate section **Configure ArcGIS Online Single Sign-On**.
+7. After adding extension to the browser, click on **setup ArcGIS Online** will direct you to the ArcGIS Online application. From there, provide the admin credentials to sign into ArcGIS Online. The browser extension will automatically configure the application for you and automate steps in section **Configure ArcGIS Online Single Sign-On**.
 
 ### Configure ArcGIS Online Single Sign-On
 
