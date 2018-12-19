@@ -1,7 +1,7 @@
 ---
 title: Sentiment analysis
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
+description: In this tutorial, create an app that demonstrates how to get positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
 --- 
 
-# Tutorial 9:  Extract sentiment of overall utterance
-In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
+# Tutorial:  Get sentiment of overall utterance
+
+In this tutorial, create an app that demonstrates how to determine positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 
 Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
 
@@ -25,7 +26,7 @@ The following utterances show examples of sentiment:
 |Sentiment|Score|Utterance|
 |:--|:--|:--|
 |positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
-|positive|0.84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
+|positive|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|
 
 Sentiment analysis is a publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them because sentiment analysis applies to the entire utterance. 
 
@@ -35,27 +36,20 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Use existing tutorial app 
+> * Create a new app
 > * Add sentiment analysis as publish setting
-> * Train
-> * Publish
+> * Train app
+> * Publish app
 > * Get sentiment of utterance from endpoint
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
+## Create a new app
 
-Continue with the app created in the last tutorial, named **HumanResources**. 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+## Create the EmployeeFeedback intent to allow employees to pass on work-related feedback about other employees 
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
-
-2. Import the JSON into a new app.
-
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `sentiment`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
-
-## EmployeeFeedback intent 
 Add a new intent to capture employee feedback from members of the company. 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
@@ -72,33 +66,34 @@ Add a new intent to capture employee feedback from members of the company.
 
     |Utterances|
     |--|
-    |425-555-1212 did a nice job of welcoming back a co-worker from maternity leave|
-    |234-56-7891 did a great job of comforting a co-worker in their time of grief.|
-    |jill-jones@mycompany.com didn't have all the required invoices for the paperwork.|
-    |john.w.smith@mycompany.com turned in the required forms a month late with no signatures|
-    |x23456 didn't make it to the important marketing off-site meeting.|
-    |x12345 missed the meeting for June reviews.|
-    |Jill Jones rocked the sales pitch at Harvard|
-    |John W. Smith did a great job on the presentation at Stanford|
+    |John Smith did a nice job of welcoming back a co-worker from maternity leave|
+    |Jill Jones did a great job of comforting a co-worker in her time of grief.|
+    |Bob Barnes didn't have all the required invoices for the paperwork.|
+    |Todd Thomas turned in the required forms a month late with no signatures|
+    |Katherine Kelly didn't make it to the important marketing off-site meeting.|
+    |Denise Dillard missed the meeting for June reviews.|
+    |Mark Mathews rocked the sales pitch at Harvard|
+    |Walter Williams did a great job on the presentation at Stanford|
 
     [ ![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## Train
+## ## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Configure app to include sentiment analysis
+
 1. Select **Manage** in the top right navigation, then select **Publish settings** from the left menu.
 
 2. Toggle **Sentiment Analysis** to enable this setting. 
 
     ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-## Publish
+## ## Publish the app so the trained model is queryable from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Get sentiment of utterance from endpoint
+## Get the sentiment of an utterance from the endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -200,6 +195,10 @@ Add a new intent to capture employee feedback from members of the company.
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Related information
+
+Sentiment analysis is provided by Cognitive Service [Text Analytics](../Text-Analytics/index.yml). The feature is restricted to Text Analytics [supported languages](luis-language-support.md##languages-supported).
 
 ## Next steps
 This tutorial adds sentiment analysis as a publish setting to extract sentiment values from the utterance as a whole.
