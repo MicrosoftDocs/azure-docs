@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# How to use branching and undo operations
+# How to use Branching and Undo Operations
 In this tutorial, we will go over undo and branching operations.
 
 
@@ -25,13 +25,13 @@ Creates a new train dialog which begins in the same way as an existing train dia
 
 
 ## Requirements
-This tutorial requires that the pizza order Bot is running:
+This tutorial requires that the Bot that takes pizza orders is running:
 
 	npm run demo-pizza
 
 ### Open or Import the Demo
 
-If you've already worked through the Tutorial for Pizza Order then simply open that Model from the list in the web UI. Otherwise you will need to do the following to get started:
+If you've already worked through the pizza ordering tutorial then simply open that Model from the list in the web UI. Otherwise you will need to do the following to get started:
 1. From the Model List Page, click the `Import Model` button.
 2. Type in "Pizza Demo" as the New Model Name.
 3. Click the `Locate File` buton, select this file: `<your-repo-path>\models\Demo-PizzaOrder.cl`
@@ -54,25 +54,30 @@ Here is an example of how to see the `Undo` feature in action:
 For this demo, we'll open an existing Train Dialog and create a new Train Dialog from it by branching.
 
 1. On the left panel, click "Train Dialogs".
-2. In the grid, click "new order" to open the existing Train Dialog.
-3. Click on the last "no" in the dialog.
-4. Click the "Branch" icon, it is circled in red in this image:
+2. Notice the grid, you should see only one training that starts with "new order".
+3. In the grid, click "new order" to open the existing Train Dialog.
+4. Click on the last "no" in the dialog.
+5. Click the "Branch" icon, it is circled in red in this image:
 	- ![](../media/tutorial15_branch.PNG)
 	- The entire Train Dialog prior to the "no" is copied into a new Train Dialog.
 	- This saves you re-entering the preceding turns to explore a new conversation "branch" from this point.
-5. Type "yes", hit enter.
-6. Click the `Score Actions` button.
+6. Type "yes", hit enter.
+7. Click the `Score Actions` button.
 	- At this point the Bot automatically picks a response, but we don't like the response so we are going to change it.
-7. Click on the last Bot response.
+8. Click on the last Bot response.
 	- This will let us select a different response.
-8. Select "UseLastToppings".
-9. Click the `Score Actions` button.
+9. Select "UseLastToppings".
+10. Click the `Score Actions` button.
 	- Again the Bot automatically picks a response. It should say, "You have sausage, cheese and mushrooms on your pizza.". 
 	- This time we like the response so we will keep it.
-10. Click the `Score Actions` button.
+11. Click the `Score Actions` button.
 	- Again the Bot automatically picks a response, It should say, "Would you like anything else?"
-11. Type "no".
-12. Click `Save Branch`
+12. Type "no".
+13. Click the `Save Branch` button.
+14. Notice that the grid now has two trainings that starts with "new order".
+	- One of them is the one you used to branch off of.
+	- And the other one is the branched version that you just saved.
+	- Click on each of them to verify these expectations.
 
 ## Next steps
 
