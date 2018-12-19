@@ -182,34 +182,46 @@
       - name: Java (VS Code & CLI)
         items:
         - name: 1 - Get started
-          href: ../dev-spaces/get-started-java.md
+          href: ../dev-spaces/1-get-started-java.md
           maintainContext: true
-        - name: 2 - Team development
-          href: ../dev-spaces/team-development-java.md
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/2-multi-service-java.md
+          maintainContext: true
+        - name: 3 - Team development
+          href: ../dev-spaces/3-team-development-java.md
           maintainContext: true
       - name: .NET Core (VS Code & CLI)
         items:
         - name: 1 - Get started
-          href: ../dev-spaces/get-started-netcore.md
+          href: ../dev-spaces/1-get-started-netcore.md
           maintainContext: true
-        - name: 2 - Team development
-          href: ../dev-spaces/team-development-netcore.md
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/2-multi-service-netcore.md
+          maintainContext: true
+        - name: 3 - Team development
+          href: ../dev-spaces/3-team-development-netcore.md
           maintainContext: true
       - name: .NET Core (Visual Studio 2017)
         items:
         - name: 1 - Get started
-          href: ../dev-spaces/get-started-netcore-visualstudio.md
+          href: ../dev-spaces/1-get-started-netcore-visualstudio.md
           maintainContext: true
-        - name: 2 - Team development
-          href: ../dev-spaces/team-development-netcore-visualstudio.md
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/2-multi-service-netcore-visualstudio.md
+          maintainContext: true
+        - name: 3 - Team development
+          href: ../dev-spaces/3-team-development-netcore-visualstudio.md
           maintainContext: true
       - name: Node.js (VS Code & CLI)
         items:
         - name: 1 - Get started
-          href: ../dev-spaces/get-started-nodejs.md
+          href: ../dev-spaces/1-get-started-nodejs.md
           maintainContext: true
-        - name: 2 - Team development
-          href: ../dev-spaces/team-development-nodejs.md
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/2-multi-service-nodejs.md
+          maintainContext: true
+        - name: 3 - Team development
+          href: ../dev-spaces/3-team-development-nodejs.md
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md

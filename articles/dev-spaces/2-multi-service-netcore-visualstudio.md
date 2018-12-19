@@ -61,7 +61,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch
    }
    ```
 
-The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this facilitates a more productive development experience in [team scenarios](4-team-development-netcore-visualstudio.md).
+The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this facilitates a more productive development experience in [team scenarios](3-team-development-netcore-visualstudio.md).
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.

@@ -20,7 +20,7 @@ In this guide, you will learn how to:
 - Debug code running in your cluster.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore-visualstudio.md).
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](1-get-started-netcore-visualstudio.md).
 
 ## Prerequisites
 
@@ -110,4 +110,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-netcore-visualstudio.md)
+> [Working with multiple containers and team development](2-multi-service-netcore-visualstudio.md)

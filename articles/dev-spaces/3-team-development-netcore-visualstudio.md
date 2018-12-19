@@ -63,7 +63,7 @@ First we'll need to deploy a "baseline" of our services. This deployment will re
 
 For the purposes of this tutorial there are 2 ways to establish your baseline:
 1. **Most robust:** Deploy a CI/CD (continuous integration/continuous deployment) pipeline for the sample app
-    1. We've written a how-to guide so you can deploy a fully automated CI/CD system on Azure DevOps Project which will automatically update your baseline up-to-date based on what's been checked-in. You can follow that guide by going [here](../articles/dev-spaces/how-to/setup-cicd.md).
+    1. We've written a how-to guide so you can deploy a fully automated CI/CD system on Azure DevOps Project which will automatically update your baseline up-to-date based on what's been checked-in. You can follow that guide by going [here](how-to/setup-cicd.md).
 2. **Quickest:** Manually deploy the services before proceeding:
     1. Close any F5/debug sessions for both services, but keep the projects open in their Visual Studio windows.
     2. Switch to the Visual Studio window with the `mywebapi` project and press Ctrl+F5 to run the service without the debugger attached
@@ -76,7 +76,7 @@ For the purposes of this tutorial there are 2 ways to establish your baseline:
 Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default `dev` space. Now suppose you want to continue developing `mywebapi` - how can you do this and not interrupt other developers who are using the dev space? To do that, you'll set up your own space.
 
 > [!Note]
-> To support our [CI/CD example](../articles/dev-spaces/how-to/setup-cicd.md), note that we've prefixed 'dev' on the public hostname for *webfrontend*. So your baseline service can be accessed with a URL like: `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
+> To support our [CI/CD example](how-to/setup-cicd.md), note that we've prefixed 'dev' on the public hostname for *webfrontend*. So your baseline service can be accessed with a URL like: `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
 
 ### Create a new dev space
 From within Visual Studio, you can create additional spaces that will be used when you F5 or Ctrl+F5 your service. You can call a space anything you'd like, and you can be flexible about what it means (ex. `sprint4` or `demo`).

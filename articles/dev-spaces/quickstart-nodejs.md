@@ -20,7 +20,7 @@ In this guide, you will learn how to:
 - Debug code running in your cluster.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-nodejs.md).
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](1-get-started-nodejs.md).
 
 ## Prerequisites
 
@@ -183,4 +183,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-nodejs.md)
+> [Working with multiple containers and team development](2-multi-service-nodejs.md)
