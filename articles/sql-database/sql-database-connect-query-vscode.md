@@ -16,7 +16,7 @@ ms.date: 12/06/2018
 ---
 # Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database
 
-[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates using Visual Studio Code to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data.
+[Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. This quickstart demonstrates using Visual Studio Code to connect to an Azure SQL database and then running Transact-SQL statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ In Visual Studio Code, set the language mode to **SQL**  to enable mssql command
 
 1. Open a new Visual Studio Code window. 
 
-2. Press **CTRL**+**N**. A new plain text file opens. 
+2. Press **Ctrl**+**N**. A new plain text file opens. 
 
 3. Select **Plain Text** in the status bar's lower right-hand corner.
 
@@ -72,16 +72,16 @@ In Visual Studio Code, set the language mode to **SQL**  to enable mssql command
 Use Visual Studio Code to establish a connection to your Azure SQL Database server.
 
 > [!IMPORTANT]
-> Before continuing, make sure that you have your server and login information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
+> Before continuing, make sure that you have your server and sign in information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
 >
 
 1. In Visual Studio Code, press **Ctrl+Shift+P** (or **F1**) to open the Command Palette.
 
-2. Select **MS SQL:Connect** and press **Enter**.
+2. Select **MS SQL:Connect** and choose **Enter**.
 
 3. Select **Create Connection Profile**.
 
-4. Follow the prompts to specify the new profile's connection properties. After specifying each value, press **Enter** to continue. 
+4. Follow the prompts to specify the new profile's connection properties. After specifying each value, choose **Enter** to continue. 
 
    | Property       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -108,7 +108,7 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Press **Ctrl**+**Shift**+**E** to execute the query and display results from the `Product` and `ProductCategory` tables.
+2. Press **Ctrl**+**Shift**+**E** to run the query and display results from the `Product` and `ProductCategory` tables.
 
     ![Query to retrieve data from 2 tables](./media/sql-database-connect-query-vscode/query.png)
 

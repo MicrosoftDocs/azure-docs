@@ -16,7 +16,7 @@ ms.date: 12/05/2018
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
-The SQL query editor is an Azure portal browser tool providing an easy way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse. This quickstart demonstrates using the query editor to connect to a SQL database and run Transact-SQL statements to query, insert, update, and delete data.
+The SQL query editor is an Azure portal browser tool providing an easy way to execute SQL queries on your Azure SQL Database or Azure SQL Data Warehouse. In this quickstart, you'll use the query editor to connect to a SQL database and then run Transact-SQL statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
    ```
 
 
-2. Select **Run**  to insert a new row in the Product table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
+2. Select **Run**  to insert a new row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
 ## Update data
