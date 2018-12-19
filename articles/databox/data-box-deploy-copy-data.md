@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/19/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -40,12 +40,13 @@ Based on the storage account selected, Data Box creates upto:
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
-Consider the following example. 
-
-- Storage account: *Mystoracct*
-- Share for block blob: *Mystoracct_BlockBlob/my-container/blob*
-- Share for page blob: *Mystoracct_PageBlob/my-container/blob*
-- Share for file: *Mystoracct_AzFile/my-share*
+The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be dervied from the UNC share path.
+ 
+|                   | File server UNC path                                                           | Azure Storage path URL                                                         |
+|-------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Azure Block blobs | `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt` | `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt` |
+| Azure Page blobs  | `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`   | `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt` |
+| Azure Files       |`\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`        | `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`     |
 
 If you are using a Windows Server host computer, perform the following steps to connect to the Data Box.
 
@@ -57,16 +58,16 @@ If you are using a Windows Server host computer, perform the following steps to 
     
     ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Access the shares associated with your storage account (Mystoracct in the following example). Use the `\\<IP of the device>\ShareName` path to access the shares. Depending upon your data format, connect to the shares (use the share name) at the following address: 
-    - *\\<IP address of the device>\Mystoracct_Blob*
-    - *\\<IP address of the device>\Mystoracct_Page*
-    - *\\<IP address of the device>\Mystoracct_AzFile*
-    
-    To connect to the shares from your host computer, open a command window. At the command prompt, type:
+3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+    Depending upon your data format, share names are as follows:
+    - Azure Block blob - *devicemanagertest1_BlockBlob*
+    - Azure Page blob - *devicemanagertest1_PageBlob*
+    - Azure Files - *devicemanagertest1_AzFile*
+    
+4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
@@ -78,16 +79,16 @@ If you are using a Windows Server host computer, perform the following steps to 
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5.  **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
+5.  **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
 ## Copy data to Data Box
 
 Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
 
 - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
--  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
+-  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 
