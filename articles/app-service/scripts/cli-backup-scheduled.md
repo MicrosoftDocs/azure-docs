@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a scheduled backup for a web app | Microsoft Docs
-description: Azure CLI Script Sample - Create a scheduled backup for a web app
+title: Azure CLI Script Sample - Create a scheduled backup for an app | Microsoft Docs
+description: Azure CLI Script Sample - Create a scheduled backup for an app
 services: app-service\web
 documentationcenter: 
 author: msangapu
@@ -18,9 +18,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Create a scheduled backup for a web app using CLI
+# Create a scheduled backup for an App Service app using CLI
 
-This sample script creates a web app in App Service with its related resources, and then creates a scheduled backup for it. 
+This sample script creates an app in App Service with its related resources, and then creates a scheduled backup for it. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-scheduled/backup-scheduled.sh?highlight=3-7 "Create a scheduled backup for a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-scheduled/backup-scheduled.sh?highlight=3-7 "Create a scheduled backup for an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
