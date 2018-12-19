@@ -87,7 +87,7 @@ You can also explore some of the other features of the IoT solution accelerators
 [img-machine-learning]: media/iot-accelerators-predictive-walkthrough/machine-learning.png
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
-[lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
+[lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up

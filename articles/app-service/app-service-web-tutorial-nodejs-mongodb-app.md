@@ -25,7 +25,7 @@ ms.custom: seodec18
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a Node.js and MongoDB web app in Azure App Service on Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js web app in Azure and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](app-service-web-overview.md). For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
+Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js web app in Azure and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](overview.md). For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
