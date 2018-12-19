@@ -4,9 +4,10 @@ description: Learn how to develop Python applications and services that use Azur
 services: storage
 author: wmgries
 ms.service: storage
+
 ms.devlang: python
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: files
 ---
@@ -38,11 +39,8 @@ To install via the Python Package Index (PyPI), type:
 pip install azure-storage-file
 ```
 
-
 > [!NOTE]
-> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
-> 
-> 
+> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
 
 For alternative installation methods, visit the [Azure Storage SDK for Python on GitHub](https://github.com/Azure/azure-storage-python/).
 
