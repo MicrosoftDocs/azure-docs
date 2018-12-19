@@ -35,7 +35,7 @@ The key benefits of Cosmos DB as a fully managed, globally distributed, database
 * Elastically scale the provisioned throughput and storage for your Cosmos databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
 * Turnkey, global distribution with multi-master replication.
 
-### Cosmos DB for MongoDB API clients
+## Cosmos DB for MongoDB API clients
 
 Follow the MongoDB quickstarts to create an Azure Cosmos DB account and migrate your existing MongoDB application to use Azure Cosmos DB, or build a new one:
 
