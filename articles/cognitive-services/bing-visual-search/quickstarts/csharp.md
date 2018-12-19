@@ -45,13 +45,6 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
         static string imagePath = @"<pathtoimagegoeshere>";
     ```
 
-3. The following variables will be used to add the proper parameters to the form data. 
-
-    ```csharp
-    const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
-    const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
-    ```
-
 
 1. Create a method called `GetImageFileName()` to get the path for your image
     
@@ -94,7 +87,14 @@ When uploading a local image, the form data sent to the API must be formatted co
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. Create a function called `BuildFormDataStart()` to create the beginning part of the required form data, using the boundary strings and your image path.
+2. The following variables will be used to add parameters to the form data. 
+
+    ```csharp
+    const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
+    const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
+    ```
+
+3. Create a function called `BuildFormDataStart()` to create the beginning part of the required form data, using the boundary strings and your image path.
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -108,7 +108,7 @@ When uploading a local image, the form data sent to the API must be formatted co
         }
     ```
 
-3. Create a function called `BuildFormDataEnd()` to create the ending part of the required form data, using the boundary strings.
+4. Create a function called `BuildFormDataEnd()` to create the ending part of the required form data, using the boundary strings.
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
