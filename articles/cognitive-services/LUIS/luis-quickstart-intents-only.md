@@ -9,18 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to create a Human Resources app, so that I can analyze user text in that subject domain.
 ---
 
 # Tutorial 1: Build custom app to determine user intentions
 
-In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). When you're finished, you have a LUIS endpoint running in the cloud.
-
-The purpose of the app is to determine the intention of conversational, natural language text. These intentions are categorized into **Intents**. This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, is used for any utterances from the user that are outside the _domain_ (scope) of this app. Later, a third intent, **`ApplyForJob`**, is added for any utterances about applying for a job. This third intent is different from `GetJobInformation` because the job information should already be known when someone applies for the job. However, depending on the word choice, determining which intent may be tricky because both are about a job.
-
-After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. 
+In this tutorial, you create a custom Human Resources (HR) app that predicts a user's intention based on the utterance (text). 
 
 **In this tutorial, you learn how to:**
 
@@ -31,6 +27,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 > * Train app
 > * Publish app
 > * Get intent from endpoint
+
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -48,7 +45,25 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 
     Next, the app shows the **Intents** page with the **None** Intent.
 
-## GetJobInformation intent
+## User intentions as intents
+
+The purpose of the app is to determine the intention of conversational, natural language text: 
+
+`Are there any new positions in the Seattle office?`
+
+These intentions are categorized into **Intents**. 
+
+This app has a few intents. 
+
+|Intent|Purpose|
+|--|--|
+|ApplyForJob|Determine if user is applying for a job.|
+|GetJobInformation|Determine if user is looking for information about jobs in general or a specific job.|
+|None|Determine if user is asking something app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
+
+Determining which job-related intent may be tricky due to word choice and word order.
+
+## Create the GetJobInformation intent to hold example utterances about job information
 
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
 
@@ -59,26 +74,38 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
     | Example utterances|
     |--|
     |Any new jobs posted today?|
-    |What positions are available for Senior Engineers?|
-    |Is there any work with databases?|
-    |Looking for a new situation with responsibilities in accounting|
-    |Where is the job listings|
-    |New jobs?|
     |Are there any new positions in the Seattle office?|
+    |Are there any remote worker or telecommute jobs open for engineers?|
+    |Is there any work with databases?|
+    |I'm looking for a co-working situation in the tampa office.|
+    |Is there an internship in the san francisco office?|
+    |Is there any part-time work for people in college?|
+    |Looking for a new situation with responsibilities in accounting|
+    |Looking for a job in new york city for bilinguial speakers.|
+    |Looking for a new situation with responsibilities in accounting.|
+    |New jobs?|
+    |Show me all the jobs for engineers that were added in the last 2 days.|
+    |Today's job postings?|
+    |What accounting positions are open in the london office?|
+    |What positions are available for Senior Engineers?|
+    |Where is the job listings|
 
     [![Screenshot of entering new utterances for MyStore intent](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
-## None intent 
-The client application needs to know if an utterance is outside the subject domain of the application. If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation. The client application can also give more directions for continuing the conversation if the user doesn't want to end it. 
+## Add example utterances that are outside the scope of the app to the None intent 
 
-These example utterances, outside the subject domain, are grouped into the **None** intent. Do not leave it empty. 
+The client application needs to know if an utterance is not meaningful or appropriate for the application. The **None** intent is added to each application as part of the creation process to determine if an utterance can't be answered by the client application.
+
+If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation or give more directions for continuing the conversation. 
+
+> ![CAUTION] Do not leave it empty. 
 
 1. Select **Intents** from the left panel.
 
-2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your Human Resources app. If the app is about your job postings, some **None** utterances are:
+2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your Human Resources app:
 
     | Example utterances|
     |--|
@@ -87,15 +114,15 @@ These example utterances, outside the subject domain, are grouped into the **Non
     |Penguins in the ocean|
 
 
-## Train 
+## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish
+## Publish the app so the trained model is queryable from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## Get intent
+## Get intent prediction from the endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -122,16 +149,17 @@ These example utterances, outside the subject domain, are grouped into the **Non
     }
     ```
 
-    The results include **all the intents** in the app, currently 2. The entities array is empty because this app currently does not have any entities. 
+    The `verbose=true` querystring parameter means include **all the intents** in the app's query results. The entities array is empty because this app currently does not have any entities. 
 
     The JSON result identifies the top scoring intent as **`topScoringIntent`** property. All scores are between 1 and 0, with the better score being close to 1. 
 
-## ApplyForJob intent
-Return to the LUIS website and create a new intent to determine if the user utterance is about applying for a job.
+## Create the ApplyForJob intent to determine if a user is applying for a job
+
+Return to the LUIS portal and create a new intent to determine if the user utterance is about applying for a job.
 
 1. Select **Build** from the top, right menu to return to app building.
 
-2. Select **Intents** from the left menu.
+2. Select **Intents** from the left menu to get to the list of intents.
 
 3. Select **Create new intent** and enter the name `ApplyForJob`. 
 
@@ -141,11 +169,21 @@ Return to the LUIS website and create a new intent to determine if the user utte
 
     | Example utterances|
     |--|
-    |I want to apply for the new accounting job|
     |Fill out application for Job 123456|
-    |Submit resume for engineering position|
     |Here is my c.v. for position 654234|
+    |Here is my resume for the part-time receptionist post.|
+    |I'm applying for the art desk job with this paperwork.|
+    |I'm applying for the summer college internship in Research and Development in San Diego|
+    |I'm requesting to submit my resume to the temporary position in the cafeteria.|
+    |I'm submitting my resume for the new Autocar team in Columbus, OH|
+    |I want to apply for the new accounting job|
+    |Job 456789 accounting internship paperwork is here|
     |Job 567890 and my paperwork|
+    |My papers for the tulsa accounting internship are attached.|
+    |My paperwork for the holiday delivery position|
+    |Please send my resume for the new accounting job in seattle|
+    |Submit resume for engineering position|
+    |This is my c.v. for post 234123 in Tampa.|
 
     [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
@@ -191,6 +229,10 @@ Return to the LUIS website and create a new intent to determine if the user utte
     ```
 
     The results include the new intent **ApplyForJob** as well as the existing intents. 
+
+## Client-application next steps
+
+After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). 
 
 ## Clean up resources
 
