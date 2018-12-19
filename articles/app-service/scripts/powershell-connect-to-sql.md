@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script Sample - Connect a web app to a SQL database | Microsoft Docs
-description: Azure PowerShell Script Sample - Connect a web app to a SQL database
+title: Azure PowerShell Script Sample - Connect an app to a SQL database | Microsoft Docs
+description: Azure PowerShell Script Sample - Connect an App Service app to a SQL database
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -19,15 +19,15 @@ ms.author: cfowler
 ms.custom: mvc
 ---
 
-# Connect a web app to a SQL database
+# Connect an App Service app to a SQL database
 
-In this scenario you will learn how to create an Azure SQL database and an Azure web app. Then you will link the SQL database to the web app using app settings.
+In this scenario you will learn how to create an Azure SQL database and an App Service app. Then you will link the SQL database to the app using app settings.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
 
 ## Clean up deployment 
 
