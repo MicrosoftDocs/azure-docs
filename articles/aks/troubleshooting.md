@@ -41,7 +41,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 
 For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-### I'm trying to enable RBAC on an existing cluster. How can I do that?
+## I'm trying to enable RBAC on an existing cluster. How can I do that?
 
 Unfortunately, enabling role-based access control (RBAC) on existing clusters isn't supported at this time. You must explicitly create new clusters. If you use the CLI, RBAC is enabled by default. If you use the AKS portal, a toggle button to enable RBAC is available in the creation workflow.
 
