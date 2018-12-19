@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 12/19/2018
 ms.author: jeedes
 
 ---
@@ -66,6 +66,16 @@ To test the steps in this tutorial, you should follow these recommendations:
 5. **Q: If a user is signed in through Windows, are they automatically authenticate to G Suite without getting prompted for a password?**
 
     A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and G Suite.
+
+6. **Error: Invalid Email**
+
+	For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
+
+	The email attribute is autopopulated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
+
+	You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
+
+	Once the O365 license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
 
 ## Scenario description
 
@@ -146,23 +156,33 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
     > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
 
-5. Your G Suite application expects to find the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML Token Attributes configuration.
-
-	By default, the **User Identifier** value is mapped to user.userprincipalname. Change this value to map to user.mail. You can also choose any other appropriate value according to your organization's setup but, in most of the cases, email should work. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Your G Suite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but G Suite expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section on the **User Attributes** dialog, perform the following steps:
+6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
-	a. Click **Edit icon** to open the **Manage user claims** dialog.
+	| Name | Source Attribute |
+	| ---------------| --------------- |
+	| Unique User Identifier | User.mail |
 
-	![image](./media/google-apps-tutorial/tutorial_usermail.png)
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](./media/google-apps-tutorial/tutorial_usermailedit.png)
+	![image](common/new-save-attribute.png)
 
-	b. From the **Source attribute** list, select **user.mail**.
+	![image](common/new-attribute-details.png)
 
-	c. Click **Save**.
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. Leave the **Namespace** blank.
+
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Ok**
+
+	g. Click **Save**.
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
