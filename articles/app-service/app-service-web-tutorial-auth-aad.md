@@ -116,7 +116,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### Browse to the Azure web apps
+### Browse to the apps
 
 Navigate to the following URLs in a browser and see the two apps working.
 
