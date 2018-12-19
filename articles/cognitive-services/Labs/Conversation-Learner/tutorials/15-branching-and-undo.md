@@ -60,7 +60,7 @@ For this demo, we'll open an existing Train Dialog and create a new Train Dialog
 	- ![](../media/tutorial15_branch.PNG)
 	- The entire Train Dialog prior to the "no" is copied into a new Train Dialog.
 	- This saves you re-entering the preceding turns to explore a new conversation "branch" from this point.
-1. Type "yes".
+1. Type "yes", hit enter.
 2. Click the `Score Actions` button.
 3. Select "You have $Toppings on your pizza".
 6. Select "Would you like anything else?"
