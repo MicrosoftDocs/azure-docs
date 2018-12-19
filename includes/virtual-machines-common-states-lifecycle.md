@@ -146,7 +146,7 @@ Instance usage billing
 </table>
 
 
-&#42;Some Azure resources, such as Disks and Networking, incur charges regardless of the instance's state. Software licenses on the instance do not incur charges.
+&#42;Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
 
 ## Provisioning states
 
