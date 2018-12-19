@@ -72,9 +72,9 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with SAML 1.1 Token enabled LOB App, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure SAML 1.1 Token enabled LOB App Single Sign-On](#configure-saml-1.1-token-enabled-lob-app-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure SAML 1.1 Token enabled LOB App Single Sign-On](#configure-saml-11-token-enabled-lob-app-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create SAML 1.1 Token enabled LOB App test user](#create-saml-1.1-token-enabled-lob-app-test-user)** - to have a counterpart of Britta Simon in SAML 1.1 Token enabled LOB App that is linked to the Azure AD representation of user.
+4. **[Create SAML 1.1 Token enabled LOB App test user](#create-saml-11-token-enabled-lob-app-test-user)** - to have a counterpart of Britta Simon in SAML 1.1 Token enabled LOB App that is linked to the Azure AD representation of user.
 5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
