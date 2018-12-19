@@ -20,8 +20,8 @@ In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a 
  [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 [!NOTE]
-* For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-* For more information on various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+> * For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
+> * For more information on various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ This quickstart:
 > [!NOTE]
 > For more information on backing up and restoring a SQL Server database using Azure blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).
 
-## Restore database from a backup file
+## Restore the database from a backup file
 
 In SSMS, follow these steps to restore the Wide World Importers database to your Managed Instance. The database backup file is stored in a pre-configured Azure blob storage account.
 
@@ -44,7 +44,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
 2. From the left-hand menu, right-click your Managed Instance and select **New Query** to open a new query window.
 
-3. Run this SQL script that uses a pre-configured storage account and SAS key to [create a credential](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) in your Managed Instance.
+3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) in your Managed Instance.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
@@ -55,7 +55,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
     ![create credential](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
   
-3. To check your credential, run this script that uses a [container](https://azure.microsoft.com/services/container-instances/) URL to get a backup file list.
+3. To check your credential, run the following script, which uses a [container](https://azure.microsoft.com/services/container-instances/) URL to get a backup file list.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -64,7 +64,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
     ![file list](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Run this script to restore the Wide World Importers database.
+4. Run the following script to restore the Wide World Importers database.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -73,7 +73,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
     ![restore](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Run this script to track your restore's status.
+5. Run the following script to track your restore's status.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -87,6 +87,6 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
 ## Next steps
 
-- For troubleshooting backup to URL, see [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- For troubleshooting a backup to a URL, see [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - For an overview of app connection options, see [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
 - To query using your favorite tools or languages, see [Quickstarts: Azure SQL Database Connect and Query](sql-database-connect-query.md).
