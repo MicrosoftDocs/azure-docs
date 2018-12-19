@@ -24,9 +24,9 @@ SAML token encryption enables the use of encrypted SAML assertions with an appli
 
 Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
-Even without token encryption, Azure AD SAML tokens are never passed in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Before configuring token encryption, consider the value of doing so compared with the overhead of managing additional certificates.
+Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing additional certificates.   
 
-To configure token encryption, you need to update an X509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
+To configure token encryption, you need to upload an X509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
 
 Azure AD uses AES-256 to encrypt the SAML assertion data.
 
@@ -40,7 +40,7 @@ To configure SAML token encryption, follow these steps.
 
     The public key should be stored in an X509 certificate file in .cer format.
 
-    If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the public key that the application will use to decrypt tokens from your Azure AD tenant.
+    If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the private key that the application will use to decrypt tokens from your Azure AD tenant.
 
 1. Add the certificate to the application configuration in Azure AD.
 
@@ -83,6 +83,8 @@ Encryption certificates are stored on the application object in Azure AD with an
 
 You'll need the application's object ID to configure token encryption using Microsoft Graph API or PowerShell. You can find this value programmatically, or by going to the application's **Properties** page in the Azure portal and noting the **Object ID** value.
 
+When you configure a keyCredential using Graph, PowerShell, or in the application manifest, you should generate a GUID to use for the keyId.
+
 ### To configure token encryption using Microsoft Graph
 
 1. Update the application's `keyCredentials` with an X509 certificate for encryption. The following example shows how to do this.
@@ -94,8 +96,8 @@ You'll need the application's object ID to configure token encryption using Micr
        "keyCredentials":[ 
           { 
              "type":"AsymmetricX509Cert","usage":"Encrypt",
-             "keyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35",
-             "value": "MIICADCCAW2gAwIBAgIQ5j9/b+n2Q4pDvQUCcy3…"  (Base64Encoded .cer file)
+             "keyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35",    (Use a GUID generator to obtain a value for the keyId)
+             "key": "MIICADCCAW2gAwIBAgIQ5j9/b+n2Q4pDvQUCcy3…"  (Base64Encoded .cer file)
           }
         ]
     }
@@ -107,7 +109,7 @@ You'll need the application's object ID to configure token encryption using Micr
     Patch https://graph.microsoft.com/beta/applications/<application objectid> 
 
     { 
-       "tokenEncryptionKeyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35"
+       "tokenEncryptionKeyId":"fdf8c5d8-f727-43fd-beaf-0f1521cf3d35" (The keyId of the keyCredentials entry to use)
     }
     ```
 
@@ -139,7 +141,7 @@ You'll need the application's object ID to configure token encryption using Micr
 
 1. Set the value for the `tokenEncryptionKeyId` attribute.
 
-    The following example shows an application manifest with encryption configured.
+    The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEnryptionKeyId.
 
     ```
     { 
