@@ -17,7 +17,7 @@ ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
-# Prepare Azure Stack PKI certificates for use in Deployment or Rotation
+# Prepare Azure Stack PKI certificates for use in deployment or rotation
 The certificate files [obtained from your CA of choice](azure-stack-get-pki-certs.md) must be imported and exported with properties matching Azure Stack’s certificate requirements.
 
 
