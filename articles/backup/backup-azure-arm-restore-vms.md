@@ -20,10 +20,6 @@ This article explains how to restore a VM to a new VM or restore all backed-up d
 
 ![Three ways to restore from VM backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
-> [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures used to restore deployed VMs by using the Resource Manager model.
->
->
 
 Restoring a VM or all disks from VM backup involves two steps:
 
@@ -54,106 +50,86 @@ Restoring a VM or all disks from VM backup involves two steps:
     ![List of VMs in vault](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault1.png)
 
 7. From the list, select a VM to open the dashboard. The VM dashboard opens to the monitoring area, which contains the **Recovery points**. All VM level operations like **Backup now**, **File recovery**, **Stop backup** can be performed from this blade.
-Restore can be performed in many ways from this blade. Note that This blade lists only the last 30 days recovery points.
+Restore can be performed in many ways from this blade. Note that this blade lists only the last 30 days recovery points.
 
-    a) Right click on the recovery point in this blade (less than 30 days) and initiate **Restore VM**.
-
-    b) To restore recovery points greater than 30 days Click here provided in the blade can be used.
-
-    c) **Restore VM** in the menu header provides an option to list and filter the VMs in customized dates as preferred.
-
-    Use the Filter to alter the time range of the restore points displayed. By default, restore points of all consistencies are displayed. Modify the All restore points filter to select a specific restore point consistency. For more information about each type of restoration point, see [Data consistency](backup-azure-vms-introduction.md#data-consistency).
-
-    Restore point consistency options:
-    - Crash consistent restore points
-    - Application consistent restore points
-    - File-system consistent restore points
-    - All restore points
-
+    - To restore using a restore point from the last 30 days, right-click the VM > **Restore VM**.
+    - To restore using a restore point older than 30 days, click the link under **Restore Points**.
+    - To list and filter VMs with customized dates, click **Restore VM** in the menu. Use the filter to modify the time range for the displayed restore points. You can also filter on different types of data consistency.
+8. Review the restore point settings:
+    - Data consistency shows the [type of consistency]backup-azure-vms-introduction.md#consistency-types) in the recovery point.
+    - The **Recovery Type** shows where the point is stored (in a storage account, in the vault, or both. [Learn more](https://azure.microsoft.com/blog/large-disk-support/) about instant recovery points.
+    
   ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
-
-    >  [!NOTE]
-    > Recovery Type represent if it is in customer storage account, in vault or both. Learn more about [Instant recovery point](https://azure.microsoft.com/blog/large-disk-support/).
-
-8. On the **Restore** blade, select **Restore point**.
+9. Select a restore point 
 
     ![Select restore point](./media/backup-azure-arm-restore-vms/select-recovery-point1.png)
 
-    The **Restore** blade shows that the restore point is set on clicking **OK**.
-9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+10. Select **Restore configuration**. The **Restore configuration** blade opens.
 
 ## Choose a VM restore configuration
 After you select the restore point, choose a VM restore configuration. To configure the restored VM, you can use the Azure portal or PowerShell.
 
-1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
-2. This blade currently has two options one being **Create New** which is default and the other is **Replace existing** which is in-place restore to replace the disk(s) only retaining the existing configurations and extensions.
+### Restore options
+
+**Option** | **Details**
+--- | ---
+**Create new-create VM** | Equivalent to quick create of a VM. Gets a basic VM up and running from a restore point.<br/><br/> The VM settings can be modified as part of the restore process.
+**Create new-restore disk** | Creates a VM that you can customize as part of the restore process.<br/><br/> This option copies VHDs to the storage account you specify.<br/><br/> - The storage account should be in the same location as the vault.<br/><br/> If you don't have an appropriate storage account you need to create one.<br/><br/> The storage account replication type is shown in parentheses. Zone redundant storage (ZRS) isn't supported.<br/><br/> From the storage account you can either attach the restored disks to an existing VM, or create a new VM from the restored disks using PowerShell.
+**Replace existing** | With this option you don't need to create a VM.<br/><br/> The current VM must exist. If it's been deleted this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM and stores it in the staging location specified. The existing disks connected to the VM are then replaced with the selected restore point. The snapshot created previously is copied to the vault and stored as a recovery point in accordance with your backup retention policy.<br/><br/> Replace existing is supported for unencrypted managed VMs. It's not supported for unmanaged disks, [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), or for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM. 
 
 > [!NOTE]
-> We are working on replacing the entire VM with the disk(s), network settings, configurations and extensions in the next few months.
->
->
+> If you want to restore a VM with advanced networking settings, for example if they're managed by an internal or external load balancer, or have multiple NICs or multiple reserved IP addresses, restore with PowerShell. [Learn more](#restore-vms-with-special-network-configurations).
+> If a Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), use the **Create new-restore disk** option, and then use PowerShell or the restore template to create the VM with **License Type** set to **Windows_Server**. This setting can also be applied after creating the VM.
 
- In the **Create New** option which restores to the data to new VM or new disk(s), you have two choices:
 
- ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new.png)
+Specify the restore setting as follows:
 
- - **Create virtual machine**
- - **Restore disks**
+1. In **Restore**, select a [restore point](#select-a-restore-point-for-restore) > **Restore configuration**. 
+2. In **Restore configuration**, select how you want to restore the VM in accordance with the settings summarized in the table above.
 
-![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
+    ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration-create-new1.png)
 
-The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations). If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. Note this can be done later after the creation of VM as well.
 
-## Create a new VM from a restore point
-1. On the **Restore configuration** blade mentioned in the before section, enter or select values for each of the following fields:
+## Create new-Create a VM
 
-    a. **Restore Type**. Create a virtual machine.
-
-    b. **Virtual machine name**. Enter the VM name which doesn’t exists in the subscription.
-
-    c. **Resource group**. Use an existing resource group or create a new one. If you're restoring a classic VM, use this field to specify the name of a new cloud service. If you're creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL: for example, [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service already in use, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from affinity groups to a regional virtual network](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
-    d. **Virtual network**. Select the virtual network when you create VM. The field provides all virtual networks associated with the subscription. The resource group of the VM is displayed in parentheses.
-
-    e. **Subnet**. If the virtual network has subnets, the first subnet is selected by default. If there are additional subnets, select the subnet you want.
-
-    f. **Storage Location**. Storage accounts are the staging location. This menu lists the storage accounts in the same location as the Recovery Services vault. Storage accounts that are zone redundant aren't supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before you start the restore operation. The storage account's replication type is displayed in parentheses.
+1. In **Restore configuration** > **Create new** > **Restore Type**, select **Create a virtual machine**.
+2. In **Virtual machine name**, specify a VM which doesn’t exist in the subscription.
+3. In **Resource group**, select an existing resource group for the new VM, or create a new one with a globally unique name. If you assign a name that already existing, Azure assigns the group the same name as the VM.
+4. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription are displayed. Select the subnet. The first subnet is selected by default.
+5. In **Storage Location**, specify the storage type used for the VM.
 
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
-    > [!NOTE]
-    > * A virtual network is optional for a classic VM and mandatory for Resource Manager-deployed VM.
+6. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
 
-    > * Storage type provided in storage account (premium or standard) in staging location decides the restore disk storage type. We currently don't support a mixed mode of disks when restoring.
-    >
-    >
 
-2. On the **Restore configuration** blade, select **OK** to finalize the restore configuration. On the **Restore** blade, select **Restore** to trigger the restore operation.
 
-## Restore backed-up disks
-Restore type value **Restore disk** in **Restore configuration** blade enables to create a VM with customized configurations. While restoring disks, Storage account to be selected should be in the same location as Recovery services vault. It is mandatory to create a storage account, if there are no storage accounts with the same location as the Recovery Services vault. ZRS Storage accounts are not supported. Replication type of Storage Account is displayed in parentheses.
+## Create new-Restore disks 
 
-Post restore operation, use below:
-* [Use the template to customize the restored VM](#use-templates-to-customize-restore-vm)
-* [Use the restored disks to attach to an existing VM](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Create a new VM by using PowerShell from restored disks](./backup-azure-vms-automation.md#restore-an-azure-vm)
+1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
+2. In In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name. 
+3. In **Storage account**, specify the account to which to copy the VHDs. Make sure the account is in the same region as the vault. 
 
-On the **Restore configuration** blade, select **OK** to finalize the restore configuration. On the **Restore** blade, select **Restore** to trigger the restore operation.
+    ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    
+4. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
+5. After the disk is restored, you can do any of the following to complete the VM restore operation.
 
-![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    - Use the template that was generated as part of the restore operation to customize settings, and trigger VM deployment. Ypu edit the default template settings, and submit the template for VM deployment.
+    - You can [attach the restored disks](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps) to an existing VM.
+    - You can [create a new VM](backup-azure-vms-automation.md#restore-an-azure-vm) from the restored disks using PowerShell.
 
-In **Place Restore** is being done through the tab **Replace Existing**.
 
-## Replace existing disks from a restore point
-**Replace existing** option helps to replace existing disks in the current VM with the selected restore point. This operation can be only performed if current VM exists. If it was deleted because of any reasons, this operation cannot be performed; alternatively, we recommend you to do **Create new** VM or disks to continue with restore operations. During this operation, as a precautionary measure, we backup the data before initiating the replace disks operations. This creates a snapshot and also a recovery point in the vault with retention period as scheduled in the configured backup policy. If the restore point has disks more/less than the current VM, then the number of disks in the restore point will only reflect in the VM. **Replace existing** option is currently unsupported for Unmanaged Disks and Encrypted VMs. It is also unsupported for [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) and for VMs created using [custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
+## Replace existing disks 
 
- On the **Restore Configuration** blade, the only input which needs to be selected is **Staging Location**.
+Use this option to replace existing disks in the current VM with the selected restore point. 
+
+1. In **Restore configuration**, click **Replace existing**.
+2. In **Restore Type**, select **Replace disk/s** (the restore point that will replace the existing VM disk or disks).
+3. In **Staging Location**, specify where snapshots of the current managed disks should be saved.
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
- a. **Restore Type**. Replace Disk(s) representing that the restore point selected will replace the disk(s) in existing VM.
-
- b. **Staging Location**. Storage accounts are the staging location for managed disks. This menu lists the storage accounts in the same location as the Recovery Services vault. Storage accounts that are zone redundant aren't supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before you start the restore operation. The storage account's replication type is displayed in parentheses.
 
 ## Track the restore operation
 After you trigger the restore operation, the backup service creates a job for tracking the restore operation. The backup service also creates and temporarily displays the notification in the **Notifications** area of the portal. If you don't see the notification, select the **Notifications** symbol to view your notifications.

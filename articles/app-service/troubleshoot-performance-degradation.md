@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot performance degradation - Azure App Service | Microsoft Docs
-description: This article helps you troubleshoot slow web app performance issues in Azure App Service.
+description: This article helps you troubleshoot slow app performance issues in Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -20,13 +20,13 @@ ms.author: cephalin
 ms.custom: seodec18
 
 ---
-# Troubleshoot slow web app performance issues in Azure App Service
-This article helps you troubleshoot slow web app performance issues in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+# Troubleshoot slow app performance issues in Azure App Service
+This article helps you troubleshoot slow app performance issues in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 ## Symptom
-When you browse the web app, the pages load slowly and sometimes timeout.
+When you browse the app, the pages load slowly and sometimes timeout.
 
 ## Cause
 This problem is often caused by application level issues, such as:
@@ -43,7 +43,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](overview.md) gives you various options at each step.
+[App Service](overview.md) gives you various options at each step.
 
 <a name="observe" />
 
@@ -51,10 +51,10 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 #### Track Service health
 Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
-#### Monitor your web app
-This option enables you to find out if your application is having any issues. In your web app’s blade, click the **Requests and errors** tile. The **Metric** blade shows you all the metrics you can add.
+#### Monitor your app
+This option enables you to find out if your application is having any issues. In your app’s blade, click the **Requests and errors** tile. The **Metric** blade shows you all the metrics you can add.
 
-Some of the metrics that you might want to monitor for your web app are
+Some of the metrics that you might want to monitor for your app are
 
 * Average memory working set
 * Average response time
@@ -62,15 +62,15 @@ Some of the metrics that you might want to monitor for your web app are
 * Memory working set
 * Requests
 
-![monitor web app performance](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![monitor app performance](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 For more information, see:
 
-* [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
+* [Monitor apps in Azure App Service](web-sites-monitor.md)
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### Monitor web endpoint status
-If you are running your web app in the **Standard** pricing tier, Web Apps lets you monitor two endpoints from three geographic locations.
+If you are running your app in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
 
 Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an HTTP GET operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
 
@@ -83,30 +83,30 @@ Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Sch
 #### Application performance monitoring using Extensions
 You can also monitor your application performance by using a *site extension*.
 
-Each App Service web app provides an extensible management end point that allows you to use a powerful set of tools deployed as site extensions. Extensions include: 
+Each App Service app provides an extensible management end point that allows you to use a powerful set of tools deployed as site extensions. Extensions include: 
 
 - Source code editors like [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
-- Management tools for connected resources such as a MySQL database connected to a web app.
+- Management tools for connected resources such as a MySQL database connected to an app.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
 ### 2. Collect data
-The Web Apps environment provides diagnostic functionality for logging information from both the web server and the web application. The information is separated into web server diagnostics and application diagnostics.
+App Service provides diagnostic functionality for logging information from both the web server and the web application. The information is separated into web server diagnostics and application diagnostics.
 
 #### Enable web server diagnostics
 You can enable or disable the following kinds of logs:
 
 * **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
-* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to improve web app performance or isolate what is causing a specific HTTP error.
-* **Web Server Logging** - Information about HTTP transactions using the W3C extended log file format. This is useful when determining overall web app metrics, such as the number of requests handled or how many requests are from a specific IP address.
+* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to improve app performance or isolate what is causing a specific HTTP error.
+* **Web Server Logging** - Information about HTTP transactions using the W3C extended log file format. This is useful when determining overall app metrics, such as the number of requests handled or how many requests are from a specific IP address.
 
 #### Enable application diagnostics
-There are several options to collect application performance data from Web Apps, profile your application live from Visual Studio, or modify your application code to log more information and traces. You can choose the options based on how much access you have to the application and what you observed from the monitoring tools.
+There are several options to collect application performance data from App Service, profile your application live from Visual Studio, or modify your application code to log more information and traces. You can choose the options based on how much access you have to the application and what you observed from the monitoring tools.
 
 ##### Use Application Insights Profiler
-You can enable the Application Insights Profiler to start capturing detailed performance traces. You can access traces captured up to five days ago when you need to investigate problems happened in the past. You can choose this option as long as you have access to the web app's Application Insights resource on Azure portal.
+You can enable the Application Insights Profiler to start capturing detailed performance traces. You can access traces captured up to five days ago when you need to investigate problems happened in the past. You can choose this option as long as you have access to the app's Application Insights resource on Azure portal.
 
 Application Insights Profiler provides statistics on response time for each web call and traces that indicates which line of code caused the slow responses. Sometimes the App Service app is slow because certain code is not written in a performant way. Examples include sequential code that can be run in parallel and undesired database lock contentions. Removing these bottlenecks in the code increases the app's performance, but they are hard to detect without setting up elaborate traces and logs. The traces collected by Application Insights Profiler helps identifying the lines of code that slows down the application and overcome this challenge for App Service apps.
 

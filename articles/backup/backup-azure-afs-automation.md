@@ -29,11 +29,11 @@ To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the
 ## Setup and Registration
 
 > [!NOTE]
-> As noted [here](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), support for new features in AzureRM module ends in Nov, 2018. Therefore we are providing support for backup of Azure File shares with the new 'Az' PS module. We are also planning to be onboarded to GA release of Az module.
+> As noted [here](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), support for new features in AzureRM module ends in Nov, 2018. Therefore we are providing support for backup of Azure File shares with the new 'Az' PS module now in GA.
 
 To begin:
 
-1. [Download the latest version of 'Az' PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (the minimum version required is: 0.7.0)
+1. [Download the latest version of 'Az' PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (the minimum version required is: 1.0.0)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
@@ -153,6 +153,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+The 'NewAFSPolicy' takes a daily backup and retains it for 30 days.
 
 ### Enable protection
 

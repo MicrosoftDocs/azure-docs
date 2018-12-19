@@ -80,7 +80,7 @@ The following list provides a general summary of Azure services that can be move
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
-* Key Vault
+* Key Vault - see [Key Vault Limitations](#key-vault-limitations)
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Log Analytics
 * Logic Apps
@@ -149,38 +149,6 @@ The following list provides a general summary of Azure services that can't be mo
 ### Virtual Machines limitations
 
 Managed disks are supported for move as of September 24, 2018. 
-
-1. In the source subscription, register this feature.
-
-  ```azurepowershell-interactive
-  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-  ```
-
-  ```azurecli-interactive
-  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-  ```
-
-1. The registration request initially returns a state of `Registering`. You can check the current status with:
-
-  ```azurepowershell-interactive
-  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-  ```
-
-  ```azurecli-interactive
-  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-  ```
-
-1. Wait several minutes for the status to change to `Registered`.
-
-1. After the feature is registered, register the `Microsoft.Compute` resource provider. Perform this step even if the resource provider was previously registered.
-
-  ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-  ```
-
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Compute
-  ```
 
 This support means you can also move:
 
