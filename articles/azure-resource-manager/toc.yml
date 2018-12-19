@@ -62,7 +62,7 @@
     - name: Template best practices
       href: template-best-practices.md
     - name: Subscription governance
-      href: /azure/architecture/cloud-adoption-guide/subscription-governance
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
       maintainContext: true
     - name: Templates for cloud consistency
       href: templates-cloud-consistency.md
