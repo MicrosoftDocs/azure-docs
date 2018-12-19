@@ -1,7 +1,6 @@
 ---
-title: Azure AD deployment checklist 30 days, 90 days, and beyond
-description: Azure Active Directory Premium P2 feature deployment checklist
-
+title: Premium P2 licensing feature checklist - Azure Active Directory | Microsoft Docs
+description: Deployment checklist for Azure Active Directory Premium P2 feature deployment at 30 days, 90 days, and beyond.
 services: active-directory
 ms.service: active-directory
 ms.component: 
@@ -11,7 +10,7 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer:
+ms.custom: "it-pro, seodec18"
 
 ---
 # Azure Active Directory Premium P2 licensing feature checklist

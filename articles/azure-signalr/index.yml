@@ -49,22 +49,6 @@ sections:
     items:
     - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrate Azure SignalR Service with ASP.NET Core Identity</a>
     - html: <a href="/azure/azure-signalr/signalr-authenticate-azure-functions">Build a Serverless Real-time App with Authentication</a>
-# - title: Free Pluralsight Video Training
-#   items:
-#   - type: list
-#     style: cards
-#     className: cardsFTitle
-#     items:
-#     - title: Developing with .NET
-#       href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-#       image: 
-#         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-#         href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-#     - title: Azure Solution Architect
-#       href: https://go.microsoft.com/fwlink/?linkid=2012824
-#       image: 
-#         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-#         href: https://go.microsoft.com/fwlink/?linkid=2012824
 - title: Reference
   items:
   - type: paragraph
@@ -73,7 +57,7 @@ sections:
     style: unordered
     items:
     - html: <a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core SDK</a>
-    - html: <a href="https://github.com/Azure/azure-functions-signalrservice-extension">Azure Functions Bindings</a>
+    - html: <a href="/azure/azure-functions/functions-bindings-signalr-service">Azure Functions Bindings</a>
     - html: <a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a>
   - type: paragraph
     text: Connect to Azure SignalR with Clients SDKs

@@ -66,7 +66,9 @@
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
     - name: View Reservations
-      href: billing-view-reservations.md  
+      href: billing-view-reservations.md 
+    - name: Reservation APIs
+      href: billing-reservation-apis.md 
 - name: Manage account
   items:
   - name: Free account

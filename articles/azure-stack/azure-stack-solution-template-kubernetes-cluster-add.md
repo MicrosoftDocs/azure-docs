@@ -117,7 +117,7 @@ Add the Kubernetes from the Marketplace:
     > [!note]  
     > It may take five minutes for the marketplace item to appear in the Marketplace.
 
-    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## Update or remove the Kubernetes 
 

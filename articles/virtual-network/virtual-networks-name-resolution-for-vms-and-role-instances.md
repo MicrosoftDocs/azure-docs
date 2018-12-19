@@ -121,7 +121,7 @@ options timeout:1 attempts:5
 The resolv.conf file is usually auto-generated, and should not be edited. The specific steps for adding the *options* line vary by distribution:
 
 * **Ubuntu** (uses resolvconf):
-  1. Add the *options* line to **/etc/resolveconf/resolv.conf.d/head**.
+  1. Add the *options* line to **/etc/resolvconf/resolv.conf.d/tail**.
   2. Run `resolvconf -u` to update.
 * **SUSE** (uses netconf):
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**. 

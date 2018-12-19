@@ -1,5 +1,6 @@
 ---
-title: Secure Azure Machine Learning web services with SSL 
+title: Secure web services with SSL
+titleSuffix: Azure Machine Learning service
 description: Learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,9 +11,10 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
+ms.custom: seodec18
 ---
 
-# Secure Azure Machine Learning web services with SSL
+# Use SSL to secure web services with Azure Machine Learning service
 
 In this article, you will learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication.
 
@@ -114,7 +116,7 @@ Next, you must update your DNS to point to the web service.
 
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
-  ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
+  ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## Next steps
 

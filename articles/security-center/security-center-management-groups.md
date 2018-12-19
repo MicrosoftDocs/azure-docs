@@ -3,7 +3,7 @@ title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
 description: Learn about gaining tenant-wide visibility in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 
@@ -90,13 +90,16 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
 #### Assign RBAC roles to users through the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
+1. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
+1.  Select a management group and click **details**.
 
     ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
+1. Click **Access control (IAM)** then **Role assignments**.
+
+1. Click **Add role assignment**.
+
+1. Select the role to assign and the user, then click **Save**.  
    
    ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
 

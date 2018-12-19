@@ -7,14 +7,14 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
+ms.reviewer: kivenkat
 
 ---
 
@@ -37,7 +37,7 @@ Azure Stack virtual machines provide on-demand, scalable computing resources. Be
 | Virtual machine disks performance | Depends on disk type and size. | Depends on VM size of VM which the disks are attached to, refer to the [Virtual machine sizes supported in Azure Stack](azure-stack-vm-sizes.md) article.
 | API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
 |Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Multiple fault domains (2 or 3 per region)<br>Multiple update domains (up to 20)<br>No managed disk support|
-|Virtual machine scale sets|Auto-scale supported|Auto-scale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
+|Virtual machine scale sets|Autoscale supported|Autoscale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
 
 ## Virtual machine sizes
 

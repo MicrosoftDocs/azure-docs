@@ -56,5 +56,5 @@ Using on-premises Active Directory or Active Directory on IaaS VMs alone, withou
 ## Next steps
 
 * [Configure HDInsight clusters with ESP](apache-domain-joined-configure-using-azure-adds.md)
-* [Configure Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)
-* [Manage HDInsight  clusters with ESP](apache-domain-joined-manage.md) 
+* [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)
+* [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md) 

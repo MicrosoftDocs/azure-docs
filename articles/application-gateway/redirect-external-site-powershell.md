@@ -111,7 +111,7 @@ $defaultListener = New-AzureRmApplicationGatewayHttpListener `
 $redirectConfig = New-AzureRmApplicationGatewayRedirectConfiguration `
   -Name myredirect `
   -RedirectType Temporary `
-  -TargetUrl "http://bing.com"
+  -TargetUrl "https://bing.com"
 $redirectRule = New-AzureRmApplicationGatewayRequestRoutingRule `
   -Name redirectRule `
   -RuleType Basic `

@@ -73,7 +73,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -110,7 +110,7 @@ You can download the existing Azure Resource Manager template to create a virtua
     }
     ```
 
-1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 

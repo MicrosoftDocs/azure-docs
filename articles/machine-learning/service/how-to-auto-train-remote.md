@@ -1,6 +1,7 @@
 ---
-title: Set up remote compute targets for automated machine learning - Azure Machine Learning service 
-description: This article explains how to build models using  automated machine learning on a Data Science Virtual machine (DSVM) remote compute target with Azure Machine Learning service
+title: Automated ML remote compute targets
+titleSuffix: Azure Machine Learning service
+description: Learn how to build models using automated machine learning on a Data Science Virtual machine (DSVM) remote compute target with Azure Machine Learning service
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -10,6 +11,8 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
+ms.custom: seodec18
+
 #Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on a DSVM remote compute target.
 ---
 # Train models with automated machine learning in the cloud
@@ -101,7 +104,7 @@ Provide the remote resource access to your training data. For automated machine 
 
 To provide access, you must:
 + Create a get_data.py file containing a `get_data()` function 
-* Place that file in the root directory of the folder containing your scripts 
+* Place that file in a directory accessible as an absolute path 
 
 You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
 
@@ -143,12 +146,12 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
-    "max_time_sec": 600,
+    "iteration_timeout_minutes": 10,
     "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
     "preprocess": False,
-    "concurrent_iterations": 10,
+    "max_concurrent_iterations": 10,
     "verbosity": logging.INFO
 }
 
@@ -162,12 +165,6 @@ automl_config = AutoMLConfig(task='classification',
 ```
 
 ### Enable model explanations
-
-To enable output for model explanations, first install the `explain` variant of the `azureml_sdk` in your environment.
-
-```shell
-pip install azureml_sdk[explain]
-```
 
 Set the optional `model_explainability` parameter in the `AutoMLConfig` constructor. Additionally, a validation dataframe object must be passed as a parameter `X_valid` to use the model explainability feature.
 
@@ -205,26 +202,26 @@ You will see output similar to the following example:
     ***********************************************************************************************
     
      ITERATION     PIPELINE                               DURATION                METRIC      BEST
-             2      Standardize SGD classifier            0.0                      0.954     0.954
-             7      Normalizer DT                         0.0                      0.161     0.954
-             0      Scale MaxAbs 1 extra trees            0.0                      0.936     0.954
-             4      Robust Scaler SGD classifier          0.0                      0.867     0.954
-             1      Normalizer kNN                        0.0                      0.984     0.984
-             9      Normalizer extra trees                0.0                      0.834     0.984
-             5      Robust Scaler DT                      0.0                      0.736     0.984
-             8      Standardize kNN                       0.0                      0.981     0.984
-             6      Standardize SVM                       2.2                      0.984     0.984
-            10      Scale MaxAbs 1 DT                     0.0                      0.077     0.984
-            11      Standardize SGD classifier            0.0                      0.863     0.984
-             3      Standardize gradient boosting         5.4                      0.971     0.984
-            12      Robust Scaler logistic regression     2.0                      0.955     0.984
-            14      Scale MaxAbs 1 SVM                    0.0                      0.989     0.989
-            13      Scale MaxAbs 1 gradient boosting      3.4                      0.971     0.989
-            15      Robust Scaler kNN                     0.0                      0.904     0.989
-            17      Standardize kNN                       0.0                      0.974     0.989
-            16      Scale 0/1 gradient boosting           2.8                      0.968     0.989
-            18      Scale 0/1 extra trees                 0.0                      0.828     0.989
-            19      Robust Scaler kNN                     0.0                      0.983     0.989
+             2      Standardize SGD classifier            0:02:36                  0.954     0.954
+             7      Normalizer DT                         0:02:22                  0.161     0.954
+             0      Scale MaxAbs 1 extra trees            0:02:45                  0.936     0.954
+             4      Robust Scaler SGD classifier          0:02:24                  0.867     0.954
+             1      Normalizer kNN                        0:02:44                  0.984     0.984
+             9      Normalizer extra trees                0:03:15                  0.834     0.984
+             5      Robust Scaler DT                      0:02:18                  0.736     0.984
+             8      Standardize kNN                       0:02:05                  0.981     0.984
+             6      Standardize SVM                       0:02:18                  0.984     0.984
+            10      Scale MaxAbs 1 DT                     0:02:18                  0.077     0.984
+            11      Standardize SGD classifier            0:02:24                  0.863     0.984
+             3      Standardize gradient boosting         0:03:03                  0.971     0.984
+            12      Robust Scaler logistic regression     0:02:32                  0.955     0.984
+            14      Scale MaxAbs 1 SVM                    0:02:15                  0.989     0.989
+            13      Scale MaxAbs 1 gradient boosting      0:02:15                  0.971     0.989
+            15      Robust Scaler kNN                     0:02:28                  0.904     0.989
+            17      Standardize kNN                       0:02:22                  0.974     0.989
+            16      Scale 0/1 gradient boosting           0:02:18                  0.968     0.989
+            18      Scale 0/1 extra trees                 0:02:18                  0.828     0.989
+            19      Robust Scaler kNN                     0:02:32                  0.983     0.989
 
 
 ## Explore results
@@ -250,7 +247,7 @@ Find logs on the DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 Retrieving model explanation data allows you to see detailed information about the models to increase transparency into what's running on the back-end. In this example, you run model explanations only for the best fit model. If you run for all models in the pipeline, it will result in significant run time. Model explanation information includes:
 
-* shape_values: The explanation information generated by shape lib
+* shap_values: The explanation information generated by shap lib
 * expected_values: The expected value of the model applied to set of X_train data.
 * overall_summary: The model level feature importance values sorted in descending order
 * overall_imp: The feature names sorted in the same order as in overall_summary
@@ -268,7 +265,7 @@ Import the `retrieve_model_explanation` function and run on the best model.
 ```python
 from azureml.train.automl.automlexplainer import retrieve_model_explanation
 
-shape_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
+shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
     retrieve_model_explanation(best_run)
 ```
 
@@ -291,7 +288,7 @@ You can also visualize feature importance through the widget UI as well as the w
 
 ## Example
 
-The [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article. 
+The [how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) notebook demonstrates concepts in this article. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

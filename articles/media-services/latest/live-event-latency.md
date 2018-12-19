@@ -40,7 +40,7 @@ LiveEvent liveEvent = new LiveEvent(
             streamOptions: new List<StreamOptionsFlag?>()
             {
                 // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second GOP size instead of 2 seconds.
+                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
                 StreamOptionsFlag.LowLatency
             }
         );
@@ -48,14 +48,23 @@ LiveEvent liveEvent = new LiveEvent(
 
 See the full example: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## Pass-through LiveEvents latency
+## LiveEvents latency
 
-The following table shows typical results for latency (when the LowLatency flag is enabled) in Media Services, measured from the time the contribution feed reaches the service to when a player can request playback.
+The following tables show typical results for latency (when the LowLatency flag is enabled) in Media Services, measured from the time the contribution feed reaches the service to when a viewer sees the playback on the player. To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length. When using a higher GOP length, you minimize bandwidth consumption and reduce bitrate under same frame rate. It is especially beneficial in videos with less motion.
+
+### Pass-through 
 
 ||2s GOP low latency enabled|1s GOP low latency enabled|
 |---|---|---|
 |DASH in AMP|10s|8s|
 |HLS on native iOS player|14s|10s|
+
+### Live encoding
+
+||2s GOP low latency enabled|1s GOP low latency enabled|
+|---|---|---|
+|DASH in AMP|14s|10s|
+|HLS on native iOS player|18s|13s|
 
 > [!NOTE]
 > The end-to-end latency can vary depending on local network conditions or by introducing a CDN caching layer. You should test your exact configurations.

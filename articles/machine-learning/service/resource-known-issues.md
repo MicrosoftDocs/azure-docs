@@ -1,6 +1,7 @@
 ---
-title: Known Issues and Troubleshooting for Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting
+title: Known issues & troubleshooting
+titleSuffix: Azure Machine Learning service
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -8,7 +9,9 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 10/01/2018 
+ms.date: 12/04/2018 
+ms.custom: seodec18
+
 ---
 # Known issues and troubleshooting Azure Machine Learning service
  
@@ -23,7 +26,7 @@ Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. 
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
-## Azure Machine Learning Compute usage issue
+## Trouble creating Azure Machine Learning Compute
 There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately. 
 
 ## Image building failure
@@ -53,6 +56,8 @@ Databricks and Azure Machine Learning issues.
 
    Workaround: import Python library `numpy==1.14.5` to your Databricks cluster using Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
 
+## Azure portal
+If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another worksapce, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. 

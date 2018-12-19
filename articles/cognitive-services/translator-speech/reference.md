@@ -45,7 +45,7 @@ Treat your subscription key and the access token as secrets that should be hidde
 ## 5. Process the results
 **Process the results streamed back from the service.** The format of partial results, final results and text-to-speech audio segments are described in the documentation of the `/speech/translate` operation below.
 
-Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
+Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator GitHub site](https://github.com/MicrosoftTranslator).
 
 ## Implementation notes
 

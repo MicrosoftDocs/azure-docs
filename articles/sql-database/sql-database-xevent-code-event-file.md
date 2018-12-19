@@ -3,13 +3,13 @@ title: XEvent Event File code for SQL Database | Microsoft Docs
 description: Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer:
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
 ---

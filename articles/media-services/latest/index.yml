@@ -4,7 +4,7 @@ title: Azure Media Services v3 Documentation
 metadata:
   document_id: 
   title: Azure Media Services v3 Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
+  description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
   services: media-services
   author: Juliako
   manager: femila

@@ -1,13 +1,10 @@
 ---
 title: Use PostgreSQL extensions in Azure Database for PostgreSQL
 description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2018
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL

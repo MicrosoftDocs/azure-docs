@@ -1,5 +1,6 @@
 ---
-title: Train PyTorch models with Azure Machine Learning
+title: Train models with PyTorch
+titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of PyTorch models with the PyTorch estimator
 services: machine-learning
 ms.service: machine-learning
@@ -8,10 +9,12 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
+
 ---
 
-# How to train PyTorch models
+# Train PyTorch models with Azure Machine Learning service
 
 For deep neural network (DNN) training using PyTorch, Azure Machine Learning provides a custom `PyTorch` class of the `Estimator`. The Azure SDK's `PyTorch` estimator enables you to easily submit PyTorch training jobs for both single-node and distributed runs on Azure compute.
 
@@ -95,11 +98,9 @@ run = exp.submit(pt_est)
 ```
 
 ## Examples
-For a tutorial on single-node PyTorch training, see:
-* [training/01.train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
-For a tutorial on distributed PyTorch with Horovod, see:
-* [training/02.distributed-pytorch-with-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
+For notebooks on distributed deep learning, see:
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: How to delete a group using Azure Active Directory | Microsoft Docs
-description: Learn how to delete a group using Azure Active Directory.
+title: Delete a group - Azure Active Directory | Microsoft Docs
+description: Instructions about how to delete a group using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro                         
+ms.custom: "it-pro, seodec18"                      
 ---
 
-# How to: Delete a group using Azure Active Directory
-You can delete a group for any number of reasons, but typically it will be because you:
+# Delete a group using Azure Active Directory
+You can delete an Azure Active Directory (Azure AD) group for any number of reasons, but typically it will be because you:
 
 - Incorrectly set the **Group type** to the wrong option
 

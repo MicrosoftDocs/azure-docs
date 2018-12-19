@@ -53,6 +53,10 @@ The following sections describe how to do these required steps. Follow the CLI *
 
 2. Create an IoT hub in the S1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
 
+   > [!NOTE]
+   > You must use an Iot hub in a paid tier to complete this tutorial. The free tier only allows you to set up one endpoint, and this tutorial requires multiple endpoints.
+   > 
+
 3. Create a standard V1 storage account with Standard_LRS replication.
 
 4. Create a Service Bus namespace and queue. 

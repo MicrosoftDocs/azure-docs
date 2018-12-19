@@ -107,7 +107,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
+To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ### Single machine inventory
 

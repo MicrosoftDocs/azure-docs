@@ -26,7 +26,7 @@ Make sure that the STS that the claims-aware app redirects to is available outsi
 
 ## Publish your application
 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md).
 2. Navigate to the application page in the portal and select **Single sign-on**.
 3. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **Azure AD single sign-on disabled** as your **Internal Authentication Method**. If you chose **Passthrough** as your **Preauthentication Method**, you don't need to change anything.
 

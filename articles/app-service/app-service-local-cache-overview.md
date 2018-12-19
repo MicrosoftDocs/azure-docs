@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Local Cache overview | Microsoft Docs
+title: Local cache overview - Azure App Service | Microsoft Docs
 description: This article describes how to enable, resize, and query the status of the Azure App Service Local Cache feature
 services: app-service
 documentationcenter: app-service
@@ -17,6 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Azure App Service Local Cache overview
@@ -25,7 +26,7 @@ ms.author: cephalin
 > Local cache is not supported in Function apps or containerized App Service apps, such as on [App Service on Linux](containers/app-service-linux-intro.md).
 
 
-Azure web app content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
+Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
 * The content is shared across multiple virtual machine (VM) instances of the web app.
 * The content is durable and can be modified by running web apps.

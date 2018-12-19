@@ -16,11 +16,11 @@ ms.date: 11/30/2018
 ms.author: douglasl
 ---
 
-# Azure Function Activity in Azure Data Factory
+# Azure Function activity in Azure Data Factory
 
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in a Data Factory pipeline. To run an Azure Function, you need to create a linked service connection and an activity that specifies the Azure Function that you plan to execute.
 
-## Azure Function Linked Service
+## Azure Function linked service
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 | function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | yes |
 |   |   |   |
 
-## Azure Function Activity
+## Azure Function activity
 
 | **Property**  | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |

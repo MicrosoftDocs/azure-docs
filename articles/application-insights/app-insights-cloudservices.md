@@ -8,7 +8,6 @@ author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
-ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.workload: tbd
@@ -24,7 +23,7 @@ ms.author: mbullwin
 ## Before you start
 You'll need:
 
-* A subscription with [Microsoft Azure](http://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
+* A subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services. 
 * Microsoft Azure tools 2.9 or later
 * Developer Analytics Tools 7.10 or later
 
@@ -91,7 +90,7 @@ If you have decided to use a separate Application Insights resource for each bui
 
 This has the effect of inserting your Application Insights instrumentation keys into the files named `ServiceConfiguration.*.cscfg`. ([Sample code](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-If you want to vary the level of diagnostic information sent to Application Insights, you can do so [by editing the `.cscfg` files directly](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+If you want to vary the level of diagnostic information sent to Application Insights, you can do so [by editing the `.cscfg` files directly](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="sdk"></a>Install the SDK in each project
 This option adds the ability to add custom business telemetry to any role, for a closer analysis of how your application is used and performs.
@@ -146,7 +145,7 @@ To see performance counters and counts of events, open [Metrics Explorer](app-in
 
 ![Azure diagnostic data](./media/app-insights-cloudservices/23-wad.png)
 
-Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](../log-analytics/query-language/get-started-analytics-portal.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
+Use [Search](app-insights-diagnostic-search.md) or an [Analytics query](../azure-monitor/log-query/get-started-portal.md) to search across the various trace logs sent by Azure Diagnostics. For example, suppose you have an unhandled exception which caused a Role to crash and recycle. That information would show up in the Application channel of Windows Event Log. You can use Search to look at the Windows Event Log error and get the full stack trace for the exception. This will help you find the root cause of the issue.
 
 ![Azure diagnostics search](./media/app-insights-cloudservices/25-wad.png)
 
@@ -228,7 +227,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
-* [Configure sending Azure Diagnostics to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Configure sending Azure Diagnostics to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automate creation of Application Insights resources](app-insights-powershell.md)
 * [Automate Azure diagnostics](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
@@ -239,7 +238,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 

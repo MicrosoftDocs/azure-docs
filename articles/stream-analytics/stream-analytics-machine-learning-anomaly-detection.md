@@ -4,11 +4,11 @@ description: This article describes how to use Azure Stream Analytics and Azure 
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 
 # Anomaly Detection in Azure Stream Analytics
@@ -95,7 +95,7 @@ As time progresses, models are trained with different data. To make sense of the
 
 Diagrammatically, the steps look as follows: 
 
-![Training models](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Machine learning training models](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Model** | **Training start time** | **Time to start using its score** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ The following points should be considered when using this detector:
 
    This is shown in figures 1 and 2 below using an upper limit change (the same logic applies to a lower limit change). In both figures, the waveforms are an anomalous level change. Vertical orange lines denote hop boundaries and the hop size is the same as the detection window specified in the AnomalyDetection operator. The green lines indicate the size of the training window. In Figure 1, the hop size is the same as the time for which anomaly lasts. In Figure 2, the hop size is half the time for which the anomaly lasts. In all cases, an upward change is detected because the model used for scoring was trained on normal data. But based on how the bi-directional level change detector works, it must exclude the normal values from the training window used for the model that scores the return to normal. In Figure 1, the scoring model’s training includes some normal events, so return to normal can't be detected. But in Figure 2, the training only includes the anomalous part, which ensures that the return to normal is detected. Anything smaller than half also works for the same reason, whereas anything bigger will end up including a bit of the normal events. 
 
-   ![AD with window size equal anomaly length](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![AD with window size equal anomaly length](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![AD with window size equals half of anomaly length](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![AD with window size equals half of anomaly length](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. In cases where the length of the anomaly cannot be predicted, this detector operates at best effort. However, choosing a narrower time window limits the training data, which would increase the probability of detecting the return to normal. 
 
 3. In the following scenario, the longer anomaly isn't detected as the training window already includes an anomaly of the same high value. 
 
-   ![Anomalies with same size](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Detected anomalies with same size](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## Example query to detect anomalies 
 

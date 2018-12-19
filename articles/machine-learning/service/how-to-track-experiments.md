@@ -1,6 +1,6 @@
-
 ---
-title: Track experiments and training metrics - Azure Machine Learning | Microsoft Docs
+title: Track experiments & training metrics
+titleSuffix: Azure Machine Learning service
 description: With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
 services: machine-learning
 author: heatherbshapiro
@@ -11,14 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
+
+ms.custom: seodec18
 ---
 
 # Track experiments and training metrics in Azure Machine Learning
 
 In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, you'll learn about the different ways to add logging to your training script, how to submit the experiment with **start_logging** and **ScriptRunConfig**, how to check the progress of a running job, and how to view the results of a run. 
 
->[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 0.1.80
 
 ## List of training metrics 
 
@@ -43,28 +43,19 @@ If you want to track or monitor your experiment, you must add code to start logg
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 * __ScriptRunConfig__ - Add logging functions to your training script and load the entire script folder with the run.  **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
-## Set up the workspace and experiment
-Before adding logging and submitting an experiment, you must set up the workspace and experiment.
+## Set up the workspace
+Before adding logging and submitting an experiment, you must set up the workspace.
 
 1. Load the workspace. To learn more about setting the workspace configuration, follow the [quickstart](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
   ```python
-  from azureml.core import Workspace, Run
+  from azureml.core import Experiment, Run, Workspace
   import azureml.core
   
   ws = Workspace(workspace_name = <<workspace_name>>,
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
-
-2. Create the experiment.
-
-  ```python
-  from azureml.core import Experiment
-
-  # make up an arbitrary name
-  experiment_name = 'train-in-notebook'
-  ```
   
 ## Option 1: Use start_logging
 
@@ -99,19 +90,31 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
   ```python
-  experiment = Experiment(workspace = ws, name = experiment_name)
-  run = experiment.start_logging()
-  run.tag("Description","My first run!")
+  # Get an experiment object from Azure Machine Learning
+  experiment = Experiment(workspace = ws, name = "train-within-notebook")
+  
+  # Create a run object in the experiment
+  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
   run.log('alpha', 0.03)
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  run.log('mse', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl')
-  # Upload file directly to the outputs folder
-  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
+  # Create, fit, and test the scikit-learn Ridge regression model
+  regression_model = Ridge(alpha=0.03)
+  regression_model.fit(data['train']['X'], data['train']['y'])
+  preds = regression_model.predict(data['test']['X'])
+
+  # Output the Mean Squared Error to the notebook and to the run
+  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+  run.log('mse', mean_squared_error(data['test']['y'], preds))
+
+  # Save the model to the outputs directory for capture
+  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+
+  # Take a snapshot of the directory containing this notebook
+  run.take_snapshot('./')
+
+  # Complete the run
   run.complete()
+  
   ```
 
 The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
@@ -205,7 +208,8 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
   ```python
   from azureml.core import ScriptRunConfig
-
+  
+  experiment = Experiment(workspace=ws, name="train-on-local")
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
@@ -224,19 +228,19 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 
   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[For automated machine learning runs]** To access the charts from a previous run:
+2. **[For automated machine learning runs]** To access the charts from a previous run. Please replace `<<experiment_name>>` with the appropriate experiment name:
 
    ``` 
    from azureml.train.widgets import RunDetails
    from azureml.core.run import Run
 
-   experiment = Experiment (workspace, experiment_name)
+   experiment = Experiment (workspace, <<experiment_name>>)
    run_id = 'autoML_my_runID' #replace with run_ID
    run = Run(experiment, run_id)
    RunDetails(run).show()
    ```
 
-  ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+  ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
 To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure portal.
@@ -249,8 +253,7 @@ Model training and monitoring occur in the background so that you can run other 
 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
-<a name='view-the-experiment-in-the-web-portal'/>
-
+<a name="view-the-experiment-in-the-web-portal"></a>
 ## View the experiment in the Azure portal
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can do access the history in two ways:
@@ -260,7 +263,7 @@ When an experiment has finished running, you can browse to the recorded experime
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
-  ![Screenshot of run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
@@ -275,6 +278,7 @@ There are various ways to use the logging APIs to record different types of metr
 |Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 
+<a name="auto"></a>
 ## Understanding automated ML charts
 
 After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. 
@@ -285,7 +289,7 @@ Learn more about:
 + [Model explain ability](#model-explain-ability-and-feature-importance)
 
 
-### How to see run charts:
+### View the run charts
 
 1. Go to your workspace. 
 
@@ -295,15 +299,15 @@ Learn more about:
 
 1. Select the experiment you are interested in.
 
-  ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+  ![Experiment list](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
 
 1. In the table, select the Run Number.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+   ![Experiment run](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
 
 1.	In the table, select the Iteration Number for the model that you would like to explore further.
 
-   ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+   ![Experiment model](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
 
 
@@ -427,9 +431,9 @@ Feature importance gives a score that indicates how valuable each feature was in
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
-* [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
-* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
+* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training\train-within-notebook)
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
