@@ -145,7 +145,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create multiple storage account instances. So far, you have created one storage account or multiple storage account instances. In the next tutorial, you develop a template with multiple resources and multiple resource types. Some of the resources have dependent resources.
+In this tutorial, you learned how to create multiple storage account instances. In the next tutorial, you learn how to move a resource from one resource group to another resource group.
 
 > [!div class="nextstepaction"]
-> [Create dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Move resources](./resource-manager-tutorial-move-resources.md)
