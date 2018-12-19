@@ -29,18 +29,18 @@ All the certificates, passwords, secure strings, and keys used by the Azure Stac
 
 - **External secrets**  
 Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services: 
-    - Administrator Portal  
-    - Public Portal  
-    - Administrator Azure Resource Manager  
-    - Global Azure Resource Manager  
-    - Administrator Keyvault  
-    - Keyvault  
-    - Admin Extension Host  
-    - ACS (including blob, table, and queue storage)  
-    - ADFS*  
-    - Graph*  
+  - Administrator Portal  
+  - Public Portal  
+  - Administrator Azure Resource Manager  
+  - Global Azure Resource Manager  
+  - Administrator Keyvault  
+  - Keyvault  
+  - Admin Extension Host  
+  - ACS (including blob, table, and queue storage)  
+  - ADFS *  
+  - Graph *  
 
-   **\*** Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
+\* Only applicable if the environment's identity provider is Active Directory Federated Services (AD FS).
 
 > [!Note]  
 > All other secure keys and strings, including BMC and switch passwords, user and administrator account passwords are still manually updated by the administrator. 
