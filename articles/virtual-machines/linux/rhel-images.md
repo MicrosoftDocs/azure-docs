@@ -29,7 +29,7 @@ To see the full set of available Red Hat images in Azure, run the following comm
 az vm image list --publisher RedHat --all
 ```
 
-## Naming Convention
+## Naming convention
 VM images in Azure are organized by Publisher, Offer, SKU, and Version. The combination of Publisher:Offer:SKU:Version is the image URN and uniquely identifies the image to be used.
 
 For example, `RedHat:RHEL:7-RAW:7.6.2018103108` refers to a RHEL 7.6 raw-partitioned image built on October 31, 2018.
@@ -49,7 +49,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ```
 
 >[!NOTE]
-> Note: In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
+> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
 
 ### Current naming convention
 All currently published RHEL images use the Pay-As-You-Go model and are connected to [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Due to a design limitation of RHUI, a new naming convention has been adopted for RHEL 7 family images. The RHEL 6 family naming hasn't been changed at this time.
@@ -84,7 +84,7 @@ RHEL-SAP-HANA | 6.7 | RAW | Linux Agent | RHEL 6.7 for SAP HANA
 RHEL-SAP-APPS | 6.8 | RAW | Linux Agent | RHEL 6.8 for SAP Business Applications
 | | 7.3 | LVM | Linux Agent | RHEL 7.3 for SAP Business Applications
 
-### Old Naming Convention
+### Old naming convention
 The RHEL 7 family of images and the RHEL 6 family of images used specific versions in their SKUs up until the naming convention change explained above.
 
 You will find numeric SKUs in the full image list. Microsoft and Red Hat will create new numeric SKUs when a new minor release comes out.
@@ -92,7 +92,7 @@ You will find numeric SKUs in the full image list. Microsoft and Red Hat will cr
 ### Other available Offers and SKUs
 The full list of available offers and SKUs may include additional images beyond what is listed in the above table, for example, `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. These offers may be used for providing support of specific marketplace solutions, or they could be published for previews and testing purposes. They may be changed or removed at any time without warning. Do not use them unless their presence has been publicly documented by either Microsoft or Red Hat.
 
-## Publishing Policy
+## Publishing policy
 Microsoft and Red Hat update images as new minor versions are released, as required to address specific CVEs, or for occasional configuration changes/updates. We strive to provide updated images as soon as possible -  within three business days following a release or availability of a CVE fix.
 
 We only update the current minor release in a given image family. With the release of a newer minor version, we stop updating the older minor version. For example, with the release of RHEL 7.6, RHEL 7.5 images are no longer going to be updated.
@@ -100,8 +100,8 @@ We only update the current minor release in a given image family. With the relea
 >[!NOTE]
 > Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to Azure RHUI (usually in less than 24 hours following the official release by Red Hat). Such VMs do not require a new published image for getting the updates and in full customer control to initiate the update.
 
-## Image Retention Policy
+## Image retention policy
 Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind. For example, images with incorrect configurations due to subsequent platform or component updates may be removed. Images that may be removed will follow the current Marketplace policy to provide notifications up to 30 days before image removal.
 
-## Next Steps
+## Next steps
 * Learn more about the Azure Red Hat Update Infrastructure [here](https://aka.ms/rhui-update).
