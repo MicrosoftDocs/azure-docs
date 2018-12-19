@@ -1,19 +1,19 @@
 ---
-title: "Team development with Azure Dev Spaces with VS Code | Microsoft Docs"
+title: "Running multiple dependent services using Node.js and VS Code | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: zr-msft
-ms.author: zarhoads
-ms.date: "07/09/2018"
+author: DrEsteban
+ms.author: stevenry
+ms.date: "11/21/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
-# Team development with Azure Dev Spaces
+# Multi-Service Development with Azure Dev Spaces
 
-In this tutorial, you'll learn how to use multiple dev spaces to work simultaneously in different development environments, keeping separate work in separate dev spaces in the same cluster.
+In this tutorial, you'll learn how to develop multi-service applications using Azure Dev Spaces, along with some of the added benefits that Dev Spaces provides.
 
 ## Call a service running in a separate container
 
@@ -66,44 +66,34 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 1. Hit F5 in the `webfrontend` project.
 1. Open the web app, and step through code in both services. The web app should display a message concatenated by the two services: "Hello from webfrontend and Hello from mywebapi."
 
-Well done! You now have a multi-container application where each container can be developed and deployed separately.
+### Automatic tracing for HTTP messages
+You may have noticed that, although *webfrontend* does not contain any special code to print out the HTTP call it makes to *mywebapi*, you can see HTTP traces messages in the output window:
+```
+// The request from your browser
+webfrontend.<id>.<region>.aksapp.io --hyh-> webfrontend:
+   GET /api?_=1544485357627 HTTP/1.1
 
-## Learn about team development
+// *webfrontend* reaching out to *mywebapi*
+webfrontend --1b1-> mywebapi:
+   GET / HTTP/1.1
 
-[!INCLUDE [](../../includes/team-development-1.md)]
+// Response from *mywebapi*
+webfrontend <-1b1-- mywebapi:
+   HTTP/1.1 200 OK
+   Hello from mywebapi
 
-Now see it in action:
-1. Go to the VS Code window for `mywebapi` and make a code edit to the default GET `/` handler, for example:
-
-    ```javascript
-    app.get('/', function (req, res) {
-        res.send('mywebapi now says something new');
-    });
-    ```
-
-[!INCLUDE [](../../includes/team-development-2.md)]
+// Response from *webfrontend* to your browser
+webfrontend.<id>.<region>.aksapp.io <-hyh-- webfrontend:
+   HTTP/1.1 200 OK
+   Hello from webfrontend and Hello from mywebapi
+```
+This is one of the "free" benefits you get from DevSpaces instrumentation. We insert components that track HTTP requests as they go through the system to make it easier for you to track complex multi-service calls during development.
 
 ### Well done!
-You've completed the getting started guide! You learned how to:
-
-> [!div class="checklist"]
-> * Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
-> * Iteratively develop code in containers.
-> * Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
-> * Productively develop and test your code in a team environment.
-
-Now that you've explored Azure Dev Spaces, [share your dev space with a team member](how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
-
-## Clean up
-To completely delete an Azure Dev Spaces instance on a cluster, including all the dev spaces and running services within it, use the `az aks remove-dev-spaces` command. Bear in mind that this action is irreversible. You can add support for Azure Dev Spaces again on the cluster, but it will be as if you are starting again. Your old services and spaces won't be restored.
-
-The following example lists the Azure Dev Spaces controllers in your active subscription, and then deletes the Azure Dev Spaces controller that is associated with AKS cluster 'myaks' in resource group 'myaks-rg'.
-
-```cmd
-    azds controller list
-    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
-```
+You now have a multi-container application where each container can be developed and deployed separately.
 
 
+## Next steps
 
-
+> [!div class="nextstepaction"]
+> [Learn about continuous integration and continuous development in DevSpaces](3-team-development-nodejs.md)

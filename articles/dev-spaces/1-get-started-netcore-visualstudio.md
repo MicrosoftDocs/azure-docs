@@ -152,4 +152,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-netcore-visualstudio.md)
+> [Learn about multi-service development](2-multi-service-netcore-visualstudio.md)

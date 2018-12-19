@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and VS Code| Microsoft Docs"
+title: "Create a Kubernetes Node.js development environment in the cloud with VS Code | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,7 +11,7 @@ ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
-# Get Started on Azure Dev Spaces with .NET Core
+# Get Started on Azure Dev Spaces with Node.js
 
 In this guide, you will learn how to:
 
@@ -22,7 +22,7 @@ In this guide, you will learn how to:
 > [!Note]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
 
-You're now ready to create a Kubernetes-based dev space in Azure.
+You're now ready to create a Kubernetes-based development environment in Azure.
 
 ## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Your local machine can run Windows, Mac, or Linux. For Linux, the following distributions are supported: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
@@ -78,7 +78,7 @@ Enter the following Azure CLI command, using the resource group that contains yo
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
-   
+
 > [!IMPORTANT]
 > The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
 
@@ -88,18 +88,12 @@ Rich features like Kubernetes debugging are available for .NET Core and Node.js 
 1. If you don't have it, install [VS Code](https://code.visualstudio.com/Download).
 1. Download and install the [VS Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Click Install once on the extension's Marketplace page, and again in VS Code. 
 
-## Create a web app running in a container
+## Create a Node.js container in Kubernetes
 
-In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
+In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
-### Create an ASP.NET Core web app
-If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickly create an ASP.NET Core Web App in a folder named `webfrontend`.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
+### Create a Node.js Web App
+Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
 ## Preparing code for Docker and Kubernetes development
 So far, you have a basic web app that can run locally. You'll now containerize it by creating assets that define the app's container and how it will deploy to Kubernetes. This task is easy to do with Azure Dev Spaces: 
@@ -153,22 +147,50 @@ Open this URL in a browser window, and you should see the web app load. As the c
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
-1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
-1. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
-1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
+1. Locate the file `./public/index.html` and make an edit to the HTML. For example, change the page's background color to a shade of blue:
 
-What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active `azds up` command automatically syncs any modified content files into the running container in Azure, so you can see your content edits right away.
+    ```html
+    <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
+    ```
+
+2. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
+1. Go to your browser and refresh the page. You should see your color update.
+
+What happened? Edits to content files, like HTML and CSS, don't require the Node.js process to restart, so an active `azds up` command will automatically sync any modified content files directly into the running container in Azure, thereby providing a fast way to see your content edits.
+
+### Test from a mobile device
+Open the web app on a mobile device using the public URL for webfrontend. You may want to copy and send the URL from your desktop to your device to save you from entering the long address. When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
+
+To fix this issue, you'll add a `viewport` meta tag:
+1. Open the file `./public/index.html`
+1. Add a `viewport` meta tag in the existing `head` element:
+
+    ```html
+    <head>
+        <!-- Add this line -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    ```
+
+1. Save the file.
+1. Refresh your device's browser. You should now see the web app rendered correctly. 
+
+This example shows that some problems just aren't found until you test on the devices where an app is meant to be used. With Azure Dev Spaces, you can rapidly iterate on your code and validate any changes on target devices.
 
 ### Update a code file
-Updating code files requires a little more work, because a .NET Core app needs to rebuild and produce updated application binaries.
+Updating server-side code files requires a little more work, because a Node.js app needs to restart.
 
 1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
-1. Open the code file named `Controllers/HomeController.cs`, and edit the message that the About page will display: `ViewData["Message"] = "Your application description page.";`
-1. Save the file.
+1. Open the code file named `server.js`, and edit service's hello message: 
+
+    ```javascript
+    res.send('Hello from webfrontend running in Azure!');
+    ```
+
+3. Save the file.
 1. Run  `azds up` in the terminal window. 
 
-This command rebuilds the container image and redeploys the Helm chart. To see your code changes take effect in the running application, go to the About menu in the web app.
-
+This command rebuilds the container image and redeploys the Helm chart. Reload the browser page to see your code changes take effect.
 
 But there is an even *faster method* for developing code, which you'll explore in the next section. 
 
@@ -190,53 +212,65 @@ This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. T
 
 ![](media/common/command-palette.png)
 
-
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **.NET Core Launch (AZDS)** as the active debug configuration.
+1. Select **Launch Program (AZDS)** as the active debug configuration.
 
-![](media/get-started-netcore/debug-configuration.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains azds.yaml.
-
+> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
 
 ### Debug the container in Kubernetes
-Hit **F5** to debug your code in Kubernetes.
+Hit **F5** to debug your code in Kubernetes!
 
-As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
+Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
 
 > [!Tip]
 > The VS Code status bar will display a clickable URL.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
+Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` in  `server.js`. Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
 
-### Edit code and refresh
-With the debugger active, make a code edit. For example, modify the About page's message in `Controllers/HomeController.cs`. 
+### Edit code and refresh the debug session
+With the debugger active, make a code edit; for example, modify the hello message again:
 
-```csharp
-public IActionResult About()
-{
-    ViewData["Message"] = "My custom message in the About page.";
-    return View();
-}
+```javascript
+app.get('/api', function (req, res) {
+    res.send('**** Hello from webfrontend running in Azure! ****');
+});
 ```
 
 Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/get-started-node/debug-action-refresh-nodejs.png)
 
-Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
+Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will restart the Node.js process in between debug sessions to provide a faster edit/debug loop.
 
-Refresh the web app in the browser, and go to the About page. You should see your custom message appear in the UI.
+Refresh the web app in the browser, or press the *Say It Again* button. You should see your custom message appear in the UI.
+
+### Use NodeMon to develop even faster
+*Nodemon* is a popular tool that Node.js developers use for rapid development. Instead of manually restarting the Node process each time a server-side code edit is made, developers will often configure their Node project to have *nodemon* monitor file changes and automatically restart the server process. In this style of working, the developer just refreshes their browser after making a code edit.
+
+With Azure Dev Spaces, you can use many of the same development workflows you use when developing locally. To illustrate this point, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
+
+Try the following steps:
+1. Stop the VS Code debugger.
+1. Click on the Debug icon in the **Activity Bar** on the side of VS Code. 
+1. Select **Attach (AZDS)** as the active debug configuration.
+1. Hit F5.
+
+In this configuration, the container is configured to start *nodemon*. When server code edits are made, *nodemon* automatically restarts the Node process, just like it does when you develop locally. 
+1. Edit the hello message again in `server.js`, and save the file.
+1. Refresh the browser, or click the *Say It Again* button, to see your changes take effect!
 
 **Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!** Next, you'll see how you can create and call a second container.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-netcore.md)
+> [Learn about multi-service development](2-multi-service-nodejs.md)
+
