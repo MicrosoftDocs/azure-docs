@@ -95,4 +95,4 @@ This tutorial requires that the general tutorial bot is running
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to entities](./3-introduction-to-entities.md)
+> [Wait and non-wait actions](./2-wait-vs-nonwait-actions.md)

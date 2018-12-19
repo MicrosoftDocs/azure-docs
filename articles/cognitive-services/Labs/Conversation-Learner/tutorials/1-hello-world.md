@@ -22,7 +22,7 @@ This tutorial shows how to get started with Conversation Learner, including crea
 
 
 ## Requirements
-If you haven't already, first ensure all setup steps have been completed, including creating a `.env` file with your LUIS authoring key.  See [Quickstart](https://github.com/Microsoft/ConversationLearner-Samples) for details.
+If you haven't already, first ensure all setup steps have been completed, including creating a `.env` file with your LUIS authoring key.  See [Quickstart](../quickstart.md) for details.
 
 This tutorial requires that the general tutorial Bot is running
 
@@ -104,4 +104,4 @@ Using Log Dialogs, you can view the list of conversations users held with your B
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Wait and non-wait actions](./2-wait-vs-nonwait-actions.md)
+> [Introduction to Training](./2-IntroToTraining.md)

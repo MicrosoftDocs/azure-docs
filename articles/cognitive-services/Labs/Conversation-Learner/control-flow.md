@@ -29,7 +29,7 @@ This document describes the control flow of the Conversation Learner (CL) as dis
 ![](media/controlflow_forecast.PNG)
 
 5. The selected action, in this case, requires an API call to retrieve the weather forecast. 
-6. This API, which had been registered using the CL.AddAPICallback method, is then invoked.  The result of this API is then returned to the user as a message -- for example, 'Sunny with a high of 67.'
+6. This API, which had been registered using the CL.AddCallback method, is then invoked.  The result of this API is then returned to the user as a message -- for example, 'Sunny with a high of 67.'
 7. The call is then made to the neural network to determine the next action based on the previous step.
 8. The neural network then predicts the next set of possible actions, and the selected action is presented to the user, in this case, 'Anything else?'
 

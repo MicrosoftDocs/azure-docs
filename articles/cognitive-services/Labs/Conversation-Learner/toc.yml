@@ -31,7 +31,7 @@
   - name: Multi-value entities
     href: tutorials/6-multi-value-entities.md
   - name: Pre-Trained entities
-    href: tutorials/7-built-in-entities.md
+    href: tutorials/7-pre-trained-entities.md
   - name: Entity resolvers
     href: tutorials/00-EntityResolvers.md
   - name: Alternative inputs
@@ -44,7 +44,7 @@
     href: tutorials/11-session-callbacks.md
   - name: API calls
     href: tutorials/12-api-calls.md
-  - name: Cards part 1
+  - name: Cards
     href: tutorials/13-cards-1.md
   - name: Branching and undo
     href: tutorials/15-branching-and-undo.md

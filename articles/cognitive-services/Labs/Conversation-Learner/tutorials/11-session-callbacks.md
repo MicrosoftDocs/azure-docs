@@ -38,8 +38,7 @@ In the web UI, click on "Import Tutorials" and select the model named "Tutorial-
 
 ### Code for the callbacks
 
-Sample code for this Model's two callbacks is found in: 
-c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts.
+Sample code for this Model's two callbacks can be found in: `c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts`.
 
 ![](../media/tutorial11_code.PNG)
 

@@ -94,4 +94,4 @@ Now you have two actions.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Built-in entities](./7-built-in-entities.md)
+> [Pre-Trained entities](./7-pre-trained-entities.md)
