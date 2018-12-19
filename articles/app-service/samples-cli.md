@@ -39,10 +39,10 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Scale an app manually](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and scales it across 2 instances. |
 | [Scale an app worldwide with a high-availability architecture](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two App Service apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
 |**Connect app to resources**||
-| [Connect a web app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and a SQL database, then adds the database connection string to the app settings. |
-| [Connect a web app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure web app and a storage account, then adds the storage connection string to the app settings. |
-| [Connect a web app to an Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and an Azure Cache for Redis, then adds the redis connection details to the app settings.) |
-| [Connect a web app to Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and a Cosmos DB, then adds the Cosmos DB connection details to the app settings. |
+| [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a SQL database, then adds the database connection string to the app settings. |
+| [Connect an app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a storage account, then adds the storage connection string to the app settings. |
+| [Connect an app to an Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and an Azure Cache for Redis, then adds the redis connection details to the app settings.) |
+| [Connect an app to Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and a Cosmos DB, then adds the Cosmos DB connection details to the app settings. |
 |**Back up and restore app**||
 | [Back up a web app](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and creates a one-time backup for it. |
 | [Create a scheduled backup for a web app](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure web app and creates a scheduled backup for it. |
