@@ -41,12 +41,12 @@ If you've already worked through the Tutorial for Pizza Order then simply open t
 Here is an example of how to see the `Undo` feature in action:
 
 ### Training Dialogs
-1. On the left panel, click "Train Dialogs", then click the "New Train Dialog" button.
-1. Type "Order a pizza".
-2. Click the `Score Actions` button.
-3. Click to Select "What would you like on your pizza?"
-4. Type "anything".
-5. Click the `Undo` button.
+1. On the left panel, click "Train Dialogs", then click the `New Train Dialog` button.
+2. Type "Order a pizza".
+3. Click the `Score Actions` button.
+4. Click to Select "What would you like on your pizza?"
+5. Type "anything".
+6. Click the `Undo` button.
 	- The last entry is removed, leaving the last Bot response of "What would you like on your pizza?"
 
 ## Branch
@@ -55,17 +55,24 @@ For this demo, we'll open an existing Train Dialog and create a new Train Dialog
 
 1. On the left panel, click "Train Dialogs".
 2. In the grid, click "new order" to open the existing Train Dialog.
-2. Click on the last "no" in the dialog.
-3. Click the "Branch" icon, it is circled in red in this image:
+3. Click on the last "no" in the dialog.
+4. Click the "Branch" icon, it is circled in red in this image:
 	- ![](../media/tutorial15_branch.PNG)
 	- The entire Train Dialog prior to the "no" is copied into a new Train Dialog.
 	- This saves you re-entering the preceding turns to explore a new conversation "branch" from this point.
-1. Type "yes", hit enter.
-2. Click the `Score Actions` button.
-3. Select "You have $Toppings on your pizza".
-6. Select "Would you like anything else?"
-7. Type "no".
-4. Click Done Teaching.
+5. Type "yes", hit enter.
+6. Click the `Score Actions` button.
+	- At this point the Bot automatically picks a response, but we don't like the response so we are going to change it.
+7. Click on the last Bot response.
+	- This will let us select a different response.
+8. Select "UseLastToppings".
+9. Click the `Score Actions` button.
+	- Again the Bot automatically picks a response. It should say, "You have sausage, cheese and mushrooms on your pizza.". 
+	- This time we like the response so we will keep it.
+10. Click the `Score Actions` button.
+	- Again the Bot automatically picks a response, It should say, "Would you like anything else?"
+11. Type "no".
+12. Click `Save Branch`
 
 ## Next steps
 
