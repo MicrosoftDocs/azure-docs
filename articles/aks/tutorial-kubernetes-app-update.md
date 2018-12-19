@@ -29,13 +29,13 @@ In this tutorial, part six of seven, the sample Azure Vote app is updated. You l
 
 In previous tutorials, an application was packaged into a container image. This image was uploaded to Azure Container Registry, and you created an AKS cluster. The application was then deployed to the AKS cluster.
 
-An application repository was also cloned that includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. If you haven't completed these steps, and want to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+An application repository was also cloned that includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you've created a clone of the repo, and have changed directories into the cloned directory. If you haven't completed these steps, and want to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you are running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Update an application
 
-Let's make a change to the sample application, then update the version already deployed to your AKS cluster. Make sure that you're in the cloned *azure-voting-app-redis* directory. The sample application source code can then be found inside of the *azure-vote* directory. Open the *config_file.cfg* file with an editor, such as `vi`:
+Let's make a change to the sample application, then update the version already deployed to your AKS cluster. Make sure that you're in the cloned *azure-voting-app-redis* directory. The sample application source code can then be found inside the *azure-vote* directory. Open the *config_file.cfg* file with an editor, such as `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
@@ -83,7 +83,7 @@ Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with y
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name. If you experience issues pushing to your ACR registry, ensure that you have run the [az acr login][az-acr-login] command.
+Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name. If you experience issues pushing to your ACR registry, make sure that you have run the [az acr login][az-acr-login] command.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -91,7 +91,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## Deploy the updated application
 
-To ensure maximum uptime, multiple instances of the application pod must be running. Verify the number of running front-end instances with the [kubectl get pods][kubectl-get] command:
+To provide maximum uptime, multiple instances of the application pod must be running. Verify the number of running front-end instances with the [kubectl get pods][kubectl-get] command:
 
 ```
 $ kubectl get pods
@@ -103,7 +103,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-If you do not have multiple front-end pods, scale the *azure-vote-front* deployment as follows:
+If you don't have multiple front-end pods, scale the *azure-vote-front* deployment as follows:
 
 ```console
 kubectl scale --replicas=3 deployment/azure-vote-front
