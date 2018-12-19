@@ -76,7 +76,6 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     The Azure Stack update will halt. Refer to this link to prepare for 
     Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare,
     then resume the update.
-
     Exception: The Certificate path does not exist: [certificate path here]` 
  
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
