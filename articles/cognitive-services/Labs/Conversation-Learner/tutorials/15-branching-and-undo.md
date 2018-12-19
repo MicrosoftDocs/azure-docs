@@ -57,7 +57,7 @@ For this demo, we'll open an existing Train Dialog and create a new Train Dialog
 2. In the grid, click "new order" to open the existing Train Dialog.
 2. Click on the last "no" in the dialog.
 3. Click the "Branch" icon, it is circled in red in this image:
-	![](../media/tutorial15_branch.PNG)
+	- ![](../media/tutorial15_branch.PNG)
 	- The entire Train Dialog prior to the "no" is copied into a new Train Dialog.
 	- This saves you re-entering the preceding turns to explore a new conversation "branch" from this point.
 1. Type "yes".
