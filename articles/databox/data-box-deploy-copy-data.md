@@ -75,11 +75,13 @@ If you are using a Windows Server host computer, perform the following steps to 
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer. You should now be able to see the shares as folders.
+4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5.  **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
+5. You should now be able to see the shares as folders.
+    
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -91,6 +93,7 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
+- Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
 
 After you have connected to the SMB share, initiate a data copy. 
 
