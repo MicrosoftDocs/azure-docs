@@ -47,7 +47,7 @@ To create an AKS cluster, complete the following steps:
 
     Select **Next: Networking** when complete.
 
-1. **Networking**: Configure the following networking options, which should be set as default:
+1. **Networking**: Configure the following networking options:
     
     - **Http application routing** - Select **Yes** to configure an integrated ingress controller with automatic public DNS name creation. For more information on Http routing, see, [AKS HTTP routing and DNS][http-routing].
     - **Network configuration** - Select the **Basic** network configuration using the [kubenet][kubenet] Kubernetes plugin, rather than advanced networking configuration using [Azure CNI][azure-cni]. For more information on networking options, see [AKS networking overview][aks-network].
@@ -84,7 +84,7 @@ To verify the connection to your cluster, use the [kubectl get][kubectl-get] com
 kubectl get nodes
 ```
 
-The following example output shows the single node created in the previous steps.
+The following example output shows the single node created in the previous steps. Make sure the status of the node is "Ready".
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

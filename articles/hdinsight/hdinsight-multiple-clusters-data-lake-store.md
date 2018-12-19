@@ -18,7 +18,7 @@ ms.author: hrasheed
 Starting with HDInsight version 3.5, you can create HDInsight clusters with  Azure Data Lake Store accounts as the default filesystem.
 Data Lake Store supports unlimited storage that makes it ideal not only for hosting large amounts of data; but also for hosting multiple HDInsight clusters that share a single Data Lake Store Account. For instructions on how to create an HDInsight cluster with Data Lake Store as the storage, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-This article provides recommendations to the Data Lake store administrator for setting up a single and shared Data Lake Store Account that can be used across multiple **active** HDInsight clusters. These recommendations apply to hosting multiple secure as well as non-secure Hadoop clusters on a shared Data Lake store account.
+This article provides recommendations to the Data Lake store administrator for setting up a single and shared Data Lake Store Account that can be used across multiple **active** HDInsight clusters. These recommendations apply to hosting multiple secure as well as non-secure Apache Hadoop clusters on a shared Data Lake store account.
 
 
 ## Data Lake Store file and folder level ACLs
@@ -74,7 +74,7 @@ When creating a Service Principal with named-user access (as shown in the table 
 
 This section lists the known issues for using HDInsight with Data Lake Store, and their workarounds.
 
-### Publicly visible localized YARN resources
+### Publicly visible localized Apache Hadoop YARN resources
 
 When a new Azure Data Lake store account is created, the root directory is automatically provisioned with Access-ACL permission bits set to 770. The root folder’s owning user is set to the user that created the account (the Data Lake Store admin) and the owning group is set to the primary group of the user that created the account. No access is provided for "others".
 

@@ -119,7 +119,7 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 3. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 4. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element. 
 5. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
-6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     Your custom policy should look like the following:
 
