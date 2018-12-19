@@ -80,4 +80,4 @@ Although you could create the Non-Wait Action like you did earlier, you can also
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to entities](./3-introduction-to-entities.md)
+> [Introduction to entities](./04-introduction-to-entities.md)

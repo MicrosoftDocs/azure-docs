@@ -104,4 +104,4 @@ Using Log Dialogs, you can view the list of conversations users held with your B
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to Training](./2-IntroToTraining.md)
+> [Introduction to Training](./02-IntroToTraining.md)

@@ -91,4 +91,4 @@ Now, create a second Action.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Expected entity](./4-expected-entity.md)
+> [Expected entity](./05-expected-entity.md)

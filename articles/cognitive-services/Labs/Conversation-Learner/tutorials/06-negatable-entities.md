@@ -93,4 +93,4 @@ Now you have two actions.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Multi-value entities](./6-multi-value-entities.md)
+> [Multi-value entities](./07-multi-value-entities.md)

@@ -99,4 +99,4 @@ This pattern is typical of many bot scenarios. User utterances and extracted ent
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Session callbacks](./11-session-callbacks.md)
+> [Session callbacks](./13-session-callbacks.md)

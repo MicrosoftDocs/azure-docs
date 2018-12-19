@@ -92,4 +92,4 @@ The eye icon shows you what the card looks like.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Branching and undo](./15-branching-and-undo.md)
+> [Hybrid Bots](./16-hybrid-bots.md)

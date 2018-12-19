@@ -95,4 +95,4 @@ You have now seen how to register API callbacks, their common patterns, and how 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cards part 1](./13-cards-1.md)
+> [Cards part 1](./15-cards.md)

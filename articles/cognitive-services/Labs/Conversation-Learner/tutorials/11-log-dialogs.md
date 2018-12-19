@@ -56,4 +56,4 @@ One last note. Depending on business needs, the conversation logging feature can
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Entity detection callback](./10-entity-detection-callback.md)
+> [Entity detection callback](./12-entity-detection-callback.md)

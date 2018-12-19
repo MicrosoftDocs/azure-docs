@@ -82,4 +82,4 @@ This tutorial requires that the general tutorial bot is running
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Alternative inputs](./8-alternative-inputs.md)
+> [Alternative inputs](./10-alternative-inputs.md)

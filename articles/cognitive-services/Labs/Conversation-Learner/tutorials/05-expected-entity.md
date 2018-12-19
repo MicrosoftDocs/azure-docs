@@ -107,4 +107,4 @@ Adding alternative inputs further trains the Model.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Negatable entities](./5-negatable-entities.md)
+> [Negatable entities](./06-negatable-entities.md)
