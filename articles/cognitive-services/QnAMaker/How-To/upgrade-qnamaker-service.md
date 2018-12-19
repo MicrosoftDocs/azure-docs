@@ -17,7 +17,7 @@ You can choose to upgrade individual components of the QnA Maker stack after the
 
 ## Upgrade QnA Maker Management SKU
 
-When you need to have more questions and answers in your knowledge base, beyond your current tier,upgrade your QnA Maker service pricing tier. 
+When you need to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier. 
 
 To upgrade the QnA Maker management SKU:
 
