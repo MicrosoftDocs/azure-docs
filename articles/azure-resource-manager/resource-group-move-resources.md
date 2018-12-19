@@ -482,7 +482,7 @@ While the operation is still running, you continue to receive the 202 status cod
 
 ## Move resources
 
-### By using Azure portal
+### <a name="use-portal" />By using Azure portal
 
 To move resources, select the resource group with those resources, and then select the **Move** button.
 
