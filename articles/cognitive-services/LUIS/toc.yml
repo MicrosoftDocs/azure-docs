@@ -39,10 +39,12 @@
   items:
   - name: Build app
     items:
-    - name: 1. Determine user intentions
+    - name: Determine user intentions with intents
       href: luis-quickstart-intents-only.md
-    - name: 2. Identify common intents
+    - name: Identify common user intentions and data types with prebuilt intents and entities
       href: luis-tutorial-prebuilt-intents-entities.md
+    - name: Extract positive, negative, and neutral sentiment from user utterances
+      href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: 3. Extract well-formatted data
       href: luis-quickstart-intents-regex-entity.md
     - name: 4. Extract exact text matches
@@ -55,8 +57,6 @@
       href: luis-quickstart-primary-and-secondary-data.md
     - name: 8. Extract key phrases
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: 9. Extract sentiment
-      href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Improve app
     items:
     - name: 1. Fix unsure predictions

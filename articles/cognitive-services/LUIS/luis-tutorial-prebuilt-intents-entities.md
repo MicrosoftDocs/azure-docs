@@ -13,7 +13,7 @@ ms.date: 12/21/2018
 ms.author: diberry
 --- 
 
-# Tutorial 2: Identify common intents and entities
+# Tutorial: Identify common intents and entities
 
 In this tutorial, add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities because the entity is detected automatically.
 
