@@ -30,7 +30,7 @@ This quickstart:
 - Requires your computer have the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installed.
 - Requires using SSMS to connect to your Managed Instance. See these quickstarts on how to connect:
   * [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md)
-  * [Connect to an Azure SQL Database Managed Instance from on-premises using a Point-to-Site connection](sql-database-managed-instance-configure-p2s.md).
+  * [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
 
 
 > [!NOTE]
@@ -55,7 +55,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
     ![create credential](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
   
-3. Run this script that uses a [container](https://azure.microsoft.com/services/container-instances/) URL to get a backup file list.
+3. To check your credential, run this script that uses a [container](https://azure.microsoft.com/services/container-instances/) URL to get a backup file list.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
