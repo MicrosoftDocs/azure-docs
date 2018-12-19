@@ -295,7 +295,7 @@ Double-click on the solution file (SimulatedDevice.sln) to open the code in Visu
 
 ## Run and test 
 
-In Program.cs, change the `Task.Delay` from 1000 to 10, which reduces the between sending messages from 1 second to .01 seconds. Shortening the delay increases the number of messages sent.
+In Program.cs, change the `Task.Delay` from 1000 to 10, which reduces the amount of time between sending messages from 1 second to .01 seconds. Shortening this delay increases the number of messages sent.
 
 ```csharp
 await Task.Delay(10);
