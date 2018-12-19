@@ -142,7 +142,7 @@ In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and se
 
 In the publish page, click **Publish**. When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.
 
-![Azure web app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Azure app after Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 You should now be able to edit the to-do list as before.
 

@@ -27,6 +27,8 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Migrate from v2 to v3
+    href: migrate-from-v2-to-v3.md
   - name: Analyzing content
     href: analyzing-video-audio-files-concept.md
   - name: Encoding content
@@ -77,8 +79,6 @@
       href: live-event-latency.md
 - name: How-to guides
   items:
-  - name: Migrate from v2 to v3
-    href: migrate-from-v2-to-v3.md
   - name: Create an account - CLI
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
@@ -89,6 +89,8 @@
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
       href: job-input-from-local-file-how-to.md  
+    - name: From a local file - REST
+      href: upload-files-rest-how-to.md
   - name: Create filters
     items:
     - name: With .NET
