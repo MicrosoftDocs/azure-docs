@@ -18,69 +18,54 @@ In this tutorial, we will go over undo and branching operations.
 
 ## Details
 ### Undo
-Allows the developer to “undo” a user input or action choice. Behind the scenes, “undo” actually creates a new dialog and re-plays it up to the previous step.  This means that the entity detection callback and API calls in the dialog will be called again.
+Allows the developer to “undo” the last user input or action choice. Behind the scenes, “undo” actually creates a new dialog and re-plays it up to the previous step.  This means that the entity detection callback and API calls in the dialog will be called again.
 
 ### Branch
 Creates a new train dialog which begins in the same way as an existing train dialog – this saves the effort of manually re-entering dialog turns. Behind the scenes, “branch” creates a new dialog and re-plays the existing train dialog up to the selected step.  This means that the entity detection callback and API calls in the dialog will be called again.
 
 
 ## Requirements
-This tutorial requires that the pizza order bot is running:
+This tutorial requires that the pizza order Bot is running:
 
 	npm run demo-pizza
 
-### Open the demo
+### Open or Import the Demo
 
-In the Model list of the web UI, click on TutorialDemo Pizza Order. 
-
-For details on the Pizza Order demo, see the Pizza order tutorial.
+If you've already worked through the Tutorial for Pizza Order then simply open that Model from the list in the web UI. Otherwise you will need to do the following to get started:
+1. From the Model List Page, click the `Import Model` button.
+2. Type in "Pizza Demo" as the New Model Name.
+3. Click the `Locate File` buton, select this file: `<your-repo-path>\models\Demo-PizzaOrder.cl`
 
 ## Undo
 
-We will undo part of the dialog, and recreate it from that step.
+Here is an example of how to see the `Undo` feature in action:
 
 ### Training Dialogs
-Let's start a training session. 
-
-1. Click Train Dialogs, then New Train Dialog.
-1. Enter 'order a pizza'.
-2. Click Score Action.
-3. Click to Select 'what would you like on your pizza?'
-4. Enter 'mushrooms and cheese'.
-5. Click Score Actions.
-3. Click to Select 'you have $Toppings on your pizza'.
-6. Select 'Would you like anything else?'
-7. Enter 'remove mushrooms and add peppers'.
-	- Select mushrooms and un-check the Toppings entity. We are creating an action that we will undo.
-2. Click Undo Step.
-	- The last entry is removed, and we are back at 'Would you like anything else?'  (screenshot below)
-2. Enter 'remove mushrooms and add peppers'.
-8. Click to Select 'you have $Toppings on your pizza'
-	- Make sure both entities are selected correctly.
-2. Click Score Action. You can continue with the corrected dialog now.
-4. Click Done Teaching.
-
-You have now seen how to use undo to remove a user input and action.
-
-![](../media/tutorial15_undo.PNG)
+1. On the left panel, click "Train Dialogs", then click the "New Train Dialog" button.
+1. Type "Order a pizza".
+2. Click the `Score Actions` button.
+3. Click to Select "What would you like on your pizza?"
+4. Type "anything".
+5. Click the `Undo` button.
+	- The last entry is removed, leaving the last Bot response of "What would you like on your pizza?"
 
 ## Branch
 
-As an example, let's open an existing train dialog, and create another train dialog by branching.
+For this demo, we'll open an existing Train Dialog and create a new Train Dialog from it by branching.
 
-1. Click Train Dialogs, then 'new order' to open the existing dialog. 
-2. Click on the last 'no' in the dialog (see screenshot below).
-3. Click Branch.
-	- 'no' gets removed, and the entire dialog up to that point is copied into a new one. 
-	- This saves you re-entering the preceding turns to explore a new "branch" from this point.
-1. Enter 'yes'.
-2. Click Score Action.
-3. Select 'You have $Toppings on your pizza'.
-6. Select 'Would you like anything else?'
-7. Enter 'no'.
+1. On the left panel, click "Train Dialogs".
+2. In the grid, click "new order" to open the existing Train Dialog.
+2. Click on the last "no" in the dialog.
+3. Click the "Branch" icon, it is circled in red in this image:
+	![](../media/tutorial15_branch.PNG)
+	- The entire Train Dialog prior to the "no" is copied into a new Train Dialog.
+	- This saves you re-entering the preceding turns to explore a new conversation "branch" from this point.
+1. Type "yes".
+2. Click the `Score Actions` button.
+3. Select "You have $Toppings on your pizza".
+6. Select "Would you like anything else?"
+7. Type "no".
 4. Click Done Teaching.
-
-![](../media/tutorial15_branch.PNG)
 
 ## Next steps
 
