@@ -59,13 +59,20 @@ If you have a problem or are missing a feature, have a look at our [support page
 
 ### Running the Sample in a Terminal
 
-You can either copy the code from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console
+You can either copy the [code](#quickstart-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console
 
 ```sh
 python quickstart.py
 ```
 
 or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
+
+### Quickstart code
+
+[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
+
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Look for this sample in the `quickstart/python` folder.
 
 ### Installing the Speech SDK Python Package and Running the Sample in Visual Studio Code
 
@@ -78,7 +85,7 @@ or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    ![Open Folder](media/sdk/qs-python-vscode-python-open-folder.png)
 1. Create a new Python source file `speechsdk.py`, by clicking on the new file icon.
    ![Create File](media/sdk/qs-python-vscode-python-newfile.png)
-1. Copy, paste, and save the Python code below to the newly created file.
+1. Copy, paste, and save the [Python code](quickstart-code) to the newly created file.
 1. Insert your Speech Service subscription information.
 1. If a Python interpreter has already been selected, it will be displayed on the left side of the status bar at the bottom of the window.
    Otherwise, you can bring up a list of available Python interpreters by opening the **Command Palette** (`Ctrl+Shift+P`) and typing **Python: Select Interpreter**, and choose an appropriate one.
@@ -90,13 +97,6 @@ or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    ![Run Sample](media/sdk/qs-python-vscode-python-run.png)
 
 If there are issues following these instructions, refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
-
-### Quickstart code
-
-[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
-
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/python` folder.
 
 ## Next steps
 
