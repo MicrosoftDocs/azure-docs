@@ -23,7 +23,7 @@ ms.reviewer: adepue
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the contents of the 1811 update package. The update package includes improvements, fixes, and new features for this version of Azure Stack. This article also describes known issues in this release, and includes a link so you can download the update. Known issues are divided into issues directly related to the update process and issues with the build (post-installation).
+This article describes the contents of the 1811 update package. The update package includes improvements, fixes, and new features for this version of Azure Stack. This article also describes known issues in this release, and includes a link so you can download the update. Known issues are divided into issues directly related to the update process, and issues with the build (post-installation).
 
 > [!IMPORTANT]  
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
@@ -48,7 +48,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 ## Prerequisites
 
-- Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md). 
+- Get your Azure Stack deployment ready for the Azure Stack extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md). 
  
 - Retrieve the data at rest encryption keys and securely store them outside of your Azure Stack deployment. Follow the [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
@@ -80,39 +80,37 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
  
     Once you have properly imported the mandatory extension host certificates, you can resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
-    During the installation of this update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
+    During the installation of this update, both Azure Stack portals (administrator and user) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
 ## New features
 
-This update includes the following improvements for Azure Stack:
+This update includes the following new features and improvements for Azure Stack:
 
 - With this release, the [extension host](azure-stack-extension-host-prepare.md) is enabled. The extension host simplifies network integration and improves the security posture of Azure Stack.
 
-- Added support for Device Authentication with Active Directory Federated Services (AD FS) in particular when using Azure CLI. [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
+- Added support for device authentication with Active Directory Federated Services (AD FS), when using Azure CLI in particular. For more information, see [Use API version profiles with Azure CLI in Azure Stack](./user/azure-stack-version-profiles-azurecli2.md)
 
-- Support for Service Principals using a client secret with Active Directory Federated Services (AD FS). [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)
-
-- Added support for Service Principals using a client secret with Active Directory Federated Services (AD FS). For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)
+- Added support for Service Principals using a client secret with Active Directory Federated Services (AD FS). For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 - This release adds support for the following Azure Storage Service API versions: **2017-07-29**, **2017-11-09**. Support is also added for the following Azure Storage Resource Provider API versions: **2016-05-01**, **2016-12-01**, **2017-06-01**, and **2017-10-01**. For more information, see [Azure Stack storage: Differences and considerations](./user/azure-stack-acs-differences.md).
 
 - Added new privileged endpoint commands to update and remove service principles for ADFS. For more information, see [Create service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
-- Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md)
+- Added new Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. For more information, see [Scale unit node actions in Azure Stack](azure-stack-node-actions.md).
 
-- Added a new region properties blade that displays registration details of the environment. You can access this information by clicking the **Region Management** tile on the default dashboard in the administrator portal and then selecting **Properties**.
+- Added a new region properties blade that displays registration details of the environment. You can view this information by clicking the **Region Management** tile on the default dashboard in the administrator portal, and then selecting **Properties**.
 
 - Added a new privileged endpoint command to update the BMC credential with user name and password, used to communicate with the physical machines. For more information, see [Update the baseboard management controller \(BMC) credential](azure-stack-rotate-secrets.md).
 
-- Added the ability to access the Azure roadmap though the Help and support icon (question mark) in the upper right corner of the administrator and user portals, the same way as it is available in the Azure portal.
+- Added the ability to access the Azure roadmap though the help and support icon (question mark) in the upper right corner of the administrator and user portals, similar to the way it is available in the Azure portal.
 
-- Added an improved Marketplace management experience for disconnected users. The upload process to publish the Marketplace item to a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this article](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
+- Added an improved Marketplace management experience for disconnected users. The upload process to publish a Marketplace item in a disconnected environment is simplified to one step, instead of uploading the image and the Marketplace package separately. The uploaded product will also be visible in the Marketplace management blade. For more information, see [this section](azure-stack-download-azure-marketplace-item.md#import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher). 
 
 - This release reduces the required maintenance window for secret rotation by adding the ability to rotate only external certificates during [Azure Stack secret rotation](azure-stack-rotate-secrets.md).
 
-- Azure Stack PowerShell has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For information about updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
+- [Azure Stack PowerShell](azure-stack-powershell-install.md) has been updated to version 1.6.0. The update includes support for the new storage-related features in Azure Stack. For more information, see the release notes for the [Azure Stack Administration Module 1.6.0 in the PowerShell Gallery](https://www.powershellgallery.com/packages/AzureStack/1.6.0) For information about updating or installing Azure Stack PowerShell, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-- Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. Please see the known issues section for the additional steps required for Managed Disks to avoid VM creation failures.
+- Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. Please see the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert which you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
 
@@ -122,38 +120,38 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue in which the public IP address usage meter data showed the same **EventDateTime** value for each record instead of the **TimeDate** stamp that shows when the record was created. You can now use this data to perform accurate accounting of public IP address usage.
 
 <!-- 3099544 – IS, ASDK --> 
-- Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the USD/Month column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
+- Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the **USD/Month** column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
 
 <!-- 2930718 - IS ASDK --> 
 - Fixed an issue in which the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name did not appear. The user subscription name now appears.
 
 <!-- 3060156 - IS ASDK --> 
-- Fixed an issue in both the administrator and user portals: clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected and an error notification was displayed. 
+- Fixed an issue in both the administrator and user portals: clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected and an error notification was displayed. This option now works correctly.
 
 <!-- 2930799 - IS ASDK --> 
-- Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed, while not available in Azure Stack.
+- Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed. It is not available in Azure Stack. The listing has been removed.
  
 <!--2760466 – IS  ASDK --> 
-- Fixed an issue that occurred when you installed a new Azure Stack environment in which the alert that indicates **Activation Required** did not display. It now correctly displays.
+- Fixed an issue that occurred when you installed a new Azure Stack environment, in which the alert that indicates **Activation Required** did not display. It now correctly displays.
 
 <!--1236441 – IS  ASDK --> 
 - Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
+- Fixed an issue with infrastructure backups failing due to an inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest [Azure Stack hotfix for 1809](#azure-stack-hotfixes) that addresses this issue, the 1811 update will not make any further modifications. 
 
 <!-- 2967387 – IS, ASDK --> 
-- Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a *First* or *Last* name specified.   
+- Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a **First** or **Last** name specified.   
 
 <!--  2873083 - IS ASDK --> 
-- Fixed an issue in which using the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown did not load correctly when using Internet Explorer. This browser now works correctly.  
+- Fixed an issue in which using the portal to create a virtual machine scale set (VMSS) caused the **instance size** dropdown to not load correctly when using Internet Explorer. This browser now works correctly.  
 
 <!-- 3190553 - IS ASDK -->
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
 ## Changes
 
-- A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [Quota types in Azure Stack](azure-stack-quota-types.md#view-an-existing-quota).
+- A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [View an existing quota](azure-stack-quota-types.md#view-an-existing-quota).
 
 <!-- 3083238 IS -->
 - Security enhancements in this update result in an increase in the backup size of the directory service role. For updated sizing guidance for the external storage location, see the [infrastructure backup documentation](azure-stack-backup-reference.md#storage-location-sizing). This change results in a longer time to complete the backup due to the larger size data transfer. This change impacts integrated systems. 
@@ -183,21 +181,21 @@ This update installs the following security updates:
 - [CVE-2018-8584](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8584)
 
 
-For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4467684](https://support.microsoft.com/en-us/help/4467684)
+For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4467684](https://support.microsoft.com/help/4467684).
 
 ## Known issues with the update process
 
-- When running **Test-AzureStack**, if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If the user attempts to run this command, the command fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
+- When running [Test-AzureStack](azure-stack-diagnostic-test.md), if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If you run this command, it fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
 
-- During installation of the 1811 update, both Azure Stack portals (Administrator and User) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
+- During installation of the 1811 update, both Azure Stack portals (administrator and user) are unavailable when the extension host is configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
 - During installation of the 1811 update, both the administrator and user portal dashboards might not be available, and customizations can be lost. You can restore the dashboard to the default setting after the update completes by opening the portal settings and selecting **Restore default settings**.
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
-- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.
+- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title `Error – Template for FaultType UserAccounts.New is missing.`  You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
 
-- <!-- 3139614 | IS --> If you've applied an update to Azure Stack from your OEM, the **Update available** notification may not appear in the Azure Stack Admin portal. To install the Microsoft update, download and import it manually using the instructions located here [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+- <!-- 3139614 | IS --> If you've applied an update to Azure Stack from your OEM, the **Update available** notification may not appear in the Azure Stack administrator portal. To install the Microsoft update, download and import it manually using the instructions located here [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
 ## Post-update steps
 
@@ -219,7 +217,7 @@ The following are post-installation known issues for this build version.
 - The two administrative subscription types that were introduced with version 1804 should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
 
 <!-- TBD - IS ASDK --> 
-- Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete the user subscriptions.
 
 <!-- TBD - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
@@ -229,19 +227,19 @@ The following are post-installation known issues for this build version.
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
 
-    Alert #1:
-    - NAME:  Infrastructure role unhealthy
-    - SEVERITY: Warning
-    - COMPONENT: Health controller
-    - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+    - Alert #1:
+       - NAME:  Infrastructure role unhealthy
+       - SEVERITY: Warning
+       - COMPONENT: Health controller
+       - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
 
-    Alert #2:
-     - NAME:  Infrastructure role unhealthy
-     - SEVERITY: Warning
-     - COMPONENT: Health controller
-     - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+    - Alert #2:
+       - NAME:  Infrastructure role unhealthy
+       - SEVERITY: Warning
+       - COMPONENT: Health controller
+       - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-    Both alerts can be safely ignored and they'll close automatically over time.  
+    Both alerts can be safely ignored. They will close automatically over time.  
 
 ### Compute
 
@@ -251,27 +249,31 @@ The following are post-installation known issues for this build version.
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- When using the [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: *Long running operation failed with status ‘Failed’*. 
+- When using the [**Add-AzsPlatformImage** cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), you must use the **-OsUri** parameter as the storage account URI where the disk is uploaded. If you use the local path of the disk, the cmdlet fails with the following error: 
+
+    `Long running operation failed with status 'Failed'`. 
 
 <!--  2795678 – IS, ASDK --> 
-- When you use the portal to create virtual machines (VM) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: **You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.**
+- When you use the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: 
+
+    `You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.`
 
 <!-- 2967447 - IS, ASDK --> 
-- The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another OS for your deployment or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
+- The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
 <!-- 2724873 - IS --> 
 - When using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, the first attempt to start or stop the scale unit might fail. If the cmdlet fails on the first run, run the cmdlet a second time. The second run should successfully complete the operation. 
 
 <!-- TBD - IS ASDK --> 
-- If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+- If provisioning an extension on a VM deployment takes too long, let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
 
 <!-- 1662991 IS ASDK --> 
 - Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
 <!-- 2724961- IS ASDK --> 
-- When you register the **Microsoft.Insight** resource provider in Subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page doesn't show metrics data.
+- When you register the **Microsoft.Insight** resource provider in the subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page does not show metrics data.
 
-   To find metrics data, such as the CPU Percentage chart for the VM, go to the Metrics window and show all the supported Windows VM guest metrics.
+   To find metrics data, such as the CPU Percentage chart for the VM, go to the **Metrics** window and show all the supported Windows VM guest metrics.
 
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
@@ -283,7 +285,7 @@ The following are post-installation known issues for this build version.
 - After applying the 1811 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
-      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
    
@@ -293,10 +295,10 @@ The following are post-installation known issues for this build version.
 - Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
 <!-- 1902460 - IS ASDK --> 
-- Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are rejected.
 
 <!-- 16309153 - IS ASDK --> 
-- On a virtual network that was created with a DNS server setting of *Automatic*, changing to a custom DNS server fails. The updated settings are not pushed to VMs in that Vnet.
+- On a virtual network that was created with a DNS server setting of **Automatic**, changing to a custom DNS server fails. The updated settings are not pushed to VMs in that Vnet.
 
 <!-- 2529607 - IS ASDK --> 
 - During Azure Stack *Secret Rotation*, there is a period in which public IP addresses are unreachable for two to five minutes.
@@ -304,7 +306,11 @@ The following are post-installation known issues for this build version.
 <!-- 2664148 - IS ASDK --> 
 -	In scenarios where the tenant is accessing virtual machines by using a S2S VPN tunnel, they might encounter a scenario where connection attempts fail if the on-premises subnet was added to the local network gateway after the gateway was already created. 
 
-- In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`. You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
+- In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
+
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`. 
+
+    You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
 - In the portal, on the **Networking Properties** blade there is a link for **Effective Security Rules** for each network adapter. If you select this link, a new blade opens that shows the error message `Not Found.` This error occurs because Azure Stack does not yet support **Effective Security Rules**.
 
@@ -316,14 +322,14 @@ The following are post-installation known issues for this build version.
   
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 
-- The `New-AzureRmIpSecPolicy` PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
+- The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
 
 <!-- ### SQL and MySQL-->
 
 ### App Service
 
 <!-- 2352906 - IS ASDK --> 
-- Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- You must register the storage resource provider before you create your first Azure Function in the subscription.
 
 
 <!-- ### Usage -->
