@@ -24,10 +24,10 @@ The following table includes links to Azure Resource Manager templates for the W
 |**Deploying a web app**||
 | [App Service plan and basic Lninux app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
 | [App Service plan and basic Wnindows app](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Deploys an App Service app that is configured for Windows. |
-| [Web app linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Deploys an App Service app that pulls code from GitHub. |
-| [Web app with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Deploys an App Service app with custom deployment slots/environments. |
-|**Configuring a web app**||
-| [Web app certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Deploys an Azure web app certificate from an Azure Key Vault secret and uses it for SSL binding. |
+| [App linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Deploys an App Service app that pulls code from GitHub. |
+| [App with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Deploys an App Service app with custom deployment slots/environments. |
+|**Configuring an app**||
+| [Web app certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Deploys an App Service app certificate from an Azure Key Vault secret and uses it for SSL binding. |
 | [Web app with a custom domain](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Deploys an Azure web app with a custom host name. |
 | [Web app with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Deploys an Azure web app with a custom host name, and gets a web app certificate from Key Vault for SSL binding. |
 | [Web app with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Deploys an Azure web app with the Golang site extension. You can then run web applications developed on Golang on Azure. |
