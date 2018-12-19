@@ -145,7 +145,6 @@ When uploading a local image, the form data must include the Content-Disposition
                 writer.Close();
             }
 
-
             HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
             string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
