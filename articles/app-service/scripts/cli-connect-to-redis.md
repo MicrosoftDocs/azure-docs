@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to an Azure Cache for Redis | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to an Azure Cache for Redis
+title: Azure CLI Script Sample - Connect an app to an Azure Cache for Redis | Microsoft Docs
+description: Azure CLI Script Sample - Connect an app to an Azure Cache for Redis
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Connect a web app to an Azure Cache for Redis using CLI
+# Connect an App Service app to an Azure Cache for Redis using CLI
 
-This sample script creates an Azure Cache for Redis and an Azure web app. It then links the Azure Cache for Redis to the web app using app settings.
+This sample script creates an Azure Cache for Redis and an App Service app. It then links the Azure Cache for Redis to the app using app settings.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, Azure Cache for Redis, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, App Service app, Azure Cache for Redis, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|

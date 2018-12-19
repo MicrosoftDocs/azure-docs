@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to a storage account | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to a storage account
+title: Azure CLI Script Sample - Connect an app to a storage account | Microsoft Docs
+description: Azure CLI Script Sample - Connect an app to a storage account
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Connect a web app to a storage account using CLI
+# Connect an App Service app to a storage account using CLI
 
-This sample script creates an Azure storage account and an Azure web app. It then links the storage account to the web app using app settings.
+This sample script creates an Azure storage account and an App Service app. It then links the storage account to the app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, storage account, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, App Service app, storage account, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
