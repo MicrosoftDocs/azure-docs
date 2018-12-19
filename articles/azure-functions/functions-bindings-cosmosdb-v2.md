@@ -380,6 +380,9 @@ namespace CosmosDBSamplesV2
 #### HTTP trigger, look up ID from query string (C#)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+> [!NOTE]
+> The HTTP query string parameter is case-sensitive.
+>
 
 ```cs
 using Microsoft.AspNetCore.Http;
