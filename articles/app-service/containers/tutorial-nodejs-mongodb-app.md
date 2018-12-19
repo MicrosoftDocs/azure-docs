@@ -18,13 +18,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Build a Node.js and MongoDB web app in Azure App Service on Linux
+# Build a Node.js and MongoDB app in Azure App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a Node.js and MongoDB web app in Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a Node.js and MongoDB app in Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js web app, connect it locally to a MongoDB database, then deploy to Azure Cosmos DB API for MongoDB. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js app, connect it locally to a MongoDB database, then deploy to Azure Cosmos DB API for MongoDB. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -253,11 +253,11 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 ### Configure an environment variable
 
-By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
+By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure app, you use app settings to define your MongoDB connection string.
 
 To set app settings, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell.
 
-The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
+The following example configures a `MONGODB_URI` app setting in your Azure app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -303,11 +303,11 @@ You may notice that the deployment process runs [Gulp](https://gulpjs.com/) afte
 - _.deployment_ - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 - _deploy.sh_ - The custom deployment script. If you review the file, you will see that it runs `gulp prod` after `npm install` and `bower install`.
 
-You can use this approach to add any step to your Git-based deployment. If you restart your Azure web app at any point, App Service doesn't rerun these automation tasks.
+You can use this approach to add any step to your Git-based deployment. If you restart your Azure app at any point, App Service doesn't rerun these automation tasks.
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
-Browse to the deployed web app using your web browser.
+Browse to the deployed app using your web browser.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -443,21 +443,21 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to your Azure web app and try out the new functionality.
+Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
 
 ![Model and database changes published to Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 If you added any articles earlier, you still can see them. Existing data in your Cosmos DB is not lost. Also, your updates to the data schema and leaves your existing data intact.
 
-## Manage your Azure web app
+## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+From the left menu, click **App Services**, then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/tutorial-nodejs-mongodb-app/access-portal.png)
+![Portal navigation to Azure app](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -477,7 +477,7 @@ What you learned:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)
