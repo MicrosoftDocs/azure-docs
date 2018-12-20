@@ -2,7 +2,7 @@
 
 # Overview
 ## [What are Mobile Apps?](app-service-mobile-value-prop.md)
-## [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [App Service plans](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Quickstarts
 ## [Android](app-service-mobile-android-get-started.md)
@@ -19,7 +19,7 @@
 ### [Authentication and Authorization in Azure Mobile Apps](app-service-mobile-auth.md)
 ### [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
 ### [Best Practices for Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [App Service plans in-depth](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [App Service plans in-depth](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [High-density hosting](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service Environment](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -146,7 +146,7 @@
 ## Integrate
 ### [How to send email using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Export to PowerApps and Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Use Managed Identity](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Use Managed Identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Troubleshoot
 ### General troubleshooting for Mobile Apps

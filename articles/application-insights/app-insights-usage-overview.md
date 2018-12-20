@@ -27,9 +27,20 @@ The best experience is obtained by installing Application Insights both in your 
 
     * *Don't want to install server code? Just [create an Azure Application Insights resource](app-insights-create-new-resource.md).*
 
-2. **Web page code:** Open the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open **Getting Started > Monitor and Diagnose Client-Side**. 
+2. **Web page code:** Add the following script to your web page before the closing ``</head>``. Replace instrumentation key with the appropriate value for your Application Insights resource:
 
-    ![Copy the script into the head of your master web page.](./media/app-insights-usage-overview/02-monitor-web-page.png)
+   ```javascript
+      <script type="text/javascript">
+        var appInsights=window.appInsights||function(a){
+            function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+        }({
+            instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+        });
+        
+        window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+    </script>
+    ```
+    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](app-insights-mobile-center-quickstart.md).
 
