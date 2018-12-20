@@ -22,7 +22,7 @@ This document provides guidance on strategies an organization should adopt to pr
 
  1. Organizations can increase their resiliency to reduce the risk of lockout **before a disruption** by implementing mitigation strategies or contingency plans.
  2. Organizations can continue to access apps and resources they choose **during a disruption** by having mitigation strategies and contingency plans in place.
-3. **After a disruption**, organizations should make sure they preserve information, such as logs, before they roll back any contingencies, they implemented.
+ 3. Organizations should make sure they preserve information, such as logs,  **after a disruption** and before they roll back any contingencies they implemented.
 4. Organizations that haven’t implemented prevention strategies or alternative plans may be able to implement **emergency options** to deal with the disruption.
 
 ## Key guidance
