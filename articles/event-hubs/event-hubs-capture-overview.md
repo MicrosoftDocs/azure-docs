@@ -65,9 +65,32 @@ Event Hubs Capture creates files in Avro format, as specified on the configured 
 
 The files produced by Event Hubs Capture have the following Avro schema:
 
-![Acro schema][3]
+![Avro schema][3]
 
-An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
+An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache or using [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or even [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
+
+### Use Apache Drill
+
+[Apache Drill][Apache Drill] is a "open-source SQL query engine for Big Data exploration" able to query structured and semi-structured data wherever it is, that can run both as a standalone node or as a huge cluster for great performances.
+
+A native support to Azure Blob Store is available, which makes quering data contained into an Avro file really easy, as described in the documentation:
+
+[Apache Drill: Azure Blob Storage Plugin][Apache Drill: Azure Blob Storage Plugin]
+
+to query captured files easily a VM with Apache Drill enabled to access Azure Blobl Storage can be created in executed via container:
+
+https://github.com/yorek/apache-drill-azure-blob
+
+### Use Apache Spark
+
+[Apache Spark][Apache Spark] is a "is a unified analytics engine for large-scale data processing". It supports different languages, included SQL, and can easily access Azure Blob Store. There are two optios to run Apache Spark in Azure, and both provide easy access to Azure Blob Storage:
+
+- [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
+- [Azure Databricks: Azure Blob Storage][Azure Databricks: Azure Blob Storage]
+
+### Use Avro Tools
+
+[Avro Tools][Avro Tools] are available as a jar package. After downloading this jar, you can see the schema of a specific Avro file by running the following command:
 
 ```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
@@ -103,8 +126,8 @@ Apache Avro has complete Getting Started guides for [Java][Java] and [Python][Py
 Event Hubs Capture is metered similarly to throughput units: as an hourly charge. The charge is directly proportional to the number of throughput units purchased for the namespace. As throughput units are increased and decreased, Event Hubs Capture meters increase and decrease to provide matching performance. The meters occur in tandem. For pricing details, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 ## Integration with Event Grid 
-You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
+You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
 ## Next steps
 
@@ -116,6 +139,8 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs overview][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
+[Apache Drill]: https://drill.apache.org/
+[Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
@@ -123,3 +148,6 @@ You can learn more about Event Hubs by visiting the following links:
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
+[Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
+[Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
