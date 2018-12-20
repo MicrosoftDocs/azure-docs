@@ -43,7 +43,7 @@ This article provides generic instructions for using a custom domain name with a
 
 ## Add a DNS record for your custom domain
 > [!NOTE]
-> If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md) article.
+> If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](manage-custom-dns-buy-domain.md) article.
 > 
 > 
 
