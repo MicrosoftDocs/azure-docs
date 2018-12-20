@@ -52,7 +52,8 @@ To unlock admin access to your tenant, you should create emergency access accoun
 1. Should be a cloud-only account in the *.onmicrosoft.com domain.
 2. Should NOT be synchronized from the on-premises environment.
 3. Credentials should not be associated with any individuals.
-4. Follow the [emergency access account recommendations](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) to make sure the account meets strong authentication requirements.
+ 
+ Follow the [emergency access account recommendations](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) to make sure the account meets strong authentication requirements.
 
 #### Microsoft recommendations
 
