@@ -104,11 +104,6 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-from azureml.core.compute import AmlCompute
-from azureml.core.compute import ComputeTarget
-import os
-
-# choose a name for your cluster
 compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
