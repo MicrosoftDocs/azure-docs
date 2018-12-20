@@ -68,7 +68,7 @@ Metrics provide information about the app or the App Service plan's behavior.
 
 For an app, the available metrics are:
 
-|  |  |
+| Metric | Description |
 | --- | --- |
 | **Average Response Time** | The average time taken for the app to serve requests, in milliseconds. |
 | **Average memory working set** | The average amount of memory used by the app, in mebibytes (MiB). |
@@ -92,7 +92,7 @@ For an App Service plan, the available metrics are:
 > App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
 > 
 
-|  |  |
+| Metric | Description |
 | --- | --- |
 | **CPU Percentage** | The average CPU used across all instances of the plan. |
 | **Memory Percentage** | The average memory used across all instances of the plan. |
@@ -117,7 +117,7 @@ Metrics for an app and app service plan are logged and aggregated by the service
 * **Hour** granularity metrics are retained for 30 days.
 * **Day** granularity metrics are retained for 30 days.
 
-## Monitoring quotas and metrics in the Azure portal.
+## Monitoring quotas and metrics in the Azure portal
 To review the status of the various quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).
 
 ![Quotas chart in the Azure portal][quotas]
