@@ -227,7 +227,7 @@ Depending on which mitigations or contingencies are used during a disruption, yo
 
 ## After a disruption
 
-You must undo the changes you made as part of the contingency plan you activated once the service is restored that caused the disruption. 
+ You must undo the changes you made as part of the activated contingency plan once the service is restored that caused the disruption. 
 
 1. Enable the regular policies
 2. Disable your contingency policies. 
