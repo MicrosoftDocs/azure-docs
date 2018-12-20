@@ -24,7 +24,7 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Logging and debugging apps
 
-Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/app-service-diagnostics) for more information on how to access and use these diagnostic tools.
+Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
 
 ## Application performance monitoring
 

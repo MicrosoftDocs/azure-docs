@@ -68,17 +68,17 @@ Emails about Smart Detections performance anomalies are limited to one email per
   * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
 
 * What types of application does this work for?
-  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) or [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), then Smart Detection will work in the same way.
+  * These degradations are detected in any application that generates the appropriate telemetry. If you installed Application Insights in your web app, then requests and dependencies are automatically tracked. But in backend services or other apps, if you inserted calls to [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) or [TrackDependency](../azure-monitor/app/api-custom-events-metrics.md#trackdependency), then Smart Detection will work in the same way.
 
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
   * Not yet, but you can:
-    * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.
+    * [Set up alerts](../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
     * [Export telemetry](app-insights-export-telemetry.md) to a [database](app-insights-code-sample-export-sql-stream-analytics.md) or [to PowerBI](app-insights-export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *So does this replace [metric alerts](app-insights-alerts.md)?*
+* *So does this replace [metric alerts](../azure-monitor/app/alerts.md)?*
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -179,9 +179,9 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Profiler](app-insights-profiler.md) 
 * [Snapshot debugger](app-insights-snapshot-debugger.md)
 * [Analytics](../azure-monitor/log-query/get-started-portal.md)
-* [Analytics smart diagnostics](app-insights-analytics.md)
+* [Analytics smart diagnostics](../azure-monitor/app/analytics.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](app-insights-alerts.md)
+* [Manually configured metric alerts](../azure-monitor/app/alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md)

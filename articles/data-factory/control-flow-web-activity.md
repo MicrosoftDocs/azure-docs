@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/19/2018
 ms.author: shlo
 
 ---
@@ -93,7 +93,7 @@ Specify user name and password to use with the basic authentication.
 
 ```json
 "authentication":{  
-   "type":"Basic,
+   "type":"Basic",
    "username":"****",
    "password":"****"
 }
@@ -109,6 +109,18 @@ Specify base64-encoded contents of a PFX file and the password.
    "password":"****"
 }
 ```
+
+### Managed Identity
+
+Specify the resource uri for which the access token will be requested using the managed identity for the data factory. To call the Azure Resource Management API, use `https://management.azure.com/`.
+
+```json
+"authentication": {
+	"type": "MSI",
+	"resource": "https://management.azure.com/"
+}
+```
+
 ## Request payload schema
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
 

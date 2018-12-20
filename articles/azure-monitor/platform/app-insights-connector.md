@@ -156,8 +156,8 @@ The solution receives the following telemetry types of data from your connected 
 - Availability
 - Exceptions
 - Requests
-- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Page views – For your workspace to receive page views, you must configure your apps to collect that information. Fore more information, see [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Custom events – For your workspace to receive custom events, you must configure your apps to collect that information. Fore more information, see [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Data is received by Log Analytics from Application Insights as it becomes available.
 

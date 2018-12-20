@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analytics - the powerful search and query tool of Azure Application Insights | Microsoft Docs
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
@@ -15,11 +15,11 @@ ms.author: mbullwin
 
 ---
 # Analytics in Application Insights
-Analytics is the powerful search and query tool of [Application Insights](app-insights-overview.md). Analytics is a web tool so no setup is required. 
+Analytics is the powerful search and query tool of [Application Insights](../../application-insights/app-insights-overview.md). Analytics is a web tool so no setup is required. 
 If you've already configured Application Insights for one of your apps then you can  analyze your app's data by opening Analytics from your 
-app's [overview blade](app-insights-dashboards.md).
+app's [overview blade](../../application-insights/app-insights-dashboards.md).
 
-![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics/001.png)
+![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/analytics/001.png)
 
 You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?linkid=859557) which is a free demo environment with a lot of sample data.
 <br>
@@ -40,12 +40,12 @@ We start with the table name *requests* and add piped elements as needed.  First
 We then count the number of records per country (that data is found in the column *client_CountryOrRegion*). Finally, we render the results in a pie chart.
 <br>
 
-![Query results](./media/app-insights-analytics/030.png)
+![Query results](./media/analytics/030.png)
 
 The language has many attractive features:
 
 * [Filter](/azure/kusto/query/whereoperator) your raw app telemetry by any fields, including your custom properties and metrics.
-* [Join](/azure/kusto/query/joinoperator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* [Join](/azure/kusto/query/joinoperator) multiple tables � correlate requests with page views, dependency calls, exceptions and log traces.
 * Powerful statistical [aggregations](/azure/kusto/query/summarizeoperator).
 * Immediate and powerful visualizations.
 * [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from PowerShell.

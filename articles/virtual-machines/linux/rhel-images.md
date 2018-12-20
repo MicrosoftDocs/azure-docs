@@ -98,7 +98,7 @@ Microsoft and Red Hat update images as new minor versions are released, as requi
 We only update the current minor release in a given image family. With the release of a newer minor version, we stop updating the older minor version. For example, with the release of RHEL 7.6, RHEL 7.5 images are no longer going to be updated.
 
 >[!NOTE]
-> Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to Azure RHUI (usually in less than 24 hours following the official release by Red Hat). Such VMs do not require a new published image for getting the updates and in full customer control to initiate the update.
+> Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to the Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to the Azure RHUI (usually in less than 24 hours following the official release by Red Hat). These VMs do not require a new published image for getting the updates and customers have full control over when to initiate the update.
 
 ## Image retention policy
 Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind. For example, images with incorrect configurations due to subsequent platform or component updates may be removed. Images that may be removed will follow the current Marketplace policy to provide notifications up to 30 days before image removal.
