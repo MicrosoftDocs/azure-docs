@@ -23,25 +23,25 @@ This article walks through the steps for creating subscriptions in the Azure por
 
 ## Prerequisites
 
-To complete the steps in this article, you need the following prerequisites:
+To take the steps in this article, the prerequisites are as follows:
 
-+ [Create an APIM instance](get-started-create-service-instance.md)
-+ Understand [Subscriptions in APIM](api-management-subscriptions.md)
++ [Create an API Management instance](get-started-create-service-instance.md).
++ Understand [subscriptions in API Management](api-management-subscriptions.md).
 
 ## Create a new subscription
 
-1. Click on **Subscriptions** in the menu on the left
-2. Click **Add subscription**
-3. Provide a name of the Subscription and select the scope
-4. Click **Save**
+1. Select **Subscriptions** in the menu on the left.
+2. Select **Add subscription**.
+3. Provide a name of the subscription and select the scope.
+4. Select **Save**.
 
 ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
 
-Once the Subscription is created, a pair of API keys (primary and secondary) are provisioned for accessing the APIs.
+After the subscription is created, a pair of API keys, primary and secondary, are provisioned for accessing the APIs.
 
 ## Next steps
-For more information on API Management:
+Get more information on API Management:
 
-+ Learn other [concepts](api-management-terminology.md) in API Management
-+ Follow our [tutorials](import-and-publish.md) to learn more about API Management
-+ Check our [FAQ page](api-management-faq.md) for common questions
++ Learn other [concepts](api-management-terminology.md) in API Management.
++ Follow our [tutorials](import-and-publish.md) to learn more about API Management.
++ Check our [FAQ page](api-management-faq.md) for common questions.
