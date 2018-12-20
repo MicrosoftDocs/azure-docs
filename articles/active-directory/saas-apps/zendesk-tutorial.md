@@ -140,7 +140,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
 
-	![Copy Thumbprint value](common/copy-thumbprint.png)
+	![Copy Thumbprint value](common/copy-certificatethumbprint.png)
 
 9. On the **Set up Zendesk** section, copy the appropriate URL(s) as per your requirement.
 
