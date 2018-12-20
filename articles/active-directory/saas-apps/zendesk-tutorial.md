@@ -142,7 +142,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 	![Copy Thumbprint value](common/copy-certificatethumbprint.png)
 
-9. On the **Set up Zendesk** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Zendesk** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -152,13 +152,15 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 	c. Logout URL
 
-10. There are two ways in which Zendesk can be configured - Automatic and Manual.
+	![image](./media/zendesk-tutorial/d1_saml.png) 
+
+9. There are two ways in which Zendesk can be configured - Automatic and Manual.
   
-11. To automate the configuration within Zendesk, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+10. To automate the configuration within Zendesk, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
 	![image](./media/zendesk-tutorial/install_extension.png)
 
-12. After adding extension to the browser, click on **Setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate section **Configure Zendesk Single Sign-On**.
+11. After adding extension to the browser, click on **Setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate section **Configure Zendesk Single Sign-On**.
 
 	 ![image](./media/zendesk-tutorial/d2_saml.png)
 
