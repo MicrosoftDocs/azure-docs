@@ -50,7 +50,7 @@ Azure Machine Learning service has varying support across the various compute ta
 > When you train a model, some compute targets rely on Docker container images. The GPU base image must be used on Microsoft Azure Services only. For model training, the services include:
 > * Azure Machine Learning Compute
 > * Azure Kubernetes
-> * Windows Data Science Virtual Machine (DSVM)
+> * Linux (Ubuntu) Data Science Virtual Machine (DSVM)
 
 ## Workflow
 
