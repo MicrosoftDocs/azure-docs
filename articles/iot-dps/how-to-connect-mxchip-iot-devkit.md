@@ -77,10 +77,10 @@ In device code, you need to specify the [Device provisioning endpoint](/azure/io
 1. Open **DeKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
   ![Device Provisioning Service Endpoint](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
-1. Fill the `registrationId` variable in the code. Only alphanumeric, lowercase, and hyphen combinations with a maximum of 128 characters is allowed. Also noted down the value.
+1. Fill the `registrationId` variable in the code. Only alphanumeric, lowercase, and hyphen combination with a maximum of 128 characters is allowed. Also noted down the value.
   ![Registration ID](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
-1. Click `F1`, type and select **Azure IoT Device Workbench: Upload Device Code**. It starts compiling and upload the code to DevKit.
+1. Click `F1`, type and select **Azure IoT Device Workbench: Upload Device Code**. It starts compiling and uploading the code to DevKit.
   ![Device Upload](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## Generate X.509 certificate
@@ -102,10 +102,10 @@ The [attestation mechanism](/azure/iot-dps/concepts-device#attestation-mechanism
 
 ## Create a device enrollment entry
 
-1. In the Azure portal, open your Device Provision Service, navigate to **Manage enrollments** section and click **Add individual enrollment**.
+1. In the Azure portal, open your Device Provision Service, navigate to Manage enrollments section, and click **Add individual enrollment**.
   ![Add individual enrollment](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
-1. Click file icon next to **Primary Certifcate .pem or .cer file** to upload the `.pem` file just generated.
+1. Click file icon next to **Primary Certificate .pem or .cer file** to upload the `.pem` file generated.
   ![Upload .pem](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## Verify the DevKit is registered with Azure IoT Hub
