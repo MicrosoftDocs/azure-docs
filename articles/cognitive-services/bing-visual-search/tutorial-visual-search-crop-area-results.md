@@ -16,6 +16,8 @@ ms.author: rosh
 
 The Bing Visual Search SDK enables you to crop an image before find online images that are similar. The application in this tutorial crops a single person from an image containing several people, and then returns search results containing similar images found online.
 
+The full source code for this tutorial is available with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs).
+
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).

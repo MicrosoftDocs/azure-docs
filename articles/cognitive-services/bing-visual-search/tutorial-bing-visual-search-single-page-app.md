@@ -12,23 +12,23 @@ ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
 ---
-# Tutorial: Build a Visual Search web app 
+# Tutorial: Create a Visual Search single-page web app 
 
 Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can specify an image and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. 
 
+This tutorial shows how to extend a single-page web app for the Bing Image Search API. To view that tutorial or get the source code used here, see [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
-
-This article shows how to extend a single-page web app for the Bing Image Search API. To view that tutorial or get the source code used here, see [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
-
-The full source code for this tutorial (after extending it to use the Bing Visual Search API), is available on GitHub.
+The full source code for this tutorial (after extending it to use the Bing Visual Search API), is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
 The tasks covered are:
 
 > [!div class="checklist"]
 > * Call Bing Visual Search API with an image insights token
 > * Display similar images
+
+## Prerequisites
+
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Call the Bing Visual Search API and handle the response
 

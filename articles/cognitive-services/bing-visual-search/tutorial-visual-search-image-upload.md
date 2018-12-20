@@ -17,6 +17,17 @@ ms.author: scottwhi
 
 The Bing Visual Search API enables you to search the web for images similar to ones you upload. Use this tutorial to create a web application that can send an image to the API, and display the insights it returns within the webpage. Note that this application does not adhere to all [Bing Use and Display Requirements](./use-and-display-requirements.md) for using the API.
 
+The full source code for this sample can be found with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html).
+
+The tutorial app illustrates how to:
+
+> [!div class="checklist"]
+> * Upload an image to the Bing Visual Search API
+> * Display image search results in a web application
+> * Explore the different insights provided by the API
+
+## Prerequisites 
+
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Create and structure the webpage
@@ -723,7 +734,7 @@ The `addImageWithWebSearchUrl()` function will display a clickable image to the 
 
 ## Add a CSS style
 
-Add the following `<style>` section to the `<head>` tag.
+Add the following `<style>` section to the `<head>` tag to organize the layout of the webpage.
 
 ```html
         <style>
@@ -758,4 +769,4 @@ Add the following `<style>` section to the `<head>` tag.
 
 ## Next steps
 
-To see how getting insights works using and insights token, see [Bing Visual Search SDK ImageInsightsToken tutorial](./tutorial-visual-search-insights-token.md).
+* [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md).
