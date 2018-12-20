@@ -62,7 +62,7 @@ Later, you can build the app with Application Insights if you want.
 * In Azure, open the web app control blade, and under Settings, open **Application Insights**. You can turn off Application Insights by clicking **Disable** at the top, or select a new resource in the **Change your resource** section.
 
 ## Build the app with Application Insights
-Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](app-insights-api-custom-events-metrics.md), and get more detailed exception reports.
+Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](../azure-monitor/app/api-custom-events-metrics.md), and get more detailed exception reports.
 
 1. **In Visual Studio** (2013 update 2 or later), configure Application Insights for your project.
 
@@ -86,7 +86,7 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 ## More telemetry
 
 * [Web page load data](app-insights-javascript.md)
-* [Custom telemetry](app-insights-api-custom-events-metrics.md)
+* [Custom telemetry](../azure-monitor/app/api-custom-events-metrics.md)
 
 ## Video
 

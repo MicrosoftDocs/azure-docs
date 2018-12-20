@@ -24,12 +24,12 @@ Learn how to install Apache Solr on Azure HDInsight by using Script Action. Solr
 
 ## <a name="whatis"></a>What is Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
+[Apache Solr](https://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
 
 > [!WARNING]   
 > Components provided with the HDInsight cluster are fully supported by Microsoft.
 >
-> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may not be able to resolve problems with custom components. You may need to engage the open source communities for assistance. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may not be able to resolve problems with custom components. You may need to engage the open source communities for assistance. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/).
 
 ## What the script does
 
@@ -64,7 +64,7 @@ To create a cluster that has Solr installed, use the steps in the [Create HDInsi
 ## <a name="usesolr"></a>How do I use Solr in HDInsight
 
 > [!IMPORTANT]  
-> The steps in this section demonstrate basic Solr functionality. For more information on using Solr, see the [Apache Solr site](http://lucene.apache.org/solr/).
+> The steps in this section demonstrate basic Solr functionality. For more information on using Solr, see the [Apache Solr site](https://lucene.apache.org/solr/).
 
 ### Index data
 

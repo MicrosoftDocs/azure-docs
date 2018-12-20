@@ -193,7 +193,7 @@ The App map can help you understand your application topology better, especially
 
 ## Add custom instrumentation to your application
 
-Though Application Insights provides a lot of telemetry out of the box, you may want to add further custom instrumentation. This could be based on your business needs or to improve diagnostics when things go wrong in your application. Application Insights has an API to ingest custom events and metrics, which you can read more about [here](../application-insights/app-insights-api-custom-events-metrics.md).
+Though Application Insights provides a lot of telemetry out of the box, you may want to add further custom instrumentation. This could be based on your business needs or to improve diagnostics when things go wrong in your application. Application Insights has an API to ingest custom events and metrics, which you can read more about [here](../azure-monitor/app/api-custom-events-metrics.md).
 
 Let's add some custom events to *VoteDataController.cs* (under *VotingData* > *Controllers*) to track when votes are being added and deleted from the underlying *votesDictionary*.
 

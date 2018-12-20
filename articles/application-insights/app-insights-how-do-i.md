@@ -19,7 +19,7 @@ ms.author: mbullwin
 Set an [availability web test](app-insights-monitor-web-app-availability.md).
 
 ### Email if my site is overloaded
-Set an [alert](app-insights-alerts.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
+Set an [alert](../azure-monitor/app/alerts.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
 
 ![](./media/app-insights-how-do-i/030-server.png)
 
@@ -29,12 +29,12 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 
 ### Email on exceptions
 1. [Set up exception monitoring](app-insights-asp-net-exceptions.md)
-2. [Set an alert](app-insights-alerts.md) on the Exception count metric
+2. [Set an alert](../azure-monitor/app/alerts.md) on the Exception count metric
 
 ### Email on an event in my app
-Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](app-insights-alerts.md).
+Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](../azure-monitor/app/alerts.md).
 
-Alerts can be set on [custom metrics](app-insights-api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
+Alerts can be set on [custom metrics](../azure-monitor/app/api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
 
     telemetry.TrackMetric("Alarm", 10);
 
@@ -68,11 +68,11 @@ Some points to consider:
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
 
 ### Set up alerts automatically
-[Use PowerShell to create new alerts](app-insights-alerts.md#automation)
+[Use PowerShell to create new alerts](../azure-monitor/app/alerts.md#automation)
 
 ## Use PowerShell to Manage Application Insights
 * [Create new resources](app-insights-powershell-script-create-resource.md)
-* [Create new alerts](app-insights-alerts.md#automation)
+* [Create new alerts](../azure-monitor/app/alerts.md#automation)
 
 ## Separate telemetry from different versions
 
@@ -97,7 +97,7 @@ Or
 <a name="search-specific-users"></a>
 
 ### Filter out anonymous or authenticated users
-If your users sign in, you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
+If your users sign in, you can set the [authenticated user id](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
 
 You can then:
 
@@ -113,18 +113,18 @@ You can then:
 Create a [filter](app-insights-api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
 
 ## List specific users and their usage
-If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users).
+If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 If you want a list of users with data such as what pages they look at or how often they log in, you have two options:
 
-* [Set authenticated user id](app-insights-api-custom-events-metrics.md#authenticated-users), [export to a database](app-insights-code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
+* [Set authenticated user id](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](app-insights-code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
 * If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user id as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user id to all server telemetry. You can then filter and segment metrics and searches on the user id.
 
 ## Reduce traffic from my app to Application Insights
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
 * Use [Sampling and filtering](app-insights-api-filtering-sampling.md) at the SDK.
 * In your web pages, Limit the number of Ajax calls reported for every page view. In the script snippet after `instrumentationKey:...` , insert: `,maxAjaxCallsPerView:3` (or a suitable number).
-* If you're using [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
+* If you're using [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric), compute the aggregate of batches of metric values before sending the result. There's an overload of TrackMetric() that provides for that.
 
 Learn more about [pricing and quotas](app-insights-pricing.md).
 
@@ -140,7 +140,7 @@ To **dynamically stop and start** the collection and transmission of telemetry f
 
 
 
-To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). You could do this, for example, if you want to send your own TrackRequest data.
+To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config](../azure-monitor/app/api-custom-events-metrics.md). You could do this, for example, if you want to send your own TrackRequest data.
 
 ## View system performance counters
 Among the metrics you can show in metrics explorer are a set of system performance counters. There's a predefined blade titled **Servers** that displays several of them.

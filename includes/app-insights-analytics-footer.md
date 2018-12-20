@@ -7,7 +7,7 @@ ms.author: mbullwin
 ---
 
 ## Analytics
-* [Overview](../articles/application-insights/app-insights-analytics.md)
+* [Overview](../articles/azure-monitor/app/analytics.md)
 * [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
   * Start here. A tutorial covering the main features.
 * [Queries](../articles/application-insights/app-insights-analytics-reference.md)

@@ -95,7 +95,7 @@ Make a note of your Blob storage account name and key. The sample app uses these
 
 ## Create an App Service plan
 
-An [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app.
+An [App Service plan](../../app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app.
 
 Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 

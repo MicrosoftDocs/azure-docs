@@ -1,4 +1,4 @@
-﻿---
+---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 services: application-insights
@@ -44,7 +44,7 @@ There's a node in the configuration file for each module. To disable a module, d
 ### Dependency Tracking
 [Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
-You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+You can also write your own dependency tracking code using the [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
@@ -97,7 +97,7 @@ Reports the [response time and result code](app-insights-asp-net.md) of HTTP req
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### Microsoft.ApplicationInsights
-The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](app-insights-api-custom-events-metrics.md).
+The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](../azure-monitor/app/api-custom-events-metrics.md).
 
 * No entry in ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
@@ -384,7 +384,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md

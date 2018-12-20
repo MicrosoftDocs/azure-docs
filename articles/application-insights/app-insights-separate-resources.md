@@ -101,7 +101,7 @@ There are several different methods of setting the Application Version property.
 * Set directly:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Wrap that line in a [telemetry initializer](app-insights-api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
+* Wrap that line in a [telemetry initializer](../azure-monitor/app/api-custom-events-metrics.md#defaults) to ensure that all TelemetryClient instances are set consistently.
 * [ASP.NET] Set the version in `BuildInfo.config`. The web module will pick up the version from the BuildLabel node. Include this file in your project and remember to set the Copy Always property in Solution Explorer.
 
     ```XML
