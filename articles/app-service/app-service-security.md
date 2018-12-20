@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Security in Azure App Service
 
-This article shows you how [Azure App Service](app-service-web-overview.md) helps secure your web app, mobile app back end, API app, and function app. It also shows how you can further secure your app with the built-in App Service features.
+This article shows you how [Azure App Service](app-service-web-overview.md) helps secure your web app, mobile app back end, API app, and [function app](/azure/azure-functions/). It also shows how you can further secure your app with the built-in App Service features.
 
 The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that:
 
