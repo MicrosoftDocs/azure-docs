@@ -145,34 +145,32 @@ To configure Azure AD single sign-on with SAP Cloud for Customer, perform the fo
 	c. Logout URL
 
 ### Configure SAP Cloud for Customer Single Sign-On
-
-1. To get SSO configured, perform the following steps:
    
-2. Login into SAP Cloud for Customer portal with administrator rights.
+1. Login into SAP Cloud for Customer portal with administrator rights.
    
-3. Navigate to the **Application and User Management Common Task** and click the **Identity Provider** tab.
+2. Navigate to the **Application and User Management Common Task** and click the **Identity Provider** tab.
    
-4. Click **New Identity Provider** and select the metadata XML file you have downloaded from the Azure portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
+3. Click **New Identity Provider** and select the metadata XML file you have downloaded from the Azure portal. By importing the metadata, the system automatically uploads the required signature certificate and encryption certificate.
    
     ![Configure Single Sign-On](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
-5. Azure Active Directory requires the element Assertion Consumer Service URL in the SAML request, so select the **Include Assertion Consumer Service URL** checkbox.
+4. Azure Active Directory requires the element Assertion Consumer Service URL in the SAML request, so select the **Include Assertion Consumer Service URL** checkbox.
    
-6. Click **Activate Single Sign-On**.
+5. Click **Activate Single Sign-On**.
    
-7. Save your changes.
+6. Save your changes.
    
-8. Click the **My System** tab.
+7. Click the **My System** tab.
    
     ![Configure Single Sign-On](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
-9. In **Azure AD Sign On URL** textbox, paste **Login URL** which you have copied from Azure portal.
+8. In **Azure AD Sign On URL** textbox, paste **Login URL** which you have copied from Azure portal.
    
     ![Configure Single Sign-On](./media/sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-10. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the **Manual Identity Provider Selection**.
+9. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting the **Manual Identity Provider Selection**.
    
-11. In the **SSO URL** section, specify the URL that should be used by your employees to sign on to the system. 
+10. In the **SSO URL** section, specify the URL that should be used by your employees to sign on to the system. 
     In the **URL Sent to Employee** list, you can choose between the following options:
    
     **Non-SSO URL**
@@ -187,7 +185,7 @@ To configure Azure AD single sign-on with SAP Cloud for Customer, perform the fo
    
     If SSO is not active, the system sends the normal system URL to the employee. If SSO is active, the system checks whether the employee has a password. If a password is available, both SSO URL and Non-SSO URL are sent to the employee. However, if the employee has no password, only the SSO URL is sent to the employee.
    
-12. Save your changes.
+11. Save your changes.
 
 ### Create an Azure AD test user 
 
