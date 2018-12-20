@@ -11,7 +11,7 @@ ms.author: adjohnso
 ms.date: 10/30/2018
 ---
 
-# Azure CycleCloud v7.6.0
+# Azure CycleCloud v7.6.1
 
 ## What's New
 
