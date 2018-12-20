@@ -43,7 +43,7 @@ For alternative installation methods, see [Azure Storage SDK for Python](https:/
 
 ## View the sample application
 
-To view and run a sample application that shows how to use Python with Azure Queues, see [Azure Storage: Getting Started with Azure Storage in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
+To view and run a sample application that shows how to use Python with Azure Queues, see [Azure Storage: Getting Started with Azure Queues in Python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
 
 To run the sample application, make sure you have installed both the `azure-storage-queue` and `azure-storage-common` packages.
 
