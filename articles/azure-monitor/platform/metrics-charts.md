@@ -5,14 +5,14 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/20/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
 ---
 
 # Azure Monitor Metrics Explorer
 
-Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services. 
+Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
 ## Metrics in Azure
 
@@ -23,11 +23,11 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 1. Open the Azure portal
 2. Navigate to the new **Monitor** tab, and then select **Metrics**.
 
-   ![Metrics Image](./media/metrics-charts/0001.png)
+   ![Metrics Image](./media/metrics-charts/00001.png)
 
 3. The **metric selector** will automatically be open for you. Choose a resource from the list to view its associated metrics. Only resources with metrics are shown in the list.
 
-   ![Metrics Image](./media/metrics-charts/0002.png)
+   ![Metrics Image](./media/metrics-charts/00002.png)
 
    > [!NOTE]
    >If you have more than one Azure subscription, Metrics Explorer pulls out the resources across all subscriptions that are selected in the Portal Settings -> Filter by subscriptions list. To change it, click on the Portal settings gear icon on top of the screen and select which subscriptions you want to use.
@@ -36,15 +36,15 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 
    For example, each Azure Storage has metrics for subservices “Blobs”, “Files”, “Queues” and “Tables”, which are all parts of the storage account. However, the metric “Queue Message Count” is naturally applicable to the subservice “Queue” and not to any other storage account subservices.
 
-   ![Metrics Image](./media/metrics-charts/0003.png)
+   ![Metrics Image](./media/metrics-charts/00003.png)
 
 5. Select a metric from the list. If you know a partial name of the metric you want, you can start typing it in to see a filtered list of available metrics:
 
-   ![Metrics Image](./media/metrics-charts/0004.png)
+   ![Metrics Image](./media/metrics-charts/00004.png)
 
 6. After selecting a metric, the chart will render with the default aggregation for the selected metric. At this point you can just click away from the **metrics selector** to close it. You can also optionally switch the chart to a different aggregation. For some metrics, switching aggregation allows you to choose which value you want to see on the chart. For example, you can switch between the average, minimum and maximum values. 
 
-7. By clicking on the Add Metric icon ![metric icon](./media/metrics-charts/icon001.png) and repeating steps 3-6 you can add more metrics on the same chart.
+7. By clicking on the Add Metric and repeating steps 3-6 you can add more metrics on the same chart.
 
    > [!NOTE]
    > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
@@ -55,19 +55,19 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 ### To add a filter
 
-1. Click on the Add Filter icon ![filter icon](./media/metrics-charts/icon002.png) above the chart
+1. Click on the Add Filter above the chart
 
 2. Select which dimension (property) you want to filter
 
-   ![metric image](./media/metrics-charts/0006.png)
+   ![metric image](./media/metrics-charts/00006.png)
 
 3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
 
-   ![metric image](./media/metrics-charts/0007.png)
+   ![metric image](./media/metrics-charts/00007.png)
 
 4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
-   ![metric image](./media/metrics-charts/0008.png)
+   ![metric image](./media/metrics-charts/00008.png)
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
@@ -77,23 +77,37 @@ You can split a metric by dimension to visualize how different segments of the m
 
 ### To segment a chart
 
-1. Click on the Add Grouping icon  ![metric image](./media/metrics-charts/icon003.png) above the chart.
+1. Click on **Apply splitting** above the chart.
  
    > [!NOTE]
-   > You can have multiple filters but only one grouping on any single chart.
+   > You can have multiple filters but only one splitting/segmentation value on any single chart.
 
-2. Choose a dimension on which you want to segment your chart: 
+2. Choose a dimension on which you want to segment your chart:
 
-   ![metric image](./media/metrics-charts/0010.png)
+   ![metric image](./media/metrics-charts/00010.png)
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![metric image](./media/metrics-charts/0012.png)
+   ![metric image](./media/metrics-charts/00012.png)
 
 3. Click away from the **Grouping Selector** to close it.
 
    > [!NOTE]
-   > Use both Filtering and Grouping on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
+   > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
+
+### New alert rule
+
+You can also use the criteria you have set to visualize your metrics as the basis for the underlying logic of a metric based alert rule. 
+
+If you click **New Alert rule**
+
+![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+
+You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
+
+![Create alert rule](./media/metrics-charts/016.png)
+
+Checkout this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
 ## Lock boundaries of chart y-axis
 
