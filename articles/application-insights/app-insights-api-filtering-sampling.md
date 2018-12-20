@@ -1,4 +1,4 @@
-﻿---
+---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 services: application-insights
@@ -23,7 +23,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 * [Sampling](app-insights-sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
 * Filtering with Telemetry Processors [for ASP.NET](#filtering) or [Java](app-insights-java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
 * [Telemetry Initializers add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
-* [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.
+* [The SDK API](../azure-monitor/app/api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
@@ -318,7 +318,7 @@ Insert a telemetry initializer immediately after the initialization code that yo
             appInsights.context.addTelemetryInitializer(function (envelope) {
                 var telemetryItem = envelope.data.baseData;
 
-                // To check the telemetry item’s type - for example PageView:
+                // To check the telemetry item�s type - for example PageView:
                 if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
                     // this statement removes url from all page view documents
                     telemetryItem.url = "URL CENSORED";
@@ -357,7 +357,7 @@ What's the difference between telemetry processors and telemetry initializers?
 * Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
 ## Reference docs
-* [API Overview](app-insights-api-custom-events-metrics.md)
+* [API Overview](../azure-monitor/app/api-custom-events-metrics.md)
 * [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
 
 ## SDK Code
