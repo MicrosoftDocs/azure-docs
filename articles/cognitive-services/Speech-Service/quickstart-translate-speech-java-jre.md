@@ -14,18 +14,20 @@ ms.author: erhopf
 
 # Quickstart: Translate speech with the Speech SDK for Java
 
-In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Ubuntu Linux 16.04, and is built with the Speech SDK Maven package and the Eclipse Java IDE.
+In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Ubuntu Linux 16.04/18.04, and is built with the Speech SDK Maven package and the Eclipse Java IDE.
+
+For a complete list of languages available for speech translation, see [language support](llanguage-support.md).
 
 ## Prerequisites
 
 This quickstart requires:
 
-* Operating System: 64-bit Windows or 64-bit Ubuntu Linux 16.04
+* Operating System: 64-bit Windows or 64-bit Ubuntu Linux 16.04/18.04
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [JDK 8 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
-If you're running Ubuntu 16.04, make sure these dependencies are installed before starting Eclipse.
+If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse.
 
 ```console
 sudo apt-get update
@@ -61,33 +63,32 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 
    public class Main {
 
-     public static void translationWithMicrophoneAsync() throws InterruptedException, ExecutionException, IOException
-     {
-          // <TranslationWithMicrophoneAsync>
-          // Creates an instance of a speech translation config with specified
-          // subscription key and service region. Replace with your own subscription key
-          // and service region (e.g., "westus").
-          SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+       public static void translationWithMicrophoneAsync() throws InterruptedException, ExecutionException, IOException
+       {
+           // Creates an instance of a speech translation config with specified
+           // subscription key and service region. Replace with your own subscription key
+           // and service region (e.g., "westus").
+           SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-          // Sets source and target language(s).
-          String fromLanguage = "en-US";
-          config.setSpeechRecognitionLanguage(fromLanguage);
-          config.addTargetLanguage("de");
+           // Sets source and target language(s).
+           String fromLanguage = "en-US";
+           config.setSpeechRecognitionLanguage(fromLanguage);
+           config.addTargetLanguage("de");
 
-          // Sets voice name of synthesis output.
-          String GermanVoice = "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)";
-          config.setVoiceName(GermanVoice);
+           // Sets voice name of synthesis output.
+           String GermanVoice = "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)";
+           config.setVoiceName(GermanVoice);
 
-          // Creates a translation recognizer using microphone as audio input.
-          TranslationRecognizer recognizer = new TranslationRecognizer(config);
-          {
+           // Creates a translation recognizer using microphone as audio input.
+           TranslationRecognizer recognizer = new TranslationRecognizer(config);
+           {
                // Subscribes to events.
                recognizer.recognizing.addEventListener((s, e) -> {
                    System.out.println("RECOGNIZING in '" + fromLanguage + "': Text=" + e.getResult().getText());
 
                    Map<String, String> map = e.getResult().getTranslations();
                    for(String element : map.keySet()) {
-                      System.out.println("    TRANSLATING into '" + element + "': " + map.get(element));
+                       System.out.println("    TRANSLATING into '" + element + "': " + map.get(element));
                    }
                });
 
@@ -140,18 +141,17 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 
                recognizer.stopContinuousRecognitionAsync().get();
            }
-           // </TranslationWithMicrophoneAsync>
        }
 
        public static void main(String[] args) {
-         try {
-             translationWithMicrophoneAsync();
-         } catch (Exception ex) {
-             System.out.println("Unexpected exception: " + ex.getMessage());
-             assert(false);
-             System.exit(1);
+           try {
+               translationWithMicrophoneAsync();
+           } catch (Exception ex) {
+               System.out.println("Unexpected exception: " + ex.getMessage());
+               assert(false);
+               System.exit(1);
+           }
        }
-     }
    }
    ```
 

@@ -131,6 +131,5 @@ Download and install the SDK as follows:
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

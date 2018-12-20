@@ -9,12 +9,14 @@ ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
-ms.author: wolfma
+ms.author: erhopf
 ---
 
 # Quickstart: Translate speech with the Speech SDK for C++
 
 In this quickstart, you'll create a simple C++ application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+
+For a complete list of languages available for speech translation, see [language support](llanguage-support.md).
 
 ## Prerequisites
 
@@ -44,7 +46,6 @@ This quickstart requires:
     // Translation with microphone input.
     void TranslationWithMicrophone()
     {
-    	// <TranslationWithMicrophone>
     	// Creates an instance of a speech translation config with specified subscription key and service region.
     	// Replace with your own subscription key and service region (e.g., "westus").
     	auto config = SpeechTranslationConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -96,7 +97,6 @@ This quickstart requires:
     			cout << "CANCELED: Did you update the subscription info?" << std::endl;
     		}
     	}
-    	// </TranslationWithMicrophone>
     }
 
     int wmain()

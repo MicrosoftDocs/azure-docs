@@ -22,7 +22,7 @@
         displayName: recognize speech, speech recognition, speech to text, stt
       - name: 'C# (UWP)'
         href: quickstart-csharp-uwp.md
-        displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
+        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, universal windows platform'
       - name: 'C++ (Windows)'
         href: quickstart-cpp-windows.md
         displayName: recognize speech, speech recognition, speech to text, stt
@@ -37,7 +37,7 @@
         displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
       - name: 'JavaScript (Browser)'
         href: quickstart-js-browser.md
-      - name: 'Node.js'
+      - name: 'JavaScript (Node.js)'
         href: quickstart-js-node.md
         displayName: recognize speech, speech recognition, speech to text, stt
       - name: 'Objective-C (iOS)'
@@ -45,7 +45,7 @@
         displayName: recognize speech, speech recognition, speech to text, stt, xcode
       - name: 'Python'
         href: quickstart-python.md
-        displayName: recognize speech, speech recognition, speech to text, stt, python
+        displayName: recognize speech, speech recognition, speech to text, stt
     - name: Translate speech
       items:
       - name: 'C# (.NET Core Windows)'
@@ -54,6 +54,7 @@
         href: quickstart-translate-speech-dotnetframework-windows.md
       - name: 'C# (UWP)'
         href: quickstart-translate-speech-uwp.md
+        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, universal windows platform'
       - name: 'C++ (Windows)'
         href: quickstart-translate-speech-cpp-windows.md
       - name: 'Java (Windows, Linux)'

@@ -52,9 +52,6 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
    ![Screenshot of console output after successful recognition](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/cpp-windows` folder.
-
 ## Next steps
 
 Additional samples, such as how to read speech from an audio file, are available on GitHub.
@@ -64,6 +61,5 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

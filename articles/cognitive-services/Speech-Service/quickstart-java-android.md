@@ -143,6 +143,5 @@ Press the button in the application to begin a speech recognition section. The n
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)
