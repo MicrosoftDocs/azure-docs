@@ -136,7 +136,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ### Azure Batch telemetry initializer helper
 When reporting telemetry for a given server and instance, Application Insights 
 uses the Azure VM Role and VM name for the default values. In the context of Azure Batch, the example shows how to use the pool name and compute 
-node name instead. Use a [telemetry initializer](../application-insights/app-insights-api-filtering-sampling.md#add-properties) to override the default 
+node name instead. Use a [telemetry initializer](../azure-monitor/app/api-filtering-sampling.md#add-properties) to override the default 
 values. 
 
 ```csharp
