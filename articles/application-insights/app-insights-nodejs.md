@@ -128,7 +128,7 @@ appInsights.setup("<instrumentation_key>")
 
 ## TelemetryClient API
 
-For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md).
+For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md).
 
 You can track any request, event, metric, or exception by using the Application Insights Node.js SDK. The following code example demonstrates some of the APIs that you can use:
 
