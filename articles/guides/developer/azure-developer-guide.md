@@ -165,7 +165,7 @@ It's crucial to not only know who is using your applications, but also to preven
 
 	>**When to use**: When you want to enable authentication in an App Service app by using Azure AD, social identity providers, or both.
 
-    >**Get started**: To learn more about authentication in App Service, see [Authentication and authorization in Azure App Service](../../app-service/app-service-authentication-overview.md).
+    >**Get started**: To learn more about authentication in App Service, see [Authentication and authorization in Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 To learn more about security best practices in Azure, see [Azure security best practices and patterns](../../security/security-best-practices-and-patterns.md).
 
