@@ -21,7 +21,7 @@ Organizations that rely on a single access control, such as multi-factor authent
 This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions with the following scenarios:
 
  1. Organizations can increase their resiliency to reduce the risk of lockout **before a disruption** by implementing mitigation strategies or contingency plans.
-2. Organizations can continue to access apps and resources they choose **during a disruption**, by having mitigation strategies and contingency plans in place.
+ 2. Organizations can continue to access apps and resources they choose **during a disruption** by having mitigation strategies and contingency plans in place.
 3. **After a disruption**, organizations should make sure they preserve information, such as logs, before they roll back any contingencies, they implemented.
 4. Organizations that haven’t implemented prevention strategies or alternative plans may be able to implement **emergency options** to deal with the disruption.
 
