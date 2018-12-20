@@ -32847,6 +32847,31 @@
             "redirect_document_id":  true
         },
         {
+            "source_path":  "articles/application-insights/app-insights-analytics-troubleshooting.md",
+            "redirect_url":  "/azure/azure-monitor/app/analytics-troubleshooting",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-annotations.md",
+            "redirect_url":  "/azure/azure-monitor/app/annotations",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-api-filtering-sampling.md",
+            "redirect_url":  "/azure/azure-monitor/app/api-filtering-sampling",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-dashboards.md",
+            "redirect_url":  "/azure/azure-monitor/app/app-insights-dashboards",
+            "redirect_document_id":  true
+        },
+        {
+            "source_path":  "articles/application-insights/app-insights-app-map.md",
+            "redirect_url":  "/azure/azure-monitor/app/app-map",
+            "redirect_document_id":  true
+        },
+        {
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true

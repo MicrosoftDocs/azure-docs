@@ -111,7 +111,7 @@ The telemetry channel manages buffering and transmission of telemetry to the App
 ## Telemetry Initializers (ASP.NET)
 Telemetry initializers set context properties that are sent along with every item of telemetry.
 
-You can [write your own initializers](app-insights-api-filtering-sampling.md#add-properties) to set context properties.
+You can [write your own initializers](../azure-monitor/app/api-filtering-sampling.md#add-properties) to set context properties.
 
 The standard initializers are all set either by the Web or WindowsServer NuGet packages:
 
@@ -144,7 +144,7 @@ For .NET applications running in Service Fabric, you can include the `Microsoft.
 ## Telemetry Processors (ASP.NET)
 Telemetry processors can filter and modify each telemetry item just before it is sent from the SDK to the portal.
 
-You can [write your own telemetry processors](app-insights-api-filtering-sampling.md#filtering).
+You can [write your own telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).
 
 #### Adaptive sampling telemetry processor (from 2.0.0-beta3)
 This is enabled by default. If your app sends a lot of telemetry, this processor removes some of it.
@@ -164,7 +164,7 @@ The parameter provides the target that the algorithm tries to achieve. Each inst
 [Learn more about sampling](app-insights-sampling.md).
 
 #### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
-There is also a standard [sampling telemetry processor](app-insights-api-filtering-sampling.md) (from 2.0.1):
+There is also a standard [sampling telemetry processor](../azure-monitor/app/api-filtering-sampling.md) (from 2.0.1):
 
 ```XML
 

@@ -124,7 +124,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](app-insights-api-filtering-sampling.md) or [Java](app-insights-java-filter-telemetry.md).
+Learn more for [ASP.NET](../azure-monitor/app/api-filtering-sampling.md) or [Java](app-insights-java-filter-telemetry.md).
 
 ## How are City, Country and other geo location data calculated?
 
