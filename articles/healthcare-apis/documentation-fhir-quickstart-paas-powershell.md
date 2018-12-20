@@ -19,7 +19,29 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Azure Subscription
 
+## Open the Azure
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+## Create an Azure Resource Manager template
+
+Create an Azure Resource Manager template with the following content:
+
+[!code-json[](samples/azuredeploy.json)]
+
+Save it with the name `azuredeploy.json`
+
+## Create an Azure Resource Group
+
+```azurepowershell-interactive
+$rg = New-AzureRmResourceGroup -Name "myResourceGroupName" -Location westus2
+```
+
+## Deploy Template
+
+```azurepowershell-interactive
+New-AzureRmResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -accountName "myHealthcareApis"
+```
 
 ## Clean up resources
 

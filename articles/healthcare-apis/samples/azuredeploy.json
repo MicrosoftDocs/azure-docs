@@ -1,0 +1,23 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Microsoft Healthcare APIs account."
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-01-01",
+            "type": "Microsoft.HealthcareApis/account",
+            "name": "[variables('accountName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "enableAadSmartOnFhirProxy": false
+            }
+        }
+    ]
+}

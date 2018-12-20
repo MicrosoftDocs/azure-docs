@@ -1,6 +1,6 @@
 ---
 title: Deploy Open Source FHIR Server using PowerShell
-description: .
+description: Deploy Open Source FHIR Server using PowerShell.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Quickstart: Deploy Open Source FHIR Server using PowerShell
 
-In this quickstart, you can deploy the Open Source Microsoft FHIR Server for Azure Using PowerShell. 
+In this quickstart, you can deploy the Open Source Microsoft FHIR Server for Azure Using PowerShell.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
