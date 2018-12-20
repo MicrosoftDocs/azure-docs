@@ -154,7 +154,7 @@ pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 
 ## Submit the pipeline
 
-When you submit the pipeline, the dependencies are checked for each step. Azure Machine Learning specifies a snapshot of the folder as the source directory, and uploads it. If no source directory is specified, the current local directory is uploaded.
+When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded.
 
 ```python
 # Submit the pipeline to be run
