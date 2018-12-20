@@ -73,6 +73,8 @@ LUIS provides several prebuilt entities for common data extraction.
 
     These entities will help you add name and place recognition to your client application.
 
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
 ## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -175,6 +177,12 @@ LUIS provides several prebuilt entities for common data extraction.
 * [Prebuilt domains](luis-reference-prebuilt-domains.md): these are common domains that reduce overall LUIS app authoring
 * Prebuilt intents: these are the individual intents of the common domains. You can add intents individually instead of adding the entire domain.
 * [Prebuilt entities](luis-prebuilt-entities.md): these are common data types useful to most LUIS apps.
+
+## Related information
+
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
 
 ## Next steps
 

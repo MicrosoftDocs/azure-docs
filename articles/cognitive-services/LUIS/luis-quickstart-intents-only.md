@@ -86,24 +86,7 @@ Determining which job-related intent may be tricky due to word choice and word o
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
-## Add example utterances to the None intent 
-
-The client application needs to know if an utterance is not meaningful or appropriate for the application. The **None** intent is added to each application as part of the creation process to determine if an utterance can't be answered by the client application.
-
-If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation or give more directions for continuing the conversation. 
-
-> ![CAUTION] Do not leave it empty. 
-
-1. Select **Intents** from the left panel.
-
-2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your Human Resources app:
-
-    | Example utterances|
-    |--|
-    |Barking dogs are annoying|
-    |Order a pizza for me|
-    |Penguins in the ocean|
-
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
 ## Train the app before testing or publishing
 
@@ -224,6 +207,12 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 ## Client-application next steps
 
 After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). 
+
+## Related information
+
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
 
 ## Clean up resources
 
