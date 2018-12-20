@@ -710,7 +710,7 @@
       - name: Log data
         items:
         - name: Application data
-          href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+          href: app/analytics.md
         - name: Standard properties
         - name: Parse text data
           href: log-query/parse-text.md
@@ -763,7 +763,7 @@
         - name: Availability
           href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
         - name: Metric alerts
-          href: ../application-insights/app-insights-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: app/alerts.md
       - name: Use action groups with alerts
         items:
         - name: Create action groups
@@ -877,7 +877,7 @@
     - name: Applications
       items:
       - name: API for custom events and metrics
-        href: ../application-insights/app-insights-api-custom-events-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: app/api-custom-events-metrics.md
       - name: Track custom operations in .NET SDK
         href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
       - name: Filtering and preprocessing telemetry

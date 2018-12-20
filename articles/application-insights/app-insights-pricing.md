@@ -138,7 +138,7 @@ To set ingestion sampling, go to the  **Pricing** pane:
 > The **Data sampling** pane controls only the value of ingestion sampling. It doesn't reflect the sampling rate that's applied by the Application Insights SDK in your app. If the incoming telemetry has already been sampled in the SDK, ingestion sampling isn't applied.
 >
 
-To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](app-insights-analytics.md). The query looks like this:
+To discover the actual sampling rate, no matter where it's been applied, use an [Analytics query](../azure-monitor/app/analytics.md). The query looks like this:
 
     requests | where timestamp > ago(1d)
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
@@ -162,7 +162,7 @@ To disable the daily volume cap e-mails, under the **Configure** section of your
 
 * [Sampling](app-insights-sampling.md)
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiproperties]: app-insights-api-custom-events-metrics.md#properties
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiproperties]: ../azure-monitor/app/api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
