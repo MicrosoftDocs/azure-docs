@@ -18,18 +18,18 @@ ms.author: jroth
 | Bandwidth |165 MB |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |Unlimited, [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/) apply |
 | Application architecture |32-bit |32-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web Sockets per instance<sup>7</sup> |5 |35 |350 |Unlimited |Unlimited |Unlimited |
-| Concurrent [debugger connections](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) per application |1 |1 |1 |5 |5 |5 |
+| Concurrent [debugger connections](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per application |1 |1 |1 |5 |5 |5 |
 | App Service Certificates per Subscription<sup>10</sup>| Not supported | Not supported |10 |10 |10 |10 |
 | Custom domains per app</a> |0 (azurewebsites.net subdomain only)|500 |500 |500 |500 |500 |
 | Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Not supported. Wildcard certificate for *.azurewebsites.net available by default.|Not supported. Wildcard certificate for *.azurewebsites.net available by default.|Unlimited SNI SSL connections |Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included | Unlimited SNI SSL and 1 IP SSL connections included|
 | Integrated Load Balancer | |X |X |X |X |X<sup>9</sup> |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
-| [Scheduled Backups](../articles/app-service/web-sites-backup.md) | | | | Scheduled backups every 2 hours, a max of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a max of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a max of 50 backups per day (manual + scheduled) |
+| [Scheduled Backups](../articles/app-service/manage-backup.md) | | | | Scheduled backups every 2 hours, a max of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a max of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a max of 50 backups per day (manual + scheduled) |
 | [Auto Scale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |X |
+| [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
-| [Staging Slots](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
+| [Staging Slots](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | SLA | |  |99.9% |99.95%|99.95%|99.95%|  
 
 <sup>1</sup> Apps and storage quotas are per App Service plan unless noted otherwise.  
