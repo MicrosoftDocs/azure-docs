@@ -44,7 +44,7 @@ Application Insights has a designated view for querying against all the data tha
 
 ![Application Insights Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-To further explore the capabilities of the Application Insights portal, head over to the [Application Insights portal documentation](../application-insights/app-insights-dashboards.md).
+To further explore the capabilities of the Application Insights portal, head over to the [Application Insights portal documentation](../azure-monitor/app/app-insights-dashboards.md).
 
 ### Configuring Application Insights with WAD
 
