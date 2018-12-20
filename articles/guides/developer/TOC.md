@@ -36,7 +36,7 @@
 
 # Concepts
 ## [Billing and subscriptions](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Hosting comparisons](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Hosting comparisons](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [What is App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Virtual machines
 ### [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/overview)

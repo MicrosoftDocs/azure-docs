@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Advanced usage of authentication and authorization in Azure App Service
 
-This article shows you how to customize the built-in [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
+This article shows you how to customize the built-in [authentication and authorization in App Service](overview-authentication-authorization.md), and to manage identity from your application. 
 
 To get started quickly, see one of the following tutorials:
 
@@ -60,7 +60,7 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Validate tokens from providers
 
-In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](app-service-authentication-overview.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
+In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
 
 To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
 
