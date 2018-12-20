@@ -47,19 +47,19 @@ This app has a few intents.
 |GetJobInformation|Determine if user is looking for information about jobs in general or a specific job.|
 |None|Determine if user is asking something app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
 
-Determining which job-related intent may be tricky due to word choice and word order.
-
 ## Create a new app
 
 [!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
 ## Create intent for job information
 
-1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
+1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company. 
 
     ![Screenshot of Language Understanding (LUIS) New intent dialog](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
-2. By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. Add several example utterances to this intent that you expect a user to ask, such as:
+1. Select **Done**.
+
+2. Add several example utterances to this intent that you expect a user to ask:
 
     | Example utterances|
     |--|
@@ -82,6 +82,8 @@ Determining which job-related intent may be tricky due to word choice and word o
 
     [![Screenshot of entering new utterances for MyStore intent](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
+    By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. 
+
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
@@ -99,7 +101,7 @@ Determining which job-related intent may be tricky due to word choice and word o
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address bar and enter `I'm looking for a job with Natural Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
+1. Go to the end of the URL in the address bar and enter `I'm looking for a job with Natural Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances. It is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
 
     ```JSON
     {
@@ -132,13 +134,13 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 
 1. Select **Build** from the top, right menu to return to app building.
 
-2. Select **Intents** from the left menu to get to the list of intents.
+1. Select **Intents** from the left menu to get to the list of intents.
 
-3. Select **Create new intent** and enter the name `ApplyForJob`. 
+1. Select **Create new intent** and enter the name `ApplyForJob`. 
 
     ![LUIS dialog to create new intent](./media/luis-quickstart-intents-only/create-applyforjob-intent.png)
 
-4. Add several utterances to this intent that you expect a user to ask for, such as:
+1. Add several utterances to this intent that you expect a user to ask for, such as:
 
     | Example utterances|
     |--|
@@ -205,7 +207,7 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 
 ## Client-application next steps
 
-After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). 
+After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an Azure Bot. 
 
 ## Clean up resources
 
@@ -217,6 +219,7 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
+* [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 
 ## Next steps

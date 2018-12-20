@@ -15,22 +15,9 @@ ms.author: diberry
 
 --- 
 
-# Tutorial:  Get sentiment of overall utterance
+# Tutorial:  Get sentiment of utterance
 
 In this tutorial, create an app that demonstrates how to determine positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
-
-Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
-
-The following utterances show examples of sentiment:
-
-|Sentiment|Score|Utterance|
-|:--|:--|:--|
-|positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
-|positive|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|
-
-Sentiment analysis is a publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and label them because sentiment analysis applies to the entire utterance. 
-
-Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL. 
 
 **In this tutorial, you learn how to:**
 
@@ -44,11 +31,38 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
+## Sentiment analysis is a publish setting
+
+The following utterances show examples of sentiment:
+
+|Sentiment|Score|Utterance|
+|:--|:--|:--|
+|positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
+|positive|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|
+
+Sentiment analysis is a publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and mark them. 
+
+Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL. 
+
+
 ## Create a new app
 
 [!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## Create the EmployeeFeedback intent to allow employees to pass on work-related feedback about other employees 
+## Add PersonName prebuilt entity 
+
+
+1. Select **Entities** from the left navigation menu.
+
+1. Select **Add prebuilt entity** button.
+
+1. Select the following entity from the list of prebuilt entities then select **Done**:
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+
+    ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+
+## Create an intent to determine employee feedback
 
 Add a new intent to capture employee feedback from members of the company. 
 
@@ -61,8 +75,6 @@ Add a new intent to capture employee feedback from members of the company.
     ![Create new intent dialog box with EmployeeFeedback as name](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
 4. Add several utterances that indicate an employee doing something well or an area that needs improvement:
-
-    Remember in this Human Resources app, employees are defined in the list entity, `Employee`, by the name, email, phone extension number, mobile phone number, and their U.S. federal social security number. 
 
     |Utterances|
     |--|
@@ -88,7 +100,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 1. Select **Manage** in the top right navigation, then select **Publish settings** from the left menu.
 
-2. Toggle **Sentiment Analysis** to enable this setting. 
+2. Select **Sentiment Analysis** to enable this setting. 
 
     ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -107,81 +119,22 @@ Add a new intent to capture employee feedback from members of the company.
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {
         "intent": "EmployeeFeedback",
-        "score": 0.4983256
+        "score": 0.9616192
       },
       "intents": [
         {
           "intent": "EmployeeFeedback",
-          "score": 0.4983256
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.06617523
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.04631853
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0103248553
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.007531875
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00344597152
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00337914471
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.0026357458
+          "score": 0.9616192
         },
         {
           "intent": "None",
-          "score": 0.00214573368
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00157622492
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 7.379545E-05
+          "score": 0.09347677
         }
       ],
       "entities": [
         {
           "entity": "jill jones",
-          "type": "Employee",
-          "startIndex": 0,
-          "endIndex": 9,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
-        },
-        {
-          "entity": "media team",
-          "type": "builtin.keyPhrase",
-          "startIndex": 25,
-          "endIndex": 34
-        },
-        {
-          "entity": "public portal",
-          "type": "builtin.keyPhrase",
-          "startIndex": 43,
-          "endIndex": 55
-        },
-        {
-          "entity": "jill jones",
-          "type": "builtin.keyPhrase",
+          "type": "builtin.personName",
           "startIndex": 0,
           "endIndex": 9
         }
@@ -193,7 +146,7 @@ Add a new intent to capture employee feedback from members of the company.
     }
     ```
 
-    The sentimentAnalysis is positive with a score of 0.86. 
+    The sentimentAnalysis is positive with a score of 86%. 
 
 ## Clean up resources
 

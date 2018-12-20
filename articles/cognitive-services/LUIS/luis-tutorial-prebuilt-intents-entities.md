@@ -42,7 +42,7 @@ LUIS provides several prebuilt intents to help with common user intentions.
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Select **Add prebuilt intent**. 
+1. Select **Add prebuilt domain intent**. 
 
 1. Search for `Utilities`. 
 
@@ -76,7 +76,7 @@ LUIS provides several prebuilt entities for common data extraction.
 
     These entities will help you add name and place recognition to your client application.
 
-[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md]
 
 ## Train the app so the changes to the intent can be tested 
 

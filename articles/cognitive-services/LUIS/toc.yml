@@ -39,7 +39,7 @@
   items:
   - name: Build app
     items:
-    - name: Determine user intentions with intents
+    - name: Determine user intentions
       href: luis-quickstart-intents-only.md
     - name: Identify common user data with prebuilt models
       href: luis-tutorial-prebuilt-intents-entities.md

@@ -17,7 +17,8 @@ The client application needs to know if an utterance is not meaningful or approp
 
 If LUIS returns the **None** intent for an utterance, your client application can ask if the user wants to end the conversation or give more directions for continuing the conversation. 
 
-> ![CAUTION] Do not leave it empty. 
+> [!CAUTION] 
+> Do not leave it empty. 
 
 1. Select **Intents** from the left panel.
 
