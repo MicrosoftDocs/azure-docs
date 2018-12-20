@@ -84,7 +84,7 @@ Allow access to the following URLs:
 
 | URL | How it's used |
 | --- | --- |
-| \*.msappproxy.net<br>servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates |
 | login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
 
