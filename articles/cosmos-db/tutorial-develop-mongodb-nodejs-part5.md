@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB"
 titleSuffix: Azure Cosmos DB
-description: This tutorial describes how to build a Node.js application by using Angular, Express to manage the data stored in a MongoDB API account. In this part, you use Mongoose to connect to Azure Cosmos DB.
+description: This tutorial describes how to build a Node.js application by using Angular and Express to manage the data stored in a MongoDB API account. In this part, you use Mongoose to connect to Azure Cosmos DB.
 author: johnpapa
 
 ms.service: cosmos-db
@@ -14,7 +14,7 @@ ms.custom: seodec18
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in a MongoDB API account of Azure Cosmos DB.
 ---
 
-# Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB >>>>>>> master
+# Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB
 
 As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can build a Node.js application to manage the data stored in a MongoDB API account of Azure Cosmos DB. This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to an [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account. This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * Before you start this tutorial, complete the steps in [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0  or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * This tutorial walks you through the steps to build the application step by step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
@@ -164,7 +164,7 @@ After you create the hero model, you need to define a service to read the data, 
 
 1. Copy the following code into the **hero.service.js** file. The code provides the following functionality:
 
-   * Gets the model that you just created.
+   * Gets the model that you created.
    * Connects to the database.
    * Creates a `docquery` variable that uses the `hero.find` method to define a query that returns all heroes.
    * Runs a query with the `docquery.exec` function with a promise to get a list of all heroes, where the response status is 200. 
@@ -194,7 +194,7 @@ After you create the hero model, you need to define a service to read the data, 
    };
    ```
 
-## Configure routes for your service
+## Configure routes for the service
 
 Next, you need to set up routes to handle the URLs for get, create, read, and delete requests. The routing methods specify a callback function (also called _handler functions_). These functions are called when the application receives a request to the specified endpoint and HTTP method. Use the following steps to add the Hero service and to define your routes:
 
@@ -225,7 +225,7 @@ Let's take a minute to review and walk through the previous code. First, we come
 
 ## Run the app
 
-Next run the app by using the following steps:
+Next, run the app by using the following steps:
 
 1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), and then select the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
@@ -237,7 +237,7 @@ There are no heroes stored yet in the app. In the next part of this tutorial, we
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. Use the following steps to delete the resource group:
+When you no longer need the resources, you can delete the resource group, Azure Cosmos DB account, and all the related resources. Use the following steps to delete the resource group:
 
  1. Navigate to the resource group where you created the Azure Cosmos DB account.
  1. Select **Delete resource group**.
