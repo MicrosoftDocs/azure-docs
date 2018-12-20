@@ -65,27 +65,74 @@ The following roles are available in Azure Digital Twins:
 
 The `ObjectIdType` refers to the type of identity that's given a role. Apart from the `DeviceId` and `UserDefinedFunctionId` types, the types correspond to a property of an Azure Active Directory (Azure AD) object:
   
-* The `UserId` type assigns a role to a user.
-* The `DeviceId` type assigns a role to a device.
-* The `DomainName` type assigns a role to a domain name. Each user with the specified domain name has the access rights of the corresponding role.
-* The `TenantId` type assigns a role to a tenant. Each user who belongs to the specified Azure AD tenant ID has the access rights of the corresponding role.
-* The `ServicePrincipalId` type assigns a role to a service principal object ID.
-* The `UserDefinedFunctionId` type assigns a role to a user-defined function (UDF).
+- The `UserId` type assigns a role to a user.
+- The `DeviceId` type assigns a role to a device.
+- The `DomainName` type assigns a role to a domain name. Each user with the specified domain name has the access rights of the corresponding role.
+- The `TenantId` type assigns a role to a tenant. Each user who belongs to the specified Azure AD tenant ID has the access rights of the corresponding role.
+- The `ServicePrincipalId` type assigns a role to a service principal object ID.
+- The `UserDefinedFunctionId` type assigns a role to a user-defined function (UDF).
 
-> [!div class="nextstepaction"]
-> [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
+The following reference documentation articles describe:
 
-> [!div class="nextstepaction"]
-> [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1)
-
-> [!div class="nextstepaction"]
-> [Retrieve the object ID for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
+- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1)
+- How to [Retrieve the object ID for an Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
 ## Role assignments
 
-To grant permissions to a recipient, create a role assignment. To revoke permissions, remove the role assignment. An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
+An Azure Digital Twins role assignment associates an object, such as a user or an Azure AD tenant, with a role and a space. Permissions are granted to all objects that belong to that space. The space includes the entire spatial graph beneath it.
 
 For example, a user is given a role assignment with the role `DeviceInstaller` for the root node of a spatial graph, which represents a building. The user can then read and update devices for that node and all other child spaces in the building.
+
+### Granting permissions
+
+To grant permissions to a recipient, create a role assignment. Then, assign that role to a user.
+
+```csharp
+Login-AzureRmAccount
+Connect-AzureAD
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+```
+
+A user with the **Admin** role can then assign the ServicePrincipal role to a user by making an authenticated HTTP POST request to the URL:
+
+```plaintext
+```
+
+```JSON
+{
+  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "Path": "/",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+```
+
+### Revoking permissions
+
+To revoke permissions to a recipient, delete the role assignment.
+
+```csharp
+Login-AzureRmAccount
+Connect-AzureAD
+Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+```
+
+A user with the **Admin** role can then remove a role assignment by making an authenticated HTTP POST request to the URL:
+
+```plaintext
+```
+
+```JSON
+{
+  "RoleId": "98e44ad7-28d4-4007-853b-b9968ad132d1",
+  "objectId": "be2c6dfe-c3e5-4c7a-b2da-c941715fbc5f",
+  "objectIdType": "ServicePrincipalId",
+  "Path": "/",
+  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
+```
 
 ## Next steps
 
