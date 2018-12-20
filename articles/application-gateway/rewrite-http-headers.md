@@ -54,9 +54,10 @@ You can rewrite the value in the headers to:
   $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
-  ​	[!Note] 
 
-> ​	In order to specify a request header, you need to use the syntax: {http_req_<header name>}
+> [!Note] 
+>
+> In order to specify a request header, you need to use the syntax: {http_req_<header name>}
 
 ​	*Example 2*:
 
@@ -84,32 +85,31 @@ $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConf
 
 The server variables mentioned above are the variables that provide information about the server, the connection with the client, and the current request on the connection. This capability supports rewriting headers to the following server variables:
 
-|                         |                                                              |
-| ----------------------- | ------------------------------------------------------------ |
-| ciphers_supported       | returns the list of ciphers supported by the client          |
-| ciphers_used            | returns the string of ciphers used for an established SSL connection |
-| client_latitude         | to determine the country, region, and city depending on the client IP address |
-| client_longitude        | to determine the country, region, and city depending on the client IP address |
-| client_port             | client port                                                  |
-| client_tcp_rtt          | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
-| client_user             | when using HTTP authentication, the username supplied for authentication |
-| content_length          | “Content-Length” request header field                        |
-| content_type            | “Content-Type” request header field                          |
-| host                    | in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request |
-| http_method             | the method used to make the URL request. For example GET, POST etc. |
-| http_status             | session status, eg: 200, 400, 403 etc.                       |
-| http_version            | request protocol, usually “HTTP/1.0”, “HTTP/1.1”, or “HTTP/2.0” |
-| query_string            | the list of variable-value pairs that follow the "?" in the requested URL. |
-| received_byte           | request length (including request line, header, and request body) |
-| request_query           | arguments in the request line                                |
-| request_scheme          | request scheme, “http” or “https”                            |
-| request_uri             | full original request URI (with arguments)                   |
-| sent_bytes              | number of bytes sent to a client                             |
-| server_name             | name of the server which accepted a request                  |
-| server_port             | port of the server, which accepted a request                 |
-| ssl_connection_protocol | returns the protocol of an established SSL connection        |
-| ssl_enabled             | “on” if connection operates in SSL mode, or an empty string otherwise |
-|                         |                                                              |
+| Supported server variables | Description                                                  |
+| -------------------------- | :----------------------------------------------------------- |
+| ciphers_supported          | returns the list of ciphers supported by the client          |
+| ciphers_used               | returns the string of ciphers used for an established SSL connection |
+| client_latitude            | to determine the country, region, and city depending on the client IP address |
+| client_longitude           | to determine the country, region, and city depending on the client IP address |
+| client_port                | client port                                                  |
+| client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
+| client_user                | when using HTTP authentication, the username supplied for authentication |
+| content_length             | “Content-Length” request header field                        |
+| content_type               | “Content-Type” request header field                          |
+| host                       | in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request |
+| http_method                | the method used to make the URL request. For example GET, POST etc. |
+| http_status                | session status, eg: 200, 400, 403 etc.                       |
+| http_version               | request protocol, usually “HTTP/1.0”, “HTTP/1.1”, or “HTTP/2.0” |
+| query_string               | the list of variable-value pairs that follow the "?" in the requested URL. |
+| received_byte              | request length (including request line, header, and request body) |
+| request_query              | arguments in the request line                                |
+| request_scheme             | request scheme, “http” or “https”                            |
+| request_uri                | full original request URI (with arguments)                   |
+| sent_bytes                 | number of bytes sent to a client                             |
+| server_name                | name of the server which accepted a request                  |
+| server_port                | port of the server, which accepted a request                 |
+| ssl_connection_protocol    | returns the protocol of an established SSL connection        |
+| ssl_enabled                | “on” if connection operates in SSL mode, or an empty string otherwise |
 
 ## Limitations
 
