@@ -1,6 +1,6 @@
 ---
 title: Index large data set using built-in indexers - Azure Search
-description: Learn how to design a strategy for indexing a large amount of data in an Azure Search index.
+description: Learn strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.author: heidist
 ms.custom: seodec2018
 
 ---
-# How to index large data using built-in indexers in Azure Search
+# How to index large data sets in Azure Search
 
 As data volumes grow or processing needs change, you might find that default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
@@ -20,13 +20,14 @@ As data volumes grow or processing needs change, you might find that default ind
 
 One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. Assuming the [Add or Update Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), you would package 1000 documents in the body of the request.
 
-Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers using the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
+Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers based on the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
 
-To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
+> [!NOTE]
+> To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
 
 ## Add resources
 
-Services that are provisioned at one of the Standard pricing tiers often have excess capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. This approach incurs additional cost, but unless you are continuously indexing under load, you can add scale for the duration of the indexing process, and then adjust resource levels downwards after indexing is finished.
+Services that are provisioned at one of the Standard pricing tiers often have excess capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. This approach incurs additional cost, but unless you are continuously indexing under maximum load, you can add scale for the duration of the indexing process, and then adjust resource levels downwards after indexing is finished.
 
 ## Use indexers
 
@@ -38,32 +39,34 @@ Services that are provisioned at one of the Standard pricing tiers often have ex
 
 Indexers are data-source-specific, so this approach is only viable for selected data sources on Azure: SQL Database, Blob storage, Table storage, Cosmos DB.
 
-### Scheduled indexing
+## Scheduled indexing
 
 Indexer scheduling is an important mechanism for processing large data sets, as well as slow-running processes like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
 
 By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
 
-In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). For more information about setting schedules in general, see [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
 
 <a name="parallel-indexing"></a>
 
 ## Parallel indexing
 
-A second choice is to set up a parallel indexing strategy. For non-routine, computationally intensive indexing requirements, such as OCR on scanned documents in a cognitive search pipeline, a parallel indexing strategy might be the right approach for that specific goal. In a cognitive search enrichment pipeline, image analysis and natural language processing are long running. Parallel indexing on a service that is not simultaneously handling query requests could be a viable option for working through a large body of slow-processing content. 
+A parallel indexing strategy is based on indexing multiple data sources in unison, where each data source definition specifies a subset of the data. 
 
-A strategy for parallel processing has these elements:
+For non-routine, computationally-intensive indexing requirements - such as OCR on scanned documents in a cognitive search pipeline, image analysis, or natural language processing - a parallel indexing strategy is often the right approach for completing a long-running process in the shortest time. If you can eliminate or reduce query requests, parallel indexing on a service that is not simultaneously handling queries is your best strategy option for working through a large body of slow-processing content. 
 
-+ Divide source data among multiple containers or multiple virtual folders inside the same container. 
-+ Map each mini data set to a [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Parallel processing has these elements:
+
++ Subdivide source data among multiple containers or multiple virtual folders inside the same container. 
++ Map each mini data set to it's own [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + For cognitive search, reference the same [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in each indexer definition.
 + Write into the same target search index. 
 + Schedule all indexers to run at the same time.
 
-> [!Note]
+> [!NOTE]
 > Azure Search does not support dedicating replicas or partitions to specific workloads. The risk of heavy concurrent indexing is overburdening your system to the detriment of query performance. If you have a test environment, implement parallel indexing there first to understand the tradeoffs.
 
-## Configure parallel indexing
+### How to configure parallel indexing
 
 For indexers, processing capacity is loosely based on one indexer subsystem for each service unit (SU) used by your search service. Multiple concurrent indexers are possible on Azure Search services provisioned on Basic or Standard tiers having at least two replicas. 
 
