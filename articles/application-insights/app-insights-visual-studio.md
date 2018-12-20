@@ -87,7 +87,7 @@ To find anomalies in your data, choose one of the anomaly options under the "Vie
 
 This is desirable if you have already published a previous version of your app. You don't want the telemetry from your debugging sessions to be mixed up with the telemetry on the Application Insights portal from the published app.
 
-It's also useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
+It's also useful if you have some [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
 
 * *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
   

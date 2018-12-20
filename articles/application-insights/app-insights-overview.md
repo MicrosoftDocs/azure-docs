@@ -55,7 +55,7 @@ There are plenty of ways to explore your data. Check out these articles:
 
 |  |  |
 | --- | --- |
-| [**Smart detection and manual alerts**](app-insights-proactive-diagnostics.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](app-insights-alerts.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
+| [**Smart detection and manual alerts**](app-insights-proactive-diagnostics.md)<br/>Automatic alerts adapt to your app's normal patterns of telemetry and trigger when there's something outside the usual pattern. You can also [set alerts](../azure-monitor/app/alerts.md) on particular levels of custom or standard metrics. |![Alert sample](./media/app-insights-overview/alerts-tn.png) |
 | [**Application map**](app-insights-app-map.md)<br/>The components of your app, with key metrics and alerts. |![Application map](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profiler**](app-insights-profiler.md)<br/>Inspect the execution profiles of sampled requests. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Usage analysis**](app-insights-usage-overview.md)<br/>Analyze user segmentation and retention.|![Retention tool](./media/app-insights-overview/retention.png) |
@@ -63,7 +63,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Metrics Explorer for aggregated data**](app-insights-metrics-explorer.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboards**](app-insights-dashboards.md#dashboards)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](app-insights-live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analytics**](app-insights-analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
+| [**Analytics**](../azure-monitor/app/analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Snapshot debugger**](app-insights-snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|

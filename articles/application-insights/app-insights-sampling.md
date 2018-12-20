@@ -319,7 +319,7 @@ The main advantages of sampling are:
 If the conditions to use the other forms of sampling do not apply, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It will not reduce traffic until a certain minimum rate is reached, therefore, low-use sites will not be affected.
 
 ## How do I know whether sampling is in operation?
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../azure-monitor/app/analytics.md) such as this:
 
 ```
 union * 

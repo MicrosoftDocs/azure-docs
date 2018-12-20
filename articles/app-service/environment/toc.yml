@@ -31,7 +31,7 @@
   - name: ASEv1
     href: app-service-app-service-environment-intro.md
   - name: Diagnostics
-    href: ../app-service-diagnostics.md
+    href: ../overview-diagnostics.md
   - name: Certificates
     href: certificates.md
 - name: How-To guides
