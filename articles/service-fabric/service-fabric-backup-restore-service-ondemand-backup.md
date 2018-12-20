@@ -1,6 +1,6 @@
 ---
-title: On-Demand Backup in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's backup and restore feature for backup of your application data on need basis.
+title: On-demand backup in Azure Service Fabric | Microsoft Docs
+description: Use Service Fabric's backup and restore feature to backup your application data on a need basis.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -19,19 +19,19 @@ ms.author: aagup
 ---
 # On-demand backup in Azure Service Fabric
 
-The data of Reliable Stateful services and Reliable Actors can be backed up to address disaster or data loss scenarios.
+You can back up data of Reliable Stateful services and Reliable Actors to address disaster or data loss scenarios.
 
-Service Fabric is equipped with features for [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and backup of data on need basis. On-demand backup is useful as it guards against _data loss_/_data corruption_ caused due to planned changes in the underlying service or its environment.
+Service Fabric has features for the [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and the backup of data on a need basis. On-demand backup is useful because it guards against _data loss_/_data corruption_ due to planned changes in the underlying service or its environment.
 
-The on-demand backup features is helpful in capturing state of the services, before any manually triggered operation related to the service or service environment. Like changing the service binaries, that is, upgrading or downgrading of the service; as it will have the data guarded against data corruption by bugs in application's code.
+The on-demand backup features are helpful for capturing the state of the services before you manually trigger a service or service environment operation. For example, if you make a change in service binaries like upgrading or downgrading the service, on-demand backup can help guard the data against corruption by bugs in application's code.
 
 ## Triggering on-demand backup
 
-The on-demand backup requires storage details for uploading backup files. The on-demand backup will happen in the storage specified in periodic backup policy or in the specified storage in on-demand backup request.
+On-demand backup requires storage details for uploading backup files. You can specify the location for on-demand backup in the periodic backup policy or in an on-demand backup request.
 
 ### On-demand backup to storage specified by periodic backup policy
 
-The partition of a Reliable Stateful service or Reliable Actor can be requested for an extra on need basis backup to storage specified in periodic backup policy. 
+The partition of a Reliable Stateful service or Reliable Actor can be requested for an extra on need basis backup to storage specified in periodic backup policy.
 
 The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in Azure Storage.
 
