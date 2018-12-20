@@ -26,8 +26,8 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You have completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**.
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted. 
@@ -48,7 +48,7 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
 | Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
-If you are using a Windows Server host computer, follow these steps to connect to the Data Box.
+If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
@@ -79,7 +79,7 @@ If you are using a Windows Server host computer, follow these steps to connect t
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-    You should now be able to see the shares as folders.
+    You should now see the shares as folders.
     
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
     
@@ -87,17 +87,15 @@ If you are using a Windows Server host computer, follow these steps to connect t
 
 ## Copy data to Data Box
 
-Once you are connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
+Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
-- Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
+- Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
-- We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
+- We recommend that you don't use both SMB and NFS at the same or copy same data to same end destination on Azure. In these cases, the final outcome can't be determined.
 - Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. Any folders created under block blob and page blob shares are containers and folders under container are blobs. Under shares for Azure Files, first-level entities are shares and second-level entities are files.
 
-After you have connected to the SMB share, initiate a data copy. 
-
-You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
+After you've connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     
     robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
@@ -109,8 +107,8 @@ You can use any SMB compatible file copy tool such as Robocopy to copy your data
 |/r:     |Specifies the number of retries on failed copies.         |
 |/w:     |Specifies the wait time between retries, in seconds.         |
 |/is     |Includes the same files.         |
-|/nfl     |Specifies that file names are not to be logged.         |
-|/ndl    |Specifies that directory names are not to be logged.        |
+|/nfl     |Specifies that file names aren't logged.         |
+|/ndl    |Specifies that directory names aren't logged.        |
 |/np     |Specifies that the progress of the copying operation (the number of files or directories copied so far) will not be displayed. Displaying the progress significantly lowers the performance.         |
 |/MT     | Use multithreading, recommended 32 or 64 threads. This option not used with encrypted files. You may need to separate encrypted and unencrypted files. However, single threaded copy significantly lowers the performance.           |
 |/fft     | Use to reduce the time stamp granularity for any file system.        |
