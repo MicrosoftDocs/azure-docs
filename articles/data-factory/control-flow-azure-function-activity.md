@@ -41,16 +41,16 @@ The return type of the Azure function has to be a valid JObject. Anything else f
 | function name  | Name of the function in the Azure Function App that this activity calls | String | yes |
 | method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | yes |
 | header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
-| body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string or object.   | Required for PUT/POST methods |
+| body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
 |   |   |   | |
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
 
 ## More info
 
-The Azure Function Activity supports Routing. For example, if your app uses the following routing - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - then the `functionName` is `functionName/{value}`, which you can parameterize to provide the desired `functionName` at runtime.
+The Azure Function Activity supports **routing**. For example, if your app uses the following routing - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - then the `functionName` is `functionName/{value}`, which you can parameterize to provide the desired `functionName` at runtime.
 
-The Azure Function Activity also supports queries. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
+The Azure Function Activity also supports S. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
 
 ## Next steps
 
