@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a resilient access control management strategy with Azure Active Directory
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
@@ -8,7 +8,7 @@ tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: name:CURRENT_DATE
+ms.date: 12/19/2018
 ms.author: martincoetzer
 ---
 # Create a resilient access control management strategy with Azure Active Directory
