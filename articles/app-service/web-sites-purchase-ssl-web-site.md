@@ -30,7 +30,7 @@ This tutorial shows you how to secure your web app by creating (purchasing) an A
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -86,7 +86,7 @@ Select **App Service Verification**. Since you already mapped the domain to your
 > Four types of domain verification methods are supported: 
 > 
 > - **App Service** - The most convenient option when the domain is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
-> - **Domain** - Verify an [App Service domain that you purchased from Azure](custom-dns-web-site-buydomains-web-app.md). Azure automatically adds the verification TXT record for you and completes the process.
+> - **Domain** - Verify an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process.
 > - **Mail** - Verify the domain by sending an email to the domain administrator. Instructions are provided when you select the option.
 > - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option.
 

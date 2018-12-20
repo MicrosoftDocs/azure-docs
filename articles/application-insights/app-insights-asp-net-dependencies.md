@@ -57,9 +57,9 @@ Application Map acts as a visual aid to discovering dependencies between the com
 ![Application Map](./media/app-insights-asp-net-dependencies/08.png)
 
 * **Navigate from the boxes** to relevant dependency and other charts.
-* **Pin the map** to the [dashboard](app-insights-dashboards.md), where it will be fully functional.
+* **Pin the map** to the [dashboard](../azure-monitor/app/app-insights-dashboards.md), where it will be fully functional.
 
-[Learn more](app-insights-app-map.md).
+[Learn more](../azure-monitor/app/app-map.md).
 
 ## Performance and failure blades
 The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call.

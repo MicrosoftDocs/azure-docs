@@ -21,7 +21,7 @@ This article compares the following Microsoft cloud services:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. But each service has unique advantages, and this article explains the differences.
 

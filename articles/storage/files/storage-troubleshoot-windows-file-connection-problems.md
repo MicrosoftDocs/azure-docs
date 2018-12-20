@@ -29,11 +29,8 @@ Windows 8, Windows Server 2012, and later versions of each system negotiate requ
 
 ### Solution for cause 1
 
-1. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account.
-2. Connect from a client that does one of the following:
-
-    - Meets the requirements of Windows 8 and Windows Server 2012 or later versions
-    - Connects from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share
+1. Connect from a client that supports SMB encryption (Windows 8, Windows Server 2012 or later) or connect from a virtual machine in the same datacenter as the Azure storage account that is used for the Azure file share.
+2. Verify the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account if the client does not support SMB encryption.
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account 
 

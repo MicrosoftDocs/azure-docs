@@ -122,7 +122,7 @@ For more information, see [Remote Profiling support in Azure App Service](https:
 ##### Set up diagnostic traces manually
 If you have access to the web application source code, Application diagnostics enables you to capture information produced by a web application. ASP.NET applications can use the `System.Diagnostics.Trace` class to log information to the application diagnostics log. However, you need to change the code and redeploy your application. This method is recommended if your app is running on a testing environment.
 
-For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for apps in Azure App Service](web-sites-enable-diagnostic-log.md).
+For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for apps in Azure App Service](troubleshoot-diagnostic-logs.md).
 
 #### Use the diagnostics tool
 App Service provides an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, the diagnostics tool will point out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
