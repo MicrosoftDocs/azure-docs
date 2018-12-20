@@ -19,7 +19,7 @@ The extensible policy framework of Azure Active Directory (Azure AD) B2C is the 
 
 ## What are user flows?
 
-User flow enable you to control behaviors in your applications by configuring the following settings:
+A user flow enables you to control behaviors in your applications by configuring the following settings:
 
 - Account types used for sign in, such as social accounts like a Facebook or local accounts
 - Attributes to be collected from the consumer, such as first name, postal code, and shoe size
