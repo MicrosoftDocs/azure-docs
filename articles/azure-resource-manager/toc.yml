@@ -82,6 +82,8 @@
   items:
   - name: Create templates
     items:
+    - name: Create template
+      href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
       href: deploy-to-subscription.md
     - name: Define resource dependencies
