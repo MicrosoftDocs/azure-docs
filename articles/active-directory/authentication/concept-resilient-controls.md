@@ -245,7 +245,7 @@ Depending on which mitigations or contingencies are used during a disruption, yo
  2. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs in a CIDR notation (for example, 192.168.1.1/24).
 
 >[!IMPORTANT]
-> If you broaden the trusted IP addresses to unblock access, risk events associated with IP addresses (for example, impossible travel, or unfamiliar locations) will not be generated.
+ > If you broaden the trusted IP addresses to unblock access, risk events associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
 
 >[!NOTE]
 > Configuring [trusted IPs](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) for Azure MFA [is only available with Azure AD Premium licenses](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
