@@ -22,7 +22,7 @@ In this document, you learn how to use the Ambari Web UI with an HDInsight clust
 
 ## <a id="whatis"></a>What is Apache Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 The Ambari Web UI is provided by default with HDInsight clusters that use the Linux operating system.
 
@@ -177,12 +177,12 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
    * **Decommission** - Removes a host from the cluster.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Do not use this action on HDInsight clusters.
 
    * **Recommission** - Adds a previously decommissioned host to the cluster.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Do not use this action on HDInsight clusters.
 
 ### <a id="service"></a>Services
