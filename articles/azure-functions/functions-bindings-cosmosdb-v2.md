@@ -1732,7 +1732,7 @@ See the language-specific examples:
 * [C#](#output---c-examples)
 * [C# script (.csx)](#output---c-script-examples)
 * [F#](#output---f-examples)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
 
 See also the [input example](#input---c-examples) that uses `DocumentClient`.
