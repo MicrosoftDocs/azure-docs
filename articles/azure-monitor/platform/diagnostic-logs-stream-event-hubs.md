@@ -77,7 +77,7 @@ After a few moments, the new setting appears in your list of settings for this r
 
 ### Via PowerShell Cmdlets
 
-To enable streaming via the [Azure PowerShell Cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
+To enable streaming via the [Azure PowerShell Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true

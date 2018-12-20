@@ -137,7 +137,7 @@ Currently, automatic context propagation across messaging technologies (for exam
 <a name="java-role-name"></a>
 ## Role Name
 
-At times, you might want to customize the way component names are displayed in the [Application Map](app-insights-app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
+At times, you might want to customize the way component names are displayed in the [Application Map](../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
 
 If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
@@ -160,10 +160,10 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 ## Next steps
 
-- [Write custom telemetry](app-insights-api-custom-events-metrics.md)
-- [Learn more about](app-insights-app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
+- [Write custom telemetry](../azure-monitor/app/api-custom-events-metrics.md)
+- [Learn more about](../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
-- Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
+- Learn how to [extend and filter telemetry](../azure-monitor/app/api-filtering-sampling.md).
 - [Application Insights config reference](app-insights-configuration-with-applicationinsights-config.md)
 

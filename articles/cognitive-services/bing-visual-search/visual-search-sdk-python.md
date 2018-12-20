@@ -54,6 +54,7 @@ To create an instance of the `VisualSearchAPI` client, import the following libr
 import http.client, urllib.parse
 import json
 import os.path
+from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
 from azure.cognitiveservices.search.visualsearch.models import (
     VisualSearchRequest,
@@ -69,7 +70,7 @@ subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
 ```
 Then, instantiate the client:
 ```
-var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = WebSearchAPI(ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 Use the client to search images and parse results:
 ```
@@ -118,6 +119,15 @@ The following console application executes the previously defined query and pars
 import http.client, urllib.parse
 import json
 import os.path
+from msrest.authentication import CognitiveServicesCredentials
+from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
+from azure.cognitiveservices.search.visualsearch.models import (
+    VisualSearchRequest,
+    CropArea,
+    ImageInfo,
+    Filters,
+    KnowledgeRequest,
+)
 
 # Replace the subscriptionKey string value with your valid subscription key.
 subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
