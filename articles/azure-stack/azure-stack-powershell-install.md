@@ -98,7 +98,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-    Execute the following and specify the module version you to load. To make use of the additional storage features(mentioned in the connected section), download and install the following packages as well.
+    Execute the following and specify the module version you to load. To make use of the additional storage features (mentioned in the connected section), download and install the following packages as well.
 
     ```PowerShell
     # Install the Azure.Storage module version 4.5.0
@@ -161,7 +161,7 @@ Sign in to a computer with Internet connectivity and use the following scripts t
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
     ```
 
-    To make use of the additional storage features(mentioned in the connected section), download and install the following packages as well.
+    To make use of the additional storage features (mentioned in the connected section), download and install the following packages as well.
 
     ```PowerShell
     $Path = "<Path that is used to save the packages>"
