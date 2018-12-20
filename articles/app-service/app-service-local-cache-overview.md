@@ -28,10 +28,10 @@ ms.custom: seodec18
 
 Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
-* The content is shared across multiple virtual machine (VM) instances of the web app.
-* The content is durable and can be modified by running web apps.
+* The content is shared across multiple virtual machine (VM) instances of the app.
+* The content is durable and can be modified by running apps.
 * Log files and diagnostic data files are available under the same shared content folder.
-* Publishing new content directly updates the content folder. You can immediately view the same content through the SCM website and the running web app (typically some technologies such as ASP.NET do initiate a web app restart on some file changes to get the latest content).
+* Publishing new content directly updates the content folder. You can immediately view the same content through the SCM website and the running app (typically some technologies such as ASP.NET do initiate a app restart on some file changes to get the latest content).
 
 While many apps use one or all of these features, some apps just need a high-performance, read-only content store that they can run from with high availability. These apps can benefit from a VM instance of a specific local cache.
 
