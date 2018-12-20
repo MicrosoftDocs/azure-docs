@@ -20,7 +20,7 @@
 ### [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
 ### [Best Practices for Azure App Service](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service plans in-depth](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [High-density hosting](../app-service/environment/manage-scale-per-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [High-density hosting](../app-service/manage-scale-per-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service Environment](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Develop
