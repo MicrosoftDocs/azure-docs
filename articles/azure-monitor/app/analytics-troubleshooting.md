@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Troubleshoot Analytics in Application Insights
-Problems with [Application Insights Analytics](../../azure-monitor/app/analytics.md)? Start here. Analytics is the powerful search tool of Azure Application Insights.
+Problems with [Application Insights Analytics](analytics.md)? Start here. Analytics is the powerful search tool of Azure Application Insights.
 
 ## Limits
 * At present, query results are limited to just over a week of past data.
@@ -28,21 +28,21 @@ Problems with [Application Insights Analytics](../../azure-monitor/app/analytics
 Disable the extension or use a different browser.
 
 ## <a name="e-a"></a> "Unexpected error"
-![Unexpected error screen](./media/analytics-troubleshooting/010.png)
+![Unexpected error screen](media/analytics-troubleshooting/010.png)
 
-Internal error occurred during portal runtime – unhandled exception.
+Internal error occurred during portal runtime ï¿½ unhandled exception.
 
 * Clean the browser's cache. 
 
 ## <a name="e-b"></a>403 ... please try to reload
-![403 ... please try to reload](./media/analytics-troubleshooting/020.png)
+![403 ... please try to reload](media/analytics-troubleshooting/020.png)
 
 An authentication related error occurred (during authentication or during access token generation). The portal may have no way to  recover without changing browser settings.
 
 * Verify [third party cookies are enabled](#cookies) in the browser. 
 
 ## <a name="authentication"></a>403 ... verify security zone
-![403 ...verify security zone](./media/analytics-troubleshooting/030.png)
+![403 ...verify security zone](media/analytics-troubleshooting/030.png)
 
 An authentication related error occurred (during authentication or during access token generation). The portal may have no way to  recover without changing browser settings.
 
@@ -56,7 +56,7 @@ An authentication related error occurred (during authentication or during access
    
    * In Internet Explorer, open **Internet Options**, **Security**, **Trusted sites**, **Sites**:
      
-     ![Internet Options dialog, adding a site to Trusted Sites](./media/analytics-troubleshooting/033.png)
+     ![Internet Options dialog, adding a site to Trusted Sites](media/analytics-troubleshooting/033.png)
      
      In the Websites list, if any of the following URLs are included, make sure that the others are included also:
      
@@ -65,12 +65,12 @@ An authentication related error occurred (during authentication or during access
      https://login.windows.net
 
 ## <a name="e-d"></a>404 ... Resource not found
-![404 ... resource not found](./media/analytics-troubleshooting/040.png)
+![404 ... resource not found](media/analytics-troubleshooting/040.png)
 
-Application resource was deleted from Application Insights and isn’t available anymore. This can happen if you saved the URL to the Analytics page.
+Application resource was deleted from Application Insights and isnï¿½t available anymore. This can happen if you saved the URL to the Analytics page.
 
 ## <a name="e-e"></a>403 ... No authorization
-![403 ... not authorized](./media/analytics-troubleshooting/050.png)
+![403 ... not authorized](media/analytics-troubleshooting/050.png)
 
 You don't have permission to open this application in Analytics.
 
@@ -83,17 +83,17 @@ Our portal uses HTML5 localStorage and sessionStorage.
 * Chrome: Settings, privacy, content settings.
 * Internet Explorer: Internet Options, Advanced tab, Security, Enable DOM Storage
 
-![403 ... try to enable HTML5 storage](./media/analytics-troubleshooting/060.png)
+![403 ... try to enable HTML5 storage](media/analytics-troubleshooting/060.png)
 
 ## <a name="e-g"></a>404 ... Subscription not found
-![404 ... Subscription not found](./media/analytics-troubleshooting/070.png)
+![404 ... Subscription not found](media/analytics-troubleshooting/070.png)
 
 The URL is invalid. 
 
 * Open the app resource in [Application Insights portal](https://portal.azure.com). Then use the Analytics button.
 
 ## <a name="e-h"></a>404 ... page doesn't exist
-![404 ... Page does not exist](./media/analytics-troubleshooting/080.png)
+![404 ... Page does not exist](media/analytics-troubleshooting/080.png)
 
 The URL is invalid.
 
@@ -103,5 +103,5 @@ The URL is invalid.
   See [how to disable third party cookies](https://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), but notice we need to **enable** them.
 
 
-[!INCLUDE [app-insights-analytics-footer](../../../../includes/app-insights-analytics-footer.md)]
+[!INCLUDE [app-insights-analytics-footer](../../../includes/app-insights-analytics-footer.md)]
 
