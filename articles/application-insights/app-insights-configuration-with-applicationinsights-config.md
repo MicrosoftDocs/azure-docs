@@ -42,7 +42,7 @@ Each telemetry module collects a specific type of data and uses the core API to 
 There's a node in the configuration file for each module. To disable a module, delete the node or comment it out.
 
 ### Dependency Tracking
-[Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
+[Dependency tracking](../azure-monitor/app/asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
 You can also write your own dependency tracking code using the [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
@@ -70,7 +70,7 @@ tracked by this module appears in the [Diagnostic Search][diagnostic]. Sends dia
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package
 
 ### Web Request Tracking
-Reports the [response time and result code](app-insights-asp-net.md) of HTTP requests.
+Reports the [response time and result code](../azure-monitor/app/asp-net.md) of HTTP requests.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package

@@ -200,7 +200,7 @@ Sent by [TrackTrace](../azure-monitor/app/api-custom-events-metrics.md#tracktrac
 | message [0] severityLevel |string | |
 
 ## Remote dependency
-Sent by TrackDependency. Used to report performance and usage of [calls to dependencies](app-insights-asp-net-dependencies.md) in the server, and AJAX calls in the browser.
+Sent by TrackDependency. Used to report performance and usage of [calls to dependencies](../azure-monitor/app/asp-net-dependencies.md) in the server, and AJAX calls in the browser.
 
 | Path | Type | Notes |
 | --- | --- | --- |

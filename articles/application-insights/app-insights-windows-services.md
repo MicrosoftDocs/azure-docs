@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Manually configure Application Insights for .NET applications
 
-You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](app-insights-asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
+You can configure [Application Insights](app-insights-overview.md) to monitor a wide variety of applications or application roles, components, or microservices. For web apps and services, Visual Studio offers [one-step configuration](../azure-monitor/app/asp-net.md). For other types of .NET application, such as backend server roles or desktop applications, you can configure Application Insights manually.
 
 ![Example performance monitoring charts](./media/app-insights-windows-services/10-perf.png)
 
