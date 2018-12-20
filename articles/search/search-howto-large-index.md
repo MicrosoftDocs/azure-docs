@@ -53,12 +53,12 @@ In practical terms, for index loads spanning several days, you can put the index
 
 A parallel indexing strategy is based on indexing multiple data sources in unison, where each data source definition specifies a subset of the data. 
 
-For non-routine, computationally-intensive indexing requirements - such as OCR on scanned documents in a cognitive search pipeline, image analysis, or natural language processing - a parallel indexing strategy is often the right approach for completing a long-running process in the shortest time. If you can eliminate or reduce query requests, parallel indexing on a service that is not simultaneously handling queries is your best strategy option for working through a large body of slow-processing content. 
+For non-routine, computationally intensive indexing requirements - such as OCR on scanned documents in a cognitive search pipeline, image analysis, or natural language processing - a parallel indexing strategy is often the right approach for completing a long-running process in the shortest time. If you can eliminate or reduce query requests, parallel indexing on a service that is not simultaneously handling queries is your best strategy option for working through a large body of slow-processing content. 
 
 Parallel processing has these elements:
 
 + Subdivide source data among multiple containers or multiple virtual folders inside the same container. 
-+ Map each mini data set to it's own [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Map each mini data set to its own [date source](https://docs.microsoft.com/rest/api/searchservice/create-data-source), paired to its own [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + For cognitive search, reference the same [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) in each indexer definition.
 + Write into the same target search index. 
 + Schedule all indexers to run at the same time.
