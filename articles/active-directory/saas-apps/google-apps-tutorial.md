@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 12/20/2018
 ms.author: jeedes
 
 ---
@@ -67,7 +67,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
     A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and G Suite.
 
-6. **Error: Invalid Email**
+6. **Q: What should I do when I get an "invalid email" error message?**
 
 	For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
 
