@@ -40,7 +40,7 @@ Mitigating an actual disruption must be an organization’s primary focus in dea
 
 ### Why do you need resilient access control?
 
-Identity is the control plane of users accessing apps and resources. Your identity system will control which users and under which conditions, such as access controls or authentication requirements, will the users get access to the applications. When one or more authentication or access control required aren’t available for users to authenticate due to unforeseen circumstances, organizations can experience one or both of the following issues:
+ Identity is the control plane of users accessing apps and resources. Your identity system controls which users and under which conditions, such as access controls or authentication requirements, users get access to the applications. When one or more authentication or access control requirements aren’t available for users to authenticate due to unforeseen circumstances, organizations can experience one or both of the following issues:
 
 * **Administrator lockout:** Administrators can’t manage the tenant or services.
 * **User lockout:** Users can’t access apps or resources.
