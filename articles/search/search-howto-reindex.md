@@ -45,7 +45,7 @@ In Azure Search, you cannot control indexing on a per-field basis, choosing to d
 
 What you can do easily, however, is *refresh documents* in an index. For many search solutions, external source data is volatile, and synchronization between source data and a search index is a common practice. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or the [.NET equivalent](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) to update index content, or to add values for a new field.
 
-## Partial indexing with indxers
+## Partial indexing with indexers
 
 [Indexers](search-indexer-overview.md) simplify the data refresh task. An indexer can only index one table or view in the external data source. To index multiple tables, the simplest approach is to create a view that joins tables and projects the columns you want to index. 
 
@@ -57,7 +57,7 @@ For more information about indexers, see [Indexer overview](search-indexer-overv
 
 Plan on frequent, full rebuilds during active development, when index schemas are in a state of flux. For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
 
-If you have a stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. When development is complete, you would either modify application code to redirect queries to the new endpoint and index, or you would run finished code to create and load an index on the Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
+If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. When development is complete, you would either modify application code to redirect queries to the new endpoint and index, or you would run finished code to create and load an index on the Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
 
 Read-write permissions at the service-level are required for index updates. Programmatically, you can call [Update Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) or .NET APIs for a full rebuild. The request is identical to [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), but has a different context.
 
