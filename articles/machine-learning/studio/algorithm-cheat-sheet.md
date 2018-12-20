@@ -4,9 +4,9 @@ description: A printable machine learning algorithm cheat sheet helps you choose
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
 author: ericlicoding
-ms.custom: "(previous ms.author=pakalra, author=pakalra)"
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
+
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
@@ -67,7 +67,7 @@ Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid 
 
 * To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list

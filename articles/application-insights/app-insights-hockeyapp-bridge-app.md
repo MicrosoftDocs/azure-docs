@@ -5,23 +5,20 @@ services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-
 ---
 # Exploring HockeyApp data in Application Insights
 
 > [!NOTE]
 > HockeyApp is no longer available for new applications. Existing HockeyApp deployments will continue to work. Visual Studio App Center is now the recommended service from Microsoft for monitoring new mobile apps. [Learn how to set up your apps with App Center and Application Insights](app-insights-mobile-center-quickstart.md).
 
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is a service for monitoring live desktop and mobile apps. From HockeyApp, you can send custom and trace telemetry to monitor usage and assist in diagnosis (in addition to getting crash data). This stream of telemetry can be queried using the powerful [Analytics](app-insights-analytics.md) feature of [Azure Application Insights](app-insights-overview.md). In addition, you can [export the custom and trace telemetry](app-insights-export-telemetry.md). To enable these features, you set up a bridge that relays HockeyApp custom data to Application Insights.
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is a service for monitoring live desktop and mobile apps. From HockeyApp, you can send custom and trace telemetry to monitor usage and assist in diagnosis (in addition to getting crash data). This stream of telemetry can be queried using the powerful [Analytics](../azure-monitor/app/analytics.md) feature of [Azure Application Insights](app-insights-overview.md). In addition, you can [export the custom and trace telemetry](app-insights-export-telemetry.md). To enable these features, you set up a bridge that relays HockeyApp custom data to Application Insights.
 
 ## The HockeyApp Bridge app
 The HockeyApp Bridge App is the core feature that enables you to access your HockeyApp custom and trace telemetry in Application Insights through the Analytics and Continuous Export features. Custom and trace events collected by HockeyApp after the creation of the HockeyApp Bridge App will be accessible from these features. Let's see how to set up one of these Bridge Apps.
@@ -57,7 +54,7 @@ Analytics is a powerful tool for ad-hoc querying of your data, allowing you to d
 
 ![Analytics](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Learn more about Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Learn more about Analytics](../azure-monitor/log-query/get-started-portal.md)
 
 ## Continuous export
 Continuous Export allows you to export your data into an Azure Blob Storage container. This is very useful if you need to keep your data for longer than the retention period currently offered by Application Insights. You can keep the data in blob storage, process it into a SQL Database, or your preferred data warehousing solution.
@@ -65,5 +62,5 @@ Continuous Export allows you to export your data into an Azure Blob Storage cont
 [Learn more about Continuous Export](app-insights-export-telemetry.md)
 
 ## Next steps
-* [Apply Analytics to your data](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Apply Analytics to your data](../azure-monitor/log-query/get-started-portal.md)
 

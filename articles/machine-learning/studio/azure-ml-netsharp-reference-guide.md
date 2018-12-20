@@ -4,9 +4,9 @@ description: Syntax for the Net# neural networks specification language, togethe
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -33,7 +33,7 @@ This article describes the basic concepts and syntax needed to develop a custom 
 + The syntax and keywords of the Net# specification language
 + Examples of custom neural networks created using Net# 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Neural network basics
 
@@ -383,7 +383,7 @@ The example illustrates some basic commands as follows:
 
 + The first line defines the input layer (named `Data`). When you use the  `auto` keyword, the neural network automatically includes all feature columns in the input examples. 
 + The second line creates the hidden layer. The name `H` is assigned to the hidden layer, which has 200 nodes. This layer is fully connected to the input layer.
-+ The third line defines the output layer (named `O`), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.
++ The third line defines the output layer (named `Out`), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.
 
 ### Define multiple hidden layers: computer vision example
 

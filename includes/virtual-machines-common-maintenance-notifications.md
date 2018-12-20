@@ -44,7 +44,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 Make sure you set the **Event type** as **Planned maintenance** and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**
 	

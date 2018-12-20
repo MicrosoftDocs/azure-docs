@@ -81,7 +81,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 ## Download a sample data file
 Download a sample JSON data file and save it into Azure blob storage.
 
-1. Download this sample JSON data file [from Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) onto your local computer. Right-click and save as to save the raw file locally.
+1. Download this sample JSON data file [from GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) onto your local computer. Right-click and save as to save the raw file locally.
 
 2. If you don't already have a storage account, create one.
     - In the Azure portal, select **Create a resource**. Select the **Storage** category, and select **Storage Accounts**

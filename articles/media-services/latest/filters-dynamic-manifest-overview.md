@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ Filters are server-side rules that allow your customers to do things like:
 
 - Play back only a section of a video (instead of playing the whole video). For example:
 
-    - Reduce the manifest to show a sub-clip of a live event ("sub-clip filtering"), or
+    - Reduce the manifest to show a subclip of a live event ("sub-clip filtering"), or
     - Trim the start of a video ("trimming a video").
 
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
@@ -42,8 +42,8 @@ The following table shows some examples of URLs with filters:
 
 |Protocol|Example|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=myAccountFilter)`|
+|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -109,8 +109,8 @@ You use the following properties to describe the filters.
 |Name|Description|
 |---|---|
 |firstQuality|The first quality bitrate of the filter.|
-|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more details, see [PresentationTimeRange](#PresentationTimeRange).|
-|tracks|The tracks selection conditions. For more details, see [tracks](#tracks)|
+|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#PresentationTimeRange).|
+|tracks|The tracks selection conditions. For more information, see [tracks](#tracks)|
 
 ### PresentationTimeRange
 

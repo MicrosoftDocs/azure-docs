@@ -118,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<companyname>.ideascale.com` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [IdeaScale Client support team](http://support.ideascale.com/) to get these values. 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [IdeaScale Client support team](https://support.ideascale.com/) to get these values. 
  
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 

@@ -1,10 +1,12 @@
 ---
-title: Outbound connections in Azure (Classic) | Microsoft Docs
+title: Outbound connections in Azure (Classic)
+titlesuffix: Azure Load Balancer
 description: This article explains how Azure enables cloud services to communicate with public internet services.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

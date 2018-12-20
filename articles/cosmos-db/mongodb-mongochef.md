@@ -1,22 +1,21 @@
 ---
-title: Use Studio 3T (MongoChef) with Azure Cosmos DB | Microsoft Docs
-description: 'Learn how to use Studio 3T with an Azure Cosmos DB MongoDB API account'
+title: Connect to MongoDB account using Studio 3T (MongoChef)
+titleSuffix: Azure Cosmos DB
+description: Learn how to connect to Azure Cosmos DB for MongoDB API by using Studio 3T, and how to create a database, collection, documents after connecting.
 keywords: mongochef, studio 3T
 services: cosmos-db
 author: slyons
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 12/06/2018
 ms.author: sclyon
-
+ms.custom: seodec18
 ---
-# Azure Cosmos DB: Use Studio 3T with a MongoDB API account
+# Connect to Cosmos account using Studio 3T (MongoChef)
 
-To connect to an Azure Cosmos DB MongoDB API account, you must:
+To connect to a Cosmos account configured for MongoDB API, you must:
 
 * Download and install [Studio 3T](https://studio3t.com/) (formerly known as MongoChef)
 * Have your Azure Cosmos DB [connection string](connect-mongodb-account.md) information for your MongoDB account
@@ -24,7 +23,7 @@ To connect to an Azure Cosmos DB MongoDB API account, you must:
 ## Create the connection in Studio 3T
 To add your Azure Cosmos DB account to the Studio 3T connection manager, perform the following steps:
 
-1. Retrieve the Azure Cosmos DB connection information for your MongoDB API account using the instructions in the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) article.
+1. Retrieve the connection information for your Cosmos account configured for MongoDB API using the instructions in the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) article.
 
     ![Screen shot of the connection string page](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
@@ -108,4 +107,4 @@ To create a database, collection, and documents using Studio 3T, perform the fol
     ![Screen shot of Mongo Chef query results](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## Next steps
-* Explore Azure Cosmos DB MongoDB API [samples](mongodb-samples.md).
+* Explore Azure Cosmos DB for MongoDB API [samples](mongodb-samples.md).

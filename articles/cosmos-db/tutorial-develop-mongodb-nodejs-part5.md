@@ -1,5 +1,6 @@
 ---
 title: "Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB"
+titleSuffix: Azure Cosmos DB
 description: This tutorial describes how to build a Node.js application by using Angular, Express to manage the data stored in a MongoDB API account. In this part, you use Mongoose to connect to Azure Cosmos DB.
 author: johnpapa
 
@@ -7,12 +8,13 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/03/2017
+ms.date: 12/06/2018
 ms.author: jopapa
+ms.custom: seodec18
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in a MongoDB API account of Azure Cosmos DB.
 ---
 
-# Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB 
+# Tutorial: Build a Node.js application to manage the data stored in a MongoDB API account (Part 5) - Use Mongoose to connect to Azure Cosmos DB >>>>>>> master
 
 As a developer, you might have applications that use NoSQL document data. You can use a MongoDB API account in Azure Cosmos DB to store and access this document data. You can build a Node.js application to manage the data stored in a MongoDB API account of Azure Cosmos DB. This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to an [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account. This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -59,7 +61,7 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
     const mongoose = require('mongoose');
     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
     mongoose.Promise = global.Promise;
 

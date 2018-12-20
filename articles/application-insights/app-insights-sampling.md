@@ -5,17 +5,14 @@ services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-
 ---
 # Sampling in Application Insights
 
@@ -31,7 +28,7 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 * You can also set sampling manually, either in the portal on the Usage and estimated costs page; or in the ASP.NET SDK in the .config file; or in the Java SDK in the ApplicationInsights.xml file, to also reduce the network traffic.
 * If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". When sampling is not in operation, `itemCount==1`.
-* If you write Analytics queries, you should [take account of sampling](../log-analytics/query-language/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
+* If you write Analytics queries, you should [take account of sampling](../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 
 ## Types of sampling
 There are three alternative sampling methods:
@@ -165,7 +162,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
+([Learn about telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 <a name="other-web-pages"></a>
 
@@ -289,7 +286,7 @@ Instead of setting the sampling parameter in the .config file, you can programma
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
+([Learn about telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 ## When to use sampling?
 Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. Regardless of which version of the SDK you use, you can enable ingestion sampling to allow Application Insights to sample the collected data.
@@ -322,7 +319,7 @@ The main advantages of sampling are:
 If the conditions to use the other forms of sampling do not apply, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It will not reduce traffic until a certain minimum rate is reached, therefore, low-use sites will not be affected.
 
 ## How do I know whether sampling is in operation?
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../azure-monitor/app/analytics.md) such as this:
 
 ```
 union * 
@@ -395,5 +392,5 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 * Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.
 
 ## Next steps
-* [Filtering](app-insights-api-filtering-sampling.md) can provide more strict control of what your SDK sends.
+* [Filtering](../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
 

@@ -11,7 +11,7 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
 ---
 

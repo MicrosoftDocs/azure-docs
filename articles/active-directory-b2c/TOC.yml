@@ -44,7 +44,7 @@
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
-  - name: Built-in policies
+  - name: User flows
     href: active-directory-b2c-reference-policies.md
   - name: Identity Experience Framework
     items:
@@ -86,10 +86,22 @@
     href: active-directory-b2c-reference-mfa.md
   - name: Identity Experience Framework
     items:
-    - name: Create a custom policy
-      href: active-directory-b2c-get-started-custom.md
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Configure user input
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: Create a custom policy
+      href: active-directory-b2c-get-started-custom.md
+    - name: Customize the UI
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: Customize the UI dynamically
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Customize tokens
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: Define custom attributes
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: Enable keep me signed in
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: Integrate RESTful APIs
       items:
       - name: Validate user input
@@ -118,6 +130,14 @@
         href: active-directory-b2c-custom-setup-msa-idp.md
       - name: Twitter
         href: active-directory-b2c-custom-setup-twitter-idp.md
+    - name: Page contract
+      href: page-contract.md
+    - name: Pass through access token
+      href: idp-pass-through-custom.md
+    - name: Password complexity
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: Password change
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: SAML providers
       items:
       - name: ADFS
@@ -126,24 +146,6 @@
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Track user behavior
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: User flows
-      items:
-      - name: Configure user input
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: Custom attributes
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: Customize the UI
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: Customize the UI dynamically
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: Customize tokens
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Password complexity
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: Password change
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: Enable keep me signed in
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: Reference
       items:
       - name: Claim resolvers
@@ -219,6 +221,8 @@
           href: userjourneys.md
         - name: RelyingParty
           href: relyingparty.md
+      - name: JavaScript samples
+        href: javascript-samples.md
       - name: Release notes
         href: active-directory-b2c-developer-notes-custom.md
       - name: Trust Framework definition
@@ -241,14 +245,8 @@
       href: active-directory-b2c-setup-li-app.md
     - name: OpenID Connect 
       href: active-directory-b2c-setup-oidc-idp.md
-    - name: QQ
-      href: active-directory-b2c-setup-qq-app.md
     - name: Twitter
       href: active-directory-b2c-setup-twitter-app.md
-    - name: WeChat
-      href: active-directory-b2c-setup-wechat-app.md
-    - name: Weibo
-      href: active-directory-b2c-setup-weibo-app.md
   - name: Migrate users
     href: active-directory-b2c-user-migration.md
   - name: Migrate users with social identities
@@ -261,6 +259,8 @@
       href: active-directory-b2c-devquickstarts-android.md
   - name: Obtain access tokens
     href: active-directory-b2c-access-tokens.md
+  - name: Pass through access token
+    href: idp-pass-through-user-flow.md
   - name: Register your application
     href: active-directory-b2c-app-registration.md
   - name: Report usage

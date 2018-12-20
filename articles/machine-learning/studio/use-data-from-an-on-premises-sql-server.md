@@ -1,12 +1,12 @@
 ---
-title: On-premises SQL Server with Azure Machine Learning Studio | Microsoft Docs
+title: On-premises SQL Server - Azure Machine Learning Studio | Microsoft Docs
 description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ---
-# Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database
+# Perform analytics with Azure Machine Learning Studio using an on-premises SQL Server database
 
 Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
@@ -36,7 +36,7 @@ experiments, *etc.*.
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Install the Data Factory Self-hosted Integration Runtime
 To access an on-premises SQL Server database in Azure Machine Learning, you need

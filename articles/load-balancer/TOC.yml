@@ -28,7 +28,7 @@
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
-  - name: Configure port fowarding in Load Balancer
+  - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Samples
   items:

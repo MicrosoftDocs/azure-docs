@@ -44,7 +44,7 @@ Update Management is supported on the following operating systems:
 
 Linux agents must have access to an update repository.
 
-This solution doesn't support an Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
+This solution doesn't support a Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -122,7 +122,7 @@ In the **New update deployment** pane, specify the following information:
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
 - **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
-- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Log Analytics, see [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 

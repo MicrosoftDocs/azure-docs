@@ -18,13 +18,13 @@ You can export and delete the following settings from the Azure portal settings 
 * User settings like favorite subscriptions or directories, and last logged in directory
 * Themes and customizations
 
-We strongly recommend that you export and review your settings before you delete them. It can be time consuming to rebuild the dashboards and re-add your customizations.
+We strongly recommend that you export and review your settings before you delete them. It can be time consuming to rebuild the dashboards and readd your customizations.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 **Export or delete your portal settings**
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top right of the portal, select **Settings**.
 
     ![Screenshot that shows the portal settings gear](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

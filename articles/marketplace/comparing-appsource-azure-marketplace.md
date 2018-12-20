@@ -26,7 +26,7 @@ To choose a storefront, begin by identifying the target audience for your offer.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
-| IT Professionals and Developers | Business Decision Makers |
+| IT Professionals and Developers | Business Users and Business Decision Makers |
  
 The following table describes the benefits of using a storefront:
 
