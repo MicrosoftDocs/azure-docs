@@ -54,8 +54,6 @@
     items:
     - name: Network Security
       href: network-security.md
-    - name: Proxy Traffic
-      href: proxy-traffic.md
     - name: SSL Configuration
       href: ssl-configuration.md
   - name: Monitoring and Reporting
