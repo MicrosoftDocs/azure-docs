@@ -194,7 +194,7 @@ We recommend that you encrypt the repository password, please refer to [
 Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md)
 
 ### Configure cluster-wide credentials
-Refer to [how to specify a default container repository for the cluster and how to use it in applications](
+Refer to [documentation here](
 service-fabric-get-started-containers.md#Configure-cluster-wide-credentials)
 
 ## Configure isolation mode
