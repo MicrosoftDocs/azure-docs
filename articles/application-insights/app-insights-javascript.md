@@ -222,7 +222,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 Want to find out what your users do with your app?
 
 * [Learn about the user behavior analytics tools](app-insights-usage-overview.md)
-* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
+* [Learn about custom events and metrics API](../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -233,6 +233,6 @@ Want to find out what your users do with your app?
 
 ## <a name="next"></a> Next steps
 * [Track usage](app-insights-usage-overview.md)
-* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
+* [Custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-usage-overview.md)
 

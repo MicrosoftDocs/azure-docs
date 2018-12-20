@@ -52,7 +52,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 
 
 **To create a storage account and copy the files using Azure PowerShell:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Specify names for the Azure resource group and the Azure storage account that will be created by the script.
 > Write down **resource group name**, **storage account name**, and **storage account key** outputted by the script. You need them in the next section.
 

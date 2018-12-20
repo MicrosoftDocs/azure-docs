@@ -160,7 +160,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 ## Next steps
 
-- [Write custom telemetry](app-insights-api-custom-events-metrics.md)
+- [Write custom telemetry](../azure-monitor/app/api-custom-events-metrics.md)
 - [Learn more about](app-insights-app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.

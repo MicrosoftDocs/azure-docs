@@ -59,7 +59,7 @@ If you are using Visual Studio, you can get the extensions by installing [the Nu
 
 ### Configuring Authentication / Authorization
 
-The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) with Azure Active Directory. You will also need to request any resource permissions your functions require.
+The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) with Azure Active Directory. You will also need to request any resource permissions your functions require.
 
 > [!Note] 
 > The Microsoft Graph extension only supports Azure AD authentication. Users need to log in with a work or school account.

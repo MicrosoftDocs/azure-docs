@@ -91,8 +91,8 @@ In the [Azure portal](https://portal.azure.com), browse to the resource for your
 ## Next steps
 * [Set up a dashboard](app-insights-dashboards.md) to bring together the most important charts monitoring this and other apps.
 * [Learn about metrics](app-insights-metrics-explorer.md)
-* [Set up alerts](app-insights-alerts.md)
+* [Set up alerts](../azure-monitor/app/alerts.md)
 * [Diagnosing performance issues](app-insights-detect-triage-diagnose.md)
-* [Powerful Analytics queries](app-insights-analytics.md)
+* [Powerful Analytics queries](../azure-monitor/app/analytics.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md)
 
