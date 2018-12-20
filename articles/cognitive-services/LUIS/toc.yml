@@ -41,21 +41,21 @@
     items:
     - name: Determine user intentions with intents
       href: luis-quickstart-intents-only.md
-    - name: Identify common user intentions and data types
+    - name: Identify common user data with prebuilt models
       href: luis-tutorial-prebuilt-intents-entities.md
     - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: 3. Extract well-formatted data
+    - name: Get well-formatted data with regular expressions
       href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Extract exact text matches
+    - name: Get exact text matches with lists
       href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Extract contextually-related data
+    - name: Get contextually-related data with hierarchical entities
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Group and extract related data
+    - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
-    - name: 7. Extract names
+    - name: Get names with simple entities
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: 8. Extract key phrases
+    - name: Get key phrases
       href: luis-quickstart-intent-and-key-phrase.md
   - name: Improve app
     items:
