@@ -27,7 +27,7 @@ You enable [forced tunneling](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.
 
 ## Cause
 
-The Azure Windows VMs need connect to the Azure KMS server for Windows activation. The activation requires that the activation request must come from an Azure public IP address. In the forced tunneling scenario, the activation will fail because the activation request is from the your on-premises network instead of from an Azure public IP. 
+The Azure Windows VMs need connect to the Azure KMS server for Windows activation. The activation requires that the activation request must come from an Azure public IP address. In the forced tunneling scenario, the activation will fail because the activation request is from your on-premises network instead of from an Azure public IP. 
 
 ## Solution
 
@@ -65,7 +65,7 @@ To add the custom route, follow these steps:
 
     Set-AzureRmRouteTable -RouteTable $RouteTable
     ```
-3. nce the route is added, go to the VM that has activation problem, use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach KMS server:
+3. Go to the VM that has activation problem, use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach KMS server:
 
         psping kms.core.windows.net:1688
 **For Classic VMs**
@@ -88,6 +88,6 @@ To add the custom route, follow these steps:
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Once the route is added, go to the VM that has activation problem, use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach KMS server:
+3. Go to the VM that has activation problem, use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach KMS server:
 
         psping kms.core.windows.net:1688
