@@ -84,7 +84,7 @@ By default, Query Performance Insight shows the top five CPU-consuming queries w
    > Use the custom DTU chart with a finer level of details to compare with the query execution chart.
    >
    
-   The bottom grid represents aggregated information for the visible queries:
+   The bottom grid shows aggregated information for the visible queries:
    
    * Query ID, which is a unique identifier for the query in the database.
    * CPU per query during an observable interval, which depends on the aggregation function.
@@ -122,7 +122,7 @@ By default, Query Performance Insight shows the top five CPU-consuming queries w
 
 To view query details:
 
-1. Select any query in the list of the top queries shown.
+1. Select any query in the list of top queries.
    
     ![List of top queries](./media/sql-database-query-performance/details.png)
 
@@ -193,7 +193,7 @@ To identify frequently executed (“chatty”) queries:
 
 While exploring your workload in Query Performance Insight, you might notice icons with a vertical line on top of the chart.
 
-These icons are annotations. They represent performance recommendations from [SQL Database Advisor](sql-database-advisor.md). By hovering over an annotation, you can get summarized information on performance recommendations.
+These icons are annotations. They show performance recommendations from [SQL Database Advisor](sql-database-advisor.md). By hovering over an annotation, you can get summarized information on performance recommendations.
 
    ![Query annotation](./media/sql-database-query-performance/annotation.png)
 
@@ -207,7 +207,7 @@ Correlating queries and performance-tuning actions might help you to better unde
 
 ## Optimize the Query Store configuration for Query Performance Insight
 
-While using Query Performance Insight, you might encounter the following Query Store error messages:
+While using Query Performance Insight, you might see the following Query Store error messages:
 
 * "Query Store is not properly configured on this database. Click here to learn more."
 * "Query Store is not properly configured on this database. Click here to change settings." 
