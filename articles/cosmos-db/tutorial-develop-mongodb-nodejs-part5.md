@@ -194,7 +194,7 @@ After you create the hero model, you need to define a service to read the data, 
    };
    ```
 
-## Configure routes for the service
+## Configure routes
 
 Next, you need to set up routes to handle the URLs for get, create, read, and delete requests. The routing methods specify a callback function (also called _handler functions_). These functions are called when the application receives a request to the specified endpoint and HTTP method. Use the following steps to add the Hero service and to define your routes:
 
@@ -221,7 +221,7 @@ Next, you need to set up routes to handle the URLs for get, create, read, and de
     function getHeroes(req, res) {
     ```
 
-Let's take a minute to review and walk through the previous code. First, we come into the index.js file, which sets up the node server. Notice that it sets up and defines your routes. Next, your routes.js file talks to the hero service and tells it to get your functions, like getHeroes, and pass the request and response. Here the hero.service.js gets the model and connects to Mongo. Then it executes **getHeroes** when we call it, and returns back a response of 200. 
+Let's take a minute to review and walk through the previous code. First, we come into the index.js file, which sets up the node server. Notice that it sets up and defines your routes. Next, your routes.js file talks to the hero service and tells it to get your functions, like **getHeroes**, and pass the request and response. The hero.service.js file gets the model and connects to Mongo. Then it executes **getHeroes** when we call it, and returns back a response of 200. 
 
 ## Run the app
 
