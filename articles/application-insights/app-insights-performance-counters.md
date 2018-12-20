@@ -93,7 +93,7 @@ Or you can do the same thing with custom metrics you created:
 ```
 
 ## Performance counters in Analytics
-You can search and display performance counter reports in [Analytics](app-insights-analytics.md).
+You can search and display performance counter reports in [Analytics](../azure-monitor/app/analytics.md).
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
@@ -120,7 +120,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 Performance counters are supported only if the application is targeting the full .NET Framework. There is no ability to collect Performance counters for .Net Core applications.
 
 ## Alerts
-Like other metrics, you can [set an alert](app-insights-alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
 * [Dependency tracking](app-insights-asp-net-dependencies.md)

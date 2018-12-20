@@ -26,7 +26,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.3 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing
 ```
 
 It takes a few minutes to create the cluster.  When complete, the output is shown in the JSON format. Look for `provisioningState` and verify it's `Succeeded`.

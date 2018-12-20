@@ -108,7 +108,10 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 
   > [!Note]
   > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-find-management-endpoint-ip-address.md) shows how you can discover management endpoint IP address and verify firewall rules. 
-
+  
+  > [!Note]
+  > If you are using transactional replication in Managed Instance and any database in Managed Instance is used as publisher or distributor, port 445 (TCP outbound) also needs to be open in the security rules of the subnet to access the Azure file share.
+  
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)

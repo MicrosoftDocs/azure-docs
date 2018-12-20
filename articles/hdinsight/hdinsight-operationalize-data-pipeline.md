@@ -24,13 +24,13 @@ In the following scenario, the input data is a flat file containing a batch of f
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL database to provide reports, such as for a website.
+The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Apache Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL database to provide reports, such as for a website.
 
 The following diagram illustrates the example pipeline.
 
 ![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## Oozie solution overview
+## Apache Oozie solution overview
 
 This pipeline uses Apache Oozie running on an HDInsight Hadoop cluster.
 
@@ -133,7 +133,7 @@ Your Azure SQL Database is now ready.
 
 To use the Oozie Web Console to view the status of your coordinator and workflow instances, set up an SSH tunnel to your HDInsight cluster. For more information, see [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > You can also use Chrome with the [Foxy Proxy](https://getfoxyproxy.org/) extension to browse your cluster's web resources across the SSH tunnel. Configure it to proxy all request through the host `localhost` on the tunnel's port 9876. This approach is compatible with the Windows Subsystem for Linux, also known as Bash on Windows 10.
 
 1. Run the following command to open an SSH tunnel to your cluster:
@@ -424,7 +424,7 @@ The following table summarizes each of the properties and indicates where you ca
 | month | The month component of the day for which flight summaries are computed. Leave as is. |
 | day | The day of month component of the day for which flight summaries are computed. Leave as is. |
 
-> [!NOTE]
+> [!NOTE]  
 > Be sure to update your copy of the `job.properties` file with the values specific to your environment,  before you can deploy and run your Oozie workflow.
 
 ### Deploy and run the Oozie workflow

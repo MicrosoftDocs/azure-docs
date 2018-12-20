@@ -20,13 +20,13 @@ Along with many other machine learning capabilities, the Azure Machine Learning 
 
 | Date | Batch AI service support details |
 | ---- |-----------------|
-| December&nbsp;14&#x2c;&nbsp;2018| Continue to use your existing Azure Batch AI subscriptions as before. However, registering new subscriptions is no longer possible and no new investments will be made to this service.|
-| March&nbsp;4&#x2c;&nbsp;2019 | After this date, existing Batch AI subscriptions will no longer work. |
+| December&nbsp;14&#x2c;&nbsp;2018| Continue to use your existing Azure Batch AI subscriptions as before. However, registering **new subscriptions** is no longer possible and no new investments will be made to this service.|
+| March&nbsp;31&#x2c;&nbsp;2019 | After this date, existing Batch AI subscriptions will no longer work. |
 
 <a name="migrate"></a>
 ## How do I migrate?
 
-To avoid disruptions to your applications and to benefit from the latest features, take the following steps before March 4, 2019:
+To avoid disruptions to your applications and to benefit from the latest features, take the following steps before March 31, 2019:
 
 1. Create an Azure Machine Learning service workspace and get started:
     + [Python based quickstart](../machine-learning/service/quickstart-create-workspace-with-python.md)

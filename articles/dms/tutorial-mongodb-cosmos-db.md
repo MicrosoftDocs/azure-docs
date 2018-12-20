@@ -5,7 +5,7 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: 
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
@@ -23,11 +23,11 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 
-In this tutorial, you migrate the **Wingtips** dataset in MongoDB hosted in an Azure Virtual Machine to Cosmos DB's MongoDB API by using the Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
+In this tutorial, you migrate the **Wingtips** dataset in MongoDB hosted in an Azure Virtual Machine to the Azure Cosmos DB  for MongoDB API by using the Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
 ## Prerequisites
 To complete this tutorial, you need to:
-- [Create an Azure Cosmos DB MongoDB API account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+- [Create an Azure Cosmos DB for MongoDB API account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Create a VNET for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Ensure that your Azure Virtual Network (VNET) Network Security Group rules don't block the following communication ports: 443, 53, 9354, 445, and 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source MongoDB server, which by default is TCP port 27017.
@@ -158,7 +158,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Verify data in Cosmos DB
 
-- After the migration completes, you can check your Cosmos DB MongoDB API account to verify that all the collections were migrated successfully.
+- After the migration completes, you can check your Azure Cosmos DB for MongoDB API account to verify that all the collections were migrated successfully.
 
     ![Activity status completed](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

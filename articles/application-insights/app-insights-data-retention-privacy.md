@@ -62,7 +62,7 @@ The main categories are:
 * [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
 * [Dependencies](app-insights-asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
 * [Availability tests](app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
-* [Trace logs](app-insights-asp-net-trace-logs.md) and [custom telemetry](app-insights-api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
+* [Trace logs](app-insights-asp-net-trace-logs.md) and [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
 [More detail](#data-sent-by-application-insights).
 
@@ -287,8 +287,8 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiproperties]: app-insights-api-custom-events-metrics.md#properties
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiproperties]: ../azure-monitor/app/api-custom-events-metrics.md#properties
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [greenbrown]: app-insights-asp-net.md

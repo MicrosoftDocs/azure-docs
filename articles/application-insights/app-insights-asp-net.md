@@ -138,7 +138,7 @@ There are alternative topics to look at if you are interested in:
 
 * **[Browser and page load data](app-insights-javascript.md)** - Insert a code snippet in your web pages.
 * **[Get more detailed dependency and exception monitoring](app-insights-monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
-* **[Code custom events](app-insights-api-custom-events-metrics.md)** to count, time, or measure user actions.
+* **[Code custom events](../azure-monitor/app/api-custom-events-metrics.md)** to count, time, or measure user actions.
 * **[Get log data](app-insights-asp-net-trace-logs.md)** - Correlate log data with your telemetry.
 
 ### Analysis
@@ -151,7 +151,7 @@ There are alternative topics to look at if you are interested in:
 
 * [Availability tests](app-insights-monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](app-insights-proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](app-insights-alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../azure-monitor/app/alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 ### Automation
 

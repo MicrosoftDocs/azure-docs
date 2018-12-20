@@ -67,7 +67,7 @@ from azureml.core.model import Model
 
 model = Model.register(model_path = "model.pkl",
                        model_name = "Mymodel",
-                       tags = ["0.1"],
+                       tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
@@ -159,7 +159,7 @@ To deploy to Azure Container Instances, use the following steps:
     > [!TIP]
     > If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
 
-For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) classes.
+For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
 ### <a id="aks"></a> Deploy to Azure Kubernetes Service
 
@@ -180,7 +180,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
 
     > [!IMPORTANT]
     > Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
-    > For provisioning_configuration(), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
+    > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
 
     ```python
     from azureml.core.compute import AksCompute, ComputeTarget
@@ -206,6 +206,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     > If you already have AKS cluster in your Azure subscription, and it is version 1.11.*, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -213,7 +214,7 @@ To deploy to Azure Kubernetes Service, use the following steps:
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -270,7 +271,7 @@ You must create an IoT hub and register a device or reuse one you have with [thi
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 Save the resulting connection string after "cs":"{copy this string}".

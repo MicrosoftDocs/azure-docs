@@ -33,8 +33,8 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
-* Java modules for IoT Edge don't support Windows devices.
+* You can set up an IoT Edge device by following the steps in the quickstarts for [Linux](quickstart-linux.md) or [Windows](quickstart.md).
+* For IoT Edge on Windows devices, version 1.0.5 does not support Java modules. For more information, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For steps on how to install a specific version, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
 Cloud resources:
 
@@ -67,7 +67,7 @@ If you don't already have a container registry, follow these steps to create a n
    | ----- | ----- |
    | Registry name | Provide a unique name. |
    | Subscription | Select a subscription from the drop-down list. |
-   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Resource group | For simpler management, use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
    | Admin user | Set to **Enable**. |
    | SKU | Select **Basic**. | 
@@ -79,7 +79,7 @@ If you don't already have a container registry, follow these steps to create a n
 7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry. 
 
 ## Create an IoT Edge module project
-The following steps create an IoT Edge module project that's based on the Azure IoT Edge maven template package and Azure IoT Java device SDK by using Visual Studio Code and the Azure IoT Edge extension.
+The following steps create an IoT Edge module project that's based on the Azure IoT Edge maven template package and Azure IoT Java device SDK. You create the project by using Visual Studio Code and the Azure IoT Edge extension.
 
 ### Create a new solution
 
@@ -100,7 +100,7 @@ Create a Java solution template that you can customize with your own code.
  
    ![Provide Docker image repository](./media/tutorial-java-module/repository.png)
    
-If it's the first time to create Java module, it might take several minutes to download maven packages. Then the VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Java code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. 
+If it's the first time to create Java module, it might take several minutes to download maven packages. Then the VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the Java code for your module as well as Docker files for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. 
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
@@ -133,7 +133,7 @@ The environment file stores the credentials for your container registry and shar
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. Add the following definition into class **App**. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub. 
+5. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value. 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -172,7 +172,7 @@ The environment file stores the credentials for your container registry and shar
         }
     ```
 
-8. Add the following two static inner classes into class **App**. These classes receive updates on the desired properties from the module twin, and updates the **tempThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+8. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -237,9 +237,9 @@ The environment file stores the credentials for your container registry and shar
 
 ## Build your IoT Edge solution
 
-In the previous section, you created an IoT Edge solution and added code to the **JavaModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
+In the previous section, you created an IoT Edge solution and added code to the **JavaModule** to filter out messages where the reported machine temperature is below the acceptable limit. Now, build the solution as a container image and push it to your container registry. 
 
-1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal. Then you can push your module image to your Azure container registry.
+1. Sign in to Docker by entering the following command in the Visual Studio Code terminal. Then you can push your module image to your Azure container registry.
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -278,7 +278,7 @@ Once you apply the deployment manifest to your IoT Edge device, the IoT Edge run
 
 You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules. 
 
-On the IoT Edge device itself you can see the status of your deployment modules using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially. 
+On the IoT Edge device, you can see the status of your deployment modules by using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially. 
 
 To view the messages being generated by any module, use the command `iotedge logs <module name>`. 
 
