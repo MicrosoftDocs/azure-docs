@@ -221,7 +221,7 @@ If you opted for implementing a mitigation plan, you will be able to automatical
 
 Depending on which mitigations or contingencies are used during a disruption, your organization could be granting access with just passwords. No safeguard is a considerable security risk that must be weighed carefully. Organizations must:
 
-1. As part of your change control strategy, document every change and the previous state, to be able to roll back any contingencies you implemented as soon as the access controls are fully operational.
+ 1. As part of your change control strategy, document every change and the previous state to be able to roll back any contingencies you implemented as soon as the access controls are fully operational.
 2. Assume that malicious actors will attempt to harvest passwords through password spray or phishing attacks while you disabled MFA. Also, bad actors might already have passwords that previously did not grant access to any resource that can be attempted during this window. For critical users such as executives, you can partially mitigate this risk by resetting their passwords before disabling MFA for them.
  3. Archive all sign-in activity to identify who access what during the time MFA was disabled.
 4. [Triage all risk events reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) during this window.
