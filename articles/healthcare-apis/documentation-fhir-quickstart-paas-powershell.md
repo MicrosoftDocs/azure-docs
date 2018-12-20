@@ -13,13 +13,11 @@ ms.author: mihansen
 
 In this quickstart, you can deploy the PaaS Microsoft FHIR Server for Azure Using PowerShell.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
 - Azure Subscription
 
-## Open the Azure
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
@@ -43,10 +41,17 @@ $rg = New-AzureRmResourceGroup -Name "myResourceGroupName" -Location westus2
 New-AzureRmResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -accountName "myHealthcareApis"
 ```
 
+## Verify that the Healthcare APIs account is running
+
+```azurepowershell-interactive
+$metadataUrl = "https://" + $fhirServiceName + ".microsofthealthcare-apis.com/fhir/metadata" 
+$metadata = Invoke-WebRequest -Uri $metadataUrl
+$metadata.RawContent
+```
+
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resource group
-with the following steps:
+If you're not going to continue to use this application, delete the resource group with the following steps:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $rg.ResourceGroupName
@@ -54,4 +59,7 @@ Remove-AzureRmResourceGroup -Name $rg.ResourceGroupName
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+In this tutorial, you've deployed the Microsoft Healthcare APIs for FHIR into your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
+ 
+[!div class="nextstepaction"]
+[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)

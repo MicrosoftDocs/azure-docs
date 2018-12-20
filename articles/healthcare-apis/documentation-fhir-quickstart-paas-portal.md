@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Quickstart: Deploy PaaS FHIR Server using Azure portal
 
-In this quick start, you'll learn how to deploy a PaaS FHIR Server in Azure using the Azure Portal.
+In this quickstart, you'll learn how to deploy a PaaS FHIR Server in Azure using the Azure portal.
 
 ## Clean up resources
 
@@ -22,4 +22,7 @@ with the following steps:
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+In this tutorial, you've deployed the Microsoft Healthcare APIs for FHIR into your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
+
+[!div class="nextstepaction"]
+[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)

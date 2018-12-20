@@ -11,15 +11,43 @@ ms.author: mihansen
 
 # Quickstart: Deploy Open Source FHIR Server using Azure portal
 
-In this quickstart, you'll learn how to deploy an Open Source FHIR Server in Azure using the Azure portal.
+In this quickstart, you'll learn how to deploy an Open Source FHIR Server in Azure using the Azure portal. We will use easy deployment links in the [Open Source respository](https://github.com/Microsoft/fhir-server)
+
+## Prerequisites
+
+- Azure Subscription
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## GitHub Open Source Repository
+
+Navigate to the [GitHub deployment page](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) and locate the "Deploy to Azure" buttons:
+
+![Open Source Deployment Page](media/quickstart-oss-portal/deployment-page-oss.png)
+
+Click the deployment button and the Azure Portal opens.
+
+## Fill in deployment parameters
+
+Choose to create a new resource group and give it a name. Only other required parameter is a name for the service.
+
+![Custome Deployment Parameters](media/quickstart-oss-portal/deployment-custom-parameters.png)
+
+Notice that the deployment will pull the source code directly from the open source repository on GitHub. If you have forked the repository, you can point to your own for and a specific branch.
+
+After filling in the details you can start the deployment.
+
+## Validate FHIR Server is running
+
+Once the deployment is complete, you can point your browser to `https://SERVICENAME.azurewebsites.net/metadata` to obtain a capability statement. It will take a minute or so for the server to respond the first time.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resource group
-with the following steps:
-
-1. Remove Resource group in Portal.
+If you're not going to continue to use this application, delete the resource group you created.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+In this tutorial, you've deployed the Microsoft Open Source FHIR Server for Azure into your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
+ 
+[!div class="nextstepaction"]
+[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)

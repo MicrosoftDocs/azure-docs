@@ -13,13 +13,51 @@ ms.author: mihansen
 
 In this quick start, you'll learn how to deploy a PaaS FHIR Server in Azure using the Azure CLI.
 
+## Prerequisites
+
+- Azure Subscription
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Create an Azure Resource Manager template
+
+Create an Azure Resource Manager template with the following content:
+
+[!code-json[](samples/azuredeploy.json)]
+
+Save it with the name `azuredeploy.json`
+
+```azurecli-interactive
+servicename="myfhirservice"
+az group create --name $servicename --location westus2
+```
+
+## Deploy the Healthcare APIs account
+
+```azurecli-interactive
+az group deployment create -g $servicename --template-file azuredeploy.json --parameters accountName=$servicename
+```
+
+## Verify FHIR Server is running:
+
+Obtain a capability statement from the FHIR server with:
+
+```azurecli-interactive
+metadataurl="https://${servicename}.microsofthealthcare-apis.com/fhir/metadata"
+curl --url $metadataurl
+```
+
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resource group
-with the following steps:
+If you're not going to continue to use this application, delete the resource group with the following steps:
 
-1. Remove Resource group in Portal.
+```azurecli-interactive
+az group delete --name $servicename
+```
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+In this tutorial, you've deployed the Microsoft Healthcare APIs for FHIRinto your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
+
+[!div class="nextstepaction"]
+[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)
