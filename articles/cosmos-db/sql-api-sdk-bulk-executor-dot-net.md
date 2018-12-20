@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Bulk Executor .NET API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: Bulk Executor .NET API, SDK & resources'
 description: Learn all about the Bulk Executor .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Bulk Executor .NET SDK.
 author: tknandu
 
@@ -24,7 +24,7 @@ ms.author: ramkris
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [Bulk Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -74,7 +74,7 @@ ms.author: ramkris
 ### <a name="1.1.0"/>1.1.0
 
 * Added support for BulkDelete operation for Azure Cosmos DB SQL API accounts.
-* Added support for BulkImport operation for Azure Cosmos DB MongoDB API accounts.
+* Added support for BulkImport operation forAzure Cosmos DB API account for MongoDB.
 * Bumped up the DocumentDB .NET SDK dependency to version 2.0.0. 
 
 ### <a name="1.0.2"/>1.0.2

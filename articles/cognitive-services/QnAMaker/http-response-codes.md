@@ -1,7 +1,7 @@
 ---
 title: API HTTP response codes - QnA Maker
 titleSuffix: Azure Cognitive Services
-description:  Understand what HTTP response codes are returned from the QnA Maker APIs
+description:  Understand what HTTP response codes are returned from the QnA Maker APIs. This will help you resolve any errors.  
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -11,6 +11,7 @@ ms.component: luis
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
 # QnA Maker API HTTP response codes

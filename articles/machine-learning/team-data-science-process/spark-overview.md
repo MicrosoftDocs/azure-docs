@@ -1,5 +1,5 @@
 ---
-title: Overview of Data Science using Spark on Azure HDInsight | Microsoft Docs
+title: Data science using Spark on Azure HDInsight - Team Data Science Process
 description: The Spark MLlib toolkit brings considerable machine learning modeling capabilities to the distributed HDInsight environment.
 services: machine-learning
 author: marktab
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Overview of data science using Spark on Azure HDInsight
 

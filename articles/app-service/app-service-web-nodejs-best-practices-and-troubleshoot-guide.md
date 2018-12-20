@@ -1,6 +1,6 @@
 ---
-title: Best practices and troubleshooting guide for node applications on Azure Web Apps
-description: Learn the best practices and troubleshooting steps for node applications on Azure Web Apps.
+title: Best practices and troubleshooting for Node.js - Azure App Service
+description: Learn the best practices and troubleshooting steps for node applications on Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -15,9 +15,9 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-
+ms.custom: seodec18
 ---
-# Best practices and troubleshooting guide for node applications on Azure Web Apps
+# Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
 In this article, you learn best practices and troubleshooting steps for [node applications](app-service-web-get-started-nodejs.md) running on Azure Web Apps (with [iisnode](https://github.com/azure/iisnode)).
 
@@ -58,7 +58,7 @@ This setting controls the directory where iisnode logs stdout/stderr. The defaul
 
 ### debuggerExtensionDll
 
-This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. See <http://ranjithblogs.azurewebsites.net/?p=98> for more details on how to configure iisnode to use the new node-inspector.
+This setting controls what version of node-inspector iisnode uses when debugging your node application. Currently, iisnode-inspector-0.7.3.dll and iisnode-inspector.dll are the only two valid values for this setting. The default value is iisnode-inspector-0.7.3.dll. The iisnode-inspector-0.7.3.dll version uses node-inspector-0.7.3 and uses web sockets. Enable web sockets on your Azure webapp to use this version. See <https://ranjithblogs.azurewebsites.net/?p=98> for more details on how to configure iisnode to use the new node-inspector.
 
 ### flushResponse
 

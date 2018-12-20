@@ -1,5 +1,5 @@
 ---
-title: Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Microsoft Docs
+title: Compare App Service, VM, Service Fabric, and Cloud Services - Azure | Microsoft Docs
 description: Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
@@ -172,7 +173,7 @@ To get started with the chosen options for your application, see the following r
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+[WebJobs]: https://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps
 [scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites

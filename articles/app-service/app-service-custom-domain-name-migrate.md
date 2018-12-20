@@ -1,5 +1,5 @@
 ---
-title: Migrate an active DNS name to Azure App Service | Microsoft Docs
+title: Migrate an active DNS name - Azure App Service | Microsoft Docs
 description: Learn how to migrate a custom DNS domain name that is already assigned to a live site to Azure App Service without any downtime.
 services: app-service
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Migrate an active DNS name to Azure App Service

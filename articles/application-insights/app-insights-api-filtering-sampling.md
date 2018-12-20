@@ -10,7 +10,6 @@ ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
@@ -95,7 +94,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
     }
 
     ```
-1. Insert this in ApplicationInsights.config:
+3. Insert this in ApplicationInsights.config:
 
 ```xml
 

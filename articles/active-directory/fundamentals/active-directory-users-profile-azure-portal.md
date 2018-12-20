@@ -1,6 +1,6 @@
 ---
-title: How to add or update a user's profile information in Azure Active Directory | Microsoft Docs
-description: Learn how to add information to a user's profile, including a profile picture, job-specific information, and some settings in Azure Active Directory.
+title: Add or update a user's profile information - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add information to a user's profile in Azure Active Directory, including a picture and job details.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,7 +14,7 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ---
 
-# How to: Add or update a user's profile information using Azure Active Directory
+# Add or update a user's profile information using Azure Active Directory
 Add user profile information, including a profile picture, job-specific information, and some settings using Azure Active Directory (Azure AD). For more information about adding new users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md).
 
 ## Add or change profile information

@@ -1,5 +1,5 @@
 ---
-title: Protect your content with Azure Media Services | Microsoft Docs
+title: Protect your content with Media Services - Azure | Microsoft Docs
 description: This articles give an overview of content protection with Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
 
 ---
 # Content protection overview

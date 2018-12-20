@@ -24,7 +24,7 @@ This article is for Publishers who have their offer on AppSource and want to bui
 How to build a Logic App Test Drive
 -----------------------------------
 
-Test Drive documentation for Logic App Test Drives is currently still on github for
+Test Drive documentation for Logic App Test Drives is currently still on GitHub for
 [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), go there to read more.
 
 How to publish a Test Drive
@@ -124,15 +124,14 @@ Click Save. The last step is to grab the Application ID for this registered app 
 Given we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription. The instructions for these are as below:
 
 1. Navigate to the Subscriptions blade and select the appropriate subscription that you are using for the Test Drive only.
-2. Click on Access Control (IAM).
-3. Hit + Add in the new blade.
-4. Set the role as Contributor.
-5. Type in the name of the AAD application and select the AAD application to assign the role.
-6. Click on Save.
-
-![Azure Active Directory, adding  a new Access Control principal](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Azure Active Directory permissions](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Click **Access control (IAM)**.
+1. Click the **Role assignments** tab.
+    ![Azure Active Directory, adding  a new Access Control principal](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Click **Add role assignment**.
+1. Set the role as **Contributor**.
+1. Type in the name of the Azure AD application and select the application to assign the role.
+    ![Azure Active Directory permissions](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Click **Save**.
 
 **Azure AD App Key -** *[Required Field]* The final field is to generate an authentication key. Under keys, add a Key Description, set the duration to never expire, then select save. It is **important** to avoid having an expired key, which will break your test drive in production. Copy this value and paste it into your required Test Drive field.
 

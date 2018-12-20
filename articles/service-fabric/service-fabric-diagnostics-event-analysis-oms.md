@@ -106,7 +106,7 @@ The Kusto query language is powerful. Another valuable query you can run is to f
 ## Next steps
 
 * To enable infrastructure monitoring i.e. performance counters, head over to [adding the Log Analytics agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
-* For on-premises clusters, Log Analytics offers a Gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md).
+* For on-premises clusters, Log Analytics offers a Gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md).
 * Configure  [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics.
 * Get a more detailed overview of Log Analytics and what it offers, read [What is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).

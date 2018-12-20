@@ -1,9 +1,9 @@
 ---
-title: Use compute-intensive Azure VMs with Batch | Microsoft Docs
+title: Use compute-intensive Azure VMs - Azure Batch | Microsoft Docs
 description: How to take advantage of RDMA-capable or GPU-enabled VM sizes in Azure Batch pools
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: danlep
+ms.author: lahugh
 
 
 ---

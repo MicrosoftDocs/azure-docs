@@ -1,6 +1,6 @@
 ---
-title: Identify scenarios and plan your analytics process - Azure | Microsoft Docs
-description: Plan for advanced analytics by considering a series of key questions.
+title: Identify scenarios and plan the analytics process - Team Data Science Process
+description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # How to identify scenarios and plan for advanced analytics data processing
 What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in [What is the Team Data Science Process (TDSP)?](overview.md). Each of these steps requires specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.

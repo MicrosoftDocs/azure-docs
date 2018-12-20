@@ -1,5 +1,5 @@
 ---
-title: Filters in Azure Search | Microsoft Docs
+title: Filters for scoping search results in an index - Azure Search
 description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # Filters in Azure Search 
 

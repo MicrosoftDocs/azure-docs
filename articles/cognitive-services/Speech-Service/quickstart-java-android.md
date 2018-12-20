@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech in Java on Android by using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, Java (Android) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java on Android by using the Speech Service SDK
 services: cognitive-services
@@ -59,7 +59,7 @@ The current version of the Cognitive Services Speech SDK is `1.1.0`.
 The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
 It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
 
-Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes: 
+Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes:
 
 1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -114,7 +114,7 @@ The text and graphical representation of your UI should now look like this.
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * The `onCreate` method includes code that requests microphone and internet permissions, and initializes the native platform binding. Configuring the native platform bindings is only required once. It should be done early during application initialization.
-   
+
    * The method `onSpeechButtonClicked` is, as noted earlier, the button click handler. A button press triggers speech to text transcription.
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.

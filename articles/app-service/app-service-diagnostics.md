@@ -1,5 +1,5 @@
 ---
-title: Azure App Service diagnostics overview | Microsoft Docs
+title: Diagnostics overview - Azure App Service | Microsoft Docs
 description: Learn how you can troubleshoot issues with your web app with App Service diagnostics. 
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
 services: app-service
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
+ms.custom: seodec18
 
 ---
 # Azure App Service diagnostics overview 

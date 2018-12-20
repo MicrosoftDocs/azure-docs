@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
 
 ---
@@ -149,6 +149,12 @@ The certificate for identity must contain a subject that matches the following f
 | Format | Example |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### Validate certificates
+Before deploying the app service resource provider, you should [validate the certificates to be used](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) by using the Azure Stack Readiness Checker tool available from the [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The Azure Stack Readiness Checker Tool validates that the generated PKI certificates are suitable for app services deployment. 
+
+As a best practice, when working with any of the necessary [Azure Stack PKI certificates](azure-stack-pki-certs.md), you should plan to leave enough time to test and reissue certificates if necessary. 
 
 ## Virtual network
 

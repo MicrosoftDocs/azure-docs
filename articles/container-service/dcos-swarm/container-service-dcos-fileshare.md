@@ -1,5 +1,5 @@
 ---
-title: File share for Azure DC/OS cluster
+title: (DEPRECATED) File share for Azure DC/OS cluster
 description: Create and mount a file share to a DC/OS cluster in Azure Container Service
 services: container-service
 author: julienstroheker
@@ -12,7 +12,9 @@ ms.author: juliens
 ms.custom: mvc
 ---
 
-# Create and mount a file share to a DC/OS cluster
+# (DEPRECATED) Create and mount a file share to a DC/OS cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 This tutorial details how to create a file share in Azure and mount it on each agent and master of the DC/OS cluster. Setting up a file share makes it easier to share files across your cluster such as configuration, access, logs, and more. The following tasks are completed in this tutorial:
 

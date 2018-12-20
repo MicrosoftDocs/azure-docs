@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Define how a simulated device responds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
-[!INCLUDE [iot-accelerators-device-schema](../../includes/iot-accelerators-device-schema.md)]
+[!INCLUDE [iot-accelerators-device-behavior](../../includes/iot-accelerators-device-behavior.md)]
 
 ## Next steps
 

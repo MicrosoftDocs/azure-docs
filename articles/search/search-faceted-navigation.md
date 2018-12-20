@@ -1,6 +1,6 @@
 ---
-title: How to implement faceted navigation in Azure Search | Microsoft Docs
-description: Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
+title: How to implement faceted navigation in a category hierarchy - Azure Search
+description: Add facet navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # How to implement faceted navigation in Azure Search
 Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term 'faceted navigation' may be unfamiliar, but you've probably used it before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
@@ -338,7 +338,7 @@ For numeric data, you can use a values list.  Consider the facet range for a `li
 
   ![Sample values list][5]
 
-To specify a facet range like the one in the preceding screen shot, use a values list:
+To specify a facet range like the one in the preceding screenshot, use a values list:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 

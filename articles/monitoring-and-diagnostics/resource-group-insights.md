@@ -7,7 +7,6 @@ manager: carmonm
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
@@ -24,19 +23,19 @@ Modern applications are often complex and highly distributed with many discrete 
 2. Pick one of your resource groups that you want to explore. (If you have a large number of resource groups filtering by subscription can sometimes be helpful.)
 3. To access insights for a resource group, click **Insights** in the left-side menu of any resource group.
 
-![Screenshot of resource group insights overview page](.\media\resource-group-insights\0001-overview.png)
+![Screenshot of resource group insights overview page](./media/resource-group-insights/0001-overview.png)
 
 ## Resources with active alerts and health issues
 
 The overview page shows how many alerts have been fired and are still active, along with the current Azure Resource Health of each resource. Together, this information can help you quickly spot any resources that are experiencing issues. Alerts help you detect issues in your code and how you've configured your infrastructure. Azure Resource Health surfaces issue with the Azure platform itself, that aren't specific to your individual applications.
 
-![Screenshot of Azure Resource Health pane](.\media\resource-group-insights\0002-overview.png)
+![Screenshot of Azure Resource Health pane](./media/resource-group-insights/0002-overview.png)
 
 ### Azure Resource Health
 
 To display Azure Resource Health, check the **Show Azure Resource Health** box above the table. This column is hidden by default to help the page load quickly.
 
-![Screenshot with resource health graph added](.\media\resource-group-insights\0003-overview.png)
+![Screenshot with resource health graph added](./media/resource-group-insights/0003-overview.png)
 
 By default, the resources are grouped by app layer and resource type. **App layer** is a simple categorization of resource types, that only exists within the context of the resource group insights overview page. There are resource types related to application code, compute infrastructure, networking, storage + databases. Management tools get their own app layers, and every other resource is categorized as belonging to the **Other** app layer. This grouping can help you see at-a-glance what subsystems of your application are healthy and unhealthy.
 
@@ -65,33 +64,33 @@ To test out the Failures tab select **Failures** under **Investigate** in the le
 
 The left-side menu bar changes after your selection is made, offering you new options.
 
-![Screenshot of Failure overview pane](.\media\resource-group-insights\00004-failures.png)
+![Screenshot of Failure overview pane](./media/resource-group-insights/00004-failures.png)
 
 When App Service is chosen, you are presented with a gallery of Azure Monitor Workbook templates.
 
-![Screenshot of application workbook gallery](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![Screenshot of application workbook gallery](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 Choosing the template for Failure Insights will open the workbook.
 
-![Screenshot of failure report](.\media\resource-group-insights\0006-failure-visual.png)
+![Screenshot of failure report](./media/resource-group-insights/0006-failure-visual.png)
 
 You can select any of the rows. The selection is then displayed in a graphical details view.
 
-![Screenshot of failure details](.\media\resource-group-insights\0007-failure-details.png)
+![Screenshot of failure details](./media/resource-group-insights/0007-failure-details.png)
 
 Workbooks abstract away the difficult work of creating custom reports and visualizations into an easily consumable format. While some users may only want to adjust the prebuilt parameters, workbooks are completely customizable.
 
 To get a sense of how this workbook functions internally, select **Edit** in the top bar.
 
-![Screenshot of additional edit option](.\media\resource-group-insights\0008-failure-edit.png)
+![Screenshot of additional edit option](./media/resource-group-insights/0008-failure-edit.png)
 
 A number of **Edit** boxes appear near the various elements of the workbook. Select the **Edit** box below the table of operations.
 
-![Screenshot of edit boxes](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![Screenshot of edit boxes](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 This reveals the underlying Log Analytics query that is driving the table visualization.
 
- ![Screenshot of log analytics query window](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Screenshot of log analytics query window](./media/resource-group-insights/0010-failure-edit-query.png)
 
 You can modify the query directly. Or you can use it as a reference and borrow from it when designing your own custom parameterized workbook.
 
@@ -99,11 +98,11 @@ You can modify the query directly. Or you can use it as a reference and borrow f
 
 Performance offers its own gallery of workbooks. For App Service the prebuilt Application Performance workbook offers the following view:
 
- ![Screenshot of performance view](.\media\resource-group-insights\0011-performance.png)
+ ![Screenshot of performance view](./media/resource-group-insights/0011-performance.png)
 
 In this case, if you select edit you will see that this set of visualizations is powered by Azure Monitor Metrics.
 
- ![Screenshot of performance view with Azure Metrics](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Screenshot of performance view with Azure Metrics](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## Troubleshooting
 

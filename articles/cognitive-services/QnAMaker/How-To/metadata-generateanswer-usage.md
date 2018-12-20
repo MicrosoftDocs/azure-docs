@@ -163,5 +163,7 @@ This information can be used to record the context of the previous conversation 
 
 ## Next steps
 
+The publish page also provides information to generate an answer with [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) and [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+
 > [!div class="nextstepaction"]
 > [Create a knowledge base](./create-knowledge-base.md)

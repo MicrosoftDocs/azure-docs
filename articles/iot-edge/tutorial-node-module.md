@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure IoT Edge Node.js tutorial | Microsoft Docs 
+title: Tutorial create custom Node.js module - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with Node.js code and deploy it to an edge device
 services: iot-edge
 author: shizn
@@ -10,8 +10,7 @@ ms.author: xshi
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-
+ms.custom: "mvc, seodec18"
 ---
 
 # Tutorial: Develop and deploy a Node.js IoT Edge module to your simulated device
@@ -34,6 +33,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* If you're running IoT Edge on Windows, IoT Edge version 1.0.5 does not support Node.js modules. For more information, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For steps on how to install a specific version, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
 Cloud resources:
 
@@ -219,7 +219,7 @@ You can see the full container image address with tag in the `docker build` comm
 
 ## Deploy and run the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Hub Toolkit extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
 1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 

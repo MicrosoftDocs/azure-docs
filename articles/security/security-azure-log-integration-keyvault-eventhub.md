@@ -1,4 +1,4 @@
-Ôªø---
+---
 title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
 description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
@@ -20,13 +20,13 @@ ms.custom: AzLog
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
 
-The preferred method for integrating Azure logs is by using your SIEM vendor‚Äôs Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn‚Äôt provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+The preferred method for integrating Azure logs is by using your SIEM vendorís Azure Monitor connector and following these [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesnít provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
  
-Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you‚Äôve learned here to create your own steps to support your company‚Äôs unique requirements.
+Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what youíve learned here to create your own steps to support your companyís unique requirements.
 
 >[!WARNING]
-The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands ‚Äúas is‚Äù in your live environment. You must customize them based on your unique environment.
+The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands ìas isî in your live environment. You must customize them based on your unique environment.
 
 
 This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
@@ -75,7 +75,7 @@ Before you can complete the steps in this article, you need the following:
 ## Create supporting infrastructure elements
 
 1. Open an elevated PowerShell window and go to **C:\Program Files\Microsoft Azure Log Integration**.
-1. Import the AzLog cmdlets by running the script LoadAzLogModule.ps1. Enter the `.\LoadAzLogModule.ps1` command. (Notice the ‚Äú.\‚Äù in that command.)
+1. Import the AzLog cmdlets by running the script LoadAzLogModule.ps1. Enter the `.\LoadAzLogModule.ps1` command. (Notice the ì.\î in that command.)
 You should see something like this:</br>
 
    ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
@@ -89,7 +89,7 @@ You should see something like this:</br>
 
    ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Create variables to store values that will be used later. Enter each of the following PowerShell lines. You might need to adjust the values to match your environment.
-    - ```$subscriptionName = ‚ÄòVisual Studio Ultimate with MSDN‚Äô``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
+    - ```$subscriptionName = ëVisual Studio Ultimate with MSDNí``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (The name can be anything, but it should include only lowercase letters and numbers.)
@@ -125,7 +125,7 @@ You should see something like this:</br>
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    For more information about the Azure log profile, see [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    For more information about the Azure log profile, see [Overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
 > You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzureRmLogProfile and Remove-AzureRmLogProfile. If you run Get-AzureRmLogProfile, you see information about the log profile. You can delete the existing log profile by entering the ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` command.

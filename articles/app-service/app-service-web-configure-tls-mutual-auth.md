@@ -1,5 +1,5 @@
 ---
-title: How To Configure TLS Mutual Authentication for Web App
+title: Configure TLS mutual authentication - Azure App Service
 description: Learn how to configure your web app to use client certificate authentication on TLS.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
+ms.custom: seodec18
 
 ---
 # How To Configure TLS Mutual Authentication for Web App

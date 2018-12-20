@@ -64,9 +64,7 @@ There are two types of open-source components that are available in the HDInsigh
 Visit the documentation on [how to use custom script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin`. Reference that installation in your custom actions via `/usr/bin/anaconda/bin/pip` and `/usr/bin/anaconda/bin/conda`.
-   > 
-   > 
+   > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin` and will default to the Python 2.7 environment. To use Python 3.x and install packages in the PySpark3 kernel, use the path to the `conda` executable for that environment and use the `-n` parameter to specify the environment. For example, the command `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installs the `ggplot` package to the Python 3.5 environment using the `conda-forge` channel.
 
 3. Open a PySpark Jupyter notebook
 

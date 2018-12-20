@@ -1,5 +1,5 @@
 ﻿---
-title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
+title: Map existing custom DNS name - Azure App Service | Microsoft Docs 
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
@@ -17,6 +17,8 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
+
 ---
 # Tutorial: Map an existing custom DNS name to Azure Web Apps
 
@@ -47,7 +49,7 @@ To complete this tutorial:
 
 ## Prepare the app
 
-To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**). In this step, you make sure that the App Service app is in the supported pricing tier.
+To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, **Premium** or **Consumption** for Azure Functions). In this step, you make sure that the App Service app is in the supported pricing tier.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -329,7 +331,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-For more information, see [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md). 
+For more information, see [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md). 
 
 ### Azure PowerShell 
 
@@ -342,7 +344,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-For more information, see [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md).
+For more information, see [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md).
 
 ## Next steps
 

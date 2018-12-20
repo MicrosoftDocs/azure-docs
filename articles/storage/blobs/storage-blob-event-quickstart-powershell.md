@@ -1,5 +1,5 @@
 ﻿---
-title: Route Azure Blob storage events to a custom web endpoint - Powershell | Microsoft Docs
+title: Send Azure Blob storage events to web endpoint - Powershell | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
 author: david-stanford
@@ -9,9 +9,10 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
+ms.custom: seodec18
 ---
 
-# Route Blob storage events to a custom web endpoint with PowerShell
+# Quickstart: Route storage events to web endpoint with PowerShell
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
 
@@ -23,11 +24,11 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ## Setup
 
-This article requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
+Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
 Connect-AzureRmAccount
@@ -126,7 +127,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-You have triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
 
 ```json
 [{
@@ -156,7 +157,7 @@ You have triggered the event, and Event Grid sent the message to the endpoint yo
 ```
 
 ## Clean up resources
-If you plan to continue working with this storage account and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this storage account and event subscription, don't clean up the resources created in this article. If you don't plan to continue, use the following command to delete the resources you created in this article.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

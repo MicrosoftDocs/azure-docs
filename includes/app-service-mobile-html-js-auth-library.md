@@ -55,27 +55,6 @@ client.login(
 ```
 This example assumes that the token provided by the respective provider SDK is stored in the token variable.
 
-#### Microsoft Account example
-
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
-
 ### <a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 
 The authentication information can be retrieved from the `/.auth/me` endpoint using an HTTP call with any AJAX

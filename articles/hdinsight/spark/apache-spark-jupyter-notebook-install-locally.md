@@ -30,9 +30,9 @@ The prerequisites listed here are not for installing Jupyter. These are for conn
 
 ## Install Jupyter notebook on your computer
 
-You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Anaconda distribution](https://www.continuum.io/downloads). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropriate commands.
+You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Anaconda distribution](https://www.anaconda.com/download/). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropriate commands.
 
-1. Download the [Anaconda installer](https://www.continuum.io/downloads) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.
+1. Download the [Anaconda installer](https://www.anaconda.com/download/) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.
 1. Run the following command to install Jupyter.
 
         conda install jupyter

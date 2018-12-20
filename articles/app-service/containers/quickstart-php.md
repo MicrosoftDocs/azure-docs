@@ -1,5 +1,5 @@
 ---
-title: Create a PHP web app and deploy to App Service on Linux | Microsoft Docs
+title: Create PHP web app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first PHP Hello World in App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Create a PHP web app in App Service on Linux
 

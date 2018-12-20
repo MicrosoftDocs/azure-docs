@@ -1,5 +1,5 @@
 ---
-title: Restore an app in Azure
+title: Restore from backup - Azure App Service
 description: Learn how to restore your app from a snapshot.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
+ms.custom: seodec18
 
 ---
 # Restore an app in Azure from a snapshot

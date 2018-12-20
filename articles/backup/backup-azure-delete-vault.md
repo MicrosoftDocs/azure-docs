@@ -2,12 +2,12 @@
 title: Delete a Recovery Services vault in Azure '
 description: This article explains how to delete a Recovery Services vault. The article includes troubleshooting steps when you try to delete a vault, but can't.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
-ms.author: markgal
+ms.author: raynew
 ---
 # Delete a Recovery Services vault
 

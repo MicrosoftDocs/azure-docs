@@ -1,5 +1,5 @@
 ---
-title: Controlling Azure App Service traffic with Azure Traffic Manager
+title: Control traffic with Traffic Manager - Azure App Service
 description: This article provides summary information for  Azure Traffic Manager as it relates to Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Controlling Azure App Service traffic with Azure Traffic Manager

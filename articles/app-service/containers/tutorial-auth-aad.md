@@ -1,6 +1,6 @@
 ---
-title: Authenticate and authorize users end-to-end in Azure App Service on Linux | Microsoft Docs 
-description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
+title: Authenticate and authorize users end-to-end on Linux - Azure App Service | Microsoft Docs 
+description: Learn how to use App Service authentication and authorization to secure your App Service apps running on Linux, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -15,6 +15,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
+ms.custom: seodec18
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service on Linux
@@ -124,7 +125,7 @@ git commit -m "add CORS to back end"
 
 ### Push to Azure from Git
 
-In the local terminal window, run the following Git commands to deploy to the back-end app. Replace _&lt;deploymentLocalGitUrl-of-back-end-app>_ with the URL of the Git remote that you saved from [Create Azure resources](#create-azure-resources). When prompted for credentials by Git Credential Manager, make sure that you enter [your deployment credentials](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), not the credentials you use to log in to the Azure portal.
+In the local terminal window, run the following Git commands to deploy to the back-end app. Replace _&lt;deploymentLocalGitUrl-of-back-end-app>_ with the URL of the Git remote that you saved from [Create Azure resources](#create-azure-resources). When prompted for credentials by Git Credential Manager, make sure that you enter [your deployment credentials](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), not the credentials you use to log in to the Azure portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -233,7 +234,7 @@ Navigate to `http://<back_end_app_name>.azurewebsites.net` to see the items adde
 
 In this step, you enable authentication and authorization for the two apps. You also configure the front-end app to generate an access token that you can use to make authenticated calls to the back-end app.
 
-You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+You use Azure Active Directory as the identity provider. For more information, see [Configure Azure Active Directory authentication for your App Services application](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### Enable authentication and authorization for back-end app
 

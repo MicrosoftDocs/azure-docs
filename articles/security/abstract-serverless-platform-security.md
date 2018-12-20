@@ -23,5 +23,5 @@ Despite the benefits, serverless security has its own risk factors to deal with.
 * Critical security issues and mitigations in the context of Azure
 * Securing the Microsoft serverless platform
 
-[Download the white paper](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)
+[Download the white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)
 

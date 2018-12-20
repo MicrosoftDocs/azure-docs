@@ -1,5 +1,5 @@
 ---
-title: OS and runtime patching in Azure App Service | Microsoft Docs
+title: OS and runtime patching cadence - Azure App Service | Microsoft Docs
 description: Describes how Azure App Service updates the OS and runtimes, and how you can get update announcements.
 services: app-service
 documentationcenter: ''
@@ -14,6 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
+ms.custom: seodec18
+
 ---
 
 # OS and runtime patching in Azure App Service
@@ -76,7 +78,7 @@ When an older version is deprecated, the removal date is announced so that you c
 
 ## How can I query OS and runtime update status on my instances?  
 
-While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
+While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
 The following table shows how to the versions of Windows and of the language runtime that are running your apps:
 

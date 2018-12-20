@@ -10,8 +10,9 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Edit a knowledge base
+# Edit a knowledge base in QnA Maker
 
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 

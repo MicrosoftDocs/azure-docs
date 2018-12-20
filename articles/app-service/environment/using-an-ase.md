@@ -1,5 +1,5 @@
 ﻿---
-title: Use an Azure App Service environment
+title: Use App Service environment - Azure
 description: How to create, publish, and scale apps in an Azure App Service environment
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Use an App Service environment #
 
@@ -46,7 +47,7 @@ To create a web app in an ASE:
 
 1. Select **Create a resource** > **Web + Mobile** > **Web App**.
 
-1. Enter a name for the web app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE.
+2. Enter a name for the web app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE.
 
 	![Web app name selection][1]
 
@@ -177,10 +178,10 @@ To delete an ASE:
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

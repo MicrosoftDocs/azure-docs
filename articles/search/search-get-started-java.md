@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Search in Java | Microsoft Docs
+title: Get started with Azure Search in Java - Azure Search
 description: How to build a hosted cloud search application on Azure using Java as your programming language.
 services: search
 author: jj09
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-
+ms.custom: seodec2018
 ---
 # Get started with Azure Search in Java
 > [!div class="op_single_selector"]

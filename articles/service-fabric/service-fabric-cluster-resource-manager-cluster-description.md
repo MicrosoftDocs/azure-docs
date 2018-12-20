@@ -177,7 +177,7 @@ The Cluster Resource Manager supports another version of the Fault and Upgrade D
 
 > [!NOTE]
 >For a stateful service, we define *quorum loss* in a situation when a majority of the partition replicas are down at the same time. For example, if TargetReplicaSetSize is five, a set of any three replicas represents quorum. Similarly, if TargetReplicaSetSize is 6, four replicas are necessary for quorum. In both cases no more than two replicas can be down at the same time if the partition wants to continue functioning normally. 
-For a stateless service, there is no such thing as *quorum loss* as stateless services conitnue to functionate normally even if a majority of instances go down at the same time. 
+For a stateless service, there is no such thing as *quorum loss* as stateless services continue to function normally even if a majority of instances go down at the same time. 
 Hence, we will focus on stateful services in the rest of the text.
 >
 

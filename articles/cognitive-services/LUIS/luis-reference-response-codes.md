@@ -1,11 +1,11 @@
 ---
-title: Language Understanding (LUIS) API HTTP response codes - Azure | Microsoft Docs
+title: API HTTP response codes
 titleSuffix: Azure
 description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
 author: diberry
 manager: cgronlun
-
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

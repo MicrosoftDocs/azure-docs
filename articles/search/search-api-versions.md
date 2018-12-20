@@ -1,5 +1,5 @@
 ---
-title: API versions of Azure Search | Microsoft Docs
+title: API version management for .NET SDK and REST APIs - Azure Search
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,6 +9,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
+ms.custom: seodec2018
 ---
 
 # API versions in Azure Search
