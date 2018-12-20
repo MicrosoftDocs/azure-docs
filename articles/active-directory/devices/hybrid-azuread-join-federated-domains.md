@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -51,9 +51,12 @@ This tutorial assumes that you are familiar with:
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 
+
 To configure the scenario in this tutorial, you need:
 
 - Windows Server 2012 R2 with AD FS
+
+- An on-premises Active Directory (AD) with a schema level of 85 or later. For more information, see [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 or higher. 
  

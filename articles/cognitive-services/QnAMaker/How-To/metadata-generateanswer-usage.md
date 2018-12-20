@@ -8,13 +8,13 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
 ---
 
 # Using metadata and the GenerateAnswer API
 
-QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key and value pairs, to your question/answer sets. This information can be used to filter results to user queries and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
 
 ## QnA Entity
 
@@ -108,11 +108,11 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 
 ## Metadata example
 
-Consider the below FAQ data for restaurants in Hyderabad. Add metadata to your knowledge base by clicking on the gear icon.
+Consider the below FAQ data. Add metadata to your knowledge base by clicking on the metadata icon.
 
 ![add metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### Filter results with strictFilters
+### Filter results with strictFilters for metadata tags
 
 Consider the user question "When does this hotel close?" where the intent is implied for the restaurant "Paradise."
 

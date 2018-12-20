@@ -14,9 +14,9 @@ ms.author: ashishth
 ---
 # Apache Phoenix in HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer built on [HBase](hbase/apache-hbase-overview.md). Phoenix allows you to use SQL-like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase. Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This approach minimizes client/server data transfer.
+[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer built on [Apache HBase](hbase/apache-hbase-overview.md). Phoenix allows you to use SQL-like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase. Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This approach minimizes client/server data transfer.
 
-Apache Phoenix opens up big data queries to non-developers who can use  an SQL-like syntax rather than programming. Phoenix is highly optimized for HBase, unlike other tools such as [Hive](hadoop/hdinsight-use-hive.md) and Spark SQL. The benefit to developers is writing highly performant queries with much less code.
+Apache Phoenix opens up big data queries to non-developers who can use a SQL-like syntax rather than programming. Phoenix is highly optimized for HBase, unlike other tools such as [Hive](hadoop/hdinsight-use-hive.md) and Apache Spark SQL. The benefit to developers is writing highly performant queries with much less code.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 When you submit a SQL query, Phoenix compiles the query to HBase native calls and runs the scan (or plan) in parallel for optimization. This layer of abstraction frees the developer from writing MapReduce jobs,  to focus instead on the business logic and the workflow of their application around Phoenix's big data storage.
@@ -118,7 +118,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## Enable and tune Phoenix with Ambari
+## Enable and tune Phoenix with Apache Ambari
 
 An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-ambari.md) for making configuration changes.
 

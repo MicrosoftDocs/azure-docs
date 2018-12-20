@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -19,7 +19,10 @@ Azure Migrate has a limit of 1500 machines per project, this article describes h
 - **VMware**: The VMs that you plan to migrate must be managed by vCenter Server version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or later to deploy the collector VM.
 - **vCenter account**: You need a read-only account to access vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: In vCenter Server, you need permissions to create a VM by importing a file in OVA format.
-- **Statistics settings**: This requirement is only applicable to the [one-time discovery model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods). For one-time discovery model, the statistics settings for vCenter Server should be set to level 3 before you start deployment. The statistics level is to be set to 3 for each of the day, week, and month collection intervals. If the level is lower than 3 for any of the three collection intervals, the assessment will work, but the performance data for storage and network won't be collected. The size recommendations will then be based on performance data for CPU and memory, and configuration data for disk and network adapters.
+- **Statistics settings**: This requirement is only applicable to the [one-time discovery model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) which is deprecated now. For one-time discovery model, the statistics settings for vCenter Server should be set to level 3 before you start deployment. The statistics level is to be set to 3 for each of the day, week, and month collection intervals. If the level is lower than 3 for any of the three collection intervals, the assessment will work, but the performance data for storage and network won't be collected. The size recommendations will then be based on performance data for CPU and memory, and configuration data for disk and network adapters.
+
+> [!NOTE]
+> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
 ### Set up permissions
 

@@ -1,21 +1,18 @@
 ---
 title: Azure Monitor for VMs (preview) frequently asked questions | Microsoft Docs
 description: Azure Monitor for VMs (preview) is a solution in Azure that combines health and performance monitoring of the Azure VM operating system. It automatically discovers application components and dependencies with other resources and maps the communication between them. This article answers commonly asked questions.
-services:  azure-monitor
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 
-ms.service:  azure-monitor
-ms.devlang: na
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-
 ---
 
 # Azure Monitor for VMs (preview) FAQ

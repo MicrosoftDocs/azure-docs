@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 5: Connect to Azure Cosmos DB 
 
-This multi-part tutorial demonstrates how to create a Node.js app with Express, Angular, and connect it to [Azure Cosmos DB MongoDB API](mongodb-introduction.md) account.
+This multi-part tutorial demonstrates how to create a Node.js app with Express, Angular, and connect it to [Azure Cosmos DB API for MongoDB](mongodb-introduction.md) account.
 
 Part 5 of the tutorial builds on [Part 4](tutorial-develop-mongodb-nodejs-part4.md) and covers the following tasks:
 

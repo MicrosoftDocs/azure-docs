@@ -4,9 +4,9 @@ description: This article summarizes common questions when you set up disaster r
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
+ms.author: mayg
 
 ---
 # Common questions - VMware to Azure replication
@@ -141,11 +141,14 @@ Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then instal
 ### Can I avoid downloading MySQL but let Site Recovery install it?
 Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
  
-### CanL I use the configuration server VM for anything else?
+### Can I use the configuration server VM for anything else?
 No, you should only use the VM for the configuration server. 
 
+### Can I clone a configuration server and use it for orchestration?
+No, you should setup a fresh configuration server to avoid registration issues.
+
 ### Can I change the vault registered in the configuration server?
-No. After a vault is registered with configuration server, it can't be changed.
+No. After a vault is registered with configuration server, it can't be changed. Review [this article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) for re-registration steps.
 
 ### Can I use the same configuration server for disaster recovery of both VMware VMs and physical servers
 Yes, but note that physical machine can be only be failed back to a VMware VM.

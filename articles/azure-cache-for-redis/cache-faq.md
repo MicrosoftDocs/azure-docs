@@ -31,30 +31,30 @@ If your question isn't listed here, let us know and we'll help you find an answe
 ## Azure Cache for Redis basics
 The FAQs in this section cover some of the basics of Azure Cache for Redis.
 
-* [What is Azure Cache for Redis?](#what-is-azure-redis-cache)
-* [How can I get started with Azure Cache for Redis?](#how-can-i-get-started-with-azure-redis-cache)
+* [What is Azure Cache for Redis?](#what-is-azure-cache-for-redis)
+* [How can I get started with Azure Cache for Redis?](#how-can-i-get-started-with-azure-cache-for-redis)
 
 The following FAQs cover basic concepts and questions about Azure Cache for Redis and are answered in one of the other FAQ sections.
 
-* [What Azure Cache for Redis offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
-* [What Azure Cache for Redis clients can I use?](#what-redis-cache-clients-can-i-use)
-* [Is there a local emulator for Azure Cache for Redis?](#is-there-a-local-emulator-for-azure-redis-cache)
+* [What Azure Cache for Redis offering and size should I use?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [What Azure Cache for Redis clients can I use?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Is there a local emulator for Azure Cache for Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 ## Planning FAQs
-* [What Azure Cache for Redis offering and size should I use?](#what-redis-cache-offering-and-size-should-i-use)
-* [Azure Cache for Redis performance](#azure-redis-cache-performance)
+* [What Azure Cache for Redis offering and size should I use?](#what-azure-cache-for-redis-offering-and-size-should-i-use)
+* [Azure Cache for Redis performance](#azure-cache-for-redis-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
-* [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-redis-cache)
-* [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
+* [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## Development FAQs
 * [What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
-* [What Azure Cache for Redis clients can I use?](#what-redis-cache-clients-can-i-use)
-* [Is there a local emulator for Azure Cache for Redis?](#is-there-a-local-emulator-for-azure-redis-cache)
+* [What Azure Cache for Redis clients can I use?](#what-azure-cache-for-redis-clients-can-i-use)
+* [Is there a local emulator for Azure Cache for Redis?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [How can I run Redis commands?](#how-can-i-run-redis-commands)
-* [Why doesn't Azure Cache for Redis have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
-* [Can I use Azure Cache for Redis as a PHP session cache?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+* [Why doesn't Azure Cache for Redis have an MSDN class library reference like some of the other Azure services?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+* [Can I use Azure Cache for Redis as a PHP session cache?](#can-i-use-azure-cache-for-redis-as-a-php-session-cache)
 * [What are Redis databases?](#what-are-redis-databases)
 
 ## Security FAQs

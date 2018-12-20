@@ -7,7 +7,6 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
 ---
 # Create, view, and manage activity log alerts using Azure Monitor  
 
@@ -82,7 +81,7 @@ Use the following procedure:
     - **Description** – Description for the new alert rule
     - **Save alert to resource group** – Select the Resource group, where you want to save this new rule.
 
-5. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Alternatively, [create a new action group](../../monitoring-and-diagnostics/monitoring-action-groups.md) and assign to the new rule. To create a new group, click **+ New group**.
+5. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Alternatively, [create a new action group](../../azure-monitor/platform/action-groups.md) and assign to the new rule. To create a new group, click **+ New group**.
 
 6. To enable the rules after you create it, click **Yes** for **Enable rule upon creation** option.
 7. Click **Create alert rule**.
@@ -92,7 +91,7 @@ Use the following procedure:
     You can enable, disable, edit, or delete a rule. [Learn more](#view-and-manage-activity-log-alert-rules-in-azure-portal) about managing activity log rules.
 
 
-Alternatively, a simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure portal](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button; then follow steps 4 onwards as stated in tutorial above.
+Alternatively, a simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure portal](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button; then follow steps 4 onwards as stated in tutorial above.
     
  ![ add alert from activity log](media/alerts-activity-log/add-activity-log.png)
     
@@ -216,7 +215,7 @@ The *sampleActivityLogAlert.parameters.json* file has the values provided for th
 
 ## Next steps
 
-- [Webhook schema for Activity logs](../../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)
-- [Overview of Activity logs](../../monitoring-and-diagnostics/monitoring-activity-log-alerts.md) 
-- Learn more about [action groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).  
-- Learn about [service health notifications](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- [Webhook schema for Activity logs](../../azure-monitor/platform/activity-log-alerts-webhook.md)
+- [Overview of Activity logs](../../azure-monitor/platform/activity-log-alerts.md) 
+- Learn more about [action groups](../../azure-monitor/platform/action-groups.md).  
+- Learn about [service health notifications](../../azure-monitor/platform/service-notifications.md).

@@ -25,7 +25,7 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 There are two varieties of users for Microsoft Azure Stack, the Operator and the User.
 
 * An Azure Stack **Operator** can configure Azure Stack by managing offers, plans, services, quotas, and pricing to provide resources for their tenant users. Operators also manage capacity and respond to alerts.  
-* A **User** (also referred to as a tenant) consumes services that the Operator offers. Users can provision, monitor, and manage services that they have subscribed to, such as web apps, storage, and virtual machines.
+* An Azure Stack **User** (also referred to as a tenant) consumes services that the Operator offers. Users can provision, monitor, and manage services that they have subscribed to, such as web apps, storage, and virtual machines.
 
 ## Portal
 The primary methods of interacting with Microsoft Azure Stack are the administration portal, user portal, and PowerShell.
@@ -89,9 +89,9 @@ For the administrator, a Default Provider Subscription is created during deploym
 By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
-Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
+Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location. In Azure Stack, resources such as plans and offers are also managed in resource groups.
 
-Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack admin portal, the *Move* button is grayed-out and unavailable. 
+Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move Azure Stack resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack administration portal, the *Move* button is grayed-out and unavailable. Additionally, the use of the **Change resource group** or **Change subscription** actions from resource group or resource group item properties is also not supported. All attempted move operations will fail.
  
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.

@@ -6,10 +6,8 @@ documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: 
-
 ms.assetid: 
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

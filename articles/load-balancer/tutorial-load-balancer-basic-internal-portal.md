@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Create a Basic internal load balancer by using the Azure portal | Microsoft Docs"
+title: 'Tutorial: Create an internal load balancer - Azure portal'
+titlesuffix: Azure Load Balancer
 description: This tutorial shows you how to create an internal Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -12,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Balance internal traffic load with a Basic load balancer in the Azure portal

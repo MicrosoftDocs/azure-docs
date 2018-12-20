@@ -11,7 +11,7 @@ ms.date: 12/08/2018
 ---
 
 # Create Azure App Service web apps by using Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a web app by using the Java runtime. 
 
@@ -27,7 +27,7 @@ This section presents a sample Ansible playbook that defines the following resou
 - Resource group, where your App Service plan and web app will be deployed to
 - Web app with Java 8 and the Tomcat container runtime in App Service on Linux
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
@@ -67,7 +67,7 @@ ansible-playbook firstwebapp.yml
 
 The output from running the Ansible playbook shows that the web app was successfully created:
 
-```
+```Output
 PLAY [localhost] *************************************************
 
 TASK [Gathering Facts] *************************************************
@@ -99,7 +99,7 @@ This section presents a sample Ansible playbook that defines the following resou
 - Traffic Manager profile
 - Traffic Manager endpoint, using the created website
 
-```
+```yml
 - hosts: localhost
   connection: local
   vars:
@@ -187,7 +187,7 @@ ansible-playbook webapp.yml
 ```
 
 The output from running the Ansible playbook shows that the App service plan, web app, Traffic Manager profile, and endpoint were successfully created:
-```
+```Output
 PLAY [localhost] *************************************************
 
 TASK [Gathering Facts] *************************************************

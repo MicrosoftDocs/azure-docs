@@ -1,8 +1,8 @@
 ---
-title: Manage web traffic with Azure Application Gateway by using Ansible (preview)
+title: Manage web traffic with Azure Application Gateway by using Ansible
 description: Learn how to use Ansible to create and configure an Azure Application Gateway to manage web traffic
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, azure application gateway, load balancer, web traffic
+keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 09/20/2018
 ---
 
-# Manage web traffic with Azure Application Gateway by using Ansible (preview)
+# Manage web traffic with Azure Application Gateway by using Ansible
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a web traffic load balancer that enables you to manage traffic to your web applications.
 
@@ -29,7 +29,7 @@ This tutorial shows you how to:
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You can install Ansible 2.7 RC by running `sudo pip install ansible[azure]==2.7.0rc2`. After Ansible 2.7 is released, you won't need to specify the version.
+> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a resource group
 

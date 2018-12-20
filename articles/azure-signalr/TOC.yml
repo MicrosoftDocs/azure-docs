@@ -32,6 +32,8 @@
     href: signalr-overview-scale-aspnet-core.md
   - name: Build Real-time Apps with Azure Functions
     href: signalr-overview-azure-functions.md
+  - name: Access key rotation
+    href: signalr-key-rotation.md
 - name: Resources
   items:
   - name: SignalR Roadmap

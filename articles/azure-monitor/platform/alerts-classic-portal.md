@@ -6,11 +6,10 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 
-Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](../../monitoring-and-diagnostics/alert-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
+Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](../../azure-monitor/platform/alerts-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
 
 ## With Azure portal
 
@@ -124,5 +123,5 @@ This sections shows how to use PowerShell commands create, view and manage class
 
 ## Next steps
 
-- [Create a classic metric alert with a Resource Manager template](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
-- [Have a classic metric alert notify a non-Azure system using a webhook](../../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+- [Create a classic metric alert with a Resource Manager template](../../azure-monitor/platform/alerts-enable-template.md).
+- [Have a classic metric alert notify a non-Azure system using a webhook](../../azure-monitor/platform/alerts-webhooks.md).

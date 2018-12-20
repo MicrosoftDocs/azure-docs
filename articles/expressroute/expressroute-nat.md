@@ -8,6 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # ExpressRoute NAT requirements

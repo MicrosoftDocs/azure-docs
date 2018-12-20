@@ -1,16 +1,16 @@
 ---
-title: Quickstart - Use PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment
-description: In this quickstart, you use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
+title: Create a policy to identify non-compliant resources with Azure PowerShell
+description: Use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
+ms.custom: seodec18
 ---
-# Quickstart: Create a policy assignment to identify non-compliant resources using the Azure RM PowerShell module
+# Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
 The first step in understanding compliance in Azure is to identify the status of your resources. In
 this quickstart, you create a policy assignment to identify virtual machines that aren't using

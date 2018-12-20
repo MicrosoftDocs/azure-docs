@@ -16,6 +16,9 @@ ms.author: raynew
 
 This article describes how to get suggestions for a migration tool after you've run a migration assessment.
 
+> [!NOTE]
+> The migration tool suggestion is not available in Azure Government.
+
 ## Migration tool suggestion
 
 To get suggestions regarding migration tools, you need to do a deep discovery of the on-premises environment. The deep discovery is done by installing agents on the on-premises machines.  
