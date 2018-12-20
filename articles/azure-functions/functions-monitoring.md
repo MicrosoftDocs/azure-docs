@@ -132,7 +132,7 @@ The [Live Metrics Stream](../application-insights/app-insights-live-stream.md) t
 
 ## Query telemetry data
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
 
 ![Select Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -434,7 +434,7 @@ This code is an alternative to calling `trackMetric` using [the Node.js SDK for 
 
 ## Custom telemetry in C# functions
 
-You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. The following C# example uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. The following C# example uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 ### Version 2.x
 
@@ -666,7 +666,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-For more information, see [How to stream logs](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### Viewing log files locally
 

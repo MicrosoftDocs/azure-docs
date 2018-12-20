@@ -319,7 +319,7 @@
         - name: Dependencies
           href: ../application-insights/app-insights-asp-net-dependencies.md?toc=/azure/azure-monitor/toc.json
         - name: Release annotations
-          href: ../application-insights/app-insights-annotations.md?toc=/azure/azure-monitor/toc.json
+          href: app/annotations.md
         - name: ApplicationInsights.config
           href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=/azure/azure-monitor/toc.json
         - name: Snapshot Debugger
@@ -396,7 +396,7 @@
         - name: Snapshot debugger
           href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
         - name: Analytics
-          href: ../application-insights/app-insights-analytics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+          href: app/analytics-troubleshooting.md
         - name: Java
           href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
         - name: Usage analytics
@@ -475,7 +475,7 @@
         - name: Live stream
           href: ../application-insights/app-insights-live-stream.md?toc=/azure/azure-monitor/toc.json
         - name: Application Map
-          href: ../application-insights/app-insights-app-map.md?toc=/azure/azure-monitor/toc.json
+          href: app/app-map.md
         - name: Transaction diagnostics
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: HockeyApp data
@@ -638,7 +638,7 @@
       - name: Logs
         href: platform/dashboards.md
       - name: Applications
-        href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
+        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: Export log data
@@ -710,7 +710,7 @@
       - name: Log data
         items:
         - name: Application data
-          href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+          href: app/analytics.md
         - name: Standard properties
         - name: Parse text data
           href: log-query/parse-text.md
@@ -763,7 +763,7 @@
         - name: Availability
           href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
         - name: Metric alerts
-          href: ../application-insights/app-insights-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: app/alerts.md
       - name: Use action groups with alerts
         items:
         - name: Create action groups
@@ -877,11 +877,11 @@
     - name: Applications
       items:
       - name: API for custom events and metrics
-        href: ../application-insights/app-insights-api-custom-events-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: app/api-custom-events-metrics.md
       - name: Track custom operations in .NET SDK
         href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
       - name: Filtering and preprocessing telemetry
-        href: ../application-insights/app-insights-api-filtering-sampling.md?toc=/azure/azure-monitor/toc.json
+        href: app/api-filtering-sampling.md
       - name: Sampling
         href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
     - name: Monitoring solutions

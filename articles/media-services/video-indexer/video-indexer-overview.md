@@ -16,8 +16,8 @@ ms.author: juliako
 
 Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer models described below:
  
-- **Automatic language detection**:	Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, Portuguese (Brazilian), Hindi, and Korean. Will fallback to English when the language can't be detected.
-- **Audio transcription**: Converts speech to text in 10 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, and Portuguese (Brazilian).
+- **Automatic language detection**:	Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Portuguese (Brazilian). Will fallback to English when the language can't be detected.
+- **Audio transcription**: Converts speech to text in 10 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Portuguese (Brazilian), Hindi, and Korean.
 - **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 - **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
 - **Noise reduction**:	Clears up telephony audio or noisy recordings (based on Skype filters).

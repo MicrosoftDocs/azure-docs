@@ -129,6 +129,6 @@ Max length: 256
 
 ## Next steps
 
-- Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
+- Learn how to [extend and filter telemetry](../azure-monitor/app/api-filtering-sampling.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Check out standard context properties collection [configuration](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
