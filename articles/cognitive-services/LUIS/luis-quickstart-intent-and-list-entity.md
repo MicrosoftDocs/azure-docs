@@ -14,14 +14,15 @@ ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Tutorial: Get exact text-matched data from the utterance
-In this tutorial, understand how to get data that matches a predefined list of items.
+# Tutorial: Get exact text-matched data from an utterance
+
+In this tutorial, understand how to get entity data that matches a predefined list of items. 
 
 **In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Create app
 > * Add MoveEmployee intent
 > * Add list entity 
 > * Train 
@@ -50,7 +51,7 @@ A list entity is a good choice for this type of data when:
 
 2. Select **Create new intent**. 
 
-3. Enter `MoveEmployee` in the pop-up dialog box then select **Done**. 
+3. Enter `TransferEmployeeToDepartment` in the pop-up dialog box then select **Done**. 
 
     ![Screenshot of create new intent dialog with](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 

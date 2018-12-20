@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 --- 
 
-# Tutorial 6: Group and extract related data
+# Tutorial: Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
 The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to hierarchical entity but can contain different types of entities. 
@@ -28,7 +28,7 @@ The composite entity is a good fit for this type of data because the data:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Create app
 > * Add composite entity 
 > * Train
 > * Publish
@@ -37,94 +37,75 @@ The composite entity is a good fit for this type of data because the data:
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
-Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
-
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) from the Regular Expression entity tutorial.
 
 2. Import the JSON into a new app.
 
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
-
 ## Composite entity
-Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
 
-In this app, the employee name is defined in the **Employee** list entity and includes synonyms of name, email address, company phone extension, mobile phone number, and U.S. Federal tax ID. 
+In this app, the department name is defined in the **Department** list entity and includes synonyms. 
 
-The **MoveEmployee** intent has example utterances to request an employee be moved from one building and office to another. Building names are alphabetic: "A", "B", etc. while offices are numeric: "1234", "13245". 
+The **TransferEmployeeToDepartment** intent has example utterances to request an employee be moved from one department to another. 
 
-Example utterances in the **MoveEmployee** intent include:
+Example utterances for this intent include:
 
 |Example utterances|
 |--|
-|Move John W . Smith to a-2345|
-|shift x12345 to h-1234 tomorrow|
- 
-The move request should include the employee (using any synonym), and the final building and office location. The request can also include the originating office as well as a date the move should happen. 
+|move John W. Smith to the accounting department|
+|transfer Jill Jones from to R&D|
+|Dept 1234 has a new member named Bill Bradstreet|
+|Place John Jackson in Engineering |
+|move Debra Doughtery to Inside Sales|
+|mv Jill Jones to IT|
+|Shift Alice Anderson to DevOps|
+|Carl Chamerlin to Finance|
+|Steve Standish to 1234|
+|Tanner Thompson to 3456|
 
-The extracted data from the endpoint should contain this information and return it in the `RequestEmployeeMove` composite entity:
+ 
+The move request should include the department name, and the employee name. 
+
+The extracted data from the endpoint should contain this information and return it in the `TransferEmployeeInfo` composite entity:
 
 ```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
+
 ```
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+## Add the PersonName prebuilt entity to help with common data type extraction
 
-2. On the **Intents** page, select **MoveEmployee** intent. 
+LUIS provides several prebuilt entities for common data extraction. 
 
-3. Select the magnifying glass icon on the tool bar to filter the utterances list. 
+1. Select **Build** from the top navigation, then select **Entities** from the left navigation menu.
 
-    [![Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+2. Select **Manage prebuilt entity** button.
 
-4. Enter `tomorrow` in the filter textbox to find the utterance `shift x12345 to h-1234 tomorrow`.
+3. Select **[PersonName](luis-reference-prebuilt-person.md)** from the list of prebuilt entities then select **Done**.
 
-    [![Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
+    This entity helps you add name recognition to your client application.
 
-5. Select the first entity, `Employee`, then select **Wrap in composite entity** in the pop-up menu list. 
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## Create composite entity from example utterances
+
+1. In the first utterance, select the first entity, `john smith`, then select **Wrap in composite entity** in the pop-up menu list. 
 
     [![Screenshot of wrapping entity in composite entity highlighted](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of wrapping entity in composite entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select enter. 
+1. Then immediately select the last entity, `accting` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter. 
 
     [![Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-7. In **What type of entity do you want to create?**, almost all the fields required are in the list. Only the originating location is missing. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
+1. In **What type of entity do you want to create?**, all the fields required are in the list. Select **Done**. 
 
-    Notice that the prebuilt entity, number, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
+    Notice that the prebuilt entity, personName, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
 
     ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. Select the magnifying glass on the toolbar to remove the filter. 
-
-9. Remove the word `tomorrow` from the filter so you can see all the example utterances again. 
 
 ## Label example utterances with composite entity
 
@@ -133,23 +114,23 @@ The extracted data from the endpoint should contain this information and return 
 
     [![Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
-2. Select the last word in the composite entity then select **RequestEmployeeMove** from the pop-up menu. 
+1. Select the last word in the composite entity then select **TransferEmployeeInfo** from the pop-up menu. 
 
     [![Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
-3. Verify all utterances in the intent are labeled with the composite entity. 
+1. Verify all utterances in the intent are labeled with the composite entity. 
 
     [![Screenshot of LUIS on 'MoveEmployee' with all utterances labeled](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## Train
+## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish
+## Publish the app so the trained model is queryable from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Get intent and entities from endpoint 
+## Get intent and entity prediction from endpoint 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -328,6 +309,14 @@ The extracted data from the endpoint should contain this information and return 
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Related information
+
+* [Composite entity](luis-concept-entity-types.md#composite) conceptual information
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
+
 
 ## Next steps
 
