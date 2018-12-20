@@ -39,7 +39,7 @@ Azure Backup doesn't encrypt data as a part of the backup process. Azure Backup 
 - The BEK(secrets) and KEK(keys) backed up are encrypted so they can be read and used only when restored back to key vault by the authorized users.
 - Since the BEK is also backed up, in scenarios where BEK is lost, authorized users can restore the BEK to the KeyVault and recover the encrypted VM. Keys and secrets of encrypted VMs are backed up in encrypted form, so neither unauthorized users nor Azure can read or use backed up keys and secrets. Only users with the right level of permissions can backup and restore encrypted VMs, as well as keys and secrets.
 
-## Snapshot consistentcy
+## Snapshot consistency
 
 To take snapshots while apps are running, Azure Backup takes app-consistent snapshots.
 - **Windows VMs**: For Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the VM disks. 
