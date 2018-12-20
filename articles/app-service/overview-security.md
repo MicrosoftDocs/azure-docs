@@ -25,7 +25,7 @@ This article shows you how [Azure App Service](overview.md) helps secure your we
 The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that:
 
 - Your app resources are [secured](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) from the other customers' Azure resources.
-- [VM instances and runtime software are regularly updated](app-service-patch-os-runtime.md) to address newly discovered vulnerabilities. 
+- [VM instances and runtime software are regularly updated](overview-patch-os-runtime.md) to address newly discovered vulnerabilities. 
 - Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](https://azure.microsoft.com/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted when stored.
 - All communication over the App Service connectivity features, such as [hybrid connection](app-service-hybrid-connections.md), is encrypted. 
 - Connections with remote management tools like Azure PowerShell, Azure CLI, Azure SDKs, REST APIs, are all encrypted.
@@ -77,7 +77,7 @@ There are three types of remote resources your app may need to access:
 - [Resources inside an Azure Virtual Network](#resources-inside-an-azure-virtual-network)
 - [On-premises resources](#on-premises-resources)
 
-In each of these cases, App Service provides a way for you to make secure connections, but you should still observe security best practices. For example, always use encrypted connections even if the back-end resource allows unencrypted connections. Furthermore, make sure that your back-end Azure service allows the minimum set of IP addresses. You can find the outbound IP addresses for your app at [Inbound and outbound IP addresses in Azure App Service](app-service-ip-addresses.md).
+In each of these cases, App Service provides a way for you to make secure connections, but you should still observe security best practices. For example, always use encrypted connections even if the back-end resource allows unencrypted connections. Furthermore, make sure that your back-end Azure service allows the minimum set of IP addresses. You can find the outbound IP addresses for your app at [Inbound and outbound IP addresses in Azure App Service](overview-inbound-outbound-ips.md).
 
 ### Azure resources
 

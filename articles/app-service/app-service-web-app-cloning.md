@@ -21,7 +21,7 @@ ms.custom: seodec18
 # Azure App Service App Cloning Using PowerShell
 With the release of Microsoft Azure PowerShell version 1.1.0, a new option has been added to `New-AzureRMWebApp` that lets you clone an existing App Service app to a newly created app in a different region or in the same region. This option enables customers to deploy a number of apps across different regions quickly and easily.
 
-App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as App Service Backup feature, see [Back up an app in Azure App Service](web-sites-backup.md).
+App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
 
 ## Cloning an existing app
 Scenario: An existing app in South Central US region, and you want to clone the contents to a new app in North Central US region. It can be accomplished by using the Azure Resource Manager version of the PowerShell cmdlet to create a new app with the `-SourceWebApp` option.
@@ -126,7 +126,7 @@ This feature is currently in preview, and new capabilities are added over time. 
 
 ### References
 * [App Service Cloning](app-service-web-app-cloning.md)
-* [Back up an app in Azure App Service](web-sites-backup.md)
+* [Back up an app in Azure App Service](manage-backup.md)
 * [Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introduction to App Service Environment](environment/intro.md)
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
