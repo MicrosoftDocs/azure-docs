@@ -17,7 +17,7 @@ ms.author: apimpm
 ---
 # How to create subscriptions in Azure API Management
 
-When publishing APIs through Azure API Management, the easiest and most common way to secure access to those APIs is by using subscription keys. In other words, client applications that need to consume the published APIs must include a valid subscription key in HTTP requests when making calls to those APIs. To obtain a subscription key for accessing APIs, a subscription is required. For more information about subscriptions, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
+When you publish APIs through Azure API Management, it's easy and common to secure access to those APIs by using subscription keys. Client applications that need to consume the published APIs must include a valid subscription key in HTTP requests when they make calls to those APIs. To obtain a subscription key for accessing APIs, a subscription is required. For more information about subscriptions, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 
 This article walks through the steps for creating subscriptions in the Azure portal.
 
@@ -37,7 +37,7 @@ To take the steps in this article, the prerequisites are as follows:
 
 ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
 
-After the subscription is created, a pair of API keys, primary and secondary, are provisioned for accessing the APIs.
+After you create the subscription, two API keys are provided to access the APIs. One key is primary, and one is secondary. 
 
 ## Next steps
 Get more information on API Management:
