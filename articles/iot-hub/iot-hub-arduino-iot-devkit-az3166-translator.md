@@ -25,6 +25,13 @@ To complete the steps in this tutorial, first do the following tasks:
 
 ## Open sample project
 
+1. Make sure your IoT DevKit is **not connected** to your computer. Start VS Code first, and then connect the DevKit to your computer.
+
+1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **IoT DevKit** as board.
+
+1. In the IoT Workbench Examples page, find **Get Started** and click **Open Sample**. Then selects the default path to download the sample code.
+  ![Open sample](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
+
 ## Open the project folder
 
 First, open the project folder. 
