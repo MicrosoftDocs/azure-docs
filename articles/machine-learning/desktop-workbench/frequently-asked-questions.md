@@ -54,7 +54,7 @@ No, the Experimentation Service allows as many experiments as you need and charg
 
 **What specific kinds of compute and storage resources can I use?**
 
-The Experimentation service can execute your experiments on local machines (direct or Docker-based), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/). The service also accesses an [Azure Storage](https://azure.microsoft.com/services/storage/) account for storing execution outputs and can leverage a [Azure DevOps](https://azure.microsoft.com/services/devops/) account for version-control and Git storage. Note that you will be billed independently for any consumed compute and storage resources, based upon their individual pricing.
+The Experimentation service can execute your experiments on local machines (direct or Docker-based), [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/). The service also accesses an [Azure Storage](https://azure.microsoft.com/services/storage/) account for storing execution outputs and can leverage an [Azure DevOps](https://azure.microsoft.com/services/devops/) account for version-control and Git storage. Note that you will be billed independently for any consumed compute and storage resources, based upon their individual pricing.
 
 ## Model Management
 
