@@ -43,7 +43,7 @@ In this phase a migration of workload to Azure is planned. The minimum set of en
 	3.	Business Continuity and Disaster Recovery architecture
 	4.	Detailed OS, DB, Kernel and SAP support pack versions. it is not a given that any OS release that is supported by SAP NetWeaver or  S/4HANA is supported on Azure VMs. Same is true for DBMS releases. It is mandatory that the following sources get checked in order to align and if necessary upgrade SAP releases, DBMS releases or OS releases in order to be in a SAP and Azure supported window. It is mandatory that you are within SAP and Azure supported release combinations to get full support by SAP and Microsoft. If necessary you need to plan for upgrading some of the software components. More details on supported SAP, OS and DBMS software is documented in these locations:
 		1.	SAP support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). This note defines the minimum OS releases supported on Azure VMs. It also defines minimum database releases required for most non-HANA database. The note also presents the SAP sizing of the different SAP supported Azure VMs.
-		2.	SAP support note [#2039619](https://launchpad.support.sap.com/#/notes/2039619). The note defines the Oracle support matrix on Azure
+		2.	SAP support note [#2039619](https://launchpad.support.sap.com/#/notes/2039619). The note defines the Oracle support matrix on Azure. Realize that Oracle does support Windows and Oracle Linux as guest OS in Azure only. This applies for the SAP application layer running SAP instances as well. However, Oracle does not support high availability for SAP Central services. As a result you might need a different OS just for SAP Central services which are not connecting to the Oracle DBMS
 		3.	SAP support note [#2235581](https://launchpad.support.sap.com/#/notes/2235581) to get the support matrix for SAP HANA on the different OS releases
 		4.	SAP HANA supported Azure VMs and [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) are listed [here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 		5.	[SAP Product Availability Matrix](https://support.sap.com/en/)
@@ -87,7 +87,12 @@ The pilot can run before or in parallel to project planning and preparation. The
 		1.	Use Azure Premium Storage for Database VMs
 		2.	Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/)
 		3.	Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write accelerator limits and usage as documented in [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
-		4.	For the different DBMS types check the [generic SAP releated DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the 
+		4.	For the different DBMS types check the [generic SAP releated DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the DBMS specific documentations the generic document points you to
+		5.	For SAP HANA more details are documented in [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
+	3.	Networking
+		1.	Test and evaluate your VNet infrastructure and the distribution of your SAP applications across or within the different VNets
+			1.	Evaluate the approach of hub and spoke or microsegmentation within a single VNet based on
+				1.	Costs due to data exchange between [peered Azure VNets](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). For costs check [Virtual Network Pricing](https://azure.microsoft.com/pricing/details/virtual-network/)
 a.	VM Types are certified as per Note 1928533 - SAP Applications on Azure - Supported Products and Azure VM types
 b.	DB & APP VMs are on the same vNet and no traffic redirection or inspection between DB & APP VMs
 c.	Run /SSA/CAT in SE38 and record results – target range for DB Acc and E DB Acc = 50-60 for VMs
