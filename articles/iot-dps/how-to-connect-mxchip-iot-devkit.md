@@ -35,7 +35,7 @@ To complete the steps in this tutorial, first do the following tasks:
 
 1. Click `F1` to open the command palette, type and select **Azure IoT Device Workbench: Open Examples...**. Then select **IoT DevKit** as board.
 
-1. In the IoT Workbench Examples page, find **Get Started** and click **Open Sample**. Then selects the default path to download the sample code.
+1. In the IoT Workbench Examples page, find **Device Registration with DPS** and click **Open Sample**. Then selects the default path to download the sample code.
     ![Open sample](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
 
 ## Save a Unique Device Secret on device security storage
