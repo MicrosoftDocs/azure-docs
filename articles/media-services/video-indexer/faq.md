@@ -13,7 +13,7 @@ ms.author: juliako
 ---
 # Frequently Asked Questions
 
-This articles answers frequently asked questions about Video Indexer.
+This article answers frequently asked questions about Video Indexer.
 
 ## General Questions
 
