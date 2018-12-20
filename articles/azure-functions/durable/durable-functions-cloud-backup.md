@@ -168,6 +168,9 @@ Now you can see that the orchestration is complete and approximately how much ti
 
 Here is the orchestration as a single C# file in a Visual Studio project:
 
+> [!NOTE]
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` Nuget package to run the sample code below.
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Connect a web app to a storage account | Microsoft Docs
-description: Azure CLI Script Sample - Connect a web app to a storage account
+title: Azure CLI Script Sample - Connect an app to a storage account | Microsoft Docs
+description: Azure CLI Script Sample - Connect an app to a storage account
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -20,9 +20,9 @@ ms.custom: mvc
 ms.custom: seodec18
 ---
 
-# Connect a web app to a storage account using CLI
+# Connect an App Service app to a storage account using CLI
 
-This sample script creates an Azure storage account and an Azure web app. It then links the storage account to the web app using app settings.
+This sample script creates an Azure storage account and an App Service app. It then links the storage account to the app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,16 +39,16 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, web app, storage account, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, App Service app, storage account, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
 | [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Creates a storage account. |
 | [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) | Get the connection string for a storage account. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Creates or updates an app setting for an App Service app. App settings are exposed as environment variables for your app. |
 
 ## Next steps
 

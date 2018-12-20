@@ -9,7 +9,7 @@
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
-    href: choose-web-site-cloud-service-vm.md
+    href: overview-compare.md
 - name: Quickstarts
   expanded: true
   items:
@@ -66,14 +66,14 @@
   - name: How App Service works
     href: app-service-how-works-readme.md
   - name: App Service plans
-    href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    href: overview-hosting-plans.md
   - name: OS functionality
     href: operating-system-functionality.md
   - name: Security
-    href: app-service-security.md
+    href: overview-security.md
     items:
     - name: Authentication and authorization
-      href: app-service-authentication-overview.md
+      href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: app-service-patch-os-runtime.md
   - name: Inbound and outbound IPs
@@ -83,9 +83,9 @@
   - name: Traffic Manager integration
     href: web-sites-traffic-manager.md
   - name: Local cache
-    href: app-service-local-cache-overview.md
+    href: overview-local-cache.md
   - name: Diagnostics
-    href: app-service-diagnostics.md
+    href: overview-diagnostics.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -147,7 +147,7 @@
     - name: Restrict IPs
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
-      href: app-service-managed-service-identity.md
+      href: overview-managed-identity.md
     - name: Reference secrets from Key Vault
       href: app-service-key-vault-references.md
     - name: Use SSL cert in application code
