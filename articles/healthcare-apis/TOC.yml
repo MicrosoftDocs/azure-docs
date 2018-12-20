@@ -23,6 +23,11 @@
       href: documentation-fhir-quickstart-oss-powershell.md
     - name: CLI
       href: documentation-fhir-quickstart-oss-cli.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Configuring identity
+    href: documentation-fhir-tutorial-configure-identity.md
 - name: How-to guides
   expanded: false
   items:
