@@ -99,7 +99,7 @@ This example policy set will grant selected users in **AppUsers**, access to sel
 ### Contingencies for user lockout
 
 Alternatively, your organization can also create contingency policies. To create contingency policies, you must define tradeoff criteria between business continuity, operational cost, financial cost, and security risks. For example, you may activate a contingency policy only to a subset of users, for a subset of apps, for a subset of clients, or from a subset of locations. Contingency policies will give administrators and end users access to apps and resources, during a disruption when no mitigation method was implemented.
-Reducing your risk during and surface of attack during an implemented contingency plan is a critical part of your planning process. To create your contingency plan, first determine the following business requirements of your organization:
+Reducing your risk by understanding your exposure during a disruption is a critical part of your planning process. To create your contingency plan, first determine the following business requirements of your organization:
 
 1. Determine your mission critical apps ahead of time: What are the apps that you must give access to, even with a lower risk/security posture? Build a list of these apps and make sure your other stakeholders (business, security, legal, leadership) all agree that if all access control goes away, these apps still must continue to run. You are likely going to end up with categories of:
   * **Category 1 mission critical apps** that cannot be unavailable for more than a few minutes, for example Apps that directly affect the revenue of the organization.
