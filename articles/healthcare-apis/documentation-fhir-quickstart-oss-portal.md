@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Quickstart: Deploy Open Source FHIR Server using Azure portal
 
-In this quickstart, you'll learn how to deploy an Open Source FHIR Server in Azure using the Azure portal. We will use easy deployment links in the [Open Source respository](https://github.com/Microsoft/fhir-server)
+In this quickstart, you'll learn how to deploy an Open Source FHIR Server in Azure using the Azure portal. We will use easy deployment links in the [Open Source repository](https://github.com/Microsoft/fhir-server)
 
 ## Prerequisites
 
@@ -25,17 +25,17 @@ Navigate to the [GitHub deployment page](https://github.com/Microsoft/fhir-serve
 
 ![Open Source Deployment Page](media/quickstart-oss-portal/deployment-page-oss.png)
 
-Click the deployment button and the Azure Portal opens.
+Click the deployment button and the Azure portal opens.
 
 ## Fill in deployment parameters
 
 Choose to create a new resource group and give it a name. Only other required parameter is a name for the service.
 
-![Custome Deployment Parameters](media/quickstart-oss-portal/deployment-custom-parameters.png)
+![Custom Deployment Parameters](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
-Notice that the deployment will pull the source code directly from the open source repository on GitHub. If you have forked the repository, you can point to your own for and a specific branch.
+Notice that the deployment will pull the source code directly from the open-source repository on GitHub. If you have forked the repository, you can point to your own for and a specific branch.
 
-After filling in the details you can start the deployment.
+After filling in the details, you can start the deployment.
 
 ## Validate FHIR Server is running
 
