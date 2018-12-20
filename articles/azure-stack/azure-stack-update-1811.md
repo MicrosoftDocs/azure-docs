@@ -71,7 +71,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     link to prepare for Extension Host:
     https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare`
 
-- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this article](azure-stack-extension-host-prepare.md).
+- The Azure Stack 1811 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1811 update, you must import the SSL certificates required for the extension host. To prepare for the extension host, see [this section](azure-stack-extension-host-prepare.md#import-extension-host-certificates).
 
     If you ignore every warning and still choose to install the 1811 update, the update will fail in approximately 1 hour with the following message:   
  
