@@ -1,10 +1,17 @@
 ---
-
+title: Rewrite HTTP headers in Azure Application Gateway
+description: This article provides information on how to create an Azure Application Gateway and rewrite HTTP headers using Azure PowerShell
+services: application-gateway
+author: abshamsft
+ms.service: application-gateway
+ms.topic: article
+ms.date: 12/20/2018
+ms.author: absha
 ---
-# Tutorial: Create an application gateway that improves web application access
+# Tutorial: Create an application gateway and rewrite HTTP headers
 
 You can use Azure PowerShell to
-configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 > [!IMPORTANT] 
 > The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
@@ -100,15 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configure the new objects required to rewrite the http headers:
 
-1. http request and/or response configuration, where you will specify the names of headers that you intend to rewrite and new value that the original headers need to be rewritten to.
-
-2.  “actionSet”- this object contains the configurations of the request and response headers specified above.
-
-3. “rewriteRule”- this object contains all the actionSets
-
-4. “rewriteRuleSet”- this object contains all the rewriteRules and will need to be attached to a request routing rule- basic or path-based.
-
-
+- RequestHeaderConfiguration**: this object is used to specify the request header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
+- **ResponseHeaderConfiguration**: this object is used to specify the response header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
+- **ActionSet**: this object contains the configurations of the request and response headers specified above. 
+- **RewriteRule**: this object contains all the *actionSets* specified above. 
+- **RewriteRuleSet**- this object contains all the *rewriteRules* and will need to be attached to a request routing rule - basic or path-based.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
@@ -156,7 +159,11 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 Use Get-AzureRmPublicIPAddress to get the public IP address of the application gateway. Copy the public IP address or DNS name, and then paste it into the address bar of your browser.
 
-`Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
+```azurepowershell
+Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
+```
+
+
 
 ## Clean up resources
 
