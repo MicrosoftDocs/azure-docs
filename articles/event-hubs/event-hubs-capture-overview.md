@@ -59,6 +59,7 @@ You can configure Capture at the event hub creation time using the [Azure portal
 - [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md)
 - [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+
 ## Exploring the captured files and working with Avro
 
 Event Hubs Capture creates files in Avro format, as specified on the configured time window. You can view these files in any tool such as [Azure Storage Explorer][Azure Storage Explorer]. You can download the files locally to work on them.
@@ -77,9 +78,13 @@ A native support to Azure Blob Store is available, which makes quering data cont
 
 [Apache Drill: Azure Blob Storage Plugin][Apache Drill: Azure Blob Storage Plugin]
 
-to query captured files easily a VM with Apache Drill enabled to access Azure Blobl Storage can be created in executed via container:
+to query captured files easily a VM with Apache Drill enabled to access Azure Blob Storage can be created in executed via container:
 
 https://github.com/yorek/apache-drill-azure-blob
+
+A full end-to-end sample is available in the Streaming at Scale repository:
+
+[Streaming at Scale: Event Hubs Capture]
 
 ### Use Apache Spark
 
@@ -151,3 +156,4 @@ You can learn more about Event Hubs by visiting the following links:
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
+[Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
