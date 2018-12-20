@@ -1,5 +1,5 @@
 ---
-title: Attach Cognitive Services to your skillset (Azure Search) | Microsoft Docs
+title: Attach Cognitive Services to your skillset - Azure Search
 description: Instructions for attaching a Cognitive Services All-in-One subscription to a Cognitive Skillset
 manager: cgronlun
 author: HeidiSteen
@@ -9,6 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 # Associate Cognitive Services resource with a skillset 
 
@@ -111,7 +112,7 @@ For the 1000 documents:
 
 3. For entity extraction, we would have a total of 3 text records per page (each record is 1,000 characters). 3 text records/page * 6,000 pages = 18,000 text records. Assuming $2.00 / 1000 text records, this step would cost us $36.00.
 
-Puting it all together, we would pay $57.00 to ingest 1000 pdf documents of this nature with the skillset described.  In this exercise we assumed the most expensive price per transaction, it could have been lower due to graduating pricing. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
+Putting it all together, we would pay $57.00 to ingest 1000 pdf documents of this nature with the skillset described.  In this exercise we assumed the most expensive price per transaction, it could have been lower due to graduating pricing. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
 
 
 

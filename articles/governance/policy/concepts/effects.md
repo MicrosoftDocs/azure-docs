@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Policy effects
+title: Understand how effects work
 description: Azure Policy definition have various effects that determine how compliance is managed and reported.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,7 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
+ms.custom: seodec18
 ---
 # Understand Policy effects
 
@@ -306,7 +306,7 @@ related resources to match and the template deployment to execute.
 ### DeployIfNotExists example
 
 Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If
-not, then a deployment to enable it's executed.
+not, then a deployment to enable is executed.
 
 ```json
 "if": {

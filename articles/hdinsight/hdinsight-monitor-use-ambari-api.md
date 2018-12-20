@@ -12,11 +12,11 @@ ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Monitor Hadoop clusters in HDInsight using the Ambari API
-Learn how to monitor HDInsight clusters by using Ambari APIs.
+# Monitor Apache Hadoop clusters in HDInsight using the Apache Ambari API
+Learn how to monitor HDInsight clusters by using Apache Ambari APIs.
 
-> [!NOTE]
-> The information in this article is primarily for Windows-based HDInsight clusters, which provide a read-only version of the Ambari REST API. For Linux-based clusters, see [Manage Hadoop clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
+> [!NOTE]  
+> The information in this article is primarily for Windows-based HDInsight clusters, which provide a read-only version of the Ambari REST API. For Linux-based clusters, see [Manage Apache Hadoop clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
@@ -32,7 +32,7 @@ Before you begin this tutorial, you must have the following items:
 * **A workstation with Azure PowerShell**.
 * (Optional) [cURL][curl]. To install it, see [cURL Releases and Downloads][curl-download].
   
-  > [!NOTE]
+  > [!NOTE]  
   > When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
   > 
   > 
@@ -116,7 +116,7 @@ The output is:
 When using the Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field returns the fully qualified domain name (FQDN) of the node instead of the host name. Before the 10/8/2014 release, this example returned simply "**headnode0**". After the 10/8/2014 release, you get the FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**", as shown in the previous example. This change was required to facilitate scenarios where multiple cluster types (such as HBase and Hadoop) can be deployed in one virtual network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
 
 ## Ambari monitoring APIs
-The following table lists some of the most common Ambari monitoring API calls. For more information about the API, see [Ambari API Reference][ambari-api-reference].
+The following table lists some of the most common Ambari monitoring API calls. For more information about the API, see [Apache Ambari API Reference][ambari-api-reference].
 
 | Monitor API call | URI | Description |
 | --- | --- | --- |
@@ -134,7 +134,7 @@ The following table lists some of the most common Ambari monitoring API calls. F
 | Get configuration info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Config types: core-site, hdfs-site, mapred-site, hive-site |
 
 ## Next Steps
-Now you have learned how to use Ambari monitoring API calls. To learn more, see:
+Now you have learned how to use Apache Ambari monitoring API calls. To learn more, see:
 
 * [Manage HDInsight clusters using the Azure portal][hdinsight-admin-portal]
 * [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]

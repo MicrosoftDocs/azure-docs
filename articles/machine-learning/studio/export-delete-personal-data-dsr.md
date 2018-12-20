@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ---
 
-# Export and delete in-product user data from Machine Learning Studio
+# Export and delete in-product user data from Azure Machine Learning Studio
 
 You can delete or export in-product data stored by Azure Machine Learning Studio by using the Azure portal, the Studio interface, PowerShell, and authenticated REST APIs. This article tells you how. 
 

@@ -75,7 +75,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 Before you begin with this section, you must complete the following prerequisites:
 
 * [Create an Azure Blob storage account](../storage/common/storage-quickstart-create-account.md).
-* Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Download a sample JSON file [from GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
 Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.

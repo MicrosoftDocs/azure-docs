@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB 
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app with Express, Angular, and Node.js (the MEAN stack), and connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are easy cloud deployment, scaling, security, global replicated data, multi-model support, and super-fast reads and writes. 
+This multi-part tutorial demonstrates how to create a new [Azure Cosmos DB API account for MongoDB](mongodb-introduction.md) app with Express, Angular, and Node.js (the MEAN stack), and connect it to your Azure Cosmos DB database. Azure Cosmos DB supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps but with added benefits. These benefits from Azure Cosmos DB are easy cloud deployment, scaling, security, global replicated data, multi-model support, and super-fast reads and writes. 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. It enables you to quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 

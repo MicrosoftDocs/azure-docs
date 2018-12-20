@@ -1,7 +1,7 @@
 ---
 title: Compute targets for model training
 titleSuffix: Azure Machine Learning service
-description: Learn how to select and configure the training environments (compute targets) used to train your machine learning models. The Azure Machine Learning service lets you easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target.
+description: Configure the training environments (compute targets) for machine learning model training. You can easily switch training environments. Start training locally, and if you need to scale out, switch to a cloud-based compute target. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -263,6 +263,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
     compute.wait_for_completion(show_output=True)
+    ```
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 

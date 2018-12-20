@@ -13,9 +13,9 @@ ms.date: 03/22/2018
 ms.author: hrasheed
 
 ---
-# Availability and reliability of Hadoop clusters in HDInsight
+# Availability and reliability of Apache Hadoop clusters in HDInsight
 
-HDInsight clusters provide two head nodes to increase the availability and reliability of Hadoop services and jobs running.
+HDInsight clusters provide two head nodes to increase the availability and reliability of Apache Hadoop services and jobs running.
 
 Hadoop achieves high availability and reliability by replicating services and data across multiple nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working. HDInsight provides two headnodes to improve Hadoop's availability and reliability.
 
@@ -25,23 +25,23 @@ Hadoop achieves high availability and reliability by replicating services and da
 
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The following sections discuss the individual node types used with HDInsight. 
 
-> [!NOTE]
+> [!NOTE]  
 > Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
 
 ### Head nodes
 
-To ensure high availability of Hadoop services, HDInsight provides two head nodes. Both head nodes are active and running within the HDInsight cluster simultaneously. Some services, such as HDFS or YARN, are only 'active' on one head node at any given time. Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
+To ensure high availability of Hadoop services, HDInsight provides two head nodes. Both head nodes are active and running within the HDInsight cluster simultaneously. Some services, such as Apache HDFS or Apache Hadoop YARN, are only 'active' on one head node at any given time. Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 
 Head nodes (and other nodes in HDInsight) have a numeric value as part of the hostname of the node. For example, `hn0-CLUSTERNAME` or `hn4-CLUSTERNAME`.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Do not associate the numeric value with whether a node is primary or secondary. The numeric value is only present to provide a unique name for each node.
 
 ### Nimbus Nodes
 
-Nimbus nodes are available with Storm clusters. The Nimbus nodes provide similar functionality to the Hadoop JobTracker by distributing and monitoring processing across worker nodes. HDInsight provides two Nimbus nodes for Storm clusters
+Nimbus nodes are available with Apache Storm clusters. The Nimbus nodes provide similar functionality to the Hadoop JobTracker by distributing and monitoring processing across worker nodes. HDInsight provides two Nimbus nodes for Storm clusters
 
-### Zookeeper nodes
+### Apache Zookeeper nodes
 
 [ZooKeeper](http://zookeeper.apache.org/) nodes are used for leader election of master services on head nodes. They are also used to insure that services, data (worker) nodes, and gateways know which head node a master service is active on. By default, HDInsight provides three ZooKeeper nodes.
 
@@ -59,7 +59,7 @@ For information on using an edge node with other cluster types, see the [Use edg
 
 ## Accessing the nodes
 
-Access to the cluster over the internet is provided through a public gateway. Access is limited to connecting to the head nodes and (if one exists) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes. The public gateway routes requests to the head node that hosts the requested service. For example, if Ambari is currently hosted on the secondary head node, the gateway routes incoming requests for Ambari to that node.
+Access to the cluster over the internet is provided through a public gateway. Access is limited to connecting to the head nodes and (if one exists) the edge node. Access to services running on the head nodes is not effected by having multiple head nodes. The public gateway routes requests to the head node that hosts the requested service. For example, if Apache Ambari is currently hosted on the secondary head node, the gateway routes incoming requests for Ambari to that node.
 
 Access over the public gateway is limited to port 443 (HTTPS), 22, and 23.
 
@@ -75,7 +75,7 @@ For more information on using SSH, see the [Use SSH with HDInsight](hdinsight-ha
 
 Nodes in an HDInsight cluster have an internal IP address and FQDN that can only be accessed from the cluster. When accessing services on the cluster using the internal FQDN or IP address, you should use Ambari to verify the IP or FQDN to use when accessing the service.
 
-For example, the Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This URL can be retrieved from Ambari by using the following command:
+For example, the Apache Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This URL can be retrieved from Ambari by using the following command:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
@@ -83,7 +83,7 @@ This command returns a value similar to the following command, which contains th
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-For more information on working with the Ambari REST API, see [Monitor and Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+For more information on working with the Ambari REST API, see [Monitor and Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### Accessing other node types
 
@@ -117,7 +117,7 @@ Selecting the link for one of the head nodes displays the services and component
 
 ![Component status](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-For more information on using Ambari, see [Monitor and manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
+For more information on using Ambari, see [Monitor and manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ### Ambari REST API
 
@@ -154,7 +154,7 @@ If you do not know what services are installed on the cluster, you can use the f
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-For more information on working with the Ambari REST API, see [Monitor and Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+For more information on working with the Ambari REST API, see [Monitor and Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### Service components
 
@@ -187,12 +187,12 @@ Once connected, you are presented with a `sftp>` prompt. From this prompt, you c
 
 For a list of available commands, enter `help` at the `sftp>` prompt.
 
-> [!NOTE]
+> [!NOTE]  
 > There are also graphical interfaces that allow you to visualize the file system when connected using SFTP. For example, [MobaXTerm](http://mobaxterm.mobatek.net/) allows you to browse the file system using an interface similar to Windows Explorer.
 
 ### Ambari
 
-> [!NOTE]
+> [!NOTE]  
 > To access log files using Ambari, you must use an SSH tunnel. The web interfaces for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see the [Use SSH Tunneling](hdinsight-linux-ambari-ssh-tunnel.md) document.
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN). Then use **Quick Links** to select which head node to view the logs for.
@@ -217,10 +217,10 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 Use the following links to learn more about things mentioned in this document.
 
-* [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Install and configure the Azure Classic CLI](../cli-install-nodejs.md)
 * [Install and configure Azure PowerShell](/powershell/azure/overview)
-* [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/

@@ -1,5 +1,5 @@
 ﻿---
-title: Guidance on deploying Azure web apps by using templates | Microsoft Docs 
+title: Guidance on deploying apps with templates - Azure App Service | Microsoft Docs 
 description: Recommendations for creating Azure Resource Manager templates to deploy web apps.
 services: app-service
 documentationcenter: app-service
@@ -12,6 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: tomfitz
+ms.custom: seodec18
 
 ---
 # Guidance on deploying web apps by using Azure Resource Manager templates
@@ -132,4 +133,4 @@ For an example template, see [Deploy a Web App certificate from Key Vault secret
 
 ## Next steps
 
-* For a tutorial on deploying web apps with a template, see [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md).
+* For a tutorial on deploying web apps with a template, see [Provision and deploy microservices predictably in Azure](deploy-complex-application-predictably.md).

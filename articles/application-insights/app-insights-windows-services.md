@@ -84,7 +84,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 * Set the instrumentation key in code, for example in `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
-* [Write your own telemetry using the API](app-insights-api-custom-events-metrics.md#ikey).
+* [Write your own telemetry using the API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **If you installed other Application Insights packages,** you can, if you prefer, use the .config file to set the instrumentation key:
 

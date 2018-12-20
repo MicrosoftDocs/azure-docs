@@ -16,7 +16,7 @@ ms.custom: hdiseo17may2017
 # Serialize data in Apache Hadoop with the Microsoft Avro Library
 
 >[!NOTE]
->The Avro SDK is no longer supported by Microsoft. The library is open source community supported. The sources for the library are located in [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+>The Avro SDK is no longer supported by Microsoft. The library is open source community supported. The sources for the library are located in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
 This topic shows how to use the [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) to serialize objects and other data structures into streams to persist them to memory, a database, or a file. It also shows how to deserialize them to recover the original objects.
 
@@ -49,7 +49,7 @@ The following are required before you install the library:
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 or later)
 
 > [!Note]
-> The Microsoft Avro Library is no longer available as a NuGet package. If you would like to use the Avro Library clone the [Microsoft.Hadoop.Avro Github repository](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) and compile the code on your machine.
+> The Microsoft Avro Library is no longer available as a NuGet package. If you would like to use the Avro Library clone the [Microsoft.Hadoop.Avro GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) and compile the code on your machine.
 
 ## Compile schemas using Avro Library
 The Microsoft Avro Library contains a code generation utility that allows creating C# types automatically based on the previously defined JSON schema. The code generation utility is not distributed as a binary executable, but can be easily built via the following procedure:

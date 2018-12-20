@@ -1,4 +1,4 @@
-﻿---
+---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
@@ -30,7 +30,7 @@ The out-of-the-box dependency monitor currently reports calls to these  types of
 
 Monitoring works by using [byte code instrumentation](https://msdn.microsoft.com/library/z9z62c29.aspx) around select methods or based on DiagnosticSource callbacks (in the latest .NET SDKs) from the .NET Framework. Performance overhead is minimal.
 
-You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+You can also write your own SDK calls to monitor other dependencies, both in the client and server code, using the [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 > [!NOTE]
 > Azure Cosmos DB is tracked automatically only if [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) is used. TCP mode won't be captured by Application Insights.
@@ -171,7 +171,7 @@ You can track dependencies in the [Log Analytics query language](https://aka.ms/
 ## Custom dependency tracking
 The standard dependency-tracking module automatically discovers external dependencies such as databases and REST APIs. But you might want some additional components to be treated in the same way.
 
-You can write code that sends dependency information, using the same [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) that is used by the standard modules.
+You can write code that sends dependency information, using the same [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency) that is used by the standard modules.
 
 For example, if you build your code with an assembly that you didn't write yourself, you could time all the calls to it, to find out what contribution it makes to your response times. To have this data displayed in the dependency charts in Application Insights, send it using `TrackDependency`.
 
@@ -204,8 +204,9 @@ Consult the table below and insure you have chosen the correct configuration to 
 | Platform | Install |
 | --- | --- |
 | IIS Server |Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md). Or [Upgrade your application to .NET framework 4.6 or later](https://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](app-insights-asp-net.md)  in your app. |
+| IIS Express |Use IIS Server instead. |
 | Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](app-insights-azure-web-apps.md) and choose Install if prompted. |
-| Azure Cloud Service |[Use startup task](app-insights-cloudservices.md) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Cloud Service |[Use startup task](app-insights-cloudservices.md) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## Video
 

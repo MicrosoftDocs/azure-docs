@@ -1,13 +1,15 @@
 ---
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
-description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
+description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.  
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
+
 ms.assetid: 
 ms.service: azure-monitor
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -56,9 +58,9 @@ The status should resemble the following example, where the value for *omi* and 
 	docker-cimprov 1.0.0.31
 
 ## How to disable environment variable collection on a container
-Azure Monitor for containers collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the AKS cluster or after by setting the environment variable *AZMON_COLLECT_ENV*. This feature is available from the agent version – ciprod11292018 and higher.  
+Azure Monitor for containers collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the AKS cluster, or after by setting the environment variable *AZMON_COLLECT_ENV*. This feature is available from the agent version – ciprod11292018 and higher.  
 
-To disable collection of environmental variables on a new or existing container, set the variable *AZMON_COLLECT_ENV* with a value of *False* to your Kubernetes deployment yaml configuration file.   
+To disable collection of environmental variables on a new or existing container, set the variable **AZMON_COLLECT_ENV** with a value of **False** in your Kubernetes deployment yaml configuration file.   
 
 ```  
 - name: AZMON_COLLECT_ENV  
@@ -67,9 +69,9 @@ To disable collection of environmental variables on a new or existing container,
 
 Run the following command to apply the change to your AKS container: `kubectl apply -f  <path to yaml file>`.
 
-To verify the configuration change took affect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV = FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.   
+To verify the configuration change took effect, select a container in the **Containers** view in Azure Monitor for containers, and in the property panel, expand **Environment Variables**.  The section should show only the variable created earlier - **AZMON_COLLECT_ENV=FALSE**. For all other containers, the Environment Variables section should list all the environment variables discovered.   
 
-To re-enable discovery of the environmental variables, apply the same process earlier and change the value from **False** to **True**, and then re-run the `kubectl` command to update the container.  
+To re-enable discovery of the environmental variables, apply the same process earlier and change the value from **False** to **True**, and then rerun the `kubectl` command to update the container.  
 
 ```  
 - name: AZMON_COLLECT_ENV  

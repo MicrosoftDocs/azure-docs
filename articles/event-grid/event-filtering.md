@@ -43,7 +43,7 @@ The JSON syntax for filtering by event type is:
 
 ```json
 "filter": {
-  "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
   "subjectEndsWith": ".jpg"
 }
 

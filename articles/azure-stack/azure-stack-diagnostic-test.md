@@ -14,7 +14,7 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
-ms.reviewer: adshar
+ms.reviewer: adshar  
 ---
 
 # Validate Azure Stack system state
@@ -42,7 +42,7 @@ As stated previously, the validation tool is run via the PEP. Each test returns 
    Test-AzureStack
    ```
 
-   Refer to the [Parameter considerations](azure-stack-diagnostic-test.md#parameter-considerations) and [Use case examples](azure-stack-diagnostic-test.md#use-cases) sections for more information.
+   Refer to the [Parameter considerations](azure-stack-diagnostic-test.md#parameter-considerations) and [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) sections for more information.
 
 3. If any tests report **FAIL**, run:
 
@@ -118,13 +118,13 @@ The following cloud scenarios are tested by the validation tool:
 
 - A tenant VM is deployed as part of one the cloud scenario tests. You can use **DoNotDeployTenantVm** to disable this. 
 
-- You need to supply the **ServiceAdminCredential** parameter to run cloud scenario tests as described in the [Use case examples](azure-stack-diagnostic-test.md#use-cases) section.
+- You need to supply the **ServiceAdminCredential** parameter to run cloud scenario tests as described in the [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) section.
 
-- **BackupSharePath** and **BackupShareCredential** are used when testing infrastructure backup settings as shown in the [Use case examples](azure-stack-diagnostic-test.md#use-cases) section.
+- **BackupSharePath** and **BackupShareCredential** are used when testing infrastructure backup settings as shown in the [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) section.
 
 - The validation tool also supports common PowerShell parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216).  
 
-## Use case examples 
+## Use case examples
 
 ### Run validation without cloud scenarios
 

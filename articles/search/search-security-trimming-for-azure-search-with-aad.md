@@ -1,13 +1,14 @@
 ---
-title: "Security filters for trimming Azure Search results using Active Directory identities | Microsoft Docs"
-description: Access control on Azure Search content using security filters and Active Directory identities.
-author: "revitalbarletz"
-manager: "jlembicz"
+title: Security filters to trim results using Active Directory - Azure Search
+description: Access control on Azure Search content using security filters and Azure Active Directory (AAD) identities.
+author: brjohnstmsft
+manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
 # Security filters for trimming Azure Search results using Active Directory identities
 

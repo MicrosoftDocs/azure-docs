@@ -1,13 +1,10 @@
 ---
 title: Configure metrics alerts for Azure Database for MySQL in Azure portal
 description: This article describes how to configure and access metric alerts for Azure Database for MySQL from the Azure portal.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 
@@ -77,5 +74,5 @@ Once you have created an alert, you can select it and do the following actions:
 
 
 ## Next steps
-* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

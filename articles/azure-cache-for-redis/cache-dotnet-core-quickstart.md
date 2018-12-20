@@ -191,7 +191,7 @@ In *Program.cs*, add the following code for the `Main` procedure of the `Program
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET Core console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -207,7 +207,7 @@ In *Program.cs*, add the following code for the `Main` procedure of the `Program
 
 Save *Program.cs*.
 
-Azure Cache for Rediss have a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
+Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to logically separate the data within an Azure Cache for Redis. The code connects to the default database, DB 0. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).
 
 Cache items can be stored and retrieved by using the `StringSet` and `StringGet` methods.
 
@@ -244,7 +244,7 @@ dotnet add package Newtonsoft.json
 
 Add the following `using` statement to the top of *Program.cs*:
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 

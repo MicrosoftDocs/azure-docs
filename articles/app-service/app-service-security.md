@@ -1,5 +1,5 @@
 ---
-title: Security in Azure App Service and Azure Functions | Microsoft Docs
+title: Security overview - Azure App Service | Microsoft Docs
 description: Learn about how App Service helps secure your app, and how you can further lock down your app from threats. 
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
 services: app-service
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Security in Azure App Service and Azure Functions
 
-This article shows you how [Azure App Service](app-service-web-overview.md) helps secure your web app, mobile app back end, API app, and [Azure Functions](/azure/azure-functions/). It also shows how you can further secure your app with the built-in App Service features.
+This article shows you how [Azure App Service](overview.md) helps secure your web app, mobile app back end, API app, and [Azure Functions](/azure/azure-functions/). It also shows how you can further secure your app with the built-in App Service features.
 
 The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that:
 
@@ -39,7 +40,7 @@ The following sections show you how to further protect your App Service app from
 App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name (\<app_name>.azurewebsites.net) is already accessible using HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), you should also [secure it with a custom certificate](app-service-web-tutorial-custom-ssl.md) so that client browsers can make secured HTTPS connections to your custom domain. There are two ways to do it:
 
 - **App Service certificate** - Create a certificate directly in Azure. The certificate is secured in [Azure Key Vault](/azure/key-vault/), and can be imported into your App Service app. For more information, see [Buy and Configure an SSL Certificate for your Azure App Service](web-sites-purchase-ssl-web-site.md).
-- **Third-party certificate** - Upload a custom SSL certificate that you purchased from a trusted certificate authority and bind it to your App Service app. App Service supports both single-domain certificates and wildcard certificates. It also supports self-signed certificates for testing purposes. For more information, see [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md).
+- **Third-party certificate** - Upload a custom SSL certificate that you purchased from a trusted certificate authority and bind it to your App Service app. App Service supports both single-domain certificates and wildcard certificates. It also supports self-signed certificates for testing purposes. For more information, see [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## Insecure protocols (HTTP, TLS 1.0, FTP)
 
@@ -47,7 +48,7 @@ To secure your app against all unencrypted (HTTP) connections, App Service provi
 
 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service lets you disable outdated protocols by [enforcing TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
 
-App Service supports both FTP and FTPS for deploying your files. However, FTPS should be used instead of FTP, if at all possible. When one or both of these protocols are not in use, you should [disable them](app-service-deploy-ftp.md#enforce-ftps).
+App Service supports both FTP and FTPS for deploying your files. However, FTPS should be used instead of FTP, if at all possible. When one or both of these protocols are not in use, you should [disable them](deploy-ftp.md#enforce-ftps).
 
 ## Static IP restrictions
 

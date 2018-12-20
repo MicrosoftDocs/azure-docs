@@ -302,14 +302,18 @@
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470",
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
-
-        },
-        "searchScope": {
-          "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
-          "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
-          "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
-          "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
-        }
+      },
+      "searchScope": {
+        "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
+        "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
+        "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
+        "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
+      },
+      "titleSuffix": {
+        "articles/governance/blueprints/**/*.md": "Azure Blueprints",
+        "articles/governance/policy/**/*.md": "Azure Policy",
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+      }
     },
     "template": [
       "docs.html"
