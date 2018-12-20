@@ -1,6 +1,6 @@
 ---
-title: 'Build a web app with Azure Cosmos DB API for MongoDB using .NET SDK and the Azure portal'
-description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB API for MongoDB.
+title: 'Build a web app with Azure Cosmos DB for MongoDB API using .NET SDK and the Azure portal'
+description: Presents a .NET code sample you can use to connect to and query the Azure Cosmos DB for MongoDB API.
 services: cosmos-db
 author: slyons
 
@@ -13,7 +13,7 @@ ms.date: 05/22/2018
 ms.author: sclyon
 
 ---
-# Build a web app with Azure Cosmos DB API for MongoDB using .NET SDK and the Azure portal
+# Build a web app with Azure Cosmos DB for MongoDB API using .NET SDK and the Azure portal
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -26,7 +26,7 @@ ms.author: sclyon
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to create an Azure Cosmos DB API account for MongoDB, a document database, and a collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+This quickstart demonstrates how to create an account using Azure Cosmos DB for MongoDB API, a document database, and a collection using the Azure portal. You'll then build and deploy a tasks list web app built on the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## Prerequisites to run the sample app
 
@@ -106,7 +106,7 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* Creates a task and insert it into the MongoDB collection
+Create a task and insert it into the collection
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -162,8 +162,8 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account and run a web app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create a Cosmos account and run a web app using client driver for MongoDB API. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into  Azure Cosmos DB API for MongoDB](mongodb-migrate.md)
+> [Import data into Azure Cosmos DB configured for MongoDB API](mongodb-migrate.md)
 

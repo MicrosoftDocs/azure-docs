@@ -100,7 +100,7 @@ Read more about Cosmos DB's [global distribution](distribute-data-globally.md) a
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB API for MongoDB](create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB for MongoDB API](create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
