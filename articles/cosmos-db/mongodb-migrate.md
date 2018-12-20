@@ -160,7 +160,9 @@ mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cos
 
 ## Use mongorestore
 
-To restore data to your API for MongoDB account, use the following template to execute the import.
+To restore data to your Azure Cosmos DB account configured for MongoDB API, use the following template to execute the import.
+
+Template:
 
 ```bash
 mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>

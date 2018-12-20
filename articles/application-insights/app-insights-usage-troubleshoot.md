@@ -26,7 +26,7 @@ If you're monitoring a web app, the easiest solution is to add the [Application 
 
 If you're monitoring a web service (no user interface), [create a telemetry initializer that populates the anonymous user ID and session ID properties](app-insights-usage-send-user-context.md) according to your service's notions of unique users and sessions.
 
-If your app is sending [authenticated user IDs](app-insights-api-custom-events-metrics.md#authenticated-users), you can count based on authenticated user IDs in the Users tool. In the "Show" dropdown, choose "Authenticated users."
+If your app is sending [authenticated user IDs](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), you can count based on authenticated user IDs in the Users tool. In the "Show" dropdown, choose "Authenticated users."
 
 The user behavior analytics tools don't currently support counting users or sessions based on properties other than anonymous user ID, authenticated user ID, or session ID.
 

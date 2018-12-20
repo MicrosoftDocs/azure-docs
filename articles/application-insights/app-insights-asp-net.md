@@ -95,12 +95,12 @@ The portal opens on a view of the telemetry from your app.
 
 In the portal, click any tile or chart to see more detail.
 
-[Learn more about using Application Insights in the Azure portal](app-insights-dashboards.md).
+[Learn more about using Application Insights in the Azure portal](../azure-monitor/app/app-insights-dashboards.md).
 
 ## Step 4: Publish your app
 Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
 
-Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](app-insights-dashboards.md). You can also use the powerful [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage) to analyze usage and performance, or to find specific events.
+Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](../azure-monitor/app/app-insights-dashboards.md). You can also use the powerful [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage) to analyze usage and performance, or to find specific events.
 
 You can also continue to analyze your telemetry in [Visual Studio](app-insights-visual-studio.md), with tools such as diagnostic search and [trends](app-insights-visual-studio-trends.md).
 
@@ -138,20 +138,20 @@ There are alternative topics to look at if you are interested in:
 
 * **[Browser and page load data](app-insights-javascript.md)** - Insert a code snippet in your web pages.
 * **[Get more detailed dependency and exception monitoring](app-insights-monitor-performance-live-website-now.md)** - Install Status Monitor on your server.
-* **[Code custom events](app-insights-api-custom-events-metrics.md)** to count, time, or measure user actions.
+* **[Code custom events](../azure-monitor/app/api-custom-events-metrics.md)** to count, time, or measure user actions.
 * **[Get log data](app-insights-asp-net-trace-logs.md)** - Correlate log data with your telemetry.
 
 ### Analysis
 
 * **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
-* **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
+* **[Working with the Application Insights portal](../azure-monitor/app/app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
 * **[Analytics](../azure-monitor/log-query/get-started-portal.md)** - The powerful query language.
 
 ### Alerts
 
 * [Availability tests](app-insights-monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](app-insights-proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](app-insights-alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../azure-monitor/app/alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 ### Automation
 

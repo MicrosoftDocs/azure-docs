@@ -24,7 +24,7 @@ In Azure Media Services, a  [LiveEvent](https://docs.microsoft.com/rest/api/medi
 
 The following table compares features of the two LiveEvent types.
 
-| Feature | Pass-through LiveEvent | Standard (Basic) LiveEvent |
+| Feature | Pass-through LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum video resolution for contribution feed |4K (4096x2160 at 60 frames/sec) |1080p (1920x1088 at 30 frames/sec)|

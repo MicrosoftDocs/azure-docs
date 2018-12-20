@@ -38,12 +38,12 @@ Telemetry related to the health and operation of Azure itself includes data abou
 ![Azure subscription collection](media/data-sources/azure-collection.png)
 
 ### Azure Service Health
-[Azure Service Health](../../monitoring-and-diagnostics/monitoring-service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](../../azure-monitor/platform/activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs.
+[Azure Service Health](../../azure-monitor/platform/service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](../../azure-monitor/platform/activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs.
 
 ### Azure Activity Log
 The [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](../../azure-monitor/platform/activity-log-schema.md).
 
-You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](../../azure-monitor/platform/activity-logs-overview.md). It's particularly useful to copy the log entries to Azure Monitor to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](../../azure-monitor/platform/activity-logs-overview.md). It's particularly useful to copy the log entries to Azure Monitor to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 
 
@@ -90,7 +90,7 @@ In addition to telemetry that your application may write to the guest operating 
 ### Application data
 When you enable Application Insights for an application by installing an instrumentation package, it collects metrics and logs related to the performance and operation of the application. This includes detailed information about page views, application requests, and exceptions. Application Insights stores the data it collects in Azure Monitor. It includes extensive tools for analyzing this data, but you can also analyze it with data from other sources using tools such as metric analytics and log analytics.
 
-You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from the Metric Explorer and used for [Autoscale](../../azure-monitor/platform/autoscale-custom-metric.md) and Metric alerts.
+You can also use Application Insights to [create a custom metric](../../azure-monitor/app/api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from the Metric Explorer and used for [Autoscale](../../azure-monitor/platform/autoscale-custom-metric.md) and Metric alerts.
 
 ### Dependencies
 In order to monitor different logical operations of an application, you must [collect telemetry across multiple components](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights supports [distributed telemetry correlation](../../application-insights/application-insights-correlation.md) which identifies the dependencies between components allowing you to analyze them together.

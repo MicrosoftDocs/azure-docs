@@ -60,7 +60,7 @@ Microsoft Windows does not install any SSH clients by default. The `ssh` and `sc
 
 * [Git (https://git-scm.com/)](https://git-scm.com/): The `ssh` and `scp` commands are available through the GitBash command line.
 
-There are also several graphical SSH clients, such as [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). While these clients can be used to connect to HDInsight, the process of connecting is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
+There are also several graphical SSH clients, such as [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) and [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/). While these clients can be used to connect to HDInsight, the process of connecting is different than using the `ssh` utility. For more information, see the documentation of the graphical client you are using.
 
 ## <a id="sshkey"></a>Authentication: SSH Keys
 
@@ -249,7 +249,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md).
 >
-> * [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
+> * [HDInsight using Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
 
 ## Next steps
 
