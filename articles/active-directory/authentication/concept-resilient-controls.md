@@ -66,7 +66,7 @@ Securing emergency access accounts and monitoring their usage is crucial to not 
 
 ### Mitigating user lockout
 
-To mitigate the risk of user lockout, use conditional access policies with multiple controls to give users a choice of how they will access apps and resources. By giving a user the choice between, for example, signing in with MFA **or*** *signing in from a managed device **or*** *signing in from the corporate network, if one of the access controls is unavailable the user has other options to continue to work.
+ To mitigate the risk of user lockout, use conditional access policies with multiple controls to give users a choice of how they will access apps and resources. By giving a user the choice between, for example, signing in with MFA **or** signing in from a managed device **or** signing in from the corporate network, if one of the access controls is unavailable the user has other options to continue to work.
 
 #### Microsoft recommendations
 
