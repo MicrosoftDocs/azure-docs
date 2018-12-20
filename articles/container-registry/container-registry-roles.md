@@ -14,18 +14,16 @@ ms.author: danlep
 
 The Azure Container Registry service supports a set of Azure roles that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users or service principals that need to interact with a registry.
 
-The following table lists the Azure roles that you can [assign](../role-based-access-control/role-assignments-portal.md) to an Azure identity, and the corresponding permissions of each role in the registry.
+The following table lists the container registry roles that you can [assign](../role-based-access-control/role-assignments-portal.md) to an Azure identity, and the corresponding permissions of each role.
 
-| Role/Permission       | [Access Resource Manager](#access-resource-manage)| [Create/delete registry](#create/delete-registry) | [Push image](#pull-image) | [Pull image](#pull-image) | [Change policies](#change-polices) | [Change quarantine state](#change-quarantine-state) | [Pull quarantine images](#pull-quarantine-images) | [Sign images](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- | ---------  |
-| Owner | X | X | X | X | X |  |  |   |
-| Contributor | X | X | X | X | X |  |  |   |
+| Role/Permission       | [Access Resource Manager](#access-resource-manage)| [Create/delete registry](#create/delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Change policies](#change-polices) |   [Sign images](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
+| Owner | X | X | X | X | X |  |  
+| Contributor | X | X | X | X | X |  |  
 | Reader | X |  |  | X |  |  |  |   |
-| AcrPush |  |  | X | X |  |  |  |   |
-| AcrPull |  |  |  | X |  |  |  |   |
-| AcrQuarantineWriter |  |  |  |  |  | X | X |   |
-| AcrQuarantineReader |  |  |  |  |  |  | X |   |
-| AcrImageSigner |  |  |  |  |  |  |  | X |
+| AcrPush |  |  | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  
+| AcrImageSigner |  |  |  |  |  | X |
 
 ## Differentiate users and services
 
@@ -33,7 +31,7 @@ Any time permissions are applied, a best practice is to provide the most limited
 
 ### CI/CD solutions
 
-When automating `docker build` commands from CI/CD solutions, you need `docker push` capabilities. For these headless service scenarios, we suggest assigning the **AcrPush** role. This role, unlike the broader **Contributor** role, prevents the account from using Azure Resource Manager for other registry operations.
+When automating `docker build` commands from CI/CD solutions, you need `docker push` capabilities. For these headless service scenarios, we suggest assigning the **AcrPush** role. This role, unlike the broader **Contributor** role, prevents the account from performing other registry operations or accessing Azure Resource Manager.
 
 ### Container host nodes
 
@@ -53,32 +51,19 @@ The ability to create and delete Azure container registries.
 
 ## Push image
 
-The ability to `docker push` an image to a registry.
+The ability to `docker push` an image to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity. 
 
 ## Pull image
 
-The ability to `docker pull` an image, that has not been quarantined, from a registry.
+The ability to `docker pull` an image, that has not been quarantined, from a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
 
 ## Change policies
 
 The ability to configure policies on a registry. Policies include image purging, enabling quarantine, and image signing.
 
-## Change quarantine state
-
-The ability to set the quarantine state of an image. 
-
-This role should only be assigned to vulnerability scanners using service principals. We recommend that individual users, including operations people, only use a vulnerability scanning solution to override the quarantine state.
-
-## Pull quarantine images
-
-The ability to `docker pull` images by a digest, allowing a vulnerability scan. 
-
-This role should only be assigned to vulnerability scanners using service principals. We recommend that individual users, including operations people, only use a vulnerability scanning solution to override the quarantine state.
-
 ## Sign images
 
-The ability to sign images, usually assigned to an automated process, which would use a service principal.
-
+The ability to sign images, usually assigned to an automated process, which would use a service principal. This permission is typically combined with [push image](#push-image) to allow pushing a trusted image to a registry. For details, see [Content trust in Azure Container Registry](container-registry-content-trust.md).
 
 ## Next steps
 
