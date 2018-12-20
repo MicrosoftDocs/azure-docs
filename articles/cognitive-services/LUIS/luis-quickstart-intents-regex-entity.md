@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Tutorial: Extract well-formatted data
+# Tutorial: Get well-formatted data from the utterance
 In this tutorial, create an app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
 
-The purpose of an entity is to extract important data contained within the utterance. This app's use of the regular expression entity is to pull out well-formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
+This app's use of the regular expression entity is to pull out well-formatted Human Resources (HR) form numbers from an utterance. While the utterance's intent is always determined with machine-learning, this specific entity type is not machine-learned. 
 
 **Example utterances include:**
 

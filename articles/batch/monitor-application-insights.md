@@ -69,7 +69,7 @@ To instrument your code, your solution needs to create an Application Insights [
 ```
 Also add the instrumentation key in the file TopNWords.cs.
 
-The example in TopNWords.cs uses the following [instrumentation calls](../application-insights/app-insights-api-custom-events-metrics.md) from the Application Insights API:
+The example in TopNWords.cs uses the following [instrumentation calls](../azure-monitor/app/api-custom-events-metrics.md) from the Application Insights API:
 * `TrackMetric()` - Tracks how long, on average, a compute node takes to download the required text file.
 * `TrackTrace()` - Adds debugging calls to your code.
 * `TrackEvent()` - Tracks interesting events to capture.

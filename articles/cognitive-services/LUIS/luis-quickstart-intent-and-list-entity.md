@@ -9,23 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Tutorial 4: Extract exact text matches
-In this tutorial, understand how to get data that matches a predefined list of items. Each item on the list can include a list of synonyms. For the human resources app, an employee can be identified be several key pieces of information such as name, email, phone number, and U.S. federal tax ID. 
-
-The Human Resources app needs to determine which employee is moving from one building to a different building. For an utterance about an employee move, LUIS determines the intent, and extracts the employee so that a standard order to move the employee can be created by the client application.
-
-This app uses a list entity to extract the employee. The employee can be referred to using name, company phone extension, mobile phone number, email, or U.S. federal social security number. 
-
-A list entity is a good choice for this type of data when:
-
-* The data values are a known set.
-* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. 
+# Tutorial: Get exact text-matched data from the utterance
+In this tutorial, understand how to get data that matches a predefined list of items.
 
 **In this tutorial, you learn how to:**
 
@@ -40,16 +30,20 @@ A list entity is a good choice for this type of data when:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
-Continue with the app created in the last tutorial, named **HumanResources**. 
+## What is a list entity?
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+A list entity is an exact text match to the words in the utterance. 
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json).
+Each item on the list can include a list of synonyms. For the human resources app, a company department can be identified be several key pieces of information such as an official name, common acronyms, and billing department codes. 
 
-2. Import the JSON into a new app.
+The Human Resources app needs to determine the department an employee is transferring to. 
 
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL. 
+A list entity is a good choice for this type of data when:
+
+* The data values are a known set.
+* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
+* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax. 
+
 
 
 ## MoveEmployee intent
