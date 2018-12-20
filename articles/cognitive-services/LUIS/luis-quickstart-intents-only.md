@@ -31,11 +31,6 @@ In this tutorial, you create a custom Human Resources (HR) app that predicts a u
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Create a new app
-
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
-
-
 ## User intentions as intents
 
 The purpose of the app is to determine the intention of conversational, natural language text: 
@@ -54,13 +49,17 @@ This app has a few intents.
 
 Determining which job-related intent may be tricky due to word choice and word order.
 
+## Create a new app
+
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
 ## Create intent for job information
 
 1. Select **Create new intent**. Enter the new intent name `GetJobInformation`. This intent is predicted any time a user wants information about open jobs in the company.
 
     ![Screenshot of Language Understanding (LUIS) New intent dialog](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
-2. By providing _example utterances_, you are training LUIS what kinds of utterances should be predicted for this intent. Add several example utterances to this intent that you expect a user to ask, such as:
+2. By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent. Add several example utterances to this intent that you expect a user to ask, such as:
 
     | Example utterances|
     |--|
@@ -107,16 +106,16 @@ Determining which job-related intent may be tricky due to word choice and word o
       "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
         "intent": "GetJobInformation",
-        "score": 0.8965092
+        "score": 0.9923871
       },
       "intents": [
         {
           "intent": "GetJobInformation",
-          "score": 0.8965092
+          "score": 0.9923871
         },
         {
           "intent": "None",
-          "score": 0.147104025
+          "score": 0.007810574
         }
       ],
       "entities": []
@@ -182,20 +181,20 @@ Return to the LUIS portal and create a new intent to determine if the user utter
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9166808
+        "score": 0.9634406
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9166808
+          "score": 0.9634406
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.07162977
+          "score": 0.0171300638
         },
         {
           "intent": "None",
-          "score": 0.0262826588
+          "score": 0.00670867041
         }
       ],
       "entities": []
@@ -208,15 +207,17 @@ Return to the LUIS portal and create a new intent to determine if the user utter
 
 After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). 
 
+## Clean up resources
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
 ## Related information
 
+* [Types of entities](luis-concept-entity-types.md)
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
 
-## Clean up resources
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 
