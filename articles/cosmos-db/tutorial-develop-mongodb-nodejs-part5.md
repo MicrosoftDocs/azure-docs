@@ -7,9 +7,8 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 12/03/2017
 ms.author: jopapa
-ms.custom: mvc
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in a MongoDB API account of Azure Cosmos DB.
 ---
 
@@ -32,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * Before you start this tutorial, complete the steps in [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0  or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * This tutorial walks you through the steps to build the application step by step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
@@ -96,11 +95,11 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
 
 ## Get the connection string
 
-To connect your application to Azure Cosmos DB, you need to update the configuration settings for the application. Use the following steps to update the settings:
+To connect your application to Azure Cosmos DB, you need to update the configuration settings for the application. Use the following steps to update the settings: 
 
 1. In the Azure portal, get the port number, Azure Cosmos DB account name, and primary key values for your Azure Cosmos DB account.
 
-1. In the **environment.js** file, change the value of `port` to 10255. (You can find your Azure Cosmos DB port in the Azure portal.)
+1. In the **environment.js** file, change the value of `port` to 10255. 
 
     ```javascript
     const port = 10255;
@@ -224,7 +223,7 @@ Let's take a minute to review and walk through the previous code. First, we come
 
 ## Run the app
 
-Next, run the app by using the following steps:
+Next run the app by using the following steps:
 
 1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), and then select the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
@@ -236,11 +235,11 @@ There are no heroes stored yet in the app. In the next part of this tutorial, we
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, Azure Cosmos DB account, and all the related resources. Use the following steps to delete the resource group:
- 	 
-1. Navigate to the resource group where you created the Azure Cosmos DB account.
-1. Select **Delete resource group**.
-1. Confirm the name of the resource group to delete, and select **Delete**.
+When no longer needed, you can delete the resource group, Azure Cosmos account, and all the related resources. Use the following steps to delete the resource group:
+
+ 1. Navigate to the resource group where you created the Azure Cosmos DB account.
+ 1. Select **Delete resource group**.
+ 1. Confirm the name of the resource group to delete, and select **Delete**.
 
 ## Next steps
 
