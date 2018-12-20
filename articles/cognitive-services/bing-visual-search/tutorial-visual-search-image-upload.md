@@ -15,13 +15,13 @@ ms.author: scottwhi
 
 # Tutorial: Uploading images to the Bing Visual Search API
 
-This tutorial describes the process of uploading an image to Bing and getting back insights within a web application. It also shows how to access and display the insights in the JSON response. Note that this application does not adhere to all [Bing Use and Display Requirements](./use-and-display-requirements.md) for using the API.
+The Bing Visual Search API enables you to search the web for images similar to ones you upload. Use this tutorial to create a web application that can send an image to the API, and display the insights it returns within the webpage. Note that this application does not adhere to all [Bing Use and Display Requirements](./use-and-display-requirements.md) for using the API.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Create an HTML page
+## Create and structure the webpage
 
-Let's start with an HTML page that sends Bing an image and gets back insights and displays them. In your favorite editor or IDE, create a file named, `uploaddemo.html`. Add the following basic HTML structure to the file.
+Create an HTML page that sends Bing an image and gets back insights and displays them. In your favorite editor or IDE, create a file named, `uploaddemo.html`. Add the following basic HTML structure to the file.
 
 ```html
 <!DOCTYPE html>
@@ -38,11 +38,9 @@ Let's start with an HTML page that sends Bing an image and gets back insights an
 To start, divide the page into a request section, where the user provides all the information needed to make the request, and a response section where the insights are displayed. Add the following `<div>` tags to the `<body>`. The `<hr>` tag visually separates the request section from the response section.
 
 ```html
-        <div id="requestSection"></div>
-
-        <hr />
-        
-        <div id="responseSection"></div>
+<div id="requestSection"></div>
+<hr />      
+<div id="responseSection"></div>
 ```
 
 ## Get the upload file
@@ -71,16 +69,18 @@ Before adding the handler, add a `<script>` tag to the `<head>` tag.
 <\script>
 ```
 
-The following shows the handler that captures the selected image. The handler includes logic to make sure the selected file is an image file and that its size is 1 MB or less. You can allow the user to select larger files but you need to reduce the image's size to less than 1 MB before uploading it to Bing. The last thing the handler does is display a thumbnail of the image, so the user has a visual reminder of the file they selected.
+## Create a file handler 
+
+Create a handler function that can read in the image you want to upload. The handler should make sure the selected file is an image file, and that its size is 1 MB or less. If the image is larger, you must reduce it's size before uploading it. This handler will lastly display a thumbnail of the image.
 
 ```javascript
 function handleFileSelect(selector) {
-    var files = document.getElementById(selector).files; // FileList object
 
-    // The list will contain only one file.
+    var files = document.getElementById(selector).files; // A FileList object
+
     for (var i = 0, f; f = files[i]; i++) {
 
-        // Only process image files.
+        // Ensure the file is an image file.
         if (!f.type.match('image.*')) {
             alert("Selected file must be an image file.");
             document.getElementById("uploadImage").value = null;
@@ -93,7 +93,6 @@ function handleFileSelect(selector) {
             document.getElementById("uploadImage").value = null;
             continue;
         }
-
 
         var reader = new FileReader();
 
