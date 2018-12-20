@@ -21,7 +21,7 @@ Each phase of a pipeline, such as data preparation and model training, can inclu
 
 The pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
 
-Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. Pipelines can read and write data to and from supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations.
+Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. Pipelines can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
 >[!Note]
 >If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
@@ -54,7 +54,7 @@ Create the resources required to run a pipeline:
 ### Set up a datastore
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
 
-When you create your workspace, an [Azure file storage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and a [blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure file storage is the default datastore for a workspace, but you can also use blob storage as a datastore. To learn more, see [Azure storage options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -67,7 +67,7 @@ def_data_store = Datastore(ws, "workspacefilestore")
 def_blob_store = Datastore(ws, "workspaceblobstore")
 ```
 
-Upload data files or directories to the datastore for them to be accessible from your pipelines. This example uses the blob storage version of the datastore:
+Upload data files or directories to the datastore for them to be accessible from your pipelines. This example uses the Blob storage version of the datastore:
 
 ```python
 def_blob_store.upload_files(
@@ -163,7 +163,7 @@ pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 
 When you first run a pipeline, Azure Machine Learning:
 
-* Downloads the project snapshot to the compute target from the blob storage associated with the workspace.
+* Downloads the project snapshot to the compute target from the Blob storage associated with the workspace.
 * Builds a Docker image corresponding to each step in the pipeline.
 * Downloads the docker image for each step to the compute target from the container registry.
 * Mounts the datastore, if a `DataReference` object is specified in a step. If mount is not supported, the data is instead copied to the compute target.

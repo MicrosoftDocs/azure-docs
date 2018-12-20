@@ -22,7 +22,7 @@ Batch prediction (or batch scoring) provides cost-effective inference, with unpa
 >[!TIP]
 > If your system requires low-latency processing (to process a single document or small set of documents quickly), use [real-time scoring](how-to-consume-web-service.md) instead of batch prediction.
 
-In the following steps, you create a [machine learning pipeline](concept-ml-pipelines.md) to register a pretrained computer vision model ([Inception-V3](https://arxiv.org/abs/1512.00567)). Then you use the pretrained model to do batch scoring on images available in your Azure blob account. These images used for scoring are unlabeled images from the [ImageNet](http://image-net.org/) dataset.
+In the following steps, you create a [machine learning pipeline](concept-ml-pipelines.md) to register a pretrained computer vision model ([Inception-V3](https://arxiv.org/abs/1512.00567)). Then you use the pretrained model to do batch scoring on images available in your Azure Blob storage account. These images used for scoring are unlabeled images from the [ImageNet](http://image-net.org/) dataset.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 Next, set up to use the default datastore for the outputs.
 
-When you create your workspace, an [Azure filestorage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and a [blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure file storage is the default datastore for a workspace, but you can also use blob storage as a datastore. For more information, see [Azure storage
+When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. For more information, see [Azure storage
 options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
@@ -296,7 +296,7 @@ Now run the pipeline, and examine the output it produced. The output has a score
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
