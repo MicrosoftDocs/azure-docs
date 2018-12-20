@@ -50,7 +50,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     ```
 ## Create a struct to format the Bing News Search response
 
-Define a `SearchResult` struct to contain the image search results, and JSON header information.
+1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
 
     ```csharp
     struct SearchResult

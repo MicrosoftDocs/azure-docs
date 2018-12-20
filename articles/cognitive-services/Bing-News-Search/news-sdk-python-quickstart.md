@@ -21,43 +21,46 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
 
 * [Python](https://www.python.org/) 2.x or 3.x
 
-It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7.
+It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your python development. You can install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). You must install a virtualenv for Python 2.7. You can create a virtual envirement with:
 
-    ```python
-    python -m venv mytestenv
-    ```
+    `python -m venv mytestenv`
 
-You can install the Bing News Search SDK dependencies with these commands:
+You can install the Bing News Search SDK dependencies with this command:
     
-    ```python
-    cd mytestenv
-    python -m pip install azure-cognitiveservices-search-newssearch
-    ```
+    `python -m pip install azure-cognitiveservices-search-newssearch`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and import the following libraries. Create a variable for your subscription key.
+1. Create a new Python file in your favorite IDE or editor, and import the following libraries. Create a variable for your subscription key, and your search term.
 
     ```python
     from azure.cognitiveservices.search.newssearch import NewsSearchAPI
     from msrest.authentication import CognitiveServicesCredentials
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    search_term = "Quantum Computing"
     ```
 
-2. Create an instance of `CognitiveServicesCredentials`. Instantiate the client:
+## Initialize the client and send a request
+
+1. Create an instance of `CognitiveServicesCredentials`. Instantiate the client:
     
     ```python
     client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Search for results, and print the first webpage result:
+2. Send a search query to the News Search API, store the response.
 
     ```python
-    news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
-    print("Search news for query \"Quantum Computing\" with market and count")
-    
+    news_result = client.news.search(query=search_term, market="en-us", count=10)
+    ```
+
+## Parse the response
+
+If any search results are found, print the first webpage result:
+
+    ```python
     if news_result.value:
         first_news_result = news_result.value[0]
         print("Total estimated matches value: {}".format(news_result.total_estimated_matches))

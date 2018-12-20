@@ -50,96 +50,83 @@ Create a new Java project in your favorite IDE or editor, and import the followi
     import java.io.IOException;
     ```
 
-## Implement the news Search client
+## Create a search client and store credentials
 
-Create a method called `getClient()` that create a `NewsSearchAPIImpl` search client. Note that the client class requires an instance of `ServiceClientCredentials`.
+1. Create a method called `getClient()` that returns a new `NewsSearchAPIImpl` search client. Add your endpoint as the first parameter for the new`NewsSearchAPIImpl` object, and a new `ServiceClientCredentials` object to store your credentials.
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
         return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
                 new ServiceClientCredentials() {
-                    @Override
-                    public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                        builder.addNetworkInterceptor(
-                                new Interceptor() {
-                                    @Override
-                                    public Response intercept(Chain chain) throws IOException {
-                                        Request request = null;
-                                        Request original = chain.request();
-                                        // Request customization: add request headers.
-                                        Request.Builder requestBuilder = original.newBuilder()
-                                                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-                                        request = requestBuilder.build();
-                                        return chain.proceed(request);
-                                    }
-                                });
-                    }
                 });
     }
     ```
 
+2. To create the `ServiceClientCredentials` object, override the `applyCredentialsFilter()` function. Pass a `OkHttpClient.Builder` to the method, and use the builder's `addNetworkInterceptor()` method to create your credentials for the SDK call.
+
+```java
+new ServiceClientCredentials() {
+    @Override
+    public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+        builder.addNetworkInterceptor(
+                new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = null;
+                        Request original = chain.request();
+                        // Request customization: add request headers.
+                        Request.Builder requestBuilder = original.newBuilder()
+                                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+                        request = requestBuilder.build();
+                        return chain.proceed(request);
+                    }
+                });
+    }
+});
+```
+
 ## Send and receive a search request
 
-Create a method that calls `getClient()` and sends a search request to the Bing News Search service. Filter the search with the *market* and *count* parameters, then print information about the first news result: name, URL, publication date, description, provider name, and total number of estimated matches for your search.
+1. Create a method that calls `getClient()` and sends a search request to the Bing News Search service. Filter the search with the *market* and *count* parameters, then print information about the first news result: name, URL, publication date, description, provider name, and total number of estimated matches for your search.
 
 ```java
 public static void newsSearch(String subscriptionKey)
 {
     NewsSearchAPIImpl client = getClient(subscriptionKey);
     String searchTerm = "Quantum Computing";
-    try
+
+    NewsInner newsResults = client.searchs().list(searchTerm, null, null, null,
+            null, null, 100, null, "en-us",
+            null, null, null, null, null,
+            null, null);
+
+    if (newsResults.value().size() > 0)
     {
-        NewsInner newsResults = client.searchs().list(searchTerm, null, null, null,
-                null, null, 100, null, "en-us",
-                null, null, null, null, null,
-                null, null);
+        NewsArticle firstNewsResult = newsResults.value().get(0);
 
-        System.out.println("\r\nSearch news for query \"Quantum  Computing\" with market and count");
-
-        if (newsResults == null)
-        {
-            System.out.println("Didn't see any news result data..");
-        }
-        else
-        {
-            if (newsResults.value().size() > 0)
-            {
-                NewsArticle firstNewsResult = newsResults.value().get(0);
-
-                System.out.println(String.format("TotalEstimatedMatches value: %d", newsResults.totalEstimatedMatches()));
-                System.out.println(String.format("News result count: %d", newsResults.value().size()));
-                System.out.println(String.format("First news name: %s", firstNewsResult.name()));
-                System.out.println(String.format("First news url: %s", firstNewsResult.url()));
-                System.out.println(String.format("First news description: %s", firstNewsResult.description()));
-                System.out.println(String.format("First news published time: %s", firstNewsResult.datePublished()));
-                System.out.println(String.format("First news provider: %s", firstNewsResult.provider().get(0).name()));
-            }
-            else
-            {
-                System.out.println("Couldn't find news results!");
-            }
-        }
+        System.out.println(String.format("TotalEstimatedMatches value: %d", newsResults.totalEstimatedMatches()));
+        System.out.println(String.format("News result count: %d", newsResults.value().size()));
+        System.out.println(String.format("First news name: %s", firstNewsResult.name()));
+        System.out.println(String.format("First news url: %s", firstNewsResult.url()));
+        System.out.println(String.format("First news description: %s", firstNewsResult.description()));
+        System.out.println(String.format("First news published time: %s", firstNewsResult.datePublished()));
+        System.out.println(String.format("First news provider: %s", firstNewsResult.provider().get(0).name()));
+    }
+    else
+    {
+        System.out.println("Couldn't find news results!");
     }
 
-    catch (Exception ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
 }
 
 ```
 
-Add your search method to the `main()` method to execute the code.
+2. Add your search method to a `main()` method to execute the code.
 
     ```java 
-    package javaNewsSDK;
-    import com.microsoft.azure.cognitiveservices.newssearch.*;
-    
-    public class NewsSearchSDK {
-    	public static void main(String[] args) {
-    		String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-    		NewsSearchSDK.newsSearch(subscriptionKey);
-    	}
+    public static void main(String[] args) {
+        String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+        NewsSearchSDK.newsSearch(subscriptionKey);
     }
     ```
 

@@ -18,7 +18,7 @@ ms.custom: seodec2018
 
 Use this quickstart to make your first call to the Bing News Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and processes the results.
 
-While this application is written in Python, the API is a RESTful Web service compatible most programming languages.
+While this application is written in Python, the API is a RESTful Web service compatible most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## Prerequisites
 
@@ -178,7 +178,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging news](paging-news.md)
-> [Using decoration markers to highlight text](hit-highlighting.md)
-> [Searching the web for news](search-the-web.md)  
-> [Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+> [Create a signle-page app](tutorial-bing-news-search-single-page-app.md)
