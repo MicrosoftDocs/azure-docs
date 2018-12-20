@@ -16,6 +16,8 @@ ms.custom: seodec2018
 
 As data volumes grow or processing needs change, you might find that default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
+The techniques described in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in [cognitive search pipelines](cognitive-search-concept-intro.md).
+
 ## Batch indexing
 
 One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. Assuming the [Add or Update Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), you would package 1000 documents in the body of the request.
@@ -27,17 +29,20 @@ Batch indexing is implemented for individual requests using REST or .NET, or thr
 
 ## Add resources
 
-Services that are provisioned at one of the Standard pricing tiers often have excess capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. This approach incurs additional cost, but unless you are continuously indexing under maximum load, you can add scale for the duration of the indexing process, and then adjust resource levels downwards after indexing is finished.
+Services that are provisioned at one of the [Standard pricing tiers](search-sku-tier.md) often have underutilized capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. For best results, you need both resources: partitions for storage, and replicas for the data ingestion work.
+
+Increasing replicas and partitions are billable events that increase your cost, but unless you are continuously indexing under maximum load, you can add scale for the duration of the indexing process, and then adjust resource levels downward after indexing is finished.
 
 ## Use indexers
 
 [Indexers](search-indexer-overview.md) are used to crawl external data sources for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
-+ The scheduler allows you to parcel out indexing at regular intervals so that you can spread it out over time.
-+ Individual data sources can point to partitioned data sets. You can break a large data set into smaller data sets, and then create multiple data source definitions that can be indexed in parallel.
++ Schedulers allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 + Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
++ Partitioning data into smaller individual data sources enables parallel processing. You can break a large data set into smaller data sets, and then create multiple data source definitions that can be indexed in parallel.
 
-Indexers are data-source-specific, so this approach is only viable for selected data sources on Azure: SQL Database, Blob storage, Table storage, Cosmos DB.
+> [!NOTE]
+> Indexers are data-source-specific, so using an indexer approach is only viable for selected data sources on Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
 ## Scheduled indexing
 
