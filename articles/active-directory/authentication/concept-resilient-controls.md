@@ -242,7 +242,7 @@ Depending on which mitigations or contingencies are used during a disruption, yo
  If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
 1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
-2. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs in a CIDR notation for example: 192.168.1.1/24.
+ 2. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs in a CIDR notation (for example, 192.168.1.1/24).
 
 >[!IMPORTANT]
 > If you broaden the trusted IP addresses to unblock access, risk events associated with IP addresses (for example, impossible travel, or unfamiliar locations) will not be generated.
