@@ -17,7 +17,7 @@ This article explains how to rebuild an Azure Search index, the circumstances un
 
 A rebuild refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Search, you cannot drop and recreate specific fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types.
 
-In contrast with rebuilds that take an index offline, *data refresh* runs as a background task. You can add, remove, and replace documents with no disruption to query workloads. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+In contrast with rebuilds that take an index offline, *data refresh* runs as a background task. You can add, remove, and replace documents with minimal disruption to query workloads, although queries typically take longer to complete. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## Rebuild conditions
 
@@ -43,22 +43,29 @@ When you add a new field, existing indexed documents are given a null value for 
 
 In Azure Search, you cannot control indexing on a per-field basis, choosing to delete or recreate specific fields. Similarly, there is no built-in mechanism for [indexing documents based on criteria](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Any requirements you have for criteria-driven indexing have to be met through custom code.
 
-What you can do easily, however, is refresh documents in an index. For many search solutions, external source data is volatile, and synchronization between source data and a search index is a common practice. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or the .NET equivalent.
+What you can do easily, however, is *refresh documents* in an index. For many search solutions, external source data is volatile, and synchronization between source data and a search index is a common practice. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or the [.NET equivalent](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) to update index content, or to add values for a new field.
 
-> [!Note]
->  [Indexers](search-indexer-overview.md) simplify data refresh tasks. When using indexers that crawl external data sources, you can leverage change-tracking mechanisms in source systems to provide only modified data to Azure Search. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a `lastModified` field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` serves the same purpose. Similarly, both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. For more information about indexers, see [Indexer overview](search-indexer-overview.md).
+## Partial indexing with indxers
+
+[Indexers](search-indexer-overview.md) simplify the data refresh task. An indexer can only index one table or view in the external data source. To index multiple tables, the simplest approach is to create a view that joins tables and projects the columns you want to index. 
+
+When using indexers that crawl external data sources, check for a "high water mark" column in the source data. If one exists, you can use it for incremental change detection by picking up just those rows containing new or revised content. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a `lastModified` field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` serves the same purpose. Similarly, both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. 
+
+For more information about indexers, see [Indexer overview](search-indexer-overview.md) and [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
 
 ## How to rebuild an index
 
 Plan on frequent, full rebuilds during active development, when index schemas are in a state of flux. For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
 
+If you have a stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. When development is complete, you would either modify application code to redirect queries to the new endpoint and index, or you would run finished code to create and load an index on the Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
+
 Read-write permissions at the service-level are required for index updates. Programmatically, you can call [Update Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) or .NET APIs for a full rebuild. The request is identical to [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), but has a different context.
 
-1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
+1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
 2. Provide an index schema with the changed or modified field definitions. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 3. Provide an [admin key](https://docs.microsoft.com/en-us/azure/search/search-security-api-keys) on the request.
 4. Send an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) command to rebuild the physical expression of the index on Azure Search. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options.
-5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source.
+5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source. You can also use this API if you are refreshing an existing, unchanged index schema with updated documents.
 
 When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields are that not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
 
