@@ -25,14 +25,16 @@ This tutorial requires that the general tutorial Bot is running:
 
 ## Details
 
-When editing, you are always editing the tag called “master” -- you can create tagged versions from master (which essentially take a snapshot of master), but you cannot edit tagged versions.
+Tagged versions of the Model are static; you cannot edit or change them. When editing your model, you are always editing the Master version. When you add a new Tag, Conversation Learner captures a snapshot of the Model at that point in time. 
+
+Your Bot will use the version of the Model that you have selected as the "Live" version, but any conversations it has will be viewable only when the "Editing Tag" is set to "Master". If the "Editing Tag" property of the Model is set to anything other than "Master", then you can view the snapshot of the Model, but you cannot change it in any way.
 
 ## Steps
 
 ### Install the Bot Framework Emulator
 
-- Go to [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
-- Download and install the emulator.
+1. Go to [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
+2. Download and install the emulator.
 
 ### Create a Model
 
@@ -43,13 +45,14 @@ When editing, you are always editing the tag called “master” -- you can crea
 
 ### Configure the Emulator
 
-1. In the Conversation Learner root folder, open the .env file.
-2. Add a line to the .env file like this:
-	- CONVERSATION_LEARNER_MODEL_ID=<paste-model-id-from-clipboard-here>
+1. In the Conversation Learner root folder, open the ".env" file.
+2. Add a line to the ".env" file like this:
+	- `CONVERSATION_LEARNER_MODEL_ID=[paste-model-id-from-clipboard-here]`
 3. Restart the Conversation Learner service by exiting from the command prompt, and rerunning:
-	- `npm run tutorial-general` 
+	- `npm run tutorial-general`
+4. In Bot Framework Emulator, create a new bot configuration, set the Endpoint URL to `http://localhost:3978/api/messages`
 
-### Version 1 Action
+### Version 1
 
 We'll create a single Action for Version 1.
 
@@ -57,50 +60,44 @@ We'll create a single Action for Version 1.
 2. In the "Bot's Response" field, enter “hi there (version 1)”.
 3. Click the `Save` button.
 
-Now we'll tag this as "version 1".
+Now we'll tag this as "Version 1" of the Model.
 
-4. In the left panel click on “settings”, then click on this ![](../media/tutorial18_version_tags.PNG)
-	- Call it “version 1”
-4. Set “version 1” to be “live”.  
-	- The effect of setting the live tag to "version 1" is that channels using this Bot will use the “version 1” tag.
-	- Tagged versions of models are not affected by edits (changing actions, entities, adding train dialogs).  
-	- Edits to an model (changing actions, entities, adding train dialogs) are always made on the "master" tag.  In other words, "master" is the only tag that can change; other tags are fixed snapshots.
-	- Log dialogs in the Conversation Learner UI always use master (not the live tag).
+4. In the left panel click on “settings”, then click on the ![](../media/tutorial18_version_tags.PNG)"Version Tags" icon to reveal the `New Tag` button which you should click.
+	- Name it “Version 1”
+4. In the "Live Tag" drop down select “Version 1”.  
+	- Now channels using this Bot will use “Version 1” of our Model.
+	- The Entities, Actions, and Train Dialogs of this Version 1 Model can no longer be changed.
+	- If you select "Version 1" as the "Editing Tag" you will ONLY be able to view the Model and not edit it.
+	- Leave "Editing Tag" set to "Master", it is the only version of the model that can be edited.
 
-![](../media/tutorial16_v1_create.PNG)
+Now you will see "Version 1" in the "Version Tags" grid.
 
-The version has been created in settings:
+### Version 2
 
-![](../media/tutorial16_settings.PNG)
+Now we will edit our Model to distinguish it from Version 1.
 
-Let's add a second action:
+1. In the left panel click on "Actions".
+2. In the Actions grid click on "hi there (version 1)".
+3. Change the "Bot's response" field to "hi there (version 2)".
+4. Click the `Save` button.
+5. Click the `New Action` button.
+6. In the "Bot's response" field type, "bye bye (version 2)".
 
-1. Click Actions, then New Action.
-2. In Response, enter “bye bye (version 2)”.
+### Confirm Bot Framework Emulator is Using Version 1
 
-Edit the first action:
+1. In the Bot Framework Emulator, type in the message, "Hey there".
+2. Notice that the Bot responds with "hi there (version 1)".
+	- This verifies that Version 1 is "live".
 
-1. Click Actions.
-2. Under Actions, click on "hi there (version 1)".
-3. Change the Response to "hi there (version 2)".
+### View the Conversation Logs in Conversation Learner Web UI
 
-![](../media/tutorial16_hi_there_v2.PNG)
-
-### Switch to the Bot emulator
-
-1. In the Bot UI, enter "goodbye".
-2. The Bot responds with "hi there (version 1)".
-	- This shows the version 1 is "live". 
-
-![](../media/tutorial16_bf_response.PNG)
-
-### Switch to the Web UI
-
-1. Click on Log Dialogs (If you don't see any dialogs, click the refresh button).
-2. Click on "hi there (version 2)"
+1. In the left panel click on "Log Dialogs"
+	- If you don't see any dialogs, click the refresh button.
+2. Notice the "Version 1" tag in the grid.
+3. In the grid, click on "hi there (version 1)"
 
 > [!NOTE]
-> We can make corrections by choosing from all currently available actions. These edits will be made to the master.
+> We can make corrections by choosing from all currently available Conversation Learner functionality, however, these edits will be made to Master and not to Version 1.
 
 You have now seen how versioning works, and how you can interact with the Bot using the Bot Framework Emulator.
 
