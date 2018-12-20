@@ -16,7 +16,7 @@ ms.author: erhopf
 
 In this quickstart, you'll create a simple .NET Framework application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
-For a complete list of languages available for speech translation, see [language support](llanguage-support.md).
+For a complete list of languages available for speech translation, see [language support](language-support.md).
 
 ## Prerequisites
 

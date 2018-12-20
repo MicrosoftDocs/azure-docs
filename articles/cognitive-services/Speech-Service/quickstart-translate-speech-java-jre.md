@@ -16,7 +16,7 @@ ms.author: erhopf
 
 In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Ubuntu Linux 16.04/18.04, and is built with the Speech SDK Maven package and the Eclipse Java IDE.
 
-For a complete list of languages available for speech translation, see [language support](llanguage-support.md).
+For a complete list of languages available for speech translation, see [language support](language-support.md).
 
 ## Prerequisites
 
