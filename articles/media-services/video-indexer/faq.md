@@ -122,7 +122,7 @@ Video Indexer is covered by the [Microsoft Privacy Statement](https://privacy.mi
 
 ### What are the differences in capability on the Video Indexer website versus the Video Indexer API?
 
-With [videoindexer.com](videoindexer.com), you can search your video library, analyze insights, customize models, configure your account, and edit your videos with ease. With our robust REST API, you can integrate with any infrastructure, or embed widgets directly in your own website or application.
+With the [Video Indexer](https://www.videoindexer.com) website, you can search your video library, analyze insights, customize models, configure your account, and edit your videos with ease. With the robust [Video Indexer REST API](https://api-portal.videoindexer.ai/), you can integrate with any infrastructure, or embed widgets directly in your own website or application.
 
 ### What APIs does Video Indexer offer?
 
