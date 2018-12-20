@@ -68,7 +68,7 @@ New-AzureRmDeployment `
 
 Wait until the script is completed successfully, then open the [Azure portal](https://portal.azure.com), and verify the resource groups and the storage account are deployed as expected.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Because the template defines two resource group, this deployment is considered as subscription level deployment. The portal template deployment doesn't support subscription level deployments. Thus Azure PowerShell is used in this tutorial. Azure CLI also supports subscription level deployments. See [Create resource groups and resources for an Azure subscription](./deploy-to-subscription.md).
 
 ## Verify the resource can be moved
