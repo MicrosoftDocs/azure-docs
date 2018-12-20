@@ -10,7 +10,7 @@ ms.date: 12/19/2018
 ms.author: danlep
 ---
 
-# Use a command line in a container instance to override the default container command line
+# Set a command line in a container instance to override the default container command line
 
 When you create a container instance, optionally specify a command line to override the command line baked into the container image. This behavior is similar to the `--entrypoint` command-line argument to `docker run`.
 
@@ -35,7 +35,7 @@ The command-line syntax varies depending on the Azure API or tool used to create
 
 * [az container create][az-container-create] command: Pass a string with the `--command-line` parameter. Example: `--command-line "python myscript.py arg1 arg2"`).
 
-* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: Pass a string with the `-Command` parameter. 
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: Pass a string with the `-Command` parameter. Example: `-command "echo hello"`.
 
 * Azure portal: In the **Command override** property of the container configuration, provide a comma-separated list of strings, without quotes. Example: `python, myscript.py, arg1, arg2`). 
 
@@ -48,7 +48,7 @@ The command-line syntax varies depending on the Azure API or tool used to create
 |    |  Azure CLI   | Portal | Template | 
 | ---- | ---- | --- | --- |
 | Single command | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Multiple commands | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "touch test/myfile; tail -f /dev/null"]` |
+| Multiple commands | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## Azure CLI example
 
