@@ -652,7 +652,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 The [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
 
 ## Query example: Remove duplicate events in a window
-**Description**: One event is sent twice by a device or an application. When performing an operation such as calculating averages over events in a given time window, such duplicate events should be filtered.
+**Description**: When performing an operation such as calculating averages over events in a given time window, duplicate events should be filtered.
 
 **Input**:  
 
@@ -696,7 +696,7 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Explanation**:
-**COUNT(DISTINCT Time)** returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
+[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
