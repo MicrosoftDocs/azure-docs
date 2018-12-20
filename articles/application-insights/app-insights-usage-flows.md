@@ -54,7 +54,7 @@ If page views or custom events are missing that you expect to see on the visuali
 * Check the **Excluded events** section in the **Edit** menu.
 * Use the plus buttons on **Others** nodes to include less-frequent events in the visualization.
 * If the page view or custom event you expect is sent infrequently by users, try increasing the time range of the visualization in the **Edit** menu.
-* Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](app-insights-api-custom-events-metrics.md)
+* Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](../azure-monitor/app/api-custom-events-metrics.md)
 
 If you want to see more steps in the visualization, use the **Previous steps** and **Next steps** dropdowns above the visualization.
 
@@ -94,4 +94,4 @@ Use the **Split by** options in the **Edit** menu:
 * [Usage overview](app-insights-usage-overview.md)
 * [Users, Sessions, and Events](app-insights-usage-segmentation.md)
 * [Retention](app-insights-usage-retention.md)
-* [Adding custom events to your app](app-insights-api-custom-events-metrics.md)
+* [Adding custom events to your app](../azure-monitor/app/api-custom-events-metrics.md)

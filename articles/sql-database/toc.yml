@@ -198,7 +198,7 @@
     items:
     - name: Security overview
       href: sql-database-security-index.yml
-    - name: Security overview
+    - name: Security capabilities
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
