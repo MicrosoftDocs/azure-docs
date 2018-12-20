@@ -59,8 +59,10 @@
     items:
     - name: Define a skillset
       href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation
+    - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
+    - name: Associate Cognitive Services with skillset
+      href: cognitive-search-attach-cognitive-services.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
     - name: Process and extract information from images
@@ -273,7 +275,7 @@
     - name: Job listings app
       href: http://aka.ms/azjobsdemo
     - name: Search Analyzer demo
-      href: http://alice.unearth.ai/
+      href: https://alice.unearth.ai/
     - name: Search use cases
       href: https://searchsamples.azurewebsites.net/
   - name: FAQ

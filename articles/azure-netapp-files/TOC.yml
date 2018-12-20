@@ -1,0 +1,42 @@
+- name: Azure NetApp Files Documentation
+  href: index.md
+- name: Overview
+  items:
+  - name: Introduction to Azure NetApp Files
+    href: azure-netapp-files-introduction.md
+  - name: Understand the storage hierarchy
+    href: azure-netapp-files-understand-storage-hierarchy.md
+- name: Quickstarts
+  items:
+  - name: Register for Azure NetApp Files
+    href: azure-netapp-files-register.md
+  - name: Create a NetApp account
+    href: azure-netapp-files-create-netapp-account.md
+  - name: Set up a capacity pool
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Delegate a subnet to Azure NetApp Files
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Create a volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Configure export policy for a volume (optional)
+    href: azure-netapp-files-configure-export-policy.md
+# - name: Tutorials
+# - name: Samples
+# - name: Concepts
+#  items:
+#  - name: FAQ for networking and security
+#    href: azure-netapp-files-faq-for-networking-security.md
+- name: How-to guides
+  items:
+  - name: Manage volumes
+    href: azure-netapp-files-manage-volumes.md
+  - name: Mount or unmount a volume for virtual machines
+    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: Manage snapshots
+    href: azure-netapp-files-manage-snapshots.md
+  - name: Resize a capacity pool or a volume
+    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+# - name: Reference
+#  items:
+#  - name: REST
+#    href: https://docs.microsoft.com/rest/api/ 

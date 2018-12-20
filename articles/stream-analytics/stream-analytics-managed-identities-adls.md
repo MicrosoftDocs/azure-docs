@@ -1,15 +1,16 @@
 ---
-title: Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output (Preview)
-description: 
+title: Authenticate Azure Stream Analytics Job to Azure Data Lake Storage Gen1 Output
+description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 
-# Use Managed Identities to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output (Preview)
+# Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities (Preview)
 
 Azure Stream Analytics supports managed identity authentication with Azure Data Lake Storage (ADLS) Gen1 output. The identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job, and can be used to authenticate to a targeted resource. Managed identities eliminate the limitations of user-based authentication methods, like needing to reauthenticate due to password changes or user token expirations that occur every 90 days. Additionally, managed identities help with the automation of Stream Analytics job deployments that output to Azure Data Lake Storage Gen1.
 
@@ -27,7 +28,7 @@ This article shows you two ways to enable managed identity for an Azure Stream A
 
    When the configuration is saved, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
 
-   ![Stream Analytics Principal ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![Stream Analytics service principal ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    The service principal has the same name as the Stream Analytics job. For example, if the name of your job is **MyASAJob**, the name of the service principal created is also **MyASAJob**.
 
@@ -51,11 +52,11 @@ This article shows you two ways to enable managed identity for an Azure Stream A
  
 8. In the **Permissions** pane, check the **Write** and **Execute** permissions and assign it to **This Folder and all children**. Then click **Ok**.
 
-   ![Select a permission](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![Select write and execute permissions](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. The service principal is listed under **Assigned Permissions** on the **Access** pane as shown below. You can now go back and start your Stream Analytics job.
 
-   ![Access list](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![Stream Analytics access list in portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    To learn more about Data Lake Storage Gen1 file system permissions, see [Access Control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 

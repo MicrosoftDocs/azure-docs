@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Overview | Microsoft Docs
+title: What is Azure Active Directory? | Microsoft Docs
 description: Learn about Azure Active Directory, including the required terminology, audience, licensing basics, and associated features.
 services: active-directory
 author: eross-msft
@@ -9,6 +9,8 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
+ms.custom: "it-pro, seodec18"
+
 #customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
 ---
 

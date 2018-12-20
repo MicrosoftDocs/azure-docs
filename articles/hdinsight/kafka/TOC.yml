@@ -4,7 +4,7 @@
   items:
   - name: About Apache Kafka on HDInsight
     href: apache-kafka-introduction.md
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -210,7 +210,7 @@
       - name: Apache Hadoop memory and performance
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Access Hadoop YARN application logs on Linux
+      - name: Access Apache Hadoop YARN application logs on Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
       - name: Enable heap dumps for Apache Hadoop services

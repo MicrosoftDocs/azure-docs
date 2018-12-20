@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ---
 
@@ -13,6 +13,8 @@ ms.author: raynew
 
 This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment by visualizing dependencies of machines. You typically use this method when you want to assess groups of VMs with higher levels of confidence by cross-checking machine dependencies, before you run an assessment. Dependency visualization can help you effectively plan your migration to Azure. It helps you ensure that nothing is left behind and surprise outages do not occur when you are migrating to Azure. You can discover all interdependent systems that need to migrate together and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.
 
+> [!NOTE]
+> The dependency visualization functionality is not available in Azure Government.
 
 ## Prepare for dependency visualization
 Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
@@ -24,14 +26,15 @@ To leverage dependency visualization, you need to associate a Log Analytics work
 
     ![Associate Log Analytics workspace](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in the same subscription as the migration project and in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-- The **Use existing** option lists only those workspaces that are created in regions where Service Map is available. If you have a workspace in a region where Service Map is not available, it will not be listed in the drop-down.
+- While associating a workspace, you will get the option to create a new workspace or attach an existing one:
+  - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You cannot change the workspace associated to a migration project.
 
 ### Download and install the VM agents
-Once you configure a workspace, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) on them.
+Once you configure a workspace, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../azure-monitor/platform/gateway.md) on them.
 
 1. In **Overview**, click **Manage** > **Machines**, and select the required machine.
 2. In the **Dependencies** column, click **Install agents**.
@@ -84,7 +87,7 @@ Learn more about the Dependency agent support for the [Windows](../azure-monitor
     - Processes running inside the machine, you can expand each machine box to view the processes
     - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
- ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.

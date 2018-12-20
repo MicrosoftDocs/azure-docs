@@ -44,7 +44,7 @@ pip install azure-storage-file
 > 
 > 
 
-For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
+For alternative installation methods, visit the [Azure Storage SDK for Python on GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## Set up your application to use Azure Files
 Add the following near the top of any Python source file in which you wish to programmatically access Azure Storage.

@@ -1,6 +1,6 @@
 ---
-title: How to add or remove group members using Azure Active Directory | Microsoft Docs
-description: Learn how to add or remove users and devices from a group using Azure Active Directory.
+title: Add or remove group members - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add or remove members from a group using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,11 +11,11 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
 ---
 
-# How to: Add or remove group members using Azure Active Directory
+# Add or remove group members using Azure Active Directory
 Using Azure Active Directory, you can continue to add and remove group members.
 
 ## To add group members

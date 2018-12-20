@@ -106,7 +106,7 @@ This example copies data from Amazon Redshift to Azure SQL Data Warehouse. The e
 
 For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into SQL Data Warehouse. All of the interim formats are handled by Copy Activity.
 
-![Copy workflow from Amazon Redshift to SQL Data Warehouse](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+![Copy workflow from Amazon Redshift to SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL as: `https://dashboard.panorama9.com/saml/access/3262`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `http://www.panorama9.com/saml20/<tenant-name>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.panorama9.com/saml20/<tenant-name>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Panorama9 Client support team](https://support.panorama9.com) to get these values. 

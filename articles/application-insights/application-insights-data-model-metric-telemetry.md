@@ -1,20 +1,17 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Data Model - Metric Telemetry | Microsoft Docs
 description: Application Insights data model for metric telemetry
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-
 ---
 # Metric telemetry: Application Insights data model
 
@@ -70,6 +67,6 @@ Metric with the custom property `CustomPerfCounter` set to `true` indicate that 
 
 ## Next steps
 
-- Learn how to use [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md#trackmetric).
+- Learn how to use [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Check out [platforms](app-insights-platforms.md) supported by Application Insights.

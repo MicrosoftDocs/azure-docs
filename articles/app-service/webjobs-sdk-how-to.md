@@ -1,5 +1,5 @@
 ---
-title: How to use the Azure WebJobs SDK
+title: How to use the WebJobs SDK - Azure
 description: Learn more about how to write code for the WebJobs SDK. Create  event-driven background processing jobs that access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -412,7 +412,7 @@ public class WorkItem
 
 The default scope for a lock is `SingletonScope.Function` meaning the lock scope (the blob lease path) is tied to the fully qualified function name. To lock across functions, specify `SingletonScope.Host` and use a scope ID name that is the same across all of the functions that you don't want to run simultaneously. In the following example, only one instance of `AddItem` or `RemoveItem` runs at a time:
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {
@@ -446,7 +446,7 @@ The queue and blob triggers automatically prevent a function from processing a q
 
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 
-If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton](#singleton) attribute.
+If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton attribute](#singleton-attribute).
 	
 ## Filters 
 
@@ -494,7 +494,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### Custom telemetry for Application Insights
 
-Internally, the `TelemetryClient` created by the Application Insights provider for the WebJobs SDK uses the [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](http://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Internally, the `TelemetryClient` created by the Application Insights provider for the WebJobs SDK uses the [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
 The `TelemetryClient` is created by a class that implements `ITelemetryClientFactory`. By default, this is the [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
 

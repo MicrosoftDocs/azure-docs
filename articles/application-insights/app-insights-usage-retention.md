@@ -8,7 +8,6 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.pm_owner: daviste;NumberByColors
@@ -57,7 +56,7 @@ Or in ASP.NET server code:
    telemetry.TrackEvent("won game");
 ```
 
-[Learn more about writing custom events](app-insights-api-custom-events-metrics.md#trackevent).
+[Learn more about writing custom events](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 
 ## Next steps

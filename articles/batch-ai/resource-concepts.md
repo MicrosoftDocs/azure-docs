@@ -16,9 +16,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # Overview of resources in Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 When you first start using the Batch AI service, you'll want to understand the available Batch AI resources. As with other Azure services, you create Batch AI resources in one or more Azure *resource groups*. Create one or more Batch AI *workspaces* in a resource group. Each workspace contains a mix of Batch AI *clusters*, *file servers*, and *experiments*. A Batch AI experiment encapsulates a group of *jobs*.
 

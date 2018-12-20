@@ -62,6 +62,14 @@ Latency is the time it takes an application to receive a single request, send it
 
 When you are optimizing your application to get higher IOPS and Throughput, it will affect the Latency of your application. After tuning the application performance, always evaluate the Latency of the application to avoid unexpected high latency behavior.
 
+Following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data which can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
+
+1.	[Update the Storage type](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.	[Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.	[Create a Managed Disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.	[Create a Managed Disk from a Snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.	[Convert unmanaged disks to Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+
 ## Gather Application Performance Requirements
 
 The first step in designing high performance applications running on Azure Premium Storage is, to understand the performance requirements of your application. After you gather performance requirements, you can optimize your application to achieve the most optimal performance.

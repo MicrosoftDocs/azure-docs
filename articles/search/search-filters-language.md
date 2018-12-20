@@ -1,6 +1,6 @@
 ---
-title: Language filters in Azure Search | Microsoft Docs
-description: Filter criteria by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
+title: Language filters for multi-lingual content in a search index - Azure Search
+description: Filter criteria to support multi language search, scoping query execution to language-specific fields.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,6 +9,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # How to filter by language in Azure Search 

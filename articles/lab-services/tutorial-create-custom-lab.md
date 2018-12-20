@@ -76,15 +76,11 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 1. Select **Configuration and policies** in the left menu. 
 
 	![Configuration and policies](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Select **Access control (IAM)** from the menu, and select **+ Add** on the toolbar. 
-
-	![Access control - Add user button](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Select **Access control (IAM)** from the menu, and select **+ Add role assignment** on the toolbar. 
 1. On the **Add permissions** page, do the following actions:
     1. For **Role**, select **DevTest Labs User**. 
     2. Select the **user** you want to add. 
     3. Select **Save**.
-
-	    ![Add permissions](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. To close **Configuration and policies - Access control (IAM)**, select **X** in the right corner. 
 
 ## Cleanup resources

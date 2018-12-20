@@ -1,8 +1,9 @@
 ---
-title: "Tutorial 5: Pattern.any entity for free-form text"
+title: Pattern.any entity
 titleSuffix: Azure Cognitive Services
 description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
@@ -62,7 +63,7 @@ Continue with the app created in the last tutorial, named **HumanResources**.
 
 If you do not have the HumanResources app from the previous tutorial, use the following steps:
 
-1.  Download and save [app JSON file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
 2. Import the JSON into a new app.
 

@@ -33,7 +33,7 @@ The following diagram shows the steps that a CSP will need to follow to enable a
 
 **Steps to add an end customer**
 
-![Set up Cloud Service Provider for usage tracking and to manage the end customer account](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Set up Cloud Service Provider for usage tracking and to manage the end customer account](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## Create a new customer in Partner Center
 
@@ -50,7 +50,7 @@ If the end customer will manage their own account, create a guest user in their 
  
 ## Update the registration with the end customer subscription
 
-Update your registration with the new customer’s subscription. Azure reports the customer's usage using the customer identity from Partner Central. This step ensures that each customer’s usage is reported under that customer’s individual CSP subscription. This makes tracking user usage and billing much easier.
+Update your registration with the new customer’s subscription. Azure reports the customer's usage using the customer identity from Partner Center. This step ensures that each customer’s usage is reported under that customer’s individual CSP subscription. This makes tracking user usage and billing much easier.
 
 > [!Note]  
 > To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).
@@ -83,10 +83,10 @@ Configure Azure Stack to support users from multiple Azure AD tenants to use ser
 
 ## Create a local resource in the end customer tenant in Azure Stack
 
-Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you can create a resource in their tenant. For example, they can [Create a Windows virtual machine with the Azure Stack portal](user\azure-stack-quick-windows-portal.md).
+Once you have added the new customer to Azure Stack, or the end customer tenant has enabled your guest account with owner privileges, verify that you can create a resource in their tenant. For example, they can [Create a Windows virtual machine with the Azure Stack portal](user/azure-stack-quick-windows-portal.md).
 
 ## Next steps
 
  - To review the error messages if they are triggered in your registration process, see [Tenant registration error messages](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
  - To learn more about how to retrieve resource usage information from Azure Stack, see [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md).
- - To review how an end customer may add you, as the CSP, as the manager for their Azure Stack, tenant, see [Enable a Cloud Service Provider to manage your Azure Stack subscription](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - To review how an end customer may add you, as the CSP, as the manager for their Azure Stack, tenant, see [Enable a Cloud Service Provider to manage your Azure Stack subscription](user/azure-stack-csp-enable-billing-usage-tracking.md).

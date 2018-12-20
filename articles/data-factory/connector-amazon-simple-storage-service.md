@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -30,11 +30,8 @@ Specifically, this Amazon S3 connector supports copying files as-is or parsing f
 
 To copy data from Amazon S3, make sure you have been granted the following permissions:
 
-- `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
-- `s3:ListBucket` or `s3:GetBucketLocation` for Amazon S3 Bucket Operations. 
-
->[!NOTE]
->When using Data Factory GUI for authoring, `s3:ListAllMyBuckets` permission is also required for operations like test connection and browse/navigate file paths. If you don't want to grant this permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
+- **For copy activity execution:**: `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
+- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Amazon S3 Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
 
 For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -94,6 +91,8 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
 | key | The **name or wildcard filter** of S3 object key under the specified bucket. Applies only when "prefix" property is not specified. <br/><br/>The wildcard filter is only supported for file name part but not folder part. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside. |No |
 | prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when "key" property is not specified. |No |
 | version | The version of the S3 object, if S3 versioning is enabled. |No |
+| modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
+| modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
 | format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
@@ -114,6 +113,8 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
         "typeProperties": {
             "bucketName": "testbucket",
             "prefix": "testFolder/test",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
                 "type": "TextFormat",
                 "columnDelimiter": ",",

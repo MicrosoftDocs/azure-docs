@@ -196,7 +196,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 2. In the overview, under status, check to see that the **Status** displays **All roles are ready**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
@@ -217,9 +217,9 @@ After you deploy and register the App Service resource provider, test it to make
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
-You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
+> You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 >
-As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
+> As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
 1. In the Azure Stack tenant portal, click **+ Create a resource** > **Web + Mobile** > **Web App**.
 

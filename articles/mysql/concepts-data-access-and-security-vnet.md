@@ -1,11 +1,9 @@
 ---
 title: 'Azure Database for MySQL Server VNet services endpoint overview | Microsoft Docs'
 description: 'Describes how VNet service endpoints work for your Azure Database for MySQL server.'
-services: mysql
 author: mbolz
 ms.author: mbolz
 manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
@@ -138,7 +136,7 @@ For articles on creating VNet rules, see:
 - [Create and manage Azure Database for MySQL VNet rules using the Azure portal](howto-manage-vnet-using-portal.md)
 - [Create and manage Azure Database for MySQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

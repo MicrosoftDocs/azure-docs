@@ -17,7 +17,7 @@ ms.custom: mvc, cc996988-fb4f-47
 
 # Create an OpenAPI definition for a function
 
-REST APIs are often described using an OpenAPI definition (formerly known as a [Swagger](http://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
+REST APIs are often described using an OpenAPI definition (formerly known as a [Swagger](https://swagger.io/) file). This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
 
 In this tutorial, you create a function that determines whether an emergency repair on a wind turbine is cost-effective. You then create an OpenAPI definition for the function app so that the function can be called from other apps and services.
 
@@ -119,7 +119,7 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Generate the OpenAPI definition
 
-Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like API Apps, [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](http://swagger.io/tools/).
+Now you're ready to generate the OpenAPI definition. This definition can be used by other Microsoft technologies, like API Apps, [PowerApps](functions-powerapps-scenario.md) and [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), as well as third party developer tools like [Postman](https://www.getpostman.com/docs/importing_swagger) and [many more packages](https://swagger.io/tools/).
 
 1. Select only the *verbs* that your API supports (in this case POST). This makes the generated API definition cleaner.
 
@@ -137,7 +137,7 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
 
     ![API definition source](media/functions-openapi-definition/api-definition-source.png)
 
-    This step enables a suite of OpenAPI options for your function app, including an endpoint to host an OpenAPI file from your function app's domain, an inline copy of the [OpenAPI Editor](http://editor.swagger.io), and an API definition template generator.
+    This step enables a suite of OpenAPI options for your function app, including an endpoint to host an OpenAPI file from your function app's domain, an inline copy of the [OpenAPI Editor](https://editor.swagger.io), and an API definition template generator.
 
 1. Click **Generate API definition template** > **Save**.
 
@@ -164,7 +164,7 @@ Now you're ready to generate the OpenAPI definition. This definition can be used
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

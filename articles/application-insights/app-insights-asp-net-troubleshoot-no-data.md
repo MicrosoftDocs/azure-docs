@@ -10,7 +10,6 @@ ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
@@ -65,8 +64,8 @@ In Solution Explorer, right-click your project and choose **Application Insights
 ## <a name="NuGetBuild"></a> "NuGet package(s) are missing" on my build server
 *Everything builds OK when I'm debugging on my development machine, but I get a NuGet error on the build server.*
 
-Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
-and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Please see [NuGet Package Restore](https://docs.nuget.org/Consume/Package-Restore)
+and [Automatic Package Restore](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## Missing menu command to open Application Insights from Visual Studio
 *When I right-click my project Solution Explorer, I don't see any Application Insights commands, or I don't see an Open Application Insights command.*
@@ -138,9 +137,9 @@ Fix:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In the [Microsoft Azure home dashboard](https://portal.azure.com), look at the Service Health map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-* Check also [our status blog](https://blogs.msdn.com/b/applicationinsights-status/).
-* Did you write any code for the [server-side SDK](app-insights-api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](app-insights-api-filtering-sampling.md) that might be filtering out too much?
-* If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](app-insights-api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
+* Check also [our status blog](https://blogs.msdn.microsoft.com/servicemap-status/).
+* Did you write any code for the [server-side SDK](../azure-monitor/app/api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](../azure-monitor/app/api-filtering-sampling.md) that might be filtering out too much?
+* If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](../azure-monitor/app/api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
 
 ## <a name="q04"></a>No data on Page Views, Browsers, Usage
 *I see data in Server Response Time and Server Requests charts, but no data in Page View Load time, or in the Browser or Usage blades.*

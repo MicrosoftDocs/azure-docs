@@ -1,4 +1,4 @@
-﻿---
+---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
 services: application-insights
@@ -10,7 +10,6 @@ ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
@@ -19,8 +18,8 @@ ms.author: mbullwin
 ---
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
 The Application Insights .NET SDK consists of a number of NuGet packages. The
-[core package](http://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to
-the Application Insights. [Additional packages](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) provide
+[core package](https://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to
+the Application Insights. [Additional packages](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) provide
 telemetry *modules* and *initializers* for automatically tracking telemetry from your application and its context. By
 adjusting the configuration file, you can enable or disable telemetry modules and initializers, and set parameters for
 some of them.
@@ -45,16 +44,16 @@ There's a node in the configuration file for each module. To disable a module, d
 ### Dependency Tracking
 [Dependency tracking](app-insights-asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](app-insights-azure-web-apps.md).
 
-You can also write your own dependency tracking code using the [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+You can also write your own dependency tracking code using the [TrackDependency API](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
+* [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
 
 ### Performance collector
 [Collects system performance counters](app-insights-performance-counters.md) such as CPU, memory, and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
+* [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet package.
 
 ### Application Insights Diagnostics Telemetry
 The `DiagnosticsTelemetryModule` reports errors in the Application Insights instrumentation code itself. For example,
@@ -62,46 +61,46 @@ if the code cannot access performance counters or if an `ITelemetryInitializer` 
 tracked by this module appears in the [Diagnostic Search][diagnostic]. Sends diagnostic data to dc.services.vsallin.net.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
 
 ### Developer Mode
 `DeveloperModeWithDebuggerAttachedTelemetryModule` forces the Application Insights `TelemetryChannel` to send data immediately, one telemetry item at a time, when a debugger is attached to the application process. This reduces the amount of time between the moment when your application tracks telemetry and when it appears on the Application Insights portal. It causes significant overhead in CPU and network bandwidth.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
-* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package
+* [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package
 
 ### Web Request Tracking
 Reports the [response time and result code](app-insights-asp-net.md) of HTTP requests.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
+* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 
 ### Exception tracking
 `ExceptionTrackingTelemetryModule` tracks unhandled exceptions in your web app. See [Failures and exceptions][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
+* [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - tracks [unobserved task exceptions](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - tracks unhandled exceptions for worker roles, windows services, and console applications.
-* [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package.
+* [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package.
 
 ### EventSource Tracking
 `EventSourceTelemetryModule` allows you to configure EventSource events to be sent to Application Insights as traces. For information on tracking EventSource events, see [Using EventSource Events](app-insights-asp-net-trace-logs.md#using-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### ETW Event Tracking
 `EtwCollectorTelemetryModule` allows you to configure events from ETW providers to be sent to Application Insights as traces. For information on tracking ETW events, see [Using ETW Events](app-insights-asp-net-trace-logs.md#using-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### Microsoft.ApplicationInsights
-The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](app-insights-api-custom-events-metrics.md).
+The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](../azure-monitor/app/api-custom-events-metrics.md).
 
 * No entry in ApplicationInsights.config.
-* [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
 
 ## Telemetry Channel
 The telemetry channel manages buffering and transmission of telemetry to the Application Insights service.
@@ -112,7 +111,7 @@ The telemetry channel manages buffering and transmission of telemetry to the App
 ## Telemetry Initializers (ASP.NET)
 Telemetry initializers set context properties that are sent along with every item of telemetry.
 
-You can [write your own initializers](app-insights-api-filtering-sampling.md#add-properties) to set context properties.
+You can [write your own initializers](../azure-monitor/app/api-filtering-sampling.md#add-properties) to set context properties.
 
 The standard initializers are all set either by the Web or WindowsServer NuGet packages:
 
@@ -145,7 +144,7 @@ For .NET applications running in Service Fabric, you can include the `Microsoft.
 ## Telemetry Processors (ASP.NET)
 Telemetry processors can filter and modify each telemetry item just before it is sent from the SDK to the portal.
 
-You can [write your own telemetry processors](app-insights-api-filtering-sampling.md#filtering).
+You can [write your own telemetry processors](../azure-monitor/app/api-filtering-sampling.md#filtering).
 
 #### Adaptive sampling telemetry processor (from 2.0.0-beta3)
 This is enabled by default. If your app sends a lot of telemetry, this processor removes some of it.
@@ -165,7 +164,7 @@ The parameter provides the target that the algorithm tries to achieve. Each inst
 [Learn more about sampling](app-insights-sampling.md).
 
 #### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
-There is also a standard [sampling telemetry processor](app-insights-api-filtering-sampling.md) (from 2.0.1):
+There is also a standard [sampling telemetry processor](../azure-monitor/app/api-filtering-sampling.md) (from 2.0.1):
 
 ```XML
 
@@ -385,7 +384,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
