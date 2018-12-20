@@ -117,7 +117,6 @@ To configure Azure AD single sign-on with FreshDesk, perform the following steps
     
 	| Name | Source Attribute |
 	| ---------------| --------------- |
-	| email  | user.mail  |
 	| Unique User Identifier | user.mail |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
