@@ -1,5 +1,5 @@
 ---
-title: Create, change, or delete a route table using Ansible
+title: Create, change, or delete an Azure route table using Ansible
 description: Learn how to use Ansible to create, change or delete a route table using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ---
 
-# Create, change, or delete a route table using Ansible
+# Create, change, or delete an Azure route table using Ansible
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of default routing on Azure, you do so by creating a [route table](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to create, change or delete an Azure route table, and attach the route table to a subnet as well. 
@@ -20,7 +20,7 @@ Ansible enables you to automate the deployment and configuration of resources in
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial.
+> Ansible 2.7 is required to run the following sample playbooks in this tutorial.
 
 ## Create a route table
 This section presents a sample Ansible playbook that creates a route table. There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
