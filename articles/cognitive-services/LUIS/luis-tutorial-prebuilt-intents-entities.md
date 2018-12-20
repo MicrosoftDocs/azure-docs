@@ -15,9 +15,9 @@ ms.author: diberry
 
 # Tutorial: Identify common intents and entities
 
-In this tutorial, add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities because the entity is detected automatically.
+In this tutorial, add prebuilt intents and entities to a Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to mark any utterances with prebuilt entities because the entity is detected automatically.
 
-Prebuilt models (domains, intents, and entities) help you build your model quickly as well as provide an example of what a model looks like.
+Prebuilt models (domains, intents, and entities) help you build your model quickly.
 
 **In this tutorial, you learn how to:**
 
@@ -42,13 +42,13 @@ LUIS provides several prebuilt intents to help with common user intentions.
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Select **Add prebuilt intent**. 
+1. Select **Add prebuilt intent**. 
 
-3. Search for `Utilities`. 
+1. Search for `Utilities`. 
 
     [ ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-4. Select the following intents and select **Done**: 
+1. Select the following intents and select **Done**: 
 
     * Utilities.Cancel
     * Utilities.Confirm
@@ -65,9 +65,12 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **Entities** from the left navigation menu.
 
-2. Select **Manage prebuilt entity** button.
+1. Select **Add prebuilt entity** button.
 
-3. Select **[PersonName](luis-reference-prebuilt-person.md)** and **[GeographyV2](luis-reference-prebuilt-geographyV2.md)** from the list of prebuilt entities then select **Done**.
+1. Select the following entities from the list of prebuilt entities then select **Done**:
+
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
+    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
@@ -87,98 +90,74 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the browser address bar and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
+1. Go to the end of the URL in the browser address bar and enter `I want to cancel my trip to Seattle to see Bob Smith`. The last query string parameter is `q`, the utterance **query**. 
 
     ```json
     {
-      "query": "I want to cancel on March 3",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.7818295
+        "score": 0.807676256
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.7818295
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0237864349
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.017576348
+          "score": 0.807676256
         },
         {
           "intent": "Utilities.StartOver",
-          "score": 0.0130122062
+          "score": 0.0487322025
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.006731322
+          "score": 0.0208660364
         },
         {
           "intent": "None",
-          "score": 0.00524190161
+          "score": 0.008789532
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.004912514
+          "score": 0.006929268
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00092950504
+          "score": 0.00136293867
         }
       ],
       "entities": [
         {
-          "entity": "march 3",
-          "type": "builtin.datetimeV2.date",
-          "startIndex": 20,
-          "endIndex": 26,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2018-03-03"
-              },
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2019-03-03"
-              }
-            ]
-          }
+          "entity": "seattle",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 28,
+          "endIndex": 34
         },
         {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 26,
-          "endIndex": 26,
-          "resolution": {
-            "value": "3"
-          }
+          "entity": "bob smith",
+          "type": "builtin.personName",
+          "startIndex": 43,
+          "endIndex": 51
         }
       ]
     }
     ```
 
-    The result predicted the Utilities.Cancel intent and extracted the date of March 3 and the number 3. 
+    The result predicted the Utilities.Cancel intent with 80% confidence and extracted the city and person name data. 
 
-    There are two values for March 3 because the utterance didn't state if March 3 is in the past or in the future. It is up to the client application to make an assumption or ask for clarification, if that is needed. 
 
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## Learn more about prebuilt models
+## Related information
+
+Learn more about prebuilt models:
 
 * [Prebuilt domains](luis-reference-prebuilt-domains.md): these are common domains that reduce overall LUIS app authoring
 * Prebuilt intents: these are the individual intents of the common domains. You can add intents individually instead of adding the entire domain.
 * [Prebuilt entities](luis-prebuilt-entities.md): these are common data types useful to most LUIS apps.
 
-## Related information
+Learn more about working with your LUIS app:
 
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
