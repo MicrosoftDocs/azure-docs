@@ -187,6 +187,8 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
 
+4. Click **Save** on the Citrix ShareFile management portal.
+
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Citrix ShareFile.
