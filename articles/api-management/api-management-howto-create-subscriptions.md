@@ -1,6 +1,6 @@
 ---
-title: How to create Subscriptions in Azure API Management | Microsoft Docs
-description: Learn how to create Subscriptions in Azure API Management.
+title: How to create subscriptions in Azure API Management | Microsoft Docs
+description: Learn how to create subscriptions in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ---
-# How to create Subscriptions in Azure API Management
+# How to create subscriptions in Azure API Management
 
-When publishing APIs through Azure API Management (APIM), the easiest and most common way to secure access to those APIs is by using Subscription Keys. In other words, client applications that need to consume the published APIs must include a valid Subscription Key in HTTP requests when making calls to those APIs. To obtain a Subscription Key for accessing APIs, a Subscription is required. For more information about Subscriptions, see [Subscriptions in Azure API Management](api-management-subscriptions.md)
+When publishing APIs through Azure API Management, the easiest and most common way to secure access to those APIs is by using subscription keys. In other words, client applications that need to consume the published APIs must include a valid subscription key in HTTP requests when making calls to those APIs. To obtain a subscription key for accessing APIs, a subscription is required. For more information about subscriptions, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 
-This article walks through the steps for creating Subscriptions in the Azure portal.
+This article walks through the steps for creating subscriptions in the Azure portal.
 
 ## Prerequisites
 
-To complete the steps in this article, you need to:
+To complete the steps in this article, you need the following prerequisites:
 
 + [Create an APIM instance](get-started-create-service-instance.md)
 + Understand [Subscriptions in APIM](api-management-subscriptions.md)
 
-## Create a new Subscription
+## Create a new subscription
 
 1. Click on **Subscriptions** in the menu on the left
 2. Click **Add subscription**
