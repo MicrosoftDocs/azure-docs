@@ -164,7 +164,7 @@ In addition, a Consumption plan requires two additional settings in the site con
 
 ## Deploy a function app on the App Service plan
 
-In the App Service plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+In the App Service plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md). 
 
 For a sample Azure Resource Manager template, see [Function app on Azure App Service plan].
 
