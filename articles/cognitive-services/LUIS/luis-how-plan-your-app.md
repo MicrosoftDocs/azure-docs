@@ -13,7 +13,7 @@ ms.date: 09/26/2018
 ms.author: diberry
 ---
 
-# Plan your LUIS app
+# Plan your LUIS app with subject domain, intents and entities
 
 It is important to plan your app. Identify your domain, including possible intents and entities that are relevant to your application.  
 

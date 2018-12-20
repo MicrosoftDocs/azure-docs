@@ -127,7 +127,7 @@ Write-access to the registry is blocked, including access to any per-user regist
 
 ## More information
 
-[Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - The most up-to-date information about the execution environment of App Service. This page is 
+[Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - The most up-to-date information about the execution environment of App Service. This page is 
 maintained directly by the App Service development team.
 
 > [!NOTE]

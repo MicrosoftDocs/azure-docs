@@ -14,7 +14,7 @@ This article shows how you can use an [Azure Resource Manager template](../../az
 
 > [!NOTE]
 > 
-> This article describes creating **classic metric alerts** using Resource Manager templates. If you are looking for creating [newer metric alerts](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) using templates, [this article](alerts-metric-create-templates.md) provides the details.
+> This article describes creating **classic metric alerts** using Resource Manager templates. If you are looking for creating [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) using templates, [this article](alerts-metric-create-templates.md) provides the details.
 >
 
 
