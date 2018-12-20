@@ -11,9 +11,9 @@ ms.author: absha
 
 # Rewrite HTTP headers with Application Gateway (public preview)
 
-HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding Security-related header fields like HSTS/ X-XSS-Protection or removing response header fields which may reveal sensitive information like backend server name.
+HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding Security-related header fields like HSTS/ X-XSS-Protection or removing response header fields, which may reveal sensitive information like backend server name.
 
-Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard (defined in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) as well as non-standard header fields.
+Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove, or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard (defined in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) as well as non-standard header fields.
 
 > [!NOTE] 
 >
@@ -21,8 +21,8 @@ Application Gateway now supports the ability to rewrite headers of the incoming 
 
 Application Gateway header rewrite support offers:
 
-- **Global header rewrite** You can rewrite specific headers for all the requests and responses pertaining to the site.
-- **Path-based header rewrite** This type of rewrite enables header rewrite for only those requests and responses that pertain to only on a specific site area, for example a shopping cart area denoted by /cart/*.
+- **Global header rewrite**: You can rewrite specific headers for all the requests and responses pertaining to the site.
+- **Path-based header rewrite**:This type of rewrite enables header rewrite for only those requests and responses that pertain to only on a specific site area, for example a shopping cart area denoted by /cart/*.
 
 With this change, you need to:
 
@@ -96,8 +96,8 @@ The server variables mentioned above are the variables that provide information 
 | content_length          | “Content-Length” request header field                        |
 | content_type            | “Content-Type” request header field                          |
 | host                    | in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request |
-| http_method             | the method used to make the URL request. For example GET, POST etc |
-| http_status             | session status, eg: 200, 400, 403 etc                        |
+| http_method             | the method used to make the URL request. For example GET, POST etc. |
+| http_status             | session status, eg: 200, 400, 403 etc.                       |
 | http_version            | request protocol, usually “HTTP/1.0”, “HTTP/1.1”, or “HTTP/2.0” |
 | query_string            | the list of variable-value pairs that follow the "?" in the requested URL. |
 | received_byte           | request length (including request line, header, and request body) |
@@ -106,7 +106,7 @@ The server variables mentioned above are the variables that provide information 
 | request_uri             | full original request URI (with arguments)                   |
 | sent_bytes              | number of bytes sent to a client                             |
 | server_name             | name of the server which accepted a request                  |
-| server_port             | port of the server which accepted a request                  |
+| server_port             | port of the server, which accepted a request                 |
 | ssl_connection_protocol | returns the protocol of an established SSL connection        |
 | ssl_enabled             | “on” if connection operates in SSL mode, or an empty string otherwise |
 |                         |                                                              |
@@ -114,10 +114,17 @@ The server variables mentioned above are the variables that provide information 
 ## Limitations
 
 - This capability to rewrite HTTP headers is currently only available through Azure PowerShell, Azure API and Azure SDK. Support through portal and Azure CLI will be available soon.
+
 - Once you apply a header rewrite on your Application Gateway, you should not use the portal for making any subsequent changes to that Application Gateway until the capability is supported on portal. If you use the portal to make changes to the Application Gateway after applying a rewrite rule, the header rewrite rule. You can continue to make changes using Azure PowerShell, Azure APIs or Azure SDK.
+
 - The HTTP header rewrite support is only supported on the new SKU [Standard_V2]. The capability will not be supported on the old SKU.
+
 - Rewriting the Connect, Upgrade and Host headers is not supported yet.
-- Though two important server variables client_ip (the IP address of the client making the request) and cookie_name (the name cookie) are not supported yet but will be supported soon. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
+
+- Two important server variables, client_ip (the IP address of the client making the request) and cookie_name (the name cookie), are not supported yet. The client_ip server variable is particularly useful in scenarios where customers intend to rewrite the x-forwarded-for header set by Application Gateway, so that the header contains only the IP address of the client and not the port information.
+
+  Both these server variables will soon be supported.
+
 - The capability to conditionally rewrite the http headers will be available soon.
 
 ## Need help?
