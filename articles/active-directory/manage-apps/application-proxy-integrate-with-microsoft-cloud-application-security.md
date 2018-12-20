@@ -13,7 +13,7 @@ ms.reviewer: japere
 ---
 
 # Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory
-Configure an on-premises application in Azure Active Directory to work with Microsoft Cloud App Security (MCAS). Use the MCAS Conditional Access App Control to monitor and control sessions in real-time based on conditional access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
+Configure an on-premises application in Azure Active Directory (Azure AD) to use Microsoft Cloud App Security (MCAS) for real-time monitoring. MCAS uses Conditional Access App Control to monitor and control sessions in real-time based on conditional access policies. You can apply these policies to on-premises applications that use Application Proxy in Azure Active Directory (Azure AD).
 
 Here are some examples of the types of policies you can create with MCAS:
 
