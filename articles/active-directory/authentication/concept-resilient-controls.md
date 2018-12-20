@@ -258,6 +258,6 @@ Depending on which mitigations or contingencies are used during a disruption, yo
  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [How to configure hybrid Azure Active Directory joined devices](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-* [Password Guidance - Microsoft Research](https://www.microsoft.com/research/publication/password-guidance/?from=http://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+ * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [What are conditions in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [What are access controls in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
