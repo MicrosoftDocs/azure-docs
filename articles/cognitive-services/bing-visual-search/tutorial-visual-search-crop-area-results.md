@@ -17,6 +17,14 @@ The Bing Visual Search SDK enables you to crop an image before find online image
 
 The full source code for this application is available with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs).
 
+This tutorial illustrates how to:
+
+> [!div class="checklist"]
+> * Send a request using the Bing Visual Search SDK
+> * Crop an area of image to search with Bing Visual Search
+> * Receive and handle the response
+> * Find the URLs of action items in the resposne
+
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
@@ -26,14 +34,6 @@ The full source code for this application is available with additional error han
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
-
-This tutorial illustrates how to:
-
-> [!div class="checklist"]
-> * Send a request using the Bing Visual Search SDK
-> * Crop an area of image to search with Bing Visual Search
-> * Receive and handle the response
-> * Find the URLs of action items in the resposne
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
