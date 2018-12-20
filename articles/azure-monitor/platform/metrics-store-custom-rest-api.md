@@ -14,7 +14,7 @@ ms.component: metrics
 This article shows you how to send custom metrics for Azure resources to the Azure Monitor metrics store via a REST API. After the metrics are in Azure Monitor, you can do all the things with them that you do with standard metrics. Examples are charting, alerting, and routing them to other external tools.  
 
 >[!NOTE]  
->The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use [Application Insights](../../application-insights/app-insights-api-custom-events-metrics.md).    
+>The REST API only permits sending custom metrics for Azure resources. To send metrics for resources in different environments or on-premises, you can use [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
 
 
 ## Create and authorize a service principal to emit metrics 

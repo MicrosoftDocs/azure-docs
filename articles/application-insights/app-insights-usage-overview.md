@@ -98,7 +98,7 @@ Or from the server side:
 
 You can attach property values to these events, so that you can filter or split the events when you inspect them in the portal. In addition, a standard set of properties is attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
 
-Learn more about [custom events](app-insights-api-custom-events-metrics.md#trackevent) and [properties](app-insights-api-custom-events-metrics.md#properties).
+Learn more about [custom events](../azure-monitor/app/api-custom-events-metrics.md#trackevent) and [properties](../azure-monitor/app/api-custom-events-metrics.md#properties).
 
 ### Slice and dice events
 

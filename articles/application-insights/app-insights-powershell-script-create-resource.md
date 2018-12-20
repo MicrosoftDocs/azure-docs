@@ -99,7 +99,7 @@ There are two ways to make the iKey available to the SDK:
 
 * In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
-* Or in [initialization code](app-insights-api-custom-events-metrics.md): 
+* Or in [initialization code](../azure-monitor/app/api-custom-events-metrics.md): 
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 

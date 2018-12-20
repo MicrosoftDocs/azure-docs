@@ -18,7 +18,7 @@ Learn how to create Apache Spark cluster in Azure HDInsight, and how to run Spar
 
 In this quickstart, you use the Azure portal to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -50,7 +50,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
     ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
 
-    > [!NOTE] 
+    > [!NOTE]  
     > On the screenshot, it shows **Select existing**. The link toggles between **Create new** and **Select existing**.
 
     The **Default container** has a default name.  You can change the name if you want.

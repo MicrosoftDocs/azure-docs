@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 services: application-insights
@@ -68,11 +68,11 @@ You can write a [PowerShell script](app-insights-powershell.md) to create a reso
 * [Create a dashboard](app-insights-dashboards.md)
 * [Diagnostic Search](app-insights-diagnostic-search.md)
 * [Explore metrics](app-insights-metrics-explorer.md)
-* [Write Analytics queries](app-insights-analytics.md)
+* [Write Analytics queries](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [start]: app-insights-overview.md

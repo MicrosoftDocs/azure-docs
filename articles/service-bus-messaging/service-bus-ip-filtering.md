@@ -50,7 +50,7 @@ IP filter rules are applied in order and the first rule that matches the IP addr
 > - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
-> - Azure Web Apps
+> - Azure App Service
 > - Azure Functions
 
 ### Creating a virtual network and firewall rule with Azure Resource Manager templates

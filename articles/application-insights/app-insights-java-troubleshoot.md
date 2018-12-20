@@ -160,6 +160,6 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[track]: app-insights-api-custom-events-metrics.md
+[track]: ../azure-monitor/app/api-custom-events-metrics.md
 [usage]: app-insights-javascript.md
 
