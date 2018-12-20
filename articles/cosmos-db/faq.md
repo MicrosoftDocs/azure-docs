@@ -211,7 +211,7 @@ Creating permissions by using ResourceTokens is allowed at the container level a
 
 ### What is the Azure Cosmos DB for MongoDB API?
 
-The Azure Cosmos DB for MongoDB API is a compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported Apache MongoDB SDKs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), and so on.
+The Azure Cosmos DB for MongoDB API is a wire-protocol compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported SDKs and drivers for MongoDB.Developers can now use existing MongoDB toolchains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include global distribution with multi-master replication,auto-indexing, backup maintenance, financially backed service level agreements (SLAs) etc.
 
 ### How do I connect to my database?
 
@@ -221,7 +221,7 @@ Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmo
 
 For more information, see [Connect to your Cosmos DB for MongoDB API database](connect-mongodb-account.md).
 
-### Are there additional error codes for an API for MongoDB database?
+Are there additional error codes that I need to deal with while using clients for MongoDB API?
 
 Along with the common MongoDB error codes, the Azure Cosmos DB for MongoDB API has its own specific error codes:
 

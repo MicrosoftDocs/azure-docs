@@ -117,9 +117,7 @@ To stop Node.js at any time, press `Ctrl+C` in the terminal.
 
 ## Create production MongoDB
 
-In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
-
-For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB supports MongoDB client connections.
+In this step, you create a Cosmos database configured with MongoDB API, in Azure. When your app is deployed to Azure, it uses this cloud database.
 
 ### Create a resource group
 
@@ -155,7 +153,7 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
 }
 ```
 
-## Connect app to production MongoDB
+## Connect app to production Cosmos DB configured with MongoDB API
 
 In this step, you connect your MEAN.js sample application to the Cosmos DB database you just created, using a MongoDB connection string.
 
@@ -235,7 +233,7 @@ In the terminal, stop Node.js by typing `Ctrl+C`.
 
 ## Deploy app to Azure
 
-In this step, you deploy your MongoDB-connected Node.js application to Azure App Service.
+In this step, you deploy your Node.js application to Azure App Service.
 
 ### Configure local git deployment
 
@@ -471,7 +469,7 @@ What you learned:
 
 > [!div class="checklist"]
 > * Create a database using Azure Cosmos DB for MongoDB API
-> * Connect a Node.js app to MongoDB
+> * Connect a Node.js app to a database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal

@@ -195,7 +195,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB does not have a concept of request units. To create a new collection with throughput, use the Azure Portal or SQL API as shown in the previous examples.
+MongoDB wire protocol does not have a concept of request units. To create a new collection with throughput, use the Azure Portal or SQL API as shown in theprevious examples.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

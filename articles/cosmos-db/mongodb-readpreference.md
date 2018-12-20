@@ -10,7 +10,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ---
-# How to globally distribute reads using Read Preference with the Azure Cosmos DB for MongoDB API
+# How to globally distribute reads using Read Preference while using MongoDB API
 
 This article shows how to globally distribute read operations using [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings with Azure Cosmos DB for MongoDB API.
 

@@ -66,10 +66,11 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## How to activate the per-document TTL feature
-The per-document TTL feature can be activated via the Azure Cosmos DB for MongoDB API account. 
+
+The per-document TTL feature can be activated on the Cosmos account configured for MongoDB API.
 
 ![Screen shot of the Per-document TTL feature activation in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## Next steps
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
-* [Indexing in the Azure Cosmos DB for MongoDB API](../cosmos-db/mongodb-indexing.md)
+* [Indexing your Cosmos database configured for the MongoDB API](../cosmos-db/mongodb-indexing.md)

@@ -105,7 +105,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>Import from MongoDB
 
 > [!IMPORTANT]
-> If you're importing to an Azure Cosmos DB account with Support for MongoDB, follow these [instructions](mongodb-migrate.md).
+> If you're importing to a Cosmos account configured for MongoDB API, follow these [instructions](mongodb-migrate.md).
 
 With the MongoDB source importer option, you can import from a single MongoDB collection, optionally filter documents using a query, and modify the document structure by using a projection.  
 

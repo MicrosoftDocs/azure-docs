@@ -14,6 +14,8 @@ experiment_id: "662dc5fd-886f-4a"
 ---
 # Azure Cosmos DB for MongoDB API support for MongoDB features and syntax
 
+<sup>Note: This article describes a feature of Azure Cosmos DB that provides wire protocol compatibility with MongoDB databases. Microsoft does not run MongoDB databases to provide this service. Azure Cosmos DB is not affiliated with MongoDB, Inc.</sup>
+
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB for MongoDB API through any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB for MongoDB API enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB for MongoDB API, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities Azure Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.

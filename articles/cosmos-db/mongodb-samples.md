@@ -26,7 +26,7 @@ This example shows you how to build an Azure Cosmos DB for MongoDB API console a
 
 To use this example, you must:
 
-* [Create](create-mongodb-dotnet.md#create-account) an Azure Cosmos DB for MongoDB API account.
+* [Create](create-mongodb-dotnet.md#create-account) a Cosmos account configured for MongoDB API.
 * Retrieve your MongoDB [connection string](connect-mongodb-account.md) information.
 
 ## Create the app
@@ -168,4 +168,5 @@ To use this example, you must:
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Next steps
-* Learn how to [use MongoChef](mongodb-mongochef.md) with your Azure Cosmos DB for MongoDB API account.
+
+* Learn how to [use MongoChef](mongodb-mongochef.md) with your Cosmos account configured for MongoDB API.

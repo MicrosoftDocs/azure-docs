@@ -13,9 +13,9 @@ ms.author: sngun
 ms.custom: mvc
 ---
 
-# Tutorial: Migrate your data to Azure Cosmos DB for MongoDB API account
+# Tutorial: Migrate your data to Azure Cosmos DB configured for MongoDB API
 
-This tutorial provides instructions on how to migrate data stored in MongoDB to Azure Cosmos DB for MongoDB API. If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import data.
+This tutorial provides instructions on how to migrate data stored in MongoDB to Azure Cosmos DB configured for MongoDB API. If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB configured for SQL API, you should use the [Data Migration tool](import-data.md) to import data.
 
 This tutorial covers the following tasks:
 
@@ -55,7 +55,7 @@ Before migrating data to Azure Cosmos DB for MongoDB API, make sure that you hav
 
 1. Calculate the approximate RU charge for a single document write:
 
-   a. Connect to your Azure Cosmos DB for MongoDB API account from the MongoDB Shell. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
+   a. Connect to your Cosmos account configured for MongoDB API from the MongoDB Shell. You can find instructions in [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md).
     
    b. Run a sample insert command by using one of your sample documents from the MongoDB Shell:
    
@@ -158,7 +158,7 @@ mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cos
 
 ## Migrate data by using mongorestore
 
-To restore data to your API for MongoDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.
+To restore data to your Cosmos account configured for MongoDB API, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.
 
 Template:
 
@@ -174,7 +174,7 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 ## Next steps
 
-You can proceed to the next tutorial and learn how to query MongoDB data by using Azure Cosmos DB. 
+You can proceed to the next tutorial and learn how to query data in Cosmos database using clients & tools for MongoDB. 
 
 > [!div class="nextstepaction"]
 >[How to query MongoDB data?](../cosmos-db/tutorial-query-mongodb.md)

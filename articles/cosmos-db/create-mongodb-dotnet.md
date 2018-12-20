@@ -106,7 +106,7 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* Creates a task and insert it into the MongoDB collection
+Create a task and insert it into the collection
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -162,8 +162,8 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account and run a web app using the API for MongoDB. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create a Cosmos account and run a web app using client driver for MongoDB API. You can now import additionaldata to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB for MongoDB API database](mongodb-migrate.md)
+> [Import data into Azure Cosmos DB configured for MongoDB API](mongodb-migrate.md)
 
