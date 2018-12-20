@@ -32037,8 +32037,6 @@
             "redirect_document_id":  true
         },
         {
-<<<<<<< HEAD
-=======
             "source_path":  "articles/monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md",
             "redirect_url":  "/azure/azure-monitor/platform/alerts-managing-alert-states",
             "redirect_document_id":  true
@@ -32294,7 +32292,6 @@
             "redirect_document_id":  true
         },
         {
->>>>>>> e0b29e874a2849a4111cc400f8bfb5305b834132
             "source_path":  "articles/storage/common/storage-lifecycle-managment-concepts.md",
             "redirect_url":  "/azure/storage/common/storage-lifecycle-management-concepts",
             "redirect_document_id":  true
