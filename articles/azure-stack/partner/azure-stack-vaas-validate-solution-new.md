@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -32,25 +32,36 @@ To certify your solution, run the Solution Validation workflow twice. Run it onc
 ## Create a Solution Validation workflow
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Select **Start** on the **Solution Validations** tile.
+
+2. Select the following tests:
+    - Cloud Simulation Engine
+    - Compute SDK Operational Suite
+    - Disk Identification Test
+    - KeyVault Extension SDK Operational Suite
+    - KeyVault SDK Operational Suite
+    - Network SDK Operational Suite
+    - Storage Account SDK Operational Suite
+
+3. Select **Start** on the **Solution Validations** tile.
 
     ![Solution Validations workflow tile](media/tile_validation-solution.png)
 
-3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
-4. Select the **solution configuration**.
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Select the **solution configuration**.
     - **Minimum**: the solution is configured with the minimum supported number of nodes.
     - **Maximum**: the solution is configured with the maximum supported number of nodes.
-5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Solution Validation information](media/workflow_validation-solution_info.png)
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Environment parameters cannot be modified after creating a workflow.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     You will be redirected to the tests summary page.
 
 ## Execute Solution Validation tests

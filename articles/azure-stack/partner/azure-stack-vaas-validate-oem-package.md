@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -110,9 +110,24 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 ## Run Package Validation tests
 
-In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
+1. In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+2. Select the following tests:
+    - OEM Extension Package Verification
+    - Cloud Simulation Engine
+
+
+3. In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](../azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
+    Once a test has completed successfully, the **Schedule** action becomes disabled.
+
+4. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](../azure-stack-vaas-local-agent.md).
+
+5. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
+
+6. Review the test parameters and then select **Submit** to schedule the test for execution.
 
 When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 

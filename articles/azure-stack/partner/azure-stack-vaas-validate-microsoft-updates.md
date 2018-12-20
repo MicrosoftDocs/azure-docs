@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -35,7 +35,13 @@ Update validations use the same workflow as **Package Validation**. Follow the i
 
 ## Run tests
 
-Update validations use the same workflow as **Package Validation**. Follow the instructions at [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
+1. Update validations use the same workflow as **Package Validation**. 
+
+2. Select the following tests:
+    - Monthly AzureStack Update Verification
+    - Cloud Simulation Engine
+
+3. Follow the instructions at [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 
 You do not need to request package signing for update validations.
 

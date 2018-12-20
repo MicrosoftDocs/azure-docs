@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
@@ -50,9 +50,17 @@ For more information, see [Validate OEM packages](azure-stack-vaas-validate-oem-
 
 ## Preview VaaS test collateral
 
-Microsoft regularly makes new features available in Azure Stack. As part of the development process for delivering these features to market, new test collateral is made available in the **Test Pass** workflow. The Test Pass workflow includes test collateral from the other workflows to allow for unofficial test execution. Do not use the Test Pass workflow to submit results for approval. Use the Solution Validation and Package Validation workflows to get official approval for your solution.
+Microsoft regularly makes new features available in Azure Stack. As part of the development process for delivering these features to market, new test collateral is made available in the **Test Pass** workflow. The Test Pass workflow includes test collateral from the other workflows to allow for unofficial test execution. Do not use the Test Pass workflow to submit results for approval. Use the Solution validation and Package Validation workflows to get official approval for your solution.
 
 For more information, see [Quickstart: Use the Validation as a Service portal to schedule your first test](azure-stack-vaas-schedule-test-pass.md).
+
+## Validation workflow tests summary
+
+| Validation Workflow | Required Tests |
+|----|------------|
+| [New Solution Validation](azure-stack-vaas-validate-solution-new.md) | Cloud Simulation Engine<br>Compute SDK Operational Suite<br>Disk Identification Test<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage Account SDK Operational Suite<br> |
+| [New Package Validation](azure-stack-vaas-validate-oem-package.md) | OEM Extension Package Verification<br>Cloud Simulation Engine |
+| [Monthly Update Validation](azure-stack-vaas-validate-microsoft-updates.md) | Monthly AzureStack Update Verification<br>Cloud Simulation Engine<br> |
 
 ## Next steps
 
