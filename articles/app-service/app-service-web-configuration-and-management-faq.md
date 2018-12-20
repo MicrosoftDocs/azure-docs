@@ -68,7 +68,7 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
-See the **Timezone** column in Azure's [Default Time Zone Documentation](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones) to locate accepted values.
+See the **Timezone** column in Azure's [Default Time Zone Documentation](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) to locate accepted values.
 
 ## Why do my continuous WebJobs sometimes fail?
 
