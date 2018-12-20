@@ -3,11 +3,10 @@ title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
 
@@ -16,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Deploy and use Azure Container Registry
 
-Azure Container Registry (ACR) is an Azure-based private registry for Docker container images. A private container registry lets you securely build and deploy your applications and custom code. In this tutorial, part two of seven, you deploy an ACR instance and push a container image to it. You learn how to:
+Azure Container Registry (ACR) is a private registry for container images. A private container registry lets you securely build and deploy your applications and custom code. In this tutorial, part two of seven, you deploy an ACR instance and push a container image to it. You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Container Registry (ACR) instance
@@ -24,13 +23,13 @@ Azure Container Registry (ACR) is an Azure-based private registry for Docker con
 > * Upload the image to ACR
 > * View images in your registry
 
-In subsequent tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS, and an application is deployed from the image.
+In additional tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS, and an application is deployed from the image.
 
 ## Before you begin
 
 In the [previous tutorial][aks-tutorial-prepare-app], a container image was created for a simple Azure Voting application. If you have not created the Azure Voting app image, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you are running the Azure CLI version 2.0.44 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create an Azure Container Registry
 
@@ -42,7 +41,7 @@ Create a resource group with the [az group create][az-group-create] command. In 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create an Azure Container Registry instance with the [az acr create][az-acr-create] command and provide your own registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the rest of this tutorial, `<acrName>` is used as a placeholder for the container registry name. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
+Create an Azure Container Registry instance with the [az acr create][az-acr-create] command and provide your own registry name. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the rest of this tutorial, `<acrName>` is used as a placeholder for the container registry name. Provide your own unique registry name. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -99,7 +98,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## Push images to registry
 
-You can now push the *azure-vote-front* image to your ACR instance. Use [docker push][docker-push] and provide your own *acrLoginServer* address for the image name as follows:
+With your image built and tagged, push the *azure-vote-front* image to your ACR instance. Use [docker push][docker-push] and provide your own *acrLoginServer* address for the image name as follows:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1

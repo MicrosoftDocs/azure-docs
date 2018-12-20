@@ -1,4 +1,4 @@
-ï»¿---
+---
 title: Troubleshoot Analytics in Azure Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Troubleshoot Analytics in Application Insights
-Problems with [Application Insights Analytics](app-insights-analytics.md)? Start here. Analytics is the powerful search tool of Azure Application Insights.
+Problems with [Application Insights Analytics](../azure-monitor/app/analytics.md)? Start here. Analytics is the powerful search tool of Azure Application Insights.
 
 ## Limits
 * At present, query results are limited to just over a week of past data.
@@ -30,7 +30,7 @@ Disable the extension or use a different browser.
 ## <a name="e-a"></a> "Unexpected error"
 ![Unexpected error screen](./media/app-insights-analytics-troubleshooting/010.png)
 
-Internal error occurred during portal runtime â€“ unhandled exception.
+Internal error occurred during portal runtime – unhandled exception.
 
 * Clean the browser's cache. 
 
@@ -67,7 +67,7 @@ An authentication related error occurred (during authentication or during access
 ## <a name="e-d"></a>404 ... Resource not found
 ![404 ... resource not found](./media/app-insights-analytics-troubleshooting/040.png)
 
-Application resource was deleted from Application Insights and isnâ€™t available anymore. This can happen if you saved the URL to the Analytics page.
+Application resource was deleted from Application Insights and isn’t available anymore. This can happen if you saved the URL to the Analytics page.
 
 ## <a name="e-e"></a>403 ... No authorization
 ![403 ... not authorized](./media/app-insights-analytics-troubleshooting/050.png)

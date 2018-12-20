@@ -115,5 +115,5 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 * Learn about [creating in log alerts in Azure](../../azure-monitor/platform/alerts-log.md).
 * Understand [webhooks in log alerts in Azure](alerts-log-webhook.md).
 * Learn about [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
-* Learn more about [Application Insights](../../application-insights/app-insights-analytics.md).
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md).
 * Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    

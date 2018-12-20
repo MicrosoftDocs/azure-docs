@@ -137,7 +137,7 @@ Check these links for the full list of performance counters on Reliable [Service
 
 ## Next steps
 
-* [Set up Alerts in AI](../application-insights/app-insights-alerts.md) to be notified about changes in performance or usage
+* [Set up Alerts in AI](../azure-monitor/app/alerts.md) to be notified about changes in performance or usage
 * [Smart Detection in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
 * Learn more about Log Analytics [alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
 * For on-premises clusters, Log Analytics offers a gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md)
