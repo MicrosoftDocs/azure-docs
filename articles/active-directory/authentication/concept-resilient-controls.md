@@ -47,23 +47,7 @@ Mitigating an actual disruption must be an organization’s primary focus in dea
 
 ### Administrator lockout contingency
 
-To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Azure AD configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created based on the following criteria to minimize the technical dependencies to authenticate successfully.
-
-1. Should be a cloud-only account in the *.onmicrosoft.com domain.
-2. Should NOT be synchronized from the on-premises environment.
-3. Credentials should not be associated with any individuals.
- 
- Follow the [emergency access account recommendations](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) to make sure the account meets strong authentication requirements.
-
-#### Microsoft recommendations
-
-Securing emergency access accounts and monitoring their usage is crucial to not introduce additional risk in your organization. Organizations must:
-
-1. Define strict processes to gain access to the emergency access account credentials.
-2. Physically secure the credentials.
-3. Monitor them for unauthorized use.
-4. Change their password after use.
-5. Monitor all changes performed by these accounts during a disruption using the [Azure AD Audit log](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins).
+To unlock admin access to your tenant, you should create emergency access accounts. These emergency access accounts, also known as *break glass* accounts, allow access to manage Azure AD configuration when normal privileged account access procedures aren’t available. At least two emergency access accounts should be created following the [emergency access account recommendations]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
 
 ### Mitigating user lockout
 
