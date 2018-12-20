@@ -39,6 +39,7 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities
+    href: entities-overview.md
     items:
     - name: Account and Asset filters 
       href: filters-dynamic-manifest-overview.md      
