@@ -48,7 +48,7 @@ For alternative installation methods, visit the [Azure Storage SDK for Python on
 f
 To view and run a sample application that shows how to use Python with Azure Files, see [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
-To run the sample application, make sure you have installed both the `azure-storage-queue` and `azure-storage-common` packages.
+To run the sample application, make sure you have installed both the `azure-storage-file` and `azure-storage-common` packages.
 
 ## Set up your application to use Azure Files
 Add the following near the top of any Python source file in which you wish to programmatically access Azure Storage.
