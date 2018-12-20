@@ -162,7 +162,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Next steps
 
-In this quickstart, you've learned how to create a Cosmos account and run a web app using client driver for MongoDB API. You can now import additionaldata to your Cosmos DB account. 
+In this quickstart, you've learned how to create a Cosmos account and run a web app using client driver for MongoDB API. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB configured for MongoDB API](mongodb-migrate.md)
