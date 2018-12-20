@@ -28,7 +28,7 @@ Managing and tuning the performance of relational databases takes expertise and 
 >
 
 ## Prerequisites
-Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all Azure SQL databases by default. If Query Store is not running, the Azure portal will prompt you to turn it on.
+Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all Azure SQL databases by default. If Query Store is not running, the Azure portal will prompt you to enable it.
 
 > [!NOTE]
 > If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](sql-database-query-performance.md#optimizing-the-query-store-configuration-for-query-performance-insight).
@@ -143,7 +143,7 @@ To view query details:
    >
 
 ## Review top queries per duration
-The recent update of Query Performance Insight introduced two new metrics that can help you find potential bottlenecks: duration and execution count.
+Two metrics in Query Performance Insight can help you find potential bottlenecks: duration and execution count.
 
 Long-running queries have the greatest potential for locking resources longer, blocking other users, and limiting scalability. They're also the best candidates for optimization.
 
@@ -174,7 +174,7 @@ To identify long-running queries:
    >
 
 ## Review top queries per execution count
-The overall application might get slow, even though a high number of executions might not be affecting the database itself and resources usage is low.
+A user application that uses the database might get slow, even though a high number of executions might not be affecting the database itself and resources usage is low.
 
 In some cases, a high execution count can lead to more network round trips. Round trips affect performance. They're subject to network latency and to downstream server latency. 
 
@@ -214,11 +214,11 @@ While using Query Performance Insight, you might see the following Query Store e
 
 These messages usually appear when Query Store can't collect new data. 
 
-The first case happens when Query Store is in the **Read-Only** state and parameters are set optimally. You can fix this by increasing the size of the data store, or by clearing Query Store. (If you clear Query Store, all previously collected telemetry will be lost.) 
+The first case happens when Query Store is in the read-only state and parameters are set optimally. You can fix this by increasing the size of the data store, or by clearing Query Store. (If you clear Query Store, all previously collected telemetry will be lost.) 
 
    ![Query Store details](./media/sql-database-query-performance/qds-off.png)
 
-The second case happens when Query Store is **Off**, or parameters are not set optimally. You can change the retention and capture policy, and also enable Query Store, by running the following commands provided from [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal.
+The second case happens when Query Store is not enabled, or parameters are not set optimally. You can change the retention and capture policy, and also enable Query Store, by running the following commands provided from [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or the Azure portal.
 
 ### Recommended retention and capture policy
 There are two types of retention policies:
