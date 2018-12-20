@@ -14,11 +14,11 @@ ms.custom: seodec2018
 ---
 # How to index large data using built-in indexers in Azure Search
 
-As data volumes grow or processing needs change, you might find that simple [rebuilds and reindexing jobs](search-howto-reindex.md) are insufficient. For Azure Search, there are several approaches for accommodating large data volumes, ranging from how you structure a data upload request, to using a specialized indexer for scheduled and distributed workloads.
+As data volumes grow or processing needs change, you might find that default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
 ## Batch indexing
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. Using the [Add or Update Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), you would package 1000 documents in the body of the request.
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. Assuming the [Add or Update Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), you would package 1000 documents in the body of the request.
 
 Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers using the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
 
@@ -26,25 +26,25 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 ## Add resources
 
-Services that are provisioned at one of the Standard pricing tiers often have excess capacity for both storage and workloads (queries or indexing), which makes [increasing the parition and replica counts](search-capacity-planning.md) an obvious solution. This approach incurs additional cost, but unless you are continuously indexing under load, you can add scale for the duration of the indexing process, and then adjust resource levels downwards after indexing is finished.
+Services that are provisioned at one of the Standard pricing tiers often have excess capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. This approach incurs additional cost, but unless you are continuously indexing under load, you can add scale for the duration of the indexing process, and then adjust resource levels downwards after indexing is finished.
 
 ## Use indexers
 
-[Indexers](search-indexer-overview.md) are used to crawl external data sources for searchable content. Several indexer capabilities are particularly useful for accommodating large data sets:
+[Indexers](search-indexer-overview.md) are used to crawl external data sources for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
-+ Scheduler allows you to parcel out indexing at regular intervals.
-+ Data sources pointing to partitioned data. Break a large data set into smaller data sets, and then create multiple data source definitions that can be indexed in parallel.
-+ Resumption of indexing at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
++ The scheduler allows you to parcel out indexing at regular intervals so that you can spread it out over time.
++ Individual data sources can point to partitioned data sets. You can break a large data set into smaller data sets, and then create multiple data source definitions that can be indexed in parallel.
++ Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
 
-Indexers are data-source-specific, so this approach is only viable for data sources on Azure.
+Indexers are data-source-specific, so this approach is only viable for selected data sources on Azure: SQL Database, Blob storage, Table storage, Cosmos DB.
 
 ### Scheduled indexing
 
-Scheduling is an important mechanism for processing large data sets and slow-running analyses like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
+Indexer scheduling is an important mechanism for processing large data sets, as well as slow-running processes like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
 
 By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
 
-In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour stint, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
+In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 
 <a name="parallel-indexing"></a>
 
