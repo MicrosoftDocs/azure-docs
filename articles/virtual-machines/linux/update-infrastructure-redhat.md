@@ -39,15 +39,15 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 Some customers may want to lock their RHEL VMs to a certain RHEL minor release. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. Use the following instructions to lock a RHEL VM to a particular minor release.
 
 1. Disable non-EUS repos:
-    ```bash
+    ```
     sudo yum --disablerepo=* remove rhui-azure-rhel7
     ```
 1. Add EUS repos:
-    ```bash
+    ```
     yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
     ```
 1. Lock the releasever variable:
-    ```bash
+    ```
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
     >[!NOTE]
