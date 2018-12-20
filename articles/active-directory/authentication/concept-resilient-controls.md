@@ -239,7 +239,7 @@ Depending on which mitigations or contingencies are used during a disruption, yo
 ## Emergency options
 
  In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use conditional access policies to enforce MFA.
-If your organization are using per-user MFA legacy policies, then you can consider the following alternative:
+ If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
 1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
 2. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs in a CIDR notation for example: 192.168.1.1/24.
