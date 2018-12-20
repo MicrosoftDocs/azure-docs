@@ -329,6 +329,15 @@ The following are post-installation known issues for this build version.
 
 - The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
 
+<!--Infra backup-->
+### Infrastructure Backup ###
+<!--scheduler config lost, bug 3615401, new issue in 1811,  hectorl-->
+<!-- TSG: https://www.csssupportwiki.com/index.php/Azure_Stack/KI/Backup_scheduler_configuration_lost --> 
+- Issue: After enabling automatic backups, the scheduler service goes into disabled state unexpectedly. The backup controller service will detect that automatic backups is disabled and raise a warning in the administrator portal. This warning is expected when automatic backups is disabled. 
+    - Cause: This issue is due to a bug in the service that results in loss of scheduler configuration. This bug does not change the storage location, user name, password, or encryption key.   
+    - Remediation: To remediate this issue, open the backup controller settings blade in the Infrastructure Backup resource provider and select Enable Automatic Backups. Make sure to set the desired frequency and retention period.
+    - Occurrence: Low 
+
 <!-- ### SQL and MySQL-->
 
 ### App Service
