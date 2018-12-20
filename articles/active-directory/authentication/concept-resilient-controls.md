@@ -172,7 +172,7 @@ In this example, you will require a named network location **CorpNetwork** and a
   * Grant Control: Block
   * State: Disabled
 
-This next example: **Option B - Contingency CA policies**, is suited for organizations that only performed MFA when outside corporate network. These contingency policies will grant critical users, from outside corporate network, access to SharePoint Online, Exchange Online, a CRM SaaS app, and a Critical LOB procurement app, only via browsers. This example is a variation of the more restrictive set of policies in example 1. These policies will also exclude emergency accounts and core administrators.
+ This next example, **Option B - Contingency CA policies**, is suited for organizations that only performed MFA when outside corporate network. These contingency policies will grant critical users from outside the corporate network access only via browsers to SharePoint Online, Exchange Online, a CRM SaaS app, and a critical LOB procurement app. This example is a variation of the more restrictive set of policies in example 1. These policies will also exclude emergency accounts and core administrators.
 
 **Option B - Contingency CA policies:**
 
