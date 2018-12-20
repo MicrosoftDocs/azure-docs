@@ -59,15 +59,35 @@ In this phase a migration of workload to Azure is planned. The minimum set of en
 	5.	Naming Convention for VMs and other infrastructure components and/or logical names
 5.	Microsoft Premier Support Contract – identify MS Technical Account Manager (TAM). for support requirements by SAP read SAP support note [#2015553](https://launchpad.support.sap.com/#/notes/2015553) 
 6.	Define number of Azure subscriptions and core quota for the different subscriptions. [Open support requests to increase quotas of Azure subscriptions](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) as necessary 
-7.	Define a regular design and deployment review cadence between you as customer, systme integrator, Microsoft and other involved parties 
+7.	Data Reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to keep the volume of a large number of data limited. SAP published [this profound guide](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF)
+8.	Define and decide automated deployment approach. Goal of automation behind infrastructure deployments on Azure is to deploy in a deterministic manner and get deterministic results. A lot of customers use Power Shell or CLI based scripts. But there are various open source technologies that can be used to deploy Azure infrastructure for SAP and even install SAP software. Examples can be found in github:
+	1.	[Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana)
+	2.	[SAP HANA ARM Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
+9.	Define a regular design and deployment review cadence between you as customer, system integrator, Microsoft and other involved parties 
  
 ##Pilot Phase (Optional) 
-the pilot can run before or in parallel to project planning and preparation. The phase can also be used to test approaches and design made in the planning and preparation phase. the pilot phase can be stretched to a real proof of concepts. It is recommended to setup and validate a full HA/DR solution as well as security design during a pilot deployment. In some customer cases, scalability tests also can be conducted in this phase
-1.	OS/DB Migration or DMO Throughput & Sizing Validation 
-a.	Confirm Export, Dump file upload to Azure and Import performance.  Ensure file upload is fast
-b.	Confirm Source -> Target DB compression ratio 
-c.	Validate sizing for Migration or DMO vs. normal “run” sizing – huge sizing to be used for migration 
-2.	Technical Validation 
+The pilot can run before or in parallel to project planning and preparation. The phase can also be used to test approaches and design made in the planning and preparation phase. The pilot phase can be stretched to a real proof of concepts. It is recommended to setup and validate a full HA/DR solution as well as security design during a pilot deployment. In some customer cases, scalability tests also can be conducted in this phase. Other customers use deployment of SAP sandbox systems as pilot phase. So we assume you identified a system that you want to migrate into Azure
+
+1.	Optimize data transfer into Azure. Highly dependent on customer cases transfer through [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) from on-premise was fastest if the Express Circuit had enough bandwidth. With other customers, going through internet figured out to be faster
+2.	Test and define whether you want to create own OS images for your VMs in Azure or whether you want to use an image out of the Azure Image gallery. If you are using an image out of the Azure gallery make sure that you take the correct image that reflect the support contract with your OS vendor. For some OS vendors Azure galleries offer bring your own license images. for others OS support is includes in the price
+	1.	You can build a generalized image of a Windows VM deployed in Azure based on [this documentation](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+	2.	You can build a generalized image of a Linux VM deployed in Azure based on [this documentation](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)
+3.	In case of a SAP heterogeneous platform migration that involves an export and import of the database data test and optimize export and import phases. For large migrations involving SQL Server as the destination platform recommendations can be found [here](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). You can take the approach of Migration Monitor in case you don't need a combined release upgrade or SAP DMO process when you combine the migration with a SAP release upgrade
+	1.  Export Export, Export file upload to Azure and Import performance.  Maximize overlap between export and import
+	2.  Evaluate volume of database between target and destination platform in order to reflect in the infrastructure sizing	
+	3.  Validate and optimize timing 
+4.	Technical Validation 
+	1.	VM Types
+		1.	Validate the resources on SAP support notes, SAP HANA hardware directory and SAP PAM again to make sure that there were no changes in supported VMs for Azure, supported OS releases in those VMs and supported SAP and DBMS releases
+		2.	Validate again the sizing of your application and the infrastructure you deploy on Azure. In case of moving existing applications you often can derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in SAP support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) in mind
+		3.	Evaluate and test the sizing of your Azure VMs in regards to maximum storage throughput and network throughput of the different VM types you chose in the planning phase. The data can be found in:
+			1.	[Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It is important to consider the **max uncached disk throughput** for sizing
+			2.	[Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It is important to consider the **max uncached disk throughput** for sizing
+	2.	Storage
+		1.	Use Azure Premium Storage for Database VMs
+		2.	Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/)
+		3.	Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write accelerator limits and usage as documented in [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+		4.	For the different DBMS types check the [generic SAP releated DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the 
 a.	VM Types are certified as per Note 1928533 - SAP Applications on Azure - Supported Products and Azure VM types
 b.	DB & APP VMs are on the same vNet and no traffic redirection or inspection between DB & APP VMs
 c.	Run /SSA/CAT in SE38 and record results – target range for DB Acc and E DB Acc = 50-60 for VMs
