@@ -39,7 +39,7 @@ This quickstart requires:
     using Microsoft.CognitiveServices.Speech;
     using Microsoft.CognitiveServices.Speech.Translation;
 
-    namespace SpeechTranslation
+    namespace helloworld
     {
         class Program
         {
