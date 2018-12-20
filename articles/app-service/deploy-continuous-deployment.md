@@ -60,7 +60,7 @@ In the **Configure** page, in the **Build** section, configure a new Azure DevOp
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](web-sites-staged-publishing.md), then click **Continue**.
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), then click **Continue**.
 
 ### Finish configuration
 
@@ -117,7 +117,7 @@ In the **Configure** page, in the **Build** section, specify the language framew
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](web-sites-staged-publishing.md), then click **Continue**. 
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), then click **Continue**. 
 
 ### Finish configuration
 

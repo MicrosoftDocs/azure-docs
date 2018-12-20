@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.component: activitylog
+ms.component: logs
 ---
 # Monitor Subscription Activity with the Azure Activity Log
 

@@ -70,7 +70,7 @@ You can monitor custom KPI live by applying arbitrary filters on any Application
 
 ![Custom Request KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](app-insights-api-custom-events-metrics.md#properties):
+You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](../azure-monitor/app/api-custom-events-metrics.md#properties):
 
 ![Value Options](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
