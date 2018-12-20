@@ -117,13 +117,13 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
     - Cloud Simulation Engine
 
 
-3. In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](../azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+3. In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
     > [!NOTE]
     > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
     Once a test has completed successfully, the **Schedule** action becomes disabled.
 
-4. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](../azure-stack-vaas-local-agent.md).
+4. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
 
 5. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
 
