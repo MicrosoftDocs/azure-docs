@@ -217,7 +217,7 @@ If you opted for implementing a mitigation plan, you will be able to automatical
 1. Enable your contingency policies that grant targeted users, access to specific apps, from specific networks.
 2. Disable your regular control-based policies.
 
-### Microsoft recommendations when disabling access controls without any other safeguards
+ ### Microsoft recommendations
 
 Depending on which mitigations or contingencies are used during a disruption, your organization could be granting access with just passwords. No safeguard is a considerable security risk that must be weighed carefully. Organizations must:
 
