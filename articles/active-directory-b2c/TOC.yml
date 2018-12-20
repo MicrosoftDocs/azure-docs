@@ -90,6 +90,8 @@
       href: active-directory-b2c-get-started-custom.md
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Confgure ROPC
+      href: ropc-custom.md
     - name: Integrate RESTful APIs
       items:
       - name: Validate user input
