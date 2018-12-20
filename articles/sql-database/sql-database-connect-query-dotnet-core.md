@@ -170,7 +170,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Press **Enter** to close the application window.
+3. Choose **Enter** to close the application window.
 
 ## Next steps
 
