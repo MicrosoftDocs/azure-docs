@@ -162,6 +162,8 @@ To configure Azure AD single sign-on with Citrix ShareFile, perform the followin
 	
 	e. In **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
+5. Click **Save** on the Citrix ShareFile management portal.
+
 ### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
