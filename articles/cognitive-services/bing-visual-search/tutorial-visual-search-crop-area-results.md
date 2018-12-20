@@ -1,22 +1,21 @@
 ---
-title: "Tutorial: Image crop area and results - Bing Visual Search"
-description: Use the Bing Visual Search SDK to get insights from specific image areas.
+title: "Tutorial: Crop an image with the Bing Visual Search SDK"
+description: Use the Bing Visual Search SDK to get insights from specific ares on an image.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
 ---
 
 # Tutorial: Crop an image with the Bing Visual Search SDK for C#
 
-The Bing Visual Search SDK enables you to crop an image before find online images that are similar. The application in this tutorial crops a single person from an image containing several people, and then returns search results containing similar images found online.
+The Bing Visual Search SDK enables you to crop an image before find online images that are similar. This application crops a single person from an image containing several people, and then returns search results containing similar images found online.
 
-The full source code for this tutorial is available with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs).
+The full source code for this application is available with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs).
 
 ## Prerequisites
 
@@ -28,6 +27,13 @@ The full source code for this tutorial is available with additional error handli
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
+This tutorial illustrates how to:
+
+> [!div class="checklist"]
+> * Send a request using the Bing Visual Search SDK
+> * Crop an area of image to search with Bing Visual Search
+> * Receive and handle the response
+> * Find the URLs of action items in the resposne
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

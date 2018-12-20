@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Find similar images from previous searches using ImageInsightsToken - Bing Visual Search"
+title: "Find similar images from previous searches using ImageInsightsToken - Bing Visual Search"
 titlesuffix: Azure Cognitive Services
 description: Use the Bing Visual Search SDK to get URLs of images specified by ImageInsightsToken.
 services: cognitive-services
@@ -8,22 +8,15 @@ manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
 ---
-# Tutorial: Find similar images from previous searches using ImageInsightsToken
+# Find similar images from previous searches using ImageInsightsToken
 
 The Visual Search SDK enables you to find images online from previous searches that return an `ImageInsightsToken`.  This application gets an `ImageInsightsToken` and uses the token in a subsequent search. It then sends the `ImageInsightsToken` to Bing and returns results that include Bing Search URLs, and URLs of similar images found online.
 
 The full source code for this sample can be found with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs).
-
-This tutorial illustrates how to: 
-
-> [!div class="checklist"]
-> * Upload an image to the Bing Visual Search API
-> * Display image search results in a web application
-> * Explore the different insights provided by the API
 
 ## Prerequisites
 
@@ -40,7 +33,7 @@ This tutorial illustrates how to:
 
 ## Get the ImageInsightsToken from the Bing Image Search SDK
 
-This tutorial application uses an `ImageInsightsToken` obtained through the [Bing Image Search SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). In a new C# console application, create a client to call the API using `ImageSearchAPI()`. Then use `SearchAsync()` with your query.
+This application uses an `ImageInsightsToken` obtained through the [Bing Image Search SDK](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). In a new C# console application, create a client to call the API using `ImageSearchAPI()`. Then use `SearchAsync()` with your query.
 
 ```csharp
 var client = new ImageSearchAPI(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey)); //

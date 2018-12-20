@@ -30,12 +30,8 @@
   items:
   - name: Uploading an image
     href: tutorial-visual-search-image-upload.md
-  - name: Create a Single-page Web app
-    href: tutorial-bing-visual-search-single-page-app.md
   - name: Crop and search an area of an image
     href: tutorial-visual-search-crop-area-results.md
-  - name: Search for an image Using image insight tokens
-    href: tutorial-visual-search-insights-token.md
 - name: Samples
   items:
     - name: Code samples
@@ -58,6 +54,10 @@
     href: use-and-display-requirements.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+  - name: Search for an image Using image insight tokens
+    href: tutorial-visual-search-insights-token.md
+  - name: Create a Single-page Web app
+    href: tutorial-bing-visual-search-single-page-app.md
 - name: Reference
   expanded: true
   items:

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Build a single-page Web app - Bing Visual Search"
+title: " Build a single-page Web app - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
 description: Learn how to integrate the Bing Visual Search API into a single-page Web application.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
 ---
-# Tutorial: Create a Visual Search single-page web app 
+# Create a Visual Search single-page web app 
 
 Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can specify an image and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. 
 
