@@ -74,7 +74,7 @@ ms.author: ramkris
 ### <a name="1.1.0"/>1.1.0
 
 * Added support for BulkDelete operation for Azure Cosmos DB SQL API accounts.
-* Added support for BulkImport operation for Azure Cosmos DB MongoDB API accounts.
+* Added support for BulkImport operation forAzure Cosmos DB API account for MongoDB.
 * Bumped up the DocumentDB .NET SDK dependency to version 2.0.0. 
 
 ### <a name="1.0.2"/>1.0.2

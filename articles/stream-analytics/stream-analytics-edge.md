@@ -163,7 +163,7 @@ To run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://a
 
 ASA and Azure IoT Edge use **Docker** containers to provide a portable solution that runs on multiple host operating systems (Windows, Linux).
 
-ASA on IoT Edge is made available as Windows and Linux images, running on both x86-64 or Azure Resource Manager architectures. 
+ASA on IoT Edge is made available as Windows and Linux images, running on both x86-64 or ARM (Advanced RISC Machines) architectures. 
 
 
 ### Input and output

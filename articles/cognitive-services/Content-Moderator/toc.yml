@@ -19,6 +19,10 @@
       items:
       - name: Analyze text content
         href: text-moderation-quickstart-python.md
+- name: Tutorials
+  items:
+  - name: Moderate e-commerce images
+    href: ecommerce-retail-catalog-moderation.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -101,8 +105,6 @@
     items:
     - name: Facebook content moderation
       href: facebook-post-moderation.md
-    - name: eCommerce image moderation
-      href: ecommerce-retail-catalog-moderation.md
     - name: Video and trancript moderation
       href: video-transcript-moderation-review-tutorial-dotnet.md
   - name: Export or delete account data

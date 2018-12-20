@@ -68,7 +68,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 ### Azure requirements
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Create a [Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Make note of the Web App URL, you need to use it in the tutorial.
+* Create a [Web App](https://docs.microsoft.com/azure/app-service/overview) in Azure. Make note of the Web App URL, you need to use it in the tutorial.
 
 ### Azure Stack requirements
 

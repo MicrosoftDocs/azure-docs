@@ -41,11 +41,11 @@
     - name: Apache Kafka and Apache Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
-    - name: Event Hub, Storage, and Data Lake Store (Java)
+    - name: Event Hub, Storage, and Data Lake Storage (Java)
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
     - name: Event Hub and Apache Storm (C# & Java)
       href: apache-storm-develop-csharp-event-hub-topology.md
-    - name: Azure Storage/Data Lake Store (Java)
+    - name: Azure Storage/Data Lake Storage (Java)
       href: apache-storm-write-data-lake-store.md
     - name: Event Hub, Apache HBase (Java)
       href: apache-storm-sensor-data-analysis.md
@@ -155,7 +155,7 @@
     - name: Upload data for Apache Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Multiple HDInsight clusters with Data Lake Store
+    - name: Multiple HDInsight clusters with Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Import and export data with Apache Sqoop

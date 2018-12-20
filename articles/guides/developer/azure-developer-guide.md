@@ -53,7 +53,7 @@ When you want the quickest path to publish your web-based projects, consider Azu
 
 You can create web apps, mobile app back ends, and API apps.
 
-Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/app-service-web-overview.md).
+Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/overview.md).
 
 App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Azure DevOps, TeamCity, and others.
 
@@ -187,7 +187,7 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 
 >**Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
 
->**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/app-service-continuous-deployment.md).
+>**Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/deploy-continuous-deployment.md).
 
 
 ## Azure regions

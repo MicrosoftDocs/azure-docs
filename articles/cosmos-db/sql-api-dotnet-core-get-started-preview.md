@@ -760,6 +760,7 @@ To restore the references to the SQL API for Azure Cosmos DB .NET Core SDK in Vi
 
 In this tutorial, you've learned how to build a .NET Core app to manage Azure Cosmos DB SQL API data. You can now import additional data to your Cosmos DB account.
 
-> [!div class="nextstepaction"][import data into azure cosmos db](import-data.md)
+> [!div class="nextstepaction"]
+> [Import data into Azure Cosmos DB](import-data.md)
 
 [cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account
