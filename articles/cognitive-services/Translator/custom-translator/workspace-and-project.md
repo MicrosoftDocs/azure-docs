@@ -31,7 +31,7 @@ that is used when querying the [V3 API](https://docs.microsoft.com/azure/cogniti
 
 The category identifies the domain – the area of terminology and style you want to use – for your project. Choose the category most relevant to your documents. In some cases, your choice of the category directly influences the behavior of the Custom Translator.
 
-We have two sets of baseline models. They are General and Technology. If category Technology is selected, the Technology baseline models will be used. For any other category selection, the General baseline models are used. The Technology baseline model does well in technology domain, but it shows lower quality, if the sentences used for translation do not fall within the technology domain. We suggest customers to select category Technology only if sentences fall strictly within the technology domain.
+We have two sets of baseline models. They are General and Technology. If the category **Technology** is selected, the Technology baseline models will be used. For any other category selection, the General baseline models are used. The Technology baseline model does well in technology domain, but it shows lower quality, if the sentences used for translation don't fall within the technology domain. We suggest customers to select category Technology only if sentences fall strictly within the technology domain.
 
 In the same workspace, you may create projects for the same language pair in
 different categories. Custom Translator prevents creation of a duplicate project
