@@ -31,8 +31,6 @@ The Azure Windows VMs need connect to the Azure KMS server for Windows activatio
 
 ## Solution
 
-### Add a route entry for the Azure KMS server 
-
 To resolve this problem, use the Azure custom route to route activation traffic to the Azure KMS server (23.102.135.246). 
 
 The IP address 23.102.135.246 is the IP address of the KMS server for the Azure Global cloud. Its DNS name is kms.core.windows.net. If you use other Azure platforms such as Azure Germany, you must use the IP address of the correspond KMS server. For more information, see the following table:
