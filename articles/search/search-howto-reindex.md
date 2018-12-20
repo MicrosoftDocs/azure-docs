@@ -7,7 +7,7 @@ manager: cgronlun
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 04/19/2018
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -20,6 +20,10 @@ Read-write permissions at the service-level are required for index updates. Prog
 Generally, updates to an index are on-demand. However, for indexes populated using source-specific [indexers](search-indexer-overview.md), you can use a built-in scheduler. The scheduler supports document refresh as often as every 15 minutes, up to whatever interval and pattern you require. A faster refresh rate requires pushing index updates manually, perhaps through a double-write on transactions, updating both the external data source and the Azure Search index simultaneously.
 
 ## Full rebuilds
+
+A full rebuild creates a new or revised index from the ground up. Physical storage is allocated for each field in the index schema, with an inverted index created for each field to store all of the tokenized terms within a given field. As you might expect, new fields can be added to an existing index without impacting any pre-existing fields. Changed fields, however, modify the physical structure of the inverted index of that field. 
+
+The addition of other elements, such as scoring profiles, custom analyzers, or synonym maps, do not require a rebuild. Rebuilds are only necessary when a field definition is modified or deleted.
 
 For many types of updates, a full rebuild is required. A full rebuild refers to deletion of an index, both data and metadata, followed by repopulating the index from external data sources. Programmatically, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index), [create](https://docs.microsoft.com/rest/api/searchservice/create-index), and [reload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) the index to rebuild it. 
 

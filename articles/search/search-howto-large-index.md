@@ -1,26 +1,44 @@
 ---
-title: Scale out indexing with built-in indexers - Azure Search
-description: Design a strategy for indexing a large amount of data in an Azure Search index.
+title: Index large data set using built-in indexers - Azure Search
+description: Learn how to design a strategy for indexing a large amount of data in an Azure Search index.
 services: search
 author: HeidiSteen
 manager: cgronlun
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
 
 ---
-# How to scale-out indexing in Azure Search
+# How to index large data using built-in indexers in Azure Search
 
-As data volumes grow or processing needs change, you might find that simple [rebuilds and reindexing jobs](search-howto-reindex.md) are not enough. 
+As data volumes grow or processing needs change, you might find that simple [rebuilds and reindexing jobs](search-howto-reindex.md) are insufficient. For Azure Search, there are several approaches for accommodating large data volumes, ranging from how you structure a data upload request, to using a specialized indexer for scheduled and distributed workloads.
 
-As a first step towards meeting increased demands, we recommend that you increase the [scale and capacity](search-capacity-planning.md) within the limits of your existing service. 
+## Batch indexing
 
-A second step, if you can use [indexers](search-indexer-overview.md), adds mechanisms for scalable indexing. Indexers come with a built-in scheduler that allows you to parcel out indexing at regular intervals or extend processing beyond the 24-hour window. Additionally, when paired with data source definitions, indexers help you achieve a form of parallelism by partitioning data and using schedules to execute in parallel.
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. Using the [Add or Update Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), you would package 1000 documents in the body of the request.
 
-### Scheduled indexing for large data sets
+Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers using the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
+
+To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
+
+## Add resources
+
+Services that are provisioned at one of the Standard pricing tiers often have excess capacity for both storage and workloads (queries or indexing), which makes [increasing the parition and replica counts](search-capacity-planning.md) an obvious solution. This approach incurs additional cost, but unless you are continuously indexing under load, you can add scale for the duration of the indexing process, and then adjust resource levels downwards after indexing is finished.
+
+## Use indexers
+
+[Indexers](search-indexer-overview.md) are used to crawl external data sources for searchable content. Several indexer capabilities are particularly useful for accommodating large data sets:
+
++ Scheduler allows you to parcel out indexing at regular intervals.
++ Data sources pointing to partitioned data. Break a large data set into smaller data sets, and then create multiple data source definitions that can be indexed in parallel.
++ Resumption of indexing at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
+
+Indexers are data-source-specific, so this approach is only viable for data sources on Azure.
+
+### Scheduled indexing
 
 Scheduling is an important mechanism for processing large data sets and slow-running analyses like image analysis in a cognitive search pipeline. Indexer processing operates within a 24-hour window. If processing fails to finish within 24 hours, the behaviors of indexer scheduling can work to your advantage. 
 
