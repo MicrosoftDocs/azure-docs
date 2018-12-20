@@ -44,9 +44,7 @@ A list entity is a good choice for this type of data when:
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax. 
 
-
-
-## MoveEmployee intent
+## Create an intent to transfer employees to a different department
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -60,82 +58,64 @@ A list entity is a good choice for this type of data when:
 
     |Example utterances|
     |--|
-    |move John W. Smith from B-1234 to H-4452|
-    |mv john.w.smith@mycompany.com from office b-1234 to office h-4452|
-    |shift x12345 to h-1234 tomorrow|
-    |place 425-555-1212 in HH-2345|
-    |move 123-45-6789 from A-4321 to J-23456|
-    |mv Jill Jones from D-2345 to J-23456|
-    |shift jill-jones@mycompany.com to M-12345|
-    |x23456 to M-12345|
-    |425-555-0000 to h-4452|
-    |234-56-7891 to hh-2345|
+    |move John W. Smith to the accounting department|
+    |transfer Jill Jones from to R&D|
+    |Dept 1234 has a new member named Bill Bradstreet|
+    |Place John Jackson in Engineering |
+    |move Debra Doughtery to Inside Sales|
+    |mv Jill Jones to IT|
+    |Shift Alice Anderson to DevOps|
+    |Carl Chamerlin to Finance|
+    |Steve Standish to 1234|
+    |Tanner Thompson to 3456|
 
     [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-    Remember that number and datetimeV2 were added in a previous tutorial and will be automatically labeled when they are found in any example utterances.
-
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## Employee list entity
-Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what an employee is. 
+## Department list entity
 
-The primary, _canonical_, name for each item is the employee number. For this domain, examples of the synonyms of each canonical name are: 
+Now that the **MoveEmployee** intent has example utterances, LUIS needs to understand what a department is. 
 
-|Synonym purpose|Synonym value|
+The primary, _canonical_, name for each item is the department name. Examples of the synonyms of each canonical name are: 
+
+|Canonical name|Synonyms|
 |--|--|
-|Name|John W. Smith|
-|Email address|john.w.smith@mycompany.com|
-|Phone extension|x12345|
-|Personal mobile phone number|425-555-1212|
-|U.S. federal social security number|123-45-6789|
-
+|Accounting|acct<br>accting<br>3456|
+|Development Operations|Devops<br>4949|
+|Engineering|eng<br>enging<br>4567|
+|Finance|fin<br>2020|
+|Information Technology|IT<br>2323|
+|Inside Sales|isale<br>insale<br>1414|
+|Research and Development|R&D<br>1234|
 
 1. Select **Entities** in the left panel.
 
 2. Select **Create new entity**.
 
-3. In the entity pop-up dialog, enter `Employee` for the entity name, and  **List** for entity type. Select **Done**.  
+3. In the entity pop-up dialog, enter `Department` for the entity name, and  **List** for entity type. Select **Done**.  
 
     [![Screenshot of creating new entity pop-up dialog](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
-4. On the Employee entity page, enter `Employee-24612` as the new value.
+4. On the Department entity page, enter `Accounting` as the new value.
 
     [![Screenshot of entering value](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-5. For Synonyms, add the following values:
-
-    |Synonym purpose|Synonym value|
-    |--|--|
-    |Name|John W. Smith|
-    |Email address|john.w.smith@mycompany.com|
-    |Phone extension|x12345|
-    |Personal mobile phone number|425-555-1212|
-    |U.S. federal social security number|123-45-6789|
+5. For Synonyms, add the synonyms from the previous table.
 
     [![Screenshot of entering synonyms](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
-6. Enter the `Employee-45612` as a new value.
+6. Continue adding all the canonical names and their synonyms. 
 
-7. For Synonyms, add the following values:
-
-    |Synonym purpose|Synonym value|
-    |--|--|
-    |Name|Jill Jones|
-    |Email address|jill-jones@mycompany.com|
-    |Phone extension|x23456|
-    |Personal mobile phone number|425-555-0000|
-    |U.S. federal social security number|234-56-7891|
-
-## Train
+## Train the app so the changes to the intent can be tested 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## Publish
+## Publish the app so the trained model is queryable from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Get intent and entities from endpoint
+## Get intent and entity prediction from endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -256,6 +236,14 @@ The primary, _canonical_, name for each item is the employee number. For this do
 ## Clean up resources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Related information
+
+* [List entity](luis-concept-entity-types.md#exact-match) conceptual information
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
+
 
 ## Next steps
 This tutorial created a new intent, added example utterances, then created a list entity to extract exact text matches from utterances. After training, and publishing the app, a query to the endpoint identified the intention and returned the extracted data.

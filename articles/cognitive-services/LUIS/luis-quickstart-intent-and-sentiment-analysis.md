@@ -92,7 +92,7 @@ Add a new intent to capture employee feedback from members of the company.
 
     ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-## ## Publish the app so the trained model is queryable from the endpoint
+## Publish the app so the trained model is queryable from the endpoint
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
