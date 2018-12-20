@@ -63,7 +63,7 @@ Read-write permissions at the service-level are required for index updates. Prog
 
 1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
 2. Provide an index schema with the changed or modified field definitions. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
-3. Provide an [admin key](https://docs.microsoft.com/en-us/azure/search/search-security-api-keys) on the request.
+3. Provide an [admin key](https://docs.microsoft.com/azure/search/search-security-api-keys) on the request.
 4. Send an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) command to rebuild the physical expression of the index on Azure Search. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options.
 5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source. You can also use this API if you are refreshing an existing, unchanged index schema with updated documents.
 
