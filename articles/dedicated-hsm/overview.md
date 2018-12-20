@@ -41,7 +41,7 @@ Many customers require full administrative control and sole access to their devi
 
  Microsoft has no administrative control after the customer accesses the device for the first time, at which point the customer changes the password. From that point, the customer is a true single-tenant with full administrative control and application-management capability. Microsoft does maintain monitor-level access (not an admin role) for telemetry via serial port connection. This access covers hardware monitors such as temperature, power supply health, and fan health. 
  
- The customer can free to disable this monitoring needed. However, if they disable it, they won't receive proactive health alerts from Microsoft.
+ The customer is free to disable this monitoring needed. However, if they disable it, they won't receive proactive health alerts from Microsoft.
 
 ### High performance
 
@@ -53,11 +53,11 @@ Microsoft recognized a specific need for a unique set of customers. It is the on
 
 ## Is Azure Dedicated HSM right for you?
 
-Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many will find the Azure Key Vault service to be more appropriate and more cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
+Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many will find the Azure Key Vault service to be more appropriate and cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
 
 ### Best fit
 
-Most suitable for “lift-and-shift” scenarios that require direct and sole access to HSM devices. Examples include:
+Azure Dedicated HSM is most suitable for “lift-and-shift” scenarios that require direct and sole access to HSM devices. Examples include:
 
 - Migrating applications from on-premises to Azure Virtual Machines
 - Migrating applications from Amazon AWS EC2 to virtual machines that use the AWS Cloud HSM Classic service (Amazon is not offering this service to new customers)
@@ -65,11 +65,13 @@ Most suitable for “lift-and-shift” scenarios that require direct and sole ac
 
 ### Not a fit
 
-Microsoft cloud services that support encryption with customer-managed keys (such as Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database, and Customer Key for Office 365) are not integrated with Azure Dedicated HSM.
+Azure Dedicated HSM is not a good fit for the following type of scenario: Microsoft cloud services that support encryption with customer-managed keys (such as Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database, and Customer Key for Office 365) that are not integrated with Azure Dedicated HSM.
 
 ### It depends
 
-Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement. This requirement is common, and Dedicated HSM is currently the only option for meeting it. If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Dedicated HSM. Assess your requirements before making a decision. Examples include:
+Whether Azure Dedicated HSM will work for you depends on a potentially complex mix of requirements and compromises that you can or cannot make. An example is the FIPS 140-2 Level 3 requirement. This requirement is common, and Dedicated HSM is currently the only option for meeting it. If these mandated requirements aren't relevant, then often it's a choice between Azure Key Vault and Dedicated HSM. Assess your requirements before making a decision.
+
+Situations in which you will have to weigh your options include: 
 
 - New code running in a customer’s Azure virtual machine
 - SQL Server TDE in an Azure virtual machine
@@ -80,7 +82,7 @@ Whether Azure Dedicated HSM will work for you depends on a potentially complex m
 
 This is a highly specialized service. Therefore, we recommend that you fully understand the key concepts in this documentation set, including pricing, support, and service-level agreements. 
 
-The [Gemalto integration guides](https://safenet.gemalto.com/partners/microsoft/)help you facilitate the provisioning of HSMs into an existing virtual network environment. There are also are how-to guides for helping you determine how to set up your deployment architecture.
+The [Gemalto integration guides](https://safenet.gemalto.com/partners/microsoft/) help you facilitate the provisioning of HSMs into an existing virtual network environment. There are also are how-to guides for helping you determine how to set up your deployment architecture.
 
 * [High availability](high-availability.md)
 * [Physical security](physical-security.md)
