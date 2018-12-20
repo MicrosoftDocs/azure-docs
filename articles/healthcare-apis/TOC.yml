@@ -28,6 +28,8 @@
   items:
   - name: Configuring identity
     href: documentation-fhir-tutorial-configure-identity.md
+  - name: Using Postman
+    href: documentation-fhir-tutorial-postman.md
 - name: How-to guides
   expanded: false
   items:

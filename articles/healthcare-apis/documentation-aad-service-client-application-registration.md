@@ -37,7 +37,7 @@ You will need to grant the service client application roles. First you should op
 
 Now select the application roles you from the ones that are defined on the resource application:
 
-![Azure portal. Service Client Application Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT_APPLICATION-PERMISSIONS.png)
+![Azure portal. Service Client Application Permissions](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-APPLICATION-PERMISSIONS.png)
 
 You will need to grant consent to the application. If you don't have the permissions required, check with your Azure Active Directory administrator:
 

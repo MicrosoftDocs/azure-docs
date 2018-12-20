@@ -59,5 +59,5 @@ az group delete --name $servicename
 
 In this tutorial, you've deployed the Microsoft Healthcare APIs for FHIRinto your subscription. To learn how to configure an identity provider for the FHIR server, proceed to the identity provider tutorial.
 
-[!div class="nextstepaction"]
-[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)
+>[!div class="nextstepaction"]
+>[Configure FHIR Identity Provider](documentation-fhir-tutorial-configure-identity.md)
