@@ -140,21 +140,21 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
 
 1. In a different web browser window, login to your Workplace by Facebook company site as an administrator.
   
-   > [!NOTE] 
+   > [!NOTE]
    > As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
-2. In the **Company Dashboard**, go to the **Authentication** tab.
+2. In the **Admin Panel**, go to the **Security** tab, then **Authentication**.
 
 3. Under **SAML Authentication**, select **SSO Only** from the drop-down list.
 
 4. Input the values copied from **Workplace by Facebook Configuration** section of the Azure portal into the corresponding fields:
 
-	*	In **SAML URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
-	*	In **SAML Issuer URL textbox**, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
-	*	In **SAML Logout Redirect** (Optional), paste the value of **Sign-Out URL**, which you have copied from Azure portal.
-	*	Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
+	* In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	* In **SAML Issuer URL textbox**, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+	* In **SAML Logout Redirect** (Optional), paste the value of **Logout URL**, which you have copied from Azure portal.
+	* Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
 
-5. You may need to enter the Audience URL, Recipient URL, and ACS (Assertion Consumer Service) URL listed under the **SAML Configuration** section.
+5. You may need to enter the Audience URL, Recipient URL, and ACS (Assertion Consumer Service) URL listed under the **Basic SAML Configuration** section.
 
 6. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
 
@@ -237,7 +237,7 @@ There is no action for you in this section. If a user doesn't exist in Workplace
 >[!Note]
 >If you need to create a user manually, Contact [Workplace by Facebook Client support team](https://workplace.fb.com/faq/)
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
