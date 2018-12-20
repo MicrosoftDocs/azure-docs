@@ -42,11 +42,11 @@ Under block blob and page blob shares, first-level entities are containers, and 
 
 The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-|                   | File server UNC path                                                           | Azure Storage path URL                                                         |
-|-------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt` | `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt` |
-| Azure Page blobs  | `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`   | `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt` |
-| Azure Files       |`\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`        | `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`     |
+|                   |                                                            |
+|-------------------|--------------------------------------------------------------------------------|
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        |      
 
 If you are using a Windows Server host computer, follow these steps to connect to the Data Box.
 
