@@ -102,10 +102,6 @@ V2 SKU deployments can take about five to six minutes to provision.
 
 Does Application Gateway support x-forwarded-for headers?
 
-### Does Application Gateway support rewriting HTTP request and response headers?
-
-Yes, Application Gateway supports rewriting the request and response headers. Please see [Rewrite HTTP headers using Application Gateway](rewrite-http-headers) to learn more about the capability and its limitations.
-
 ## Configuration
 
 ### Is Application Gateway always deployed in a virtual network?
