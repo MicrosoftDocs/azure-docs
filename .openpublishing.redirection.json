@@ -5366,6 +5366,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/app-service-diagnostics.md",
+            "redirect_url": "/azure/app-service/overview-diagnostics",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md",
             "redirect_url": "http://blog.repsaj.nl/index.php/2017/05/azure-wordpress-and-azure-redis-cache/",
             "redirect_document_id": false
