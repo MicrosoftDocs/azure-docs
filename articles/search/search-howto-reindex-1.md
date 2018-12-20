@@ -7,7 +7,7 @@ manager: cgronlun
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/20/2018
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -54,16 +54,17 @@ Plan on frequent, full rebuilds during active development, when index schemas ar
 
 Read-write permissions at the service-level are required for index updates. Programmatically, you can call REST or .NET APIs for a full rebuild or incremental indexing of content, with parameters specifying update options. 
 
-1. If you are reusing the index name, [drop the existing index]https://docs.microsoft.com/rest/api/searchservice/delete-index). Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
+For applications already in production, we recommend creating a new index that runs side-by-side an existing index to avoid query downtime.
+
+1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
 2. Provide an index schema with the changed or modified field definitions. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 3. Provide an [admin key](https://docs.microsoft.com/en-us/azure/search/search-security-api-keys) on the request.
 4. Send a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) command to build the physical expression of the index on Azure Search. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options.
 5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source.
 
-Physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields are that not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text searchable. 
+When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields are that not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
 
-Within each field's inverted index contains all of the tokenized words from each document, along with a list of document IDs. For example, on a search for hotels in Seattle, any document containing the term "Seattle" would be listed for that term, and returned in query results.
-
+When you load the index, each field's inverted index is populated with all of the unique, tokenized words from each document, with a map to corresponding document IDs. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Add, Update or Delete](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation, the terms and document ID list are updated accordingly.
 
 ## See also
 
