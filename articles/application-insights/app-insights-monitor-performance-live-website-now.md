@@ -255,7 +255,7 @@ View your telemetry:
 * [Explore metrics](app-insights-metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../azure-monitor/app/analytics.md) for more advanced queries
-* [Create dashboards](app-insights-dashboards.md)
+* [Create dashboards](../azure-monitor/app/app-insights-dashboards.md)
 
 Add more telemetry:
 

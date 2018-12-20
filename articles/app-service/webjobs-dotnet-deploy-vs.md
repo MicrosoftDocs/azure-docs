@@ -23,7 +23,7 @@ ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
 ## Overview
 
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](webjobs-create.md).
 
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
@@ -117,7 +117,7 @@ The **Add Azure WebJob** dialog lets you enter the WebJob name and run mode sett
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **Add WebJob** dialog of the Azure portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+The fields in this dialog correspond to fields on the **Add WebJob** dialog of the Azure portal. For more information, see [Run Background tasks with WebJobs](webjobs-create.md).
 
 > [!NOTE]
 > * For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
