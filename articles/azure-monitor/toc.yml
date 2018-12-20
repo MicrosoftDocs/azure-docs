@@ -832,10 +832,8 @@
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Application enterprise plan details
       href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
-    - name: Log data volume and retention
+    - name: Log data cost and retention
       href: platform/manage-cost-storage.md
-    - name: Log data monitor usage
-      href: platform/data-usage.md
   - name: Automate 
     items:
     - name: PowerShell
