@@ -45,6 +45,10 @@ A list entity is a good choice for this type of data when:
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
 * The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax. 
 
+## Create a new app
+
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
 ## Create an intent to transfer employees to a different department
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
