@@ -7,7 +7,7 @@ ms.author: genemi
 ---
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create a blank SQL database
 
@@ -30,6 +30,8 @@ Follow these steps to create a blank SQL database.
    | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
    | **Select source** | Blank database | Specifies that a blank database should be created. |
 
+   ![create database](../articles/sql-database/media/sql-database-design-first-database/create-database.png)
+
    1. Select **Server** to configure a server for your new database. Then, type or select the following values:
 
       | Setting       | Suggested value | Description |
@@ -39,7 +41,7 @@ Follow these steps to create a blank SQL database.
       | **Password** | Any valid password | Your password must have at least 8 characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
       | **Location** | Any valid location | For information about regions, see [Azure regions](https://azure.microsoft.com/regions/). |
 
-   1. Choose **Select**.
+      Choose **Select**.
 
       ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
@@ -49,7 +51,7 @@ Follow these steps to create a blank SQL database.
 
    1. Enter a **Collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](/sql/t-sql/statements/collations).
 
-1. Now that you've completed the **SQL Database** form, select **Create** to provision the database. This step can take up to a minute and a half to complete.
+1. Now that you've completed the **SQL Database** form, select **Create** to create the database. This step can take up to a minute and a half to complete.
 
 1. On the toolbar, click **Notifications** to monitor the deployment process.
 
@@ -57,12 +59,12 @@ Follow these steps to create a blank SQL database.
 
 ## Create a firewall rule
 
-The SQL database service creates a firewall at the server-level to prevent external applications and tools from connecting to the server or any databases on the server. Follow these steps to create a [SQL database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address. This enables external connectivity through the SQL database firewall for your IP address only.
+The SQL database service creates a firewall at the server-level to prevent external applications and tools from connecting to the server or any databases on the server. Follow these steps to create a [SQL database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address. This process enables external connectivity through the SQL database firewall for your IP address only.
 
 > [!NOTE]
 > SQL database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to the Azure SQL database server unless your administrator opens port 1433.
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click *yourDatabase* on the **SQL databases** page. The **Overview** page for your database opens, showing you the fully qualified server name (such as *yourserver.database.windows.net*) and provides options for further configuration.
+1. After the deployment completes, choose **SQL databases** from the left-hand menu and then select *yourDatabase* on the **SQL databases** page. The **Overview** page for your database opens, showing you the fully qualified server name (such as *yourserver.database.windows.net*) and provides options for further configuration.
 
 1. Copy the fully qualified server name for use to connect to your server and its databases in later steps.
 
@@ -81,4 +83,4 @@ The SQL database service creates a firewall at the server-level to prevent exter
 Your IP address can now pass through the firewall and can now connect to the SQL database server and its databases using SSMS or another tool of your choice. Be sure to use the server's admin account you created previously.
 
 > [!IMPORTANT]
-> By default, access through the SQL database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+> By default, access through the SQL database firewall is enabled for all Azure services. Select **OFF** on this page to disable for all Azure services.

@@ -34,7 +34,7 @@ The C# program is logically one .cs file, and is physically divided into several
 
 1. Create a C# project in Visual Studio. The project type should be a *Console*, found under **Templates** > **Visual C#** > **Windows Desktop** > **Console App (.NET Framework)**.
 
-1. In the file *Program.cs*, replace the starter lines of code with the following:
+1. In the file *Program.cs*, replace the starter lines of code with the following steps:
 
     1. Copy and paste the following code blocks, in the same sequence they're presented, see [Connect to database](#cs_1_connect), [Generate T-SQL](#cs_2_return), and [Submit to database](#cs_3_submit).
 

@@ -43,7 +43,8 @@ And it starts with a ## H2.
 
 ## Next steps
 
-In this tutorial, you learned basic database tasks such as create a database and tables, connect to a database, and load and query data. You learned how to:
+In this tutorial, you learned basic database tasks such as create a database and tables, connect to the database, load data, and run queries. You learned how to:
+
 > [!div class="checklist"]
 > * Create a database
 > * Set up a firewall rule
