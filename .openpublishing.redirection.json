@@ -32379,12 +32379,12 @@
         {
             "source_path":  "articles/log-analytics/log-analytics-usage.md",
             "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
-            "redirect_document_id":  true
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/azure-monitor/platform/data-usage.md",
             "redirect_url":  "/azure/azure-monitor/platform/manage-cost-storage",
-            "redirect_document_id":  true
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/monitoring-and-diagnostics/alert-activity-log.md",
