@@ -130,9 +130,3 @@ Write-access to the registry is blocked, including access to any per-user regist
 [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - The most up-to-date information about the execution environment of App Service. This page is 
 maintained directly by the App Service development team.
 
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-> 
-> 
-
-
