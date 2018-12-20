@@ -4107,7 +4107,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-security.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-security",
             "redirect_document_id": false
         },
         {
@@ -4457,7 +4457,12 @@
         },
         {
             "source_path": "articles/app-service-web/choose-web-site-cloud-service-vm.md",
-            "redirect_url": "/azure/app-service/choose-web-site-cloud-service-vm",
+            "redirect_url": "/azure/app-service/overview-compare",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/choose-web-site-cloud-service-vm.md",
+            "redirect_url": "/azure/app-service/overview-compare",
             "redirect_document_id": false
         },
         {
@@ -4787,7 +4792,17 @@
         },
         {
             "source_path": "articles/app-service/app-service-security-readme.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-security.md",
+            "redirect_url": "/azure/app-service/overview-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md",
+            "redirect_url": "/azure/app-service/overview-hosting-plans",
             "redirect_document_id": false
         },
         {
@@ -4797,7 +4812,12 @@
         },
         {
             "source_path": "articles/app-service/app-service-local-cache.md",
-            "redirect_url": "/azure/app-service/app-service-local-cache-overview",
+            "redirect_url": "/azure/app-service/overview-local-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-local-cache-overview.md",
+            "redirect_url": "/azure/app-service/overview-local-cache",
             "redirect_document_id": false
         },
         {
@@ -4822,7 +4842,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-authentication.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -4837,7 +4857,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-dotnet-service-principal-auth.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -4852,7 +4872,7 @@
         },
         {
             "source_path": "articles/app-service-api/app-service-api-dotnet-user-principal-auth.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -4947,7 +4967,17 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-authentication-authorization.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-managed-service-identity.md",
+            "redirect_url": "/azure/app-service/overview-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-diagnostics.md",
+            "redirect_url": "/azure/app-service/overview-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -4977,12 +5007,17 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-lob-application-adfs.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-dotnet-lob-application-azure-ad.md",
-            "redirect_url": "/azure/app-service/app-service-authentication-overview",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-authentication-overview.md",
+            "redirect_url": "/azure/app-service/overview-authentication-authorization",
             "redirect_document_id": false
         },
         {
@@ -7692,32 +7727,37 @@
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-update-1805.md",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-update-1808",
+            "redirect_url": "/azure/azure-stack/azure-stack-update-1809",
             "redirect_document_id": false
         },
         {
