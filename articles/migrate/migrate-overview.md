@@ -32,7 +32,7 @@ Assess Hyper-V VMs | This functionality is only available in the public preview.
 
 
 
-## Azure Migrate public preview
+## Azure Migrate services public preview
 
 ### New features
 
