@@ -55,21 +55,21 @@ You can rewrite the value in the headers to:
   ```
 
 
-> [!Note] 
->
-> In order to specify a request header, you need to use the syntax: {http_req_headerName}
+   > [!Note] 
+   >
+   > In order to specify a request header, you need to use the syntax: {http_req_headerName}
 
-​	*Example 2*:
+   *Example 2*:
 
-```azurepowershell-interactive
-$responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
-```
+   ```azurepowershell-interactive
+   $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+   ```
 
-> [!Note] 
->
-> In order to specify a response header, you need to use the syntax: {http_resp_headerName}
+   > [!Note] 
+   >
+   > In order to specify a response header, you need to use the syntax: {http_resp_headerName}
 
-- Value from supported server variables.
+   - Value from supported server variables.
 
   *Example:* 
 
@@ -77,9 +77,9 @@ $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConf
   $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ssl_cipher}"
   ```
 
-> [!Note] 
->
-> In order to specify a server variable, you need to use the syntax: {var_serverVariable}
+   > [!Note] 
+   >
+   > In order to specify a server variable, you need to use the syntax: {var_serverVariable}
 
 - A combination of the above.
 
