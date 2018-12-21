@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Use a custom logo detector "
+title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
 titlesuffix: Azure Cognitive Services
-description: 
+description: In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 12/21/2018
 ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
