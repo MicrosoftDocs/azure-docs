@@ -36,9 +36,9 @@ This article requires the Azure PowerShell module version 3.6 or later. Run `Get
 1. You should see a screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
 ## Define image variables
-To simplify reuse and script creations, start by defining a number of variables. Change the parameter values as you want, but be aware of naming restrictions related to name lengths and special characters when modifying the values provided.
+To reuse values and simplify script creation, start by defining a number of variables. Change the parameter values as you want, but be aware of naming restrictions related to name lengths and special characters when modifying the values provided.
 
-### Location and Resource Group
+### Location and resource group
 Define the data region and the resource group into which you create the other VM resources.
 
 Modify as you want and then run these cmdlets to initialize these variables.
@@ -316,6 +316,9 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
 ## Create the SQL VM
 Now that you've finished the configuration steps, you're ready to create the virtual machine. Use the [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet to create the virtual machine using the variables that you defined.
 
+> [!TIP]
+> Creating the VM can take a few minutes.
+
 Run this cmdlet to create your virtual machine.
 
 ```PowerShell
@@ -325,7 +328,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 The virtual machine is created.
 
 > [!NOTE]
-> You can ignore the error about the boot diagnostics. A standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
+> If you get an error about boot diagnostics, you can ignore it. A standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
 
 ## Install the SQL Iaas Agent
 SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it's created.
@@ -334,7 +337,7 @@ SQL Server virtual machines support automated management features with the [SQL 
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
-## Remove a test VM
+## Stop or remove a VM
 
 If you don't need the VM to run continuously, you can avoid unnecessary charges by stopping it when not in use. The following command stops the VM but leaves it available for future use.
 
@@ -416,10 +419,10 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $V
 ## Next steps
 After the virtual machine is created, you can:
 
-- Connect to the virtual machine using RDP.
+- Connect to the virtual machine using RDP
 - Configure SQL Server settings in the portal for your VM, including:
    - [Storage settings](virtual-machines-windows-sql-server-storage-configuration.md) 
    - [Automated management tasks](virtual-machines-windows-sql-server-agent-extension.md)
-- [Configure connectivity](virtual-machines-windows-sql-connect.md).
-- Connect clients and applications to the new SQL Server instance.
+- [Configure connectivity](virtual-machines-windows-sql-connect.md)
+- Connect clients and applications to the new SQL Server instance
 

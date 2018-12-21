@@ -117,11 +117,11 @@ This quickstart requires the Azure PowerShell module version 3.6 or later. Run `
 
 ## Create the SQL VM
 
-1. Define your credentials to sign in to the VM. The username is "azureadmin". Make sure you change the password before running the command.
+1. Define your credentials to sign in to the VM. The username is "azureadmin". Make sure you change \<password> before running the command.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
