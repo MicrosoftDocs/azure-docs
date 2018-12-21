@@ -6,12 +6,14 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
+
 ms.assetid: 
 ms.service: azure-monitor
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: magoedte
 ---
 
@@ -30,14 +32,14 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 To re-enable monitoring for your cluster, see [Enable monitoring using Azure CLI](container-insights-onboard.md#enable-monitoring-using-azure-cli).
 
 ## Azure Resource Manager template
-Provided are two Azure Resource Manager template to support removing the solution resources consistently and repeatedly in your resource group. One is a JSON template specifying the configuration to *opt out* and the other contains parameter values that you configure to specify the AKS cluster resource ID and resource group that the cluster is deployed in. 
+Provided are two Azure Resource Manager template to support removing the solution resources consistently and repeatedly in your resource group. One is a JSON template specifying the configuration to stop monitoring and the other contains parameter values that you configure to specify the AKS cluster resource ID and resource group that the cluster is deployed in. 
 
 If you're unfamiliar with the concept of deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->The template needs to be deployed in the same resource group as the cluster.
+>The template needs to be deployed in the same resource group as the cluster. If you omit any other properties or add-ons when using this template, it can result in their removal from the cluster. For example, *enableRBAC*.  
 >
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
@@ -143,5 +145,5 @@ The configuration change can take a few minutes to complete. When it's completed
 ProvisioningState       : Succeeded
 ```
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../azure-monitor/platform/delete-workspace.md). Don't forget about the **Workspace Resource ID** we copied earlier in step 4, you're going to need that. 
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** we copied earlier in step 4, you're going to need that. 
 

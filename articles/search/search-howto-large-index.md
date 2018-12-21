@@ -1,6 +1,6 @@
 ---
 title: Scale out indexing with built-in indexers - Azure Search
-description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Search index.
+description: Design a strategy for indexing a large amount of data in an Azure Search index.
 services: search
 author: HeidiSteen
 manager: cgronlun

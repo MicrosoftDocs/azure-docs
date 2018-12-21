@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As a IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
@@ -75,7 +75,7 @@ This section provides you with the steps to create a sample ToU. When you create
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+5. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
     ![Conditional access](./media/require-tou/03.png) 
 

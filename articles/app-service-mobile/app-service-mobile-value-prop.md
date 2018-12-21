@@ -64,7 +64,7 @@ The following platform features are useful for mobile production sites:
 
 * **Continuous deployment**: App Service can integrate with common _source control management_ (SCM) systems, allowing you to easily deploy a new version of your back end.
 
-  Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
+  Discover more about [deployment options](../app-service/deploy-local-git.md).
 
 * **Virtual networking**: App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
 

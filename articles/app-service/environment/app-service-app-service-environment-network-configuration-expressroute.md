@@ -1,5 +1,5 @@
 ---
-title: Network configuration details for Azure ExpressRoute
+title: Network configuration details for Azure ExpressRoute - App Service
 description: Network configuration details for App Service Environment for PowerApps in virtual networks connected to an Azure ExpressRoute circuit.
 services: app-service
 documentationcenter: ''

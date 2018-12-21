@@ -662,7 +662,7 @@
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
       items:
-      - name: Congifure Log Analytics to collect cluster events
+      - name: Configure Log Analytics to collect cluster events
         href: service-fabric-diagnostics-oms-setup.md
       - name: Monitor your cluster with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md

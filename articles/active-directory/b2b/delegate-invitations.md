@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 12/14/2018
 
 ms.author: mimart
 author: msmimart
@@ -30,9 +30,12 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## Control who can invite
 
-Go to Azure Active Directory > User Settings > Manage External Collaboration Settings
+In Azure Active Directory, select **User Settings**. Under **External users**, select **Manage External Collaboration Settings**.
 
-![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
+> [!NOTE]
+> The **External collaboration settings** are also available from the **Organizational relationships** page. In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
+
+![External collaboration settings](./media/delegate-invitations/control-who-to-invite.png)
 
 With Azure AD B2B collaboration, a tenant admin can set the following invitation policies:
 

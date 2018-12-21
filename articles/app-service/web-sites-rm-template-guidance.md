@@ -133,4 +133,4 @@ For an example template, see [Deploy a Web App certificate from Key Vault secret
 
 ## Next steps
 
-* For a tutorial on deploying web apps with a template, see [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md).
+* For a tutorial on deploying web apps with a template, see [Provision and deploy microservices predictably in Azure](deploy-complex-application-predictably.md).

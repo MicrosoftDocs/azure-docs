@@ -10,7 +10,7 @@ ms.component: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
-Metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates which is described in [a separate article](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+Metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates which is described in [a separate article](../../azure-monitor/platform/alerts-enable-template.md).
 
 You can learn more about how metric alerts work from [metric alerts overview](alerts-metric-overview.md).
 
@@ -27,7 +27,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 3. Click **Select target**, in the context pane that loads, select a target resource that you want to modify. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
-4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. Once you have selected a target resource, click on **Add criteria**
 
@@ -122,6 +122,6 @@ The previous sections described how to create, view and manage metric alert rule
 
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-enable-template.md).
 - [Understand how metric alerts work](alerts-metric-overview.md).
-- [Understand the web hook schema for metric alerts](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

@@ -23,7 +23,7 @@ ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
 ## Overview
 
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](app-service-web-overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
@@ -140,7 +140,7 @@ and stores scheduling information in a *webjob-publish-settings.json* file in th
           "runMode": "Continuous"
         }
 
-You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
+You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a *webjobs-list.json* file in the web project's *Properties* folder. The list might contain multiple WebJobs projects, as shown in the following example:
@@ -157,7 +157,7 @@ When you link a WebJobs-enabled project to a web project, Visual Studio stores t
           ]
         }
 
-You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) and can be viewed there.
+You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) and can be viewed there.
 
 ## <a id="deploy"></a>Deploy a WebJobs project
 A WebJobs project that you have linked to a web project deploys automatically with the web project. For information about web project deployment, see **How-to guides** > **Deploy app** in the left navigation.

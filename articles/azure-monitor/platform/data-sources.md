@@ -38,12 +38,12 @@ Telemetry related to the health and operation of Azure itself includes data abou
 ![Azure subscription collection](media/data-sources/azure-collection.png)
 
 ### Azure Service Health
-[Azure Service Health](../../monitoring-and-diagnostics/monitoring-service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs.
+[Azure Service Health](../../azure-monitor/platform/service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. You can create alerts to be notified of current and expected critical issues that may affect your application. Service Health records are stored in the [Azure Activity log](../../azure-monitor/platform/activity-logs-overview.md), so you can view them in the Activity Log Explorer and copy them into Azure Monitor logs.
 
 ### Azure Activity Log
-The [Azure Activity Log](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](../../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+The [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view. The specific types of records in the Activity Log are described in [Azure Activity Log event schema](../../azure-monitor/platform/activity-log-schema.md).
 
-You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). It's particularly useful to copy the log entries to Azure Monitor to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+You can view the Activity Log for a particular resource on its page in the Azure portal or view logs from multiple resources in the [Activity Log Explorer](../../azure-monitor/platform/activity-logs-overview.md). It's particularly useful to copy the log entries to Azure Monitor to combine it with other monitoring data. You can also send them to other locations using [Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 
 
@@ -54,13 +54,13 @@ Metrics and resource level diagnostic logs provide information about the _intern
 
 
 ### Metrics
-Most Azure services will generate [platform metrics](data-collection.md#metrics) that reflect their performance and operation. The specific [metrics will vary for each type of resource](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).  They are accessible from metrics analytics and can be copied to logs for trending and other analysis using Log Analytics.
+Most Azure services will generate [platform metrics](data-collection.md#metrics) that reflect their performance and operation. The specific [metrics will vary for each type of resource](../../azure-monitor/platform/metrics-supported.md).  They are accessible from the Metrics explorer and can be copied to Log Analytics for trending and other analysis.
 
 
 ### Resource diagnostic Logs
-While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](../../azure-monitor/platform/tutorial-dashboards.md).
 
-You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Azure Monitor](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) for analysis. Some resources can write directly to Azure Monitor while others write to a storage account before being [imported into Azure Monitor](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](../../azure-monitor/platform/archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) for analysis. Some resources can write directly to Log Analytics while others write to a storage account before being [imported into Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### Monitoring Solutions
  [Monitoring solutions](../insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Azure Monitor logs where it may be analyzed using the [query language](../log-query/log-query-overview.md) or [views](view-designer.md) that are typically included in the solution.
@@ -90,7 +90,7 @@ In addition to telemetry that your application may write to the guest operating 
 ### Application data
 When you enable Application Insights for an application by installing an instrumentation package, it collects metrics and logs related to the performance and operation of the application. This includes detailed information about page views, application requests, and exceptions. Application Insights stores the data it collects in Azure Monitor. It includes extensive tools for analyzing this data, but you can also analyze it with data from other sources using tools such as metric analytics and log analytics.
 
-You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from metric analytics and used for [Autoscale](../../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) and metric alerts.
+You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from the Metric Explorer and used for [Autoscale](../../azure-monitor/platform/autoscale-custom-metric.md) and Metric alerts.
 
 ### Dependencies
 In order to monitor different logical operations of an application, you must [collect telemetry across multiple components](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights supports [distributed telemetry correlation](../../application-insights/application-insights-correlation.md) which identifies the dependencies between components allowing you to analyze them together.

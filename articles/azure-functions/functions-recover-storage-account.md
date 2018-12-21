@@ -88,5 +88,5 @@ Now that your Function App is back and operational take a look at our quickstart
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
-* [Learn more about Azure App Service](../app-service/app-service-web-overview.md)  
+* [Learn more about Azure App Service](../app-service/overview.md)  
   Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 
