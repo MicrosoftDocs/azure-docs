@@ -41,7 +41,9 @@ Here are two examples of how In-Memory OLTP helped to significantly improve perf
 - The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - For more information, see the blog post: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
-In-Memory technologies are available in all databases in the Premium tier, including databases in Premium elastic pools.
+> [!NOTE]  
+>  
+>  In-Memory technologies are available in Premium and Business Critical tier Azure SQL databases and Premium elastic pools.
 
 The following video explains potential performance gains with In-Memory technologies in Azure SQL Database. Remember that the performance gain that you see always depends on many factors, including the nature of the workload and data, access pattern of the database, and so on.
 

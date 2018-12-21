@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Navigation and Dashboards in the Application Insights portal
-After you have [set up Application Insights on your project](app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
+After you have [set up Application Insights on your project](../../application-insights/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
 ## Find your telemetry
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Application Insights resource that you created for your app.
@@ -30,7 +30,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 You can customize any of the charts and grids and pin them to a dashboard. That way, you can bring together the key telemetry from different apps on a central dashboard.
 
 ## Dashboards
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](app-insights-overview.md).
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../application-insights/app-insights-overview.md).
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
@@ -58,7 +58,7 @@ The chart is automatically refreshed with a frequency that depends on the chart'
 * Time range above 24 hours: (Time range)/60.
 
 ### Pin any query in Analytics
-You can also [pin Analytics](../azure-monitor/log-query/get-started-portal.md) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
+You can also [pin Analytics](../../azure-monitor/log-query/get-started-portal.md) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
 
 Results are automatically recalculated every hour. Click the Refresh icon on the chart to recalculate immediately. (Browser refresh doesn't recalculate.)
 
@@ -92,7 +92,7 @@ When you've created a dashboard, you can share it with other users.
 
 ![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
-Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
+Learn about [Roles and access control](../../application-insights/app-insights-resources-roles-access-control.md).
 
 ## Create dashboards programmatically
 You can automate dashboard creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
@@ -105,50 +105,50 @@ The overview blade is the gateway to more information about your app.
 ### Overview blade buttons
 ![Overview blade top navigation bar](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Metrics Explorer**](app-insights-metrics-explorer.md) - Create your own charts of performance and usage.
-* [**Search**](app-insights-diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
-* [**Analytics**](../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
+* [**Metrics Explorer**](../../application-insights/app-insights-metrics-explorer.md) - Create your own charts of performance and usage.
+* [**Search**](../../application-insights/app-insights-diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
+* [**Analytics**](../../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
 * **Time range** - Adjust the range displayed by all the charts on the blade.
-* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
+* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
 
 ### Essentials tab
-* [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
+* [Instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)
 
 * **Overview** - Return to the app overview blade.
 * **Activity log** - Alerts and Azure administrative events.
-* [**Access control**](app-insights-resources-roles-access-control.md) - Provide access to team members and others.
-* [**Tags**](../azure-resource-manager/resource-group-using-tags.md) - Use tags to group your app with others.
+* [**Access control**](../../application-insights/app-insights-resources-roles-access-control.md) - Provide access to team members and others.
+* [**Tags**](../../azure-resource-manager/resource-group-using-tags.md) - Use tags to group your app with others.
 
 INVESTIGATE
 
-* [**Application map**](app-insights-app-map.md) - Active map showing the components of your application, derived from the dependency information.
-* [**Smart Detection**](app-insights-proactive-diagnostics.md) - Review recent performance alerts.
-* [**Live Stream**](app-insights-live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
-* [**Availability / Web tests**](app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
-* [**Failures, Performance**](app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](app-insights-asp-net-dependencies.md).
-* [**Performance**](app-insights-web-monitor-performance.md) - Response time, dependency response times.
-* [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
-* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
-* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
+* [**Application map**](app-map.md) - Active map showing the components of your application, derived from the dependency information.
+* [**Smart Detection**](../../application-insights/app-insights-proactive-diagnostics.md) - Review recent performance alerts.
+* [**Live Stream**](../../application-insights/app-insights-live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
+* [**Availability / Web tests**](../../application-insights/app-insights-monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
+* [**Failures, Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Response time, dependency response times.
+* [Servers](../../application-insights/app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../application-insights/app-insights-monitor-performance-live-website-now.md).
+* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](../../application-insights/app-insights-javascript.md).
+* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](../../application-insights/app-insights-javascript.md).
 
 CONFIGURE
 
 * **Getting started** - inline tutorial.
 * **Properties** - instrumentation key, subscription and resource id.
-* [Alerts](../azure-monitor/app/alerts.md) - metric alert configuration.
-* [Continuous export](app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
-* [Performance testing](app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
-* [Quota and pricing](app-insights-pricing.md) and [ingestion sampling](app-insights-sampling.md).
-* **API Access** - Create [release annotations](app-insights-annotations.md) and for the Data Access API.
-* [**Work Items**](app-insights-diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
+* [Alerts](../../azure-monitor/app/alerts.md) - metric alert configuration.
+* [Continuous export](../../application-insights/app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
+* [Performance testing](../../application-insights/app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
+* [Quota and pricing](../../application-insights/app-insights-pricing.md) and [ingestion sampling](../../application-insights/app-insights-sampling.md).
+* **API Access** - Create [release annotations](annotations.md) and for the Data Access API.
+* [**Work Items**](../../application-insights/app-insights-diagnostic-search.md#create-work-item) - Connect to a work tracking system so that you can create bugs while inspecting telemetry.
 
 SETTINGS
 
-* [**Locks**](../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
-* [**Automation script**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
+* [**Locks**](../../azure-resource-manager/resource-group-lock-resources.md) - lock Azure resources
+* [**Automation script**](../../application-insights/app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
 
 
 ## Video
@@ -159,6 +159,6 @@ SETTINGS
 
 |  |  |
 | --- | --- |
-| [Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
-| [Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
-| [Analytics](../azure-monitor/app/analytics.md)<br/>Powerful query language |![Search example](./media/app-insights-dashboards/63.png) |
+| [Metrics explorer](../../application-insights/app-insights-metrics-explorer.md)<br/>Filter and segment metrics |![Search example](./media/app-insights-dashboards/64.png) |
+| [Diagnostic search](../../application-insights/app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png) |
+| [Analytics](../../azure-monitor/app/analytics.md)<br/>Powerful query language |![Search example](./media/app-insights-dashboards/63.png) |

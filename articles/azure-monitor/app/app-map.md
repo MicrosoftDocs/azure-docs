@@ -1,4 +1,4 @@
-ï»¿---
+---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 services: application-insights
@@ -38,53 +38,53 @@ On clicking "Update map components", the map is refreshed with all components di
 
 If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
-![Application Map Screenshot](media/app-insights-app-map/001.png)
+![Application Map Screenshot](media/app-map/001.png)
 
 One of the key objectives with this experience is to be able to visualize complex topologies with hundreds of components.
 
 Click on any component to see related insights and go to the performance and failure triage experience for that component.
 
-![Flyout](media/app-insights-app-map/application-map-001.png)
+![Flyout](media/app-map/application-map-001.png)
 
 ### Investigate failures
 
 Select **investigate failures** to launch the failures pane.
 
-![Screenshot of investigate failures button](media/app-insights-app-map/investigate-failures.png)
+![Screenshot of investigate failures button](media/app-map/investigate-failures.png)
 
-![Screenshot of failures experience](media/app-insights-app-map/failures.png)
+![Screenshot of failures experience](media/app-map/failures.png)
 
 ### Investigate performance
 
 To troubleshoot performance problems, select **investigate performance**.
 
-![Screenshot of investigate performance button](media/app-insights-app-map/investigate-performance.png)
+![Screenshot of investigate performance button](media/app-map/investigate-performance.png)
 
-![Screenshot of performance experience](media/app-insights-app-map/performance.png)
+![Screenshot of performance experience](media/app-map/performance.png)
 
 ### Go to details
 
 Select **go to details** to explore the end-to-end transaction experience, which can offer views done to the call stack level.
 
-![Screenshot of go-to-details button](media/app-insights-app-map/go-to-details.png)
+![Screenshot of go-to-details button](media/app-map/go-to-details.png)
 
-![Screenshot of end-to-end transaction details](media/app-insights-app-map/end-to-end-transaction.png)
+![Screenshot of end-to-end transaction details](media/app-map/end-to-end-transaction.png)
 
 ### View in Analytics
 
 To query and investigate your applications data further, click **view in analytics**.
 
-![Screenshot of view in analytics button](media/app-insights-app-map/view-in-analytics.png)
+![Screenshot of view in analytics button](media/app-map/view-in-analytics.png)
 
-![Screenshot of analytics experience](media/app-insights-app-map/analytics.png)
+![Screenshot of analytics experience](media/app-map/analytics.png)
 
 ### Alerts
 
 To view active alerts and the underlying rules that cause the alerts to be triggered, select **alerts**.
 
-![Screenshot of alerts button](media/app-insights-app-map/alerts.png)
+![Screenshot of alerts button](media/app-map/alerts.png)
 
-![Screenshot of analytics experience](media/app-insights-app-map/alerts-view.png)
+![Screenshot of analytics experience](media/app-map/alerts-view.png)
 
 ## Set cloud_RoleName
 
@@ -181,28 +181,28 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-For more information about how to override the cloud_RoleName property with telemetry initializers, see [Add properties: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud_RoleName property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## Troubleshooting
 
 If you're having trouble getting Application Map to work as expected, try these steps:
 
-1. Make sure youâ€™re using an officially supported SDK. Unsupported/community SDKs might not support correlation.
+1. Make sure you’re using an officially supported SDK. Unsupported/community SDKs might not support correlation.
 
     Refer to this [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) for a list of supported SDKs.
 
 2. Upgrade all components to the latest SDK version.
 
-3. If youâ€™re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. If you’re using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirm [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) is correctly configured.
+4. Confirm [cloud_RoleName](app-map.md#Set-cloud-RoleName) is correctly configured.
 
 5. If you're missing a dependency, make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If not, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## Portal feedback
 To provide feedback, use the feedback option.
 
-![MapLink-1 image](./media/app-insights-app-map/14-updated.png)
+![MapLink-1 image](./media/app-map/14-updated.png)
 
 ## Next steps
 

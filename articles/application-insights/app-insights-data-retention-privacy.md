@@ -45,7 +45,7 @@ Application Insights SDKs are available for a range of application types: web se
 ### How is the data is collected?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](app-insights-asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](../azure-monitor/app/asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
   
   * Each SDK has a number of [modules](app-insights-configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
@@ -55,12 +55,12 @@ There are three sources of data:
 ### What kinds of data are collected?
 The main categories are:
 
-* [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
+* [Web server telemetry](../azure-monitor/app/asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
 * [Web pages](app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
-* [Dependencies](app-insights-asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
+* [Dependencies](../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
 * [Availability tests](app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
 * [Trace logs](app-insights-asp-net-trace-logs.md) and [custom telemetry](../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
@@ -78,7 +78,7 @@ For web pages, open your browser's debugging window.
 ![Press F12 and open the Network tab.](./media/app-insights-data-retention-privacy/08-browser.png)
 
 ### Can I write code to filter the telemetry before it is sent?
-This would be possible by writing a [telemetry processor plugin](app-insights-api-filtering-sampling.md).
+This would be possible by writing a [telemetry processor plugin](../azure-monitor/app/api-filtering-sampling.md).
 
 ## How long is the data kept?
 Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 90 days. If you need to keep data longer than that, you can use [continuous export](app-insights-export-telemetry.md) to copy it to a storage account.
@@ -278,7 +278,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address you can do so with a [telemetry initializer](./../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
@@ -291,7 +291,7 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [apiproperties]: ../azure-monitor/app/api-custom-events-metrics.md#properties
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

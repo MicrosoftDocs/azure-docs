@@ -17,7 +17,7 @@ ms.custom: mvc
 ---
 # Azure Resource Manager templates for App Service
 
-The following table includes links to Azure Resource Manager templates for Azure App Service. For recommendations about avoiding common errors when you're creating app templates, see [Guidance on deploying apps with Azure Resource Manager templates](web-sites-rm-template-guidance.md).
+The following table includes links to Azure Resource Manager templates for Azure App Service. For recommendations about avoiding common errors when you're creating app templates, see [Guidance on deploying apps with Azure Resource Manager templates](deploy-resource-manager-template.md).
 
 | | |
 |-|-|

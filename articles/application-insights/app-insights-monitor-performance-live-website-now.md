@@ -32,7 +32,7 @@ Here's a summary of what you get by each route:
 | --- | --- | --- |
 | Requests & exceptions |Yes |Yes |
 | [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
-| [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
+| [Dependency diagnostics](../azure-monitor/app/asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
 | [System performance counters](app-insights-performance-counters.md) |Yes |Yes |
 | [API for custom telemetry][api] |Yes |No |
 | [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes |No |
@@ -202,7 +202,7 @@ A desktop application that you install in your IIS web server. It helps you inst
 ### When do I use Status Monitor?
 
 * To instrument any web app that is running on your IIS server - even if it is already running.
-* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](app-insights-asp-net.md) at compile time. 
+* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](../azure-monitor/app/asp-net.md) at compile time. 
 
 ### Can I close it after it runs?
 
@@ -255,7 +255,7 @@ View your telemetry:
 * [Explore metrics](app-insights-metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../azure-monitor/app/analytics.md) for more advanced queries
-* [Create dashboards](app-insights-dashboards.md)
+* [Create dashboards](../azure-monitor/app/app-insights-dashboards.md)
 
 Add more telemetry:
 
@@ -269,7 +269,7 @@ Add more telemetry:
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-javascript.md

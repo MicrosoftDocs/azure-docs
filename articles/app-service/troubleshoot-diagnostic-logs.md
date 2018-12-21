@@ -22,7 +22,7 @@ ms.custom: seodec18
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service app](https://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
 App Service provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
@@ -39,7 +39,7 @@ Application diagnostics allows you to capture information produced by a web appl
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-At runtime, you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure App Service in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+At runtime, you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 App Service also log deployment information when you publish content to an app. It happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
@@ -118,7 +118,7 @@ This command saves the logs for the app named 'appname' to a file named **diagno
 Visual Studio Application Insights provides tools for filtering and searching logs, and for correlating the logs with requests and other events.
 
 1. Add the Application Insights SDK to your project in Visual Studio.
-   * In Solution Explorer, right-click your project and choose Add Application Insights. The interface guides you through steps that include creating an Application Insights resource. [Learn more](../application-insights/app-insights-asp-net.md)
+   * In Solution Explorer, right-click your project and choose Add Application Insights. The interface guides you through steps that include creating an Application Insights resource. [Learn more](../azure-monitor/app/asp-net.md)
 2. Add the Trace Listener package to your project.
    * Right-click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Upload your project and run it to generate log data.
@@ -219,5 +219,5 @@ The web server logs are formatted using the [W3C extended log file format](https
 
 ## <a name="nextsteps"></a> Next steps
 * [How to Monitor Azure App Service](web-sites-monitor.md)
-* [Troubleshooting Azure App Service in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
